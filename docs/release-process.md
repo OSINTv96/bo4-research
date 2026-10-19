@@ -8,7 +8,9 @@ The first release uses a separate public tree and fresh project Git history. Pub
 
 Run the commands in [getting started](getting-started.md). Review [credits](../CREDITS.md), [license scope](../LICENSE-SCOPE.md), [known limits](known-gaps.md) and [privacy](privacy.md). Test the same files from a fresh checkout and a fresh archive extraction.
 
-Final independent package review comes next. Resolve publication choices for the exact included material, then create the intended remote only when publication is authorized. A local fresh-copy test is not a verified download from a remote release. Once uploaded, test an actual download and compare its contents to the same manifest.
+Each release receives independent package review before publication. Record the exact reviewed commit, scope and remaining limits in its GitHub release notes. Publish only the approved tree and verified assets. A local fresh-copy test is not a verified download from a remote release. Once uploaded, test an actual download and compare its contents to the same manifest.
+
+The repository is intended to grow toward the whole game while the current checkpoint remains focused on HMH. Use lightweight version tags such as `v0.1.0`: they carry no personal tagger identity or message. Annotated tags require additional review and are rejected by the current privacy checker.
 
 ## Later updates
 

@@ -1,8 +1,10 @@
-# Black Ops 4 · Blackout Heavy Metal Heroes
+# Black Ops 4 research
 
-Recovered source, dependency maps and bounded research notes for **Heavy Metal Heroes (HMH)** and its shared Blackout systems.
+An ongoing reverse-engineering research project for **Call of Duty: Black Ops 4**. The long-term goal is to document the whole game. The current checkpoint focuses on **Blackout Heavy Metal Heroes (HMH)** and its evidenced shared dependencies.
 
-This release candidate contains **289 GSC files, 88 CSC files and 1,203 Lua modules**, plus two configuration tables and one explanatory native model: **1,583 imports**. File counts describe the collection, not complete HMH coverage. This is a research reference, not a playable game or mod installer.
+The repository will grow through reviewed findings and later releases. This first snapshot is not the end of the project. See the [research roadmap](ROADMAP.md).
+
+This research snapshot contains **289 GSC files, 88 CSC files and 1,203 Lua modules**, plus two configuration tables and one explanatory native model: **1,583 imports**. File counts describe the collection, not complete HMH coverage. This is a research reference, not a playable game or mod installer.
 
 **Research status: PARTIAL.** Three of seven saved code-proof scopes are verified at their written static limits. Four remain unproved and deferred: SCRIPT-RAW-STATE, LUA-OBSERVATION, LUA-REPRESENTATION and SETTINGS. Conditional code findings do not prove actual game execution. See [current results and limits](docs/known-gaps.md).
 
@@ -33,4 +35,4 @@ These commands inspect the collection and test local helpers. They do not run th
 
 Screenshots, captures, personal information, chat transcripts, machine paths and private research files are excluded. Public upstream credits and original source identifiers remain. See [release privacy](docs/privacy.md).
 
-Read the [release notes](RELEASE-NOTES.md), [credits](CREDITS.md), [license scope](LICENSE-SCOPE.md) and [contribution guide](CONTRIBUTING.md). Original game redistribution permission and an original-project license remain unresolved. Final package review and publication are separate release steps.
+Read the [release notes](RELEASE-NOTES.md), [credits](CREDITS.md), [license scope](LICENSE-SCOPE.md) and [contribution guide](CONTRIBUTING.md). Original game redistribution permission and an original-project license remain unresolved. Each release identifies its reviewed commit, validation results and remaining limits on GitHub. Package review does not prove the whole game.

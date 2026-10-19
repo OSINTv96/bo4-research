@@ -1,6 +1,6 @@
 # Getting started
 
-Extract the release ZIP into an empty folder and open `README.md`. The archive has one `bo4-hmh-research` folder. A Git checkout has the same public files. No game binaries, compiled payloads or personal captures are included.
+Extract the release ZIP into an empty folder and open `README.md`. The archive has one `bo4-research` folder. A Git checkout has the same public files. No game binaries, compiled payloads or personal captures are included.
 
 Use Python 3.13 for the tested checks. All dependencies are from the Python standard library. On Windows, `py -3.13` can replace `python` when the Python launcher is installed.
 
@@ -19,7 +19,7 @@ An `archived-record-...` value identifies evidence that is not distributed. Its 
 To create another ZIP of this exact candidate, choose a new output path outside the repository:
 
 ```sh
-python -B tools/build_release.py --output ../hmh-research-candidate.zip
+python -B tools/build_release.py --output ../bo4-research-snapshot.zip
 ```
 
 The builder checks the manifest first and includes only its exact files. It uses fixed archive metadata and omits Git internals. It refuses to overwrite an existing archive. After extracting a ZIP, rerun the three checks above.

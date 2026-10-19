@@ -6,4 +6,4 @@ Original game content remains the work of its original owners. The project claim
 
 [The pinned source audit](provenance/source-audit.md) and [sharing status](provenance/sharing-status.json) preserve the recorded notice findings. Tool licenses are separate from the rights in recovered output. No blanket MIT or GPL license is applied to the game source.
 
-Public upstream credits and applicable notice references remain in [CREDITS.md](CREDITS.md) and [the source register](provenance/sources.json). Missing or conflicting sharing terms remain explicit release limitations. Publication and license selection are separate decisions from this prepared candidate.
+Public upstream credits and applicable notice references remain in [CREDITS.md](CREDITS.md) and [the source register](provenance/sources.json). Missing or conflicting sharing terms remain explicit release limitations. Publication of a research snapshot does not supply missing rights or select a license for original project work.

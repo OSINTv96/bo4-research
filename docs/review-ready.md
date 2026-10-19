@@ -35,4 +35,4 @@ explanatory projections/generator, regenerated docs and read inventories. See th
 
 ## Current release review boundary
 
-The refreshed [review file list](../provenance/review-ready-files.json) identifies this candidate, not the old reviewed bytes. The [release manifest](../provenance/release-manifest.json) additionally covers that list. Privacy projections, reader guidance and packaging tools await the final independent package review. [Current proof status](../provenance/proof-status.json) supersedes older seven-unit summaries only at the stated scopes.
+The refreshed [review file list](../provenance/review-ready-files.json) identifies this candidate, not the old reviewed bytes. The [release manifest](../provenance/release-manifest.json) additionally covers that list. Privacy projections, reader guidance and packaging tools are subjects of independent package review. The GitHub release record identifies the verdict for the exact published commit; this index itself grants no approval. [Current proof status](../provenance/proof-status.json) supersedes older seven-unit summaries only at the stated scopes.

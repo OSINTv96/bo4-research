@@ -1,6 +1,13 @@
 # Changelog
 
-## October 19, 2026 — release preparation
+## Initial public checkpoint
+
+- Described the ongoing whole-game research goal with HMH as the current scope.
+- Added privacy-safe version-tag support and archive checks against changed files and accidental replacement.
+- Retained original source bytes, public credits and all four deferred proof limits.
+- Review results, exact commit and download checks are recorded with the GitHub release.
+
+## October 19, 2026 â€” release preparation
 
 - Preserved all 1,583 imported source, configuration and model files unchanged.
 - Added current proof-status limits, fresh-copy instructions and release notes.
@@ -8,14 +15,14 @@
 - Added a complete release manifest, privacy/history checks and deterministic ZIP packaging.
 - Created fresh project Git history. Final package review and publication remain pending.
 
-## October18,2026 — F1-F5 local repair
+## October18,2026 â€” F1-F5 local repair
 
 - Added individually traced conditional source dependencies and honest availability/relevance decisions.
 - Repaired import schema, actual review-decision and literal-preservation guards with valid/invalid regression cases.
 - Rebuilt complete module explanations from exact saved subjects, retaining conditions, excerpts and full-record locators.
 - Updated imports, module/dependency/settings indexes and review subjects. All new work awaits independent review; no publication.
 
-## October18, 2026 — local code assembly
+## October18, 2026 â€” local code assembly
 
 - Added 202 GSC, 76 CSC, 1103 Lua modules,two source configuration tables and one
   bounded native data-path model, with original/output hashes and source mappings.
@@ -28,7 +35,7 @@
 - Preserved the initial source/license audit. No remote, push, live game action
   or whole-mode completion claim.
 
-## October18, 2026 — preparation
+## October18, 2026 â€” preparation
 
 Prepared33 files and audited35 exact/historical source-version references at
 commit `59a6d9b46d235cb88ddec38d832a3d5712169eab`. Game-code imports at that

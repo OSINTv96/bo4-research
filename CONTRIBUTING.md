@@ -1,7 +1,6 @@
 # Contributing
 
-Keep contributions focused on HMH and its evidenced shared dependencies. Share
-one copy of a shared implementation; explain its HMH callers and conditions.
+The current focus is HMH and its evidenced shared dependencies. The repository is intended to grow toward the whole game through later selected research scopes. Share one copy of a shared implementation and explain its callers and conditions. See [the roadmap](ROADMAP.md).
 
 For a new discovery:
 

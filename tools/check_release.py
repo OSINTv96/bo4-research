@@ -119,8 +119,15 @@ def git_findings(root, known_blobs=None):
         commits = git('rev-list', '--all').decode().splitlines()
         if not commits:
             fail('Git history has no frozen release commit')
-        if git('for-each-ref', '--format=%(refname)', 'refs/tags', 'refs/replace', 'refs/notes').strip():
-            fail('unreviewed tag, replacement or note metadata')
+        if git('for-each-ref', '--format=%(refname)', 'refs/replace', 'refs/notes').strip():
+            fail('unreviewed replacement or note metadata')
+        # Lightweight version tags contain no author, email or message payload.
+        # Annotated tags and arbitrary names require a separate metadata review.
+        for line in git('for-each-ref','--format=%(refname) %(objecttype) %(objectname)','refs/tags').decode().splitlines():
+            name,kind,object_id=line.split()
+            if (not re.fullmatch(r'refs/tags/v\d+\.\d+\.\d+(?:-(?:alpha|beta|rc)\.\d+)?',name)
+                    or kind!='commit' or object_id not in commits):
+                fail('unreviewed tag name, annotation or target')
         for commit in commits:
             data = git('cat-file', 'commit', commit).decode('utf-8')
             for role in ['author', 'committer']:

@@ -8,4 +8,4 @@ The latest saved proof review covers seven original unit scopes. SCRIPT-TEXT, SC
 
 Original installed-container identity, exact observation timing, effective settings and unavailable service code remain qualified limits. Reported gameplay and static code proof are different evidence. Teammate and death/respawn execution evidence is not supplied in this release; a stage disposition is not an observed test result.
 
-Release instructions and privacy preparation are complete only when their actual saved checks pass. Final package review and publication remain separate. See [current results and limits](known-gaps.md) and [release notes](../RELEASE-NOTES.md).
+Release instructions and privacy preparation are complete only when their actual saved checks pass. The GitHub release record carries the independent package-review result for its exact commit. That review is separate from the underlying game-code proof scopes. See [current results and limits](known-gaps.md) and [release notes](../RELEASE-NOTES.md).

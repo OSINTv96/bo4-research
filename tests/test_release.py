@@ -146,5 +146,20 @@ class ReleasePrivacyTests(unittest.TestCase):
         errors,_=CHECK.git_findings(self.root)
         self.assertIn('nonproject commit identity or time-zone metadata',{row['reason'] for row in errors})
 
+    def test_lightweight_version_tag_is_safe(self):
+        self.initialize_history();self.commit();self.git('-c','tag.gpgSign=false','tag','v0.1.0')
+        errors,_=CHECK.git_findings(self.root)
+        self.assertEqual([],errors)
+
+    def test_annotated_tag_is_rejected(self):
+        self.initialize_history();self.commit();self.git('-c','tag.gpgSign=false','tag','-a','v0.1.0','-m','Private annotation fixture')
+        errors,_=CHECK.git_findings(self.root)
+        self.assertIn('unreviewed tag name, annotation or target',{row['reason'] for row in errors})
+
+    def test_unreviewed_tag_name_is_rejected(self):
+        self.initialize_history();self.commit();self.git('-c','tag.gpgSign=false','tag','unreviewed-name')
+        errors,_=CHECK.git_findings(self.root)
+        self.assertIn('unreviewed tag name, annotation or target',{row['reason'] for row in errors})
+
 
 if __name__=='__main__':unittest.main()
