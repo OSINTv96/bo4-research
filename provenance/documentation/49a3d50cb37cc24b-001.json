@@ -1,0 +1,250 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/callbacks.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "049bb94da12faa86ab41b3c4873466beb1082996acda4ab8cf439b2516a22313",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/517",
+        "record_sha256": "7285a4deb39ebc4f337be94bb86585c0086f886645f6de33a6dc9b0205a04de2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "1384b8ada2b44022b52b76f3622044fca6fd3cfb9164385d52a2afc5d2e30cb6",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:exec_pre_system@system_shared.csc",
+        "answer": "Source-visible answer: preinit invocation body; suppresses calls after predone becomes true; no unconditional once-only guarantee exists during a yielding/reentrant prefunc, invokes prefunc synchronously and sets predone AFTER the body (114-115) - mirror-image of the post side where postdone is set before. Dependency behavior: requirement threading via function_8dfa23e0 with no join (109-112); ignore/undefined records skipped (102-105). Reached only from run_pre_systems (152) and the requirement resolver (132/139); no external caller exists in the corpus. Pre phase sets NO completion flag (run_pre_systems 147-154 has no flagsys::set) - the first observable signal is only at post phase (system_init_complete); so a script cannot source-visibly wait for 'preinit finished' - only for 'post phase done'. HMH linkage: wz-relevant preinits observed via mp_common/callbacks.gsc set_default_callbacks (65-98, installs level callback pointers consumed by g3's delivery units) and the hashed map systems' prefuncs (e.g. script_34e49e82e2f499e1 __init__ threads init_switch/function_920f9a6/function_624de77b 33-38); wz main itself is not a system prefunc - it is an event handler with relative order to this phase unproven.",
+        "behavior": "Preinit invocation executor. exec_pre_system(func): returns when record undefined or func.ignore set (102-105); if !func.predone: if func.reqs defined call function_8dfa23e0(func) (109-112), then synchronously invoke [[func.prefunc]]() and only then set func.predone=1 (114-115). predone-after-body means a prefunc is fully executed before its record is marked done; predone is only set after prefunc returns; successful prior completion suppresses later calls, but no in-progress guard excludes reentrancy or another call while prefunc yields; VM scheduling remains unknown. All entry paths spawn: run_pre_systems threads it per registry entry (system_shared.csc 152) and function_8dfa23e0 threads it per requirement (132, 139); there is no synchronous exec_pre_system call site in the corpus. The prefunc bodies observed in the wz-relevant set perform pointer/table installs and thread workers (mp_common/callbacks.gsc set_default_callbacks 65-98; script_34e49e82e2f499e1.gsc __init__ 33-38). Client twin identical (script/scripts/core_common/system_shared.csc 100-117).",
+        "unknowns": [
+          "Engine order of level_preinit vs level_init/gametype_init and autoexec timing (native)",
+          "Prefunc thread interleaving with the spawning loop",
+          "Whether any HMH-loaded prefunc fails on unregistered reqs (assert) in retail"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00268",
+        "sha256": "27471272dfbd1bd59fa2d743e50aec13e3f3e92ef20ab18c33b05500a8068e87",
+        "pointer": "",
+        "record_sha256": "5976a9399911fc35e5a5e0597570b7ac6d14f3bef1bdcae8072b6d999fa55f0d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "39e3f47a76696a6419a9a0c4806fa5f8b134105ddb09fea73130093024d5fd19",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::set_default_callbacks",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/950",
+        "record_sha256": "a28b2f76966823617b8f78224d8e784c2f8026003cd98047173b60371c7d4948"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "49561d50cefca4cfccd50e03a4782ae23ff8374315368279e63278c03bcf8284",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/949",
+        "record_sha256": "905e635d86aefdf80ac5cce5785183463dc932b98f0ae3962ac4257ad94357c4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "62d19c284737738ede128d589e2f2cc230b32f0a2fa4e5deafc9bcead3493f62",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::on_changed_specialist",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/519",
+        "record_sha256": "f5b2a36144b51bebde85d788b6b77fa43c3348e5a11b4d7143644b2a90f9befd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "6773b77cc85322813067983abe2ee00dd5081e9111f78a0f2f7f932ea7bb19c7",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:exec_pre_system@system_shared.gsc",
+        "answer": "Server twin of unit 5 (gsc 100-117 identical). Source-visible: preinit executor; skip ignore/undefined (102-105); if !predone: requirement resolver call (109-112), synchronous [[prefunc]]() (114), predone=1 AFTER body (115). Visible direct callers in the supplied system_shared GSC/CSC twins: run_pre_systems (152) and function_8dfa23e0 (132/139). Server run_pre_systems147-154 sets no separate batch preinit-complete flag. Each executor writes its own source-visible func.predone=1 after its synchronous prefunc returns at115. The later post-phase system_init_complete signal92 has no join of initializer threads and does not prove all preinit bodies finished. Native scheduling, callback delivery and cross-thread completion ordering remain unproved. Server-side preinit bodies of wz-relevant systems observed: mp_common/callbacks.gsc callback::__init__ -> set_default_callbacks (32-35, 65-98), hashed system preinits (e.g. script_34e49e82e2f499e1.gsc 33-38 threading init_switch and two workers), script_71e26f08f03b7a7a useitemspawns gate (21-30), script_5f3e7d348fbc5283 customgame branch (19-28), script_7611295950bc2c87 water-balloons branch (19-28). Native boundary unchanged: level_preinit dispatch/order unproven.",
+        "behavior": "Server copy of the preinit executor, identical to csc 100-117. Guards 102-105; reqs branch 109-112 spawning requirement preinits without join; prefunc invoked synchronously and predone set after return (114-115). Spawned requirement executions recheck102-107; predone is only set after prefunc returns; successful prior completion suppresses later calls, but no in-progress guard excludes reentrancy or another call while prefunc yields; VM scheduling remains unknown. Sole corpus callers within the twin files.",
+        "unknowns": [
+          "level_preinit engine order",
+          "spawn interleaving",
+          "retail assert fidelity"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00080",
+        "sha256": "ea56cbb8f4d8a69588e86489be073b27eafce2175e04a802fb11dc601dc7725b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "8e393cc6d16ffc6a7a0f60ad4ed4a8143fb8d6ba1fb4d7e1dc39dbc64830c149",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/518",
+        "record_sha256": "5e9adaab06318094d95a23b375282c4fcf52685205987a20ac1c103a483b3b16"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "a7f5403632a08a8e66ea4d0f4f3ca098638e183948b2f0be3e6b1348577a3975",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:register@system_shared.csc",
+        "answer": "Source-visible answer: registration is state-only (no invocation); when an existing record has ignore=1, every repeated register call asserts that ignore flag and returns without clearing it; the record may be a placeholder or a previously real record marked by ignore (register assert only on .ignore, csc 11-15; ignore() sets ignore=1, csc 169-179). Ordering graph produced (see source_trace): autoexec __init__system__ -> register -> native level_preinit -> codecallback_preinitialization -> run_pre_systems -> exec_pre_system per entry; native level_finalizeinit -> codecallback_finalizeinitialization -> run_post_systems -> exec_post_system per entry -> set system_init_complete -> registry cleared -> on_finalize_initialization dispatch. Dependency waits: NONE - req-resolution spawns threads without joining (69/76), the only synchronization is the whole-batch flag \"system_init_complete\" (92) consumed by wait_till (162). Error behavior: all failures are assert() with dev strings; retail evaluation of assert is a native/build fact. HMH root/registrant linkage: the HMH map script wz_open_skyscrapers.gsc::main joins this mechanism by load::main -> system::wait_till(\"all\") (wz_open_skyscrapers.gsc 53; load.gsc 35) and by callback::on_finalize_initialization registration (47) delivered inside codecallback_finalizeinitialization after run_post_systems; the mechanism therefore conditions the whole HMH map startup; the exact set of registrant systems loaded into the HMH server VM is the unresolved native bundle boundary (m1 unknowns #1).",
+        "behavior": "Registration store for the per-VM system registry; server file lines 9-29 and client twin lines 9-29 are textually identical at this revision. register(str_name, func_preinit, func_postinit, reqs): if level.system_funcs[str_name] already exists it asserts the existing record's .ignore and returns WITHOUT replacing the stored prefunc/postfunc/reqs (csc/gsc 11-15) - repeated regular registration is an assert boundary; any existing ignore-flagged record, including a real record later marked by ignore, permits repeated early returns; ignore remains set. Otherwise it lazily creates level.system_funcs, stores a spawnstruct with prefunc/postfunc/reqs and initializes predone=!isdefined(func_preinit), postdone=!isdefined(func_postinit), ignore=0 (17-28). No execution happens here; the record is pure state consumed by exec_pre/exec_post_system. The following are named source registration witnesses, not a corpus-wide count or proof of the actual retail HMH registrant set; conditional server-source examples: mp_common/callbacks.gsc autoexec __init__system__ registers \"callback\" preinit &__init__ (23-26) whose preinit installs level.callbackplayerconnect etc. via set_default_callbacks (65-98); util_shared.gsc registers \"util_shared\" pre &__init__ post &__main__ (21-24); the four hashed systems #using-imported by wz_open_skyscrapers.gsc register hash_18ce058ad321248f (script_34e49e82e2f499e1.gsc 13-16), hash_32ef71953f1186eb (script_5f3e7d348fbc5283.gsc 10-13), hash_280fe2667ed2d300 with reqs #\"item_supply_drop\" (script_71e26f08f03b7a7a.gsc 12-15), hash_502d65acd9829223 (script_7611295950bc2c87.gsc 10-13); killstreak systems that wz later ignores register with reqs (killstreaks/mp/supplydrop.gsc 44 and uav.gsc 28, req #\"killstreaks\"). Client twin registrations found for script_4da75c87643c8b07.csc hash_411c8f5d7f8749b9 (14) and script_58d14a82f7aa9d6d.csc hash_18ce058ad321248f (13).",
+        "unknowns": [
+          "Which registrant script set and order the retail CUSA11100 HMH VM bundle actually loads (native bundle manifest question; m1 unknowns section 1)",
+          "Whether retail script bytecode contains/executes assert() in system_shared (dev strings present; original bytecode fidelity unverified)",
+          "Iteration order of foreach over level.system_funcs hash-keyed array (VM implementation detail, not in dump)",
+          "Whether an early assert failure in retail aborts registration or is skipped (assert implementation native)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00082",
+        "sha256": "7f1194dc637637a7eff664f35255ad2a4c198946028d8cba1ee8ff3697b24f3f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "bd8621bf749e560f82295dca1dd3639dcf01a189fd7a9446e664b3b1902ff5af",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:gametype-driver",
+        "answer": "Triggering and invocation separation (source-side, revision f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac): globallogic::callback_startgametype5169-5201 has no explicit literal caller found in the exact bounded2374-file query pool. One demonstrated source route is callbacks_shared.gsc::codecallback_startgametype (event_handler[gametype_start],1177-1184), which tests the undefined/falsey level.gametypestarted marker, invokes [[level.callbackstartgametype]]() without a defined/callable guard, then writes the marker1 if control reaches that following statement. This post-call marker is not an in-progress guard. Source does not establish the VM failure, continuation or marker state after an undefined/noncallable invocation, nor sole runtime entry or absence of dynamic/external callers. CSC694-701 adds isdefined(pointer): its undefined arm skips invocation and marker assignment, but definedness does not prove callability. Actual event delivery, reentrancy and failures remain unknown. The installer is mp_common/callbacks.gsc::set_default_callbacks line 67, run by the autoexec system registration chain callbacks.gsc 23-34 (system::register(#\"callback\").__init__), i.e. part of the g2 system-init/preinit or finalizeinit batch per g2/f2; the level.onstartgametype mode pointer is installed at warzone.gsc::main 92 (event_handler[gametype_init] main at 64), overriding the setup_callbacks default &blank (globallogic.gsc 466), and native delivery of both gametype_init and gametype_start events has no script-side emitter in the corpus (standing g2 N2/g3 A.1). Source preconditions inside the driver body: none - no isdefined checks; for the particular traced Warzone pointer assignment, main92 is the observed installer; this does not exclude other writers. On the compared default-pointer path before that assignment, 5175 calls the harmless &blank default and 5173's gametype::on_start_game_type returns early when its bundle (level.var_d1455682 from gametype::init at globallogic::init 198) is undefined. Phase writes in exact source order on the single handler thread: (1) function_b9b7618 (4807-5163) - prematchrequirement/prematchperiod/intermission zeroed 4809-4810, setmatchflag(\"game_ended\",0) 4813, first-game branch sets pregame game.state/UI strings 4820-4826, [[level.onprecachegametype]]() + game.gamestarted=1 4850-4851, reads getgametypesetting(\"prematchrequirement\")/(\"prematchperiod\") at 4865-4866 (in-source dvar overrides 4868-4892 are dev-blocked), inprematchperiod=1 at 5093, rankedmatch jitter prematchperiod += randomfloat(4)-2 ONLY when prematchperiod>2 && rankedmatch at 5095-5098, level.graceperiod=15 vs 5 at 5100-5107 (registernumlives(0,100) at warzone73 clamps playernumlives and teamnumlives setting values to0..100;100 is a maximum. Grace15 requires actual level.numlives || anyteamhaswavedelay() || level.playerqueuedrespawn; otherwise5, so HMH choice remains setting-dependent), ingraceperiod=1 at 5109; (2) [[level.var_6c4ec3fc]]() 5172 - default &function_8af3b312 (setup_callbacks 472; body 4778-4787: optional var_cdb8ae2c pointer call, influencers::create_map_placed_influencers(), globallogic_spawn::addspawns()); (3) gametype::on_start_game_type() 5173 - generic gametype.gsc 40-56, bundle-gated early return; (4) callback::callback(\"on_start_gametype\") 5174 - per the reused g3 callback@ contract (PRIOR-MAPPINGS 27659-27727) the callback helper reads the actual entity callback table, skips nonarray entries and returns on an invalid pointer; reached valid entries request util::_single_thread delivery without a join. add_callback separately has entity/function guards and duplicate suppression. The cited teams/killstreaks/weapons registrations are potential entries conditional on actual loading, initialization and table contents. The approximate corpus registration inventory includes other-mode and developer-only entries and does not establish an effective HMH callback set or its completion; (5) [[level.onstartgametype]]() 5175 = warzone.gsc::on_start_game_type (556-588; unit 2 anchor); (6) driver threads in source order 5176-5185: level thread function_54b079aa (5207-5224: waittillframeend then per-frame poll until game.state==\"playing\" then hudItems.specialistSwitchIsLethal worlduimodel set - a frame-delayed state poll that can pass whenever game.state is observed as playing; it has no writer identity check or join tying that observation exclusively to unit4 set_game_playing, and an already-playing state or another writer is not excluded), killcam::do_final_killcam, updategametypedvars, thread startgame() (5179 - the unit 4 transition driver), simple_hostmigration::updatehostmigrationdata, conditional radar_sweeps only when level.var_f16f6c66 is not defined-truthy (5182-5185); (7) dev-only tail 5187-5200 (scr_writeconfigstrings forceend path / scr_hostmigrationtest). The nondeveloper local statement path contains no explicit wait. The body also contains developer-region wait1 at5192, reached when that region is included and scr_writeconfigstrings==1; excluded region or false guard skips that local wait. Exact original-build inclusion and synchronous-callee/VM timing remain unknown. Downstream waits include (matchstarttimer thread, prematchperiod()/waitforplayers() on the startgame thread, function_54b079aa state poll). g2/f2 foundation ties: the callback system registration runs in the g2 system-init batches; the f2 readiness conclusion that requirement resolution spawns exec threads WITHOUT joining and the only synchronization is the whole-batch system_init_complete flag carries over unchanged - this driver adds a second marker (level.gametypestarted, 1179-1183) as its own post-return suppression marker, without an in-progress guard.",
+        "behavior": "One demonstrated source route is native-event-declared gametype_start -> callbacks_shared.gsc1177-1184, with an unguarded pointer call then marker1 only if that statement is reached. CSC694-701 skips an undefined pointer but does not establish callability of a defined one. The post-call marker is not an in-progress guard; VM failure/continuation and actual delivery remain unknown. The bounded literal query finds no explicit source caller of globallogic::callback_startgametype; no sole runtime route or absence of dynamic/external callers follows. Observed pointer installer is mp_common/callbacks.gsc67 through23-34. Phase chain (source-sequential, one thread): function_b9b7618 reset/settings/jitter/graceperiod writes -> [[level.var_6c4ec3fc]] default function_8af3b312 (influencers+addspawns) -> gametype::on_start_game_type (bundle-gated generic) -> guarded on_start_gametype callback-table dispatch (reached valid entries request separate threads without a join; actual loaded HMH set unknown) -> [[level.onstartgametype]] = warzone pointer (default &blank, overridden warzone.gsc::main 92) -> six driver-side threads (startgame at 5179 drives the playing transition) -> dev-only forceend/hostmigration blocks. No explicit local wait on the nondeveloper statement path. Developer-region wait1 at5192 remains conditional on region inclusion and scr_writeconfigstrings==1; original-build inclusion and synchronous-callee/VM timing are unverified.",
+        "unknowns": [
+          "gametype_start poster and event order relative to finalizeinit/bundle load in the original build (standing N2; unchanged)",
+          "original-build evaluation of dev blocks 5187-5200",
+          "effective prematchperiod/prematchrequirement values for warzone_heavy_metal_heroes: no producer in LAYER_A/LAYER_B/gametypetable layers; native absent-key return + online layer unknown (g1 unit 4 partial)",
+          "VM scheduling/completion order of the six driver threads (f2 N4); source order is statement order only",
+          "level.var_f16f6c66 (radar gate) writer not traced - outside this chain scope; recorded as an unknown, not a claim"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00324",
+        "sha256": "024e3a750c4a70f4298769170aa870c73ad1102a6392edcbd64e72d3d462346a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "d30917026fd7e394f6e35792213946dc5ff6d22703fddb6f746e4a5a03990f2f",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:connect-entry",
+        "answer": "This bounded wz on_player_connect consumer initializes per-player state through a registered callback. It does not establish the presence or absence of all script-level HMH admission/permission checks. Registration: warzone.gsc::main (event_handler[gametype_init], 64-202) calls callback::on_connect(&on_player_connect) at 153, stored via callbacks_shared.gsc::on_connect 273-276 as add_callback(#\"on_player_connect\", func, obj, vararg); core store add_callback/function_2b653c00 113-169 (append3-tuple (array::add third argument0 forbids duplicates; array[array.size]=item appends), dedup, obj death-waiter) per g3 record. Delivery requires the native player_connect event (native boundary, unobserved in this packet): event_handler[player_connect] codecallback_playerconnect (callbacks_shared.gsc 1190-1194) -> [[ level.callbackplayerconnect ]]() -> level.callbackplayerconnect = &player::callback_playerconnect (mp_common/callbacks.gsc 65-68) -> player_connect.gsc::callback_playerconnect35 -> self waittill(#\"begin\")39 -> reached waittillframeend46 -> intervening initialization -> level notify connected63 -> callback::callback(#\"on_player_connect\") (64) -> wz on_player_connect as a 0-extra-arg thread on the connecting player (applied f2 delivery shape (b): obj undefined, no params). The concrete HMH connection initialization is exactly four statements at 756-762: (1) var_63af7f75 = -1; (2) var_c5134737 = 1; (3) level function_22df4165() = level.var_22df4165 = 1 (warzone.gsc 1993-1996), consumed by the per-frame watcher function_5db32126 (2002-2013, threaded at on_start_game_type:587) -> function_e91890a7 player-count refresh (2019-2032) - the same dirty flag wz on_player_disconnect raises (768-772); (4) wz_progression::player_connected(). Spawn-readiness feed, source-visible: the two per-player writes are have later source writes, with var_63af7f75 also read for definedness before its default write at spawn.gsc266 on the spawn path - var_63af7f75 is re-defaulted/overwritten from level.deathcircleindex in spawn.gsc::on_spawn_player 266-274, var_c5134737 zeroed at spawn.gsc:281 and re-set to 1 by player_reinsertion.gsc 691/718 before [[ level.spawnclient ]] - while corpus-wide search shows the var_63af7f75 definedness read266 plus later writes; no further literal semantic consumer was identified. Computed/native/hashed consumers remain unresolved, not excluded. Join-adjacent script work in the connect pipeline beyond the anchor: no pers team/needteam -> spectator + [[ level.spawnspectator ]] + [[ level.autoassign ]] + ranked kickifdontspawn (player_connect.gsc 254-291); the persisted-team branch requests thread [[level.spawnclient]]()326 only when !draft::is_draft_this_round()322 AND valid class AND valid player role324. Independently, sessionteam!=#\"spectator\" AND sessionstate!=\"playing\" AND !isalive(self)337 guard a threaded spawning::onspawnplayer(1) request339, not an unconditional synchronous prediction. No claim that joining a live match works is made.",
+        "behavior": "wz on_player_connect (warzone.gsc 756-762): var_63af7f75 = -1 (opaque slot; definedness read at spawn.gsc266; no further literal semantic consumer identified); var_c5134737 = 1 (opaque flag; no corpus reader; cleared spawn.gsc:281, re-set player_reinsertion.gsc 691/718); level function_22df4165() sets level.var_22df4165 = 1 dirty flag consumed by the on_start_game_type-threaded watcher 5db32126 -> e91890a7 counts; wz_progression::player_connected(). Registered at warzone.gsc:153 in the wrapper block 150-157. This initialization scope is not proof of blanket join-permission absence. The pipeline first waits for begin39 and frame-end46; later spawnclient326 and prediction339 are distinct guarded thread requests, with actual admission, event delivery and scheduling unproved.",
+        "unknowns": [
+          "Meaning/consumer of var_63af7f75 beyond spawn.gsc definedness read266 and writes268/273 (further literal/computed/native consumers unresolved)",
+          "Meaning/consumer of var_c5134737 (write-only pattern: 1 connect, 0 spawn hook, 1 before spawnclient in insertion)",
+          "wz_progression module bodies (player_connected/player_disconnected) outside packet",
+          "function_e91890a7 tail beyond 2032 (count consumers)",
+          "Native event order: gametype_init/on_start_gametype vs first player_connect (N2, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00325",
+        "sha256": "6776f58ca62a884350a4b22f2b664f9f4328461e38bf01969f39b3047e84cdb8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "d69bb67afd878d635ae3de2c6b4100a7e8c604fbd341fb2a07117efb80d548a7",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::set_default_callbacks",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/520",
+        "record_sha256": "4b368641d78ec9b49b4b2bbc594e00d6e3533126bd5c62863e78fa99f7506e73"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "89b10a5a063ae1713c12bfdb273829412ec114a2d8b5b6f2674eec66cafd9214",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/162",
+        "record_sha256": "e15188f67fbe4bd624155384a942124fa0b9e62440623db75048654af5a9ec6d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/49a3d50cb37cc24b.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "7a299fabb8eaa28db5cf5acd7b574ff30fd409ac3d89fe31bf9a13eee4ad2fc9",
+      "summary": {
+        "id": "scripts/mp_common/callbacks.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/162",
+        "record_sha256": "e15188f67fbe4bd624155384a942124fa0b9e62440623db75048654af5a9ec6d"
+      }
+    }
+  ]
+}

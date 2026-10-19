@@ -1,0 +1,632 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_jammer_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "33d7ab58f3b96fd5b6c4aebc0322a9e4b46f076922d2173c428f2a291835c6d7",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_7d81a4ff",
+        "behavior": "function_7d81a4ff(watcher, player) [private, eflags 0x4] - EMP grenade onspawn: branch !isdefined(self.var_88d76fba): self.var_88d76fba = []; self.owner = player; self.weapon = level.var_578f7c6d.weapon; self setweapon(weapon) [builtin]; self setteam(player getteam()); self.team = player getteam(); self clientfield::set(\"enemyequip\", 1); thread function_3a3a2ea9(self) (arming beep thread); waitresult = self function_5f86757d() - INLINE wait (the callee installs level endon(#\"game_ended\"), then stores the result of literal self waittill(#\"explode\",#\"death\"). If that call returns with self undefined it returns the result; otherwise it requests self clientfield::set(\"enemyequip\",0) and returns the result. Exact wait/endon semantics remain unproved; this is no demonstrated OR-event promise). Branch !isdefined(player) or !isdefined(waitresult): return. Branch waitresult._notify == \"explode\" && isdefined(waitresult.position): self thread function_87c540c0(self, waitresult.position, player) (the disruption blast dispatcher).",
+        "unknowns": [
+          "Blocking call chain function_5f86757d (endons inside; thread vs inline as written)",
+          "var_88d76fba readers (not in this file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00667",
+        "sha256": "2606c96e16d798810b47c3ebd081d5c4b72a891bd93b3fb154c817f487870178",
+        "pointer": "",
+        "record_sha256": "99f3a6233ded1438166f985c5f7be5df3aeaef308fd07bb26f20952068bd7f27"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "6869b996dac3b1ee4c5cc0d515ef05c7425d0a83dea59c1f50b5b3b5ae8b7b3d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::setupcallbacks",
+        "behavior": "setupcallbacks() - publishes module refs: level.var_a5dacbea = &function_4e7e56a8; level.var_5d492b75 = &function_1c430dad; level.var_7b151daa = &function_7b151daa; level.var_86e3d17a = &function_86e3d17a; level.var_fc1bbaef = &function_fc1bbaef; level.var_1794f85f = &function_2572e9cc; level.var_48c30195 = &function_48c30195; on_spawned(&onplayerspawned); on_player_killed_with_params(&on_player_killed); on_finalize_initialization(&function_1c601b99). Seven module API refs + three callbacks.",
+        "unknowns": [
+          "Consumers of the published refs (cymbal/homunculus consume var_a5dacbea confirmed)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00668",
+        "sha256": "7793b643e418a2b23aaaa6afd260a875c6e16a9936b9227c523b9fdd3389d6f1",
+        "pointer": "",
+        "record_sha256": "659ce81ec0da1f02187e0e4506eebbf0ba5708a55cdb2f78c6932696a14e7847"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "8686772c44f2f8971153cf8848e46a71fdc4c7e6c892fe798f67040412dfaf6a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_ca8a005e",
+        "behavior": "function_ca8a005e(jammer, gadget, attackingplayer) [private, eflags 0x4] - generic gadget disable: gadget endon(\"death\"); guards: return if !isdefined(gadget.weapon); return if !gadget.weapon.var_8032088a (eligible-flag gate on the gadget weapon). Then: function_1c430dad(gadget, 1) (jam-set); function_2e6238c0(gadget.weapon, gadget.owner) (jam-start dialog); branch isdefined(gadget.weapon.var_775d2aad) && gadget.weapon.var_775d2aad truthy: thread function_4a82368f(gadget, gadget.owner) (owner vehicle postfx during jam); wait gadget.weapon.var_416021d8 (duration); branch !isdefined(attackingplayer) -> return; branch !isdefined(gadget) -> return; gadget dodamage(1000, gadget.origin, attackingplayer, jammer, undefined, \"MOD_GRENADE_SPLASH\", 0, level.var_578f7c6d.weapon) (requests1000 damage with attackingplayer and jammer arguments; actual destruction, immunity/health outcome and attribution remain unproved); function_58f8bf08(jammer, attackingplayer, undefined).",
+        "unknowns": [
+          "weapon-field eligibility/var_8032088a/var_775d2aad/var_416021d8 writers (weapon defs; outside packet)",
+          "dodamage native semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00669",
+        "sha256": "2e8eb691cbb9dc07d771b0a1c3892d68f87436a04aebb94ae69d5c21085a5315",
+        "pointer": "",
+        "record_sha256": "c91001b69aad69d92f049c6ab32f979ce7319d28b9aeea03f9124df294059c7e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "8ddd5bbe5e7aa676769779d7301db607de5f8505409f0184c1d216a37ded540e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::registerclientfields",
+        "behavior": "private registerclientfields() (eflags 0x4): six clientfields server-side no handlers; csc twin supplies handlers: scriptmover/isJammed; missile/isJammed; vehicle/isJammed; toplayer/isJammed; missile/jammer_active; toplayer/jammedvehpostfx; n_version=9000,n_bits=1,str_type=\"int\" per GSC clientfield::register forwarding wrapper9-11; no scheduling-priority claim.",
+        "unknowns": [
+          "Native interpretation/acceptance of version9000 and width/type registration, exact callback delivery and target-build/runtime binding remain unverified."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00670",
+        "sha256": "af8c1bfa29b9d667ef444d91f1a714914baaf3b295b8743e0977a971591d81ed",
+        "pointer": "",
+        "record_sha256": "20787f153198a6c1a0d88a6a9417016704d0e9e8e09ad128a2740afcdbe2ae00"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "9e0614a1a4fba254d9da725a8ec0165426e10f96420b80840684b1571dd4c075",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_3a3a2ea9",
+        "behavior": "Private function_3a3a2ea9(jammer) requests jammer endon(#\"death\"), stores waitresult from jammer waittilltimeout(2,#\"hash_754a0aedf9f00e8d\") and never reads that result. After the wait returns it returns only if jammer is undefined; a defined jammer requests playsound(#\"hash_7ed67b248bc52c02\") then playfxontag(#\"hash_5a695126234cbb41\",jammer,\"tag_origin\"). No result-based hash-notify cancellation branch is present. Exact timeout units, event/endon behavior, native effects and invocation remain unresolved.",
+        "unknowns": [
+          "Exact producer/meaning of hash_754a0aedf9f00e8d and VM wait/endon delivery remain unresolved; this function does not branch on waitresult.",
+          "waittilltimeout literal2 units and outcome semantics remain unverified."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00671",
+        "sha256": "945d51a4eae653c040877d6b0fe104ac2cb5cb0a181ac9cd79c9927d66d8d2b1",
+        "pointer": "",
+        "record_sha256": "30a131c05dc588bd8b6023d3b04467150fdad04369020e16334f4d47358943e7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "f63327c6edefdc07326d652c7886c43676fee1d4d5760f2118f33d62223353b3",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_4a82368f",
+        "behavior": "function_4a82368f(entity,owner) has an ordinary source assert(isdefined(owner)) at406, outside any shown dev block. It conditionally requests owner set_to_player(\"jammedvehpostfx\",1) when isplayer(owner), then performs literal entity waittill(#\"death\",#\"remote_weapon_end\",#\"hash_2476803a0d5fa572\"). Only if that call returns and owner is still defined does the final isplayer(owner) branch request field0. Supplied source proves no OR-event wait/cancellation, development-only assertion, native postfx delivery or observed client effect.",
+        "unknowns": [
+          "remote_weapon_end/hash_2476803a0d5fa572 notify producers (not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00672",
+        "sha256": "a3abc07272bb1053ed7403b0106f8957061340a97300d6718a9613cc7a12badb",
+        "pointer": "",
+        "record_sha256": "29a52ad5a4f8cd9503ce3fd7bcfc438132fa8a444a6d40c63d14a787a66868fa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "035f8f374820046212ce0f4df3649d733d5ced777065c3011ada9fecb584e31b",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_5f86757d",
+        "behavior": "function_5f86757d(): level endon(\"game_ended\"); waitresult = self waittill(\"explode\", \"death\"); branch !isdefined(self): return waitresult; clientfield::set(\"enemyequip\", 0); return waitresult (both paths return it).",
+        "unknowns": [
+          "waitresult._notify producer (native)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/289",
+        "record_sha256": "afb81e3559a82da3dff505a83163c3d118ab563869a469e79c23b2ef02494458"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "1998b9b4f130786dc8b2c7b0285058b2a8518b317f006a8d647c968bf8bcb492",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::onplayerspawned",
+        "behavior": "onplayerspawned(): self.isjammed = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/273",
+        "record_sha256": "b01345c7d4350789be15722e7bb5d5bfce919a7a90057883dbc99a05b7360d2f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "22aa15895372d7b847abef730cd4952b11fbe5c08076b3fa8ea811cd8b567173",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_fc1bbaef",
+        "behavior": "function_fc1bbaef(entity): thread function_d88f3e48(entity) (async unjam wrapper). Published as level.var_fc1bbaef.",
+        "unknowns": [
+          "External callers of the published ref"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/270",
+        "record_sha256": "b7a9a98c9cb7e08f65d0d6f66eccfb114b05405fefe6a280ecec0e06e89ab326"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "27b35aea76fdda9dfb1f664fa52a9ff064f8c0886f0eb58823bae360cfe7b619",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_2eb0a933",
+        "behavior": "function_2eb0a933(weapon, owner) - jam-END voice chooser: identical switch structure to function_2e6238c0 with END strings (aiTankJammedEnd / ultTurretJammedEnd / smartCoverJammedEnd); same two emit paths (leaderdialog via level.var_57e2bc08 when teambased; taacom via killstreaks::play_taacom_dialog).",
+        "unknowns": [
+          "level.var_57e2bc08 hook supplier"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/293",
+        "record_sha256": "7abbf83521a83182333a9893301a2a74f49bc4d23f8bd3af18618d07047c036d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "3b3a35697611bda07628adeaea5d64378e3326b493f9a5b30b6baae90757cd9b",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_1a50ce7b",
+        "behavior": "private function_1a50ce7b(watcher) (eflags 0x4) - EMP watcher config: watcher.ownergetsassist = 1; .ignoredirection = 1; .deleteonplayerspawn = 0; .enemydestroy = 1; .onspawn = &function_7d81a4ff; .ondestroyed = &function_b2e496fa; .ontimeout = &function_b2e496fa; .ondetonatecallback = &function_51a743f8.",
+        "unknowns": [
+          "weaponobjects watcher mechanics (not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/264",
+        "record_sha256": "21868a47a8dce090b16da475f5b985ac75ac4676df78919663407747413b344f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "3f3c3ef4ba9b371337839bb20170afba8f96cac7eaa04890094d48d1c352d105",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_86e3d17a",
+        "behavior": "function_86e3d17a(): return level.var_578f7c6d.customsettings.var_3bd9b483 - bundle accessor.",
+        "unknowns": [
+          "var_3bd9b483 meaning/values (not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/266",
+        "record_sha256": "40147e7c1b38eb6beab1d951b37f4525c67fcb193d1ddc94b964ec37f5e366c0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "4f28de1ebfd370e19118d87b72f5bda72538214888d40151bb3f59def52d4811",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_2e6238c0",
+        "behavior": "function_2e6238c0(weapon, owner) - jam-START voice chooser: return if !defined(weapon) or !defined(owner); taacomdialog/leaderdialog undefined; switch (weapon.name): tank_robot / inventory_tank_robot / ai_tank_marker -> both \"aiTankJammedStart\"; ultimate_turret / inventory_ultimate_turret -> both \"ultTurretJammedStart\"; ability_smart_cover / gadget_smart_cover -> taacomdialog \"smartCoverJammedStart\" only (no leaderdialog). Branches: leaderdialog path requires isdefined(level.var_57e2bc08) && level.teambased -> thread [[that]](leaderdialog, owner.team, owner) [hook; assignment outside packet]; taacomdialog path: owner thread killstreaks::play_taacom_dialog(taacomdialog) [killstreaks_shared; not owned].",
+        "unknowns": [
+          "level.var_57e2bc08 hook supplier",
+          "play_taacom_dialog internals (killstreaks_shared; not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/292",
+        "record_sha256": "08e9ec7486d0d38eee68b7445f19d13ac353e76945a8a9c95bb08b62370a33b3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "52d02cf54c0135343c26aa11efaf7f5e343d451e1c55509bdb3bc04024a4d15c",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_e27c41b4",
+        "behavior": "function_e27c41b4(jammer, entity, attackingplayer) [private, Type: bool] - entity disruption dispatcher: entity endon(\"death\"); return false if !isdefined(entity). Branch isalive(entity) && isvehicle(entity) && isdefined(level.is_staircase_up): function_1c430dad(entity, 1); function_58f8bf08(jammer, attackingplayer, undefined); entity thread [[ level.is_staircase_up ]]( attackingplayer, jammer ) [external vehicle handler ref]; return true. Branch isalive && isactor(entity): function_1c430dad(entity, 1); function_58f8bf08(...); entity callback::callback(\"hash_7140c3848cbefaa1\", { attackingplayer, jammer }); return true. weapon = entity.identifier_weapon (if defined) else entity.weapon; return false when neither defined. Branch weapontypeoverrides[weapon.name] defined: function_1c430dad(entity, 1); function_58f8bf08; function_2e6238c0(weapon, entity.owner) (jam-start dialog); thread [[ override ]]( entity, attackingplayer ); return true. DEFAULT: thread function_ca8a005e(jammer, entity, attackingplayer); return true.",
+        "unknowns": [
+          "level.is_staircase_up handler supplier (vehicle side; outside packet)",
+          "callback receiver hash_7140c3848cbefaa1 (not visible in packet)",
+          "override handler contracts per weapon"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/277",
+        "record_sha256": "186fa4eb99ba4012208eb0763359f4c219df6e5475e0f55c336abb04be517360"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "5681e895725baa882310b6ffba08f5ccaac55afbf063872d2c9fa40e8ba9c86f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_48c30195",
+        "behavior": "function_48c30195(entity, shouldignore): branch isdefined(entity): entity.ignoreemp = shouldignore (read by blast filter function_b16c8865).",
+        "unknowns": [
+          "ignore-EMP setter call sites (not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/265",
+        "record_sha256": "7fb2253281a91fa1b9585db4bf132bec0169b419c548135f4bb620e2335da4b2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "59ce4501914fcd8cea310fad1d0aa607fe7b45468b899f22f714687914435d45",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_b8c5ab9c",
+        "behavior": "function_b8c5ab9c(jammer, player, attackingplayer) [private, eflags 0x4] - player ENEMY jam: player notify(\"hash_4f2e183cc0ec68bd\"); player endon(\"death\", \"hash_4f2e183cc0ec68bd\"); player clientfield::set_to_player(\"isJammed\", 1); player.isjammed = 1; player.var_fe1ebada = attackingplayer (jammer credit recorder, read by on_player_killed); player setempjammed(1) [builtin]; scoreevents::processscoreevent(\"disrupted_enemy\", attackingplayer, undefined, weapon) [CROSS-OWNER -> HMH-PROGRESS-04]; function_58f8bf08(jammer, attackingplayer, player) (hit marker); wait level.var_578f7c6d.customsettings.var_f29418f1 (jam duration from bundle); branch !isdefined(player) -> return; function_d88f3e48(player) (unjam).",
+        "unknowns": [
+          "customsettings.var_f29418f1 value",
+          "disrupted_enemy score row (H6 ownership)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/278",
+        "record_sha256": "af1f3bcd436b92708bfa5fb2d3bb32d234e1951f3473a443a386b15ebe96d34d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "5d1b5c61ff9a3adaf45390b64ec929a8795f89b82d8edbf85b46bf1d14be2381",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::init_shared",
+        "behavior": "init_shared() - server jammer registry: spawnstruct persistent; weapontypeoverrides = [] when undefined; weapon = getweapon(\"eq_emp_grenade\"); customsettings = getscriptbundle(weapon.customsettings); weaponobjects::function_e6400478(\"eq_emp_grenade\", &function_1a50ce7b, 1) [watcher wiring; not owned]; registerclientfields(); setupcallbacks().",
+        "unknowns": [
+          "Caller of init_shared (mode chain)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/261",
+        "record_sha256": "23cb29d1e70cc26cc99e21a95f01379436755a19b2d6fc4ff59398fd35e99306"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "5d2bce19a7cad2e77af9c3681f8ca6b68a6746c95b4cbc4bab646452e01b0fa4",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::on_player_killed",
+        "behavior": "on_player_killed(params) - disruptor credit (self = killed player): guards: return if !isdefined(params.eattacker); return if !(isdefined(self.isjammed) ? self.isjammed : 0); return if !isdefined(self.var_fe1ebada). Branch self.var_fe1ebada == params.eattacker: scoreevents::processscoreevent(\"disruptor_kill\", self.var_fe1ebada, undefined, level.var_578f7c6d.weapon) [scoreevents_shared CROSS-OWNER -> HMH-PROGRESS-04]; params.eattacker function_be7a08a8(level.var_578f7c6d.weapon, 1) [opaque helper, not in corpus; call shape suggests per-weapon stat increment]; return. Branch same TEAM (both team fields defined and equal): processscoreevent(\"disruptor_assist\", self.var_fe1ebada, undefined, weapon).",
+        "unknowns": [
+          "function_be7a08a8 definition not in corpus",
+          "scoreevents rows (H6 ownership)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/272",
+        "record_sha256": "e90505cf69b256a8257fcb604bb38cdf68cf135f6eb2482e7b386e03d5d60fe1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "6fcf47dd44b75e2121ddf587ffcdbe4427f8aba89ef6a7d2dd6ba589f4292cba",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_bff5c062",
+        "behavior": "function_bff5c062(jammer, attackingplayer): jammer.team = attackingplayer.team; jammer setteam(attackingplayer.team) [builtin]; jammer.owner = attackingplayer; jammer thread function_6a973411() (jammer_active pulse). EMP grenade reacquire reaction.",
+        "unknowns": [
+          "External caller (var_1b900c1d module)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/271",
+        "record_sha256": "a1cf2ceaa3025e8267a4820a7f49665aa14e5ab5c345f35274642d2602a1ae8f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "7ac989e1f1f905182a4f93734aa827d27f3fdd341a45335ab92323b676cb2393",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_87c540c0",
+        "behavior": "function_87c540c0(jammer, origin, attackingplayer) [private, eflags 0x4] - disruption blast: entities = getentitiesinradius(origin, level.var_578f7c6d.weapon.explosionradius) [2-arg form]; counters = 0. foreach entity: branch !function_b16c8865(entity, attackingplayer): (filtered-out): branch !var_480b4b92 && isplayer(entity) && entity hastalent(\"talent_resistance\") && util::function_bfc7263... [sic: util::function_fbce7263 as written - opaque team-enemy helper]: attackingplayer damagefeedback::update(undefined, undefined, \"resistance\", level.var_578f7c6d.weapon) [CROSS-OWNER damagefeedback -> HMH-HUD-04]; var_480b4b92 = 1; continue. Filtered-IN: branch isplayer(entity): thread function_b8c5ab9c(jammer, entity, attackingplayer); continue. ELSE: var_decc08e9 = thread function_e27c41b4(jammer, entity, attackingplayer) - SOURCE-FIDELITY note: the source assigns a thread-invocation expression and then tests it === 1; as written the captured value semantics (thread handle vs bool return) are unresolved from source alone. Branch var_decc08e9 === 1: var_545dd758++. After loop: if var_545dd758 >= 2: scoreevents::processscoreevent(\"hash_208b61a32a38340e\", attackingplayer, undefined, weapon) (multi-disrupt bonus).",
+        "unknowns": [
+          "thread-assignment capture semantics (compiler form; unresolved)",
+          "explosionradius field value (not in packet)",
+          "damagefeedback update param shape (HMH-HUD-04 boundary)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/276",
+        "record_sha256": "6cc789df07713cf5a17013e7302697d57c2b804a3fce2296a840e31dc2949a25"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "8a3cd0f5ef8fb0bbed205f846b6ba2a35ca1035edbab5f7e5ba9bb531b0773ec",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_51a743f8",
+        "behavior": "function_51a743f8(attacker, weapon, target): self delete() (detonate-callback immediate removal).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/285",
+        "record_sha256": "7fedb78df93e31ceb6bf48811fee7975ca889a2fc9afc7420a593f22e1a63c96"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "91963d4da22f516052cb5fe4d633d066f4c36a66fdcaa6cc6054c0dfb3788670",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::register",
+        "behavior": "register(entity, var_448f97f2): entity.var_123aec6c = var_448f97f2. Two-arg setter; no guards (var_123aec6c consumers not in this file).",
+        "unknowns": [
+          "var_123aec6c readers"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/267",
+        "record_sha256": "0746c7927c8eaa1009e87023099b28bfd350d89c99bc1407bba148a0a6ddc5f4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "9f594c45567a67698fe0faff3f8fa657e8f3cc2c2b7b4fad50449fab2d284405",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_6a973411",
+        "behavior": "function_6a973411(): util::wait_network_frame(); clientfield::set(\"jammer_active\", 0); wait_network_frame(); set(\"jammer_active\", 1). OFF-then-ON pulse (0->1 edge re-triggers csc disrupt fx).",
+        "unknowns": [
+          "wait_network_frame (util_shared; not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/283",
+        "record_sha256": "beb67fd447d5a09b0c9e2541ea8141f621fb684dfcd6e6ea27d7dfd927d021e5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "aefb237f65b2ed76dec54b898b8ff43edcc4bab898797b555e3dc77ec542b58e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_2572e9cc",
+        "behavior": "function_2572e9cc(attackingplayer, var_fb5e3b16) [private]: scoreevents::processscoreevent(var_fb5e3b16, attackingplayer, undefined, level.var_578f7c6d.weapon) [CROSS-OWNER scoreevents_shared -> HMH-PROGRESS-04]. Generic event wrapper published as level.var_1794f85f.",
+        "unknowns": [
+          "Callers/values of var_fb5e3b16"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/275",
+        "record_sha256": "a9972f2f9d4f4ad0fcfe58cc1e4da4ae48bed5db2737a16a4f6b8d19b3c750dd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "b8b7c305007286712bc11537a8700aabe5cf68c3c1b3fc401c464b12f46fce08",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_1c601b99",
+        "behavior": "function_1c601b99() - jammer EMP self-registration: branch isdefined(level.var_1b900c1d): [[ level.var_1b900c1d ]]( level.var_578f7c6d.weapon, &function_bff5c062 ). No-op when module absent.",
+        "unknowns": [
+          "level.var_1b900c1d setter module (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/269",
+        "record_sha256": "cae3978a4bc9f02f74aaa8638ca73b369afa049b38efe0889a2d972815c1d123"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "b93f0299c206853884e4e1b6ab9750278c598f2b6e59656dc9a39f0c51e1265d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_4e7e56a8",
+        "behavior": "function_4e7e56a8(weapon, callbackfunction): level.var_578f7c6d.weapontypeoverrides[weapon.name] = callbackfunction. THE external registration entry (published as level.var_a5dacbea by setupcallbacks) - other gadgets register weapon-specific EMP reactions by weapon name; overwrite semantics (last registration wins per weapon).",
+        "unknowns": [
+          "Which gadgets register overrides (cymbal/homunculus use a DIFFERENT ref var_a5dacbea? - verify: cymbal's level.var_a5dacbea setter IS this file's function_4e7e56a8 via setupcallbacks; consume call [[level.var_a5dacbea]](weapon, &handler)]"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/268",
+        "record_sha256": "ae98cdbe9f88d3f22ee55a735212d95429b1bd8214e94d7149340febfc1cd0bb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "c1de395ff647e6462ad65c979ea3c234c11db36e28170fbdb2b5a1f41f22de7b",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_d88f3e48",
+        "behavior": "function_d88f3e48(entity) [private, eflags 0x4] - unjam: return if !isdefined(entity); if isplayer(entity): clientfield::set_to_player(\"isJammed\", 0) and setempjammed(0); function_1c430dad(entity, 0); branch entity.weapon defined && !isplayer(entity) && entity.owner defined: function_2eb0a933(entity.weapon, entity.owner) (jam-END dialog). Restore/teardown path.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/282",
+        "record_sha256": "b77326b373b930a110cfe8877410d19c0ba3e9dea3a074ad73519c82dd1cb48e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "caba0b7773bc5688c3cbd08b6faf6c4a0ae018f0fecd30bafc1a715fe159dc90",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_58f8bf08",
+        "behavior": "function_58f8bf08(jammer, attackingplayer, victim) [private, eflags 0x4]: branch damagefeedback::dodamagefeedback(level.var_578f7c6d.weapon, attackingplayer) [CROSS-OWNER damagefeedback -> HMH-HUD-04]: attackingplayer thread damagefeedback::update(\"MOD_UNKNOWN\", jammer, undefined, weapon, victim, 0, undefined, 0, 0, 1). Hit marker to the EMP thrower when they disrupt something.",
+        "unknowns": [
+          "damagefeedback param shape beyond position (HMH-HUD-04 boundary)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/291",
+        "record_sha256": "857e24f35201d362fbd6837f2f182773e72ea77d434e27983469ce8d60024acd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "d82d262fb4a7a586b8292ad130f09c77498021589d03a04451db03f9ec129fa2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_cc908239",
+        "behavior": "function_cc908239(entity): return entity.owner when defined else undefined. Owner getter.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/284",
+        "record_sha256": "008c0f352595b3deaee5841b46d0eb0d96e0411dd4a8d2038a19438716227aa1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "d896c37f786d4f49fc04cf2ed0ce65e78e6ae04fd9c79340b01bcf1830a2362e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_b2e496fa",
+        "behavior": "function_b2e496fa(watcher): self delete() (destroyed/timeout callback immediate removal).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/286",
+        "record_sha256": "ef4aed05848cae4e201a04e0042907596a67e1b08e6d56e885298a6923dbf5ff"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "dbc30ce2a98354a377c58f6161beb854d514e792d1802205e521a46e10ccfc72",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_b16c8865",
+        "behavior": "function_b16c8865(entity, attackingplayer) [private, Type: bool] - blast target filter: 1) false when self == entity (jammer itself); 2) false when !isplayer(entity) AND (!defined(entity.model) or model == \"\") (no-model entities untargetable); 3) false when isactor(entity) AND !(defined(entity.var_8f61d7f4) && truthy) (actor-gate); 4) false when entity.team defined AND !util::function_fbce7263(entity.team, attackingplayer.team) (not-thrower's-enemy); 5) false when isplayer AND hastalent(\"talent_resistance\"); 6) false when entity.ignoreemp truthy. Else true.",
+        "unknowns": [
+          "util::function_fbce7263 truth relation (not owned)",
+          "var_8f61d7f4 writer (actor-side)",
+          "talent_resistance provider (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/287",
+        "record_sha256": "8ba1217c936f8347371cf9010bc622d03f10532b8299726c29d05ec61e427926"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/31",
+      "selection_id": "e3fb9631bbcc4bc7cc3334eec65e5d2b8f02e5fc191227540e4844921f055893",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_1c430dad",
+        "behavior": "function_1c430dad(entity, isjammed) - central jam-state setter: branch if !isplayer(entity) && !isactor(entity): entity clientfield::set(\"isJammed\", isjammed) [cross-VM; csc handlers play jam visual/sound per entity kind]; entity.isjammed = isjammed; entity.emped = isjammed. Players/actors get script fields only (their clientfield is toplayer and set separately).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/281",
+        "record_sha256": "6fc7f856020d1e25df2fefe6a5048bd08d2d769ce2490131c2402a66883a4344"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/93c428ad01321ed2.json",
+      "claim_pointer": "/claims/32",
+      "selection_id": "e80f3cb0468de94fdfeb9613a14bd91ec53aa930b00a282180d9cfd12cb7e5b1",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.gsc::function_7b151daa",
+        "behavior": "function_7b151daa(player) [Type: bool]: return isdefined(player.isjammed) && player.isjammed.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/288",
+        "record_sha256": "2a13672ed5c7320c3cbb6f762dfb3c529b2a44344a83ab51a84a06c16fede9ce"
+      }
+    }
+  ]
+}

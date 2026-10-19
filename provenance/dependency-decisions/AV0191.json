@@ -1,0 +1,105 @@
+{
+  "module": "src/scripts/wz_common/vehicle.csc",
+  "identity": "scripts/core_common/vehicles/driving_fx.csc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "driving_fx",
+  "witnesses": [
+    {
+      "line": 354,
+      "text": "            if ( !isinarray( surfaces, driving_fx::function_73e08cca( self.trace[ #\"surfacetype\" ] ) ) )",
+      "caller": "function_8411122e",
+      "caller_span": [
+        337,
+        362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 342,
+          "opening_line": 344,
+          "ending_line": 358,
+          "text": "if ( self.trace[ #\"fraction\" ] != 1 )"
+        },
+        {
+          "line": 339,
+          "opening_line": 342,
+          "ending_line": 359,
+          "text": "if ( isdefined( self.trace ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_73e08cca",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          275,
+          287
+        ]
+      ]
+    },
+    {
+      "line": 356,
+      "text": "                surfaces[ surfaces.size ] = driving_fx::function_73e08cca( self.trace[ #\"surfacetype\" ] );",
+      "caller": "function_8411122e",
+      "caller_span": [
+        337,
+        362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 352,
+          "opening_line": 355,
+          "ending_line": 357,
+          "text": "if ( !isinarray( surfaces, driving_fx::function_73e08cca( self.trace[ #\"surfacetype\" ] ) ) )"
+        },
+        {
+          "line": 342,
+          "opening_line": 344,
+          "ending_line": 358,
+          "text": "if ( self.trace[ #\"fraction\" ] != 1 )"
+        },
+        {
+          "line": 339,
+          "opening_line": 342,
+          "ending_line": 359,
+          "text": "if ( isdefined( self.trace ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_73e08cca",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          275,
+          287
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0191",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/vehicles/driving_fx.csc",
+    "sha256": "c1d22e09ac383f434b23ce436409b5b0afb385be406897d95f47010ca2afef1a",
+    "git_blob_sha1": "4d04766adca30c5c86b829c0cb59060858bd7bd5",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

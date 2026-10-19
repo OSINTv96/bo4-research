@@ -1,0 +1,143 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/draft.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "567f7c492efdbadfd35295b50ac719658f8537ed20d68805a4b9bfa9bcc5190d",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:prematch-timer",
+        "answer": "Connection to the start chain (compared named source sites; other callers and writers remain unresolved): one compared matchstarttimer caller is globallogic.gsc 4649 `thread matchstarttimer();` inside prematchperiod() (4619-4675), which is reached from startgame 4445 (the alternate [[level.custom_prematch_period]] call is at4441; the4439 check selects that route when the pointer is defined and otherwise takes the shown prematchperiod() fallback. The compared witnesses do not establish a writer or absence of writers elsewhere; actual pointer state remains conditional). startgame itself is threaded from the unit-1 driver at 5179. The warzone staging helper is SUPPLIED by unit 2: level.var_86513cd0 = &function_3b0db3c2 (warzone.gsc 563) runs SYNCHRONOUSLY at prematchperiod 4644-4647 (body warzone.gsc 604-612: level.prematchperiod = max(level.prematchperiod,5) - the written max(...,5) expression; its numeric/VM interpretation and later shared-state writes remain conditional; thread character_banter::start; wait for pregame release hash_78e53817cafb5265; character_banter::stop; advertisement 0). The synchronous helper request precedes the timer spawn4649. The timer later takes its own int(level.prematchperiod) snapshot1408 after readiness waiting; an at-least5 numeric snapshot depends on ordinary numeric max behavior, actual helper execution and no intervening shared-state change. b9b7618 ranked jitter5095-5098 is another earlier caller-side write, not proof the later mutable snapshot equals a final fixed value. Paths of the timer body (reused span 1404-1475, not reauthored): (a) SKIPPED: draft round - prematchperiod's draft branch (4625-4637) waits draft_complete and returns at 4636 BEFORE reaching 4649, so the timer thread NEVER starts in a draft round and the staging/banter block at 4644-4647 is skipped too; the in-game countdown is replaced by draft presentation (draft.gsc); draft condition = draft::is_draft_this_round() (draft.gsc 170-188) = is_enabled() (139-163: auto_select_character valid role -> 0; level.disableclassselection -> 0; var_b3c4b7b7 -> 0; util::function_8570168d() -> 0; else getgametypesetting(#\"draftenabled\")) AND (drafteveryround==1 [177] OR util::isoneround() [181-184] OR util::isfirstround() [187]); The compared exact HMH rule arrays and bundle identify no explicit named draftenabled producer. Opaque hash-named settings/fields, other layers, native-store merging and the effective value remain unresolved, so actual draft-path selection is conditional. (b) NO-LOOP: var_5654073f = counttime >= 2 (1409-1410) false (effective prematchperiod 0/1) -> mpintro_visionset_deactivate_func() (1471) after the unconditional create_prematch_timer request1412 (before gate1414), and on surviving normal continuation it also requests prematch_timer_ended1474; neither request proves delivery - the zero/undefined setting also drives prematchperiod()'s own matchstarttimerskip()/waitframe(1) branch (4659-4660; matchstarttimerskip = visionsetnaked(\"default\",0) at 1481-1484). (c) NORMAL: luinotifyevent(#\"create_prematch_timer\", 2, deadline = gettime() + counttime*1000, flag) (1412); while counttime>0 && !level.gameended (1416): at counttime==2 deactivate intro visionset (1418-1421); at ==3 thread sndsetmatchsnapshot(0) + for spawned-or-spectator players set_music_on_player(\"spawnPreRise\") (1423-1434); per-iteration local countdown sound deduplicated per machine - warzone arm playlocalsound(#\"hash_6a97a2aee9eb2f4\") under sessionmodeiswarzonegame() else uin_start_count_down (1437-1463); wait 1 (1466); then luinotifyevent(#\"prematch_timer_ended\", 1, flag) (1474). (d) EARLY-STOP: matchstarttimer first synchronously calls waitforplayers1407 BEFORE its integer snapshot1408. waitforplayers4508 arms level endon(#\"game_ended\") on this timer thread; it can cancel readiness waiting and later timer work. A truthy level.gameended observed by the loop can reach final UI event1474 only if this thread survives cancellation. Thus final notification on early end is not guaranteed. The separate prematchperiod/startgame caller also arms its own game_ended endon4622; cancellation can skip its completion/playing-transition tail. Caller-owned timing units (exact split): prematchperiod owns the AUTHORIZING waits - waitforplayers() (4506-4600: endon game_ended, per-frame isstreamerready polling, test-client acceptance after 20s unless ranked/arena, ranked 120s timeout -> exit_level + infinite wait) and `wait level.prematchperiod` (4655) in FLOAT seconds; matchstarttimer owns only presentation - an INT-truncated countdown (1408) and a MS-based native UI deadline (1411 luinotifyevent), run CONCURRENTLY after its spawn at 4649 - integer truncation describes only the countdown snapshot. The timer first has its own readiness wait and independent scheduling/cancellation, so overall caller/UI duration difference is not bounded by truncation alone. The pregame release chain (inprematchperiod=0 / prematch_end at 4663-4674) is also caller-owned and NOT timer-owned - the timer's exit is presentation only. Unresolved config/VM order (retained, not guessed): effective getgametypesetting(#\"prematchperiod\") for HMH is unknown. The exact core_frontend categories/warzone.json /entries/27/rules and gametypes.json /70/rules arrays and gametypetable_wz/warzone_heavy_metal_heroes.json establish only no explicit identified named producer in those compared inputs. Their opaque hash-named settings/fields and other layers remain unmapped; semantic producerlessness or a native absent-key state is not established; dvar overrides prematchperiodoverride/preroundperiod are dev-blocked (4868-4892); if the native store actually lacks the key, its absent-key return is unknown; actual store membership, opaque mappings and online layers are unknown (g1 unit 4 partial) - so the exact written staging expression is max(...,5); actual effective values, VM interpretation and later shared-state changes remain unproved. VM ordering: matchstarttimer thread's first-statement timing vs the caller's continued waits (no join; only wait 1-statement granularity), luinotifyevent delivery to LUI timing, and gettime() native clock semantics are all unverified natives; the draft branch's waittill(draft_complete) has native delivery to a scripted notify (poster inside draft.gsc chain, not re-traced).",
+        "behavior": "matchstarttimer (1404-1475) = presentation-only thread with a request at the compared globallogic.gsc4649 site (other caller sites remain unresolved) inside prematchperiod after the warzone staging helper (var_86513cd0->function_3b0db3c2, run sync at 4644-4647, requesting max(level.prematchperiod,5), subject to numeric/VM behavior and later shared-state writes and waiting the pregame release notify). Draft round (conditional) skips the timer completely (4625-4637 return). first synchronously waitforplayers1407 (arms level endon game_ended4508 on the timer thread); then counttime=int(level.prematchperiod); >=2 gates the loop; deadline = gettime()+counttime*1000 via luinotifyevent create_prematch_timer; loop: intro deactivate at 2, music/snapshot at 3, machine-deduped local countdown sound (warzone hash arm under sessionmodeiswarzonegame()), wait 1; if the thread survives its game_ended endon, a loop exit can reach prematch_timer_ended1474; early-end delivery is not guaranteed. The caller thread owns the real waits: endon(game_ended) kills it during waits (missing-delivery path), caller readiness/float wait and timer readiness/integer snapshot have independent scheduling/cancellation; overall timing difference has no truncation-only one-second bound; pregame release/weapon-enable/prematch_end are caller-owned (4663-4674), never timer-owned.",
+        "unknowns": [
+          "Effective prematchperiod and actual native-store membership for HMH remain unknown. The compared inputs identify no explicit named producer; opaque hash mappings, other layers and online/native merge behavior remain unresolved. Absent-key behavior is an unknown conditional case only if the native store actually lacks the key.",
+          "Effective draftenabled, opaque setting identities and native-store membership remain unknown; Literal named-key absence leaves semantic producer identity unresolved. Actual draft-path selection is conditional on the effective value and other source guards.",
+          "The writer identity and other callers for level.custom_prematch_period remain unresolved. Named source reads do not establish zero corpus writers or a sole caller; module/settings/VM delivery remain conditional.",
+          "VM scheduling of the timer thread's first statements vs the caller's waits (f2 N4)",
+          "util::function_8570168d in draft::is_enabled and the draft_complete producer chain (outside this chain; not traced here)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00239",
+        "sha256": "b6464297d4bf3cc411f6169c3aeed032105ce1776dea74a72e3700e25f8d76e2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "b9e0d62012ec80fc41e3a075fe6ab4e17015f98347a61bc2b5d48fcc78f0085f",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/524",
+        "record_sha256": "fbdddfa5eb933625eade9ca0a03bcc39363069307c4aa94a3cc5f5f637c974b7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "f6a37211eac3412725de2769ff3ccc53ada91bf80653bf8628efe45270c9ba21",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/523",
+        "record_sha256": "c2a85d86ebd54fb696d22c396fd5a24744253aa00afb021ce3d970150a9d9e25"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "25b492f70de7e24addd268292a0787af884fc2f24c3cbc087fcd62b1e0b098ae",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/163",
+        "record_sha256": "40a73643d4024928e9555aa74158bf90434467eaa55d7fcbbb92f2c70d8583f2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "6de3af0059bd39322702c03c2a3edf542a703dfe194fdf49aeb40eedae8d3d83",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/164",
+        "record_sha256": "43d1248c5fedd7b548e80277db0ba3dcba928b0a544d950ddd3367c9b188dec8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "15aaa19edd6ebf6e1c6eaf5c3d02a39559debe8cc35f617f987a967ee7e61711",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/164",
+        "record_sha256": "43d1248c5fedd7b548e80277db0ba3dcba928b0a544d950ddd3367c9b188dec8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1b43e83a73cca7ba.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "370dd7e36a84eb6521f1b8d0c9b96df40a02419129adc86d4eefa743fc647923",
+      "summary": {
+        "id": "scripts/mp_common/draft.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/163",
+        "record_sha256": "40a73643d4024928e9555aa74158bf90434467eaa55d7fcbbb92f2c70d8583f2"
+      }
+    }
+  ]
+}

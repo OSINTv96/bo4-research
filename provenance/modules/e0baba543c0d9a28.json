@@ -1,0 +1,752 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/spawn.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "4b4b6afc9a8c53b1701e4c5d581055cfbfecb53c544df105f514d31d7a162165",
+  "git_blob_sha1": "854413c1a7b91ae1d2e9615c5b37eec3837b3913",
+  "output": "src/scripts/wz_common/spawn.gsc",
+  "output_sha256": "5fb877b39dba800c43400136cf953ef09b02adc8de498133fa4861ead8194075",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "script_1d29de500c266470.gsc",
+      "original_line": 1,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/array_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.gsc",
+        "sha256": "ba277804b598a6cbaac5e440e35cd9ca40e31a8129b3ef80238fccb2910c2999",
+        "git_blob_sha1": "a1f7edf5a22be05509e8d0802890ee5a61abc83a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/flagsys_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.gsc",
+        "sha256": "b5c793b6299033643940befd7f709316e0a8189ccc28c77b579a26c53cf461fc",
+        "git_blob_sha1": "832a18f954a3f9101a08fa0aa57dcf308bbcbb5e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/infection.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/infection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/infection.gsc",
+        "sha256": "38cea71d6af3e533ce86a88f39628bfaa44448842eff282977cd5d237600f6e7",
+        "git_blob_sha1": "377d8d0a5df3d74090c31edd40a45f6ae18d0077"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/match_record.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/match_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/match_record.gsc",
+        "sha256": "c16f9e7924ac1fab7e75883ac4546e99bb306f7378b08996a9650827582d2a38",
+        "git_blob_sha1": "541ed5e9ca06a6753b85746fd23e9236d5a3f528"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_free_fall.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/player/player_free_fall.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_free_fall.gsc",
+        "sha256": "f60b433361ab16655f653eb97faf23e47579b963585dc4ed49d8545786024d89",
+        "git_blob_sha1": "14a233378fbdfbe766e87e3db2058cd0ec574e46"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0240.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player_insertion.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/player_insertion.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player_insertion.gsc",
+        "sha256": "fc0adec8c521a96b8997c5399c59962150f159ffd54f77d3fabf1ccad40dcd2a",
+        "git_blob_sha1": "442c762c9827ede9c2bc6c72d28b564364407ba0"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/spawning_shared.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/spawning_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/spawning_shared.gsc",
+        "sha256": "cc9fa52e7caf28270e3bf4c9469ce5854a2ba29838fbb26c29d90fc9a74d5eb4",
+        "git_blob_sha1": "502c3fa12029bc0ebbf29e929137680afb9ed67b"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 11,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 12,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/values_shared.gsc",
+      "original_line": 13,
+      "output": "src/scripts/core_common/values_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/values_shared.gsc",
+        "sha256": "9f3b4a443df55ec01b42be88bb21658e445bfd1eb615be0e8d16b95a86ac5995",
+        "git_blob_sha1": "936d1d4c850203df1c59ac830f309238ae635fff"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/spawning.gsc",
+      "original_line": 14,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/spawning.gsc",
+        "sha256": "3caa69548760809d9a69eb36cb9170dff7b67b5ecfdd63183dc22e90c760bdcc",
+        "git_blob_sha1": "0b6edf197fecb90f82e605eceb19a128fd443e90"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0241.json",
+      "assessment": "available_source_inspected_unresolved_loader_indirect_or_context_admission",
+      "selected_caller_functions": [
+        "function_1390f875",
+        "function_178abfd",
+        "function_3b1d0553",
+        "function_8cef1872",
+        "function_bb9099b9",
+        "function_c263fd97",
+        "function_cb5864fc",
+        "function_e93291ff",
+        "function_ea62f5af",
+        "function_f468d9a5",
+        "on_spawn_player",
+        "override_spawn"
+      ],
+      "remaining": "No unique ordinary qualified callee/module-load path to this target was established in the closed candidate graph. Include/autoexec, class/constructor, ambiguous/global namespace resolution, indirect delivery or caller context remains unproved; available source is not relabeled missing."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/infection.gsc",
+      "original_line": 15,
+      "output": "src/scripts/wz_common/infection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/infection.gsc",
+        "sha256": "fa760403f73a64fd54ef93e5efdbae8e94274ecca9a93bfb73b3072f690828db",
+        "git_blob_sha1": "e539195bf8fdf85ba2a1fb3c14f2cf31c35711cc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "11c01119932d94f621791df6da9f5ef48fbd18f636fb72c9803e17739ea0e500",
+      "citations": [
+        {
+          "line_start": 262,
+          "line_end": 302
+        },
+        {
+          "line_start": 347,
+          "line_end": 433
+        },
+        {
+          "line_start": 327,
+          "line_end": 341
+        },
+        {
+          "line_start": 262,
+          "line_end": 302
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-hook",
+        "answer": "Branch ladder of the wz spawn hook (262-302), applied to source-visible flags, grace and queued respawn, and what start_warzone changes: (1) 264 usingobj = undefined; (2) 266-269 var_63af7f75 default -1 if missing (the definedness test at266 is an actual source read: missing field gets default -1 at268; a defined prior value skips that default. The conditional deathcircleindex store at273 can overwrite either. Field meaning and further consumers remain unresolved), 271-274 overwritten with level.deathcircleindex when defined (producer: death_circle.gsc:504 inside the per-collapse loop of death_circle::start's continuation - i.e. the slot tracks which collapse circle the player is spawning under); (3) 276-279 the start-spawn clearing rule level.usestartspawns = 0 fired only when usestartspawns && !ingraceperiod && !playerqueuedrespawn (producers: globallogic.gsc 4928 usestartspawns = 1 an [excerpt; exact source record identified separately]",
+        "behavior": "on_spawn_player(predictedspawn) (262-302) is the wz onspawnplayer hook (level.onspawnplayer = &on_spawn_player, warzone.gsc:93; invoked by globallogic_spawn::spawnplayer:916 [[ level.onspawnplayer ]]( 0 ) through warzone.gsc::on_spawn_player 208-223 which passes no args): field prep, placement delegation, streamer hint, first-spawn air-hold vs immediate finish, kit stats (function_ea62f5af 308-321 match_record parachute/second/wingsuit lootids for current_life_index).",
+        "unknowns": [
+          "death-circle module internals (collapse cadence/wave interplay) out of packet; only the index producer line was read",
+          "Whether the ordinary game.state/defined-field LUI prematch-timer arms in function_bb9099b9 at246-255 and function_c263fd97 at423-432 execute on the original build, and their native delivery/outcomes. They are outside the saved source dev-delimited block67-77; no dev-only classification is established.",
+          "Native reason hash_4fca7a48128c4741 callback consumers (registered elsewhere; not traced here - no self-selected extension)",
+          "Effective grace period value for wz (graceperiod 15 vs 5 arm globallogic.gsc 5100-5107 depends on numlives/wavedelay/playerqueuedrespawn settings)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00871",
+          "sha256": "dc33d2960c16b7176e85c28030bb1b9a5aaf9d4f216c47b1670f508d6b5a62d2"
+        },
+        "report_pointer": "/unit_reviews/0",
+        "decision_canonical_sha256": "1120a7a297b3e5d022d7ecbe5fd28e7fe9d53fd575b9dea1c53f27191814ecb5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the complete corrected v2 spawn-hook record and its wrapper, plus exact original/current/history/projection joins; all written recovered-source behavior including unchanged claims.",
+        "limitations": [
+          "Exact recovered-source and record scope only; original PS4 build, VM fidelity, native effects, settings, callback delivery and game behavior remain unproved.",
+          "Historical original author/reviewer identities and old status/provenance wording remain history. This reviewer is independent of the current representation authors; no historical approval is inherited.",
+          "Unknown or opaque callees retain the written limits. Local hash and pointer tests are integrity checks, not semantic or runtime proof."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00109",
+        "sha256": "5caf1aa1356542ae7981a711c73f6a03880844387879894c3ecc4615d1002b21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1af4436952a9f9009ee2bb83efe170979f02bf70d87fe87ddb2248118364992f",
+      "citations": [
+        {
+          "line_start": 42,
+          "line_end": 114
+        },
+        {
+          "line_start": 439,
+          "line_end": 470
+        },
+        {
+          "line_start": 120,
+          "line_end": 129
+        },
+        {
+          "line_start": 42,
+          "line_end": 114
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-install",
+        "answer": "The HMH spawn-behavior install is spawn.gsc::function_e93291ff (42-114), threaded exactly once in the corpus by warzone.gsc::on_start_game_type at 562 (level thread spawn::function_e93291ff();), with on_start_game_type installed by warzone.gsc::main:92 as level.onstartgametype. It installs ONLY spawn-destination state: (a) destinations = [[ level.var_1710ced9 ]]() if defined, else struct::get_array(\"destination_influencer\") map structs (44-51) - level.var_1710ced9 has NO writer in the corpus (reads only at 44/46), which establishes only no literal writer in the pinned lookup; the delegate path remains conditional on actual definedness, and map structs are selected only if it is undefined (map fixture data gap); (b) empty destinations -> return (53-56): no queue initialization or cleanup; incoming queue state is unchanged. The later undefined-queue branch requires the queue to be undefine [excerpt; exact source record identified separately]",
+        "behavior": "function_e93291ff (42-114): destination producer fallback (var_1710ced9 defined -> delegate call; undefined -> destination_influencer structs; no literal writer found does not select an effective branch), empty->return, sort/globalindex, queue init, dev-block totalspawnpoints, hijacked removal, wz_dest_id pin or random <=5 pick, per-selected-dest spawn-struct cache, unused-destination struct cleanup. Queue level.var_7767cea8 is the shared state later read by override_spawn 145-171 and cleaned by function_cb5864fc 122-127.",
+        "unknowns": [
+          "level.var_1710ced9 producer (no corpus writer; possibly an unset hashed registration in the original build)",
+          "Effective destination_influencer map data for wz_open_skyscrapers (recorded HMH rotation map)",
+          "Whether on_start_game_type runs before, after, or concurrently with first connects (native order, N2)",
+          "Dev-block totalspawnpoints evaluation in retail (N3 family, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/6",
+        "decision_canonical_sha256": "ad635409201d178f2fbedca7e803dc116ebe2a20547de154ba67bc7398a7c5bb",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00110",
+        "sha256": "8f251acf7245cf5316f408e9131817a226bc7e448537312304d8289be27b3cbd"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+      "citations": [
+        {
+          "line_start": 135,
+          "line_end": 231
+        },
+        {
+          "line_start": 23,
+          "line_end": 36
+        },
+        {
+          "line_start": 262,
+          "line_end": 302
+        },
+        {
+          "line_start": 135,
+          "line_end": 231
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:override-routing",
+        "answer": "Compared source route (pinned named dispatcher/body witnesses, without exhaustive caller coverage): override_spawn is requested through the dynamic pointer level.resurrect_override_spawn, installed at warzone.gsc::main:117 (the compared wz registration; ct_* gametypemaps bind their own ct_utils twin - outside wz scope), from spawning_shared.gsc::onspawnplayer(predictedspawn = 0) 411-530: spawnresurrect = self [[ level.resurrect_override_spawn ]]( predictedspawn ) at 416-419, and its result has FIRST priority: spawn_origin/angles = self.resurrect_origin/angles (431-435), ahead of tacticalinsertion::overridespawn (413/436-444), use_start_spawns (445-493) and getspawnpoint (495-504); missing spawn_origin aborts (callback::abort_level 506-510); predictedspawn short-circuits to function_e1a7c3d9 + return without spawn (512-516); an actual spawn is self spawn( spawn_origin, spawn_angles ) (518 [excerpt; exact source record identified separately]",
+        "behavior": "override_spawn(ispredictedspawn) (135-231) returns bool; sets self.var_7070a94c, self.resurrect_origin/angles, self.var_df8c6469, self.var_25fe2d03; stamps dest.spawns[*].spawntime; branch matrix A-D; no native spawn inside the body (prior claim reused). Dispatch priority in spawning_shared::onspawnplayer: spawnresurrect > spawnoverride > start spawns > best spawnpoint.",
+        "unknowns": [
+          "infection::function_74650d7()/is_infected effective truth for HMH playlists (settings-producer gap shared with g1)",
+          "Whether matrix B (queue undefined) is reachable in practice for wz (conditional: requires on_start_game_type order N2)",
+          "var_7070a94c readers beyond spawn.gsc:291 (none further found; native/hashed unknown)",
+          "isbot()/getteammask builtin acceptance (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-D-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00866",
+          "sha256": "dcd51ef1d4ffe5c8945631ec9f9f74ce539c030119dbf9e406d7ae81c98d93dd"
+        },
+        "report_pointer": "/unit_reviews/1",
+        "decision_canonical_sha256": "70f56b66c8a416b815aa948583ae03a8ba534d45b90933300766a22ad45fecb2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire frozen correction wrapper and complete current wrapper.record, original complete claim/evidence, explicit current replacements/projections and necessary exact source/caller/callee/callback/constructor/error witnesses, including unchanged written claims. Static recovered-source/request and data/history scopes only.",
+        "limitations": [
+          "Pinned recovered-source written scope only. Original bytecode/source-to-PS4/build/native/VM bindings, effective settings/assets/data, unknown providers, online/server code, callback delivery and runtime behavior are not established.",
+          "Historical owner/author/reviewer/model/status/credit strings retain their original history or unproved provenance. All 12 historical reports remain UNIMPORTED; their original author and route remain unknown.",
+          "Locator/hash/format/receipt checks do not prove behavior. Native/provider errors, original source fidelity, dynamic global/class identity and actual invocation retain the explicit subject limits.",
+          "No new function completion, whole-mode completion, runtime, build, native, VM or manager acceptance credit. This report reviews only the frozen current version; later author copies are outside this verdict."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00111",
+        "sha256": "b57edf7bac107f345bfd6aa5a340d936abc1e69e0ea99e7bac2043f7dafc189f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "45782c25073550a2ea24eb229d5c65c2eda7eb2a4dd14f319b83a06e052234d9",
+      "citations": [
+        {
+          "line_start": 42,
+          "line_end": 114
+        },
+        {
+          "line_start": 120,
+          "line_end": 190
+        },
+        {
+          "line_start": 276,
+          "line_end": 278
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:warzone-setup",
+        "answer": "Caller path (source-verified): native gametype_start -> callbacks_shared.gsc::codecallback_startgametype (1177-1184) -> globallogic::callback_startgametype 5175 [[level.onstartgametype]] -> warzone.gsc::on_start_game_type (556-588). The pointer default &blank (globallogic.gsc 466) is overridden by warzone.gsc::main 92 at native gametype_init; note 5173's gametype::on_start_game_type is the SHARED generic (gametype.gsc 40-56), NOT warzone's - the warzone body runs only via the mode pointer on the same driver thread, so every statement below is source-sequenced BEFORE thread startgame() is spawned at 5179. Startup item matrix (item -> consumers -> dependency effect): (1) level.callbackplayerlaststand = &laststand_warzone::playerlaststand (558) - overrides the set_default_callbacks default (mp_common/callbacks.gsc 75); consumer = native laststand pointer dispatch family (H005 boundary). (2) [excerpt; exact source record identified separately]",
+        "behavior": "warzone.gsc::on_start_game_type (556-588) runs via [[level.onstartgametype]] (driver 5175) after the shared generic. Item matrix: callbackplayerlaststand/displayroundendtext/usestartspawns overrides (558-560; usestartspawns consumed by spawning_shared 370-398 and wz spawn 276-278); var_992e9235 write561 with no literal reader found in the bounded lookup (dynamic/native consumers unresolved); SPAWN thread function_e93291ff building var_7767cea8 destination store (562; consumers wz spawn 120-190 guarded isdefined); staging pointer var_86513cd0=&function_3b0db3c2 (563) consumed by prematchperiod globallogic 4644-4647 (body 604-612: prematchperiod=max(,5), banter start/wait/stop, advertisement 0) - blocks startgame until pregame release notify hash_78e53817cafb5265 (producer function_73b0f715 1877-1893 via lobby-fill watcher 458/test 358/dev 294/895); insertion-gate callback hash_774be40ec06 [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "native spawn-controller consumer of spawning_allowed (unproven; the exact read side is a native flag-space query)",
+          "effective values of the three setting-backed vars (var_4cea2bec/var_6c900548/var_e16a689f) and deathcirclerespawn/startplayers etc. - no recovered producer in the three recovered layers; native absent-key return + online layer unknown (g1 unit 4 partial)",
+          "thread completion order of spawn::function_e93291ff / function_6ee52dd0 / function_5db32126 vs startgame (f2 N4)",
+          "warpilotbail handler function_8e7ae35 and function_8076d591 internals (voice/audio consumers - H005/H006 boundary, not expanded here)",
+          "client-VM warzone.csc clientfield callback bodies (function_2985ca96/function_a1b40aa4) - outside this question's server-side chain"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/14",
+        "decision_canonical_sha256": "b4ccc587f48e0825ba1a6df6c6b870f4ff2d4ee329f48bfcfb5331636ebc4647",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00113",
+        "sha256": "257e36c53b8e992faab2bfe3ac40e3b38756a0342263c93b727e7ed348a22746"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "49b2d165a51d9354c5d0bb3c2d9017152b110228c6a6b08fbeb6b43d3d4ed511",
+      "citations": [
+        {
+          "line_start": 276,
+          "line_end": 279
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:may-spawn",
+        "answer": "Exact predicate state (664-692) applied ONLY to the wz join/spawn callers, with each input's producer: [IN1] dynamic level.mayspawn override (666-669) - the ONLY corpus writer is ct_bots.gsc:34; no literal Warzone writer was found in the pinned lookup; effective delegate presence remains conditional, with computed/native/hashed writers unresolved (if defined and the delegate returns false -> deny). [IN2] queued-respawn deny (671-674): level.playerqueuedrespawn (producer getgametypesetting(#\"playerqueuedrespawn\") globallogic.gsc:4932; effective value for wz playlists unknown) && self.allowqueuespawn undefined (cleared by spawnclient at 1565; set only by spawnqueuedclientonteam:1415 when a queued dead player is released) && !level.ingraceperiod (globallogic.gsc 5109 set; warzone.gsc 706 cleared in start_warzone) && !level.usestartspawns (globallogic.gsc 4928 set; cleared in wz spawn.gsc::o [excerpt; exact source record identified separately]",
+        "behavior": "mayspawn() (664-692) is a per-player boolean permission predicate over level/player fields; for wz: dynamic delegate arm conditional on actual definedness/value; literal writer absence does not prove inertness, queue deny armed only when playerqueuedrespawn is truthy AND no allowqueuespawn AND outside grace/start-spawns, elimination/deadline/eliminated denies conditional on wz settings/state, tail lives-gate with a conditional var_60507c71 arm; neither that state nor dynamic delegate/iseliminated values are established by literal writer absence.",
+        "unknowns": [
+          "Effective playerqueuedrespawn / var_c2cc011f settings values for warzone_heavy_metal_heroes playlists (no recovered producer rows; g1 standing)",
+          "game.state native transition semantics (inferred only via comparisons; N2 retained)",
+          "Whether any native/hashed wz code writes level.mayspawn or var_c2cc011f consumers beyond found lines (unobserved, not claimed)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/18",
+        "decision_canonical_sha256": "5cb03ed08e66d8ab49d30ef35085b74c3185811450ec3023379f6d9f8b3c4400",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00335",
+        "sha256": "d33f41f5173a18ecfa355125edac7344be660195c9fe92cbeb79f84c4609e8b9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bbd0d32250fdd414246f5d1e85950684c33aeda6861e5d6691e0c7a702b23295",
+      "citations": [
+        {
+          "line_start": 476,
+          "line_end": 486
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:warzone-spawned",
+        "answer": "Existing full body connected to lifecycle phases, with settings kept conditional. Delivery into the body: globallogic_spawn::spawnplayer tail (1062-1063) notifies spawned_player and dispatches callback::callback( #\"on_player_spawned\" ) (level+self dual-table per f2 record 10) to the wz registration warzone.gsc:152 callback::on_spawned( &on_player_spawned ) (store add_callback \"on_player_spawned\" callbacks_shared.gsc:329). Phases in the body 823-930: [P1 gates] 825-826 endon death/game_ended; [P2 HMH perk gate] 828-832 getgametypesetting(#\"wzheavymetalheroes\") defined-truthy -> setperk specialty_doublejump/specialty_fallheight - the named source reads wzheavymetalheroes here; its producer and effective value remain unresolved. Old g1/g2 producerless/zero-match labels are preserved as historical context only and do not establish current absence; the same setting feeds item_inventory 1112-1 [excerpt; exact source record identified separately]",
+        "behavior": "warzone.gsc::on_player_spawned (823-930) is the on_spawned-callback lifecycle body: gates, settings-gated perks, origin capture, counts dirty flag, character fields, lives/redeploy UI clientfields, staging pregame early-return with start gate, insertion-type dispatch 0/1/2 to player_reinsertion functions; missing setting defaults to type0 at915 and dispatches case0; only unmatched values skip all switch branches; pregame staging never reaches dispatch.",
+        "unknowns": [
+          "Effective values of wzheavymetalheroes / wzplayerinsertiontypeindex / startplayers in an original HMH session (producer identity and effective native/online settings remain unresolved; the old g1 absence label is historical context only)",
+          "The other named laststand/player_insertion callee implementations are not established by this record alone; reuse their separate exact reviews where present. function_acdf637e439-448 has been read here as guarded source pointer-thread requests, with native/VM delivery unresolved.",
+          "The direct895 call is outside the separate developer192 call site. The complete threshold helper1877-1893 has been inspected: non-pregame returns, dedicated sv_wznostartever can return, otherwise it requests the release notification1892. Effective runtime state/dvars and notification delivery remain unknown.",
+          "Native ordering between on_player_spawned dispatch and any native spawn finalization (retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00872",
+          "sha256": "9898dfc3f803dfc01a3c2cabadc11f54c615c862e935d375a395176b8338a41c"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "881ef561315a847e5b040220d5889b9eca8aad08945dbfc32700816774436419",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every current answer/behavior/trace/evidence/history/limits field and original claim; exact spawned body and required callback dispatcher,staging,count,lives,death-circle,reinsertion branches and gates.",
+        "limitations": [
+          "Pinned recovered-source scope only; original loader/table/global/receiver identity,overwrites,VM numeric behavior/native providers,effective settings/data/assets,server/service and actual delivery/lifetime/rendering remain unproved where the record leaves them open.",
+          "Historical author/status/reviewer/provenance strings are preserved data. The12 old raw reports remain UNIMPORTED with unknown original authors/routes; this review supplies no missing historical identity or route proof.",
+          "Zero runtime,original-build,native,VM,function-completion and whole-mode completion credit; source cases are static traces,not emulator or game executions."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00323",
+        "sha256": "a6b9d3cd48314b4e9a4549400cb2ea0b709b0b056c53d93554bf5202bbb4e412"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d30917026fd7e394f6e35792213946dc5ff6d22703fddb6f746e4a5a03990f2f",
+      "citations": [
+        {
+          "line_start": 262,
+          "line_end": 282
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:connect-entry",
+        "answer": "This bounded wz on_player_connect consumer initializes per-player state through a registered callback. It does not establish the presence or absence of all script-level HMH admission/permission checks. Registration: warzone.gsc::main (event_handler[gametype_init], 64-202) calls callback::on_connect(&on_player_connect) at 153, stored via callbacks_shared.gsc::on_connect 273-276 as add_callback(#\"on_player_connect\", func, obj, vararg); core store add_callback/function_2b653c00 113-169 (append3-tuple (array::add third argument0 forbids duplicates; array[array.size]=item appends), dedup, obj death-waiter) per g3 record. Delivery requires the native player_connect event (native boundary, unobserved in this packet): event_handler[player_connect] codecallback_playerconnect (callbacks_shared.gsc 1190-1194) -> [[ level.callbackplayerconnect ]]() -> level.callbackplayerconnect = &player::callback_ [excerpt; exact source record identified separately]",
+        "behavior": "wz on_player_connect (warzone.gsc 756-762): var_63af7f75 = -1 (opaque slot; definedness read at spawn.gsc266; no further literal semantic consumer identified); var_c5134737 = 1 (opaque flag; no corpus reader; cleared spawn.gsc:281, re-set player_reinsertion.gsc 691/718); level function_22df4165() sets level.var_22df4165 = 1 dirty flag consumed by the on_start_game_type-threaded watcher 5db32126 -> e91890a7 counts; wz_progression::player_connected(). Registered at warzone.gsc:153 in the wrapper block 150-157. This initialization scope is not proof of blanket join-permission absence. The pipeline first waits for begin39 and frame-end46; later spawnclient326 and prediction339 are distinct guarded thread requests, with actual admission, event delivery and scheduling unproved.",
+        "unknowns": [
+          "Meaning/consumer of var_63af7f75 beyond spawn.gsc definedness read266 and writes268/273 (further literal/computed/native consumers unresolved)",
+          "Meaning/consumer of var_c5134737 (write-only pattern: 1 connect, 0 spawn hook, 1 before spawnclient in insertion)",
+          "wz_progression module bodies (player_connected/player_disconnected) outside packet",
+          "function_e91890a7 tail beyond 2032 (count consumers)",
+          "Native event order: gametype_init/on_start_gametype vs first player_connect (N2, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/71",
+        "decision_canonical_sha256": "56392511c2d88f514faa6b99ec76ff5ed355fa752b1c82cc6444deddb68ae34f",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00325",
+        "sha256": "6776f58ca62a884350a4b22f2b664f9f4328461e38bf01969f39b3047e84cdb8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e205a62e445d16fbdb95478c17afcfa98425c03b3c6b7d3270312c5faba9c990",
+      "citations": [
+        {
+          "line_start": 120,
+          "line_end": 129
+        },
+        {
+          "line_start": 439,
+          "line_end": 470
+        },
+        {
+          "line_start": 45,
+          "line_end": 103
+        },
+        {
+          "line_start": 145,
+          "line_end": 157
+        },
+        {
+          "line_start": 327,
+          "line_end": 341
+        },
+        {
+          "line_start": 120,
+          "line_end": 129
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:release-queued",
+        "answer": "The post-start_warzone helper function_cb5864fc (120-129) is NOT a player queue release: it is a destination-struct cleanup pass. Exact body: only when level.var_7767cea8 is defined (122), foreach dest in level.var_7767cea8 -> function_3b1d0553( dest ) (124-127); function_3b1d0553 (439-449) iterates targets = struct::get_array( dest.target, \"targetname\" ) and calls function_178abfd on each, then on dest itself; function_178abfd (455-470) requires level.struct to be an array (457 isarray guard) and removes the FIRST exact-identity (===) match from level.struct by writing undefined (462-468, early return after first removal). NO player is spawned, queued, or released by this body (prior HMH-S1-PLAYING-SETUP contract statement reused verbatim). Iteration assumptions recorded exactly: (a) level.var_7767cea8 was installed by function_e93291ff as a list of at most 5 destination structs with de [excerpt; exact source record identified separately]",
+        "behavior": "function_cb5864fc() (120-129): defined queue -> foreach dest -> function_3b1d0553(dest); removes each selected destination struct and its target structs from the level.struct array (first-match identity removal); no player spawn/queue/release; no queue clear.",
+        "unknowns": [
+          "Whether level.struct gets compacted after the undefined writes by some other corpus consumer (not searched beyond this packet's consumers; unobserved)",
+          "Effective destination struct data per map (map data gap retained)",
+          "Native reachability of post-cleanup override_spawn spawn at detached struct (unobserved)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/77",
+        "decision_canonical_sha256": "504ecd42847e3c2394aab095137977dcb5f1b7343af99efb001ef2f38fc1bb5b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00449",
+        "sha256": "85602ada5d67b4d538d11f1b9835bbd006876841bfa7c88bb2614bfad276331b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e56bdda6d40ae115012ea07a4297dddd105663a0b782822a39096bc9f3d75515",
+      "citations": [
+        {
+          "line_start": 120,
+          "line_end": 129
+        },
+        {
+          "line_start": 327,
+          "line_end": 341
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:warzone-start",
+        "answer": "Source-visible ordered handoff of warzone.gsc::start_warzone (677-727), reusing the two prior records verbatim (unit-context/0005.json: obs-23f93f79c48ef4c3c8ccfc4c = coverage-ledger records/2552 HMH-S1-PLAYING-SETUP bounded_source_semantic_contract; obs-f4c42a69e84c5efbbe2f183d = h004 accepted_reuse/33 reused_verified) - that no-reauthoring label describes the historical author delivery only; this separately corrected current trace keeps that reuse lineage and qualifies its current claims below. The retained source-order limit is: source order does not prove thread/event completion order or that code after the insertion controller executes before actual player placement. Entry: delivered as a THREADED on_game_playing fan-out target (unit 4; registered at warzone.gsc 155), so only the statements below have source order; deliveries in a NEW thread. Ordered handoff with consumer/callback-a [excerpt; exact source record identified separately]",
+        "behavior": "start_warzone ordered handoff: [notify start_warzone (matching cancellation request for another thread's level endon362; actual delivery/termination unproved)] -> conditional infection team setup (681-685, opaque callees) -> advertisement status0 (688 script wrapper forwarding to native changeadvertisedstatus) -> dvar/custom-gated teams::function_a9822793 (689; body 656-671) -> conditional death-circle reinsertion registration hash_3057417db7f8acdd (691-694; handler 2649-2676 = spawning_allowed set/reinsertion/clear cycle) -> online+dvar function_f539d880 (696-699, ABSENT definition) -> two unconditional ABSENT-definition calls function_65469e2e/function_d547b972 (701-702; corpus absent) -> thread function_fbb2b180 (703; 733-750 waits insertion_teleport_completed, resets dynents/glass/death models, sets hash_507a4486c4a79f1d for item/wz consumers) -> thread wz_ai::ai_init (704; AI = H006 [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "three absent-definition callees (f539d880/65469e2e/d547b972) - retained, owned by the standing N1/bundle question",
+          "actual teleport/presentation completion vs the 706+ tail (prior S1 limit retained; real insertion is H004)",
+          "infection::function_74650d7/function_fb163563/function_153000d0 internals (not asked for; g1 infectionMode producerless carried)",
+          "level.var_bde3d03 target &function_b777ff94 body (beacon system, H004/H006 boundary)",
+          "effective survey_chance/survey_count/hash_6aad986495699040 dvar values in the original build (dvar space)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/79",
+        "decision_canonical_sha256": "07f91fe86160f596b89255f8af7ca5e1cc0549a8b659e0bd4ab1b14115438419",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00115",
+        "sha256": "3d5e00cae672c4c27aa1bfc9550915898758c7239791827066b85fbcfda03c47"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/d5119ba1140fd904.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0240",
+    "AV0241"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/e0baba543c0d9a28-001.json",
+      "sha256": "2b6af456f64718f550732d1ef1a5d0bebbcddb5aac940406a7547a2c8d0a0b3b"
+    }
+  ]
+}

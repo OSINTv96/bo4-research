@@ -1,0 +1,154 @@
+{
+  "module": "src/scripts/killstreaks/mp/supplydrop.gsc",
+  "identity": "scripts/weapons/tacticalinsertion.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "tacticalinsertion",
+  "witnesses": [
+    {
+      "line": 2354,
+      "text": "        player.tacticalinsertion thread tacticalinsertion::fizzle();",
+      "caller": "is_equipment_touching_crate",
+      "caller_span": [
+        2320,
+        2356
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2350,
+          "opening_line": 2353,
+          "ending_line": 2355,
+          "text": "if ( isdefined( player ) && isdefined( player.tacticalinsertion ) && self istouching( player.tacticalinsertion, extraboundary ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "fizzle",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/c32a9b72055df67b.json",
+          "pointer": "/claims/0",
+          "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+          "citation": {
+            "line_start": 44,
+            "line_end": 44
+          }
+        },
+        "entry_function": "__init__system__",
+        "entry_span": [
+          42,
+          45
+        ],
+        "local_references": [
+          {
+            "from": "__init__system__",
+            "to": "__init__",
+            "line": 44,
+            "form": "stored_pointer",
+            "text": "    system::register( #\"supplydrop\", &__init__, undefined, #\"killstreaks\" );"
+          },
+          {
+            "from": "__init__",
+            "to": "function_200081db",
+            "line": 74,
+            "form": "stored_pointer",
+            "text": "    ir_strobe::function_8806675d( #\"supplydrop_marker\", &function_200081db );"
+          },
+          {
+            "from": "function_200081db",
+            "to": "helidelivercrate",
+            "line": 903,
+            "form": "local_call",
+            "text": "    self thread helidelivercrate( context.selectedlocation, bundle.ksweapon, self, team, killstreak_id, killstreak_id, context );"
+          },
+          {
+            "from": "helidelivercrate",
+            "to": "helidropcrate",
+            "line": 3597,
+            "form": "local_call",
+            "text": "            chopper thread helidropcrate( level.killstreakweapons[ weapon ], owner, rear_hatch_offset_local, killcament, killstreak_id, package_contents_id, context, drop_origin );"
+          },
+          {
+            "from": "helidropcrate",
+            "to": "dropcrate",
+            "line": 3847,
+            "form": "local_call",
+            "text": "        thread dropcrate( drop_origin, angles, killstreak, owner, team, killcament, killstreak_id, package_contents_id, crate, context, var_83f3c388 );"
+          },
+          {
+            "from": "dropcrate",
+            "to": "cratecontrolleddrop",
+            "line": 1823,
+            "form": "local_call",
+            "text": "        crate cratecontrolleddrop( killstreak, ( v_target_location[ 0 ], v_target_location[ 1 ], v_target_location[ 2 ] + 10 ) );"
+          },
+          {
+            "from": "cratecontrolleddrop",
+            "to": "watchforcratekill",
+            "line": 1602,
+            "form": "local_call",
+            "text": "    crate thread watchforcratekill( v_target_location[ 2 ] + ( isdefined( params.ksstartcratekillheightfromground ) ? params.ksstartcratekillheightfromground : 200 ) );"
+          },
+          {
+            "from": "watchforcratekill",
+            "to": "is_touching_crate",
+            "line": 2064,
+            "form": "local_call",
+            "text": "            crate is_touching_crate();"
+          },
+          {
+            "from": "is_touching_crate",
+            "to": "is_equipment_touching_crate",
+            "line": 2270,
+            "form": "local_call",
+            "text": "        self is_equipment_touching_crate( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          216,
+          236
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0344",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/weapons/tacticalinsertion.gsc",
+    "sha256": "b7598a32572cd91be8b2b544899ec38393b008cd64cd0834e41cb26873902812",
+    "git_blob_sha1": "7016938c0e73223dbc46d8e63a3ba4482f67b8c2",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    2354
+  ],
+  "required_callee_functions": [
+    "fizzle"
+  ],
+  "output": "src/scripts/weapons/tacticalinsertion.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/weapons/tacticalinsertion.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N05974",
+        "to": "N05989",
+        "line": 2354
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

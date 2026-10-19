@@ -1,0 +1,199 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/gametypes/battlechatter.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "2d9eab2e78e820d8ef3e65842d0a7d185c7782532aa8e02f355c8d84b1a9e82b",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/526",
+        "record_sha256": "ae01e9fb50b6c4617731b7b184fd02d7d4c89081fe1b709bcce55bba7f7a49a5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "59eeff53af5710f7c22bc2edf16c547943eed08ec70f05e29c867579a0560e9b",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/525",
+        "record_sha256": "828d0ee5e223ca90930ff91c31367f809f05b089e0f8a3307c56762506623d36"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "5bb372de2dabef5fdd18eded18329912cc1039ee6bf2c715121b9eae10feae1a",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/953",
+        "record_sha256": "ee2a41dccfd5dbb2c5d1a51faff42c8382f6e90148b7d8a338e170d25fbfe164"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "6799c371cdee95571a9c1e446b8224e97d5849d12f1f692e3119c98bf76d5557",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:dialog",
+        "answer": "allowbattlechatter and allowannouncer: neither key is set by any recovered HMH layer (corpus-wide script/tables search zero matches; absent from frontend 8360-8592, TU23 8719-8980, gametype def 8244-8639 and anchor bundle). allowbattlechatter PRODUCERS (script copies, all reading getgametypesetting(#allowbattlechatter) at init): mp_common/gametypes/battlechatter.gsc:109 stores raw (no isdefined guard): level.allowbattlechatter[bc] = getgametypesetting(#allowbattlechatter); mp_common/battlechatter.csc:27 uses isdefined&&value guard (client copy); core_common/dialog_shared.gsc:83 repeats the same raw store in a separate core_common system (dual install of the same setting, matching m1's dual-install note). CONSUMER GATES: battlechatter.gsc:333 skips specialist conversation when level.splitscreen || !level.allowbattlechatter[bc]; battlechatter.gsc:153-154 builds allowspecialistdialog/playstartconversation as mpdialog.enableherodialog/enableconversation AND allowbattlechatter[bc]; dialog_shared.gsc:116-117 same product expressions. The mpdialog bundle enableherodialog value lives in mpdialog_default bundle data NOT in the script corpus (m3 unit-9 unknown retained). allowannouncer: producer globallogic.gsc:5049 level.allowannouncer = getgametypesetting(#allowannouncer) (raw, no guard); consumer per m1's globallogic_audio record â€” announcer queue insertion first requires defined dialogkey and truthy level.allowannouncer, then either defined truthy self.playleaderdialog or defined truthy introdialog; the latter bypasses the player flag. Later queue guards still apply (see reused_records). Native defaults and actual audio delivery remain unknown. Absence semantics, kept conditional: for battlechatter.gsc:333 the gate blocks chatter when level.allowbattlechatter[bc] is falsy; under BOTH absent-key hypotheses (native returns undefined or 0) the stored value is falsy, so IF battlechatter init runs in the wz VM with no producer, the 333 gate blocks â€” the only escape is a native non-falsy return for the absent key, which is never observed in-source. For allowannouncer at 5049 an undefined return leaves level.allowannouncer undefined (falsy) â€” same conditional. ABSENT IS NOT FALSE as a data fact: no layer writes 0; the falsy outcome is a conditional consequence of the exact script expressions given an unproven native default. HMH-side leader-dialog key selection is separate: warzone.gsc:169-184 picks only among wzspectrerising/wzhardcore/wzzombieapocalypse (all absent from HMH layers) falling to key startWarzone â€” again conditional on absent-key falsiness.",
+        "behavior": "dialog: allowbattlechatter/allowannouncer candidates resolved to their three/four producer sites and consumer gates; absent-setting outcome recorded as conditional falsy, not data-false; mpdialog bundle and native default kept as gaps.",
+        "unknowns": [
+          "Effective value of getgametypesetting(#allowbattlechatter) and (#allowannouncer) in HMH sessions (no recovered producer)",
+          "Native absent-key return (undefined vs 0)",
+          "mpdialog_default bundle enableherodialog/enableconversation values",
+          "Whether battlechatter/dialog_shared system init runs in the wz/HMH VM (native script-bundle question)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00400",
+        "sha256": "b98d0e97898e8e430b7b2829e36cc7e7fb98558f755b59dd5f3a28425dfbe156"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "865701a11ec200ef75f4db12876a0cf62fd9b7174187b28eb291b3fcecb3f74a",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/527",
+        "record_sha256": "4c4b65cd6280dcff44158e6944074b5c2b3b185f1e4abd73ab629a600c5e32b2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+      "summary": {
+        "unit_id": "scripts/mp_common/gametypes/battlechatter.gsc::function_f5c48bfa",
+        "behavior": "Non-dev battlechatter specialist dialog for enemy-destroyed gadget/equipment: gates in order - level.allowspecialistdialog true; attacker defined and isplayer and lacks perk specialty_quieter; gadgetweapon defined and NOT (owner defined and owner==attacker); attackerweapon (when defined) is not a killstreak weapon (killstreaks::get_from_weapon undefined); attacker has an mpdialog_player bundle; switch on gadgetweapon.name across 14 equipment identities (eq_sensor, gadget_spawnbeacon, claymore, eq_concertina_wire, gun_mini_turret, dog_ai_defaultmelee, seeker_mine_arc, ability_smart_cover, gadget_supplypod, eq_tripwire, trophy_system, eq_emp_grenade, eq_hawk, eq_shroud) with default return; on match threads function_5896274(mpdialog_value(enemyKillDelay,0), dialogkey, 2, undefined, undefined, cancel_kill_dialog) and for seeker_mine_arc additionally function_a43a3519. HMH-path limit: level.var_d2600afc is stored unconditionally in battlechatter __init__ (line 48, non-dev); 17 literal field-dispatch statements across14 files in2632 pinned GSC/CSC files; one statement/file is Zombies-only, leaving16 non-Zombies statements across13 files. The non-Zombies dispatch sites retain defined-pointer and their own weapon/attacker/owner/mode guards. The target also retains its dialog/player/perk/gadget/owner/weapon/bundle early-return gates. These are conditional potential source destroy routes; imports or a different battlechatter call do not prove those routes load or execute in an actual HMH VM; the dialog side effects require the HMH value of level.allowspecialistdialog (mpdialog bundle enableherodialog x getgametypesetting(allowbattlechatter)), which is unknown in this packet. The historical audited exclusion (sensor_dart wrapper function_4db10465 threading function_c142e8ec(undefined,undefined) so line 326 fails) is a path-level exclusion only - the same function_c142e8ec still dispatches at 338 for defined enemy attackers, and 15 other non-Zombies call sites (plus the separately scoped Zombies site) are untouched; no global exclusion is proposed.",
+        "unknowns": [
+          "Original-build presence of battlechatter in the warzone VM and the runtime value of allowbattlechatter/enableherodialog for warzone_heavy_metal_heroes",
+          "Which destroy drivers reach each of the16 non-Zombies dispatch sites in HMH matches (the17th site is Zombies-only) (event/native damage delivery unproven)",
+          "function_5896274/function_a43a3519 dialog delivery and native audio outcomes",
+          "getmpdialogname home file and bundle semantics",
+          "zm_weap_mini_turret call site VM scope (zm context only, not HMH)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00411",
+        "sha256": "9e591d0ec98fa5549ed8b13b44cabbcf7202a924dae454fcab966b6867c0a43c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "140d8d1ca26cf439d0732b0137196f584000d438b47076234ddcbf9abe95332f",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/165",
+        "record_sha256": "65b4cc1ca268057b0fa5d2bbd27938e4800edbb3360b4f6f02337145be0cb095"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "1d6cc2c9078f59253192dd0395741ef26af2a03ddaacf43c52d97b9375078cb1",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/166",
+        "record_sha256": "4a23bacecc59362689f10ac42c08e5b191a4c2ec796b115b22c2e49ed7a2df3e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "8547a04d5464a4b92449a58cf2e84dbeef21d61912aa6a1756428e0efcd51be0",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/166",
+        "record_sha256": "4a23bacecc59362689f10ac42c08e5b191a4c2ec796b115b22c2e49ed7a2df3e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5c4e0daeb1a28816.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "d5d8c476513c898cea815337945d27e1c23d8e53ce12ecdc57e993dc79af4a37",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/165",
+        "record_sha256": "65b4cc1ca268057b0fa5d2bbd27938e4800edbb3360b4f6f02337145be0cb095"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/weaponobjects.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/5864a8f19815cb10.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+      "summary": {
+        "unit_id": "scripts/mp_common/gametypes/dev.gsc::getormakebot",
+        "behavior": "Dev bot-finder/creator helper: scans level.players for a player on the requested team with isbot() true and returns it; otherwise bot::add_bot(team); if defined, plays sound marker x617 on players and waits 1; returns the bot entity. HMH-path limit: the function body and all recorded callers are dev-delimited. Pointer store level.devongetormakebot=&getormakebot happens only inside the dev block of the NON-dev dev.gsc __init__ (51-53); dev system registration itself is dev-delimited (autoexec 35-38). Inbound edges: four in-file dev callers (updatehardpoints 191, addenemyheli 1755, addtestcarepackage 1845, force_grenade_throw 2832), mp rat rscaddenemy:66 dev::getormakebot(team), and two dev dvar-poll field-dispatch consumers (killstreak_hacking::killstreak_switch_team 232-234 gated on isdefined(level.devongetormakebot), weaponobjects::switch_team 3787-3789 same pattern). The observed pointer store and both field-dispatch consumers are developer-delimited. If a consumer is included and reached, its defined-pointer guard/fallback applies. Original-build inclusion, effective pointer writers/values, VM loading and invocation remain unknown; omitted consumer code does not execute a fallback.",
+        "unknowns": [
+          "Whether dev-delimited dev.gsc content exists in the original PS4 script VMs for any VM that HMH loads (exact original-build evidence still needed)",
+          "Recovered source importer is globallogic.gsc81 #using scripts/mp_common/rat, reached in the Warzone source closure through warzone.gsc30. Actual original VM loading/execution remains unproved.",
+          "on_start_gametype / on_connect native dispatch timing",
+          "bot::add_bot contract (m1 scope) and sound marker x617"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00338",
+        "sha256": "474625b951fa3b88b32fa3ec8a7056643601efa164f08f040683a71e2c2d5f87"
+      }
+    }
+  ]
+}

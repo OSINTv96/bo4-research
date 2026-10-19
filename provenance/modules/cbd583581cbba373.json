@@ -1,0 +1,304 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/uieditor/widgets/genericpopups/toastnotification.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+  "git_blob_sha1": "65fd23d9d3f0ce8b880cb8fc3a3bd64c4907b16d",
+  "output": "src/ui/uieditor/widgets/genericpopups/toastnotification.lua",
+  "output_sha256": "f17c80896a30fdfdb4ef3cdf522a5ab15a44c7891e38ee0ecc194cd4cb688a2e",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/genericpopups/toast_container.lua",
+      "original_line": 4,
+      "output": "src/ui/uieditor/widgets/genericpopups/toast_container.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/genericpopups/toast_container.lua",
+        "sha256": "ec4927ee9b88066e6b9e20ed05a53fbd3b69f0dd76d8d66b80220288d29ae537",
+        "git_blob_sha1": "48f8addcc7648ed298e358a905630ba08915772d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "3dbc944583fba3395d13e3d3eaaff81f0d387c45720b82e7257794117867ca4c",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:061",
+        "answer": "Locks input and marks UI active for every controller, starts video-event setup and builds main menu. It tracks reload-close children, closes them before reload setup, builds toast/spinner/optional warning/free cursor/overlay, polls UI3D readiness and cancels that timer when ready. Music subscription removes the previous subscription, replaces/closes delay timers, and plays only a nonempty state name. Debug reload clears children then rebuilds. Its close hook references element.toastNotification although the local toast is not assigned to that field in the selected text; preserve this external/fidelity assumption.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Selected recovered source has an explicit scope/control-flow/field assumption described in answer; original executable semantics are not guessed or repaired."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/334",
+        "decision_canonical_sha256": "754e5202a1d6b07206886a7be3802d15fd141f94eee5edc8a13c6f0a1227704c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/60",
+        "record_sha256": "97ac882a03c4f62c2a1485ba1e243dc9701726304323a891d61ddf473b0e18cb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dc1984cfcbb22a77a1f7ae618e1c2e768a0ea8c0e71328f4851a49cf08bd008e",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:067",
+        "answer": "Sets CodCaster/prompt models and delayed menus, creates/tracks toast, temporarily resets playerSpawned, reuses or creates shared HUD, and selects Hud_WZ when Warzone or gametype warzone. CodCaster MP branch explicitly excludes Warzone. Restores spawn model, attaches/opens/focuses mode HUD, updates score/demo widgets and removes old draft subscription. PC+Warzone gets occlusion handlers; draft-stage subscription is multiplayer-gated. Keep engine flags/alias consistency and private helper bodies unresolved.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/47",
+        "decision_canonical_sha256": "2077074ad2fed944b04bcc2b15722540080039b01a6d356d49f21376b7cfb696",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/66",
+        "record_sha256": "37f387994b72f91038c5ad446a2729d7c076c5f6762adb76b07d611934c9f35a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f520bcdec60bf729c1d12723aa2603ef904f551439db048768258c20ad95ec1b",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 9,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 31,
+          "line_end": 31,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 12,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 15,
+          "line_end": 15,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 16,
+          "line_end": 16,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 17,
+          "line_end": 17,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 18,
+          "line_end": 18,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 26,
+          "line_end": 26,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 36,
+          "line_end": 36,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 39,
+          "line_end": 39,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 45,
+          "file_sha256": "8fe513653b994f2a25b61b3710f53aa4e0fd69455e40b572d82cc8d7c1107bd3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:224",
+        "answer": "Initializes FrontendToast.notify=false and creates state/kicker/description/icon/emblem/background controller models. It builds ToastContainer and a Sound element, assigns focus/ID, installs close and optional PostLoadFunc, then delegates InitToastContainer and returns self. Actual toast queue, audio/native/asset delivery and progression/services remain unproved.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1154",
+        "decision_canonical_sha256": "80c10fbbfc9ba71b9cde98f4efb2f046d0c178a43cf387d95de7767e82136fc6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00362",
+        "sha256": "49dd873c8ac739e6718670ece537a786cfef35fab7e683048ae4b1c3b51b3e5b",
+        "pointer": "",
+        "record_sha256": "27239d34ccca6cd1ad9e8f223be9faf90de8bc19fe0d6f8f1aa738ea66f1fbb0"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/cfc97239e91bcfd3.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/cbd583581cbba373-001.json",
+      "sha256": "3be3ab43d26c04cb0761d07d2fd5049f0b7b52cc6983bc763114f093deb55ff8"
+    }
+  ]
+}

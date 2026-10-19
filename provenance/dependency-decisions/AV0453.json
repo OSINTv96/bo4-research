@@ -1,0 +1,171 @@
+{
+  "module": "src/scripts/wz_common/vehicles/dart_wz.gsc",
+  "identity": "scripts/weapons/heatseekingmissile.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "heatseekingmissile",
+  "witnesses": [
+    {
+      "line": 865,
+      "text": "    if ( !heatseekingmissile::insidestingerreticlelocked( ent, undefined, weapon ) )",
+      "caller": "isstillvaliddartmissiletarget",
+      "caller_span": [
+        827,
+        871
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "insidestingerreticlelocked",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          807,
+          811
+        ]
+      ]
+    },
+    {
+      "line": 889,
+      "text": "        player heatseekingmissile::clearirtarget();",
+      "caller": "disabledartmissilelocking",
+      "caller_span": [
+        877,
+        891
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 880,
+          "opening_line": 883,
+          "ending_line": 890,
+          "text": "if ( isdefined( player ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clearirtarget",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/6be33da2041b21e9.json",
+          "pointer": "/claims/0",
+          "selection_id": "6f2b3386dcae5b82ea78724c7720e30ce6c5ffaf04c824b54379298f44161a6b",
+          "citation": {
+            "line_start": 26,
+            "line_end": 42,
+            "sha256": "6a157f62343e92656a3cadb310876409b02969879d89b297b99d6c06cc2d290c"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          35,
+          42
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "function_79a59d11",
+            "line": 38,
+            "form": "stored_pointer",
+            "text": "    vehicle::add_main_callback( \"dart_wz\", &function_79a59d11 );"
+          },
+          {
+            "from": "function_79a59d11",
+            "to": "function_5f9c568d",
+            "line": 214,
+            "form": "stored_pointer",
+            "text": "    self.is_staircase_up = &function_5f9c568d;"
+          },
+          {
+            "from": "function_5f9c568d",
+            "to": "function_ea9fe221",
+            "line": 202,
+            "form": "local_call",
+            "text": "    player thread function_ea9fe221( self );"
+          },
+          {
+            "from": "function_ea9fe221",
+            "to": "disabledartmissilelocking",
+            "line": 657,
+            "form": "local_call",
+            "text": "        dart disabledartmissilelocking();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          41,
+          77
+        ]
+      ]
+    },
+    {
+      "line": 909,
+      "text": "        player thread heatseekingmissile::stingerirtloop( weapon );",
+      "caller": "enabledartmissilelocking",
+      "caller_span": [
+        897,
+        911
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 901,
+          "opening_line": 904,
+          "ending_line": 910,
+          "text": "if ( isdefined( player ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "stingerirtloop",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          282,
+          479
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0453",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/weapons/heatseekingmissile.gsc",
+    "sha256": "97a9bafb1e4eed00e4a6ca579b3bf7d373f9a507c3f1b35cf2dfec39a05c6ac0",
+    "git_blob_sha1": "f50f35eb4cc44cf284e50bc78ae98c9dbcc309db",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    889
+  ],
+  "required_callee_functions": [
+    "clearirtarget"
+  ],
+  "output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N05263",
+        "to": "N05515",
+        "line": 889
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

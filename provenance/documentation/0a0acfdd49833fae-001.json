@@ -1,0 +1,30 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_supply_stash.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/0a0acfdd49833fae.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "7ed3dd2b4b43f248225d2e798c781bb5c3e772c3509abbc417bc2aba003fb5ca",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:infection",
+        "answer": "infectionMode: configuration candidates and consumers, with NO name-based assumption. PRODUCER ABSENCE: the exact infectionMode key is absent from the three selected HMH rule objects and anchor; literal searches do not exclude computed names, hash aliases or other producers â€” script/tables search zero matches; absent from frontend 17 rules (8360-8592), TU23 19 rules (8719-8980), gametype def 28 rules (8244-8639), and the anchor bundle. GATE CHAIN (proved in source): core_common/infection.gsc init (22-36 family) calls initialize at26 when !isdefined(level.infection) && getgametypesetting(\"infectionMode\",0) at24; initialize34-37 itself unconditionally writes level.infection, so direct callers are a separate unresolved path â€” the native second argument 0 is the in-source default here, so this guarded caller alone does not establish effective level.infection state; direct initializer callers, computed names, aliases and unavailable data remain unresolved; core_common/infection.csc:29 gates the client side with isdefined&&value on the same key; wz_common/wz_supply_stash.csc:41 additionally gates stash behavior on infectionMode. The wz infection system self-gates with function_74650d7() == isdefined(level.infection) (wz_common/infection.gsc __init__ 33-56 per prior m1 mapping: __init__ returns early (35-38) without level.infection; only then does it register the bare-hands infected weapon (41), clientfield infected (42), on_player_killed_with_params + killed handlers (43-44) and callback::on_spawned (45)). ADDITIONAL CONDITIONAL CONSUMERS: both wz_common_mode_pandemic_fixup.gsc/csc19 use hashed lowercase #\"infectionmode\" to register eight ammo replacements (21-28) plus a stash-parent replacement29. Keep this distinct from string \"infectionMode\" until hash/native equivalence is proven. CONSUMERS (from prior m1/m2 mapping, reused): wz infection spawn consumer (respawn-from-dead infected animation), killed-attacker accounting (wz_common/infection.gsc 43 -> callbacks_shared 471-473 -> player_killed.gsc dispatch 377), door dynent damage amplifier (infection.gsc __init__ 47 thread function_16e24b6c 449-463). NAME-BASED ASSUMPTION EXCLUDED: no script anywhere ties the gametype identity warzone_heavy_metal_heroes (or get_game_type comparison) to enabling or disabling infection; the listed guarded caller uses infectionMode and consumers inspect level.infection, but initialize itself is an unconditional write and other direct callers remain unresolved. warzone.gsc:857 calls infection::function_74650d7() inside on_player_spawned (853-859), i.e. the wz flow CONTAINS infection checks that would run either way (function_74650d7 is defined in the infection namespace and returns effectively isdefined(level.infection) per prior mapping) â€” a false result follows only in the bounded example where level.infection is initially absent, only this guarded __init__ path runs, the native setting read returns the default-hypothesis0, and no direct initialize or other write occurs. An unset infectionMode key alone does not prove level.infection absent: initialize34-37 unconditionally writes the struct, __init__ preserves an already-defined struct, and function_74650d7 then returns true on definedness. Effective HMH session state, other/direct initializer callers, aliases, native setting semantics and runtime delivery remain unresolved.",
+        "behavior": "infection: infectionMode absent from the selected HMH objects/anchor, with dynamic names, aliases and other producers unresolved; server gate infection.gsc:24 uses native-defaulted getgametypesetting(\"infectionMode\",0); client gates csc:29 and wz_supply_stash.csc:41; wz infection system registration self-gated by isdefined(level.infection); no identity-to-infection link exists in source.",
+        "unknowns": [
+          "Whether the shipped build/online layer sets infectionMode for warzone_heavy_metal_heroes HMH sessions (no recovered producer)",
+          "Native application of the second-arg default in getgametypesetting(\"infectionMode\",0)",
+          "Which VMs load the wz infection scripts in an HMH session",
+          "is_infected producer path (who marks a player infected) â€” wz_common/infection internals owned by later step"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00130",
+        "sha256": "5ea36c6f7db06ff9ba3e829c8383236dee5729f5513b92ba7b03a38f15a1f660",
+        "pointer": "",
+        "record_sha256": "5d12da060d308b6d25c05dc3b9e110d2b4316b25e3384c259f1b48f71bdc0309"
+      }
+    }
+  ]
+}

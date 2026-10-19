@@ -1,0 +1,51 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/scene_shared.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/ed43da6968398707.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "79f8a7a2b66953425dd0c8e5b0483b37db29632de5987520b1f7c9a570db57b5",
+      "summary": {
+        "unit_id": "hmh07-deps7:013",
+        "answer": "Accept str_type,str_scenedef and implicit self for the fallback. Choose get_scenedef(str_scenedef) when the explicit name is defined; otherwise call get_scenedef(self.scriptbundlename). Set n_count to 0 after that fetch. Iterate every s_scenedef.objects element; only elements with defined type evaluate tolower(type)==tolower(str_type), and each match increments n_count once. Return the count after the loop. No skip for disabled objects or active-player/runtime checks exists locally. No guard validates the returned definition, objects container, str_type, self or string types.",
+        "unknowns": [
+          "actual bundle objects and effective types",
+          "get_scenedef data/provider failure behavior retained in reused records",
+          "VM foreach and tolower on malformed values",
+          "self binding when name is omitted"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00445",
+        "sha256": "a7bb2e5aea8ad75c41ab65ff86c473160dd796a9f767c1cb89e03414cd2434a5",
+        "pointer": "/units/12",
+        "record_sha256": "8dcc42260c81025330aa1e91020c89673992b00a30040e51424c2f4754ebaab8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ed43da6968398707.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "f1682a6cd7b26e2ff89a7dd9b0d54d76cb378baa351e992713c26c069e6a11f1",
+      "summary": {
+        "unit_id": "hmh07-deps7:014",
+        "answer": "This is the cscriptbundlebase class method error(condition,str_msg), not a global error function. On false condition return false without other work. On true condition, truthy _testing takes an empty branch; otherwise synchronously call assertmsg with _s.type, opaque dev separators, hashtostring(_str_name) and str_msg concatenated. If execution reaches the next statement, launch a new on_error thread on the implicit object context, then return true. Do not assume assertmsg returns: native assertion behavior may prevent the later launch/return. The on_error call can involve class dispatch/overrides; the declaration candidates are recorded separately without claiming the actual dynamic implementation. No error state is assigned by this body itself.",
+        "unknowns": [
+          "native assertmsg/hashtostring behavior and whether assertion permits continuation",
+          "actual receiver runtime class and on_error dispatch/override",
+          "_testing,_s,_str_name validity and final writers",
+          "opaque dev diagnostic strings"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00445",
+        "sha256": "a7bb2e5aea8ad75c41ab65ff86c473160dd796a9f767c1cb89e03414cd2434a5",
+        "pointer": "/units/13",
+        "record_sha256": "04d7ef118c986294bc7cd7b986f3fdfa6d64a2336411d5ebd27906aa7ccdfc22"
+      }
+    }
+  ]
+}

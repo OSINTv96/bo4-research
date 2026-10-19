@@ -1,0 +1,332 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/dynent_world.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "cb451ad65544edf93f1e88866bf9b647a1cfefe5dc473be5114023c7189a6e46",
+  "git_blob_sha1": "9a36dd0dc590d90cc959f4d15d6efe7ae907563b",
+  "output": "src/scripts/mp_common/dynent_world.gsc",
+  "output_sha256": "754497e2436eb0ed76708fc0fb94f07869fe647adf424d9fa8bf92f65ce5fe4f",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/gestures.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/gestures.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/gestures.gsc",
+        "sha256": "094d9dc5cb81085f294047dbf37406fce122919db82be6d0043e1ce93f009151",
+        "git_blob_sha1": "44d395f1c74bef1ea457beeb7c7bfda263bc8241"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "1292cbae0e3467bc18eccce7a23f5644936f394b89ed9cfe6e772d94adcc60f7",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 44
+        },
+        {
+          "line_start": 105,
+          "line_end": 134
+        },
+        {
+          "line_start": 293,
+          "line_end": 354
+        },
+        {
+          "line_start": 399,
+          "line_end": 445
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_array_broadcast.gsc::function_1e224132",
+        "behavior": "Array-broadcast TV stat counter delivered through the dynent_world use pipeline. Registration chain (source-only): wz_array_broadcast __init__system__ registers #'wz_array_broadcast' (11-14); the separate autoexec __init computes level.var_47f205b = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_24e281e778894ac9\") default 0 (20-23); __init__ threads function_2bbffff9 (29-32). function_2bbffff938-69 first requests hidemiscmodels(\"array_tv_on\")40 unconditionally and sets level.var_e46e7048=0 at41. The falsey feature branch reads the dynent array, calls item_world::function_1b11e73c, requests state3 for the saved getdynentarray entries, calls function_4de3ca98, requests state3 for those entries again, then returns. Only the other branch reaches the onuse stores; state3 meaning and any actual visual/hide outcome are unknown. If the feature branch is enabled and rea [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Playlist/gametype values for hash_3778ec3bd924f17c and hash_24e281e778894ac9 and usabledynents in the HMH ruleset (tables outside script corpus).",
+          "Whether \"array_broadcast\" dynents and their dynentstate bundles exist in an HMH match (map data outside scripts; bundle getter function_489009c1 definition absent from corpus).",
+          "stats::function_d40764f3 exact store semantics (native stats interface).",
+          "Native behavior of per-player trigger_radius_use and clientfield hudItems.dynentUseHoldProgress registration (13000, 5, float)."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/9",
+        "decision_canonical_sha256": "54471723664f2d1eae7cb6c81c45b10307e9c8a9be50d27ebaccb3dcdb3f8431",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00599",
+        "sha256": "64fd195ccb8b32e97010576f5b07fb6a99e07fbd9003d0333a5711720691ce58"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "344c9807ab84628c1b49bddb7b4be88d08f6dbb51d6b318e3935e6b8b32e4a6a",
+      "citations": [
+        {
+          "line_start": 399,
+          "line_end": 445
+        },
+        {
+          "line_start": 21,
+          "line_end": 26
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_blast_doors.gsc::function_ed401dbd",
+        "behavior": "Blast-door opening via stored .onuse pointer on \"blastdoor_button\" dynents. Registration (source-only): wz_blast_doors event_handler[level_init] main (11-21) gets getdynentarray(\"blastdoor_button\") and sets blast_door_button.onuse = &function_ed401dbd on each (17), then threads function_a2279366 (20) which computes level.var_3f2c54f = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_50aa80a9bcb3b127\") (default 0): when false it pre-sets all blastdoor_button dynents to state 1 and consumes/conceals blast_doors special items (31-73); when true it also consumes every special item before the rescan (76-82), then may consume the rescanned special items again if a supply stash passes opaque function_8a8a409b (97-104). Delivery/consumer join (source-visible): the dynent_world use pipeline - usabledynents gate (dynent_world.gsc 21-26), per-player trigger (44-99), update_ [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "HMH ruleset values for hash_3778ec3bd924f17c, hash_50aa80a9bcb3b127, usabledynents (tables outside script corpus).",
+          "Whether blastdoor_button dynents and their target-linked doors exist in the HMH match (map data outside scripts).",
+          "dynent_world::function_ffdbe8c2/state-bundle source for button dynents (getter definition absent from corpus; shared open interface).",
+          "level_init event delivery details (native event ordering vs other level scripts) - shared VM event boundary."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/237",
+        "decision_canonical_sha256": "69d4a689750caeea16526d3ac3046c84f28710b3c04f67ffaad357d3fc657510",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00580",
+        "sha256": "4274acb6365393edf83173649190c0d352dc2e4165123a10646c17bdbc191e31",
+        "pointer": "",
+        "record_sha256": "5401c7e9d4114568e8e0b01d219434a9341e6f26ffcb3bc4ac9154ad9627fe53"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3b1a80ccf826f330a0278cffcc247f01a7b6583a33cee8650fc0a97215fc4b57",
+      "citations": [
+        {
+          "line_start": 399,
+          "line_end": 445
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_dynents.gsc::function_31042f91",
+        "behavior": "Elevator call-button handler stored as dynent .onuse. Registration (source-only): wz_dynents system __init__ (wz_dynents.gsc 31-63) threads init_elevator(\"dynent_elevator_button\"...\"_5\") for five targetnames (57-61); init_elevator (96-151) returns if none, asserts exactly two dynents per name, and sets dynent.onuse = &function_31042f91 (109) plus dynent.ondamaged = &function_724a2fa5 (110, separately owned by unit 8), dynent.buttons = pair, resolves position struct (dynent.target) and elevator ent (position.target), stores elevator.buttons; marks script_noteworthy==\"start\" side with setdynentstate(dynent,1). Delivery/consumer join (source-visible): dynent_world use pipeline - usabledynents gate + trigger pairing + hold-use -> use_dynent dispatch [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) at dynent_world.gsc 431-433. Handler behavior (546-560): if self.target defined, posit [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "HMH ruleset value of usabledynents and presence of elevator button dynents/structs on the HMH map (both outside script corpus).",
+          "elevator_move implementation and elevator ent type (not read; later dependency, not a delivery boundary).",
+          "Native dynentstate bundle data behind the pairing condition (shared open interface: function_489009c1/function_ffdbe8c2 definitions absent from corpus)."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/152",
+        "decision_canonical_sha256": "9239418006e92e3fb56a55b9d5cf3a4acbbc80ec109762e33b47a44488ac7141",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00600",
+        "sha256": "d126e878bc0bc4f9cfc33bc9f4252f864ed13cc03c75009e5263a9efef4898c0",
+        "pointer": "/units/6",
+        "record_sha256": "1a8ed3fd1ef32e64a2a562886d4b4d4d38df622cf7718b0e9643d2ac1787a821"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4c0f0831b3096bad93eb79f5ed2227ab325f59e8032e8d26fc2f5ba9e5cf2b48",
+      "citations": [
+        {
+          "line_start": 399,
+          "line_end": 445
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_jukebox.gsc::function_1f3a1c47",
+        "behavior": "Jukebox use-stat counter stored as dynent .onuse. Registration (source-only): wz_jukebox autoexec __init computes level.var_8b13d130 = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_6935c178012cf77e\") default 0 (10-13); event_handler[level_init] main threads function_2bf3c36e (19-22); function_2bf3c36e (28-55+): if var_8b13d130, installs dynent.onuse = &function_1f3a1c47 on every \"dynent_jukebox\" dynent (36) and returns; else (setting off) waits a frame and hides/disables the jukebox dynents via item_world calls (44+). Delivery/consumer join (source-visible): dynent_world use pipeline -> use_dynent dispatch [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) (dynent_world.gsc 431-433). Handler behavior (61-70): if activator defined and !level.inprematchperiod && laststate === 0 -> activator stats::function_d40764f3( #\"activation_count_jukebox\", 1 ).",
+        "unknowns": [
+          "HMH ruleset values for hash_3778ec3bd924f17c and hash_6935c178012cf77e and usabledynents (tables outside corpus).",
+          "Whether dynent_jukebox dynents exist in the HMH match (map data outside scripts).",
+          "level_init event native ordering (shared VM event boundary)."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/414",
+        "decision_canonical_sha256": "127672753fffd9d66294083802efd1d7a10539587955afb9a3d9f4057b783084",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00417",
+        "sha256": "e8c54e9c68b091ea7a9dc814c3aae1fa34428fdc3a45538bab0eecd337a189e7",
+        "pointer": "",
+        "record_sha256": "5e0a020ce987741c5e0d22e50e6ad13552cc39e91f0a0c5b1922d411302c33aa"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6243a78fd8f053adb2a0c1d8ac8b528b0cec4cf6ad811bbdadb2858daf146df7",
+      "citations": [
+        {
+          "line_start": 545,
+          "line_end": 557
+        },
+        {
+          "line_start": 399,
+          "line_end": 445
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_dynents.gsc::function_724a2fa5",
+        "behavior": "Shoot-to-actuate handler stored as dynent .ondamaged (signature (eventstruct)). Registrations (source-only): (a) wz_dynents::__init at gsc 39 installs dynent.ondamaged = &function_724a2fa5 on every \"dynent_garage_button\" dynent; (b) wz_dynents::init_elevator at gsc 110 installs the same pointer on each of the five elevator button pairs. Delivery/consumer join (source-visible): dynent_world event_handler[event_cf200f34] function_209450ae (dynent_world.gsc 545-557) forwards [[ dynent.ondamaged ]]( eventstruct ) at 553-555; producer of event_cf200f34 (native dynent damage event posting) is the unresolved native boundary. Also a script-side damage producer exists nearby: infection.gsc function_ff850b97 dodamage pattern (recorded for unit 2 as an example of producers). Handler behavior (671-692): first reads dynent = eventstruct.ent at673 before checking eventstruct; only dynent.health += eve [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Native producer of #event_cf200f34 and its eventstruct contract (.amount, .position, .ent) - smallest native/build question.",
+          "HMH map presence of dynent_garage_button / dynent_elevator_button* dynents (outside script corpus).",
+          "Where garage/elevator .onuse targets (function_51a020 - owned by m1) then actuate after use_dynent - not reauthored here; owner recorded."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/535",
+        "decision_canonical_sha256": "26e74af1bf839fbf40e45dd1b9cdba3b79d2dfe666fe22b868910eb966ec49da",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00601",
+        "sha256": "2ef766d9ef31c5c983ebb72119ad133e7ec9892c06d03ff627b0d8e65f5d4f91",
+        "pointer": "",
+        "record_sha256": "767054caaf4281f1f6e6591ecd3c67f0e06531be60afef96f4880a1151b2d187"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/15a3c8208f8c9da7.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/700c0b4f69d4c144-001.json",
+      "sha256": "ba07cdcc742dad299ce4c283f4bec3c27ebb986f4c8b4d3194b4ab36e4336d5c"
+    }
+  ]
+}

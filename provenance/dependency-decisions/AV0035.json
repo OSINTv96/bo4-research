@@ -1,0 +1,105 @@
+{
+  "module": "src/scripts/abilities/gadgets/gadget_tripwire.gsc",
+  "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "globallogic_score",
+  "witnesses": [
+    {
+      "line": 737,
+      "text": "            self.owner globallogic_score::function_5829abe3( attacker, weapon, self.weapon );",
+      "caller": "function_9e546fb3",
+      "caller_span": [
+        724,
+        917
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 734,
+          "opening_line": 736,
+          "ending_line": 738,
+          "text": "if ( self.owner util::isenemyplayer( attacker ) )"
+        },
+        {
+          "line": 731,
+          "opening_line": 734,
+          "ending_line": 748,
+          "text": "if ( isdefined( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_5829abe3",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/6545875e14595e16.json",
+          "pointer": "/claims/17",
+          "selection_id": "a2d390be611620358cbfe93049ba331567d8dff4f1ceab84a3c50f0fafe417e0",
+          "citation": {
+            "line_start": 724,
+            "line_end": 917
+          }
+        },
+        "entry_function": "function_9e546fb3",
+        "entry_span": [
+          724,
+          917
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/6545875e14595e16.json",
+          "pointer": "/claims/17",
+          "selection_id": "a2d390be611620358cbfe93049ba331567d8dff4f1ceab84a3c50f0fafe417e0",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          351,
+          397
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0035",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+    "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+    "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    737
+  ],
+  "required_callee_functions": [
+    "function_5829abe3"
+  ],
+  "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00231",
+        "to": "N02285",
+        "line": 737
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

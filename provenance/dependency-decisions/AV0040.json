@@ -1,0 +1,149 @@
+{
+  "module": "src/scripts/abilities/gadgets/gadget_vision_pulse.csc",
+  "identity": "scripts/core_common/shoutcaster.csc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "shoutcaster",
+  "witnesses": [
+    {
+      "line": 94,
+      "text": "    if ( shoutcaster::is_shoutcaster( localclientnum ) )",
+      "caller": "function_17381fe",
+      "caller_span": [
+        92,
+        99
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_shoutcaster",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/d153521dd5b9ac58.json",
+          "pointer": "/claims/13",
+          "selection_id": "8c126b7a3f83de04f22758e05e07b29d49033fe2d708936b55ca70a1cf86d28d",
+          "citation": {
+            "line_start": 92,
+            "line_end": 99
+          }
+        },
+        "entry_function": "function_17381fe",
+        "entry_span": [
+          92,
+          99
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/d153521dd5b9ac58.json",
+          "pointer": "/claims/13",
+          "selection_id": "8c126b7a3f83de04f22758e05e07b29d49033fe2d708936b55ca70a1cf86d28d",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          12,
+          15
+        ]
+      ]
+    },
+    {
+      "line": 97,
+      "text": "        localplayer function_ea179305( localclientnum, shoutcaster::function_2e6e4ee0( localclientnum ) );",
+      "caller": "function_17381fe",
+      "caller_span": [
+        92,
+        99
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 93,
+          "opening_line": 95,
+          "ending_line": 98,
+          "text": "if ( shoutcaster::is_shoutcaster( localclientnum ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_2e6e4ee0",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/d153521dd5b9ac58.json",
+          "pointer": "/claims/13",
+          "selection_id": "8c126b7a3f83de04f22758e05e07b29d49033fe2d708936b55ca70a1cf86d28d",
+          "citation": {
+            "line_start": 92,
+            "line_end": 99
+          }
+        },
+        "entry_function": "function_17381fe",
+        "entry_span": [
+          92,
+          99
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/d153521dd5b9ac58.json",
+          "pointer": "/claims/13",
+          "selection_id": "8c126b7a3f83de04f22758e05e07b29d49033fe2d708936b55ca70a1cf86d28d",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          21,
+          24
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0040",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/shoutcaster.csc",
+    "sha256": "4bfbbb7b5f2c3a7894c41d60bc1476a691a110a1888c5e45d88c1c70ac25fb8c",
+    "git_blob_sha1": "0fdb550c7941b50af1545a475f0e8b82c36bc91f",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    94,
+    97
+  ],
+  "required_callee_functions": [
+    "function_2e6e4ee0",
+    "is_shoutcaster"
+  ],
+  "output": "src/scripts/core_common/shoutcaster.csc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/shoutcaster.csc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00306",
+        "to": "N02356",
+        "line": 94
+      },
+      {
+        "from": "N00306",
+        "to": "N02405",
+        "line": 97
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

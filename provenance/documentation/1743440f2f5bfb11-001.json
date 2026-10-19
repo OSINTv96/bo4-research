@@ -1,0 +1,124 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_perk_tracker.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1731d41d0128ce836838d0cc63f6fa7b412fd42e5966150ddeef91cec59204ad",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::tracker",
+        "behavior": "WZ tracker loop, level receiver per connect: while(true), wait0.2; use function_5778f82(localclientnum,#\"specialty_tracker\") as opaque perk gate, then get local position/players and arraysortclosest(players,origin,undefined,1,6000). tracked starts0 each pass. Skip tracked>=10, dead, truthy function_83973173, or defined vehicle, clearing tracker_last_pos. Otherwise increment tracked; initialize missing tracker_last_pos to player.origin, call player gettrackerfxposition(localclientnum), and call player tracker_playfx only when returned struct is defined. Clear local players at pass end. Printed control flow matches bloody_tracker; later gettrackerfxposition/tracker_playfx calls have this namespace binding, while function_5778f82 is not an FX resolver. The quota limits10 eligible players processed per pass, not concurrent FX handles. Native timing/FX lifetime and actual namespace dispatch remain unresolved.",
+        "unknowns": [
+          "function_5778f82 / function_83973173 sources outside packet (prior-note inferences only)",
+          "Thread lifetime without game-end guard mirrors unit 477"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00209",
+        "sha256": "3a7ec2f2d3554f70d3d895ac54874cb9bd1be19955a057e53ccdf1bb2798e014",
+        "pointer": "",
+        "record_sha256": "ec207e83e26b2bbb7f6135cf5ca01ff87ca1b5344f87e606f38bc3934ab198a4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "198dd444ae3e42a49f18410db83f72cf51215556359f6e314dbc848721e80aad",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::on_player_connect",
+        "behavior": "Connect handler: level thread tracker( localclientnum ) â€” one statement, threads the tracker loop (unit 501) on level.",
+        "unknowns": [
+          "None within function scope"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/499",
+        "record_sha256": "e5f5c523bfc61d5790d5fa2777aacf8ba2ae78654f384599d4ce04b3e3fd8292"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "382d3b6a91b89681b0529a03fa97a0a9885501110b5bdcd278130777e87633bb",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::__init__system__",
+        "behavior": "Client-side autoexec registration. function autoexec __init__system__(): system::register( #\"wz_perk_tracker\", &__init__, undefined, undefined ). No other statements (file 152 lines).",
+        "unknowns": [
+          "system::register semantics outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/497",
+        "record_sha256": "8d5770b44ae51f7c8628c3efdfe5b959c723f2bb497b385697fee0f28ad8a57c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "44ac76ad23c25343e9fb32ef5c57ea3d621ed95e60e629dafc96c5bf14d75b7e",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::gettrackerfxposition",
+        "behavior": "NO-trace footstep-fx builder for the tracked player (method on the TRACKED player). positionandrotation = undefined; offset = ( 0, 0, getdvarfloat( #\"perk_tracker_fx_foot_height\", 0 ) ) â€” hash-typed dvar name with default 0 (engine dvar, not a bundle field); dist2 = 1024. FX selection by foot flag: \"player/fx_plyr_footstep_tracker_r_wz\" / \"player/fx_plyr_footstep_tracker_l_wz\" (exact asset strings; NO blood variants here â€” differs from bloody tracker unit 478). pos = self.origin + offset. Basis: fwd = anglestoforward( self.angles ); right = anglestoright( self.angles ); up = anglestoup( self.angles ); vel = self getvelocity(); when lengthsquared( vel ) > 1: up = vectorcross( vel, right ); if lengthsquared( up ) < 0.0001 -> up = vectorcross( fwd, vel ); fwd = vel (RAW velocity, not normalized). Movement gate KEPT: if distancesquared( self.tracker_last_pos, pos ) > dist2 -> build spawnstruct with .fx/.pos/.fwd/.up; self.tracker_last_pos = self.origin; foot flip (truthy -> 0 else 1). No ground trace in this variant (unit 478 has physicstraceex; this one does not). Return positionandrotation (undefined when the gate fails or the entity has not moved enough).",
+        "unknowns": [
+          "getdvarfloat value of perk_tracker_fx_foot_height is runtime/console configuration, not source data",
+          "Velocity cross-products remain unnormalized as written; fx orientation magnitude engine-side"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/501",
+        "record_sha256": "cd812f6560fde70175f4e02b5c52995f60c2374b94438bd78aa818fa1af67d21"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "af426b3c37a54831b58f70ed42e6954b086eaf86bd42160d0cd7e74ae842079e",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::__init__",
+        "behavior": "Tracker init with INVERTED MODE GATE vs wz_perk_bloody_tracker (same gametype key, token exact): if isdefined( getgametypesetting( #\"hash_1d02e28ba907a343\" ) ) && getgametypesetting( #\"hash_1d02e28ba907a343\" ) -> return (registers NOTHING when the setting is defined and truthy). Only when the setting is ABSENT/FALSY: callback::on_localclient_connect( &on_player_connect ). The conditions are complements only for matching stable getter results across both initializations. Separate/repeated reads and existing registrations mean this source alone does not prove live mutual exclusion or registry cleanup.",
+        "unknowns": [
+          "The playlist meaning of hash_1d02e28ba907a343 is data outside packet",
+          "getgametypesetting evaluated twice in the gate (as printed)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00210",
+        "sha256": "5cc732bf6dc1fa0e35e18b553c4b7eac1fdba1f50d5279d675901d6f10031622",
+        "pointer": "",
+        "record_sha256": "088debf95e24db02b1870fec407f2fea21b22cecb1a7900586427d0172cc0718"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1743440f2f5bfb11.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "e1305c6fd100536e6ccabb6529cc02efa390dd95eeb1a03ac6d5a3c9de2432a1",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::tracker_playfx",
+        "behavior": "Tracker fx emitter, no-trace flavor (function(localclientnum, positionandrotationstruct)). Single statement: handle = playfx( localclientnum, positionandrotationstruct.fx, positionandrotationstruct.pos, positionandrotationstruct.fwd, positionandrotationstruct.up ) (client 5-arg playfx); handle captured and unused. Identical call shape to bloody tracker unit 479.",
+        "unknowns": [
+          "None beyond engine playfx conventions"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/502",
+        "record_sha256": "537571ec71cfe4ab11540ca3784b2fae86424cdea3e264053692a18dc093ec2b"
+      }
+    }
+  ]
+}

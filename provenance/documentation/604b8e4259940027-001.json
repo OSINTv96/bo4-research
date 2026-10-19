@@ -1,0 +1,62 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/604b8e4259940027.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "28d80c691dfdbe6ee66e050068451c630fb01dbfa07c4491fd90bca14700b3ff",
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::__init__system__",
+        "behavior": "Server-side autoexec registration for the WZ concertina wire gadget. function autoexec __init__system__(): system::register( #\"concertina_wire\", &__init__, undefined, #\"weapons\" ) â€” NOTE: FOURTH register argument present here (#\"weapons\" tag) unlike the MP twins that pass undefined. No other statements (file 33 lines).",
+        "unknowns": [
+          "The fourth argument #weapons is the scalar system prerequisite registry key stored in func.reqs and used to look up level.system_funcs. Effective registration state, loading, native thread timing and actual prerequisite execution remain unverified."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00556",
+        "sha256": "94c1b18c121dcba0766ca762bbc84c5ab964eaf6ffb4ec752b6a9d9ffbdcc378"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/604b8e4259940027.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "9d25f5a454f7ce1f5a7d994837e391e4fd64a97f6ad1b291f43f20f53acff1bc",
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::__init__",
+        "behavior": "WZ concertina wire server init (source order): 1) init_shared( \"concertina_wire_settings_wz\" ) â€” shared server wiring of this packet with the WZ bundle key; 2) function_c5f0b9e7( &onconcertinawireplaced ) â€” installs the WZ placed hook via an unqualified opener (shared file dependency; prior notes say it is consumed by function_fc4df41e there).",
+        "unknowns": [
+          "init_shared and function_c5f0b9e7 (consumer function_fc4df41e) live in the shared gadgets/gadget_concertina_wire.gsc â€” excluded dependency; only the hook pointer is observable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/465",
+        "record_sha256": "3ce914e938c21b44bb25105872bafce3bc03a000c5ccc1948345b213eb939e23"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/604b8e4259940027.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "ed11666e74f64d3d1ce67e145d1bce838666dbc2e4d640c5c656ff389cb6643e",
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::onconcertinawireplaced",
+        "behavior": "WZ placed hook (function(concertinawire)) wired via function_c5f0b9e7 in __init__. Body is EMPTY (blank line plus closing brace, lines 29-32): the WZ placed hook is a placeholder at this revision â€” no state, no calls.",
+        "unknowns": [
+          "Whether the engine/client path posts an event that would call this hook is external; the local body performs nothing"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/466",
+        "record_sha256": "ad7e42f28762f9215224647e4b5cf0c6d015134d550339dc106eafd09e5a3665"
+      }
+    }
+  ]
+}

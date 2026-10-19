@@ -1,0 +1,157 @@
+{
+  "module": "src/scripts/mp_common/arena.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 130,
+      "text": "    perseasonwins = self stats::get_stat( #\"arenaperseasonstats\", eventstate, #\"matchesstats\", #\"wins\" );",
+      "caller": "update_arena_challenge_seasons",
+      "caller_span": [
+        110,
+        154
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          82,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 135,
+      "text": "        currentseason = self stats::get_stat( #\"arenastats\", arenaslot, #\"season\" );",
+      "caller": "update_arena_challenge_seasons",
+      "caller_span": [
+        110,
+        154
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 130,
+          "opening_line": 133,
+          "ending_line": 153,
+          "text": "if ( perseasonwins >= getdvarint( #\"arena_seasonvetchallengewins\", 0 ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          82,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 140,
+      "text": "            challengeseason = self stats::get_stat( #\"arenachallengeseasons\", i );",
+      "caller": "update_arena_challenge_seasons",
+      "caller_span": [
+        110,
+        154
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 138,
+          "opening_line": 139,
+          "ending_line": 152,
+          "text": "i++ )"
+        },
+        {
+          "line": 130,
+          "opening_line": 133,
+          "ending_line": 153,
+          "text": "if ( perseasonwins >= getdvarint( #\"arena_seasonvetchallengewins\", 0 ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          82,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 149,
+      "text": "                self stats::set_stat( #\"arenachallengeseasons\", i, currentseason );",
+      "caller": "update_arena_challenge_seasons",
+      "caller_span": [
+        110,
+        154
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 145,
+          "opening_line": 148,
+          "ending_line": 151,
+          "text": "if ( challengeseason == 0 )"
+        },
+        {
+          "line": 138,
+          "opening_line": 139,
+          "ending_line": 152,
+          "text": "i++ )"
+        },
+        {
+          "line": 130,
+          "opening_line": 133,
+          "ending_line": 153,
+          "text": "if ( perseasonwins >= getdvarint( #\"arena_seasonvetchallengewins\", 0 ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          166,
+          195
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0186",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc"
+}

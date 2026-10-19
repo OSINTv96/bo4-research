@@ -1,0 +1,97 @@
+{
+  "module": "src/scripts/killstreaks/ultimate_turret_shared.gsc",
+  "identity": "scripts/core_common/placeables.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "placeables",
+  "witnesses": [
+    {
+      "line": 778,
+      "text": "        turretvehicle.parentstruct placeables::forceshutdown();",
+      "caller": "ondeath",
+      "caller_span": [
+        760,
+        845
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 774,
+          "opening_line": 777,
+          "ending_line": 796,
+          "text": "if ( isdefined( turretvehicle.parentstruct ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "forceshutdown",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/3ca820b2cd29403d.json",
+          "pointer": "/claims/0",
+          "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+          "citation": {
+            "line_start": 756,
+            "line_end": 808
+          }
+        },
+        "entry_function": "ondeath",
+        "entry_span": [
+          760,
+          845
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/3ca820b2cd29403d.json",
+          "pointer": "/claims/0",
+          "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          825,
+          830
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0520",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/placeables.gsc",
+    "sha256": "131ed85ba824b58bd94b444c6411e4ffd768f1cc1724afdc8ac06af915f8703c",
+    "git_blob_sha1": "4b964cb7a5230c9f4d2cb5f40b1321a287ba626c",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    778
+  ],
+  "required_callee_functions": [
+    "forceshutdown"
+  ],
+  "output": "src/scripts/core_common/placeables.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/placeables.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02219",
+        "to": "N03411",
+        "line": 778
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

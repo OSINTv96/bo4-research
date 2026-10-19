@@ -1,0 +1,726 @@
+{
+  "module": "src/scripts/mp_common/draft.gsc",
+  "identity": "scripts/core_common/player/player_role.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "player_role",
+  "witnesses": [
+    {
+      "line": 143,
+      "text": "    if ( player_role::is_valid( autoselectcharacter ) )",
+      "caller": "is_enabled",
+      "caller_span": [
+        139,
+        164
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1b43e83a73cca7ba.json",
+          "pointer": "/claims/0",
+          "selection_id": "567f7c492efdbadfd35295b50ac719658f8537ed20d68805a4b9bfa9bcc5190d",
+          "citation": {
+            "line_start": 139,
+            "line_end": 163
+          }
+        },
+        "entry_function": "is_enabled",
+        "entry_span": [
+          139,
+          164
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/1b43e83a73cca7ba.json",
+          "pointer": "/claims/0",
+          "selection_id": "567f7c492efdbadfd35295b50ac719658f8537ed20d68805a4b9bfa9bcc5190d",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 290,
+      "text": "        playercharacterindex = player player_role::get();",
+      "caller": "can_select_character",
+      "caller_span": [
+        267,
+        304
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 281,
+          "opening_line": 284,
+          "ending_line": 301,
+          "text": "foreach ( player in level.players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 312,
+      "text": "    if ( !player_role::is_valid( characterindex ) )",
+      "caller": "select_character",
+      "caller_span": [
+        310,
+        347
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 317,
+      "text": "    assert( player_role::is_valid( characterindex ) );",
+      "caller": "select_character",
+      "caller_span": [
+        310,
+        347
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 324,
+      "text": "    if ( self player_role::set( characterindex ) )",
+      "caller": "select_character",
+      "caller_span": [
+        310,
+        347
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          129,
+          175
+        ]
+      ]
+    },
+    {
+      "line": 342,
+      "text": "        self player_role::clear();",
+      "caller": "select_character",
+      "caller_span": [
+        310,
+        347
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 339,
+          "opening_line": 341,
+          "ending_line": 344,
+          "text": "else if ( !util::function_8570168d() )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    },
+    {
+      "line": 597,
+      "text": "            player player_role::clear();",
+      "caller": "draft_run",
+      "caller_span": [
+        584,
+        690
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 594,
+          "opening_line": 596,
+          "ending_line": 598,
+          "text": "if ( isbot( player ) )"
+        },
+        {
+          "line": 591,
+          "opening_line": 594,
+          "ending_line": 602,
+          "text": "foreach ( player in level.players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    },
+    {
+      "line": 621,
+      "text": "                characterindex = player player_role::get();",
+      "caller": "draft_run",
+      "caller_span": [
+        584,
+        690
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 612,
+          "opening_line": 615,
+          "ending_line": 627,
+          "text": "foreach ( player in level.players )"
+        },
+        {
+          "line": 608,
+          "opening_line": 611,
+          "ending_line": 630,
+          "text": "while ( !ready )"
+        },
+        {
+          "line": 602,
+          "opening_line": 605,
+          "ending_line": 631,
+          "text": "if ( timeremaining == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 623,
+      "text": "                if ( !player_role::is_valid( characterindex ) || !player isready() )",
+      "caller": "draft_run",
+      "caller_span": [
+        584,
+        690
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 612,
+          "opening_line": 615,
+          "ending_line": 627,
+          "text": "foreach ( player in level.players )"
+        },
+        {
+          "line": 608,
+          "opening_line": 611,
+          "ending_line": 630,
+          "text": "while ( !ready )"
+        },
+        {
+          "line": 602,
+          "opening_line": 605,
+          "ending_line": 631,
+          "text": "if ( timeremaining == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 731,
+      "text": "        characters[ i ].category = player_role::get_category_for_index( i );",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 723,
+          "opening_line": 724,
+          "ending_line": 754,
+          "text": "i++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_category_for_index",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          31,
+          47
+        ]
+      ]
+    },
+    {
+      "line": 734,
+      "text": "        if ( characters[ i ].enabled && player_role::is_valid( i ) && characters[ i ].category != \"default\" && characters[ i ].var_9a6db9eb != 0 )",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 723,
+          "opening_line": 724,
+          "ending_line": 754,
+          "text": "i++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 822,
+      "text": "                characterindex = player player_role::get();",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 818,
+          "opening_line": 821,
+          "ending_line": 824,
+          "text": "foreach ( player in team )"
+        },
+        {
+          "line": 800,
+          "opening_line": 803,
+          "ending_line": 949,
+          "text": "foreach ( team in teams )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 829,
+      "text": "            characterindex = player player_role::get();",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 824,
+          "opening_line": 828,
+          "ending_line": 870,
+          "text": "#/\n        \n        foreach ( player in team )"
+        },
+        {
+          "line": 800,
+          "opening_line": 803,
+          "ending_line": 949,
+          "text": "foreach ( team in teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 831,
+      "text": "            if ( player_role::is_valid( characterindex ) )",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 824,
+          "opening_line": 828,
+          "ending_line": 870,
+          "text": "#/\n        \n        foreach ( player in team )"
+        },
+        {
+          "line": 800,
+          "opening_line": 803,
+          "ending_line": 949,
+          "text": "foreach ( team in teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 839,
+      "text": "                player player_role::clear();",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 835,
+          "opening_line": 838,
+          "ending_line": 853,
+          "text": "if ( !isdefined( only_assign_player ) )"
+        },
+        {
+          "line": 824,
+          "opening_line": 828,
+          "ending_line": 870,
+          "text": "#/\n        \n        foreach ( player in team )"
+        },
+        {
+          "line": 800,
+          "opening_line": 803,
+          "ending_line": 949,
+          "text": "foreach ( team in teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    },
+    {
+      "line": 857,
+      "text": "                player player_role::clear();",
+      "caller": "assign_remaining_players",
+      "caller_span": [
+        715,
+        950
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 853,
+          "opening_line": 856,
+          "ending_line": 869,
+          "text": "if ( only_assign_player == player )"
+        },
+        {
+          "line": 824,
+          "opening_line": 828,
+          "ending_line": 870,
+          "text": "#/\n        \n        foreach ( player in team )"
+        },
+        {
+          "line": 800,
+          "opening_line": 803,
+          "ending_line": 949,
+          "text": "foreach ( team in teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    },
+    {
+      "line": 1188,
+      "text": "        if ( player_role::is_valid( autoselection ) )",
+      "caller": "open",
+      "caller_span": [
+        1174,
+        1202
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 1190,
+      "text": "            player player_role::set( autoselection );",
+      "caller": "open",
+      "caller_span": [
+        1174,
+        1202
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1186,
+          "opening_line": 1189,
+          "ending_line": 1192,
+          "text": "if ( player_role::is_valid( autoselection ) )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          129,
+          175
+        ]
+      ]
+    },
+    {
+      "line": 1199,
+      "text": "    player player_role::clear();",
+      "caller": "open",
+      "caller_span": [
+        1174,
+        1202
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0411",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_role.gsc",
+    "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+    "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    143
+  ],
+  "required_callee_functions": [
+    "is_valid"
+  ],
+  "output": "src/scripts/core_common/player/player_role.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_role.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N01823",
+        "to": "N02763",
+        "line": 143
+      },
+      {
+        "from": "N02760",
+        "to": "N03817",
+        "line": 731
+      },
+      {
+        "from": "N02760",
+        "to": "N02763",
+        "line": 734
+      },
+      {
+        "from": "N02760",
+        "to": "N02761",
+        "line": 829
+      },
+      {
+        "from": "N02760",
+        "to": "N02763",
+        "line": 831
+      },
+      {
+        "from": "N02760",
+        "to": "N02759",
+        "line": 839
+      },
+      {
+        "from": "N02760",
+        "to": "N02759",
+        "line": 857
+      },
+      {
+        "from": "N03815",
+        "to": "N02763",
+        "line": 312
+      },
+      {
+        "from": "N03815",
+        "to": "N02763",
+        "line": 317
+      },
+      {
+        "from": "N03815",
+        "to": "N03615",
+        "line": 324
+      },
+      {
+        "from": "N03815",
+        "to": "N02759",
+        "line": 342
+      },
+      {
+        "from": "N03855",
+        "to": "N02759",
+        "line": 1199
+      },
+      {
+        "from": "N04512",
+        "to": "N02761",
+        "line": 290
+      },
+      {
+        "from": "N04562",
+        "to": "N02759",
+        "line": 597
+      },
+      {
+        "from": "N04562",
+        "to": "N02761",
+        "line": 621
+      },
+      {
+        "from": "N04562",
+        "to": "N02763",
+        "line": 623
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

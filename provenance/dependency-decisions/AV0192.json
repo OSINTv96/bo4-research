@@ -1,0 +1,132 @@
+{
+  "module": "src/scripts/wz_common/wz_dynents.gsc",
+  "identity": "scripts/abilities/gadgets/gadget_cymbal_monkey.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "gadget_cymbal_monkey",
+  "witnesses": [
+    {
+      "line": 288,
+      "text": "                    device gadget_cymbal_monkey::function_4f90c4c2();",
+      "caller": "function_777e012d",
+      "caller_span": [
+        256,
+        308
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 284,
+          "opening_line": 287,
+          "ending_line": 290,
+          "text": "if ( device.weapon.name === #\"cymbal_monkey\" )"
+        },
+        {
+          "line": 271,
+          "opening_line": 273,
+          "ending_line": 305,
+          "text": "if ( is_equipment( device ) )"
+        },
+        {
+          "line": 269,
+          "opening_line": 271,
+          "ending_line": 306,
+          "text": "if ( isdefined( device ) && device istouching( t_damage ) )"
+        },
+        {
+          "line": 266,
+          "opening_line": 269,
+          "ending_line": 307,
+          "text": "foreach ( device in equipment )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_4f90c4c2",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/7daa56e7560cd75d.json",
+          "pointer": "/claims/1",
+          "selection_id": "3b1a80ccf826f330a0278cffcc247f01a7b6583a33cee8650fc0a97215fc4b57",
+          "citation": {
+            "line_start": 546,
+            "line_end": 560
+          }
+        },
+        "entry_function": "function_31042f91",
+        "entry_span": [
+          546,
+          560
+        ],
+        "local_references": [
+          {
+            "from": "function_31042f91",
+            "to": "elevator_move",
+            "line": 558,
+            "form": "local_call",
+            "text": "        elevator_move( elevator );"
+          },
+          {
+            "from": "elevator_move",
+            "to": "function_76ad6828",
+            "line": 495,
+            "form": "local_call",
+            "text": "        elevator thread function_76ad6828( position );"
+          },
+          {
+            "from": "function_76ad6828",
+            "to": "function_777e012d",
+            "line": 473,
+            "form": "local_call",
+            "text": "                    self thread function_777e012d( var_68dc3bdf );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          218,
+          228
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0192",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/abilities/gadgets/gadget_cymbal_monkey.gsc",
+    "sha256": "c750dcf403446b8ba85b845b9dd474bd852ea7708132296c809c77242b6732cc",
+    "git_blob_sha1": "d10480fed0da0b6956abc4fc82a44af6e91dee89",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    288
+  ],
+  "required_callee_functions": [
+    "function_4f90c4c2"
+  ],
+  "output": "src/scripts/abilities/gadgets/gadget_cymbal_monkey.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/abilities/gadgets/gadget_cymbal_monkey.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04746",
+        "to": "N05134",
+        "line": 288
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

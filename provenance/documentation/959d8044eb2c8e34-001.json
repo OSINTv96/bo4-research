@@ -1,0 +1,172 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_medals.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/959d8044eb2c8e34.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "09249327d66b6b55d637aacf6f9e628eca65e06f08c96392f51e1ba9da44f4f4",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_medals.gsc::function_f4837321",
+        "behavior": "on_player_killed_with_params handler (self = killed player). Ordered: (1) early-return unless isdefined(self.laststandparams) AND isdefined(self.var_a1d415ee) (obfuscated player field holding second-involved attacker data); (2) original_attacker = self.laststandparams.attacker; var_8efbdcbb = self.var_a1d415ee.attacker; weapon = self.laststandparams.sweapon; (3) early-return unless original_attacker defined, isplayer(var_8efbdcbb), weapon defined; (4) early-return if var_8efbdcbb.team === self.team (enemy only); (5) if original_attacker != var_8efbdcbb: scoreevents::processscoreevent(\"assists\", var_8efbdcbb, undefined, weapon). Source attribution: laststand_warzone442-463 stores the downing-event attacker and weapon in laststandparams; its lethal-bleedout path962-967 stores later attacker data in var_a1d415ee. When their attacker identities differ and existing guards pass, the call uses var_a1d415ee.attacker (the later finisher in that path) as the assists receiver, with the earlier downing weapon. The scoreevent name does not prove intended kill/assist attribution, native scoring or all other writers.",
+        "branches": [
+          "laststandparams/var_a1d415ee missing -> return",
+          "original_attacker missing / second attacker not player / weapon missing -> return",
+          "second attacker same team as self -> return",
+          "var_a1d415ee attacker equals laststandparams attacker -> no scoreevent; otherwise the guarded later attacker is the call receiver",
+          "success path emits 'assists' for var_8efbdcbb"
+        ],
+        "calls": [
+          "isplayer/isdefined (engine builtins)",
+          "scoreevents::processscoreevent (owned scoreevents_shared unit)"
+        ],
+        "lifecycle": "Per-event handler on player kill; read-only against player fields (laststandparams, var_a1d415ee) that are populated elsewhere (last-stand logic, not in owned files); no waits, no threads, no cleanup.",
+        "ordered_state_changes": [
+          "read of self.laststandparams",
+          "read of self.var_a1d415ee",
+          "conditional processscoreevent('assists') award"
+        ],
+        "unknowns": [
+          "Known source writer: laststand_warzone962-967 records the later lethal-laststand attacker in var_a1d415ee. Other writers, target binding and runtime event order remain unresolved.",
+          "whether original_attacker != var_8efbdcbb compares entity handles; equality semantics rely on engine identity",
+          "Known laststand_warzone442-463 writer records downing attacker and sweapon; other writers, original delivery and scoreevent effects remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00673",
+        "sha256": "def22e7448ae99abc3eb53ee65792489d59fe92b823ca38c85e6e40e2ecab1ef",
+        "pointer": "",
+        "record_sha256": "0b2cdf76b2a365ab704b93b4f58466c7344332901eb043552fe869d2053b283d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/959d8044eb2c8e34.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "68a87c01144f6391902b8cbe0d6c786863e588b1c88b06e2843df14a9f5bd3e0",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_medals.gsc::__init__",
+        "behavior": "System init callback. Exactly two statements in order: callback::on_revived(&function_843da215) then callback::on_player_killed_with_params(&function_f4837321). Both are cross-file hook registrations into callbacks_shared; no other reads/writes, no threading. After this, revival and param-kill events route into wz_medals handlers.",
+        "branches": [
+          "None; unconditional double registration",
+          "Two sequential unconditional registration calls. This body has no local result test, unregister, rollback or error recovery; dependency errors and later callback delivery are unresolved, including whether failure of one call permits the other."
+        ],
+        "calls": [
+          "callback::on_revived (callbacks_shared.gsc - outside packet)",
+          "callback::on_player_killed_with_params (callbacks_shared.gsc - outside packet)"
+        ],
+        "lifecycle": "Registered script preinit callback; when invoked it makes the two calls in source order. This body does not prove exactly-once invocation or match-long registration persistence.",
+        "ordered_state_changes": [
+          "registration of on_revived handler function_843da215",
+          "registration of on_player_killed handler function_f4837321"
+        ],
+        "unknowns": [
+          "which event struct fields callback::on_revived/on_player_killed_with_params guarantee (observed only as params.reviver, params.attacker inside handlers) - callbacks_shared outside packet",
+          "whether callbacks are global or per-player entity scoped"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00674",
+        "sha256": "9f38807a25d2741fa3bcf606da8b9010e6f5621993f4ed181b6b5047b86fbc3d",
+        "pointer": "",
+        "record_sha256": "516b251f077776a023e7136d6bd61b00b82725f80c7a039132c65640d503637e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/959d8044eb2c8e34.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "c2713c603885e5a397c728331c0bfb3138ed97df5835dcf0a6178e3cc65cfb93",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_medals.gsc::__main__",
+        "behavior": "Main callback registered by __init__system__. Body is empty (returns immediately). Consumes no events, writes nothing. Pure no-op placeholder preserved so system::register has a main callback.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "none"
+        ],
+        "lifecycle": "Registered as the script postinit pointer. system_shared::exec_post_system35-50 skips missing/ignored records; when postdone is false it processes defined requirements, sets postdone=1, then invokes postfunc. This target body is empty; original engine/VM scheduling and later record resets remain unproved.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "Script postinit dispatch is visible; exact original autoexec/VM invocation, scheduling and later resets are unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00675",
+        "sha256": "15233c07c7d26358a7945c98417c72f0ebceb8851eb2a51ffae1dbcde28e399e",
+        "pointer": "",
+        "record_sha256": "3b598153417112040fa52c26be5f74fb2c6816872a4477528d14252256076c29"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/959d8044eb2c8e34.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "ee7bc6df1dc8eee7d2158cc7c2b2b36e40af08a9bf1aa36a5b2b07645d64e999",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_medals.gsc::__init__system__",
+        "behavior": "autoexec-annotated lifecycle entry. Sole statement system::register(\"wz_medals\", &__init__, &__main__, undefined): script dependency system_shared::register(str_name, func_preinit, func_postinit, reqs) receives __init__ as preinit, __main__ as postinit, and undefined as fourth requirements argument. Its new-entry branch stores prefunc/postfunc/reqs and definedness-derived predone/postdone flags; its existing-entry branch asserts ignore and returns. No third callback is passed. Original autoexec/VM invocation remains unproved.",
+        "branches": [
+          "No branches: unconditional registration",
+          "Failure path only if system::register errors internally - not visible in source"
+        ],
+        "calls": [
+          "system::register (core_common/system_shared.gsc - outside this packet, integration boundary)"
+        ],
+        "lifecycle": "Source autoexec annotation registers preinit/postinit pointers with script system core; original invocation count, target inclusion and runtime ordering remain unresolved.",
+        "ordered_state_changes": [
+          "level/system registration table updated via system::register (inside system_shared, not owned)"
+        ],
+        "unknowns": [
+          "Script register storage and existing-entry guard are visible in system_shared9-29. Original VM semantics, other system-state writers and persistence across reload remain unresolved.",
+          "native/engine autoexec invocation mechanics not in source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00676",
+        "sha256": "38f8a3573e55d9c188794a12a8d7fb81324ed9cd4200c6d77aee52b978bc1daa",
+        "pointer": "",
+        "record_sha256": "d4e8d957176ca0edb235371f4572742d3d46c42adc69e0dfd059be176073082d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/959d8044eb2c8e34.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "6b3424e1c2c2e93064a24e5a20f8c3d663ce8c69b960bc7451e1812e7806fa1d",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_medals.gsc::function_843da215",
+        "behavior": "Revive-event handler (wired by __init__ via callback::on_revived). Ordered: (1) early-return unless gamestate::is_state(\"playing\"); (2) early-return unless isplayer(params.reviver); (3) early-return unless isdefined(params.attacker); (4) early-return if params.attacker.team === params.reviver.team (same-team downing excluded); (5) weapon = getweapon(\"bare_hands\"); (6) scoreevents::processscoreevent(\"revives\", params.reviver, undefined, weapon). Net effect: awards the 'revives' score event to the reviving player when the downed player had been downed by an enemy (attacker on a different team). All reads are of the event params; only write is through processscoreevent.",
+        "branches": [
+          "4 guard returns listed above; single success path falls through to processscoreevent",
+          "Team comparison uses strict === on team fields; non-equal teams proceed"
+        ],
+        "calls": [
+          "gamestate::is_state (core_common/gamestate.gsc - outside packet)",
+          "isplayer/isdefined/getweapon (engine builtins, opaque)",
+          "scoreevents::processscoreevent (owned scoreevents_shared processscoreevent unit)"
+        ],
+        "lifecycle": "Per-event handler invoked by callbacks_shared each on_revived event; no thread spawn, no waits, no cleanup needed; state lives only in params.",
+        "ordered_state_changes": [
+          "scoreevents::processscoreevent 'revives' award to params.reviver (ordered_state within processscoreevent)"
+        ],
+        "unknowns": [
+          "exact meaning of params.attacker in on_revived structs (downing attacker vs last-hit attacker) not documented here",
+          "whether the 'revives' scoreevent table row maps to a medal via HUD/LUI - outside owned files",
+          "bare_hands weapon is forced as the event weapon; reason for that choice is not stated in source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/393",
+        "record_sha256": "57bb9e01b661e40f8f54a0c531a69f559f0f281c283b4a942df60b1a3bc6d406"
+      }
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "module": "src/scripts/mp_common/player/player_loadout.gsc",
+  "identity": "scripts/abilities/ability_util.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "ability_util",
+  "witnesses": [
+    {
+      "line": 1015,
+      "text": "            self ability_util::gadget_reset( weapon, self.pers[ #\"changed_class\" ], !util::isoneround(), util::isfirstround(), changedspecialist );",
+      "caller": "give_weapon",
+      "caller_span": [
+        989,
+        1027
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1011,
+          "opening_line": 1014,
+          "ending_line": 1016,
+          "text": "if ( weapon.isgadget )"
+        },
+        {
+          "line": 990,
+          "opening_line": 992,
+          "ending_line": 1020,
+          "text": "if ( weapon != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_reset",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "function_68c2f1dc",
+            "line": 1354,
+            "form": "local_call",
+            "text": "    spawn_weapon = self function_68c2f1dc( \"primary\", previous_weapon, level.weaponnull, 0, &function_f4042786 );"
+          },
+          {
+            "from": "function_68c2f1dc",
+            "to": "give_weapon",
+            "line": 1272,
+            "form": "local_call",
+            "text": "    self give_weapon( weapon, slot, var_60b97679, var_fe5710f );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          381,
+          457
+        ]
+      ]
+    },
+    {
+      "line": 1481,
+      "text": "        self ability_util::gadget_reset( primaryoffhand, changedclass, roundbased, firstround, changedspecialist );",
+      "caller": "function_8e961216",
+      "caller_span": [
+        1423,
+        1490
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1471,
+          "opening_line": 1474,
+          "ending_line": 1487,
+          "text": "if ( primaryoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_reset",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "function_8e961216",
+            "line": 1357,
+            "form": "stored_pointer",
+            "text": "    spawn_weapon = self function_cba7f33e( \"primarygrenade\", previous_weapon, spawn_weapon, &function_8e961216 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          381,
+          457
+        ]
+      ]
+    },
+    {
+      "line": 1485,
+      "text": "            self ability_util::gadget_power_full( primaryoffhand );",
+      "caller": "function_8e961216",
+      "caller_span": [
+        1423,
+        1490
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1481,
+          "opening_line": 1484,
+          "ending_line": 1486,
+          "text": "if ( isdefined( level.specialistequipmentreadyonrespawn ) && level.specialistequipmentreadyonrespawn )"
+        },
+        {
+          "line": 1471,
+          "opening_line": 1474,
+          "ending_line": 1487,
+          "text": "if ( primaryoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_power_full",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "function_8e961216",
+            "line": 1357,
+            "form": "stored_pointer",
+            "text": "    spawn_weapon = self function_cba7f33e( \"primarygrenade\", previous_weapon, spawn_weapon, &function_8e961216 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          188,
+          208
+        ]
+      ]
+    },
+    {
+      "line": 1569,
+      "text": "            self ability_util::gadget_power_full( secondaryoffhand );",
+      "caller": "function_c3448ab0",
+      "caller_span": [
+        1496,
+        1578
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1565,
+          "opening_line": 1568,
+          "ending_line": 1570,
+          "text": "if ( force_give_gadget_health_regen === 1 )"
+        },
+        {
+          "line": 1556,
+          "opening_line": 1559,
+          "ending_line": 1575,
+          "text": "if ( secondaryoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_power_full",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "function_c3448ab0",
+            "line": 1358,
+            "form": "stored_pointer",
+            "text": "    spawn_weapon = self function_cba7f33e( \"specialgrenade\", previous_weapon, spawn_weapon, &function_c3448ab0 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          188,
+          208
+        ]
+      ]
+    },
+    {
+      "line": 1573,
+      "text": "            self ability_util::gadget_reset( secondaryoffhand, changedclass, roundbased, firstround, changedspecialist );",
+      "caller": "function_c3448ab0",
+      "caller_span": [
+        1496,
+        1578
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1570,
+          "opening_line": 1572,
+          "ending_line": 1574,
+          "text": "else"
+        },
+        {
+          "line": 1556,
+          "opening_line": 1559,
+          "ending_line": 1575,
+          "text": "if ( secondaryoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_reset",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "function_c3448ab0",
+            "line": 1358,
+            "form": "stored_pointer",
+            "text": "    spawn_weapon = self function_cba7f33e( \"specialgrenade\", previous_weapon, spawn_weapon, &function_c3448ab0 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          381,
+          457
+        ]
+      ]
+    },
+    {
+      "line": 1639,
+      "text": "        self ability_util::gadget_reset( specialoffhand, changedclass, roundbased, firstround, changedspecialist );",
+      "caller": "give_special_offhand",
+      "caller_span": [
+        1584,
+        1657
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1630,
+          "opening_line": 1633,
+          "ending_line": 1654,
+          "text": "if ( specialoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_reset",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "give_special_offhand",
+            "line": 1362,
+            "form": "stored_pointer",
+            "text": "        spawn_weapon = self give_hero_gadget( previous_weapon, spawn_weapon, &give_special_offhand );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          381,
+          457
+        ]
+      ]
+    },
+    {
+      "line": 1643,
+      "text": "            self ability_util::gadget_power_full( specialoffhand );",
+      "caller": "give_special_offhand",
+      "caller_span": [
+        1584,
+        1657
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1639,
+          "opening_line": 1642,
+          "ending_line": 1644,
+          "text": "if ( isdefined( level.specialistabilityreadyonrespawn ) && level.specialistabilityreadyonrespawn )"
+        },
+        {
+          "line": 1630,
+          "opening_line": 1633,
+          "ending_line": 1654,
+          "text": "if ( specialoffhand != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_power_full",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "give_special_offhand",
+            "line": 1362,
+            "form": "stored_pointer",
+            "text": "        spawn_weapon = self give_hero_gadget( previous_weapon, spawn_weapon, &give_special_offhand );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          188,
+          208
+        ]
+      ]
+    },
+    {
+      "line": 1712,
+      "text": "        self ability_util::gadget_reset( ultimate, changedclass, roundbased, firstround, changedspecialist );",
+      "caller": "give_ultimate",
+      "caller_span": [
+        1663,
+        1717
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1703,
+          "opening_line": 1706,
+          "ending_line": 1714,
+          "text": "if ( ultimate != level.weaponnull )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gadget_reset",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f84cea1297c0cff6.json",
+          "pointer": "/claims/1",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "citation": {
+            "line_start": 1738,
+            "line_end": 1783,
+            "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54"
+          }
+        },
+        "entry_function": "give_loadout",
+        "entry_span": [
+          1738,
+          1853
+        ],
+        "local_references": [
+          {
+            "from": "give_loadout",
+            "to": "give_weapons",
+            "line": 1810,
+            "form": "local_call",
+            "text": "            give_weapons( current_weapon );"
+          },
+          {
+            "from": "give_weapons",
+            "to": "give_ultimate",
+            "line": 1365,
+            "form": "stored_pointer",
+            "text": "    spawn_weapon = self function_f20f595a( previous_weapon, spawn_weapon, &give_ultimate );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          381,
+          457
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0160",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/abilities/ability_util.gsc",
+    "sha256": "be3b3e68885b071e12df536f109efb434627f21cf898be4da138d08077570886",
+    "git_blob_sha1": "f88ef55b06a4db3802f2afaa3e5aaf3cd78ed9d9",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1015,
+    1481,
+    1485,
+    1569,
+    1573,
+    1639,
+    1643,
+    1712
+  ],
+  "required_callee_functions": [
+    "gadget_power_full",
+    "gadget_reset"
+  ],
+  "output": "src/scripts/abilities/ability_util.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/abilities/ability_util.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04000",
+        "to": "N04735",
+        "line": 1481
+      },
+      {
+        "from": "N04000",
+        "to": "N04736",
+        "line": 1485
+      },
+      {
+        "from": "N04001",
+        "to": "N04736",
+        "line": 1569
+      },
+      {
+        "from": "N04001",
+        "to": "N04735",
+        "line": 1573
+      },
+      {
+        "from": "N04003",
+        "to": "N04735",
+        "line": 1639
+      },
+      {
+        "from": "N04003",
+        "to": "N04736",
+        "line": 1643
+      },
+      {
+        "from": "N04005",
+        "to": "N04735",
+        "line": 1712
+      },
+      {
+        "from": "N04731",
+        "to": "N04735",
+        "line": 1015
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

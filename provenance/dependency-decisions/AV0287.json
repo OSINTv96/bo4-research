@@ -1,0 +1,140 @@
+{
+  "module": "src/scripts/killstreaks/killstreaks_shared.gsc",
+  "identity": "scripts/core_common/loadout_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "loadout",
+  "witnesses": [
+    {
+      "line": 1260,
+      "text": "                self loadout::function_3ba6ee5d( weapon, self.pers[ #\"killstreak_ammo_count\" ][ self.pers[ #\"killstreak_ammo_count\" ].size - 1 ] );",
+      "caller": "give_weapon",
+      "caller_span": [
+        1175,
+        1310
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1236,
+          "opening_line": 1238,
+          "ending_line": 1261,
+          "text": "else if ( isdefined( usestoredammo ) && usestoredammo && self.pers[ #\"killstreak_ammo_count\" ][ self.pers[ #\"killstreak_ammo_count\" ].size - 1 ] > 0 )"
+        },
+        {
+          "line": 1214,
+          "opening_line": 1217,
+          "ending_line": 1270,
+          "text": "if ( weapon.iscarriedkillstreak )"
+        },
+        {
+          "line": 1210,
+          "opening_line": 1213,
+          "ending_line": 1306,
+          "text": "if ( isdefined( level.usingmomentum ) && level.usingmomentum )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_3ba6ee5d",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          120,
+          132
+        ]
+      ]
+    },
+    {
+      "line": 1266,
+      "text": "                self loadout::function_3ba6ee5d( weapon, self.pers[ #\"held_killstreak_ammo_count\" ][ weapon ] );",
+      "caller": "give_weapon",
+      "caller_span": [
+        1175,
+        1310
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1261,
+          "opening_line": 1263,
+          "ending_line": 1267,
+          "text": "else"
+        },
+        {
+          "line": 1214,
+          "opening_line": 1217,
+          "ending_line": 1270,
+          "text": "if ( weapon.iscarriedkillstreak )"
+        },
+        {
+          "line": 1210,
+          "opening_line": 1213,
+          "ending_line": 1306,
+          "text": "if ( isdefined( level.usingmomentum ) && level.usingmomentum )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_3ba6ee5d",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          120,
+          132
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0287",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/loadout_shared.gsc",
+    "sha256": "d9a27f9b6c9441676c22300804b6962e669779c1a192b08b76fd1cd7fe4a337f",
+    "git_blob_sha1": "e5b3e72e3cf08f98f85384973246bafdf4713a96",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/loadout_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1260,
+    1266
+  ],
+  "required_callee_functions": [
+    "function_3ba6ee5d"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/loadout_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N05317",
+        "to": "N02904",
+        "line": 1260
+      },
+      {
+        "from": "N05317",
+        "to": "N02904",
+        "line": 1266
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

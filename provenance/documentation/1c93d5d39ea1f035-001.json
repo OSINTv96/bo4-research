@@ -1,0 +1,143 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_jammer_shared.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1972fa5917fcba794eae6c208b51452cca98244ff9ea59ca6b178884440b88e7",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::function_e9e14905",
+        "behavior": "function_e9e14905(localclientnum) contains literal self waittill(#\"death\",#\"stop_sounds\"). Only after that call returns, if level.var_6d8e6535[localclientnum] is defined, it calls opaque function_d48752e with the saved handle and clears that slot. This source does not establish an either-event wait, second-argument meaning, cancellation/delivery, or actual sound cleanup. Native/VM behavior remains unresolved.",
+        "unknowns": [
+          "function_d48752e definition not in corpus"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00261",
+        "sha256": "6f826a9600ae905f7a34cd6981f1e8ce96cba32978e6d5a80a12635d1fad140b",
+        "pointer": "",
+        "record_sha256": "3d8201b377eaab06428a13d0e0831466b07b94e046997384bccb593762d48735"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "ddbfaf00ea7abfc354228cd5c9e59326826bfb6c325910eab58a767cf379d18a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::player_isjammed",
+        "behavior": "player_isjammed(7-param clientfield callback on toplayer/isJammed): guards: return if !isdefined(self) or !isplayer(self); waittill_dobj(localclientnum); re-check isdefined(self). Branch newval == 1: self notify(#\"stop_sounds\"); self postfx::playpostfxbundle(#\"hash_3a2aaa69f5eeab6f\") [postfx_shared; not owned]; playsound(localclientnum, #\"hash_4a43757dd4b02977\"); level.var_6d8e6535[localclientnum] = function_604c9983(localclientnum, #\"hash_2be3b9789976a6b\") [opaque loop-sound starter, not in corpus]; self thread function_e9e14905(localclientnum); return. Branch newval == 0: self postfx::stoppostfxbundle(#\"hash_3a2aaa69f5eeab6f\"); only the defined-handle && !bwastimejump branch guards playsound(localclientnum, #\"hash_112352517abf5b11\"). self notify(#\"stop_sounds\") follows unconditionally inside newval==0, including missing-handle/timejump cases. These are source presentation requests; actual audio/FX and wait delivery remain unproved.",
+        "unknowns": [
+          "function_604c9983 / function_d48752e definitions not in corpus (loop-sound start/stop pair, inferred from use)",
+          "postfx bundle hashes unresolved",
+          "bwastimejump suppresses release sound (as written)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00262",
+        "sha256": "bf6919a484435f73188206135f5e66e4f04c883a65def55755097f4648459069"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "eeb2866d4992e84ac4c11d50650726c9d7bca23e954de9110dd0f322e01c2037",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::registerclientfields",
+        "behavior": "private registerclientfields() (eflags 0x4) - six clientfield registrations, all n_version=9000 according to clientfield_shared.csc7-9 (not scheduling priority), 1-bit int: scriptmover/isJammed -> &function_43a5b68a (flags 0,0); missile/isJammed -> same; vehicle/isJammed -> same; toplayer/isJammed -> &player_isjammed (flags 0,1); missile/jammer_active -> &jammeractive (0,0); toplayer/jammedvehpostfx -> &function_4a82368f (0,1). Four entity kinds jammed; player variant has different flag pair.",
+        "unknowns": [
+          "clientfield register flag-pair semantics (clientfield_shared; not owned)",
+          "Native meaning/acceptance and target-build compatibility of n_version9000 remain unresolved; the script parameter identity is version."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00263",
+        "sha256": "f45efaf5f8d055a29e9d9e474b6f73eb00fc84a67b8fe1d148e35e1ba2558e00",
+        "pointer": "",
+        "record_sha256": "7f4b3b9a6995fea6bfb488717aeca4421296f7c16fd651839c0f19d17dbc13c7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "130cef515584d0977f2e8561b0502d8507c89c0d0fce9ce735f1ee506d5eb313",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::jammeractive",
+        "behavior": "jammeractive(7-param clientfield callback on missile/jammer_active): branch newval == 1: branch !isdefined(self.worldfx): self.worldfx = util::playfxontag(localclientnum, \"weapon/fx8_hero_sig_disrupt_active\", self, \"tag_sensor_animate\") [util_shared; not owned]; setfxteam(localclientnum, self.worldfx, self.team). No newval == 0 cleanup branch.",
+        "unknowns": [
+          "worldfx cleanup location (not in this file)",
+          "setfxteam/playfxontag natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/256",
+        "record_sha256": "6c5f1b0728d76bdbab5c2a2d4d709d4fa7f0eafbdfbf022f575967edae7861cb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "46f9ae4fcecc83faec903f0a520f5abff3ccaba1f805d4615d0d0c6fd4d43751",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::init_shared",
+        "behavior": "csc init_shared() - jammer client registry (as rejected earlier): branch !isdefined(level.var_578f7c6d) -> spawnstruct; level.var_578f7c6d.weapon = getweapon(\"gadget_jammer\"); branch !isdefined(level.var_6d8e6535) -> []; registerclientfields().",
+        "unknowns": [
+          "init_shared caller (mode init chain)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/254",
+        "record_sha256": "3827cb0476fc50e5e3e96abd8912dd9e9435560c8122eeca891b9934a236df6a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "52bbee448b70cca90117329cc518c7196426732335c9408e8e7e164b1446ce15",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::function_4a82368f",
+        "behavior": "function_4a82368f(7-param clientfield callback on toplayer/jammedvehpostfx): branch newval == 1: self postfx::playpostfxbundle(\"hash_68b6dee9bf4fbfbe\"); return; branch newval == 0: postfx::stoppostfxbundle(same). Vehicle-jammed postfx presentation.",
+        "unknowns": [
+          "postfx bundle hash unresolved"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/260",
+        "record_sha256": "b9c0641a38809b6dd1d8a5c689a59bbad03a74a23314b7dc601b781e0f8d0178"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/1c93d5d39ea1f035.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "7681c2c78515430822922dc8ddf89bc336f03268182aacaa1268e928bee4ef40",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_jammer_shared.csc::function_43a5b68a",
+        "behavior": "function_43a5b68a(7-param clientfield callback shared by scriptmover/missile/vehicle isJammed): guards: return if !isdefined(self); return if !isdefined(self.weapon) or !isdefined(self.weapon.var_96850284); util::waittill_dobj(localclientnum); re-check isdefined(self). Branch newval == 1: self.var_4dc44ba4 = playtagfxset(localclientnum, self.weapon.var_96850284, self); return. Branch newval == 0 && oldval == 1 && var_4dc44ba4 defined: foreach fx: stopfx(localclientnum, fx).",
+        "unknowns": [
+          "self.weapon.var_96850284 writer (weapon defs)",
+          "playtagfxset/stopfx natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/257",
+        "record_sha256": "f4bbddb37785045f2ee49a73c9f3b66b5b7f5607f07ef88273462278ff40239d"
+      }
+    }
+  ]
+}

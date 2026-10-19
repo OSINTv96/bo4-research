@@ -1,0 +1,194 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/gamestate.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "efc344f292473a3e2e9eca9cc50666bc920178bc4085ddbc22c85ae7f8ea7499",
+  "git_blob_sha1": "25d73f95ab995553ee9c8f8d108b9a33ca32ef1b",
+  "output": "src/scripts/core_common/gamestate.gsc",
+  "output_sha256": "c731c2f6bc5d0053fb20f07e29d79c9479268e78053452406b0e7707d0ea7f35",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [],
+  "claims": [
+    {
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 28
+        },
+        {
+          "line_start": 6,
+          "line_end": 28
+        },
+        {
+          "line_start": 24,
+          "line_end": 28
+        },
+        {
+          "line_start": 24,
+          "line_end": 28
+        },
+        {
+          "line_start": 24,
+          "line_end": 28
+        },
+        {
+          "line_start": 24,
+          "line_end": 28
+        },
+        {
+          "line_start": 13,
+          "line_end": 28
+        },
+        {
+          "line_start": 6,
+          "line_end": 28
+        },
+        {
+          "line_start": 24,
+          "line_end": 28
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerabili [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/12",
+        "decision_canonical_sha256": "022e88dba644031924b79a7f7c0d32eac6e322558ca4fd02fd9770ca75523f26",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "57b5dcd196e518d968428d510793ae072613b42e1556fbb73f0a471928816282",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 11,
+          "sha256": "efc344f292473a3e2e9eca9cc50666bc920178bc4085ddbc22c85ae7f8ea7499"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/gamestate.gsc::set_state",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/172",
+        "decision_canonical_sha256": "e3c57e1f502f8bd0a993f61515b40f9de447a1b42bde51d92dbb70d2c65b590f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1101",
+        "record_sha256": "8a2f817763a82d6e3b6a729a2f7c2b7f0c6b638a086c4f5aec265629fe1ed561"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "98875cf61b68030c128182dbbc1d45e85c384eee14165a120127c62fb5e27802",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 20
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:playing-transition",
+        "answer": "The EXACT transition that can deliver on_game_playing (and therefore start_warzone) is set_game_playing() (globallogic.gsc 4340-4385), whose SOLE caller is startgame 4453, behind the pregame re-check 4448-4451; startgame's sole gsc caller is the driver 5179 (corpus searches this packet: `thread startgame()` = globallogic.gsc 5179 + the zm twin file only; `set_game_playing();` = 4453 only). The on_game_playing fan-out has EXACTLY ONE dispatch site in the recovered corpus: 4344 `level callback::callback(#\"on_game_playing\")`; the registration wrapper is callbacks_shared.gsc on_game_playing(func,obj) -> add_callback (435-438), with exactly two in-chain registrants: warzone.gsc 155 `callback::on_game_playing(&start_warzone)` (run at native gametype_init during warzone.gsc::main, unit 1) and globallogic.gsc 4433 `callback::on_game_playing(&globallogic_utils::gametimer)` (run at startgame entry [excerpt; exact source record identified separately]",
+        "behavior": "startgame (4431-4466): register gametimer on on_game_playing (4433); timerstopped/playabletimerstopped=0; gamestate::set_state(\"pregame\") (4436; gamestate.gsc 7-11 writes game.state + calls absent-definition function_cab6408d); VOIP flags (4437); prematch branch: custom pointer (no corpus writer) or prematchperiod() (4445) - sync call carrying endon(game_ended) and the real waits; early return if state left pregame (4448-4451); set_game_playing() (4453) = the sole playing transition: level notify(\"game_playing\") + set_state(\"playing\") + the corpus-unique callback::callback(\"on_game_playing\") fan-out (threaded delivery per g3; append list order puts earlier start_warzone before later gametimer, with other callbacks retained; completion remains VM-dependent) + gameplay_started clientfield + alive count + telemetry (4340-4385). Then startgame tails: showobjectivenotification/timelimitclock/ [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "whether the original build's gametype_start can re-fire within one level after a failed dispatch (native retry semantics)",
+          "function_cab6408d (gamestate hook) body - absent definition",
+          "completion order between gametimer/start_warzone threads and set_game_playing's tail (f2 N4)",
+          "function_5fad41b5/function_b4262bec bodies (untraced; called from set_game_playing)",
+          "prematch_end / game_playing waiter fan-out completeness (deliberately not expanded - l3-owned end paths and cross-cutting waiters)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/827",
+        "decision_canonical_sha256": "7a82d96c52d644147c2735f5085f026feca2059d6357a72525486c9a815f675a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00322",
+        "sha256": "a9c8b2d5cb3c8a4eb68a6bbd48539bd098759321d1a64b1914b72a01f2ca5359",
+        "pointer": "",
+        "record_sha256": "912b94c53470487a5ccee1a45f055dbc6b7dee60b0eee4e5c76712f83adc5b05"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/e77400ba2027eb42.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/cb7f1e3a5c1694a0-001.json",
+      "sha256": "e381aae0b3ad981a215348f1ca157ddb2787e37553e54a2901c7e0491ba31de4"
+    }
+  ]
+}

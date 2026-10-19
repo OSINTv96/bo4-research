@@ -1,0 +1,88 @@
+{
+  "module": "src/scripts/core_common/load_shared.gsc",
+  "identity": "scripts/core_common/hud_util_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hud",
+  "witnesses": [
+    {
+      "line": 802,
+      "text": "                hud = hud::function_f5a689d( \"<dev string:x118>\", 1.2 );",
+      "caller": "art_review",
+      "caller_span": [
+        793,
+        834
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 795,
+          "opening_line": 798,
+          "ending_line": 833,
+          "text": "switch ( dvarvalue )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_f5a689d",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          407,
+          423
+        ]
+      ]
+    },
+    {
+      "line": 803,
+      "text": "                hud hud::setpoint( \"<dev string:x124>\", \"<dev string:x124>\", 0, -200 );",
+      "caller": "art_review",
+      "caller_span": [
+        793,
+        834
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 795,
+          "opening_line": 798,
+          "ending_line": 833,
+          "text": "switch ( dvarvalue )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setpoint",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          74,
+          295
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0278",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/hud_util_shared.gsc",
+    "sha256": "dcbc6ecc9958a1ab93cd9082ecae6b652ef48fc097f41c97d376dbe5e4f85049",
+    "git_blob_sha1": "9e9f468ebfd611a75dc33dea97205c28261a6035",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

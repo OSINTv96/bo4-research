@@ -1,0 +1,2360 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/gameendscoreutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "2715b88d509ad4355afa3716ef3ae1c79cc83203209e9b0f33c9dccf9a288ddb",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:267",
+        "answer": "Any killcam/final-killcam/play-of-match/scoreboard bit returns false. Otherwise requires gameScore.currentState==outcome_with_time and forceScoreboard value not equal1. Absent gameScore returns false. A truthy matchBonus get() result returns the exact isRoundEnd model/value and bonus>0 conjunction. Empty/falsy paths assign0 then fall through without explicit return; do not normalize those to false.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:267",
+            "source_symbol": "CoD.GameEndScoreUtility.ShowOutcomeWithTimeTransition",
+            "symbol": "f4_local0.forceScoreboard:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/gameendscoreutility.lua",
+              "line_start": 44,
+              "line_end": 44,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5b1655f97a276bc1c77d0e0fbf2d871f2ac17235cb62b03a107cd09ef5fad6da",
+              "line_span_sha256": "39415501f3715cc4d635327481b930194770b7ff57ec22c98d99da2962b5cffc",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf4_local0 = f4_local0.forceScoreboard:get() == 1",
+            "scope_id": "lua/ui/utility/gameendscoreutility.lua:39-52",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:267",
+            "source_symbol": "CoD.GameEndScoreUtility.ShowOutcomeWithTimeTransition",
+            "symbol": "f4_local1.gameScore.currentState:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/gameendscoreutility.lua",
+              "line_start": 46,
+              "line_end": 46,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5b1655f97a276bc1c77d0e0fbf2d871f2ac17235cb62b03a107cd09ef5fad6da",
+              "line_span_sha256": "2998f4881f966a901b5de002490c8a3e97467f1015333adc3aa8cd4ca04ed477",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tif f4_local1.gameScore.currentState:get() == \"outcome_with_time\" then",
+            "scope_id": "lua/ui/utility/gameendscoreutility.lua:39-52",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:267",
+            "source_symbol": "CoD.GameEndScoreUtility.ShowMatchBonus",
+            "symbol": "f12_local2:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/gameendscoreutility.lua",
+              "line_start": 158,
+              "line_end": 158,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5b1655f97a276bc1c77d0e0fbf2d871f2ac17235cb62b03a107cd09ef5fad6da",
+              "line_span_sha256": "b9be886e85e1878bc7a2216fff0e9f589f1bc0fbfe10aa0df1f30478a37a3924",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf12_local3 = f12_local2:get()",
+            "scope_id": "lua/ui/utility/gameendscoreutility.lua:150-169",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:267",
+            "source_symbol": "CoD.GameEndScoreUtility.ShowMatchBonus",
+            "symbol": "f12_local1:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/gameendscoreutility.lua",
+              "line_start": 162,
+              "line_end": 162,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5b1655f97a276bc1c77d0e0fbf2d871f2ac17235cb62b03a107cd09ef5fad6da",
+              "line_span_sha256": "39e0a27874b0d0c30b0fe0631e4417abeb87ce163f3d4f5edb897c9cdec424d0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\treturn f12_local1 and f12_local1:get() and f12_local3 > 0",
+            "scope_id": "lua/ui/utility/gameendscoreutility.lua:150-169",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/266",
+        "record_sha256": "1903fe538c1fbfad9af00663b8a902766d461086ebb3a49047e5adb5f2e209dd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "40c204e0b51fb42d877f56e3f03929323f4ef96bdb85ec08341af468c497f348",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:240",
+        "answer": "Constructs CoD.GameEndScoreRoundList.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, RoundPipList as LUI.UIList.new, Score as LUI.UIText.new. Stores source state predicates in order JustComplete, ShowNumber. Requests model links RoundPipList, \"justComplete\", true; RoundPipList, \"isComplete\", true; f1_arg1, \"GameScore\", \"roundWinLimit\". Owns 14 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 11,
+              "line_end": 11,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "b6b123cdb9a0d9b6f20dae4dc378442ff3cb70245319ea418b305b26abe52155",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.GameEndScoreRoundList )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 15,
+              "line_end": 15,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:mergeStateConditions",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "aed169ef9bb6d3ee8e4f7ba3cd61bd79bda150253fcb0969627d2dbb7b871464",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:mergeStateConditions( {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:linkToElementModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 33,
+              "line_end": 33,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5a10eeb57907c98a39a4efafd80819d50bca55dd902781860df09f3875a2c8c8",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:linkToElementModel( RoundPipList, \"justComplete\", true, function ( model )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 34,
+              "line_end": 34,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "2291188177c23442361c7e118af4514e63dd218880d02a98973c842d5edfd31e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( RoundPipList, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:33-41",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 38,
+              "line_end": 38,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "73ca228d8455c2fff2fb7db3b7b98801547fdfe7ee2fff91fd0a8781fd0742d5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = model:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:33-41",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 45,
+              "line_end": 45,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "a6e404284d9678b36920cbde1b1da21effdd73394398152361a69af0f7f890f8",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore( f1_local2, f1_local4[\"gameScore.currentState\"], function ( f4_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 46,
+              "line_end": 46,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "2291188177c23442361c7e118af4514e63dd218880d02a98973c842d5edfd31e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( RoundPipList, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:45-53",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f4_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 50,
+              "line_end": 50,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "ef63085bebb8eb5834784febbdc151474c9c9ca95f8d88c255c837489e81572a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f4_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:45-53",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "DataSources.GameScore.getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 56,
+              "line_end": 56,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "1f0a57135da91e07a9e679648e746bd4646a90e9d5da469ddd761bb09604aa16",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local4 = DataSources.GameScore.getModel( f1_arg1 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 57,
+              "line_end": 57,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "d0f68dfe32f50dec6094e8e349b047b896406fe720744b34a0e68f3b3f393514",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore( f1_local2, f1_local4.showSwitchingSides, function ( f5_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 58,
+              "line_end": 58,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "2291188177c23442361c7e118af4514e63dd218880d02a98973c842d5edfd31e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( RoundPipList, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:57-65",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f5_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 62,
+              "line_end": 62,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "e1566ac3d97250423404fb28695a96cb26239cfb7f5a216edd53d443c9f50447",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f5_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:57-65",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:linkToElementModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 66,
+              "line_end": 66,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "a85e8b626a2eb469655601b2f00213a58cadbb11f9a3c750f29b78f0149fb9cf",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:linkToElementModel( RoundPipList, \"isComplete\", true, function ( model )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 67,
+              "line_end": 67,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "2291188177c23442361c7e118af4514e63dd218880d02a98973c842d5edfd31e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( RoundPipList, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:66-74",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 71,
+              "line_end": 71,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "73ca228d8455c2fff2fb7db3b7b98801547fdfe7ee2fff91fd0a8781fd0742d5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = model:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:66-74",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setLeftRight",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 75,
+              "line_end": 75,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "bfd49f5a4afaf7bff4e0912f2e17039f22bec4c236b79e5e93b5652ed5b2195d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:setLeftRight( 0.5, 0.5, -119, 119 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setTopBottom",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 76,
+              "line_end": 76,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "66831eaab6a75d56ec7eee79f0a1e43bd6f5b31b4fb4cfff4cfb25c6ead8f7cc",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:setTopBottom( 0, 0, 13, 61 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setWidgetType",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 77,
+              "line_end": 77,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "868b4fd6f472d41f8a5bfcb01894c2148d7fe72cf338bbdeda7b642fc4803983",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:setWidgetType( CoD.GameEndScoreRoundPip )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setSpacing",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 78,
+              "line_end": 78,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "61d484eaeafbca763ebd971db1ac89e8386c7d66b09a67c0ce51492b633bf98a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:setSpacing( 47 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 79,
+              "line_end": 79,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "187d3bf7bad03932123676e3946044ea9bd4401528b31c6baa94c2bb67e31bfb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:subscribeToGlobalModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 80,
+              "line_end": 80,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "0973f0329e367c34e9622375c3a5fada044fe1e78cee8dce7e6cb4f684cd0a62",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundPipList:subscribeToGlobalModel( f1_arg1, \"GameScore\", \"roundWinLimit\", function ( model )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 81,
+              "line_end": 81,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "d42da3a536ac1e92642141a5e722a7719a48171a528b5a3c2868ef9c122ef50d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f7_local0 = model:get()",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:80-85",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "RoundPipList:setHorizontalCount",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 83,
+              "line_end": 83,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "962bca91e09fa3446e274397aac471eefdd0e5da8d5eecc4d0d1e1d13b6d19c0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tRoundPipList:setHorizontalCount( f7_local0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:80-85",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 86,
+              "line_end": 86,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "69f180269943b31da920e8aa6f686565d1fe2271e0b54d79636d4460e6315ce0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( RoundPipList )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 90,
+              "line_end": 90,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "fdacaf14c76205ad00d0c1e2a427a821ca1eeae75600ecb35728c75257495de8",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setRGB( ColorSet.T8__OFF__WHITE.r, ColorSet.T8__OFF__WHITE.g, ColorSet.T8__OFF__WHITE.b )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 91,
+              "line_end": 91,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "1a442f4e1e8484cf409cb3d7cd59ccff83e3388766454a84521afee0c4d86132",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setText( 4 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setTTF",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 92,
+              "line_end": 92,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "1686411a825520e14b2e01e8907d0615534bdb02a099ff4674ffcedf55b75556",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setTTF( \"0arame_mono_stencil\" )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 93,
+              "line_end": 93,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "67bbca558739c6c2eb7e3a90f2ad1f0877910ea2a55d09090537afa88fd135f5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_171E049B161CD00A\" ) )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setLetterSpacing",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 94,
+              "line_end": 94,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "9f5a74e687a0a0e4e69fbc3cab82e3c94e956a8b9e001ecbf17d9bf3c5467640",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setLetterSpacing( 10 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 95,
+              "line_end": 95,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "257627a3e6d923b2b230e4cc1e964333189bba9117ac33f4c97599618c97416e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "Score:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 96,
+              "line_end": 96,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5480c786f5da419fd1d981e9a39999a7e92fe5ed51ae7db5acec162c716c6cb3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tScore:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_top\"] )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 97,
+              "line_end": 97,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "4e2b699ac813cb4980e6b55d15b07647921fb3c15e80bbf4a7ee5108e6d34cf3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Score )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "self:mergeStateConditions",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 100,
+              "line_end": 100,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "f80e120986602aa448c1707f3e91220ab2b7f14cf0f0242f97e8bd05ffce2459",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:mergeStateConditions( {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 111,
+              "line_end": 111,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "bfe65e5f7fc7f3c0f003952d725867345939ccc79fe1b001b1e0b9f65383eb94",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"gameScore.roundWinLimit\"], function ( f9_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 112,
+              "line_end": 112,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:111-119",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f9_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 116,
+              "line_end": 116,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "220a7869feefa1adb1d3656e432a4302f3923242b86c69e1edd6ffb50f68f0c4",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f9_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:111-119",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 123,
+              "line_end": 123,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "7908390badb3e453d3cf803ca082292b549af393cabc8a8b1d9f1403695ab30b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5.forceScoreboard, function ( f10_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 124,
+              "line_end": 124,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:123-131",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f10_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 128,
+              "line_end": 128,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "903797a3c8459e24a80c54ed15602c69cacc25337004971efaa2744ce23258c7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f10_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:123-131",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 135,
+              "line_end": 135,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "4b9db437382668b57a718ad7b27a5c4b6bb180ef5e5de49c6cf38ce3c1735294",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"gameScore.currentState\"], function ( f11_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 136,
+              "line_end": 136,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:135-143",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f11_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 140,
+              "line_end": 140,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "d3802ccd3cc10b03f4112867516e7c17a88886c0770fd79e0a4963bff392b5f3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f11_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:135-143",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 147,
+              "line_end": 147,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "3973a0de0fea4f3842de2b19d2cacb7f9f5739168c036ef39c678eba7c7641d2",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_in_killcam\"]], function ( f12_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 148,
+              "line_end": 148,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:147-155",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f12_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 152,
+              "line_end": 152,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "858713bd71206145f01fa4662a6135fed5e4f5fe311556bb88c97827eb3305d8",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f12_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:147-155",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 159,
+              "line_end": 159,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "893ef962b51eaec90ff657f02cf7fb543e996890efbd490e2a7a943c14f1cf01",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_final_killcam\"]], function ( f13_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 160,
+              "line_end": 160,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:159-167",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f13_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 164,
+              "line_end": 164,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "13fb8fc9f6e5ab81a919f1c490aa68d0d26a34362e2792a35d467149cbc03986",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f13_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:159-167",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 171,
+              "line_end": 171,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5cfa5ca9cf85210702b29288ba1f1645e5735c6a3f22ba2b08afcebdce0f4a1f",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_play_of_the_match\"]], function ( f14_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 172,
+              "line_end": 172,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:171-179",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f14_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 176,
+              "line_end": 176,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "03d5b7a820265bc1d37314088bc064b80482810856d7c11161b7f8eae60f135a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f14_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:171-179",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_local2",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 183,
+              "line_end": 183,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "868051e49ff74936c7bb80323516c77f904e544a2578d5c723b4e9ebb0d535a5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local2( f1_local4, f1_local5[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_scoreboard_open\"]], function ( f15_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 184,
+              "line_end": 184,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:183-191",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "f15_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 188,
+              "line_end": 188,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "988bd2b7b2630da698339c3ae06fe3b1436efab1a2f7430fd72a360a69fdfc4a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f15_arg0:get(),",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:183-191",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:240",
+            "source_symbol": "CoD.GameEndScoreRoundList.new",
+            "symbol": "PostLoadFunc",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/edd7d08a2600a5d.lua",
+              "line_start": 196,
+              "line_end": 196,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ae4a08d15905c6961d47fe3fc423815f1c91d9c533dbf38c53f6b1b0b05afe9c",
+              "line_span_sha256": "4dbef5997b3a65062e8c8bbfb97d55f505c5f9f18c20af45a45813d428535171",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tPostLoadFunc( self, f1_arg1, f1_arg0 )",
+            "scope_id": "lua/hashed/edd7d08a2600a5d.lua:9-200",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/239",
+        "record_sha256": "18879c8eea20a2de038247bcecb3f315be1b76899c490c6d725105b3ac096833"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "4198ec015d5d40ff7eddd09b799616233c8b9de063008b81c8ee2d053ddf6c3e",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:045",
+        "answer": "Builds decorative result backings/grid/frames/arrows and player identity/team-ranking children in exact source order. Identity subscribes the entire PerClient model and calls setModel without a nil filter. TeamRanking Squad predicate is not IsSoloTeamGame. Registers close, optional PostLoadFunc and returns self. No award/rank calculation or authoritative result data is implemented here; all assets, model providers and child close behavior remain external.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00535",
+        "sha256": "54366e6e4444224f79afd0da0df8fad675cdce8f486e4c7a0b62672c2e54541d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5b61b6882c2762e50828f2dfadc0d5256eb392de39bb00d94e107a40a5cbf667",
+      "summary": {
+        "unit_id": "hmh07-lua:186",
+        "answer": "Hud_WZ directly constructs this result widget. SetupGameEndScoreWidget and DisableAutoButtonCallback run first; demo.processedKeyframeJump and lobbyRoot.publicLobby.stage are initialized to0 (real model writes, not backend stage proof). Builds result/outcome/eliminator/status/timer/deathcam/VOIP/quit/placement/killer/weapon/AAR/director/crosshair children. The constructor requests a GameScore/titleString subscription. Only if its callback is delivered and model:get() is nonnil, it requests LocalizeToUpperString with that value and passes the unknown result to Outcome:setText, if earlier accesses/calls succeed; nil takes no explicit setText arm. Callback delivery, localization/case result and displayed effect remain unresolved; aliveTeammateCount drives DownNotOut art; GameScore model forwarded to eliminator/challenge/killer/weapon displays. Victory controls challenge coin visibility. meansOfDeath>0 hides killer/weapon displays and inversely reveals self-caused/means-of-death displays. Attacker identity model rebinding first removes and nils old per-field subscription, dereferences new attackerClientModel, then subscribes xuid/clientNum/rank/rankIcon; analogous clientModel rebinding populates MistakesWereMade identity. Calling card receives full client model; nonnil callbacks update emblem/name/cleaned clan/rank/icon. No nil update clears old displayed text explicitly. VOIP HudStart has a recovered early-return/branch shape (exact trace) and ShowForCodCaster AlwaysFalse; do not replace it with an assumed visibility formula. Outcome state family: ShowOutcomeTransition with no killcam -> Victory/PC; defeat/team_elimination with no killcam -> Defeat/GameOver variants; elimination -> Elimination. Platoon variants additionally platoonCount!=0; PC variants additionally IsPC. Non-PC named states do not themselves contain not-IsPC, so do not assume exclusivity; LUI arbitration stays external. State/current/visibility/profile/lobby/teammate/AAR/input subscriptions reevaluate state/buttons. Square prioritizes console spectate (hide AAR/send skip_deathcam/clear transition/location/hide occluder), then console online AAR close under ui_showWZAAR/noncustom/not-spectate. Triangle redeploy requires private host, all members can redeploy, no matchmaking, redeploy_enabled and noncustom. Cross console deathcam requires eligibility, non-PC, not alternate killcam button, not UI-active/demo/default and viewed report; sends play_deathcam, sets hasPlayedDeathCam, plays alias/music. Circle console hold-finished quits; PC branches quit on non-held conditions; contextual2 handles PC exit. Each action returns true when taken, label callbacks often return false despite valid action, exact source retained. setState CallOriginalFirst hook branches demo/console/PC-occluded focus/intro/cursor/chat behavior; keyframeJump clears transition only during demo. Close is registered via CallOriginalSecond to an unselected __onClose; optional postload then focus/safe-area setup and return. Assets, backend result/rank/AAR provenance, hook order/cleanup outside scope, native menu response and actual execution remain open.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00142",
+        "sha256": "b0d33370bc53b6d610906b9981c296de28bdc07228c9f239705a7c6393a02db3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "5d1e860b8d88f31b3a6bb1fe166b8a2e64d10c6ca072e971a54c1ece09c44bbc",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:012",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/11",
+        "record_sha256": "33efdacdbd074c7e905ce4807c3f0a6f86b222e49d15484a868c5242c47d13a6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "6c7cea4a708636b6b2d8d20b2647a0b45d1b9c7a71f85bcf0c7e0bf0a77ee936",
+      "summary": {
+        "unit_id": "hmh07-lua-follow5:130",
+        "answer": "Return false for any in-killcam/final-killcam/play-of-match/scoreboard-open bit. Otherwise read forceScoreboard and gameScore.currentState and perform the shown temporary assignments. The recovered body ends after f5_local1=not f5_local0 without a return; do not replace this with an intended score/time predicate. Test tdm,dom,koth,dom_dm in short-circuit order. Only if all fail, use controller gameScore.roundWinLimit:get()>4. Return the resulting value. Return the literal short-circuit expression f39_local0.currentState and f39_local1 and f39_local0.currentState:get()~=\"\". f39_local0/f39_local1 have no declaration or initializer in the assigned body. Their actual bindings are missing; no semantic completion or intended predicate is inferred.",
+        "unknowns": {
+          "provider_or_lexical": [],
+          "source_fidelity": [
+            {
+              "symbol": "CoD.GameEndScoreUtility.ShowOutcomeWithScoreOrTimeTransition",
+              "limit": "Nonvisibility-blocked path has no explicit return and contains overwritten temporary values."
+            },
+            {
+              "symbol": "CoD.GameEndScoreUtility.IsInTransition",
+              "limit": "The two f39_local variables have no source binding in this body; required input missing. This is a partial source contract, not a proven boolean predicate."
+            }
+          ],
+          "original_build": "Recovered source is not matched to original PS4 bytecode/build; @0 is not a native address.",
+          "VM_native": "Lua dialect, metatables, native/UI API execution, model dispatch/cancellation and input timing remain unverified.",
+          "data_settings_assets": "Literal references do not supply effective model values, settings, data tables, localization or asset availability.",
+          "server_service": "Online, stats, progression, marketing, lobby and backend behavior are unavailable service boundaries when requested by these exact bodies.",
+          "runtime": "No game, console, account, router, save, native tool or independent review was run."
+        },
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00034",
+        "sha256": "781c1c1aee59bfc36951652bab7a837686810fc0aebaac4cb4ddfe8fe782f24f",
+        "pointer": "/units/129",
+        "record_sha256": "c32c0b4f8fa7de2ed778da8188f6bc70a4d52386f1a7a737ab7ae43172883164"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "799622837cfb6a7d6178dd2d3d541e60ddc782383e4a88cf0dfc3d29cec6a0d6",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:040",
+        "answer": "Constructs CoD.FinalKillcamWidget from the displayed menu/controller/layout arguments. Creates PlayerInfo as CoD.FinalKillcamPlayerInfo.new, CODGradientBacking as CoD.CODCasterTeamBaseGradient.new, blurbackplate as LUI.UIImage.new, BlackForeground as LUI.UIImage.new, topbarblack as LUI.UIImage.new, killcamTitle as CoD.PLayOfTheMatchTitle.new, AttackerPlayerCard as CoD.PlayOfTheMatchCallingCard.new. At66 it requests registration of the looked-up self.__onClose value; this constructor owns no inline callback and does not establish captured constructor menu/controller/widget references. The separate __onClose246–251 receives f20_arg0 and, if invoked and preceding accesses/calls succeed, requests its PlayerInfo:close(), CODGradientBacking:close(), killcamTitle:close(), then AttackerPlayerCard:close() in that order. Actual registration delivery, original wrapper order, successful child cleanup, lifetime and provider/native/VM effects remain unknown. Optional PostLoadFunc and the tail return occur only if reached. The ordered effect contract retains every property, model, visual, navigation, callback and return mutation in source order; returning self is not proof the original game loads this widget.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00207",
+        "sha256": "fc23e12d163fdc259f74f5ee864035d19580875af5322af0d3cf7d9864545caf"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "7a2aef5438956e4e405938ac7e6cd265126e6072d2028b7a778308299d8b49d3",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:018",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/17",
+        "record_sha256": "8c4df5f516a9a2fe52a4e23cc803bbfcbf64892f34b05e5c302e29ccf31db2db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "808da08bad7fa015b4c6ad1351d9861327ac4ab7b50da0be6437d349a1a51a71",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:020",
+        "answer": "Builds reversed round pips and score text. JustComplete requires the row flag, outcome_with_score and not switching sides. Round limit sets horizontal count; score and display subscriptions validate stored conditions. Preserve all UIVisibilityBit/model gates in the trace. Creates self via LUI.UIElement.new, RoundPipList via LUI.UIList.new, Score via LUI.UIText.new. Stores state predicates JustComplete, ShowNumber; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/19",
+        "record_sha256": "be39bdbc05e01680cf3c6b7355dcd822b3fb7b9985ca73bf826bee88a34e34e8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "95917c498a9c144a13672b653fb866358e4f8bdcdb968ce3877e8f158a3dc89d",
+      "summary": {
+        "unit_id": "hmh07-lua-follow2:004",
+        "answer": "clipOver clears _clipNameSentToDevhost only inside LUI.DEV with a truthy prior name; the extra dvar controls the debug emission, not the clear. Independently plays nextClip when truthy. Event argument is unused. No default clip, event dispatch, callback cancellation or return value is supplied.",
+        "unknowns": [
+          "Exact original PS4/source version matching, recovered Lua/VM fidelity and global/native/LUI provider identity remain unverified.",
+          "Model/storage/DDL/assets/localization/dvar/enum values, callback delivery/cancellation/error behavior, native networking and unavailable service/server code are separate inputs.",
+          "Other-file locals are not providers by spelling. Exact qualified global declarations are source candidates until loader/table identity and caller conditions bind them.",
+          "No implicit nil/type checks, exception recovery, timer/model disposal, idempotence or guarantee that later effects run after an error is added."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00557",
+        "sha256": "dfd297cc7b66af81c5fbaa22740d786b96b412041da701c3508473f75bd44ea5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "9ef5fd6fc68b773959b3e5738f2416f1fe7c786c9417214894f69accdfd3f72b",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:128",
+        "answer": "Defaults a missing value from global demo.timescale and a missing precision to 1. Returns floor(value*10^precision+0.5)/10^precision. Preserve timescale spelling; the separate writer uses timeScale. The exact bounded CoD.DemoUtility.RepositionDollyCamMarker path performs, in source order: Engine[@\"exec\"]( f10_arg2, \"demo_repositiondollycammarker \" .. f10_arg3 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.RemoveCurrentDollyCamMarker path performs, in source order: CoD.DemoUtility.RemoveDollyCamMarker( f11_arg0, f11_arg1, f11_arg2, Engine[@\"gethighlightedcameramarker\"](), f11_arg4 ); CoD.DemoUtility.SetEditingDollyCameraMarker( f11_arg0, f11_arg1, f11_arg2, false, f11_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. Starts at -1; forward/back selects highlighted marker plus/minus one. Only nonnegative candidates below demo.lightmanMarkerCount are passed to SwitchToLightmanMarker. There is no wraparound. The exact bounded CoD.DemoUtility.RepositionLightmanMarker path performs, in source order: Engine[@\"exec\"]( f17_arg2, \"demo_repositionlightmanmarker \" .. f17_arg3 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.RemoveCurrentLightmanMarker path performs, in source order: CoD.DemoUtility.RemoveLightmanMarker( f18_arg0, f18_arg1, f18_arg2, Engine[@\"gethighlightedcameramarker\"](), f18_arg4 ); CoD.DemoUtility.SetEditingLightmanMarker( f18_arg0, f18_arg1, f18_arg2, false, f18_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. Toggles the player-pause model through its helper first, then issues immediate demo_pause for the controller. Reads demo.isPaused and invokes RunPauseCommand only when it is truthy. No action occurs on a false result. Returns the model get result if demo.isFastForwardingDisabled exists, otherwise false. The exact bounded CoD.DemoUtility.TakeScreenshot path performs, in source order: Engine[@\"exec\"]( f25_arg2, \"demo_screenshot\" ). Callee/provider results and side effects remain bounded by separately cited reuse. forward requests demo_switchplayer 0; back requests demo_switchplayer 1. Other direction strings do nothing. Empty/nil commands return. next/cycle map none→thirdperson→freecam; cycle wraps remaining mode to none while next returns at the endpoint. prev maps thirdperson→none and freecam→thirdperson, otherwise returns. An unrecognized nonempty command leaves the candidate nil then still calls switchdemocameramode(nil), as recovered. Absent trigger data returns. Reads its amount and target-start delta; positive delta is blocked when fast-forwarding is disabled. Otherwise rounds the interpolated scale, issues demo_timescale immediately, writes demo.timeScale only if present and returns the rounded value. No range clamp appears. forward/back first clear game-score transition models when in transition, then issue demo_forward/demo_back. Other directions do nothing. The exact bounded CoD.DemoUtility.DemoCancelPreview path performs, in source order: Engine[@\"exec\"]( f34_arg2, \"demo_cancelpreview\" ). Callee/provider results and side effects remain bounded by separately cited reuse. Calls UnpauseIfPaused for the controller before requesting demo_startautodollycam. The exact bounded CoD.DemoUtility.DemoStopAutoDollyCamera path performs, in source order: Engine[@\"exec\"]( f36_arg2, \"demo_stopautodollycam\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoAddDollyCameraMarker path performs, in source order: Engine[@\"exec\"]( f37_arg2, \"demo_adddollycammarker\" ). Callee/provider results and side effects remain bounded by separately cited reuse. If recording, requests demo_pausecliprecord. Otherwise camera edit mode first unpauses and selects dolly freecam; profile demo_recordwithautoplay can unpause again; then requests demo_startcliprecord. The request does not prove a recorded clip. forward reads dollyCamMarkerForJumpForward; back reads dollyCamMarkerForJumpBack minus one. A candidate other than -1 is passed to SwitchToDollyCamMarker. No broader bounds check or wrap is shown. The exact bounded CoD.DemoUtility.DemoEditDollyCameraMarker path performs, in source order: CoD.DemoUtility.SwitchToDollyCamMarker( f40_arg2, -1 ); CoD.DemoUtility.SetEditingDollyCameraMarker( f40_arg0, f40_arg1, f40_arg2, true, f40_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoExitEditDollyCameraMarker path performs, in source order: Engine[@\"exec\"]( f41_arg2, \"demo_updatedollycammarkerparameters \" .. Engine[@\"gethighlightedcameramarker\"]() ); CoD.DemoUtility.SetEditingDollyCameraMarker( f41_arg0, f41_arg1, f41_arg2, false, f41_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoPlaceDollyCameraMarker path performs, in source order: Engine[@\"exec\"]( f42_arg2, \"demo_applynewdollycammarkerposition 0\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoCancelPlaceDollyCameraMarker path performs, in source order: Engine[@\"exec\"]( f43_arg2, \"demo_applynewdollycammarkerposition 1\" ). Callee/provider results and side effects remain bounded by separately cited reuse. Empty/nil commands return. next/cycle map manual→linear→fixed; cycle wraps to manual and next returns at the endpoint. prev maps fixed→linear→manual and returns at the endpoint. An unrecognized nonempty command writes nil to the mode model, preserving recovered behavior. Missing model returns. Read its current value; delta=tonumber(f45_arg3), sum=current+delta. Preserve the exact write guard: not (delta <= 0 or sum > Dvar[@\"demo_maxtimescale\"]:get()) or (delta < 0 and sum >= 0.1). Only when that guard is truthy request model:set(sum). Do not rewrite the negated comparisons as a positive-delta test: non-total numeric comparisons can differ. Zero delta with ordinary finite operands does not write. Missing/invalid values, numeric representation, Dvar/provider errors and actual VM/runtime behavior are not repaired or proved. If already dolly camera, selects edit freecam mode. Otherwise unpauses if needed and selects dolly freecam mode. The exact bounded CoD.DemoUtility.DemoFreeCameraLockOnObject path performs, in source order: Engine[@\"exec\"]( f47_arg2, \"demo_activatefreecameralockon\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoFreeCameraUnlockObject path performs, in source order: Engine[@\"exec\"]( f48_arg2, \"demo_deactivatefreecameralockon\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoAddLightmanMarker path performs, in source order: Engine[@\"exec\"]( f49_arg2, \"demo_addlightmanmarker\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoEditLightmanMarker path performs, in source order: CoD.DemoUtility.SwitchToLightmanMarker( f50_arg0, f50_arg1, f50_arg2, -1, f50_arg4 ); CoD.DemoUtility.SetEditingLightmanMarker( f50_arg0, f50_arg1, f50_arg2, true, f50_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoExitEditLightmanMarker path performs, in source order: Engine[@\"exec\"]( f51_arg2, \"demo_updatelightmanmarkerparameters \" .. Engine[@\"gethighlightedcameramarker\"]() ); CoD.DemoUtility.SetEditingLightmanMarker( f51_arg0, f51_arg1, f51_arg2, false, f51_arg4 ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoPlaceLightmanMarker path performs, in source order: Engine[@\"exec\"]( f52_arg2, \"demo_applynewlightmanmarkerposition 0\" ). Callee/provider results and side effects remain bounded by separately cited reuse. The exact bounded CoD.DemoUtility.DemoCancelPlaceLightmanMarker path performs, in source order: Engine[@\"exec\"]( f53_arg2, \"demo_applynewlightmanmarkerposition 1\" ). Callee/provider results and side effects remain bounded by separately cited reuse. Empty/nil commands return. next/cycle map omni→spot; cycle wraps to omni and next returns from the endpoint. prev maps spot→omni and otherwise returns. The selected value (possibly nil for an unknown nonempty command) is written, then parameters are updated for the highlighted marker. Stores the literal UpdateLightmanFloatParam helper in a local then calls it with controller, demo.currentLightmanMarkerLightIntensity and tonumber of the supplied change. The local call is source-bound to that literal helper; its body is separate. Stores UpdateLightmanFloatParam in a local then calls it with controller, demo.currentLightmanMarkerLightRange and tonumber of the supplied change. Opens LightmanColorPicker on the supplied parent and controller, then sets demo.showLightmanColorPicker=true. It does not pick or persist a color in this span. The exact bounded CoD.DemoUtility.DemoCancelHighlightReelCreation path performs, in source order: Engine[@\"exec\"]( f69_arg2, \"demo_cancelhighlightreelcreation\" ). Callee/provider results and side effects remain bounded by separately cited reuse. Sets demo.showChooseModeSidebar true before requesting ChooseModeSidebar popup. Requests CreateOverlay with controller, supplied element parent and supplied overlay identifier. Returns false unless director context and demo_autodollyrecord profile are enabled, no highlighted marker is above -1, and no dolly path recording is already active. Only the final path returns true. Returns false outside director context, with profile disabled, or without an active dolly-path recording. Otherwise returns true. Requires PC plus the full HUD Demo.emptyFocusableNoCursorUpdate chain. If the game-mode HUD alpha is below one it sets it to one, then requests focus on that empty widget ID. Missing chains do nothing. Reads root size and preview local rectangle, computes X/Y fractions and a width fraction including +20, stores previewWindowXpos/Ypos/Scale and calls TrySetViewport. No zero-dimension guard is shown. Destroys the animation timer, clears per-controller modifiedViewport and requests Engine setviewport(controller), in that order.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00368",
+        "sha256": "2732e34c345c647cdacaa1ea76689ed792635b022514fd83d0855827233e9784",
+        "pointer": "",
+        "record_sha256": "6c2b76876bddcdf5cc91c436e1af8b4ab14c8a335598327fb3445da033e4acae"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "bf9858295f6fcf4790347ab2be74fad93e6147efcc9db25135b4817edf72b295",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:110",
+        "answer": "ShowOutcomeTransition rejects killcam/final/POTM/scoreboard flags before testing gameScore.currentState==outcome. Killcam requires allowkillcam1, non-splitscreen, not already played, team dead or game ended, then dead/spectating visibility. Spectate is true for elimination, or team_elimination after required AAR viewed. SetupGameEndScoreWidget initializes models/tables and subscribes scriptNotify: dispatches prekillcam/round/match/elimination/team-elimination setup, quick fade/POTM, clear, eliminator, teamRanking, HVO and matchBonus exactly as mapped below; notify payloads are not validated. Redeploy forwards one native call. ClearTransition emits quick_fade outside WZ, clears models, then WZ music/sound or MP start-menu notification. FirstTimeIntro sets location, plays intro once, then the elimination clip_over handler, only when postEliminationGameState is nonempty and no _postElimTimer exists, requests a post-elimination timer with interval argument1500, stores/adds it, and calls LUI.UIElement.clipOver in the same guarded arm. Empty state or an existing timer falls through without either action; actual timer delivery/provider behavior remains unverified; other branches delay in-game report. GetEliminatedString chooses exact hash by arg1==0. HasViewed returns true offline else stored aarViewed. Native/UI delivery and effective settings remain unproved.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00254",
+        "sha256": "4c3c7195aeec47c25fe34f1cdadcd78aa252c59375fc5b9f90240fffe1704cf5",
+        "pointer": "",
+        "record_sha256": "15ec622a21a2bde47384bfb87c2188e105a465e59391a1391e3aa0d0ef710507"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "c364b727abb93898594f56b2977162ccd22370d0e53bf57c30e860f34715f97d",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:216",
+        "answer": "Constructs CoD.GameEndScoreRoundText.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, RoundScore as LUI.UIText.new. Stores source state predicates in order AnimateIn, Visible. Owns 10 nested callable scopes, each with its separate delivery/invocation contract. Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 9,
+              "line_end": 9,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "90eff92d2998abcc4dc244f5bbc299db2d60cc9fdfadfb1a52c7fa886842ff67",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.GameEndScoreRoundText )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 12,
+              "line_end": 12,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "RoundScore:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 15,
+              "line_end": 15,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "d048ea3430b69ee676ceb9df53b45b0b3142833c52f7b65eb15822524d5958cf",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundScore:setText( 3 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "RoundScore:setTTF",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 16,
+              "line_end": 16,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "578d9003c393e497012d7d69243a2546b3c7d660bbe834039ab0658a2687fa44",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundScore:setTTF( \"0arame_mono_stencil\" )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "RoundScore:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "370581b5ab648ebf04d6b8828b306686e7a5fe8cb3987e4e5a06ec6de54f85a1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundScore:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_171E049B161CD00A\" ) )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "RoundScore:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "06b7279c627314b75278925306c7d7b622c1607a76df3af6c750d680afd080ec",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundScore:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "RoundScore:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 19,
+              "line_end": 19,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "9ed9d9af69e1df071facb9f5d6488a1ae1f6bb7c7c7d951cce35845ac5a9aef4",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRoundScore:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_top\"] )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 20,
+              "line_end": 20,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "4070031c5aa7db37c1f497d2fe34b8cb96b778574b6263c84b3746bdf185d6f2",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( RoundScore )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "self:mergeStateConditions",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 23,
+              "line_end": 23,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "f80e120986602aa448c1707f3e91220ab2b7f14cf0f0242f97e8bd05ffce2459",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:mergeStateConditions( {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "DataSources.GameScore.getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 48,
+              "line_end": 48,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "aa9e763a7e62cd1619d738f86edbd2aa7fea402060957c6e54701f2301c44c75",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f1_local4 = DataSources.GameScore.getModel( f1_arg1 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 49,
+              "line_end": 49,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "ce2a39f41dc655d67071d10e68e5d1c01e521701ac629f6ef26387c806b66d99",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4.showSwitchingSides, function ( f4_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 50,
+              "line_end": 50,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:49-57",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f4_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 54,
+              "line_end": 54,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "ef63085bebb8eb5834784febbdc151474c9c9ca95f8d88c255c837489e81572a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f4_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:49-57",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 61,
+              "line_end": 61,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "3e4699ac449cfade97ba3bd3c994ef76b1bbeb75cb521a415e8c70a53b249235",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4.forceScoreboard, function ( f5_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 62,
+              "line_end": 62,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:61-69",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f5_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 66,
+              "line_end": 66,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "e1566ac3d97250423404fb28695a96cb26239cfb7f5a216edd53d443c9f50447",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f5_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:61-69",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 73,
+              "line_end": 73,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "07db1b89708f3e880c909519d96506be54fff85689a8eaef9df63e022d516603",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"gameScore.currentState\"], function ( f6_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 74,
+              "line_end": 74,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:73-81",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f6_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 78,
+              "line_end": 78,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "1646346ae219ed1aef78b96cb0717de4eeba7b0c8ec3f6d6f005e5675d56ea82",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f6_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:73-81",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 85,
+              "line_end": 85,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "da4df25519d5b19b2d510768668caefa800170f5904493a26bec3fe5b67b6533",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_in_killcam\"]], function ( f7_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 86,
+              "line_end": 86,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:85-93",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f7_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 90,
+              "line_end": 90,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "d861183555559c08e3d1d346c7f735b230d37c50b373272ef8abd426375e3bd1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f7_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:85-93",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 97,
+              "line_end": 97,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "9f576a957a904d617fd87754449a36d64c7bcafa3ec3a38376a0fe6dffbd820e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_final_killcam\"]], function ( f8_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 98,
+              "line_end": 98,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:97-105",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f8_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 102,
+              "line_end": 102,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "81be0bb2d112a6d9be42717d99ec658ca613bcd52d790faf6a10c13fbbbdf7ae",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f8_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:97-105",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 109,
+              "line_end": 109,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "b0ec94e4e56eaf3eb2ed034fe95b593c577728a979e631455c976836d52353d0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_play_of_the_match\"]], function ( f9_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 110,
+              "line_end": 110,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:109-117",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f9_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 114,
+              "line_end": 114,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "220a7869feefa1adb1d3656e432a4302f3923242b86c69e1edd6ffb50f68f0c4",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f9_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:109-117",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 121,
+              "line_end": 121,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "8082c081c81aafc6e6586da3561eaf8464a53a1ea905339246d36cb8c8d58a22",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"UIVisibilityBit.\" .. Enum[@\"uivisibilitybit\"][@\"bit_scoreboard_open\"]], function ( f10_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 122,
+              "line_end": 122,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:121-129",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f10_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 126,
+              "line_end": 126,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "903797a3c8459e24a80c54ed15602c69cacc25337004971efaa2744ce23258c7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f10_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:121-129",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_local3",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 133,
+              "line_end": 133,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "d12218276a45a6f864323e6a3a674a9a341f2e448dca66002d3a532a4a5110dc",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_local3( f1_local2, f1_local4[\"gameScore.roundWinLimit\"], function ( f11_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 134,
+              "line_end": 134,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:133-141",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "f11_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 138,
+              "line_end": 138,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "d3802ccd3cc10b03f4112867516e7c17a88886c0770fd79e0a4963bff392b5f3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = f11_arg0:get(),",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:133-141",
+            "scope_role": "passed_callable_or_aliased_registration",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:216",
+            "source_symbol": "CoD.GameEndScoreRoundText.new",
+            "symbol": "PostLoadFunc",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/72cf1b77e9d41852.lua",
+              "line_start": 144,
+              "line_end": 144,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cf1f210c0fc68080c655d63c710e9d98696136864658308b2b2da3c6f6bd4476",
+              "line_span_sha256": "4dbef5997b3a65062e8c8bbfb97d55f505c5f9f18c20af45a45813d428535171",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tPostLoadFunc( self, f1_arg1, f1_arg0 )",
+            "scope_id": "lua/hashed/72cf1b77e9d41852.lua:7-148",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/215",
+        "record_sha256": "ed0cfd08e87c52e08c33ac67c8a8d44dcecc2d19809b2e68253e778b7e469b16"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "dcd59166d91cbe054accfc8b3285cdd1f13fb7c33c39e090a34a681c2a4cff46",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:033",
+        "answer": "Creates Hud_MP_Codcaster menu, safe-area child and MP HUD components, current-weapon damage model binding, score notifications and spectator/profile state consumers. On score_event it prioritizes bounty score, then combat-efficiency score when spawn selection is inactive, then normal score. Objective ShowNotification predicates are AlwaysFalse here. HideAllButScoreboard is killcam/final/round/stage visibility union; SpeedBoost uses exact gadget id/state; HideForCodCaster requires spectator profile. X input is blocked only while AreXButtonPressesDisallowed; player_spawned outside draft disallows X400ms. Menu_loaded sizes PC to HUD area and console to safe area, dispatches to children when unhandled; then focus/state restoration, close registration, postload, back-button preservation, grenade warnings and cursor disable occur in literal order. Menu selection into this MP codcaster path remains conditional; no universal HMH requirement is inferred.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00141",
+        "sha256": "ddad7dbd01ea8649b951264dc42cba35d6d9601b1a529d9f54126cea9955928d",
+        "pointer": "",
+        "record_sha256": "c56ebf9c608a15c79d23ec0f75faaafe8069aa9ead3cd0db39b2bea6006b294a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "f8d22c6604283692b623abfd8f7463cc6307c010cc160ffd4c8b7e8d8e5a2619",
+      "summary": {
+        "unit_id": "hmh07-lua:184",
+        "answer": "ui/main.lua1132..1165 builds common Hud unless existing/excluded gametype, then chooses WZ suffix for CoD.isWarzone OR gametype warzone (Campaign and CODFU/DOA overrides retained), and only when no T7HudMenuGameMode invokes Hud_WZ through dynamic factory unless non-WZ codcaster special case applies. Original effective flags/build remain conditional. Constructor initializes aarVisible/aarViewed only if unset, disabling automatic buttons only on PC, creates safe-area/ready/damage/chat/objective/results/scoreboard/hint/wheel/PC widgets. ReadyEvents scriptNotify dispatches hero_weapon_received/killstreak_received/levelup helpers; objective ShowNotification defaults are AlwaysFalse. MPHintText nonempty predicate and nonnil text link make this shared MP-named child usable on WZ. Sprays Visible requires held button plus no prematch-hide/last-stand/inventory/multi-pickup/remote/vehicle/demo/dead/round-end/scoreboard/spectator exclusions; Callouts similarly requires pressed+enabled and no theater/prematch/inventory/last-stand/dead/round-end/scoreboard/spectator exclusion. All corresponding model/input links reevaluate state, never produce gameplay input by themselves. Self states: HideAllButScoreboard=stage_ended; SpeedBoost=gadget_speed_burst plus gadget2 inuse; HideForCodCaster=caster with profile playerhud1. Circle/back hides scoreboard only through predicates and blocks the game event. Up opens quick inventory only with HUD weapon visibility, allowed inventory, no ended/demo/dead/scoreboard/spectating/UI/laststand/vehicle-hide/disable-setting; Down closes with its separate narrower gate. Weapon-next/prev/primary/secondary require Warzone, full inventory open and no demo. LB/RB/triggers and Cross prioritize health/equipment cycle actions when quick inventory open/profile cycle-items1/button-mapping agrees; they block the game event. Cross then has PC-gamepad deathcam fallback. PC-only spectate/deathcam/AAR/report branches retain exact additional conditions; if IsPC=false they do not execute, without excluding unconditional PC-looking child construction. CanUseQuickInventory notification closes quick inventory only if now disallowed and already open; character_unlock_update dispatches UpdateUnlockQuestState. menu_loaded processed, linked __onClose hook registered, captured f0_local0 postload invoked if present. PC final setup adds region checks/sizing; console final setup disables keyboard navigation and adds WZ armblade reticles; both setup grenade warnings/custom focus/cursor rules. Return self. Full exact callbacks/labels/branch ordering are in trace; unselected class clips/reset/close and external helper bodies are dependencies only, with no claim of original event delivery, network menu response or real execution.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/183",
+        "record_sha256": "cfb8a1a32062a25fba2eb36d073267472c12c0cccab5c3c2fc8ea0dab0a2008f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/615a87df9673793f.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "fa8d01a00d83dbdb0896a0540b2677b5080db52042c0b3868b6fc84335f3cbfe",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:144",
+        "answer": "Returns false during killcam, final killcam, play-of-the-match or open-scoreboard visibility. Otherwise returns true only for gameScore.currentState equal to outcome_with_score while forceScoreboard is not 1. The function reads the source models and does not transition state itself. For CoD.GameEndScoreUtility.ShowOutcomeWithScoreTransition, evaluate the displayed formal inputs and captured values. Its exact paths are 25: if Engine[@\"isvisibilitybitset\"]( f3_arg0, Enum[@\"uivisibilitybit\"][@\"bit_in_killcam\"] ) or Engine[@\"isvisibilitybitset\"]( f3_arg0, Enum[@\"uivisibilitybit\"][@\"bit_final_killcam\"] ) or Engine[@\"isvisibilitybitset\"]( f3_arg0, Enum[@\"uivisibilitybit\"][@\"bit_play_of_the_match\"] ) or Engine[@\"isvisibilitybitset\"]( f3_arg0, Enum[@\"uivisibilitybit\"][@\"bit_scoreboard_open\"] ) then; 26: return false; 31: if f3_local1.gameScore.currentState:get() == \"outcome_with_score\" then; 36: return f3_local1. Its writes/requests begin 29: f3_local0 = f3_local0.forceScoreboard:get() == 1; 32: f3_local1 = not f3_local0; 34: f3_local1 = false. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. For CoD.GameEndScoreUtility.GetEndTypeString, evaluate the displayed formal inputs and captured values. Its exact paths are 174: if f13_arg3 then; 179: if f13_local1 == Enum[@\"endroundtype\"][@\"hash_101BBB87B87C962D\"] then; 180: if f13_arg3 then; 185: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_3683836650E29384\"] then; 186: if f13_arg2 then; 191: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_3C9D96623F884FD1\"] then; 193: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_36E013C97845C972\"] or f13_local1 == Enum[@\"endroundtype\"][@\"hash_6E40EAEAF56BC228\"] then; 195: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_71D01C89DF495850\"] then; 197: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_62DF76230CCB22BF\"] then; 198: if f13_arg2 then; 203: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_58C62F816D4E87FB\"] then; 205: elseif f13_local1 == Enum[@\"endroundtype\"][@\"hash_21011D71A3C6AEE9\"] then. Further paths are retained in the branch matrix. Its writes/requests begin 175: f13_local1 = Engine[@\"hash_83B01F154A61015\"]( f13_arg0 ); 177: f13_local1 = Engine[@\"hash_6846CEC728EAE5BC\"]( f13_arg0, f13_arg1 ); 181: f13_local0 = f13_local0 .. \"dnf_match\"; 183: f13_local0 = f13_local0 .. \"dnf_round\"; 187: f13_local0 = f13_local0 .. \"completed_winner\"; 189: f13_local0 = f13_local0 .. \"completed_loser\"; 192: f13_local0 = f13_local0 .. \"timelimit\". Further ordered effects follow below. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. For CoD.GameEndScoreUtility.GetChallengeCoinImage, evaluate the displayed formal inputs and captured values. Its exact paths are 218: if f14_local1 and f14_local1.PlayerStatsByGameType and f14_local1.PlayerStatsByGameType[f14_local0] then; 219: return Engine[@\"hash_2450462A7BEA79E5\"]( f14_local1.PlayerStatsByGameType[f14_local0].WINS.StatValue:get() ); 221: return @\"blacktransparent\". The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. Starts quote/author at zero-hash defaults. If the common quote table and the winner/loser-selected extra table both exist, chooses one entry uniformly by a random index across their combined lengths. It writes quote then quoteAuthor under gameScore. Empty or malformed tables are not guarded beyond the displayed existence checks. For CoD.GameEndScoreUtility.SetEndGameQuote, evaluate the displayed formal inputs and captured values. Its exact paths are 518: if f21_local2 then; 520: if f21_arg1 then; 525: if f21_local3 then; 529: if f21_local4 < f21_local5 then. Its writes/requests begin 521: f21_local3 = Engine[@\"hash_7A7E3CD65E63086F\"]( @\"hash_392804C37CD213F0\" ); 523: f21_local3 = Engine[@\"hash_7A7E3CD65E63086F\"]( @\"hash_4316E10F9989CF79\" ); 530: f21_local6 = f21_local3[f21_local5 - f21_local4]; 532: f21_local6 = f21_local2[f21_local5]; 534: f21_local0 = f21_local6[@\"quote\"]; 535: f21_local1 = f21_local6[@\"author\"]; 539: f21_local3 = f21_local3.gameScore. Further ordered effects follow below. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. For CoD.GameEndScoreUtility.SetupHVOCard, evaluate the displayed formal inputs and captured values. Its exact paths are 923: if f37_arg2 and f37_local0 then; 925: if f37_local1 then. Its writes/requests begin 926: f37_arg1:setModel( f37_local1, f37_arg0 ). The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/143",
+        "record_sha256": "c61f6e8676dd03bb3cf9db54121f28204932a80fed2b334062f136a133094e0f"
+      }
+    }
+  ]
+}

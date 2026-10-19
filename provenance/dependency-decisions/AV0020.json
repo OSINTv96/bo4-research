@@ -1,0 +1,90 @@
+{
+  "module": "src/scripts/core_common/util_shared.gsc",
+  "identity": "scripts/core_common/spawner_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "spawner",
+  "witnesses": [
+    {
+      "line": 1865,
+      "text": "            spawner::global_spawn_throttle( 4 );",
+      "caller": "spawn_model",
+      "caller_span": [
+        1859,
+        1885
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1862,
+          "opening_line": 1864,
+          "ending_line": 1866,
+          "text": "if ( b_throttle )"
+        },
+        {
+          "line": 1860,
+          "opening_line": 1862,
+          "ending_line": 1880,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "global_spawn_throttle",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          142,
+          153
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__",
+    "init_female_spawn"
+  ],
+  "id": "AV0020",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/spawner_shared.gsc",
+    "sha256": "67118fbd643decd574849e707f79f0f3848a807e0c5b4dd12367dbf8416ab4d7",
+    "git_blob_sha1": "cc1ca7465e80e820edc83ac8be13ddd7f178b4d3",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/spawner_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1865
+  ],
+  "required_callee_functions": [
+    "global_spawn_throttle"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/spawner_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04750",
+        "to": "N03878",
+        "line": 1865
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

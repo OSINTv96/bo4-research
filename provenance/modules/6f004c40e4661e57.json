@@ -1,0 +1,90 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/player/player_loadout.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "bfae4813df1ca5fc8e06d19e645b57aab8fbb53a428694958e8e353847033c8b",
+  "git_blob_sha1": "cdc2c0dd17431cc1a0de0617da41fe7f947b80a6",
+  "output": "src/scripts/core_common/player/player_loadout.gsc",
+  "output_sha256": "ba21ebede77a65ed3dfbf8e480085e380fd56bda79d577c0f79c04f99bb3b4ba",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 17,
+          "sha256": "bfae4813df1ca5fc8e06d19e645b57aab8fbb53a428694958e8e353847033c8b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-link:HMH-HEALTH-LINKS-01:02-health-baseline",
+        "answer": "Connected the baseline producer to the saved health equip/unequip/reset and spawn/redeploy boundaries. The source baseline is gadget_health_regen: equip requests baseline-to-selected replacement, unequip requests selected-to-baseline replacement, and a reached warzone reset loadout rewrites that shared value before blank inventory initialization. The shared weapon value, player possession/native slot, slot10 record and count remain different states. Pointer installation/final-writer order and native grant/event success are conditional; all conclusions remain source-only drafts.",
+        "unknowns": [
+          "No guarantee that a defined shared baseline is non-none, a valid resolved asset, distinct from the selected weapon, possessed by the invoking player or assigned a native gadget slot in the original session.",
+          "No proved baseline writer-before-consumer ordering across separately delivered initialization, spawn, reset and health cleanup threads. The exact-name reference scan is limited to the frozen recovered-source spellings and cannot exclude native/alias/missing-script writers.",
+          "No guaranteed tail after death/disconnect, prefix failure, native predicate wait or wrapper error. Normal return/UI/debug/busy0 and slot blanking are separate from successful weapon/health effects.",
+          "Historical body and mapping statuses/wording are retained; this connection does not independently review, repair or promote earlier records. The unpinned original binding-contracts.json was not needed or read."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/24",
+        "decision_canonical_sha256": "310332e57dd08fa947b345a0d6c903cc382debb70a4fcc6cfdd5c171bfcc6706",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00302",
+        "sha256": "bb5c1d791612007ce03e15db335b61b2ea4c9ac819165865ceacc043682c6591",
+        "pointer": "",
+        "record_sha256": "c9f803435422444ba53d14c27da4daac1b9a547f35db3e18ed402c1583e455ed"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/79cb13ccdd0159c1.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/6f004c40e4661e57-001.json",
+      "sha256": "f78e7a1493f22de47f858757fe4f28b0e60a30e195c4bc87510749b4cdb0a529"
+    }
+  ]
+}

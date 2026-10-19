@@ -1,0 +1,146 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/deployable.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "05f0eb47673fd46a576bdac09317f996febaac3c9b2f10e92fcea3227ecd3b96",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_c1ee2dce",
+        "behavior": "Deploy-preview update callback (player, localclientnum, weapon) stored as level.var_c442de72 by __init__. Two steps: var_314a434f = function_35d1c69f( localclientnum, player, weapon ) â€” computes placement result struct {isvalid, origin, angles}; then player function_bf191832( var_314a434f.isvalid, var_314a434f.origin, var_314a434f.angles ) â€” pushes the preview position/rotation/validity onto the player (unresolved external). No branches.",
+        "unknowns": [
+          "function_bf191832 is an unresolved external (definition not in catalog); plausibly a preview-model update, inferred from arguments only",
+          "Who calls level.var_c442de72 (HUD/placement code) is outside this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/44",
+        "record_sha256": "b238f6778be7797a377df352057e510a866e31937a3d175bca12a7e47a7d92db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "10f736ec1a06fcaa9c32f9226b2091b3335d55554cbc1ec0e9cb6c79b5284b22",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_35d1c69f",
+        "behavior": "Deployability evaluator returning the placement result (localclientnum, player, weapon). Case 1 ( !weapon.var_dbbd4cec, weapon uses scripted placement ): var_10c45189 = player function_242060b9( weapon ) â€” placement probe (unresolved external) returning {isvalid, origin, angles}; var_7ed1816f = var_10c45189.isvalid || isdefined( level._deployable_weapons[ weapon.statindex ] ) && ( isdefined( level._deployable_weapons[ weapon.statindex ].var_7ec218c6 ) ? level._deployable_weapons[ weapon.statindex ].var_7ec218c6 : 0 ) â€” probe result, or the register_deployable stored flag for registered weapons. Case 2 ( weapon.var_dbbd4cec ): var_7ed1816f = 1; var_10c45189 = { #isvalid:1, #origin:player.origin, #angles:player.angles } â€” deploy at the player's own origin/angles unconditionally position-valid. Then var_c3743e82 = !level.var_1765ad79 || function_e0d90bc8( localclientnum ) || isdefined( weapon.var_33d50507 ) && weapon.var_33d50507 â€” three-way mode/weapon gate; gameplay_allows_deploy = player clientfield::get_to_player( \"gameplay_allows_deploy\" ) â€” source per-player field-reader result; actual authority/replication is unproved; final write var_10c45189.isvalid = var_7ed1816f && gameplay_allows_deploy && var_c3743e82; return. All three conditions must pass for a valid deploy; the CSC source reads gameplay_allows_deploy and paired GSC functions request writes. The source reader/writer chain and final truthiness conjunction do not establish successful delivery, replication, authority or original-build behavior.",
+        "unknowns": [
+          "player function_242060b9(weapon), function_e0d90bc8(localclientnum) are unresolved externals (definitions not in catalog)",
+          "Meanings of weapon.var_dbbd4cec and weapon.var_33d50507 (flags) and level.var_1765ad79 are opaque; only the gate expression is observed",
+          "The paired original-packet deployable.gsc contains writers: function_cf538621 and on_player_spawned/on_weapon_change set gameplay_allows_deploy1; function_b3d993e9 sets its computed player.var_7a3f3edf. Actual original replication and invocation remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00288",
+        "sha256": "3deb1bb497c8cbc74e515e88b9f15de6003a37f7313ceb83f6c994473b556693"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "3ca92d806ecb1eb7f0de0915524eb3eb31658d57e5947a866d51727a57dfc6a5",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_3e8d9b27",
+        "behavior": "Previs model setup for a deployable weapon preview (self = previs_model; takes previs_weapon). Branch: if isdefined( previs_weapon.var_4bcd08b0 ) -> previs_model setmodel( previs_weapon.var_4bcd08b0 ) (weapon-specific preview model); else previs_model setmodel( #\"hash_7a80bed4a96537e6\" ) (fallback preview model). Unconditional previs_model notsolid(). No FX or state beyond model/solidity.",
+        "unknowns": [
+          "Model alias hash_7a80bed4a96537e6 identity is game data not in catalog",
+          "Caller of function_3e8d9b27 is not in this file (called from previs machinery elsewhere)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/43",
+        "record_sha256": "6fa3a0c3760c9cfe95089007dc7c79066e3d5fac2aca964ff0f003aea75373d3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "81ada0e8e5f986f036ca5a5e840b9ba230bdc7c7be6522e7fc7a7a3d22858613",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::__init__",
+        "behavior": "Client system init for deployable placement-preview support. Ordered: (1) if !isdefined( level._deployable_weapons ) -> level._deployable_weapons = [] (per-deployable registry keyed by weapon.statindex, populated by register_deployable); (2) level.var_c442de72 = &function_c1ee2dce â€” stores the update callback (player, localclientnum, weapon) as a level function pointer consumed elsewhere (unknown consumer); (3) level thread group_mega_round_end_abcd_talking() â€” starts the previs indicator loop; (4) if !isdefined( level.var_1765ad79 ) -> level.var_1765ad79 = 1 (mode gate default on; consulted by function_35d1c69f as !level.var_1765ad79 || ...).",
+        "unknowns": [
+          "Consumer of level.var_c442de72 is not in this file (indirect-call dependency)",
+          "Exact meaning of level.var_1765ad79 (default 1) is opaque; used only in the gate expression in function_35d1c69f"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/41",
+        "record_sha256": "57fc3cb2c01c1ffcfa1624da7055f908b0aa3cc42ff6e16f399f6ce446cfe994"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "8c64681cf8689bd6f155a12c6091e1a371f202f7041578c469999fa7a9d016d3",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::register_deployable",
+        "behavior": "Per-weapon deployable registry insert (weapon, var_7ec218c6). Branch: if ( weapon.name == \"#none\" ) -> return. assert( weapon.name != \"<dev string:x38>\" ) â€” asserts against an obfuscated/dev weapon name (observed literal). Writes: level._deployable_weapons[ weapon.statindex ] = spawnstruct(); level._deployable_weapons[ weapon.statindex ].var_7ec218c6 = var_7ec218c6 â€” the stored flag is read by function_35d1c69f as the registered deployable permission fallback. Keyed by statindex, so collisions overwrite silently (observed behavior of array assignment).",
+        "unknowns": [
+          "Meaning of var_7ec218c6 (plausibly 'may deploy from this weapon') inferred from consumption in function_35d1c69f only",
+          "Callers of register_deployable (shared weapon registration code) are outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/42",
+        "record_sha256": "4a7466d0594097f24b8e2aa01079a13ded71e30da62b4d05d59871719af409c1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "ad80c648188bebad747d475656f3aa529703f803493c3cb5b2f75ea336546b1e",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::group_mega_round_end_abcd_talking",
+        "behavior": "Deployable placement-preview indicator loop threaded from __init__ (default arg localclientnum = 0). Re-entrancy: level notify( \"previs_deployable_\" + localclientnum ) then level endon( \"previs_deployable_\" + localclientnum ) â€” each new invocation broadcasts the cancellation tag before installing its own endon listener. The source __init__27 threads group_mega_round_end_abcd_talking; a new call/thread creates a loop, whereas notify requests cancellation of existing listeners. Actual cancellation timing and a single-instance guarantee remain VM/scheduling-dependent. Startup: wait 10; previs_model = spawn( localclientnum, ( 0, 0, 0 ), \"script_model\" ); previs_weapon = getweapon( #\"eq_alarm\" ); locals var_5929417d (shown flag) = 0, var_2e40ce22 (had can_deploy bundle) = 0, var_d4d81eb4 (had cannot_deploy bundle) = 0. Infinite loop: var_fdadca2a = previs_weapon (dead store â€” never read). If !var_5929417d: stop the stale render-override bundles (if var_2e40ce22 == 1 -> previs_model stoprenderoverridebundle( \"rob_deployable_can_deploy\" ); if var_d4d81eb4 == 1 -> stoprenderoverridebundle( \"rob_deployable_cannot_deploy\" )), reset both bundle flags, if isdefined( previs_model ) -> previs_model hide(); wait 0.2; else waitframe( 1 ). var_5929417d = 0. Gate chain: if getdvarint( #\"hash_4df6a4cc1cfae912\", 1 ) == 0 -> continue (dvar kill switch, default on); player = function_5c10bd79( localclientnum ); if !isdefined( player ) or !isalive( player ) -> continue. previs_weapon = undefined; if function_96d4f30e( localclientnum ) -> previs_weapon = function_e9fe14ee( localclientnum ) (alternate weapon source, unresolved external), else previs_weapon = player.weapon. if ( !previs_weapon.deployable || previs_weapon.var_e0d42861 ) -> continue (weapon not deployable or preview disabled by flag). if function_c7b681af( localclientnum ) -> var_5929417d = 1; continue (hold-state keeps indicator without re-evaluating). Otherwise: var_314a434f = function_35d1c69f( localclientnum, player, previs_weapon ); player function_bf191832( var_314a434f.isvalid, var_314a434f.origin, var_314a434f.angles ) â€” reposition the placement preview each pass.",
+        "unknowns": [
+          "The function name 'group_mega_round_end_abcd_talking' is an opaque auto-translated name; its behavior here is the deploy previs indicator loop (observed)",
+          "Unresolved externals: function_5c10bd79, function_96d4f30e, function_e9fe14ee, function_c7b681af, function_bf191832; none are defined in the catalog",
+          "Dvar #\"hash_4df6a4cc1cfae912\" identity not in catalog (default 1)",
+          "The source __init__ caller and in-loop cancellation-tag publisher are visible in this file. Other repeated/indirect callers and actual VM cancellation/scheduling/singleton behavior remain unknown.",
+          "Where rob_deployable_can_deploy/cannot_deploy bundles get started (render-override start path) was not observed in this file's assigned units"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00289",
+        "sha256": "e61412ea764f9cbae7fed984fa90fe56cd6b326c9a025deb72e66730a85eb492"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/27caa57e220ed5ee.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "c9eb878ba57da4452ed7153aaac01c9dc6ee30ac27e802db145e7c8ee0fa7092",
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the deployable system: system::register( #\"deployable\", &__init__, undefined, undefined ) â€” init callback __init__; main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/40",
+        "record_sha256": "d4d0c43849270d36cde091e356e9c87aa0061f1b75b596fa8b2bd2be429c413e"
+      }
+    }
+  ]
+}

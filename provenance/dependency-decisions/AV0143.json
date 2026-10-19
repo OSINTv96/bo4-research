@@ -1,0 +1,121 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic_score.gsc",
+  "identity": "scripts/core_common/loadout_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "loadout",
+  "witnesses": [
+    {
+      "line": 1143,
+      "text": "                        player loadout::function_3ba6ee5d( weapon, player.pers[ #\"held_killstreak_ammo_count\" ][ weapon ] );",
+      "caller": "_giveplayerkillstreakinternal",
+      "caller_span": [
+        1097,
+        1206
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1138,
+          "opening_line": 1140,
+          "ending_line": 1144,
+          "text": "else"
+        },
+        {
+          "line": 1116,
+          "opening_line": 1119,
+          "ending_line": 1145,
+          "text": "if ( weapon.iscarriedkillstreak )"
+        },
+        {
+          "line": 1109,
+          "opening_line": 1112,
+          "ending_line": 1190,
+          "text": "if ( isdefined( level.usingscorestreaks ) && level.usingscorestreaks )"
+        },
+        {
+          "line": 1104,
+          "opening_line": 1107,
+          "ending_line": 1204,
+          "text": "if ( momentumcost > oldmomentum && momentumcost <= momentum )"
+        },
+        {
+          "line": 1101,
+          "opening_line": 1102,
+          "ending_line": 1205,
+          "text": "killstreaktypeindex++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_3ba6ee5d",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/4983c5df9bce6830.json",
+          "pointer": "/claims/11",
+          "selection_id": "540da98d6021e241366aef2265162767bb1d6eca95935f5be52ac0a00d92f975",
+          "citation": {
+            "line_start": 1097,
+            "line_end": 1206
+          }
+        },
+        "entry_function": "_giveplayerkillstreakinternal",
+        "entry_span": [
+          1097,
+          1206
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/4983c5df9bce6830.json",
+          "pointer": "/claims/11",
+          "selection_id": "540da98d6021e241366aef2265162767bb1d6eca95935f5be52ac0a00d92f975",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          120,
+          132
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0143",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/loadout_shared.gsc",
+    "sha256": "d9a27f9b6c9441676c22300804b6962e669779c1a192b08b76fd1cd7fe4a337f",
+    "git_blob_sha1": "e5b3e72e3cf08f98f85384973246bafdf4713a96",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1143
+  ],
+  "required_callee_functions": [
+    "function_3ba6ee5d"
+  ],
+  "output": "src/scripts/core_common/loadout_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/loadout_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00619",
+        "to": "N02904",
+        "line": 1143
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

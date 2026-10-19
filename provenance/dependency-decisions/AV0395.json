@@ -1,0 +1,122 @@
+{
+  "module": "src/scripts/mp_common/gametypes/ct_bots.gsc",
+  "identity": "scripts/core_common/ai_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "ai",
+  "witnesses": [
+    {
+      "line": 898,
+      "text": "    self ai::set_behavior_attribute( \"control\", \"autonomous\" );",
+      "caller": "on_bot_spawned",
+      "caller_span": [
+        887,
+        916
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_behavior_attribute",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          77,
+          90
+        ]
+      ]
+    },
+    {
+      "line": 1308,
+      "text": "            cylinder = ai::t_cylinder( self.navmeshpoint, self.var_bab91f2, 100 );",
+      "caller": "function_3abfdc6b",
+      "caller_span": [
+        1297,
+        1351
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1304,
+          "opening_line": 1307,
+          "ending_line": 1325,
+          "text": "if ( isdefined( self.navmeshpoint ) )"
+        },
+        {
+          "line": 1300,
+          "opening_line": 1303,
+          "ending_line": 1326,
+          "text": "if ( !isdefined( self.navmeshpoint ) && isdefined( self.var_9a79d89d ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "t_cylinder",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          892,
+          900
+        ]
+      ]
+    },
+    {
+      "line": 1384,
+      "text": "            cylinder = ai::t_cylinder( self.origin, searchradius, searchradius );",
+      "caller": "function_4b111722",
+      "caller_span": [
+        1357,
+        1411
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1378,
+          "opening_line": 1381,
+          "ending_line": 1394,
+          "text": "if ( isdefined( self.navmeshpoint ) )"
+        },
+        {
+          "line": 1360,
+          "opening_line": 1363,
+          "ending_line": 1395,
+          "text": "if ( !isdefined( self.navmeshpoint ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "t_cylinder",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          892,
+          900
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0395",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/ai_shared.gsc",
+    "sha256": "0ff8ec986bc1301aa67f26179954d55b55a494fb49e9a12128dbb34a6dbdd14e",
+    "git_blob_sha1": "d6e748b588e3edd26f14c0b4d080fd5657a2abe1",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/ai_shared.gsc"
+}

@@ -1,0 +1,464 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic_spawn.gsc",
+  "identity": "scripts/mp_common/gametypes/hud_message.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hud_message",
+  "witnesses": [
+    {
+      "line": 1343,
+      "text": "    self hud_message::clearlowermessage();",
+      "caller": "spawninterroundintermission",
+      "caller_span": [
+        1338,
+        1357
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clearlowermessage",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1369,
+      "text": "    self hud_message::clearlowermessage();",
+      "caller": "spawnintermission",
+      "caller_span": [
+        1363,
+        1390
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clearlowermessage",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1521,
+      "text": "        hud_message::setlowermessage( game.strings[ #\"spawn_next_round\" ] );",
+      "caller": "default_spawnmessage",
+      "caller_span": [
+        1517,
+        1524
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1518,
+          "opening_line": 1520,
+          "ending_line": 1523,
+          "text": "if ( util::getroundsplayed() + 1 < level.roundlimit )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1615,
+      "text": "            hud_message::setlowermessage( #\"mp/friendly_fire_will_not\", var_821200bb );",
+      "caller": "waitandspawnclient",
+      "caller_span": [
+        1586,
+        1711
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1611,
+          "opening_line": 1614,
+          "ending_line": 1619,
+          "text": "if ( var_821200bb > 0 )"
+        },
+        {
+          "line": 1596,
+          "opening_line": 1599,
+          "ending_line": 1622,
+          "text": "if ( isdefined( self.teamkillpunish ) && self.teamkillpunish )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 1586,
+            "line_end": 1589
+          }
+        },
+        "entry_function": "waitandspawnclient",
+        "entry_span": [
+          1586,
+          1711
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1649,
+      "text": "                hud_message::setlowermessage( game.strings[ #\"you_will_spawn\" ], timeuntilspawn );",
+      "caller": "waitandspawnclient",
+      "caller_span": [
+        1586,
+        1711
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1646,
+          "opening_line": 1648,
+          "ending_line": 1650,
+          "text": "if ( level.playerqueuedrespawn )"
+        },
+        {
+          "line": 1644,
+          "opening_line": 1646,
+          "ending_line": 1655,
+          "text": "if ( !sessionmodeiswarzonegame() )"
+        },
+        {
+          "line": 1641,
+          "opening_line": 1644,
+          "ending_line": 1688,
+          "text": "if ( timeuntilspawn > 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 1586,
+            "line_end": 1589
+          }
+        },
+        "entry_function": "waitandspawnclient",
+        "entry_span": [
+          1586,
+          1711
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1653,
+      "text": "                hud_message::setlowermessage( game.strings[ #\"waiting_to_spawn\" ], timeuntilspawn );",
+      "caller": "waitandspawnclient",
+      "caller_span": [
+        1586,
+        1711
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1650,
+          "opening_line": 1652,
+          "ending_line": 1654,
+          "text": "else"
+        },
+        {
+          "line": 1644,
+          "opening_line": 1646,
+          "ending_line": 1655,
+          "text": "if ( !sessionmodeiswarzonegame() )"
+        },
+        {
+          "line": 1641,
+          "opening_line": 1644,
+          "ending_line": 1688,
+          "text": "if ( timeuntilspawn > 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 1586,
+            "line_end": 1589
+          }
+        },
+        "entry_function": "waitandspawnclient",
+        "entry_span": [
+          1586,
+          1711
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1694,
+      "text": "        hud_message::setlowermessage( game.strings[ #\"press_to_spawn\" ] );",
+      "caller": "waitandspawnclient",
+      "caller_span": [
+        1586,
+        1711
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1690,
+          "opening_line": 1693,
+          "ending_line": 1703,
+          "text": "if ( !level.playerforcerespawn && self.hasspawned && !wavebased && !self.wantsafespawn && !level.playerqueuedrespawn )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 1586,
+            "line_end": 1589
+          }
+        },
+        "entry_function": "waitandspawnclient",
+        "entry_span": [
+          1586,
+          1711
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1706,
+      "text": "    self hud_message::clearlowermessage();",
+      "caller": "waitandspawnclient",
+      "caller_span": [
+        1586,
+        1711
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clearlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 1586,
+            "line_end": 1589
+          }
+        },
+        "entry_function": "waitandspawnclient",
+        "entry_span": [
+          1586,
+          1711
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/4",
+          "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1726,
+      "text": "            hud_message::setlowermessage( game.strings[ #\"you_will_spawn\" ], timeleft );",
+      "caller": "function_6c23d45b",
+      "caller_span": [
+        1717,
+        1744
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1723,
+          "opening_line": 1725,
+          "ending_line": 1727,
+          "text": "if ( level.playerqueuedrespawn )"
+        },
+        {
+          "line": 1720,
+          "opening_line": 1723,
+          "ending_line": 1743,
+          "text": "while ( timeleft > 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "citation": {
+            "line_start": 1717,
+            "line_end": 1744
+          }
+        },
+        "entry_function": "function_6c23d45b",
+        "entry_span": [
+          1717,
+          1744
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1730,
+      "text": "            hud_message::setlowermessage( game.strings[ #\"waiting_to_spawn\" ], timeleft );",
+      "caller": "function_6c23d45b",
+      "caller_span": [
+        1717,
+        1744
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1727,
+          "opening_line": 1729,
+          "ending_line": 1731,
+          "text": "else"
+        },
+        {
+          "line": 1720,
+          "opening_line": 1723,
+          "ending_line": 1743,
+          "text": "while ( timeleft > 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setlowermessage",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "citation": {
+            "line_start": 1717,
+            "line_end": 1744
+          }
+        },
+        "entry_function": "function_6c23d45b",
+        "entry_span": [
+          1717,
+          1744
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/11",
+          "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0089",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gametypes/hud_message.gsc",
+    "sha256": "32ea15e37da0eefa26140be3b013bd662df5fa00ad7df85711f11b0c3c9040a4",
+    "git_blob_sha1": "95b7725a9ba0c5c8d60bb439cd9095625160d6b3",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/mp_common/gametypes/hud_message.gsc"
+}

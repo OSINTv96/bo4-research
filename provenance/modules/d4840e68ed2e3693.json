@@ -1,0 +1,580 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/rat_shared.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "4ae119f1cfe1f2003e353619e5ca75156d91335fa7c3537bc2b0b9caa17ced33",
+  "git_blob_sha1": "00969918955d1b3de3ee1c9d33dadf2d9e5b52a0",
+  "output": "src/scripts/core_common/rat_shared.gsc",
+  "output_sha256": "e9f2ad68e349f4a83bf28145647bd762ca2489e989e450fe9209e23fbe2752a0",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/flagsys_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.gsc",
+        "sha256": "b5c793b6299033643940befd7f709316e0a8189ccc28c77b579a26c53cf461fc",
+        "git_blob_sha1": "832a18f954a3f9101a08fa0aa57dcf308bbcbb5e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scene_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/scene_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scene_shared.gsc",
+        "sha256": "7ef8150687813aeaec543990e9b079d0d160fac06f08d43ecd9740e7052e74b4",
+        "git_blob_sha1": "da806faa9dee32bd48af6e242036e13003c95c01"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "53a6604b40b2f6810ea24e71b3b762f2608698da8de0c62c6c1b2f210eec7540",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/mp_common/rat.gsc::function_50634409",
+        "behavior": "MP RAT automation command that force-adds a test bot: resolves a player via util::gethostplayerforbots() (a different util from unit 13 gethostplayer), sets five bot dvars to 0 (bot_allowmovement, bot_pressattackbtn, bot_pressmeleebtn, scr_botsallowkillstreaks, bot_allowgrenades), computes team with bot::devgui_relative_team(player, marker x53) and runs level bot::add_bot(team). HMH-path limit: wholly dev-delimited file (one dev block lines 11-122); registration addratscriptcmd(x43, &function_50634409) at mp rat __init__ line 32; delivery only via native rat_scriptcommand -> rat_shared::codecallback_ratscriptcommand -> rat.script_command_list lookup; the pinned recovered mp_common/gametypes/globallogic.gsc81 imports scripts\\mp_common\\rat. This establishes that source import link; actual original-build VM loading, dev inclusion, HMH configuration and native delivery remain unverified.",
+        "unknowns": [
+          "Which VM in the original PS4 build actually loads/includes this dev-delimited RAT code remains unverified. The recovered source importer at mp_common/gametypes/globallogic.gsc81 is identified and must not be described as missing.",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command name for x43",
+          "gethostplayerforbots and devgui_relative_team x53 marker semantics"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-D-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00866",
+          "sha256": "dcd51ef1d4ffe5c8945631ec9f9f74ce539c030119dbf9e406d7ae81c98d93dd"
+        },
+        "report_pointer": "/unit_reviews/4",
+        "decision_canonical_sha256": "0d05cfaca231fde525fa00305f29f994244129d94aba4d92fa46ab8ba1bbc133",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire frozen correction wrapper and complete current wrapper.record, original complete claim/evidence, explicit current replacements/projections and necessary exact source/caller/callee/callback/constructor/error witnesses, including unchanged written claims. Static recovered-source/request and data/history scopes only.",
+        "limitations": [
+          "Pinned recovered-source written scope only. Original bytecode/source-to-PS4/build/native/VM bindings, effective settings/assets/data, unknown providers, online/server code, callback delivery and runtime behavior are not established.",
+          "Historical owner/author/reviewer/model/status/credit strings retain their original history or unproved provenance. All 12 historical reports remain UNIMPORTED; their original author and route remain unknown.",
+          "Locator/hash/format/receipt checks do not prove behavior. Native/provider errors, original source fidelity, dynamic global/class identity and actual invocation retain the explicit subject limits.",
+          "No new function completion, whole-mode completion, runtime, build, native, VM or manager acceptance credit. This report reviews only the frozen current version; later author copies are outside this verdict."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00076",
+        "sha256": "7a419a62c7d54671fbe0b6dee16eedbe6a28d81a883777b24ce1d63b05591c6e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6427eea9c04fd1c6eee82f5b7e0a1e5ffca58154203315cc99539bd7cf9c23da",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_70f41194",
+        "behavior": "WZ RAT automation command returning a host inventory field: dispatches level.rat.common.gethostplayer (unit 13 pointer) and returns player.inventory.var_c212de25; field semantics unrecovered. HMH-path limit: dev-delimited file; registration addratscriptcmd(x38, &function_70f41194) at wz_rat.__init__ line 32; delivery only via native rat_scriptcommand -> rat_shared::codecallback_ratscriptcommand -> rat.script_command_list lookup; no non-dev caller in recovered source.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command name for x38 in the wz VM table",
+          "Meaning/type of player.inventory.var_c212de25"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/452",
+        "decision_canonical_sha256": "266677f671f27e773f714f4cd44d61998ed22da557f617f79b09fe839cfcae1d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/5",
+        "record_sha256": "137b61e4a370b64a7f81dee995715f7ea1bc088c517139db723ab64de2d970c8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8478f58d652efbb567b6bded4621c6ffaf419658d5158ab3535d2c9c7b23877c",
+      "citations": [
+        {
+          "line_start": 14,
+          "line_end": 60,
+          "sha256": "4ae119f1cfe1f2003e353619e5ca75156d91335fa7c3537bc2b0b9caa17ced33"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/rat_shared.gsc::init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "explicit_leftover_initializer_or_dev_registration"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/262",
+        "decision_canonical_sha256": "63dba00a720759f41c76795c9f80ae7445981c33da4edf0987a47c34f9b0015e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1098",
+        "record_sha256": "834a0a345b6b4e65de795ec88d474aa8bd8b2cb8fd714780a842dae10459161e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "85ae9d06c87b68b696271e96839fe8310e98a511d20c1c03b7a8be8744b699cd",
+      "citations": [
+        {
+          "line_start": 98,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_d50abf44",
+        "behavior": "WZ RAT automation script-command handler; returns level.players.size to the dispatcher as the command result. Limit: sole registration is wz_rat.__init__ addratscriptcmd(unrecovered string x98, &function_d50abf44) inside a wholly dev-delimited file; delivery only via native rat_scriptcommand event through rat_shared::codecallback_ratscriptcommand table dispatch. No non-dev gameplay caller exists in recovered source.",
+        "unknowns": [
+          "Whether dev-delimited wz_rat.gsc content is present in the original PS4 warzone VM (build-side inclusion)",
+          "Which native/console/automation entry can emit rat_scriptcommand in the original build; whether any HMH scenario issues this command",
+          "Plaintext command name for x98",
+          "level.players membership at dispatch time"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/719",
+        "decision_canonical_sha256": "a0a09181b81dea62ec7c9d16b09aab4544a67bb3f36df2db398a5e86b5e17b8d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/1",
+        "record_sha256": "b5ee29400e3200049428a1138433bc42988ce60228b52826619b6b6d38597d27"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8d23683ac24e33a2a48789b5b68d895fc6a89e93a6d35233fb9db0a16a34386a",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_1251949b",
+        "behavior": "WZ RAT automation command reporting whether the host player is in last stand: dispatches level.rat.common.gethostplayer pointer (unit 13) and returns player laststand::player_is_in_laststand(). HMH-path limit: dev-delimited file; registration addratscriptcmd(x65, &function_1251949b) at wz_rat.__init__ line 34; delivery only via native rat_scriptcommand chain. Undefined host outcome unverified.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command name for x65",
+          "laststand::player_is_in_laststand contract (unassigned function)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/763",
+        "decision_canonical_sha256": "50bbe6c94be202d89fc59375d4ba1f4ecb71ac20b2f714938acd2a0cff13788a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/4",
+        "record_sha256": "91c1a73f4f3f2e63630cd2f623dc58b554859f248630b366569812a35435b806"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "90118a918f6801c91a20c7ec39ee955c0810d01df3dc79f2b30baf3b031bcc65",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_89684f6a",
+        "behavior": "WZ RAT automation command checking a host inventory slot: dispatches level.rat.common.gethostplayer (unit 13 pointer) and returns player.inventory.items[10].networkid != 32767. HMH-path limit: dev-delimited; registration addratscriptcmd(xAA, &function_89684f6a) at line 38; delivery only via native rat_scriptcommand chain; no non-dev caller in recovered source.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command name for xAA",
+          "Semantic of inventory items[10] and the networkid 32767 sentinel"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/41",
+        "decision_canonical_sha256": "0f4dad944212ed9c46bb95b7b2ad85dd686a7f13a470fd6d7fb328d8a0eac540",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00582",
+        "sha256": "daafcf3f2f483a9bb6636d0c2145e0274c2c9ebb70614e47718c2cb7aae8391c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "aba57b3af020f0286cce61c71d8b0fbc84fc249918feb7c8115378598d438db3",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_7eabbc02",
+        "behavior": "WZ RAT automation command to remove enemy bots: resolves host through level.rat.common.gethostplayer pointer dispatch, reads params.remaining (default 0), scans level.players and removes bots (bot::remove_bot) whose team is neither host team nor unrecovered string xC0 until player count reaches remaining. HMH-path limit: wholly dev-delimited file; registration addratscriptcmd(x8b, &function_7eabbc02) at wz_rat.__init__ line 36; delivery only via native rat_scriptcommand -> rat_shared::codecallback_ratscriptcommand -> rat.script_command_list lookup. If gethostplayer yields undefined, host.team is read from undefined receiver - outcome unverified.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build; whether any HMH/HMH-Research flow sends this command",
+          "Plaintext command name for x8b",
+          "bot::remove_bot behavior; outcome when host pointer yields undefined",
+          "identity of team string xC0"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/474",
+        "decision_canonical_sha256": "a882ee609fcc6b49df8de9fc8d629fa24134db9880437d6a83e74958cfead267",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/2",
+        "record_sha256": "b84b82038e0962714843195d60a6ada6d4881317cef6a87cf478ae1422b4e148"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c6a5df2e1374cc64ce04616979f723894b78a92781553cf29627a84471277cad",
+      "citations": [
+        {
+          "line_start": 102,
+          "line_end": 106,
+          "sha256": "4ae119f1cfe1f2003e353619e5ca75156d91335fa7c3537bc2b0b9caa17ced33"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/rat_shared.gsc::addratscriptcmd",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "explicit_leftover_initializer_or_dev_registration"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/398",
+        "decision_canonical_sha256": "35d566f5058ad40b0a2643da05e66022f4eb628202a356cc670d2914507a6ab0",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1099",
+        "record_sha256": "ac015febe4d103f09eb7159ff96f0e1c645f249531d1acfc79fba95e040bd61f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d00954d0b85f318ef28349af6b95ecd39cd7eea035dca93c16193f4b7a8c1976",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_31980089",
+        "behavior": "WZ RAT automation command reporting item positions near the host player: resolves host via level.rat.common.gethostplayer (unit 13 pointer), defaults numitems=1000, distance=1000, name=all-marker xC7, reads params.var_1d978d3/distance/name, calls item_world::function_2e3efdda(player.origin, undefined, numitems, distance), skips item name xCA, applies optional params.handler filter with xE1 wildcard, and for matches calls function_55e20e75(params._id, item.origin). HMH-path limit: dev-delimited; registration addratscriptcmd(x54, &function_31980089) at line 33; delivery only via native rat_scriptcommand chain; no non-dev caller in recovered source.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command and argument names (x54, xC7, xCA, xE1, var_1d978d3)",
+          "item_world::function_2e3efdda selection semantics",
+          "native function_55e20e75 report payload"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1147",
+        "decision_canonical_sha256": "bfada47f35377ee38af99ba1e94c2d20648ea5772781b6d3c0ec7280463dfa28",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/6",
+        "record_sha256": "45189c1c446c6d86280b849b25d485ddf8504bd5b446f57355a6d8c4e1252916"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fa62f3fecc891fbb496d4582a52897aeb164490dc50e0b0a2df86040836ed550",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/mp_common/rat.gsc::rscaddenemy",
+        "behavior": "MP RAT automation command adding and placing an enemy bot: dispatches level.rat.common.gethostplayer (unit 13 function via pointer stored at mp rat init line 29), team defaults #axis else util::getotherteam(host.pers[team]); calls dev::getormakebot(team) (unit 10; cross-file namespace call, mp rat imports dev at line 6); when undefined bot prints x5b, reports failure to native ratreportcommandresult and returns; else threads rat::testenemy(team) (94-109: waits pers team, notifies menuresponse with menu_team when level.teambased) and rat::deathcounter() (115-120: on death increments level.rat.deathcount and sets dvar rat_death_count), waits 2, sets bot origin from float(params.x,y,z), optional angles params.ax/ay/az via setplayerangles, then reports success. HMH-path limit: wholly dev-delimited file; registration addratscriptcmd(x38, &rscaddenemy) at line 31; delivery only via native rat_ [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original PS4 VM loading and dev inclusion remain unverified. Recovered source explicitly imports mp rat from globallogic81, and mp rat imports dev at6; these source links do not establish actual build/VM loading.",
+          "Native rat_scriptcommand emitter in the original build; whether any HMH/HMH-Research flow issues this command",
+          "Plaintext command/arg names (x38, x5b, menu_team markers)",
+          "menu menuresponse routing for bots (ui/menu scope outside script dump)",
+          "outcome when gethostplayer pointer yields undefined host"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/51",
+        "decision_canonical_sha256": "0c78dee7cefc86e8f7ba36abe1581febb4cfeae06c85b92e753bab0f039b831c",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00339",
+        "sha256": "027d3a4c838f0e67744efa3aa8034f19ea8274516c9ee072b9676396e3c180fa"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fee1b7c1cbbf7343f106e337851329dee03eae3016c4fbc342f8da135c55cf82",
+      "citations": [
+        {
+          "line_start": 112,
+          "line_end": 121
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_rat.gsc::function_684893c8",
+        "behavior": "WZ RAT automation command that counts players currently in last stand: iterates level.players and returns the count of player laststand::player_is_in_laststand() true. HMH-path limit: dev-delimited wz_rat file; registration addratscriptcmd(x79, &function_684893c8) at wz_rat.__init__ line 35; delivery only via native rat_scriptcommand -> rat_shared::codecallback_ratscriptcommand -> rat.script_command_list lookup. No non-dev caller in recovered source.",
+        "unknowns": [
+          "Original-build inclusion of dev-delimited wz_rat in the warzone VM",
+          "Native rat_scriptcommand emitter in the original build",
+          "Plaintext command name for x79",
+          "laststand::player_is_in_laststand contract (unassigned function)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1407",
+        "decision_canonical_sha256": "f3afb23b12cb2171280f4b87771dd699f3d2c2b8d16986cbc195503727291c95",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/3",
+        "record_sha256": "e1b302a63decab5a678e068559012a2203f7e455762cd1402dfc5a8524bd3320"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/f374210348d4879e.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/d4840e68ed2e3693-001.json",
+      "sha256": "0b4d101499fe2317391f17b281c3e03841aa8304e33e3cbe5b66cec83f43afb9"
+    }
+  ]
+}

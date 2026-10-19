@@ -1,0 +1,343 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/sticky_grenade.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "1cc49b8a4a74e074a1f7093f27e085a5fb334b12773b33e7d07644f64acd3bab",
+  "git_blob_sha1": "0dfba0454e2284dcde94697bd7a7482cb65df090",
+  "output": "src/scripts/weapons/sticky_grenade.csc",
+  "output_sha256": "da1a84810d6fe16ebb80dcb2a8433b81b5e073ef91b4ff73959051b7cc7fc2b1",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/math_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/math_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/math_shared.csc",
+        "sha256": "f31c4b103d2835df67271ef5ed7ef6079f7feda7da0f4790abb54c9212c03025",
+        "git_blob_sha1": "1d4a282282627e8743b93bd920557f121b22624d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0356.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "33cfae2f143b32b6be6b85a2e0b05d0ead4ade3b6d6b12d23b3fa28141da42b6",
+      "citations": [
+        {
+          "line_start": 59,
+          "line_end": 67
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::spawned_arrow",
+        "behavior": "Bow-arrow spawned handler (localclientnum): dud gate -> return; else self thread fx_think( localclientnum, 2 ) - the mode-2 arrow variant (unit 368).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/235",
+        "decision_canonical_sha256": "b9a2bf4c29d7cf1a06864fc2cbe38972bbbe023ed7857ccece1eaad3cf412fed",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/363",
+        "record_sha256": "492e4e4c6fd2a76f400f990340a4f882b9a3e443f46fece9a2313cb79f97ae37"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "61b93e12ff301f2715875ebb52b13fdea30339f9c4983c9aaadd8c1da279165c",
+      "citations": [
+        {
+          "line_start": 12,
+          "line_end": 15
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::__init__system__",
+        "behavior": "Sticky grenade client autoexec: system::register( #\"sticky_grenade\", &__init__, undefined, undefined ). No branches.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/261",
+        "decision_canonical_sha256": "636700816b52ae2816f449c74494d416bdeb55290e48b74ef9f6f4d744f5a532",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/360",
+        "record_sha256": "44445cb5bb4c3d0ae2474d72760b84548910971b0d60be02860d44889d693629"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "aa895fd226ec44cc7d77f55acaa146dd580450f930a6e200650a175b1e46a5ed",
+      "citations": [
+        {
+          "line_start": 73,
+          "line_end": 81
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::function_6054cc1e",
+        "behavior": "Special sticky-type spawned handler (localclientnum; registered for hash_66401df7cd6bf292): dud gate -> return; else self thread function_c879d0fd( localclientnum ) (alternate FX loop, unit 371).",
+        "unknowns": [
+          "Hashed weapon type identity data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/470",
+        "decision_canonical_sha256": "32dfc1327fbddc6938b9f3c63700b353bc6389e80fe6b07aff2eefc955a517b4",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/364",
+        "record_sha256": "97e762da6209f3e28f1096ffcb7230fea010f9079645b724c96ee279647a564a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b4a0fb08eefac6e5d9064e3d4cb01ecd2a8371119e344c3c2f073e2a2e0e4501",
+      "citations": [
+        {
+          "line_start": 102,
+          "line_end": 106
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::stop_sound_on_ent_shutdown",
+        "behavior": "Countdown sound killer (handle; self = the explosive): self waittill( #\"death\" ); stopsound( handle ). One-shot cleanup.",
+        "unknowns": [
+          "stopsound native on the returned handle"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/502",
+        "decision_canonical_sha256": "c32bd3015fc51d32d99b61d3bfa1ba86a899aa5b4c14e01e3d5f6fe1f9897706",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/366",
+        "record_sha256": "48c88228a47946270f0ccd3657f905617c9e6a393dbdbba6696616b7a905ea57"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c1bbf6c9f7b3ca563a27c8e5e7e998508e1e1563897a1426967f9fea1a506b78",
+      "citations": [
+        {
+          "line_start": 189,
+          "line_end": 207
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::sticky_indicator",
+        "behavior": "Stuck-image HUD indicator (localclientnum, indicator; self = the stuck grenade). controllermodel = getuimodelforcontroller( localclientnum ); stickyimagemodel = createuimodel( controllermodel, \"hudItems.stuckImageIndex\" ); setuimodelvalue( stickyimagemodel, indicator ) (shows the stuck warning image; indicator is the fx_think mode 1/2); player = function_5c10bd79( localclientnum ). while isdefined( self ): waitframe( 1 ) - keeps the image until the grenade stops existing; then setuimodelvalue( 0 ) (clear image); when player defined -> player notify( #\"sticky_shutdown\" ).",
+        "unknowns": [
+          "UI model APIs retain their native/UI boundary. The source separately emits the player sticky_shutdown notification; its actual consumer, language, location and delivery remain unresolved without positive pinned listener evidence.",
+          "function_5c10bd79 unresolved as before",
+          "createuimodel/setuimodelvalue native UI APIs"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/66",
+        "decision_canonical_sha256": "f9e6f17db5637d646b7ea1fe828c90bbdcca77f48e7f28349c4ac8538fdf9c38",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00714",
+        "sha256": "77951a8b60a52de11cc6836c769476dec6231741b3391d304ba39153807fe73a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ff2761b3392e38ac6fb6687224640e33e77031aea83092160093d72a8d8b6f5f",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 53
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::spawned",
+        "behavior": "Sticky-grenade spawned handler (localclientnum): dud gate (self isgrenadedud()) -> return; else self thread fx_think( localclientnum, 1 ) - the mode-1 grenade light FX loop (unit 368).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1197",
+        "decision_canonical_sha256": "666db9d1d341c987c71874b0f14c4e3c9511b724cde0a40f0a312280f5a58cd8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/362",
+        "record_sha256": "46190fc8ae02e90848be605bd45e72c5a15fb16a797fb17ab96fd8aa62f8d668"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/2b5b616ae7eb8715.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0356"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/9e7028154b6f87e2-001.json",
+      "sha256": "6a4634d6bac9259b28d320bd663fa38e1595a10cba9c495e5be8a165eaae06ce"
+    }
+  ]
+}

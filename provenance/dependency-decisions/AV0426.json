@@ -1,0 +1,64 @@
+{
+  "module": "src/scripts/mp_common/bots/mp_bot.gsc",
+  "identity": "scripts/mp_common/ai/planner_mp_koth_commander.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "plannermpkothcommander",
+  "witnesses": [
+    {
+      "line": 156,
+      "text": "                plannermpkothcommander::createcommander( team );",
+      "caller": "init_strategic_command",
+      "caller_span": [
+        119,
+        177
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 150,
+          "opening_line": 155,
+          "ending_line": 157,
+          "text": "case #\"koth\":\n        case #\"koth_cwl\":\n        case #\"koth_hc\":\n            foreach ( team in level.teams )"
+        },
+        {
+          "line": 129,
+          "opening_line": 132,
+          "ending_line": 176,
+          "text": "switch ( level.gametype )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "createcommander",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          26,
+          38
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0426",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/ai/planner_mp_koth_commander.gsc",
+    "sha256": "1c3835a06c6cf69c4581304debe6c7fc4200c985dc13a6501d931e23d2b0262a",
+    "git_blob_sha1": "10bef576fb9d88fab9361b1bd0ab22f48934fd79",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

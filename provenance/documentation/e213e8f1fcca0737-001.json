@@ -1,0 +1,186 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/decoy_grenade.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "2569af6c0c4b130f7b6d69a8dd82d8a852fe92acb71242ac685cb0b8196277c5",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::__init__system__",
+        "behavior": "Server-side autoexec registering the decoy grenade system: system::register( #\"decoygrenade\", &init_shared, undefined, undefined ) â€” init_shared as init callback, main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/31",
+        "record_sha256": "5e5c9ff49e7bbd277b4c6815480d311c238e24b571de471f9682e8d199c5ec2c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "2e3ace723e57373eef2c2d4b99d16316255f099a4c18e010e70f16cfa57d3413",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_e9d18b65",
+        "behavior": "Fake gunfire simulator for the landed decoy grenade (self = grenade; direct-blocked call from on_spawn). Cancellation: self endon( #\"death\" ). Setup: grenade = self; wait 0.2; weapon = getweapon( grenade.var_f64cb8d.weapon ) â€” ar_standard_t8 weapon asset; var_fa7f044f = 0 (shots-fired counter). Infinite loop: burst_time = randomfloatrange( grenade.var_f64cb8d.var_5cae5968 (0.25), grenade.var_f64cb8d.var_bbed619f (1) ); burst_time *= 1000 (seconds scaled to ms); var_f370a5d5 = gettime() + burst_time (burst deadline). Inner loop while ( gettime() <= var_f370a5d5 ): grenade playsound( #\"wpn_ar_standard_fire_plr\" ) â€” server-side rifle-shot sounds; var_fa7f044f += 1; if ( var_fa7f044f >= weapon.clipsize ) -> var_fa7f044f = 0; grenade function_7c24c60f( weapon.reloadtime ) (reload-sound thread call, blocking); continue â€” resumes the inner burst loop with no additional firetime wait; else wait weapon.firetime (shot interval). After the inner loop: if ( var_fa7f044f >= weapon.clipsize ) -> reset counter to 0; grenade function_7c24c60f( weapon.reloadtime ); continue (skips the inter-burst delay); burst_delay = randomfloatrange( grenade.var_f64cb8d.var_c8670194 (0.25), grenade.var_f64cb8d.var_ebc63eca (1) ); wait burst_delay. Net behavior: randomized 0.25-1.0 s bursts of AR fire at the weapon's firetime cadence with per-clip reload sound sequences and 0.25-1.0 s pauses, until the grenade dies.",
+        "unknowns": [
+          "The in-burst clip-boundary reload branch skips one weapon.firetime wait, then rechecks the burst deadline. Subsequent non-boundary shots still wait weapon.firetime; fixed clipsize>1 does not imply all remaining shots run back-to-back. Original scheduling and numeric timing remain unresolved.",
+          "playsound localization/attenuation native behavior unverified",
+          "function_7c24c60f is blocking (no thread) â€” reload pauses the burst for reloadtime"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00802",
+        "sha256": "0255db3342e17bbab76dba681f127fe65ffd8717244425ea3b10b332bdd8cbf4",
+        "pointer": "",
+        "record_sha256": "c0d9aa66634bdeb6d90ff434f7b25be22ebe0b4dae0410f65ef996ea8abbb258"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "3036e3ed829767520dc42b47ca1f2195656229ad24743334a04f917898e74b32",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::init_shared",
+        "behavior": "Server init_shared for the eq_decoy_grenade equipment: (1) weaponobjects::function_e6400478( #\"eq_decoy_grenade\", &function_41625261, 1 ) â€” watcher-callback installer registration (trailing argument 1, matching the collapse grenade equipment registration); (2) clientfield::register( \"missile\", \"decoy_grenade_footsteps\", 1, 1, \"int\" ) â€” server-side declaration of the replicated footstep flag consumed by the client callback in decoy_grenade.csc (no client callback on the server side).",
+        "unknowns": [
+          "weaponobjects::function_e6400478 third visible argument semantics live in weaponobjects.gsc (outside packet)",
+          "This file never sets \"decoy_grenade_footsteps\" to 1 â€” only on_spawn writes 0; the 1-writer was not located in this file (search across packet continues)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00803",
+        "sha256": "72072aebc3f336b2bacfbcc8e91e8f4037e9244d8ff7ea9c1630c59b078de263",
+        "pointer": "",
+        "record_sha256": "0810c7614e4fcd0ac37a4d503f86027d1d68471a47faea34671d0f094f7c6239"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "4f7614e44f317e7ff5bd85c8a3cc6b43ae9e62f934b3c5e22c04a66bbe8d6a7c",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_7c24c60f",
+        "behavior": "Reload-sound sequence for the decoy's fake weapon (self = grenade; takes reloadtime). Cancellation: self endon( #\"death\" ). time_ratio = reloadtime / 3; then three equal waits: wait time_ratio; self playsound( #\"hash_337f5ae3f1674ad3\" ) (after first third); wait time_ratio; self playsound( #\"hash_7a315f233edf3cba\" ) (after second third); wait time_ratio (silent final third). Simulates a weapon reload over reloadtime with two sound cues at thirds. No other state.",
+        "unknowns": [
+          "Sound identities hash_337f5ae3f1674ad3/hash_7a315f233edf3cba (plausibly magazine-out/in cues) are hashed aliases, exact assets not in catalog"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/37",
+        "record_sha256": "301a151df7476bb90331e32fb8f8d04e6dd4b5cdfb71548d322fdbca54cd08b2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "68facc35b570894f3ec4ebea715c995d11df67be7cee41d233e53111ec784f34",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_a5871d04",
+        "behavior": "Config builder for the decoy's fake weapon. spawnstruct() with fields: .weapon = #\"ar_standard_t8\" (the AR whose firetime/clipsize/reloadtime drive the gunfire sim), .var_5cae5968 = 0.25 and .var_bbed619f = 1 (burst duration range in seconds), .var_c8670194 = 0.25 and .var_ebc63eca = 1 (inter-burst delay range in seconds). Returned to on_spawn and stored on grenade.var_f64cb8d. Constant values; ignores its grenade argument.",
+        "unknowns": [
+          "Decoded meaning of the hashed field-name suffixes is inferred from use sites in function_e9d18b65 only",
+          "ar_standard_t8 asset stats (clipsize/firetime/reloadtime) are weapon data, not in this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/38",
+        "record_sha256": "a12d51d1f27c89853e4f315441b3186c370cbcf7be8767bb635f26b93c1de677"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "90065dc622eae077d8fcf7fccd3a71ad0eeb476daf41c35a0ef2c1e0093bc68e",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_41625261",
+        "behavior": "Watcher-callback installer for eq_decoy_grenade: watcher.onspawn = &on_spawn; watcher.ondamage = &on_damage. No branches; no other watcher fields.",
+        "unknowns": [
+          "Watcher dispatch semantics (when onspawn/ondamage fire) live in the weaponobjects system outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/33",
+        "record_sha256": "9dca9d3ee9cc9e798994b9fc2f42a235f77f2f80baa51fa936fd021208ccaf92"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "9d6bb9dd7860cbb7d8da20274c98ab09a707cf2bb3084cbe1f3a5290e5a10a64",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::play_footsteps",
+        "behavior": "Server-side flight footstep loop for the airborne decoy (self = grenade). Cancellation: self endon( #\"death\", #\"hash_5a09ded231e405ad\" ) â€” ends on death or the on_spawn landing notify. Order: wait 0.25 (initial delay), then infinite loop: self playsound( #\"fly_step_sprint_plr_default\" ) â€” server-side sound request on the grenade; listener selection, replication, attenuation and audibility to individual clients remain unresolved; wait 0.23. No state writes; runs until canceled.",
+        "unknowns": [
+          "Whether the server playsound position/attenuation matches the moving grenade is native behavior",
+          "Sound identity of \"fly_step_sprint_plr_default\" is game data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00804",
+        "sha256": "29e48959701952f5b7593dc5eec826d2ea8030979eeea0208de2793e00ac26a0",
+        "pointer": "",
+        "record_sha256": "381caba88d3a8d3550c97e7ff51c2e4400b443e4681fa8a25dcb0d2c8b430a32"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "a64566bd554997abcfb8881a4d16d123ea138d04cdb4966339e2a4acafd8b80c",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::on_damage",
+        "behavior": "Damage accumulator for the deployed decoy grenade (registered as watcher.ondamage; self = grenade) â€” identical structure to collapse_grenade.gsc on_damage. Cancellation: self endon( #\"death\" ). damagemax = 50; self.damagetaken = 0. Loop over self waittill( #\"damage\" ): reads amount/mod/weapon; re-zeros self.damagetaken if undefined; attacker = self [[ level.figure_out_attacker ]]( waitresult.attacker ) (indirect level-pointer call, result unused in-span); damage = weapons::function_74bbb3fa( damage, weapon, self.weapon ). Branch: MOD_MELEE, MOD_MELEE_WEAPON_BUTT, weapon.isemp, or weapon.destroysequipment -> self.damagetaken = damagemax (instant destruction classes); else accumulate += damage. Exit: if self.damagetaken >= damagemax -> self detonate(); return. 50 accumulated damage threshold.",
+        "unknowns": [
+          "level.figure_out_attacker and weapons::function_74bbb3fa bodies are outside this packet",
+          "detonate() native explosion effects unverified",
+          "waittill(#\"damage\") result field set is engine-provided"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/39",
+        "record_sha256": "88200f01144ed18ce07d799180dd1c1af690d4b8fae993e4bd0bcd0019754fb2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e213e8f1fcca0737.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "b3bb3fcf505f879aa6e95a6cb83ebd42767fbd27f6eadec673f616bb008d8a75",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::on_spawn",
+        "behavior": "Decoy grenade onspawn (watcher arg; self = grenade entity). Cancellation: self endon( #\"death\" ). Ordered: grenade = self; grenade thread play_footsteps() â€” server-side footstep loop during flight; grenade.var_f64cb8d = function_a5871d04( grenade ) â€” stores the fake-weapon config struct (weapon ar_standard_t8, burst/delay ranges); grenade waittill( #\"stationary\" ) â€” landing gate; grenade setcandamage( 1 ); grenade.maxhealth = 10000; grenade.health = grenade.maxhealth; grenade setmaxhealth( grenade.maxhealth ) â€” literal high health writes and a separate on_damage accumulator; exclusive destruction control or protection against raw-health death remain unproved; grenade notify( #\"hash_5a09ded231e405ad\" ) â€” stops the flight footstep thread (play_footsteps endons on it); grenade clientfield::set( \"decoy_grenade_footsteps\", 0 ) â€” ends the client-side footstep playback; grenade function_e9d18b65() â€” direct blocking call into the fake gunfire loop (runs until grenade death).",
+        "unknowns": [
+          "Why the client field \"decoy_grenade_footsteps\" is only cleared to 0 here and set 1 elsewhere â€” the value-1 writer was not found in this file; likely in weaponobjects spawn/fire code (outside packet)",
+          "What hash notify #\"hash_5a09ded231e405ad\" means beyond its endon/notify pairing (land signal) is inferred from usage only"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00805",
+        "sha256": "5f6a3de612c63e1a323ce5daf4cb4ff1b70e45b429e8c548650ed843f4c5f455",
+        "pointer": "",
+        "record_sha256": "7703cdc5864d5a379d4d9409942e19da4d551af188f552fe464507b9da534980"
+      }
+    }
+  ]
+}

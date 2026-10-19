@@ -1,0 +1,150 @@
+{
+  "module": "src/scripts/core_common/gameobjects_shared.gsc",
+  "identity": "scripts/core_common/hud_util_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hud",
+  "witnesses": [
+    {
+      "line": 2301,
+      "text": "                self.carryicon hud::destroyelem();",
+      "caller": "take_object",
+      "caller_span": [
+        2281,
+        2362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2297,
+          "opening_line": 2300,
+          "ending_line": 2302,
+          "text": "/#\n            if ( isdefined( self.carryicon ) )"
+        },
+        {
+          "line": 2294,
+          "opening_line": 2297,
+          "ending_line": 2306,
+          "text": "if ( object.type == \"carryObject\" )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "destroyelem",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/ecfad31172d04e53.json",
+          "pointer": "/claims/6",
+          "selection_id": "edccb5dd9f3682eafc68ade4b86877f9c0cd7afc0a9671443b573179cdc5c5b9",
+          "citation": {
+            "line_start": 2331,
+            "line_end": 2336
+          }
+        },
+        "entry_function": "take_object",
+        "entry_span": [
+          2281,
+          2362
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          613,
+          637
+        ]
+      ]
+    },
+    {
+      "line": 2321,
+      "text": "                            elem hud::destroyelem();",
+      "caller": "take_object",
+      "caller_span": [
+        2281,
+        2362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2314,
+          "opening_line": 2316,
+          "ending_line": 2325,
+          "text": "if ( self.packicon[ i ].script_string == object.packicon )"
+        },
+        {
+          "line": 2312,
+          "opening_line": 2314,
+          "ending_line": 2326,
+          "text": "if ( isdefined( self.packicon[ i ].script_string ) )"
+        },
+        {
+          "line": 2311,
+          "opening_line": 2312,
+          "ending_line": 2327,
+          "text": "i++ )"
+        },
+        {
+          "line": 2308,
+          "opening_line": 2310,
+          "ending_line": 2328,
+          "text": "if ( isdefined( self.packicon ) && self.packicon.size > 0 )"
+        },
+        {
+          "line": 2306,
+          "opening_line": 2308,
+          "ending_line": 2331,
+          "text": "else if ( object.type == \"packObject\" )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "destroyelem",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/ecfad31172d04e53.json",
+          "pointer": "/claims/6",
+          "selection_id": "edccb5dd9f3682eafc68ade4b86877f9c0cd7afc0a9671443b573179cdc5c5b9",
+          "citation": {
+            "line_start": 2331,
+            "line_end": 2336
+          }
+        },
+        "entry_function": "take_object",
+        "entry_span": [
+          2281,
+          2362
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          613,
+          637
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0228",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/hud_util_shared.gsc",
+    "sha256": "dcbc6ecc9958a1ab93cd9082ecae6b652ef48fc097f41c97d376dbe5e4f85049",
+    "git_blob_sha1": "9e9f468ebfd611a75dc33dea97205c28261a6035",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

@@ -1,0 +1,111 @@
+{
+  "module": "src/scripts/core_common/lui_shared.csc",
+  "identity": "scripts/core_common/multi_extracam.csc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "multi_extracam",
+  "witnesses": [
+    {
+      "line": 363,
+      "text": "                multi_extracam::extracam_reset_index( localclientnum, extracam_data.extracam_index );",
+      "caller": "setup_menu",
+      "caller_span": [
+        340,
+        481
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 360,
+          "opening_line": 362,
+          "ending_line": 364,
+          "text": "foreach ( extracam_data in previous_menu_info.extra_cams )"
+        },
+        {
+          "line": 357,
+          "opening_line": 360,
+          "ending_line": 365,
+          "text": "if ( isdefined( previous_menu_info.extra_cams ) )"
+        },
+        {
+          "line": 345,
+          "opening_line": 348,
+          "ending_line": 391,
+          "text": "if ( isdefined( previous_menu ) && isdefined( level.client_menus[ localclientnum ][ previous_menu.menu_name ] ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "extracam_reset_index",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          9,
+          22
+        ]
+      ]
+    },
+    {
+      "line": 466,
+      "text": "                camera_ent = multi_extracam::extracam_init_index( localclientnum, extracam_data.target_name, extracam_data.extracam_index );",
+      "caller": "setup_menu",
+      "caller_span": [
+        340,
+        481
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 449,
+          "opening_line": 451,
+          "ending_line": 478,
+          "text": "foreach ( extracam_data in new_menu.extra_cams )"
+        },
+        {
+          "line": 446,
+          "opening_line": 449,
+          "ending_line": 479,
+          "text": "if ( isdefined( new_menu.extra_cams ) )"
+        },
+        {
+          "line": 391,
+          "opening_line": 394,
+          "ending_line": 480,
+          "text": "if ( isdefined( new_menu ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "extracam_init_index",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          28,
+          32
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0416",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/multi_extracam.csc",
+    "sha256": "7cb63ace0dd24a5fdc368827dd2228c1e5093136605eafde1e340925fce37e5c",
+    "git_blob_sha1": "93adef7ee121b28de1c1ad07eb5debe552c7d915",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

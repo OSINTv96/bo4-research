@@ -1,0 +1,202 @@
+{
+  "module": "src/scripts/core_common/bots/bot.gsc",
+  "identity": "scripts/core_common/bots/bot_stance.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "bot_stance",
+  "witnesses": [
+    {
+      "line": 646,
+      "text": "    self bot_stance::start();",
+      "caller": "update_loop",
+      "caller_span": [
+        623,
+        713
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "start",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          46,
+          51
+        ]
+      ]
+    },
+    {
+      "line": 654,
+      "text": "            self bot_stance::stop();",
+      "caller": "update_loop",
+      "caller_span": [
+        623,
+        713
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 649,
+          "opening_line": 651,
+          "ending_line": 656,
+          "text": "if ( !isbot( self ) || !self initialized() )"
+        },
+        {
+          "line": 646,
+          "opening_line": 649,
+          "ending_line": 712,
+          "text": "while ( isdefined( self.bot ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "stop",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          57,
+          60
+        ]
+      ]
+    },
+    {
+      "line": 691,
+      "text": "            self bot_stance::update( tacbundle );",
+      "caller": "update_loop",
+      "caller_span": [
+        623,
+        713
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 685,
+          "opening_line": 688,
+          "ending_line": 693,
+          "text": "if ( !self isplayinganimscripted() && !self arecontrolsfrozen() && !self function_5972c3cf() && !self isinvehicle() && !self util::isflashed() && isdefined( self.sessionstate ) && self.sessionstate == \"playing\" )"
+        },
+        {
+          "line": 646,
+          "opening_line": 649,
+          "ending_line": 712,
+          "text": "while ( isdefined( self.bot ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "update",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          88
+        ]
+      ]
+    },
+    {
+      "line": 698,
+      "text": "            self bot_stance::reset();",
+      "caller": "update_loop",
+      "caller_span": [
+        623,
+        713
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 693,
+          "opening_line": 695,
+          "ending_line": 709,
+          "text": "else"
+        },
+        {
+          "line": 646,
+          "opening_line": 649,
+          "ending_line": 712,
+          "text": "while ( isdefined( self.bot ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "reset",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          66,
+          69
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0262",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/bots/bot_stance.gsc",
+    "sha256": "2f2fc27231d2e539e1be29d6ec7ea81324ab8e999aaebfd1ccb162573e559d76",
+    "git_blob_sha1": "2153596b9d44b172ff3d9a192c230c3dc7963d8b",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/bots/bot_stance.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    646,
+    654,
+    691,
+    698
+  ],
+  "required_callee_functions": [
+    "reset",
+    "start",
+    "stop",
+    "update"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/bots/bot_stance.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03930",
+        "to": "N04692",
+        "line": 646
+      },
+      {
+        "from": "N03930",
+        "to": "N04695",
+        "line": 654
+      },
+      {
+        "from": "N03930",
+        "to": "N04699",
+        "line": 691
+      },
+      {
+        "from": "N03930",
+        "to": "N04701",
+        "line": 698
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

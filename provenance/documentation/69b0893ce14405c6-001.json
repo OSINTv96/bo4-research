@@ -1,0 +1,131 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz/wz_open_skyscrapers_fixup.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "02ed270db94c15d1527efd0fac3b878660d4f0863f0c436ed6f3044de523efb8",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_4305a789",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1028",
+        "record_sha256": "b204a22369623181c096f825662826f2f2e2fc2a9ebaf26aadd74f6302a28d04"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "030aee84d9ccba4bf5aa0810df416da2cc6af76eecc5f1a60d72b41709974270",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:merge-precedence",
+        "answer": "PRECEDEnCE RESULT: the playlist-entry vs gametype-def vs SET_DVAR merge order is native and unprovable from recovered source, so ORDER IS NOT PICKED; this record gives (a) proved script-side assignment orders, (b) equal recovered table values with conditional application, and (c) conditional effective-value tables per read-site style. PROVED SCRIPT ORDERS: (1) team-based chain â€” mp_common/gametypes/globallogic.gsc init sets level.teambased=0 (187), then calls gametype::init() (198); mp_common/gametypes/gametype::init first reads the bundle15 and returns19-22 if it is undefined. Only with defined bundle does line24 set level.teambased=isgametypeteambased() AFTER, so within that qualified init chain the opaque native result overwrites the earlier hardcoded0 if that call returns normally; its relationship to the anchor isTeamBased true row16 remains an unresolved dependency â€” a real later-write-wins case, not a guess: the two writes are in the same call chain (warzone.gsc:29 #using gametype; warzone main:67 globallogic::init). (2) heroes loadout pointer override chain â€” wz_loadouts.gsc __init__ 31-34 sets level.var_5c14d2e6=&function_3fed57dd if hash_7d8c969e384dd1c9; 36-44 sets level.var_317fb13c if hash_4149d5d65eb07138; 46-50 then overwrites BOTH with &function_9de0644f if wzheavymetalheroes â€” last-true-wins among the three, consumed by item_world.gsc:519-528 and player_reinsertion.gsc:441-447. (3) proved cross-setting compositions: OR-union player_reinsertion.gsc:441 and item_world.gsc:519; NOT-and wz_open_skyscrapers_fixup.gsc:30 (wzenableflareguns AND NOT wzheavymetalheroes); AND-pairs against hash_3778ec3bd924f17c at wz_asylum.gsc:23, wz_blast_doors.gsc:29, wz_jukebox.gsc:12, wz_buoy_stash.gsc:24, wz_array_broadcast.gsc:22, while the compared per-character fixups normally combine hash_50b1121aee76a7e4 with their own setting key (for example ajax30 adds d084b5063bb0c55 and battery30 adds2cd26947d8f311fa). Longer conjunctions add hash_3778ec3bd924f17c in mason30, nikolai30, richtofen30, seraph41 and takeo30; mason also adds24e281e778894ac9 and seraph adds4a035e3775089f40. Each repeated definedness/read and its own left-to-right conjunction is retained. This does not generalize to the generic character_unlock_fixup.gsc readers. READ-STYLE TAXONOMY with site-level defaults: fallback-with-default (warzone.gsc:363-370 e.g. hash_35c2d850e39fa704 default 100, evolution_interval default 20; wz_ai_zonemgr.gsc:36 default 1, 78-79 default 3); core_common/infection.gsc24 passes literal second argument0, whose native meaning is unresolved; raw direct store (battlechatter.gsc:109; globallogic.gsc:188,195,5049); exact-compare (arena.gsc:45-46 ==1); isdefined&&value guards (wz_open_skyscrapers.gsc60 for the HMH guard; warzone.gsc119/169/173/177 for their own settings; warzone.gsc60 is a declaration comment). CONDITIONAL EFFECTIVE-VALUE TABLES: (a) keys set by BOTH playlist and def with EQUAL values (hash_68f4f3fd681ae3ea=1, hash_6c72667787a1fcc9=1): equal values1 in those recovered inputs, conditional on their actual applicable native application and on no other effective override â€” equality alone does not prove an effective value or resolve other layers, mask selection or application; (b) playlist-entry-only keys (startplayers=80, hash_35c2d850e39fa704=80, hash_6cf5f53d1fbb1066=1, hash_3083d02ea0f5761c=0, hash_3778ec3bd924f17c=1, evolution_interval=16, wzenablewallbuyasylum=1, wzenablesentrygun=0, wzzombiesbreakdoors=1, wzlootlockers=1, hash_6b1ec01fa78af670=1): the listed table value is an input candidate conditional on actual applicable native application without another override. If not applied, the provider result remains unknown; a particular script fallback is taken only when that read actually returns undefined â€” no native outcome picked; (c) def-only keys (maxteamplayers=4, wzaizones=0, wzzombies=0, wzenablebowieknife=1, killcamhistoryseconds=1800, allowkillcam=1, wzenableoperatorweapons=1, wzenablemusclecar/suv/homewrecker/vendetta=1, wzenablereplacercar=0, wzenablecoinbag=1, wzenablepurifier=0 with platformMask2 (native mask-selection unresolved), hash_450463e38ea8bf1=3, hash_69ad073972c1c4ea=3, hash_446a66a4499c4e5d=6, hash_22431a9369b5d7c0=50, hash_9ccb8e5d58cd832=1, hash_2491cd92f1d6a91c=1, hash_52d705a46da9e55f=1, hash_7695bdd7b20cdda=0): same native-application/other-override qualification; 450463â€¦/69ad07â€¦ match the written script fallback3 numerically, without proving either path is selected; applicable returned wzaizones0 differs from the written wz_ai_zonemgr fallback1, but neither actual native result nor fallback selection is established; (d) keys set by NO recovered layer (wzheavymetalheroes, allowbattlechatter, allowannouncer, allowplayofthematch, infectionMode, pregamedraftenabled, pregameitemvoteenabled, maxplayofthematchevents, the 9 potm weighting hashes, hash_7d8c969e384dd1c9, hash_4149d5d65eb07138, hash_6eb44149a8ac6dd1, teamcount, scorelimit, timelimit, roundlimit, roundwinlimit, playernumlives, teamnumlives): effective unknown; per-site consequences are listed in their own units (potm disable branch, arena ==1 false branch, battlechatter falsy branch, infection literal-second-argument0 call with unresolved native meaning). CONTRADICTION CHECK: across the three HMH layers no shared key has conflicting values; the only 80-vs-50 duplicates (TU23 startplayers, hash_35c2d850e39fa704) differ only by platformMask (6 vs 1), so the effective selection/application for a single-store reader depends on unresolved native mask and application semantics â€” recorded as a native question, not resolved here. Also recorded: contractsenabled is read from getgametypesetting(#disablecontracts) then immediately hard-forced to 0 (globallogic.gsc:166-167) â€” an in-source override that beats any playlist value for that key.",
+        "behavior": "merge-precedence: proved script assignment orders (teambased chain, heroes loadout override chain, NOT/OR comps), read-style taxonomy with per-site defaults, and conditional effective-value tables by key class; native layer order explicitly unresolved.",
+        "unknowns": [
+          "Native playlist rules application order and override semantics (playlist entry vs gametype def vs SET_DVAR vs online) â€” the exact subject of this question; retained partial/blocked per DELIVERY",
+          "getgametypesetting absent-key return (undefined vs 0 vs native default)",
+          "platformMask/environmentMask filter semantics",
+          "clamp-on-undefined behavior for scorelimit/timelimit/roundlimit and teamcount loop condition in globallogic init_teams when teamcount is absent"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00396",
+        "sha256": "bc807135200038c5de8e7b0cbbcf44aaec888eccb2703d8ade0757e4c20f1e33"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW (fixups): wz_common_mode_heavy_metal_heroes_fixup.gsc:28-53 builds item_replacer sets: per-stash gun lists (array_list_guns_dlc1, asylum, boxing_gym, clearing, construction, diner, dockyard, estate, factory, farm, farmtown, firing_range, fracking, ghosttown, graveyard, hijacked, hydro, lighthouse, nuketown, rivertown, hash_5295664b3252e2a7, support_structure, train_station, wind_turbine) every call appending the replacement list #heavy_metal_heroes_list_guns_dlc1 (and .csc:28 twin); wz_open_skyscrapers.gsc:60-64 sets level.var_2089aa11 = supply_drop_stash_parent_dlc1_heroes and registers heroes flare-gun stash replacement/count data via function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); this registration does not spawn the stash; hashed script_71e26f08f03b7a7a.gsc:256-259 uses level.var_2089aa11 only when that parent is defined, var_6ed927a6 replacement is undefined and heroes is defined/truthy. Explicit replacement wins. start first waits for its flag and applies timing/count gates before threading function_2d47ee1e; heroes truth alone does not prove spawning. FLARE GUNS: wz_open_skyscrapers_fixup.gsc:30-33 enables the base stash parent dlc1 flare guns only when wzenableflareguns && !wzheavymetalheroes (explicit NOT-and; #wzenableflareguns is itself absent from all recovered HMH layers). RAMPS: hmh_ramp dynent array enable/disable (gsc 160-172, csc 91-128 both sites read wzheavymetalheroes). VEHICLES: wz_common/vehicle.gsc:3397 keeps self.deathmodel when NOT heroes; function_32607cfc (4094-4121) returns true immediately when wzheavymetalheroes (vehicle-availability/air distance bypass; stats-gated otherwise); death circle tank vehicles only when setting hash_6eb44149a8ac6dd1 truthy inside the mode-identity branch (wz_open_skyscrapers_death_circle.gsc:69-76; that hash appears ONLY in the neighboring base-warzone playlist entry at categories 2631-2644 value 0, not in any HMH layer â†’ value for HMH unknown). TABLE RULE VALUES that select equipment/vehicles (def-only, all conditional on the native store): wzenablebowieknife=1, wzenableoperatorweapons=1, wzenablecoinbag=1, wzenablemusclecar=1, wzenablesuv=1, wzenablehomewrecker=1, wzenablevendetta=1, wzenablereplacercar=0, wzenablepurifier=0 mask2; wzenableatv/wzenablemotorcycle appear ONLY in the neighboring base-warzone entry (8286-8313, value 0) not in HMH layers; the vehicle fixup switch wz_common_vehicles_fixup.gsc/.csc:102/127/163 reads wzenablemusclecar/enableatv/enablemotorcycle/enablesuv combinations â€” for HMH the atv/motorcycle keys are unset, so those branches are absent-key dependent. JETPACK: no recovered HMH-specific jetpack setting exists; the mobility change is the two perk grants above. FURTHER EXACT DEPENDENCIES: function_9de0644f body (heroes loadout supplier) and function_3fed57dd/a9b8fa06 alternatives; level.var_618194f7 writer; heavy_metal_heroes_list_guns_dlc1 and supply_drop stash asset bundles; hvolist bundle contents (m1); vehiclecustomsettings per vehicle (m2); native wzheavymetalheroes producer (units 2/4).",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5a1c4f90dbae9364f00712ad7a91965552c36a6820be81d5bf182c815bd072a5",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_c94723bd",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/689",
+        "record_sha256": "01ebbdc2e955bf65b79cd49f94bf4fc4f68f178878d66b2c49266dfad37d323d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "68fb5e6531d4269508e5a670666d76e7043c22199fa811ca56bebeb43f27555a",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1027",
+        "record_sha256": "d7dbe9973ad4365bd0b5cfbed480e2d361f71174ca4bf9480b8f019f1cab3f3b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "a38485852d39be6ab0aeabe15485400aabe9ed0dbce8cc44b1c79182043394a8",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/687",
+        "record_sha256": "db7280e683e4c9025c294a39faefce788342b796476a132ae41e68a473281984"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/69b0893ce14405c6.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "c764d454ff35f555996f94a964bce1098697539ac9a279c20fc106c1a250458a",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_4305a789",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/688",
+        "record_sha256": "418c02b3e3bbeef55d06df8eae2ea7fa982d5ba3eb43fbafd8ff5c8298e939a9"
+      }
+    }
+  ]
+}

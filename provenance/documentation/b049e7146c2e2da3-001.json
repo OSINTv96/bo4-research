@@ -1,0 +1,120 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/potm_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "4a7b90c31e13fe242f1ec4f2b9fee3f3604a8e40bcad298da788264e682215aa",
+      "summary": {
+        "id": "scripts/core_common/potm_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/392",
+        "record_sha256": "639316180bfb3ad250fc4a5e342f1f8a78698aa1235c7397565c5aa02af45780"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "a7939489967f8d061b8977fdfc4edb63623af38a1f561522bd329cba8f4c4451",
+      "summary": {
+        "id": "scripts/core_common/potm_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/890",
+        "record_sha256": "4948c3d4b3d89cbed9a537dc292970cbb5e514dd2c04e7bf50dfc722175d289d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "b181b110d44868ca0064d6670aeaf8dea655003463971c528a55241fa2deffde",
+      "summary": {
+        "id": "scripts/core_common/potm_shared.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/391",
+        "record_sha256": "fac21d9c4dfdc733825398a7eeb16ec75521c321e0a24f2be0a6343604de7eb0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "eea4060ef8fa56c03dcfea26997a226f6981c791fa77158275bfc84e63661190",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:potm",
+        "answer": "allowplayofthematch and potm weighting: sole script producer of game.potm_enabled is core_common/potm_shared.gsc:68 in private init: game.potm_enabled = getgametypesetting(#allowplayofthematch), registered by potm __init__ (23-31) which installs callback::on_start_gametype(&init) (29) and arms level.var_abb3fd2 = &event_bookmark (30). FIRST-INIT GUARD: all enable/disable and weighting effects below require !isdefined(game.var_ab39640b) at66. When defined, init calls function_1cffcfda at130 instead without rereading these settings or taking this disable branch. DISABLE BRANCH (first-init only): if !game.potm_enabled the init sets level.var_abb3fd2 = undefined and returns (70-74), removing the bookmark hook. WEIGHTING BLOCK (76-86): game.potm_max_events = getgametypesetting(#maxplayofthematchevents); then9 weighting hash settings read into game fields: hash_567db38226658dbf -> var_c7a2645f (77), hash_62a4fd40810cb61 -> var_3a859f59 (78), hash_4a6ef8940f4cbb83 -> var_94fe2d81 (79), hash_6881c7cab0dcef39 -> var_659f084a (80), hash_7c0dcff6ffb1e348 -> var_50b05a28 (81), hash_4f4a73f236278ba8 -> var_6bd02863 (82), hash_7c0acf14fb1f4080 -> game.actsq (83), hash_6269eb986d22cd37 -> var_c7826a3f (85), hash_6e2abf2cc40e03f1 -> var_b924522a (86). NONE of these11 keys (allowplayofthematch, maxplayofthematchevents and nine weighting hashes) is set by any recovered table layer (script/tables search: zero matches; none in frontend 17 rules 8360-8592, TU23 19 rules 8719-8980, def 28 rules 8244-8639, anchor bundle rows 1-341). MP SESSION BRANCH (96-105) installs scorer/multiplier pointers (var_2e431430 = function_20422a1a multiplier; var_321b0d80 = function_43690387 stat counter) under sessionmodeismultiplayergame(); the m1 potm record proves the stat-counter body returns unless level.rankedmatch (rankedmatch producer globallogic.gsc:161 = native gamemodeisusingxp, unit 10). CONSUMER CONDITIONS (reused from prior mapping): delivery path is native event_596b7bdc -> callbacks_shared.gsc event_handler function_f5026566 (1893-1907) -> event_bookmark (2194-2213). The anchor table independently carries the potm PRESENTATION: finalDisplayTransition entry type play_of_the_match (rows 120-151, type at 130) and roundDisplayTransition entry type play_of_the_match (rows 224-258, type at 235) â€” presentational support exists in the recovered table regardless of the setting. ORIGINAL-BUILD GAPS: no producer for allowplayofthematch or any weighting hash in the recovered corpus; native event_596b7bdc emitter unproven (m1/m2); isenabled()/isprofilebuild gates unproven (m1). Effective HMH potm enablement stays conditional: on first init only, truthy allowplayofthematch -> full weight config from settings (values unknown), falsy -> bookmark hook removed and the potm event path inert; no recovered layer contradicts either branch.",
+        "behavior": "potm: allowplayofthematch read/disable path at68/70-74 applies only while game.var_ab39640b is undefined; cached init instead calls function_1cffcfda130, 9-hash weighting read block enumerated (77-86) with zero recovered producers, MP branch pointers, rankedmatch-gated stat counter, table play_of_the_match transitions recorded.",
+        "unknowns": [
+          "allowplayofthematch effective value in HMH (no recovered producer)",
+          "potm_max_events and all9 weighting-hash values (no recovered producer)",
+          "native event_596b7bdc emitter and isenabled()/isprofilebuild potm gates",
+          "level.rankedmatch effective value for wz/HMH (native gamemodeisusingxp)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00326",
+        "sha256": "da68e75ef2858c4829b44821f0a0a64c817195183f71ad0ce29ad5753e56fa7c",
+        "pointer": "",
+        "record_sha256": "f678efcac0799c9faee42b50bb4105f1e210767ef77d7d36905f387013b7b202"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "956442363d7a2c3ae857d7de73973e3e6dfe4a8edc89222752d4139925387d92",
+      "summary": {
+        "id": "scripts/core_common/potm_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/107",
+        "record_sha256": "8e98b8a6b342bdcf1dddfdc44a61a2c0b6e567087145a4313fc34b7d1a2eb458"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b049e7146c2e2da3.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "0069694ede310ea7868814ffa664b3458bdcf79b8c5db83f83e87ab18baf29ee",
+      "summary": {
+        "id": "scripts/core_common/potm_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/107",
+        "record_sha256": "8e98b8a6b342bdcf1dddfdc44a61a2c0b6e567087145a4313fc34b7d1a2eb458"
+      }
+    }
+  ]
+}

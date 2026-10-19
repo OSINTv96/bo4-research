@@ -1,0 +1,71 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic_spawn.gsc",
+  "identity": "scripts/mp_common/gametypes/hostmigration.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hostmigration",
+  "witnesses": [
+    {
+      "line": 1331,
+      "text": "    hostmigration::waitlongdurationwithhostmigrationpause( waittime );",
+      "caller": "kickwait",
+      "caller_span": [
+        1328,
+        1332
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "waitlongdurationwithhostmigrationpause",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/7",
+          "selection_id": "49b2d165a51d9354c5d0bb3c2d9017152b110228c6a6b08fbeb6b43d3d4ed511",
+          "citation": {
+            "line_start": 1263,
+            "line_end": 1322
+          }
+        },
+        "entry_function": "kickifidontspawninternal",
+        "entry_span": [
+          1263,
+          1322
+        ],
+        "local_references": [
+          {
+            "from": "kickifidontspawninternal",
+            "to": "kickwait",
+            "line": 1292,
+            "form": "local_call",
+            "text": "    kickwait( waittime );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0088",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gametypes/hostmigration.gsc",
+    "sha256": "6bc8c97876a9f6df0addbbe002b769652ee1bb21f7ac684d3332b0b5de24f828",
+    "git_blob_sha1": "ee22aa0d5dd8f5d7b3fa924a3d860d1a88e95b35",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/mp_common/gametypes/hostmigration.gsc"
+}

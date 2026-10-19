@@ -1,0 +1,89 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/locationselectorutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/ed3caeaaa48299d4.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "926d272bea21812a24bf7871e34e16dde534bd9f184eb445a44d4d10884f8ce0",
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:089",
+        "answer": "Calls engine getobjectiveentityposition(controller argument1,objective argument3), receiving three coordinates. Calls SpawnSelectionUtility.PositionMarker(argument0,argument1,argument2,{x=x,y=y,z=z}) only when all three returned coordinates are truthy; otherwise falls through. Under source Lua truthiness numeric0 is not filtered out. No receiver/model guard, loop, return value or protected error handling exists. Reads selectedMarker; if absent prints the literal SpawnSelect invalid-region diagnostic and returns no values. Otherwise obtains its four local-rectangle values (unused), center and leftStickVector. Iterates pairs(markers), computes candidate-center minus selected center, keeps candidates whose dot with the stick is >0, and stores marker plus squared reject distance. If candidates exist, passes an excluded comparator pointer to table.sort and returns first.marker; otherwise explicitly returns nil. Pair iteration/tie ordering, vector/receiver validity and sort semantics remain external; no selection state is written or target merely guessed. On marker argument0, calls processEvent({name=\"lose_focus\",controller=argument1}) before playClip(\"DefaultClip\"). No nil guard, return value, selectedMarker reset, close, loop, callback registration or protected error handling exists. Event/clip engine effects remain external.",
+        "unknowns": [
+          "Pinned recovered source only; no originating Lua bytecode, exact PS4 build/loader/overwrite/VM/native binding, effective HMH settings, resource availability, service/server behavior or runtime delivery proof. Author checks are not independent correctness review. Source defects and unguarded accesses remain literal.",
+          "Only the selected callable's immediate statements are authored. Each unlisted nested callable is excluded from semantic authoring, including returned/local/condition/model/timer callbacks. Its exact lexical pointer and delivery site are metadata for later scope selection; containing its text does not authorize its body."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/88",
+        "record_sha256": "febac3c809c047bbca7ec4c30b888179eeed360d53281ff2c061f43a64230414"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ed3caeaaa48299d4.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "9f37570fc3f1dd53cc5ca3a4b3b10ea1d302f1c00fe5923880c6c02ad9967ab5",
+      "summary": {
+        "unit_id": "hmh07-root-tail:001",
+        "answer": "Saved exact contracts for 1 qualified source bodies; 0 reuse historical bounded facts. Each body contract preserves its own branches, order and fidelity; enclosing gaps remain unauthored.",
+        "unknowns": [
+          "Original source-to-PS4 match, VM/native/LUI semantics, effective settings/platform/global binding and callback delivery remain unverified.",
+          "Data/assets/localization/DDL/storage/network/server code remain explicit gaps; current source does not prove their contents or behavior.",
+          "No inferred nil guards, exception recovery, cleanup, dispatch or whole-file semantic coverage."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00099",
+        "sha256": "88c7c568133da6c1d305649b4a5d149e794955322a492b517f45838e29c60d04",
+        "pointer": "/units/0",
+        "record_sha256": "07cbb391366c6632285de7bb0de7f93e96f8a0b643193b36da622f3da30897a0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ed3caeaaa48299d4.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "c1bfb1008f96c4d139d635a39ddfa9fced6a7e0f32e2fbebbfff91eb9a6a83fa",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:016",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/15",
+        "record_sha256": "16bfd3621162941181866addf7e9f0ed5cb2bd331a82c592be2e33fdc3fb1f29"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ed3caeaaa48299d4.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "ea27f1e1aa2720185bb05712acc7124c5a4480cb34224338ebae4b5ba465a445",
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:027",
+        "answer": "If marker falsy do nothing. Else obtain container width,height, compass corners x0,y0,x1,y1, compass-north x,y and marker width,height. If abs(northX)>0, horizontal=(position.y-y0)/(y1-y0)*containerWidth and vertical=(position.x-x0)/(x1-x0)*containerHeight. Else if abs(northY)>0, horizontal uses position.x/x range and width; vertical uses position.y/y range and height. Subtract half marker width/height, then setLeftRight(0,0,left,left+markerWidth) followed by setTopBottom(0,0,top,top+markerHeight). No explicit return. Call getobjectiveposition(controller,objectiveId) for x,y,z. Only if all three results are truthy call the selected same-file PositionMarker(container,controller,marker,{x=x,y=y,z=z}). Otherwise do nothing. Return implicitly nil. Numeric zero remains truthy under ordinary Lua; no independent marker check is added here. If SpawnSelectionLabel is nil do nothing. Otherwise evaluate IsMouseOrKeyboard(controller), retain label, and if mouse/keyboard truthy and currentState==DefaultState setState(controller,DefaultStateKBM). Else if mouse/keyboard falsy and currentState==DefaultStateKBM setState(controller,DefaultState). Every other state/value leaves it unchanged. No explicit return or callback registration. If IsSpawnBeaconDisabledOrDestroyed(arg0,arg1) is truthy return true immediately. Otherwise return CoD.ModelUtility.IsModelValueEqualTo(arg0,hudItems.spawnSelectHidePrompt,1) unchanged. No direct model read, mutation or callback occurs here.",
+        "unknowns": [
+          "Original PS4 build/source match, effective settings, assets/data and HMH invocation.",
+          "Unavailable service/server/persistence/transport implementation; no inferred contract closure.",
+          "Excluded nested callback implementations and actual dispatch/unsubscribe/lifetime where listed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/26",
+        "record_sha256": "db8b2f463ca8540e62cd8cd684d39a9797c3b7291c1e87cb7881abecd1e5863d"
+      }
+    }
+  ]
+}

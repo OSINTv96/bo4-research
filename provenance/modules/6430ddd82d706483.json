@@ -1,0 +1,1443 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+  "git_blob_sha1": "e7c2c6f8f1b3fcd96445c14d262c7ed929f276d8",
+  "output": "src/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+  "output_sha256": "8261cfbcaf82314b8b82fc773ca21860c112559855b5e8c6ac4256e732010a8f",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+      "original_line": 4,
+      "output": "src/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+        "sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+        "git_blob_sha1": "075a948b273fd00d607a5e55b614e168c1ee2948"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+      "original_line": 5,
+      "output": "src/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+        "sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+        "git_blob_sha1": "a3e1c26b7a6f98f7210744d051185943957bd0bd"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:78503431250d50b7.lua",
+      "original_line": 6,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:467035dcc0ce94cc.lua",
+      "original_line": 7,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+      "original_line": 8,
+      "output": "src/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+        "sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+        "git_blob_sha1": "644e5a24487c3e080d6fb38404a687335c3638cf"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/emptyfocusable.lua",
+      "original_line": 9,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:7dc94decf3a09a57.lua",
+      "original_line": 10,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "04a4a7b2a7060b95f1b1ca5c1fac46f1a2b369ea68b9ec04014ed7eab4c857b8",
+      "citations": [
+        {
+          "line_start": 119,
+          "line_end": 119,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 119,
+          "line_end": 119,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 119,
+          "line_end": 119,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:063",
+        "answer": "Constructs CoD.ScoreboardTabs with the supplied menu/controller/layout values; its exact visual/data fields, condition closures, hook requests and return are retained below. Creates self via LUI.UIElement.new, Tabs via LUI.GridLayout.new, RB via CoD.BumperButtonWithKeyMouseText.new, LB via CoD.BumperButtonWithKeyMouseText.new. Stores state predicates KBM, KBM, KBM, Shoutcaster; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/33",
+        "decision_canonical_sha256": "ba4c16309bcb7d6ea0cf6b51f95ceb3ad3e54c5b5ad488d7d3cc66923ccb722a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/62",
+        "record_sha256": "32fb4a6823b0d936f784f16e429b70827e831fca7d60a56287732bcfe1132d1b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0d323b26b1edee8ab4772c6108e225cb86fe202c5acfa9a2772754e8a3fd956e",
+      "citations": [
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:004",
+        "answer": "Saved exact contracts for 7 qualified source bodies; 0 reuse historical bounded facts. Each body contract preserves its own branches, order and fidelity; enclosing gaps remain unauthored.",
+        "unknowns": [
+          "Original source-to-PS4 match, VM/native/LUI semantics, effective settings/platform/global binding and callback delivery remain unverified.",
+          "Data/assets/localization/DDL/storage/network/server code remain explicit gaps; current source does not prove their contents or behavior.",
+          "No inferred nil guards, exception recovery, cleanup, dispatch or whole-file semantic coverage."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/85",
+        "decision_canonical_sha256": "3f5d07b53ed77910047317ed1c4d1896bcd718d87faaf765ea81af2947bd8702",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/3",
+        "record_sha256": "0f3241067ad7709c6355b4443377daabd31c72cc414e6dbfb06da5432f73d9f4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2c3921ad20a96d759b2b0af42acc740208c5e3a919564e34a5bf5ed0a79ba9bb",
+      "citations": [
+        {
+          "line_start": 41,
+          "line_end": 41,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 41,
+          "line_end": 41,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:250",
+        "answer": "Constructs CoD.ScoreboardGameStatusScores.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, Backing as CoD.ScoreboardGameStatusScoresBacking.new, SpecialistImage as LUI.UIFixedAspectRatioImage.new, LightBarHero as LUI.UIImage.new, stripeHero as LUI.UIImage.new, GameTypeStat4 as CoD.ScoreboardGameTypeSpecificStat.new, GameTypeStat3 as CoD.ScoreboardGameTypeSpecificStat.new, GameTypeStat2 as CoD.ScoreboardGameTypeSpecificStat.new, GameTypeStat1 as CoD.ScoreboardGameTypeSpecificStat.new, CoreStat2 as CoD.ScoreboardCoreStat.new, CoreStat1 as CoD.ScoreboardCoreStat.new, StatValue as LUI.UIText.new, StatValueSas as LUI.UIText.new, StatValueBounty as LUI.UIText.new, StatValueHardpoint as LUI.UIText.new, StatName as LUI.UIText.new, SpecialistName as LUI.UIText.new, PipRT as LUI.UIImage.new, PipLT as LUI.UIImage.new, ScoreboardButtonPrompts as  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 15,
+              "line_end": 15,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "1fd22f47e4382fb0c94a10b3aaf275d4808787a3996548d031b48dc2f32a2a42",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.ScoreboardGameStatusScores )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:13-446",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 19,
+              "line_end": 19,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:13-446",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "1e0185d460ea8ccbe972be1116822ddacf658269016bbfdcb85cf68d1894c0a3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Backing )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:13-446",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "SpecialistImage:linkToElementModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "e3bf3b23cfdd10caa18c7cf09a985681eee61b69c239bc738fbc010fa6008ed7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tSpecialistImage:linkToElementModel( self, \"scoreboard.characterIndex\", true, function ( model )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:13-446",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "6807f92f5a5240fca8ac5900e7264a258c8538065c6f2b207c1a7e6f8467b690",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f2_local0 = model:get()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:26-31",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:250",
+            "source_symbol": "CoD.ScoreboardGameStatusScores.new",
+            "symbol": "SpecialistImage:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua",
+              "line_start": 29,
+              "line_end": 29,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5f193bc1db245afb81cc7be03d58e28a11d6b2500458ffeb4b7ba2a3ede39013",
+              "line_span_sha256": "a2aef035bccee7c6935bde35fa296fe3de2a6fdcf9cf636135245ca039e0d8da",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tSpecialistImage:setImage( RegisterImage( GetPositionDraftIconByIndex( f2_local0 ) ) )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatusscores.lua:26-31",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/244",
+        "decision_canonical_sha256": "2278d8dfe0b91325227ecafe7445fbccec55ed0f7548886226106a347d4e1278",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/249",
+        "record_sha256": "79a16903d918d7a82317d89155d5eb01e3d0b1bc9fedf77a52175471555903e0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "381996c8978972ff66863232d4d29d493af44f89740c127cbe2b6c61b1896a3c",
+      "citations": [
+        {
+          "line_start": 31,
+          "line_end": 31,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 31,
+          "line_end": 31,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:249",
+        "answer": "Constructs CoD.ScoreboardGameStatus.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, BlurBG as LUI.UIImage.new, TintBot01 as LUI.UIImage.new, TintBody01 as LUI.UIImage.new, TintTop01 as LUI.UIImage.new, ScoreboardGameStatusMap as CoD.ScoreboardGameStatusMapMask.new, MapGrid02 as LUI.UIImage.new, Corner as CoD.TabbedScoreboardLayoutCorner.new, CornerAdd as CoD.TabbedScoreboardLayoutCorner.new, MapGrid01 as LUI.UIImage.new, infoGraphic as CoD.TabbedScoreboardMapInfographic.new, InfoboxRIght as CoD.TabbedScoreboardMapInfoboxRight.new, infoboxLeft as CoD.TabbedScoreboardMapInfoboxLeft.new, MapLayoutSideBoxR as LUI.UIImage.new, MapLayoutSideBoxL as LUI.UIImage.new. Stores source state predicates in order Visible. Owns 2 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalS [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 15,
+              "line_end": 15,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "5c3bbb55139df0b9ff763c98a061a6246d9e56366bd5270b06916ee81376ef6e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.ScoreboardGameStatus )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 19,
+              "line_end": 19,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "BlurBG:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "e50655ceff77b5f98d3b27f4b2386d789b9441d145d1c43bf6e5ac6998740e40",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBlurBG:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_E2354BE557C4C7A\" ) )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "BlurBG:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 23,
+              "line_end": 23,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "baf19e78e60cb019a67876a81a3fa32fefa7e926ed0dedc17911b0bb47fa451e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBlurBG:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 24,
+              "line_end": 24,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "4d4c4699358344be5a661cf2a7111d25558c030b063315614a183b3f427279d3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( BlurBG )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:249",
+            "source_symbol": "CoD.ScoreboardGameStatus.new",
+            "symbol": "TintBot01:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua",
+              "line_start": 28,
+              "line_end": 28,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "b7e8186d14daa2904f694e86cb30bdf705b528b8dbb4eccf38864b78f86a9393",
+              "line_span_sha256": "2854a6009d18cc634dc0560ff15cb2b78e1650392b27d7eb7582c2540cfdd8db",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTintBot01:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/scoreboardgamestatus.lua:13-125",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/307",
+        "decision_canonical_sha256": "e181a4de9e38ba4593955d3e91e78f8fdbaa641aad87534476c28f7f4c168031",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/248",
+        "record_sha256": "9f146dcf052c2c434c2fd496076b63f9b7aef30708cc9a53936a6346cb4d8913"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "57848f786dbd3e81fb722d2e99bd2ef82ac8230307da6c6116b6fef9009bbcea",
+      "citations": [
+        {
+          "line_start": 111,
+          "line_end": 111,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 111,
+          "line_end": 111,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 111,
+          "line_end": 111,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:010",
+        "answer": "Builds the tabbed scoreboard header with team/enemy backings, faction colors/icons, names, game timer and scores. Each nonnil model callback updates its own visual field. FFAType and Codcaster are stored state predicates; factions.isCoDCaster delivery requests state validation. Creates self via LUI.UIElement.new, BlurBG via LUI.UIImage.new, TintBot via LUI.UIImage.new, TintBody via LUI.UIImage.new, TintTop via LUI.UIImage.new, EnemyBacking via CoD.TabbedScoreboardHeaderEnemy.new, TeamBacking via CoD.TabbedScoreboardHeaderTeam.new, YourTeamTopBar via CoD.TabbedScoreboardHeaderTopbar.new, EnemyTeamTopBar via CoD.TabbedScoreboardHeaderTopbar02.new, EnemyTeamLine via LUI.UIImage.new, YourTeamLine via LUI.UIImage.new, GameTimer00 via LUI.UIText.new, EnemyIcon via LUI.UIImage.new, CodcasterTeam2Logo via LUI.UIImage.new, YourTeamIcon via LUI.UIImage.new, CodcasterTeam1Logo via LUI.UIImage.new,  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/71",
+        "decision_canonical_sha256": "94f06f90b25aad2618f40c52ea64a180d6b4255cc77154c85ff6c0f1d6b0edcf",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/9",
+        "record_sha256": "360ecebb4fc8675e15b3464fcf181389fb3dd64e8932a26ec708ee094f0e9b54"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5ca50d4f0ac05c8e9f53a58930f4b6b017bff389931f9d446d5e843a9c8fefd7",
+      "citations": [
+        {
+          "line_start": 239,
+          "line_end": 247,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 198,
+          "line_end": 198,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 19,
+          "line_end": 19,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 247,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 198,
+          "line_end": 198,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 19,
+          "line_end": 19,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 241,
+          "line_end": 241,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 242,
+          "line_end": 242,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 243,
+          "line_end": 243,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 244,
+          "line_end": 244,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 245,
+          "line_end": 245,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 246,
+          "line_end": 246,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 247,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:251",
+        "answer": "On hook delivery, requests close in this exact order: f17_arg0.emptyFocusable, f17_arg0.ScoreboardGameMap, f17_arg0.PCTabbedScoreboardAccessMapPrompt, f17_arg0.ScoreboardGameStatusScores, f17_arg0.TabbedScoreboardHeader, f17_arg0.TabbedScoreboardScores, f17_arg0.ScoreboardTabs. No added child-nil guard, parent close, exception recovery or success confirmation; the external wrapper/base provider owns other cleanup.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.emptyFocusable:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 240,
+              "line_end": 240,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "f7b986f209ea2450f0f6df3af0ed28f5c5daba1ad44ee43037d790e3c2febf78",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.emptyFocusable:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.ScoreboardGameMap:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 241,
+              "line_end": 241,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "415436c67fda112cd305195797bdcfabee58f893f555d07d71819df75fc3cf83",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.ScoreboardGameMap:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.PCTabbedScoreboardAccessMapPrompt:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 242,
+              "line_end": 242,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "62ac185a96faa6a3db418e6a695a093c7fef31f64325cc2076949cb49aaad65e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.PCTabbedScoreboardAccessMapPrompt:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.ScoreboardGameStatusScores:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 243,
+              "line_end": 243,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "74e0ce023387b950d381290423a819f2334a803313328e27994171a4ffaf908e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.ScoreboardGameStatusScores:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.TabbedScoreboardHeader:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 244,
+              "line_end": 244,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "1d75d2d81d380e8091d819c9de68f519128a109f9d0c61a83d9ec609a652d06d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.TabbedScoreboardHeader:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:251",
+            "source_symbol": "CoD.TabbedScoreboard.__onClose",
+            "symbol": "f17_arg0.TabbedScoreboardScores:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua",
+              "line_start": 245,
+              "line_end": 245,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+              "line_span_sha256": "02340ec69d18024225cdf423d1b4db678bc0e3c55660ac6f09efb362163a84db",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf17_arg0.TabbedScoreboardScores:close()",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboard.lua:239-247",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/252",
+        "decision_canonical_sha256": "754f876c0cdf00eaf7bee65c4a9619a24c4e1eb90f93bdd54a6d8d79d06b918d",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/250",
+        "record_sha256": "a7172b605d9a813e7e7c46c3fee9db16f022c5686f01964c48b5e46c00a4eb44"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5d1e860b8d88f31b3a6bb1fe166b8a2e64d10c6ca072e971a54c1ece09c44bbc",
+      "citations": [
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:012",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/17",
+        "decision_canonical_sha256": "9498e4650af6ebb88166a235c14b2d287da045fdbc733f6a91e4ee6d558a27d2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/11",
+        "record_sha256": "33efdacdbd074c7e905ce4807c3f0a6f86b222e49d15484a868c5242c47d13a6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7074966cd9e44b016c3a7cbdf0c2467edacd6326e3ccf6f1cf6ac1df83ea2297",
+      "citations": [
+        {
+          "line_start": 206,
+          "line_end": 206,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 176,
+          "line_end": 176,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 179,
+          "line_end": 179,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 206,
+          "line_end": 206,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 176,
+          "line_end": 176,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 179,
+          "line_end": 179,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 206,
+          "line_end": 206,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 176,
+          "line_end": 176,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 179,
+          "line_end": 179,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:137",
+        "answer": "Missing clientNum model returns. Creates visibility/text prompt models. A nonnegative other-client number gets safe clientNum/isBot values, visibility from nonnil clientNum and not isBot, and muted/unmuted text chosen through the engine mute query. Self/invalid selection hides visibility and writes default mute text. It does not mute a player. Gets the controller model. If currentFocusedClient is absent, requests client model into an unused local and creates currentFocusedClient without assigning that local. Registers a callback setting the footer model to delivered model:get(). Do not invent an initialization write. Asserts Tabs exists then calls SetFocusToFirstSelectableItem on it. Failed assertion prevents the helper call. Only on PC with an occludedBy chain, walks to the last menu then calls GoBackToMenu with root/controller/original menuName. No cycle detection is present.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/610",
+        "decision_canonical_sha256": "c93ae1270ed16fd84dbca23ebb480ef24e459b11c9bfcc722527ff7e2c6ebd1d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/136",
+        "record_sha256": "60b5ce8941b5c1d842620632fc36d763a7c5ed2295bb4d4daa4146ac98127fbe"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8df7d97d00b0cdea158c0b0aaa1ac5e39e41f4272416db1f9021ac506bba072e",
+      "citations": [
+        {
+          "line_start": 37,
+          "line_end": 37,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 37,
+          "line_end": 37,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:218",
+        "answer": "Constructs CoD.PCTabbedScoreboardAccessMapPrompt.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, TextBacking as CoD.TextBacking.new, AccessScoreboardPrompt as LUI.UIText.new. Stores source state predicates in order Hidden, Scores, Map. Owns 6 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 11,
+              "line_end": 11,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "fd7325b57fa0253d6f61792e6c3087e45527e9adb09821015a5a7a953b841284",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.PCTabbedScoreboardAccessMapPrompt )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 14,
+              "line_end": 14,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "CoD.TextBacking.new",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 16,
+              "line_end": 16,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "e297dd8d4a5d69c305950145984b12cbbe568e834403af4e1b1e6d92c6f941b3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal TextBacking = CoD.TextBacking.new( f1_arg0, f1_arg1, 0, 1, 0, 0, 0, 1, 0, 0 )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "TextBacking.Blur:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "b978e934d42d9a54fb03076c1ed144103ea190b2c44cb5aee308254911d1de61",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTextBacking.Blur:setAlpha( 0.65 )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "TextBacking.Backing:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "fdda2c23740ef84ebf94a269a0e5411ed32e2083fbf17a002c943fb49bd0c56e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTextBacking.Backing:setRGB( 0.13, 0.13, 0.13 )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:218",
+            "source_symbol": "CoD.PCTabbedScoreboardAccessMapPrompt.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/732b210e53f46e13.lua",
+              "line_start": 19,
+              "line_end": 19,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "a9c7f169ece85360e1323804e809549c4e49d427f454195f9689b9f6ff461507",
+              "line_span_sha256": "ec2e8568e730bd3f18bc7b10107c01e3c02e3a075b0d07852ebba5da8675b4bb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( TextBacking )",
+            "scope_id": "lua/hashed/732b210e53f46e13.lua:9-88",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/123",
+        "decision_canonical_sha256": "2f0b2e75acde7b9c5855f6e727bdfb563b20f6ac6f018b1c0735378e3182bf5e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/217",
+        "record_sha256": "a0fcf52552c5664b56ae80df47adaac3bf5c216b39b93b0613a450de044f8f21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d5eb4d84fbb187aac782602ffa6ce08c7c3563ee9d36b656b35324e4e1567417",
+      "citations": [
+        {
+          "line_start": 115,
+          "line_end": 115,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 115,
+          "line_end": 115,
+          "file_sha256": "5888ddfe2b497b015b12d1b6e748006949ce53e8d216a305b1bf7dfc3f06bb28",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:252",
+        "answer": "Constructs CoD.TabbedScoreboardScores.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, Blur as LUI.UIImage.new, TintBody03 as LUI.UIImage.new, TintBody02 as LUI.UIImage.new, TintBody01 as LUI.UIImage.new, YourTeamScores as LUI.UIList.new, EnemyTeamScores as LUI.UIList.new, TopBarLeft01 as LUI.UIImage.new, TopBarRight01 as LUI.UIImage.new, RankHashtagLeft as LUI.UIText.new, SpecialistLeft as LUI.UIText.new, SpecialistRight as LUI.UIText.new, RankHashtagRight as LUI.UIText.new, FriendlyHeaders as CoD.TabbedScoreboardColHeaders.new, EnemyHeaders as CoD.TabbedScoreboardColHeaders.new, TabbedScoreboardScoresFFA as CoD.TabbedScoreboardScoresFFA.new. Stores source state predicates in order VisibleFFA, Visible. Requests model links f1_arg1, \"Factions\", \"alliesFactionColor\"; f1_arg1, \"Factions\", \"axisFactionColor\"; f1_arg1, \"PerController\", \"C [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "b5d8037a097447dadb490f9dbbcea8b0ba3c470ee2b488f02c7213f58496fdcd",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.TabbedScoreboardScores )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "Blur:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 25,
+              "line_end": 25,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "83ab88941107dc069ea52763629e98c8d59db2d26b006c5cc8ef690de11d4ca9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBlur:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_E2354BE557C4C7A\" ) )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "Blur:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "4a7807caf68e03cfd7292c58491e3c2d379ca1c0fae88f12d9caeafa9994a884",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBlur:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "c441ff4b0cb601ce5e52ef8fc7b21d665ed73a4f0bfee02c49df999243fcc3f4",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Blur )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:252",
+            "source_symbol": "CoD.TabbedScoreboardScores.new",
+            "symbol": "TintBody03:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua",
+              "line_start": 31,
+              "line_end": 31,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0bdb5eccaefd2aec355ea7ecddddbf13d8d653a046792410009171111cf22f8e",
+              "line_span_sha256": "260ef44133860d155a1335adf20ac303ddb931867ef097ca18312ed3677b125c",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTintBody03:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/ui/uieditor/widgets/scoreboard/tabbedscoreboardscores.lua:12-373",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-REMAINDER-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00868",
+          "sha256": "2481c0dca6655d394d7785d53785a321bec8ca5da2ec64bf383ad7e0fd57dc2e"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "e2845e39441bb6990cd4a890c14c36c6ec9eac82efd3b5b5caf2732a3c652e7b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete corrected TabbedScoreboardScores record, all27 nested callables, both callback-parent projections, ordered/model-lifetime fields, unchanged branches/resources/receivers, caller/dependency/provenance joins and historical reuse limits.",
+        "limitations": [
+          "Exact pinned recovered Lua/source-record scope only; original authorship and historical route/settings facts are not inferred from prior reviewer identities.",
+          "Original PS4 build/source match, original bytecode fidelity, native/VM/provider implementations, actual callbacks/cleanup, effective enum/model/assets/settings and unavailable services/server/runtime behavior stay unknown.",
+          "Raw old provenance/status fields and quoted old contracts are preserved historical evidence, not new acceptance. Explicit current correction/reuse limits govern the current record.",
+          "No source outside the five current written records is newly reconstructed. Dependency locators establish conditional source connections; they do not independently prove downstream provider behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00062",
+        "sha256": "03b27cce04459f81448f332f6d98c48bf748a3ad6d06eb579484e9b746cab11d"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/a1d767301d5f1ede.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/6430ddd82d706483-001.json",
+      "sha256": "15df4358a050e7d915c8b55a1b6e0413434a58b64a29e08b1a2d58c8df353cac"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "identity": "scripts/mp_common/gametypes/dev_spawn.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "dev_spawn",
+  "witnesses": [
+    {
+      "line": 85,
+      "text": "        thread dev_spawn::function_d8049496();",
+      "caller": "init",
+      "caller_span": [
+        60,
+        122
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d8049496",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/895acfab45fe716a.json",
+          "pointer": "/claims/0",
+          "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+          "citation": {
+            "line_start": 60,
+            "line_end": 124
+          }
+        },
+        "entry_function": "init",
+        "entry_span": [
+          60,
+          122
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/895acfab45fe716a.json",
+          "pointer": "/claims/0",
+          "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          16,
+          21
+        ]
+      ]
+    },
+    {
+      "line": 446,
+      "text": "        dev_spawn::function_c28b3d26();",
+      "caller": "updatedevsettings",
+      "caller_span": [
+        443,
+        1144
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_c28b3d26",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          36,
+          97
+        ]
+      ]
+    },
+    {
+      "line": 837,
+      "text": "                            level dev_spawn::showonespawnpoint( level.radios[ i ], color, \"<dev string:x314>\", 32, \"<dev string:x325>\" );",
+      "caller": "updatedevsettings",
+      "caller_span": [
+        443,
+        1144
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 834,
+          "opening_line": 835,
+          "ending_line": 838,
+          "text": "i++ )"
+        },
+        {
+          "line": 831,
+          "opening_line": 833,
+          "ending_line": 839,
+          "text": "if ( !level.devgui_show_hq )"
+        },
+        {
+          "line": 828,
+          "opening_line": 831,
+          "ending_line": 846,
+          "text": "if ( level.gametype == \"<dev string:x30d>\" && isdefined( level.radios ) )"
+        },
+        {
+          "line": 822,
+          "opening_line": 824,
+          "ending_line": 849,
+          "text": "else if ( getdvarstring( #\"scr_show_hq_spawns\" ) != \"<dev string:x38>\" )"
+        },
+        {
+          "line": 447,
+          "opening_line": 450,
+          "ending_line": 896,
+          "text": "if ( level.players.size > 0 )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "showonespawnpoint",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          515,
+          579
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0464",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gametypes/dev_spawn.gsc",
+    "sha256": "8e819b8c4b0aca0fc52dc79dba7209f50f00d4b5cd5068a93b6a89e168b308f8",
+    "git_blob_sha1": "6ac5a7d12669d95767b9f0e0e5336a42a59b4724",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

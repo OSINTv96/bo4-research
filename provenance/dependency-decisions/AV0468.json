@@ -1,0 +1,180 @@
+{
+  "module": "src/scripts/weapons/weaponobjects.gsc",
+  "identity": "scripts/core_common/damage.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "damage",
+  "witnesses": [
+    {
+      "line": 890,
+      "text": "        if ( damage::friendlyfirecheck( self.owner, attacker ) )",
+      "caller": "weapon_object_do_damagefeedback",
+      "caller_span": [
+        886,
+        898
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 887,
+          "opening_line": 889,
+          "ending_line": 897,
+          "text": "if ( isdefined( weapon ) && isdefined( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    },
+    {
+      "line": 953,
+      "text": "        if ( !isvehicle( self ) && !damage::friendlyfirecheck( self.owner, attacker ) )",
+      "caller": "weaponobjectdamage",
+      "caller_span": [
+        904,
+        991
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 911,
+          "opening_line": 914,
+          "ending_line": 959,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    },
+    {
+      "line": 1554,
+      "text": "                if ( !damage::friendlyfirecheck( self.owner, owner, 0 ) )",
+      "caller": "proximityalarmloop",
+      "caller_span": [
+        1432,
+        1606
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1540,
+          "opening_line": 1543,
+          "ending_line": 1558,
+          "text": "if ( level.weaponobjectdebug != 1 )"
+        },
+        {
+          "line": 1515,
+          "opening_line": 1518,
+          "ending_line": 1604,
+          "text": "foreach ( entity in detectentities )"
+        },
+        {
+          "line": 1476,
+          "opening_line": 1479,
+          "ending_line": 1605,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    },
+    {
+      "line": 2423,
+      "text": "        if ( !damage::friendlyfirecheck( self.owner, ent, 0 ) )",
+      "caller": "proximityweaponobject_validtriggerentity",
+      "caller_span": [
+        2401,
+        2463
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2402,
+          "opening_line": 2404,
+          "ending_line": 2432,
+          "text": "if ( level.weaponobjectdebug != 1 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0468",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/damage.gsc",
+    "sha256": "9c2b0b74cca036c8734da67f74209cef3e5f575d4ff990847f0f156595f78b4b",
+    "git_blob_sha1": "6ab4d982725a56f1b4e889ed405bf3dac5ba89d5",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/damage.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1554
+  ],
+  "required_callee_functions": [
+    "friendlyfirecheck"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/damage.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04401",
+        "to": "N02296",
+        "line": 1554
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

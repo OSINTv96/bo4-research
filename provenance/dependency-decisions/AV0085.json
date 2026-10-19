@@ -1,0 +1,81 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic_spawn.gsc",
+  "identity": "scripts/core_common/hud_util_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hud",
+  "witnesses": [
+    {
+      "line": 1046,
+      "text": "                self hud::showperks();",
+      "caller": "spawnplayer",
+      "caller_span": [
+        885,
+        1079
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1042,
+          "opening_line": 1045,
+          "ending_line": 1047,
+          "text": "if ( level.perksenabled == 1 )"
+        },
+        {
+          "line": 1037,
+          "opening_line": 1041,
+          "ending_line": 1050,
+          "text": "/#\n        if ( getdvarint( #\"scr_showperksonspawn\", 0 ) == 1 && !gamestate::is_game_over() )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "showperks",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/fcf6ae908acba8a6.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 885,
+            "line_end": 916
+          }
+        },
+        "entry_function": "spawnplayer",
+        "entry_span": [
+          885,
+          1079
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          656,
+          659
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0085",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/hud_util_shared.gsc",
+    "sha256": "dcbc6ecc9958a1ab93cd9082ecae6b652ef48fc097f41c97d376dbe5e4f85049",
+    "git_blob_sha1": "9e9f468ebfd611a75dc33dea97205c28261a6035",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

@@ -1,0 +1,2667 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_progression.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88",
+  "git_blob_sha1": "1f36101ca9256500819660e0d5f710aac2b3e32a",
+  "output": "src/scripts/wz_common/wz_progression.gsc",
+  "output_sha256": "c57df409b989b16c04892dcb9ee56a9a4b2e1f7450faaca3c12fa01755c4679d",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "script_1d29de500c266470.gsc",
+      "original_line": 1,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/array_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.gsc",
+        "sha256": "ba277804b598a6cbaac5e440e35cd9ca40e31a8129b3ef80238fccb2910c2999",
+        "git_blob_sha1": "a1f7edf5a22be05509e8d0802890ee5a61abc83a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/challenges_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/challenges_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/challenges_shared.gsc",
+        "sha256": "f4bbff2aeb5cf365137b4176f0d4d09ade6ee0397cc381596d72a2fe31a8bea2",
+        "git_blob_sha1": "11d8d86eac4a6ec18326e1fae6b62a54cb465829"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/contracts_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/contracts_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/contracts_shared.gsc",
+        "sha256": "047a4a51bbf5b18df5661aa04099ffa8f34ef370235565d8b91b94d4e5401c0c",
+        "git_blob_sha1": "04331cf1247061cca4b6afee14557c2a46f152b4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/gamestate.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/gamestate.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/gamestate.gsc",
+        "sha256": "efc344f292473a3e2e9eca9cc50666bc920178bc4085ddbc22c85ae7f8ea7499",
+        "git_blob_sha1": "25d73f95ab995553ee9c8f8d108b9a33ca32ef1b"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/infection.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/infection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/infection.gsc",
+        "sha256": "38cea71d6af3e533ce86a88f39628bfaa44448842eff282977cd5d237600f6e7",
+        "git_blob_sha1": "377d8d0a5df3d74090c31edd40a45f6ae18d0077"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/loot_tracking.gsc",
+      "original_line": 9,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/loot_tracking.gsc",
+        "sha256": "8ce1227dfb28d072445071f2a0d0e0c72668374207ee0def1207c69f98b63c97",
+        "git_blob_sha1": "64c7dcb9810eb13e1fd37d79248471a240b58b61"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0175.json",
+      "assessment": "available_source_inspected_unresolved_loader_indirect_or_context_admission",
+      "selected_caller_functions": [
+        "__init__",
+        "__init__system__",
+        "__main__",
+        "codecallback_medal",
+        "function_106be0dc",
+        "function_16de96c7",
+        "function_209450ae",
+        "function_2c8aac6",
+        "function_3217b0d2",
+        "function_35ac33e1",
+        "function_36e144fa",
+        "function_393ec79e",
+        "function_3de8b6e0",
+        "function_4776caf4",
+        "function_51cae91b",
+        "function_5648f82",
+        "function_59c85637",
+        "function_67949803",
+        "function_6a7970fe",
+        "function_6c478b00",
+        "function_8920ad6e",
+        "function_a0fea1a9",
+        "function_a117c988",
+        "function_c7aa9338",
+        "function_c9a18304",
+        "function_cfc02934",
+        "function_d0c523bf",
+        "function_d61fdbef",
+        "function_da21a17c",
+        "function_ec3a8858",
+        "function_f8072c71",
+        "function_f874ca5e",
+        "function_fb20ad56",
+        "give_xp",
+        "on_challenge_complete",
+        "on_character_unlock",
+        "on_contract_complete",
+        "on_exit_locked_on_vehicle",
+        "on_game_playing",
+        "on_game_shutdown",
+        "on_item_pickup",
+        "on_player_killed",
+        "player_connected",
+        "player_disconnected",
+        "team_eliminated"
+      ],
+      "remaining": "No unique ordinary qualified callee/module-load path to this target was established in the closed candidate graph. Include/autoexec, class/constructor, ambiguous/global namespace resolution, indirect delivery or caller context remains unproved; available source is not relabeled missing."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/match_record.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/match_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/match_record.gsc",
+        "sha256": "c16f9e7924ac1fab7e75883ac4546e99bb306f7378b08996a9650827582d2a38",
+        "git_blob_sha1": "541ed5e9ca06a6753b85746fd23e9236d5a3f528"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 11,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0176.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 12,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0177.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 13,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 14,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 15,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic.gsc",
+      "original_line": 16,
+      "output": "src/scripts/mp_common/gametypes/globallogic.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic.gsc",
+        "sha256": "f2c1f092aa27e2373ee44767e8df2012251a1cb42061b7764d7a3746dd022fc9",
+        "git_blob_sha1": "57d5d28f5add6a585170ffb28a7ee903de871e22"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/item_world_util.gsc",
+      "original_line": 17,
+      "output": "src/scripts/mp_common/item_world_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/item_world_util.gsc",
+        "sha256": "9938b537d8a72061dadee71df2082553f414dd8492e59528cf4d04f14de098fc",
+        "git_blob_sha1": "812dc2ec47a6ba2d012a70ecc7f9595a3950ab93"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_record.gsc",
+      "original_line": 18,
+      "output": "src/scripts/mp_common/player/player_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_record.gsc",
+        "sha256": "3e3bededbe3b1e5fe329c13b837e89463233e6a1e0a67b1e9f3661d7178d8857",
+        "git_blob_sha1": "4f651fb712ca54538f6f16a22cd7278b02459dcb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0178.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/gametypes/warzone.gsc",
+      "original_line": 19,
+      "output": "src/scripts/wz_common/gametypes/warzone.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/gametypes/warzone.gsc",
+        "sha256": "b55b45f12bb8d70ece056b1845399c210f7ef7c9dc68b386dca036b948696b79",
+        "git_blob_sha1": "ca15409af27afd96d89abffc4dc181f2533055e1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/wz_contracts.gsc",
+      "original_line": 20,
+      "output": "src/scripts/wz_common/wz_contracts.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/wz_contracts.gsc",
+        "sha256": "b142fe30bee16742d4d54b4cb0beb97d35abcd5ef6e23a522c551612c5ce666b",
+        "git_blob_sha1": "dd31973899db7dc8ae0dde57c0c3ee7be0e65e22"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "07db1bfee8783751d4cc23f536a4a71de21868c8da0b95bfe99fcaa00f2c40a3",
+      "citations": [
+        {
+          "line_start": 933,
+          "line_end": 962
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_player_killed",
+        "behavior": "Player-kill placement updater (self = victim; wired by excluded init). Ordered: (1) assert isplayer( victim ) where victim = self; (2) if victim is explicitly defined (native assert failure/outcome is unproved): (a) victim.pers[\"deathtime\"] = gettime(); (b) player_counts = warzone::function_de15dc32( victim ) (supplied source counter; alive/infection test precedes killed-player handling and conditional respawn counts can be added); (c) placement_player = player_counts.alive + 1 (the literal computed value counter.alive+1; actual death/count ordering and rank interpretation remain unproved); (d) tier stats ladder: placement <= 25 -> function_fb20ad56(); <= 10 -> function_d61fdbef(); <= 5 -> function_67949803() (all owned stat setters); (e) victim stats::function_b7f80d87( \"died\", 1 ) (teammate AAR died); (f) victim function_f874ca5e( placement_player ) (source writer203-216 has its own is [excerpt; exact source record identified separately]",
+        "branches": [
+          "Source invokes assert(isplayer(victim)); actual native assertion outcome remains unknown.",
+          "Only the explicit defined-victim branch continues; independent <=25/<=10/<=5 tests invoke tracking-gated tier wrappers.",
+          "Defined-victim branch requests AAR died mirror then placement writer; writer has an additional isplayer guard."
+        ],
+        "calls": [
+          "warzone::function_de15dc32 (outside owned spans - integration boundary)",
+          "function_fb20ad56/function_d61fdbef/function_67949803/function_f874ca5e (owned)",
+          "stats::function_b7f80d87 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous source on_player_killed body. Actual event delivery, death/count ordering, deathtime/placement lifetime and persistence remain unproved.",
+        "ordered_state_changes": [
+          "pers.deathtime",
+          "Qualified tier wrappers call d40764f3: tracking-gated WZ playerstatslist/statvalue increments plus addgametypestat. This differs from the separate b7f80d87 teammate AAR died mirror.",
+          "AAR died",
+          "invoke placement writer: isplayer guard, pers placement assignment, match-record and AAR requests; native storage outcome/lifetime unproved"
+        ],
+        "unknowns": [
+          "The supplied counter has alive/infection admission before killed-player handling and conditional respawn-count additions. Underlying provider behavior, actual rank interpretation and original-build/event binding remain unknown.",
+          "order of placement counting relative to actual despawn"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "6caa5c26c09034f0fa02d6ccf2d08119c0c8b5c66a64b14fba2cdba30530af00",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00187",
+        "sha256": "61b0d0d9c618352ab1e1bb46efffbc2b515f49cc5fdc31ddddc0a951e8726c70"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "135a2ed08a763931bb82e90f545150d8c16cf5555a07ab92cb6428cf17f9e978",
+      "citations": [
+        {
+          "line_start": 1221,
+          "line_end": 1258
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_8920ad6e",
+        "behavior": "Vehicle-destruction handler (self = vehicle; wired by excluded init callback::on_vehicle_killed). (1) return unless gamestate::is_state( \"playing\" ); (2) if isplayer( params.eattacker ) -> params.eattacker stats::function_d40764f3( \"vehicles_destroyed\", 1 ); (3) OCCUPANT DESTRUCTION: if params.occupants defined AND occupants.size > 0 AND self function_c7aa9338( params.occupants ) (the source helper returns true when an occupant satisfies util::function_fbce7263(ent.team,self.team). After strict-equality/alliance exclusions, an undefined team can qualify; actual enemy identity is not established): if attacker isplayer: vehicle = attacker getvehicleoccupied(); when valid AND seat === 0 -> function_d40764f3( \"vehicles_destroyed_occupied_using_vehicle\", 1 ) (attacker occupies a valid vehicle at defined seat===0 when this handler runs; no weapon/means-of-death/crush test proves ramming); then [excerpt; exact source record identified separately]",
+        "branches": [
+          "not playing -> return",
+          "attacker not player -> skip first stat",
+          "No occupants, empty occupants, or no truthy source team-predicate match -> skip occupied stats; undefined-team admission is not proof of enemy identity.",
+          "driver-attacker -> extra stat"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "function_c7aa9338 (owned)",
+          "getvehicleoccupied/getoccupantseat (builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per vehicle destroyed.",
+        "ordered_state_changes": [
+          "vehicles_destroyed and occupied variants"
+        ],
+        "unknowns": [
+          "params.occupants producer (vehicle code)",
+          "self.team context inside function_c7aa9338 (here self = destroyed vehicle) - predicate on vehicle's team vs occupants'"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "359080f730fe726b550c118f79de3c75a0bc6bd86125cdd94803f6b54c16401f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00188",
+        "sha256": "862d6bca0e054cb770640cb706ac7c45643980f414aa7ca4a54f113944afd1f8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "28fc98f534d45184f013e9e79fd6cec812c86098f132702e91569cb7bb0f5ec9",
+      "citations": [
+        {
+          "line_start": 1376,
+          "line_end": 1447
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_16de96c7",
+        "behavior": "Basketball hoop-watcher thread (self = ball projectile; player param). Guards: player and self defined else return. SYNC: level endon( \"game_ended\" ); self endon( \"stationary\", \"death\" ); player endon( \"disconnect\", \"death\" ). (1) var_299b8419 = getentarray( \"basketball_hoop\", \"targetname\" ) - return when undefined (empty arrays proceed to the loop; the zero==size passed-all exit occurs only inside a frame with ball_velocity[2]<0, so rising/zero-vertical-velocity frames keep waiting unless cancelled); (2) ball_velocity = self getvelocity(); return when undefined; (3) LOOP while not scored(var_69a93dcf) and not passed-all(var_ace707d): velocity each frame; when velocity[2] < 0 (falling): for each hoop: ball z < hoop z increments pass counter; self istouching( basket ) -> scored = 1 break; then if ALL hoops passed (below-count == hoops.size) -> var_ace707d = 1 break; if scored -> break; (4 [excerpt; exact source record identified separately]",
+        "branches": [
+          "Undefined hoop array or initially undefined velocity -> return. A valid empty hoop array exits on the first falling frame; subsequent refreshed velocity is indexed without a repeated definedness guard.",
+          "falling frames checked only",
+          "touch -> award exit",
+          "all hoops passed -> silent exit",
+          "cancel via stationary/death/disconnect/game_ended"
+        ],
+        "calls": [
+          "getentarray/getvelocity/istouching (engine builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Threaded one-shot per throw; frame-by-frame sampling.",
+        "ordered_state_changes": [
+          "baskets_made stat award"
+        ],
+        "unknowns": [
+          "basketball_hoop dynent data (map-side)",
+          "istouching radius - engine"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/224",
+        "decision_canonical_sha256": "004a903cb6c063b3c2e5564fcf04501c6e67238d5f6b09c6a1fae565ec93d0ce",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00189",
+        "sha256": "840722e4cf272442ab19aaaa908910c18363708ec250a79c771c92f29056a27b",
+        "pointer": "",
+        "record_sha256": "49f6694bf980609b99a5a3cb143d2a0c79e73cb93144dae0015657fd048e935d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "34cbbb14963ec9aa66d4b03b746e84bf69ddddb5dffc94b0fcbcc7ba21a87805",
+      "citations": [
+        {
+          "line_start": 1671,
+          "line_end": 1681
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f6dc1aa9",
+        "behavior": "Dev-annotated recovered-source bullseye visualizer (whole body inside /# #/ Type: dev). Infinite thread on the target dynent: var_f748425e = self.origin + (0, 0, 45); sphere( var_f748425e, 5, color (1,1,0) ) - draws a yellow sphere at the bullseye point each frame; waitframe( 1 ). No callers in owned spans (dev aid matching function_209450ae geometry).",
+        "branches": [
+          "None (infinite loop)"
+        ],
+        "calls": [
+          "sphere/waitframe (dev builtins)"
+        ],
+        "lifecycle": "Recovered /# #/ developer delimiters and Type:dev annotation surround this function. No callers are identified in the assigned spans. Exact target inclusion, stripping, reachability and original execution remain unresolved; these markers alone do not prove release absence.",
+        "ordered_state_changes": [
+          "dev visualization only"
+        ],
+        "unknowns": [
+          "dev sphere() builtin availability/args (native)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/140",
+        "decision_canonical_sha256": "72c983c83441325e496896c6f0285bcf5d2e5a55afc2403912e53f43940529ef",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00190",
+        "sha256": "5ad2c26dd2f4d45a64054e70946721808c5214fc1ad53fe1091b111a35965bc2",
+        "pointer": "",
+        "record_sha256": "5fb10c141d615212a16360d530c811b00515dbb459c9b6532177540414fbcfa7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3c83fe3de5178bb38c4b79891f2e4189b71f6d2ebcfde529c0cdbd917dda45d8",
+      "citations": [
+        {
+          "line_start": 890,
+          "line_end": 927
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_a117c988",
+        "behavior": "Downed-state annotate (self = downed player). Only in the laststandparams-present path: (1) attacker = laststandparams.attacker; (2) EFFECT FLAGS: if attacker.var_121392a1 isarray (attacker's active-crowd-control record) AND any of keys \"blind_base\" / \"swat_grenade\" / \"stunned_slow_grenade\" present -> self.laststandparams.var_6314a3a3 = 1 (attacker-effect-key-presence annotation saved on the downed victim; consumed by function_35ac33e1 kills_while_stunned stat. The key owner is attacker; native effect semantics and intended stat meaning remain unresolved); (3) VEHICLE SEAT: if isplayer( attacker ): vehicle = attacker getvehicleoccupied(); when vehicle valid: seat = getoccupantseat( attacker ); seat === 0 -> laststandparams.var_adb68654 = 1 (driver kill flag); seat > 0 -> var_69427d4d = 1 (passenger kill flag); both consumed by function_35ac33e1 vehicle-seat kill stats.",
+        "branches": [
+          "no laststandparams -> whole no-op",
+          "Defined attacker effect array containing any named key -> victim laststandparams annotation; no victim-effect-state test",
+          "seat 0 -> driver flag",
+          "seat > 0 -> passenger flag",
+          "seat undefined -> none"
+        ],
+        "calls": [
+          "isdefined/isarray/isplayer/getvehicleoccupied/getoccupantseat (builtins)"
+        ],
+        "lifecycle": "Synchronous per downed event; writes into laststandparams (per-down struct).",
+        "ordered_state_changes": [
+          "laststandparams.var_6314a3a3 / var_adb68654 / var_69427d4d conditional sets"
+        ],
+        "unknowns": [
+          "attacker.var_121392a1 writer (tactical/flashbang scripts outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/155",
+        "decision_canonical_sha256": "8f0559cb0959cf7fb27de2c9c1b93db475ec8109de7f678be863a288660e3bee",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00191",
+        "sha256": "770824d973c3ec0ad301c3333ce7c1aa3506c889bb853a024ccdb1e3fca1d1af",
+        "pointer": "",
+        "record_sha256": "4504861457f20df59bb0ec60017369c3583086597e6c71c54ac5ef426dc19a78"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5a0699080d6ad2edd6f1bf5b834e72ae0e6b5e6d746b7b0431a0ec3fa82ccb3b",
+      "citations": [
+        {
+          "line_start": 513,
+          "line_end": 586
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_5648f82",
+        "behavior": "WIN-team mega payout (self = level; same-named helper exists in wz_contracts - DIFFERENT function). Ordered per winner in getplayers( team ) when team defined (skip when NOT stats::function_f94325d3() tracking gate or pers missing or pers[\"hash_2283e9384383a6e9\"] latch already set): (1) pers[\"hash_2283e9384383a6e9\"] = 1 (processed latch); (2) pers[\"placement_team\"] = 1; pers[\"placement_player\"] = 1; (3) tier stats: function_a0fea1a9() + function_3217b0d2() + function_6a7970fe() + function_fb20ad56() + function_d61fdbef() + function_67949803() (all owned setters - all six top tiers count on a win); (4) function_51cae91b( 1 ) (owned placement merit ladder: with placement1 it chooses the first positive eligible merit in top5/top10/top15/top20/top25/top30/top50/top60/top75 order, or none if all are nonpositive); (5) xp_amount = level.merits.win; PANDEMIC override: if util::get_game_type() == [excerpt; exact source record identified separately]",
+        "branches": [
+          "tracking gate/pers/latch -> skip player",
+          "pandemic infected-team win merit override",
+          "9+ lifetime wins -> second achievement",
+          "no-down and not infected -> stat",
+          "no kills -> stat",
+          "last alive in squad > 1 -> stat"
+        ],
+        "calls": [
+          "stats::function_f94325d3/get_stat_global/function_dad108fa/function_d40764f3/function_b7f80d87 (player_stats units/excluded)",
+          "give_xp/function_* tier units/function_f874ca5e (owned)",
+          "util::get_game_type, getteamplatoon, infection::function_76601b7d, warzone::function_de15dc32 (outside owned spans - integration boundaries)",
+          "giveachievement (native)"
+        ],
+        "lifecycle": "Synchronous at win resolution; called by the warzone gametype (outside spans); latch prevents double payout.",
+        "ordered_state_changes": [
+          "latch + placements",
+          "six tier stats",
+          "placement1 merit ladder: first positive eligible tier, with later-tier fallback; no unconditional top5 award",
+          "win XP with pandemic override",
+          "wins_first",
+          "achievements per lifetime wins"
+        ],
+        "unknowns": [
+          "warzone::function_de15dc32 (alive-count getter) and getteamplatoon/infection predicate internals - outside owned spans",
+          "merit setting values"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/491",
+        "decision_canonical_sha256": "6227b89faa9eb0a6c4c4b0c425406650f8c0a85a4bcf64ed3d2aa83e64248d07",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00192",
+        "sha256": "193f235e6e4a3f44ff86637d49271c81c053cc0c3768ff9099e0f7a700a7ecc2",
+        "pointer": "",
+        "record_sha256": "5fd52a4a97a318081458d3af7da6b8181f35f983000dc3fb443bc7948662870d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5aee5d91da8125b44af4282b7acd1845546ae1548e33d5aee7678fff72269dee",
+      "citations": [
+        {
+          "line_start": 823,
+          "line_end": 884
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_36e144fa",
+        "behavior": "Player damage bookkeeping for kill stats (self = damaged player). Ordered: (1) STUN-FROM-CIRCLE MARK: if NOT self.var_e4bec3d4 truthy AND params.smeansofdeath == \"MOD_DEATH_CIRCLE\" -> self.var_e4bec3d4 = 1 (latched once; consumed by function_3217b0d2 third stat and NOT cleared in span); (2) init self.var_9854aa3a = [] when undefined; (3) DAMAGER LIST: if isplayer( attacker ) AND attacker NOT already in list: (redundant) undefined/isarray coercion guards then self.var_9854aa3a[ size ] = attacker - unique attacker list in this handler; cross-event/match lifetime is unresolved; (4) BARE-HANDS SUBSET: bare_hands = getweapon( \"bare_hands\" ); var_c1f166f3 = self hasweapon( bare_hands ); when true: init self.var_91ddc6c5 = [] when undefined; if isplayer( attacker ) AND not in list -> append attacker (unique list of attackers who hit self while self hasweapon(bare_hands) returns truthy; this is  [excerpt; exact source record identified separately]",
+        "branches": [
+          "death-circle marking once",
+          "attacker appended once only (isinarray guard)",
+          "hasweapon(bare_hands) truthy -> separate unique attacker list; native possession/equipped semantics remain unresolved"
+        ],
+        "calls": [
+          "isinarray/array (array_shared - outside packet)",
+          "getweapon/hasweapon (builtins)"
+        ],
+        "lifecycle": "Synchronous per damage event; this body contains no array clear. Other writers, resets, entity replacement, growth limits and match lifetime remain unresolved.",
+        "ordered_state_changes": [
+          "var_e4bec3d4 latch",
+          "var_9854aa3a append",
+          "var_91ddc6c5 append under truthy self hasweapon(bare_hands), player-attacker and membership guards; no currentweapon/equipped-fists inference"
+        ],
+        "unknowns": [
+          "MOD_DEATH_CIRCLE means-of-death producer (death circle code outside owned spans)",
+          "timing/size limits of the arrays (native limits unknown)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/22",
+        "decision_canonical_sha256": "a7ee8b363742e0807d2bb1c1a01df74088b53ce27c0dce3f17a6e6d20f885fba",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00193",
+        "sha256": "de4a734a0c23e01d2ef10805caacdff24376ff99a275545acc106ed462d38cac"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6f2b3386dcae5b82ea78724c7720e30ce6c5ffaf04c824b54379298f44161a6b",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 44,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        },
+        {
+          "line_start": 1305,
+          "line_end": 1324,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-link:HMH-HEALTH-LINKS-01:03-item-use-audiences",
+        "answer": "Connected the health debit event to all nine literal direct registrations in the REFERENCES-listed source. The producer passes the matched post-debit item on the originating player; listed no-obj callbacks run as threaded handlers on that player. Crash and playing-state progression admit health; stable health type fails Takeo equipment and contract armor-shard success gates. Ajax/Torque/Turret/Dart/Hawk require exact names or weapon data whose compatibility with health remains unknown. Turret requests its placement helper before filtering the payload. Ajax/Crash totals re-read current full inventory. These are conditional source connections, not proof of active registration, health gained, persistent stats or live behavior.",
+        "unknowns": [
+          "No proof all nine source registrations are active in HMH or precede a given use event; same-function dedup, removals, malformed entries and dynamic audiences can affect delivery.",
+          "No immutable itemtype/name/weapon guarantee between debit and each threaded handler read. Gate-time health exclusions for Takeo/contracts do not settle a payload mutated to another type.",
+          "No pinned asset proof that every health entry lacks cu01_item/concertina_wire_wz_item/barricade_wz_item/ultimate_turret/dart/eq_hawk combinations; these name gates remain conditional.",
+          "Ajax/Crash current total can reflect debit and concurrent updates or removal, with no thread join or ordering guarantee. A callback request is not guaranteed delivery or a fixed snapshot.",
+          "Unlock predicates, item placement/traces, stat update durability, challenge completion, server availability and deployment effects are opaque downstream boundaries. No whole-system absence or success claim."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/92",
+        "decision_canonical_sha256": "20f5c4e7ba1c0e14dcc87e9391e7f2b0dbf4a571e4224c9f15123a1210ca42d4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00107",
+        "sha256": "8c5cde41ea843a8d88cff5cec113764e2bb0a5c1a3e362cf8a889a0a0f87468d",
+        "pointer": "",
+        "record_sha256": "fcbd7300db4cf6fb801808cd9590602f4620575f6b23089336ab3a90fad7c255"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7bb759a687986fbf8627d8089082b91cc25cc3a1d72c8894639353de41ea4dfd",
+      "citations": [
+        {
+          "line_start": 334,
+          "line_end": 339
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_67949803",
+        "behavior": "Top-5 death stat incrementer (private method). Single statement: player stats::function_d40764f3( \"hash_63307a0460c698ac\", 1 ). Called from on_player_killed when placement (alive+1) <= 5 and from the win path (placement 1). Locally sets player=self and asserts isplayer(player) before the call; original assertion error behavior remains unproved.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_63307a0460c698ac,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-5 deaths)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/559",
+        "decision_canonical_sha256": "ef6f6e213806d0e94714193e5b0760750589c86cd26a7184588fe6171519f1ef",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00194",
+        "sha256": "31eb8563e0cdab3786432251416bad05b8676dc20d5cf9265118d93671c0e6d4",
+        "pointer": "",
+        "record_sha256": "f47d4505ac3ba747a6fcf68db8bde8d8ed2ece8b2d1442604e422ecc309443f8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "830b43bfcfc854046557c74e6b8b14b9d8a8defebd4ac3941004fc62c4320f56",
+      "citations": [
+        {
+          "line_start": 650,
+          "line_end": 659
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_d0c523bf",
+        "behavior": "Vehicle-escape checker thread (self = player; spawned by on_vehicle_enter). (1) self endon( \"death\", \"exit_vehicle\", \"disconnect\" ); (2) wait 5 (5 seconds); (3) if self isinvehicle() -> stats::function_d40764f3( \"vehicle_escapes\", 1 ). Caller on_vehicle_enter592-643 starts this thread only outside prematch, at driver seat===0, with defined lastdamagetime and now-lastdamagetime<=3000. The wait5 starts after that eligible entry/thread launch, not at damage; with ordinary nonfuture timestamps damage-to-check may be about5-8s plus scheduling. No lower-bound timestamp guard or actual timing guarantee is shown.",
+        "branches": [
+          "death/exit/disconnect within 5s -> abort",
+          "still in vehicle after 5s -> vehicle_escapes stat"
+        ],
+        "calls": [
+          "endon/wait/isinvehicle (builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Threaded one-shot with 3 cancel paths.",
+        "ordered_state_changes": [
+          "vehicle_escapes += 1 when condition holds"
+        ],
+        "unknowns": [
+          "Original wait/endon scheduling, native isinvehicle meaning, event delivery and successful stat persistence remain unresolved; source shows a5-unit wait after thread start."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/352",
+        "decision_canonical_sha256": "e38dcfdce4a15a84560864899d0a2e95e207db4605d4dd717a18e6de658689f2",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00195",
+        "sha256": "fe4e1bc761b7eb670eda35a4256b3612cbc49d1d39cac22a8887091e59098c2a",
+        "pointer": "",
+        "record_sha256": "06b4ba48b41c5f79cc39b08008d7da39c3fbaa3cf0a96529952a2c2dd2db5357"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8cba2f0a518421cb0f1715942ed982323f494f2059a0d42c96096d3bcfb5e114",
+      "citations": [
+        {
+          "line_start": 323,
+          "line_end": 328
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_d61fdbef",
+        "behavior": "Top-10 death stat incrementer (private method). Single statement: player stats::function_d40764f3( \"hash_25f4611fc9d40aa8\", 1 ). Called when placement <= 10 (death) and in win path. The wrapper locally assigns player=self and asserts isplayer(player) before the call.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_25f4611fc9d40aa8,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-10 deaths) - data side"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/382",
+        "decision_canonical_sha256": "07589a221aad323faaa98b210d9b45a049d62fbc23fb1aa320f8bdaa4ff37e31",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00196",
+        "sha256": "82edf139698747f85f9c547ac7069875f66185f9085680aa8aa05f683dc60ebd",
+        "pointer": "",
+        "record_sha256": "c28e7f6dd5a1ea69e50751440517686ab90b1fbb1af967c9b5d9dc64656456ae"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8ea80dae50d51098faf5abcd3a92c1c0f617006ab5a1cc4c0d4c3881dafd49f7",
+      "citations": [
+        {
+          "line_start": 1491,
+          "line_end": 1499
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_game_shutdown",
+        "behavior": "Game shutdown callback enumerates getplayers() and attempts player function_2c8aac6() for each. The callee asserts player identity and may return for tracking disabled, bot, missing pers or existing truthy hash_39220b202c67c56b latch. Its eligible path calls contract/challenge/finalization helpers and sets the latch last. Shutdown contains no direct XP award, per-player error recovery or guarantee of successful persistence.",
+        "branches": [
+          "None (guards inside flush)"
+        ],
+        "calls": [
+          "function_2c8aac6 (owned flush unit)"
+        ],
+        "lifecycle": "Registered on_game_shutdown callback; synchronous enumeration when invoked. Exact invocation count, callback order, native persistence and recovery after an error remain unproved.",
+        "ordered_state_changes": [
+          "per-player flush chains"
+        ],
+        "unknowns": [
+          "shutdown ordering vs engine persistence (unproven)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/637",
+        "decision_canonical_sha256": "89ad50c85ffa1636c70e90ec63cd8dd68dfac9b89ade93f2844e78afa463206e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00197",
+        "sha256": "2115addec41bded5c8b3197ce48614a5269c70230876f7569e06d4302c12085e",
+        "pointer": "",
+        "record_sha256": "8bce9a3add044b33c11d3900bebb2019343d206252ead69f8b3c44c60e8ef974"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "95824cbd53270e888128753184bccaebc9207fd0f3ec77aadb6043be87a45723",
+      "citations": [
+        {
+          "line_start": 1616,
+          "line_end": 1663
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_209450ae",
+        "behavior": "Firing-range bullseye handler (event_handler[event_cf200f34]; self = ?/event target dynent context; declared by event_handler[event_cf200f34] source annotation; init37-73 does not register it, and actual original event delivery is unresolved). Ordered: (1) return when prematch; (2) dynent = eventstruct.ent; return when targetname !== \"firing_range_target_challenge\" (only challenge targets); (3) unpack attacker/weapon/position/direction; return when missing or attacker not player; (4) RANGE: dist = distance( attacker.origin, dynent.origin ); return when dist < 3550 (too close); (5) HIT-FACE: targetangles = dynent.angles + (0, 90, 0); forward = anglestoforward( targetangles ); return when vectordot( forward, direction ) >= 0 (bullet direction must oppose the target face; dot < 0 required); (6) BULLSEYE: var_f748425e = dynent.origin + (0, 0, 45); return when distance2dsquared( var_f748425e, [excerpt; exact source record identified separately]",
+        "branches": [
+          "prematch -> return",
+          "wrong target -> return",
+          "missing fields/non-player -> return",
+          "distance < 3550 -> return",
+          "front-facing or off-center hit -> return",
+          "bullseye -> stat"
+        ],
+        "calls": [
+          "distance/distance2dsquared/vectordot/anglestoforward/isplayer/isdefined source calls; original builtin effects remain unproved, with no time-getter call in this body",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per event_cf200f34 hit event.",
+        "ordered_state_changes": [
+          "longest_firing_range_bullseye stat"
+        ],
+        "unknowns": [
+          "what event_cf200f34 is (obfuscated event kind - probably target-plate hit)",
+          "self identity in this handler (eventstruct.ent is used; self not referenced)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/35",
+        "decision_canonical_sha256": "43872b0dfcc473371f7edf59fe7caa25175d4e3dd7ad96efc227d4d759958817",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00198",
+        "sha256": "176ec2b2df0cfe5e26b8000708c296be429d9d66f87a72ce81533f85e48ef030"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "95b6529361bd7cfc331aafe86c4c38cb91d78fabcd02d6745dc17d08c6bac706",
+      "citations": [
+        {
+          "line_start": 968,
+          "line_end": 1198
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_35ac33e1",
+        "behavior": "WZ kill XP + kill-stat evaluator; level.var_c8453874 hook (installed by excluded init; called with ( attacker, victim, kill params defaults {} )). CATALOG NOTE: manifest unit span records ONLY the signature line (968-968); the original body continues 969-1198 in the same source - documented fully here. Ordered: (1) if attacker defined: (2) xp_amount = level.merits.kill (seeded by excluded init); PANDEMIC override when util::get_game_type() == \"warzone_pandemic_quad\": attacker infected flag via clientfield::get_to_player( \"infected\" ) -> merits.killinfected; else if victim infected -> merits.var_cbafe055; else -> merits.var_56dcbb49; (3) attacker give_xp( \"kill\", \"killxp\", xp_amount ) (owned): rank XP + killxp stat; (4) attacker stats::function_b7f80d87( \"kills\", 1 ) (teammate AAR kills); (5) if attacker.pers[\"timesrevived\"] > 0 -> function_d40764f3( \"kills_after_revive\", 1 ); (6) EARLY K [excerpt; exact source record identified separately]",
+        "branches": [
+          "no attacker -> whole no-op (all inside if)",
+          "pandemic infected/infected-victim/normal merit selection",
+          "revive/early/unarmed/stunned/underwater/underwater-enemy stats",
+          "squad-book ladder 2/3/4 kills with two processed scoreevents",
+          "revenge/damage-relation/unarmed-damage stats",
+          "victim vehicle class stats"
+        ],
+        "calls": [
+          "give_xp (owned)",
+          "stats::function_b7f80d87/function_d40764f3/function_dad108fa/function_62b271d8/function_7a850245/function_ed81f25e/function_baa25a23 (owned/excluded units)",
+          "clientfield::get_to_player (worker h5 HUD file - cross-owner boundary)",
+          "util::get_game_type/getweaponclass (outside packet)",
+          "function_65776b07 (not in assigned catalog - integration boundary)",
+          "weaponhasattachment/getweapon/isplayerunderwater/gettime/floor (builtins)"
+        ],
+        "lifecycle": "Synchronous; called as level.var_c8453874 dynamic from the WZ kill pipeline (call site outside owned spans); longest-kill record has no reset (pers is session/match persistence; native side beyond source).",
+        "ordered_state_changes": [
+          "kill XP chain",
+          "kills AAR",
+          "many conditional stats",
+          "squad-book arrays on attacker",
+          "personal longest-kill records"
+        ],
+        "unknowns": [
+          "catalog span (968-968) covers only the signature line; body 969-1198 documented to the same unit - discrepancy flagged",
+          "attacker.var_37ef8626/var_22002c3b writers (outside owned spans)",
+          "function_65776b07 target (talent getter)",
+          "callback event hashes on early-kill/dead-silence/height paths",
+          "13779/240/0.0254 constants unit intent (source-only values)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/806",
+        "decision_canonical_sha256": "26f36bc2cb50ebe08984ffee19942967f353ce286419bc304754cf0e890a26b5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00199",
+        "sha256": "d8429ac0dedc39f591d5e4c58dbe0c4fb8b03e14259a5af7b37b5eb84b73bacd",
+        "pointer": "",
+        "record_sha256": "df4e807e88ff1aa550a5c5c3170ab88f14755c0788121d66ff5a6792713ad4c2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a8df4d56f1a9aeb8a0b146dea20641cb31761a4de86e7a610f31fa715546d77a",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 31,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/333",
+        "decision_canonical_sha256": "1b5c96cbb4e6f050e1fb640b8f1418c90f6560ba9dd7f6ffd9cf0baa336110ea",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1078",
+        "record_sha256": "069c86d9a848e34e3b0092ac625f88838fa92ee534769dab2a81b21c6432fcd7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "af2b2c8b4d0afc7208dd748a78ee0a959b3372358ed44c74c78157deb8856d38",
+      "citations": [
+        {
+          "line_start": 37,
+          "line_end": 73,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/960",
+        "decision_canonical_sha256": "55c6d5cafa0d8268bf54d758b65876508404bf5dcb60d744658c35d74ad1553c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1079",
+        "record_sha256": "729d0e1ba04531aa59e90f9baaf4546b3c0e2bc9aec20776a64d7b5c1a6f52f7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b0118d7623b12ffbf29240af5037411b473293405ff4b78b28bf3593da39cdc3",
+      "citations": [
+        {
+          "line_start": 312,
+          "line_end": 317
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_fb20ad56",
+        "behavior": "Top-25 death stat incrementer (private method). After player=self and local assert(isplayer(player)), calls player stats::function_d40764f3( \"hash_6d5e162204f447f4\", 1 ) (tracking-gated WZ increment dependency: playerstatslist/statvalue plus addgametypestat; other sessions addgametypestat). Wrapped by on_player_killed when player placement (alive+1) <= 25 and by win path; no other logic.",
+        "branches": [
+          "Local player assertion precedes the unconditional dependency call; no local branch otherwise, dependency tracking may suppress increments"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter; no threads.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_6d5e162204f447f4,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; no AAR-only destination or guaranteed native success"
+        ],
+        "unknowns": [
+          "Opaque hash_6d5e162204f447f4 meaning and native storage/persistence are unresolved; source call destinations are as described above."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/486",
+        "decision_canonical_sha256": "a54f4f110d85bc5cee4fddbd37e44ad86deb72939515a46a11f9f34792363aec",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00200",
+        "sha256": "dda972997b1879e5c41d48d5ecad8909c0cc370d1e4965a2c3fd94605616bf81",
+        "pointer": "",
+        "record_sha256": "d130afd0a17ddf41e2d7840adc0c29ea448934a559034e10dcf0f2ee9da4062d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b333be1f96ed59e6c0f76704c776e0b44b37b93807eec2fb92dbb728c7d012d2",
+      "citations": [
+        {
+          "line_start": 439,
+          "line_end": 454
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_6a7970fe",
+        "behavior": "Top-5 team-elimination stat block (private method). Ordered: (1) stats::function_d40764f3( \"hash_5e9a745460a10f80\", 1 ); (2) if player.avenger truthy (source function_35ac33e1 sets attacker.avenger=1 when victim.playerskilled[attacker.team] is defined and nonempty: the victim individual had killed some attacker-team member, without proving that member was the exact attacker) -> function_d40764f3( \"hash_5387d5e6f15c6b55\", 1 ); (3) if player.items_picked_up defined AND size <= 1 (0 or 1 distinct item ids) -> function_d40764f3( \"hash_7158067d85c1402a\", 1 ) (minimal-looting variant). Actual event timing, other possible writers/callers and native stat outcomes remain unproved.",
+        "branches": [
+          "base always",
+          "avenger variant",
+          "items 0/1 variant"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous helper called by qualified team-elimination and win paths; avenger/items state is read but not reset here. Other writers, resets and match lifetime remain unresolved.",
+        "ordered_state_changes": [
+          "After local isplayer assertion: one unconditional d40764f3 call followed by two independently conditional d40764f3 calls. Tracking-gated WZ route increments playerstatslist/statvalue and adds gametype stats; no AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "items_picked_up writer (function_106be0dc excluded writes it in this same file - verified from source)",
+          "stat meanings"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/58",
+        "decision_canonical_sha256": "53fe3de25a28850ad7808160e9ea81860e7ee3afeab17733c5b063445357b3cd",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00201",
+        "sha256": "a774a668ff981e38bffa490cf9a8e949222a39cf117e91ed18b86136c71319f7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bab46f16f92d69c497942726356920ff1f1f762228c39207d23248091c63bcc8",
+      "citations": [
+        {
+          "line_start": 665,
+          "line_end": 737
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f8072c71",
+        "behavior": "Vehicle odometer thread (self = vehicle; player param; threaded per driver entry). Guards: player isplayer and self defined else return. SYNC: self endon( \"hash_2d45f3f009f1b3b3\", \"death\" ) (vehicle-local end marker via obfuscated event); player endon( \"death\", \"exit_vehicle\", \"disconnect\" ). State: prevposition = self.origin; distancetraveled = 0; classify air/boat/land ONCE at entry (var_f03db647 land). LOOP while self and player defined: wait 1; accumulate distancetraveled = int( distancetraveled + distance2d( self.origin, prevposition ) ) per second; prevposition = origin; when distancetraveled > 1000 (units, flush threshold): per-class stat flush: land -> stats::function_dad108fa( \"distance_traveled_vehicle_land\", distancetraveled ) then derive miles: current/63360 vs stats distance_traveled_vehicle_land_miles; when int(total/63360) exceeds miles stat -> function_dad108fa( ..._miles [excerpt; exact source record identified separately]",
+        "branches": [
+          "guards -> return",
+          "not yet 1000 -> keep accumulating",
+          "Land flush when neither air nor boat. Separate air and water ifs may both flush the same distance when both flags are true; no exclusivity proof is present.",
+          "miles stat updated only when the whole-mile count grows"
+        ],
+        "calls": [
+          "distance2d/gettime-like wait/int/float (builtins)",
+          "stats::function_dad108fa/get_stat_global (excluded units)"
+        ],
+        "lifecycle": "Threaded infinite until: vehicle death / obfuscated vehicle end / player death/exit/disconnect; flush state local to thread; stat updates are requested through helpers/inc_stat; native durability, storage/service behavior and successful persistence remain unverified.",
+        "ordered_state_changes": [
+          "per-second 2D distance accumulation",
+          "When accumulator strictly>1000, independent class distance calls and mile-named delta calls using divisor63360, then reset; equality1000 does not flush",
+          "reset accumulator"
+        ],
+        "unknowns": [
+          "producer of the obfuscated self endon event (hash_2d45f3f009f1b3b3)",
+          "63360 units/mile assumption holds only if source units are inches - source shows only the divisor"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/38",
+        "decision_canonical_sha256": "64673e11add33824f4a19c28d0ac641174035eb7c5b98016468e615bc99c06fb",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00202",
+        "sha256": "ab8a31c08c98acad997752461b4465d9a46c66d62e5f18a596cd092cd8eac619"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "be639f33c27019ea4987b571b618a92f4da2e866f437886d02e5e0c01b7a0ee6",
+      "citations": [
+        {
+          "line_start": 37,
+          "line_end": 73,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1049",
+        "decision_canonical_sha256": "b0faeb8deb4b1131020322c1d7cc087ed3f21672773e4a64e5edd07d7d4c4f8d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/792",
+        "record_sha256": "748987e7030030e5779a6d119862ecbf76203b2bc7f08b30da2375bb2d562080"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c4eb3e67fb7a376163ab4418dfabce7d0e58c9d161dbdbc9823b34daad0a5634",
+      "citations": [
+        {
+          "line_start": 418,
+          "line_end": 433
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_3217b0d2",
+        "behavior": "Top-10 team-elimination stat block (private method). Ordered: (1) player stats::function_d40764f3( \"hash_7b8d2c77874a1c24\", 1 ); (2) if player function_ec3a8858() (owned consumed-anything predicate) -> stats::function_d40764f3( \"hash_337e05385393e3a6\", 1 ) (consumed-items variant); (3) if NOT (player.var_e4bec3d4 truthy) (death-circle damage marker set by function_36e144fa owned unit) -> stats::function_d40764f3( \"hash_702849e1bf1e3915\", 1 ). Three conditional stats per eliminated top-10 team member.",
+        "branches": [
+          "base stat always",
+          "consumed items -> variant stat",
+          "no death-circle damage -> third stat"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)",
+          "function_ec3a8858 (owned)"
+        ],
+        "lifecycle": "Synchronous helper used by qualified team-elimination and win paths. Its local isplayer assertion precedes the three conditional stat calls; exact event delivery remains unproved.",
+        "ordered_state_changes": [
+          "After local isplayer assertion: one unconditional and two conditional d40764f3 calls. If tracking allows and session is WZ, helper1d354b96 increments playerstatslist/<key>/statvalue and calls addgametypestat; success/native persistence is unproved. Other sessions use addgametypestat only."
+        ],
+        "unknowns": [
+          "stat meanings; var_e4bec3d4 producer verified as function_36e144fa (same file, owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/906",
+        "decision_canonical_sha256": "0f5a1bc865c51016c2fff5fbfb560fcb4829aecf27a7ddce0d1455aeff7da9a4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00203",
+        "sha256": "75f02ad6a4bf09dab2dff9c1a0d705281a2ef55a46de3b4e0ae873c10ccb46b3",
+        "pointer": "",
+        "record_sha256": "c48819d9cc8faabf38808f07e31b5fa419ae7517ab80b7aec34a4190229a65df"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d3e32aaf3ce222b3b65af42837a165d7bea775141ef29905033862706ec1dd32",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 31,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/425",
+        "decision_canonical_sha256": "65f5f6375d7e14fb4d0469849fa3c4b69fcfcba647f01df1aa0e83958d9086cf",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/793",
+        "record_sha256": "85f3e351f72575a7c016b98130d841c7af3548fa7ebad0bd266e229bee8158e6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e31ead7ab79890517ae52d64b2ce61eb61eb3f44f2484dd05fc651b6a7b7a0a9",
+      "citations": [
+        {
+          "line_start": 79,
+          "line_end": 82,
+          "sha256": "b3bc065d4cf87f52cee16f8542462726e747520d6574a3724944fc6d73475a88"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1248",
+        "decision_canonical_sha256": "60a1f12e1301a3b32deb33c184352d7d9864bcc717c513945ea35861d67c27bc",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/794",
+        "record_sha256": "d784ed850ab816f267dc05441e7edce0e90ed9738db06206768b16b6466d9767"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f1c929368eba4359a4bc34d7fd5c45ba9c783b8e14364492de6fe8ec07a35afc",
+      "citations": [
+        {
+          "line_start": 1204,
+          "line_end": 1215
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_c7aa9338",
+        "behavior": "Enemy-list scan helper (returns bool; self = the destroyed vehicle context of callers). foreach ent in array: if util::function_fbce7263( ent.team, self.team ) -> true; else false. A valid empty array reaches false. There is no local isdefined/isarray guard; undefined/noniterable iteration and malformed entries remain unresolved VM/error boundaries. The vehicle-destruction caller1233-1235 separately requires defined occupants with size>0.",
+        "branches": [
+          "first enemy-team occupant -> true",
+          "none -> false"
+        ],
+        "calls": [
+          "util::function_fbce7263 (outside packet - team-enemy predicate)"
+        ],
+        "lifecycle": "Pure scan.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "util_shared2792-2810 contains the team predicate; nested team helpers, invalid-input iteration, original VM behavior and vehicle self.team semantics remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1133",
+        "decision_canonical_sha256": "41d485e3539166054f1c823eea718b299858f50465cdef3d7d61e55c80d5759e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00204",
+        "sha256": "a7aea3106b409d9cf705695c56029a57401f46a1c92f14c622d4acd1f024589e",
+        "pointer": "",
+        "record_sha256": "9242c6164b5a7047db8ae51000899b3bd01693d58db6b350fc03af386478df9a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f8e485c13ce22d55cc77d3e2e4fd83dd6bdb4da20b06731ba16c15d8b50226c0",
+      "citations": [
+        {
+          "line_start": 407,
+          "line_end": 412
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_a0fea1a9",
+        "behavior": "Top-15 team-elimination stat incrementer (private method): player stats::function_d40764f3( \"hash_6429d1fccdef2c9\", 1 ). Called from team_eliminated when team_placement <= 15 and from win path. The wrapper locally assigns player=self and asserts isplayer(player) before calling the dependency.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_6429d1fccdef2c9,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-15 team placements)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1372",
+        "decision_canonical_sha256": "661f2b17f6add3ea438cca1f0e73e38f8c49ade5ce6fc73e8b17e2f20c0691c0",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00205",
+        "sha256": "4c12aaf512d6d1359d4285acca046d7c94c1fc13b07ee4b90f737a45163cbe02",
+        "pointer": "",
+        "record_sha256": "17b6b5f67fc9ea2191f5450422b105dac15262f4137b293460239ebb993c84ae"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "004efac34b7bacd646cf73b1bf3bfb93d6c16b19eb4000a7bcc87ba3d529079a",
+      "citations": [
+        {
+          "line_start": 1505,
+          "line_end": 1534
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_challenge_complete",
+        "behavior": "Challenge-complete XP payout (self = completing player; wired by excluded init). Guards: assert isplayer, then return if NOT isplayer OR pers undefined. Ordered: (1) if params.reward defined -> player.pers[\"meritprogression\"] += params.reward; (2) pers[\"hash_6344af0b142ed0b6\"] = 1 (marker also written by give_xp); (3) if pers[\"participation\"] undefined -> 0; pers[\"participation\"]++ (also used by excluded item-pickup path); (4) if params.reward defined: xpscale = player getxpscale(); stats::function_dad108fa( \"challengexp\", int( params.reward * xpscale ) ) - DIRECT stat write (does NOT call give_xp; no rank promotion check on this path).",
+        "branches": [
+          "assert/guard return",
+          "reward present -> merit sum + scaled challengxp",
+          "participation always ++"
+        ],
+        "calls": [
+          "getxpscale (builtin)",
+          "stats::function_dad108fa (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per challenge completion.",
+        "ordered_state_changes": [
+          "meritprogression/participation/challengexp updates"
+        ],
+        "unknowns": [
+          "params.reward producer (challenge completion flow)",
+          "no rank promotion from this XP path - flagged as source behavior"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06065",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/40"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/429",
+        "record_sha256": "dd6a1bc95cf45cc02c355ed9066ec94f64ddda9163234426eedff1609e1d419b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0506ee47f0f8489be54de42bd8a03bace2fc458c4cb9a0bdd69fe74fe633e90b",
+      "citations": [
+        {
+          "line_start": 240,
+          "line_end": 271
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_2c8aac6",
+        "behavior": "End-of-participation progression flush (self = player). Ordered: (1) assert isplayer; (2) gate: return if NOT stats::function_f94325d3() (tracking gate, excluded unit) OR isbot OR player.pers undefined; (3) IDEMPOTENCE: if pers[\"hash_39220b202c67c56b\"] truthy -> println(dev name) and return (already flushed); (4) read dvar floats hash_138e4c481ef6cfb1 and hash_5bb505659db06d9b (multipliers used by the challenges flush call); (5) if pers[\"teameliminatedtime\"] undefined -> set to gettime(); (6) var_1ef5a3ba = player function_59c85637() (owned time-played delta getter); (7) chain: player wz_contracts::function_9b431779( var_1ef5a3ba ) (owned per-gametype minute contracts); player contracts::function_78083139() (owned flush: contract pipe send); player challenges::function_659f7dc( var_1ef5a3ba, var_87ecbce6, var_7f6396f0 ) (owned challenges_shared time-based challenge flush); player functio [excerpt; exact source record identified separately]",
+        "branches": [
+          "tracking gate/bot/no pers -> return",
+          "already flushed -> print and return",
+          "else full flush chain then latch"
+        ],
+        "calls": [
+          "getdvarfloat/println/isbot (builtins)",
+          "stats::function_f94325d3 (excluded gate unit)",
+          "function_59c85637 (owned)",
+          "wz_contracts::function_9b431779 (owned)",
+          "contracts::function_78083139 (owned)",
+          "challenges::function_659f7dc (owned challenges_shared unit)"
+        ],
+        "lifecycle": "Synchronous; used by on_game_shutdown (owned), player_disconnected (owned), and other end-of-participation paths; latch pers hash_39220b202c67c56b prevents double flush.",
+        "ordered_state_changes": [
+          "teameliminatedtime default",
+          "contract/challenge flush chain",
+          "flush latch = 1"
+        ],
+        "unknowns": [
+          "function_4835d26a target (no catalog entry - integration boundary)",
+          "dvar multiplier meanings (challenge flush knobs)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06039",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/14"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/400",
+        "record_sha256": "156db7b7863cc9b10b666f64bee59e59c78d579b4718ee07a7f558e9096832d7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1696a76599cb30975eeeaf0963961ed0b0ef31b7baa7a9d87e2c941a7c27ebc8",
+      "citations": [
+        {
+          "line_start": 755,
+          "line_end": 768
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_c9a18304",
+        "behavior": "Freefall event router (self = player; registered via excluded init callback::add_callback( \"freefall\", &function_c9a18304 )). (1) if eventstruct.freefall truthy (freefall STARTED?): if isplayer( self ) -> self thread function_da21a17c() (owned wingsuit odometer); return; (2) OTHERWISE: self notify( \"hash_74973f333d2fabfa\" ) - the notify hash that function_da21a17c endons on, i.e. non-freefall freefall events KILL the wingsuit odometer.",
+        "branches": [
+          "freefall flag -> start odometer thread",
+          "different eventstruct -> notify to kill odometer"
+        ],
+        "calls": [
+          "function_da21a17c (owned unit, threaded)"
+        ],
+        "lifecycle": "Synchronous router; thread lifecycle per function_da21a17c.",
+        "ordered_state_changes": [
+          "thread spawn or kill-notification"
+        ],
+        "unknowns": [
+          "eventstruct.freefall semantics (which values true; start vs enter state)",
+          "freefall event producer (parachute/wingsuit code outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06055",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/30"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/416",
+        "record_sha256": "a77eb21c55d67dbda55e54d578182aed4e4fdd0f84b0c3e478a16b393185d4b4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1e8aa3f4586cf7cbb7d64520bafb228acd6319b63f99da9d24f1a3fb52360b86",
+      "citations": [
+        {
+          "line_start": 103,
+          "line_end": 110
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::codecallback_medal",
+        "behavior": "player_medal event handler (self = player getting a medal). (1) if eventstruct.var_7fcb97e3 (medal/score event id) AND level.scoreinfo[ that id ] all defined: (2) medalinfo = level.scoreinfo[medal id]; (3) self give_xp( \"medal\", \"medalxp\", medalinfo[\"xp\"] ) (owned give_xp unit) - medal XP grant derived from the scoreinfo table row xp column. Only that path; no other effects.",
+        "branches": [
+          "missing eventstruct/var_7fcb97e3/scoreinfo row -> no-op",
+          "else -> medal XP via give_xp"
+        ],
+        "calls": [
+          "give_xp (owned unit)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Wired by excluded __init__ callback::on_revived? NO - by event_handler registration; per-medal synchronous handler.",
+        "ordered_state_changes": [
+          "medalxp stat + rank XP via give_xp"
+        ],
+        "unknowns": [
+          "var_7fcb97e3 field name origin (event struct layout)",
+          "scoreinfo medalxp column values are data not source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06036",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/11"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/395",
+        "record_sha256": "bb8d469cda07929e67a2a3ef36296e4ec45b09d35a84a3e9e29f0ea607f83976"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2f55b968c8dc1a7570d78ef02d510848e01c469cce29b55518de4a3f643cfede",
+      "citations": [
+        {
+          "line_start": 345,
+          "line_end": 401
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_51cae91b",
+        "behavior": "Placement XP ladder (self = player; called per placement resolution). Guarded ascending ladder with early returns - HIGHEST tier wins; each tier grants only when the merit value > 0 (unearned tiers award nothing): placement <= 5 -> give_xp( \"top5\", \"placementxp\", merits.top5 ) return; <= 10 -> top10; <= 15 -> top15; <= 20 -> top20; <= 25 -> top25; <= 30 -> top30; <= 50 -> top50; <= 60 -> top60; <= 75 -> top75; > 75 -> nothing (no award below 75).",
+        "branches": [
+          "nine placement tiers with merit>0 check",
+          "first matching tier returns (no stacking)",
+          "> 75 -> no award"
+        ],
+        "calls": [
+          "give_xp (owned unit)"
+        ],
+        "lifecycle": "Synchronous; merit values seeded by excluded init from gametype settings (wzmerittopN).",
+        "ordered_state_changes": [
+          "single tier placement XP via give_xp"
+        ],
+        "unknowns": [
+          "merit setting values (dvar/gametype settings) not enumerated"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06046",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/21"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/406",
+        "record_sha256": "343032c9f291ffc4f3d2ac23fcdab329bbb7f42338de8efafe93514838d8426d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "33c096f13898cca23b44398aeca8246458f53a40aa18dd8e9a6939f86a463fce",
+      "citations": [
+        {
+          "line_start": 743,
+          "line_end": 749
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_exit_locked_on_vehicle",
+        "behavior": "Locked-vehicle exit handler (self = level/vehicle context; player arg). Single branch: if isplayer( player ) -> player stats::function_d40764f3( \"vehicle_lock_exits\", 1 ).",
+        "branches": [
+          "not a player -> no-op",
+          "else stat"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous; wiring site outside owned spans (lock-on/vehicle code).",
+        "ordered_state_changes": [
+          "vehicle_lock_exits += 1"
+        ],
+        "unknowns": [
+          "caller (vehicle lock pipeline)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06067",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/42"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/415",
+        "record_sha256": "8734c8656fd1bbffc06f12d01b3e89c8bcdb5ae00806e444911c981c4fbaa522"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "351bdc7990693c672f1d8546e301b00c6c338dd58854f28a46c29153cb97667c",
+      "citations": [
+        {
+          "line_start": 811,
+          "line_end": 817
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_3de8b6e0",
+        "behavior": "on_revived handler (wired by excluded init). Body: return when NOT gamestate::is_state( \"playing\" ) OR params.reviver undefined - the handler contains ONLY these guards and NO other statements (dead code / vestigial handler: revive does nothing additional in wz_progression beyond the wz_medals/wz_contracts handlers). Span is fully guarded no-op.",
+        "branches": [
+          "not playing -> return",
+          "no reviver -> return",
+          "success path -> falls through with no effect"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Per revive synchronous no-op beyond guards.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "why the handler is empty (stripped logic in this build) - preserved as source behavior"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06044",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/19"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/418",
+        "record_sha256": "da0cff172bcb1c6fed3092d387a4281059b9e7448fb1d45f27634ab3bac6dd46"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3fce6a976596f8659d7d0dfdb2d08d81b46fb968bf1cf6043c28c442a0d4320d",
+      "citations": [
+        {
+          "line_start": 1352,
+          "line_end": 1370
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_4776caf4",
+        "behavior": "Basketball fire router (event_handler[grenade_fire]; self = shooting player). (1) return when level.inprematchperiod; (2) require sessionmodeiswarzonegame() AND isplayer( self ) AND isalive( self ) AND eventstruct AND eventstruct.weapon defined; (3) if eventstruct.weapon.name === \"basketball\" AND eventstruct.projectile defined -> projectile thread function_16de96c7( self ) (owned hoop-watcher). Non-basketball grenades get nothing from this handler.",
+        "branches": [
+          "prematch -> return",
+          "guards -> return",
+          "basketball with projectile -> hoop watcher thread",
+          "otherwise -> nothing"
+        ],
+        "calls": [
+          "function_16de96c7 (owned unit, threaded on projectile)"
+        ],
+        "lifecycle": "Per grenade_fire synchronous; thread spawn only for basketball.",
+        "ordered_state_changes": [
+          "watcher thread spawn"
+        ],
+        "unknowns": [
+          "basketball weapon registration (weapon data)",
+          "eventstruct.projectile lifecycle (native projectile)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06045",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/20"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/426",
+        "record_sha256": "6dce65e878117d4bb58658b9eafd8baa7d135943bd80297a631c381e03c14f14"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6431ad748f39159e70cebef573e529b07440716b7c6df7c4d01bb115119a7138",
+      "citations": [
+        {
+          "line_start": 179,
+          "line_end": 197
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_ec3a8858",
+        "behavior": "Consumed-anything predicate (returns bool; self = player). (1) return false unless isplayer; (2) true when player.inventory.consumed exists with size > 0; (3) else false. Consumed by function_3217b0d2 (owned) to branch a second stat.",
+        "branches": [
+          "not player -> false",
+          "consumed non-empty -> true",
+          "else -> false"
+        ],
+        "calls": [
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Pure predicate.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "inventory.consumed writer (item-use/stash code outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06059",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/34"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/397",
+        "record_sha256": "c1d882b4655dcc125deabc6b0eae37dfa6fecf18689a99293b7c0a831dc748a0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8ed24aa17d56a8a5e4e761947960bccb7607701603decbb1a6b9c0f353633e34",
+      "citations": [
+        {
+          "line_start": 1540,
+          "line_end": 1586
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_character_unlock",
+        "behavior": "Character-unlock achievement checker (self = player; wired by excluded init). Ordered: (1) if isplayer( self ): (2) waitframe( 1 ); (3) HISTORIAN: four stats via stats::get_stat( \"characters\", prt_wz_reznov/mason/woods/menendez, \"unlocked\" ); ALL four -> giveachievement( \"wz_blackout_historian\" ); (4) SPECIALIST SUPER FAN: ten stats (battery, mercenary, firebreak, enforcer, trapper, technomancer, swatpolice, buffassault, engineer, recon); ALL ten -> giveachievement( \"wz_specialist_super_fan\" ); (5) ZOMBIE FANATIC: eight stats (bruno, scarlett, diego, stanton, dempsey, takeo, nikolai, richtofen); ALL eight -> giveachievement( \"wz_zombie_fanatic\" ).",
+        "branches": [
+          "not player -> nothing",
+          "all of each set -> corresponding achievement",
+          "partial -> nothing"
+        ],
+        "calls": [
+          "stats::get_stat (excluded unit - characters subtree)",
+          "giveachievement (native - unproven)",
+          "waitframe/isplayer/isdefined (builtins)"
+        ],
+        "lifecycle": "Synchronous per unlock event with one-frame defer.",
+        "ordered_state_changes": [
+          "native achievement unlocks per complete sets"
+        ],
+        "unknowns": [
+          "characters stat subtree writer (unlock flow outside owned spans)",
+          "achievement persistence rules (native/console)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06066",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/41"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/430",
+        "record_sha256": "5f13925590fb37848100aa74f39c276ed959431eb30dc44f7905eb94e59259c0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ad70668a9f83063e4eeab2ccdd59f03f493f011999e47261184a138bf169554b",
+      "citations": [
+        {
+          "line_start": 79,
+          "line_end": 82,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01961",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/312"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/280",
+        "record_sha256": "1ef3a9caa943f34cb1f75744938f0d34b080fe7d00c293916869f9bf37ff0086"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b6689042151a7751fea80e51be4cd0449f6b3134a11858e7e895ef199628a181",
+      "citations": [
+        {
+          "line_start": 277,
+          "line_end": 296
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_59c85637",
+        "behavior": "Match-local played-time getter (self = player; returns time). (1) var_c06441ec = gettime() - pers[\"teameliminatedtime\"] clamp >= 0 (excluded-from-clock window starts when the team was eliminated) else 0; (2) var_1ef5a3ba = 0 unless pers[\"hash_150795bee4d46ce4\"] defined, then = max( gettime() - pers[\"hash_150795bee4d46ce4\"] - var_c06441ec, 0 ) - elapsed ms since the player-start anchor minus eliminated time. NOTE: writer of hash_150795bee4d46ce4 is NOT in this file's owned spans (player start anchor; likely set by warzone gametype drop-in flow). Consumed by function_2c8aac6 flush chain and by excluded init as level.var_959f44cf getter.",
+        "branches": [
+          "teameliminatedtime 0/nonzero -> include or exclude eliminated time",
+          "anchor missing -> 0",
+          "else max clamp"
+        ],
+        "calls": [
+          "gettime/max (builtins)"
+        ],
+        "lifecycle": "Pure read helper; no state writes.",
+        "ordered_state_changes": [
+          "read pers.teameliminatedtime + pers.hash_150795bee4d46ce4"
+        ],
+        "unknowns": [
+          "writer/producer of pers.hash_150795bee4d46ce4 (player start anchor - outside owned spans)",
+          "time unit (ms) inferable from gettime() comparisons with / 60000 elsewhere"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06048",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/23"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/401",
+        "record_sha256": "ac0895e7429e615ee956f0d2264cb666ae66aab0bb70bddfc6ebafefd694f6b8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c802393bf564510c97dcdce5c84d017041e2b03d91c278e42299852a81f0de5f",
+      "citations": [
+        {
+          "line_start": 774,
+          "line_end": 805
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_da21a17c",
+        "behavior": "Wingsuit odometer thread (self = player; spawned by function_c9a18304 owned unit). SYNC: self endon( \"hash_74973f333d2fabfa\", \"death\", \"disconnect\" ) - the same notify KILLS this thread (router posts it for non-freefall freefall events). State: prevposition = origin; distancetraveled = 0. LOOP while self defined: wait 1; accumulate int distance2d per second; when distancetraveled > 1000: stats::function_dad108fa( \"distance_traveled_wingsuit\", distancetraveled ); distancetraveled = 0; miles derivation identical to vehicles: int( total / 63360 ) vs distance_traveled_wingsuit_miles stat -> when larger, function_dad108fa( ..._miles, diff ).",
+        "branches": [
+          "kill notify/death/disconnect -> thread ends",
+          "accumulation until > 1000 -> flush + reset",
+          "miles stat grows by whole-mile diff only"
+        ],
+        "calls": [
+          "function_dad108fa/get_stat_global (excluded units)",
+          "endons/wait/distance2d (builtins)"
+        ],
+        "lifecycle": "Threaded infinite until notify/death/disconnect; per-thread accumulator only.",
+        "ordered_state_changes": [
+          "wingsuit distance + miles stats"
+        ],
+        "unknowns": [
+          "freefall router kill event semantics (verified same-file link)",
+          "inches/miles divisor intent"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06058",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/33"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/417",
+        "record_sha256": "a24896e6befca4185140ac3e3d62fcc6abcfdfeadec5e49a53cd23e9ac8a9fda"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dfa2167640036e4ffa40292f2278124a9fba8b7d3d499f1536fece18d7aad2c4",
+      "citations": [
+        {
+          "line_start": 135,
+          "line_end": 173
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::give_xp",
+        "behavior": "XP grant core (self = player). Ordered: (1) assert isplayer(player); (2) var_60a35182 (paragon flag) = 1 only when player.pers[\"plevel\"] == level.maxprestige; (3) PARAGON path: prevxp = stats::get_stat_global(\"PARAGON_RANKXP\"); player addrankxpvalue( var_c14ca2e6 (reason string), amount ) (native); curxp = PARAGON_RANKXP after; (4) ELSE normal path: prevxp = RANKXP; addrankxpvalue(reason, amount); curxp = RANKXP after; PARAGON PROMOTION: if player.pers[\"plevel\"] == level.maxprestige - 1 AND curxp == level.rankxpcap (EXACT equality): set player.pers[\"plevel\"] = level.maxprestige; stats::set_stat_global( \"plevel\", level.maxprestige ) (owned set side including WZ dual-write); stats::set_stat_global( \"paragon_rank\", level.maxrank + 1 ); stats::function_62b271d8( \"plevel\", level.maxprestige ) (excluded teammate AAR mirror unit); (5) var_a402c6e3 = curxp - prevxp (actual applied delta); (6) pl [excerpt; exact source record identified separately]",
+        "branches": [
+          "max-prestige -> PARAGON_RANKXP path",
+          "else RANKXP path",
+          "prestige - 1 and EXACT cap hit -> plevel promotion (pers + stat + teammate mirrors)",
+          "promotion requires EXACT == cap (not >=) - over-cap XP does not promote via this path"
+        ],
+        "calls": [
+          "stats::get_stat_global/set_stat_global/function_dad108fa/function_62b271d8 (player_stats units; excluded ones in same file)",
+          "addrankxpvalue (native rank XP hook - opaque)",
+          "isdefined/assert (builtins)"
+        ],
+        "lifecycle": "Synchronous; central XP entry for medal/kill/contract/top5/win XP; persistence of paragon/rank state is native (unproven).",
+        "ordered_state_changes": [
+          "prevxp read",
+          "addrankxpvalue(reason, amount)",
+          "curxp read",
+          "conditional plevel promotion chain",
+          "xpstat += (curxp - prevxp)",
+          "pers hash_6344af0b142ed0b6 = 1"
+        ],
+        "unknowns": [
+          "addrankxpvalue native semantics (server/stat backend)",
+          "level.maxprestige/maxrank/rankxpcap setters (rank/gametype init outside owned spans)",
+          "PARAGON path skips promotion branch entirely (no plevel promotion beyond max)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06064",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/39"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/396",
+        "record_sha256": "ba2f22b209a3bcc3c0fa523cac144fbdbe3daefdb13d0691620f38ad6f8def2e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f3f3e150e00542cfeb0a342eff228e011e4ef4ce0301c6dba3615fb0b9a31ea3",
+      "citations": [
+        {
+          "line_start": 203,
+          "line_end": 216
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f874ca5e",
+        "behavior": "Placement writer (self = placed player, called per placement resolution). Guards: assert isplayer then return if not. (1) player.pers[\"placement_player\"] = placement_player; (2) player match_record::set_player_stat( \"player_placement\", placement_player ) (match_record excluded set unit - match subtree); (3) player stats::function_7a850245( \"placement_player\", placement_player ) (excluded after-action-report setter). Records the individual finish position in three stores.",
+        "branches": [
+          "assert abort when non-player",
+          "else three writes"
+        ],
+        "calls": [
+          "match_record::set_player_stat (excluded unit)",
+          "stats::function_7a850245 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous; called from on_player_killed death placement and function_5648f82 win path (owned units).",
+        "ordered_state_changes": [
+          "pers.placement_player",
+          "match record player_placement",
+          "AAR placement_player"
+        ],
+        "unknowns": [
+          "placement value unit (1-based rank) per callers"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06062",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/37"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/398",
+        "record_sha256": "b7e6b151a53b3544e013e08071c86017aa43c5d7e5b6fbb0d01693e83da3b6fc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fc410da42e988c826030b9e42d0c2af9bb722bcf51bab40e5c7df162bff1a09b",
+      "citations": [
+        {
+          "line_start": 1305,
+          "line_end": 1324
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_393ec79e",
+        "behavior": "Item-use (health) handler (self = user player; wired by excluded init callback::on_item_use). Guards: playing state and params.item defined else return. If item.itementry.itemtype === \"health\": (1) self stats::function_d40764f3( \"items_health_used\", 1 ); (2) OUTSIDE-CIRCLE ONLY: if self.outsidedeathcircle truthy -> function_d40764f3( hash_154d42f200303577, 1 ) AND self match_record::function_34800eec( hash_154d42f200303577, 1 ) (match record increment of the same hash stat - dual store).",
+        "branches": [
+          "not playing / no item -> return",
+          "health item -> stat",
+          "outside circle -> second stat + match record increment"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "stats::function_d40764f3 (excluded unit)",
+          "match_record::function_34800eec (owned match_record unit)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Synchronous per item use.",
+        "ordered_state_changes": [
+          "items_health_used",
+          "circle-escape heal hash stat + match record"
+        ],
+        "unknowns": [
+          "self.outsidedeathcircle writer (circle logic outside owned spans)",
+          "the hash-only stat meaning"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1R5UNREAD3",
+            "unit_id": "O06043",
+            "report": {
+              "evidence_id": "archived-record-00877",
+              "sha256": "645e810d7b34b348d4d1478818702866f7cb11136adef8ddec1f6c0da6438910"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/132/unit_reviews/18"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/425",
+        "record_sha256": "dc223f5bedb5fce589bb019fa2323629bf81b250ac629203c9383f8301d62514"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "06f7eef1b2ab4c8dab8771ba72a8d1f73ea8cf7e60cfe40090741876a86277ef",
+      "citations": [
+        {
+          "line_start": 79,
+          "line_end": 82,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01961",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/312"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/280",
+        "record_sha256": "1ef3a9caa943f34cb1f75744938f0d34b080fe7d00c293916869f9bf37ff0086"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/12fe3b4e550ed874.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0175",
+    "AV0176",
+    "AV0177",
+    "AV0178"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/15f891639129fb7d-001.json",
+      "sha256": "8303994bfbbecfde9d5482eb64d643843caa8a3d9242143e10b27e8cc6346fff"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "module": "src/scripts/weapons/weapons.gsc",
+  "identity": "scripts/core_common/loadout_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "loadout",
+  "witnesses": [
+    {
+      "line": 2030,
+      "text": "            self loadout::initweaponattachments( params.weapon );",
+      "caller": "on_weapon_change",
+      "caller_span": [
+        2012,
+        2103
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2024,
+          "opening_line": 2027,
+          "ending_line": 2031,
+          "text": "if ( params.weapon != level.weaponnone && params.weapon != params.last_weapon )"
+        },
+        {
+          "line": 2013,
+          "opening_line": 2015,
+          "ending_line": 2032,
+          "text": "if ( level.trackweaponstats )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "initweaponattachments",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          56,
+          60
+        ]
+      ]
+    },
+    {
+      "line": 2122,
+      "text": "        count = self loadout::getloadoutitemfromddlstats( self.class_num, stat );",
+      "caller": "loadout_get_offhand_count",
+      "caller_span": [
+        2109,
+        2126
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2118,
+          "opening_line": 2121,
+          "ending_line": 2123,
+          "text": "if ( isdefined( self.class_num ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getloadoutitemfromddlstats",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          40,
+          50
+        ]
+      ]
+    },
+    {
+      "line": 2153,
+      "text": "        loadout = player loadout::find_loadout_slot( weapon );",
+      "caller": "scavenger_think",
+      "caller_span": [
+        2132,
+        2250
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2143,
+          "opening_line": 2144,
+          "ending_line": 2214,
+          "text": "i++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "find_loadout_slot",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": []
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0168",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/loadout_shared.gsc",
+    "sha256": "d9a27f9b6c9441676c22300804b6962e669779c1a192b08b76fd1cd7fe4a337f",
+    "git_blob_sha1": "e5b3e72e3cf08f98f85384973246bafdf4713a96",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/loadout_shared.gsc"
+}

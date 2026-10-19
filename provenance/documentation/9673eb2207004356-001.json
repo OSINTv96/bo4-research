@@ -1,0 +1,136 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/subtitleutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "057fbb850cfb237aaa73a10e156fdcebb43a5521983a9d629921e70a12c92c39",
+      "summary": {
+        "unit_id": "hmh07-lua:026",
+        "answer": "Constructs seven subtitle-entry children bound separately to HUDItems.subtitles.line0 through line6. It registers the close hook, optionally invokes PostLoadFunc, then calls SubtitleUtility.Init for subtitles. Selected code establishes display wiring only; subtitle timing/audio production and the unfrozen close implementation remain boundaries.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Source-ready close body exists outside frozen allowed companion range; exact locator is retained in new_dependencies. Other class clip bodies not frozen were not authored.",
+          "Additional same-class reset/clip/close body ranges are available but outside the frozen author scope; exact locators are in unfrozen_same_class_body_locators and source-frontier.json. No body authoring or completion credit for them."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/25",
+        "record_sha256": "c520a7164c2d0c794786c8ab8b6257a8f2f6da78f7992a89a41146fb7bce0320"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "5c4cf196c279f953d117ebb2d227d474582777c989e8b491e4a65eca0830ce8d",
+      "summary": {
+        "unit_id": "hmh07-lua-follow2:123",
+        "answer": "UpdateSubtitle reads the current index. When it is truthy, getLocalRect supplies four results f1_local4..f1_local7 and the code sets f1_local3=f1_local5-f1_local7 (second minus fourth); getter ordering/geometry meaning is not established. The loop increments positions and requests movement only for truthy active entries, counting those entries. When that count exceeds maxElementIndex, it requests the current element:forceHideSubtitleEntry(). The supplied helper, if that binding is used, sets forcedToHide=true then requests timer:processNow(); timer/event/actual visual hiding remain unknown. The exact moviecam/shoutcaster/killfeed guards control the later showSubtitleEntry request. Only if execution reaches the tail does it set the next index modulo maxElementIndex+1 and return true; preceding errors may prevent that tail. Nil current index can bypass the rectangle read yet later be indexed/used in arithmetic, and numeric0 is truthy. EntryInit resets id/forced flag/alignment, registers the hide event and stores the shown completion/show/move/hide/force-hide references; assignment or registration does not prove invocation. All existing provider/build/native/VM/runtime limits remain.",
+        "unknowns": [
+          "Exact original PS4/source version matching, recovered Lua/VM fidelity and global/native/LUI provider identity remain unverified.",
+          "Model/storage/DDL/assets/localization/dvar/enum values, callback delivery/cancellation/error behavior, native networking and unavailable service/server code are separate inputs.",
+          "Other-file locals are not providers by spelling. Exact qualified global declarations are source candidates until loader/table identity and caller conditions bind them.",
+          "No implicit nil/type checks, exception recovery, timer/model disposal, idempotence or guarantee that later effects run after an error is added."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00677",
+        "sha256": "da813f298debebba53fb3e59659c88bf9de6e0f2de5154a66b9b14206a66ad51"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "65839d03b1bdce9b91170697920c377a3135ac839ed592e9ac4aa3a87ddf9206",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:153",
+        "answer": "For CoD.SubtitleUtility.CompleteAllAnimations, evaluate the displayed formal inputs and captured values. The exact ordered provider request below is the entire visible wrapper behavior; no opaque provider effects are invented. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. Stores the entry id, completes current animation, anchors the entry at the bottom using its height and plays FadeIn. It creates and attaches a one-shot timer using the entry model duration and the hide_subtitle_entry event. It does not first cancel/replace a previous timer explicitly; timer delivery remains an external contract. For CoD.SubtitleUtility.ShowSubtitleEntry, evaluate the displayed formal inputs and captured values. Its writes/requests begin 73: f6_arg0.id = f6_arg1; 76: f6_arg0:setTopBottom( false, true, -f6_local1, 0 ); 80: f6_arg0.timer = f6_local2( f6_local3.duration:get(), \"hide_subtitle_entry\", true, f6_arg0 ); 81: f6_arg0:addElement( f6_arg0.timer ). The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. Completes current animation, reads the subtitle-entry rectangle, defaults the movement step to top minus bottom only when the third argument is false/nil, multiplies that step by the supplied direction/count, and animates the container top/bottom over 100 ms. Numeric 0 is truthy in Lua and remains an explicit step, not the default. For CoD.SubtitleUtility.MoveSubtitleEntry, evaluate the displayed formal inputs and captured values. Its exact paths are 87: if not f7_arg2 then. Its writes/requests begin 88: f7_arg2 = f7_local1 - f7_local3; 92: f7_arg0:setTopBottom( false, true, f7_local1 + f7_local4, f7_local3 + f7_local4 ). The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. Completes animation, plays Hide when forcedToHide is truthy or FadeOut otherwise, immediately dispatches subtitle_notification_complete with the stored id to the parent, then resets forcedToHide to false. The completion event is sent after requesting a clip, not after waiting for that clip to finish. For CoD.SubtitleUtility.HideSubtitleEntry, evaluate the displayed formal inputs and captured values. Its exact paths are 97: if f8_arg0.forcedToHide then. Its writes/requests begin 103: name = \"subtitle_notification_complete\",; 104: id = f8_arg0.id; 106: f8_arg0.forcedToHide = false. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. Sets forcedToHide true, then asks the stored timer to process now. There is no timer-existence guard. Actual synchronous/event delivery of HideSubtitleEntry remains the timer/dispatcher contract. For CoD.SubtitleUtility.ForceHideSubtitleEntry, evaluate the displayed formal inputs and captured values. Its writes/requests begin 110: f9_arg0.forcedToHide = true. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00678",
+        "sha256": "7003d4afcd80ae539c1512a76a9265e4bc081ad399183ed86e3ff15e47aae1f5",
+        "pointer": "",
+        "record_sha256": "8c8e7b1a8db8c2027b58d0bd1f944d172d2985af5a248ffef47a24ead6fd00be"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "93d399cab9b913c143dc70ee871f95918cfa7ef81d95dbabb457df3e3862e057",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:239",
+        "answer": "SubtitleUtility.Init stores controller and a HUDItems child model, resets currentIndex, defaults max index to NumLines-1 and asserts max<NumLines before constructing0..max line records. It registers subtitle_notification_complete and subscribes the root model to UpdateSubtitle. There is no lower-bound assertion, explicit return or cancellation path in this body; source child/model existence and native delivery remain preconditions.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/238",
+        "record_sha256": "c08f1c5a5ccf2d4b750e8baf765f193b66aa153d1fa1f81267af4129e336d0e3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "bf0c5b37ca9896afbd382a5e3386013a709c27ea606d3fdfcc647b6ff3eba015",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:225",
+        "answer": "Maps allies to team1 and axis to team2; if a mapped profile color lookup returns nonnil, returns it. All other cases return the default team faction color. Unknown team IDs use the default provider. Passes controller and the opaque current-stats selector returned by hash_508E494FC6037B54 to GetPlayerStats and returns its result. Passes controller and the opaque before-match selector returned by hash_4E038E13929C6347 to GetPlayerStats and returns its result. Returns getplayerstats(controller,selector) when selector is truthy, otherwise getplayerstats(controller). No snapshot contents, schema, or persistence success is inferred. Reads the online shoutcaster profile storage buffer and returns true only when buffer, named field, and field value1 are present; every other path returns false. Nil controller defaults0 and optionally prints warning outside frontend; reads currentMouseFocus[controller+1]; false sentinel returns nil, other values returned. No controller bounds validation.",
+        "unknowns": [
+          "Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.",
+          "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.",
+          "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.",
+          "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.",
+          "No independent correctness review, acceptance, original-build or function-completion credit is recorded."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/224",
+        "record_sha256": "dc3ed924f4a36239222d9147dc9d00867ba0d0a4042caa73ad862dc78b48b9dc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9673eb2207004356.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "e756f682a08d8f00d5226441d3be50ec23cee091e1e293f920855be3758d7f20",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:204",
+        "answer": "Creates the subtitle-entry wrapper, binds its child to the whole parent model, installs close and calls optional PostLoadFunc. It then invokes EntryInit with center alignment and returns self. Text timing, line activation and native subtitle events remain separate provider contracts; binding alone is not subtitle delivery.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/203",
+        "record_sha256": "2da6e6f0bcbe0849b1aa5973038f9d55e3060dc06fcb4fafaca5b0363c278fed"
+      }
+    }
+  ]
+}

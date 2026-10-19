@@ -1,0 +1,804 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "hashed/47df4cc09d08aa9c.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+  "git_blob_sha1": "c29cbd5130d9fd4f4b2dff1522066b6f1257f2f9",
+  "output": "src/lua/hashed/47df4cc09d08aa9c.lua",
+  "output_sha256": "14357665fe6fe37f03f07d4bfd0a9a27bd3d4969e2e4845004e4e21472d89ed7",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/chat/ingame/ingamechatclient.lua",
+      "original_line": 4,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "8e5ed1b6d719781cfb01cb84de19b2be60ef3cbd2f607181714d1e149b04de82",
+      "citations": [
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:146",
+        "answer": "CallOriginalFirst appends the supplied callback to the table returned by OverrideFunction_GetFunctionTable. CallOriginalSecond inserts its callback at index1. Neither wrapper directly calls the original or callback or returns a value. The naming does not prove runtime order independently of the dispatcher, which remains a reusable available dependency.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/26",
+        "decision_canonical_sha256": "9750ddf13f4dbe86a6923fa8ffdee18bc881285ede5267d41afa748207884053",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00044",
+        "sha256": "46ecb6cfe8fa919ec918f489610848dcd8b393e632706abbfd898ba7b2a05c62"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b9993280dc0144e01c94321dc360ec9e8a45040dfe75d94ff2bd53909ad8a465",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:125",
+        "answer": "UIElement.new tries ConstructLUIElement with eight supplied layout arguments when the first is truthy, then sets initial class and returns only on a truthy constructed value. Otherwise it calls ConstructLUIElement with m_defaultAnimationState and falls through without an explicit return or setInitialClass in this recovered text. Preserve that fidelity defect. createFake returns a fresh empty table with fakeElemMetaTable; fake operations and native construction remain separate contracts.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/37",
+        "decision_canonical_sha256": "aeefe513bee1c129ecc6d05c1007c05ec4274d63b958e315a94694c91cf5def7",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00047",
+        "sha256": "0a2ed5281f322b9558d79fcfa95c412c52c1a5b3106117496e96cceee9304688"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c8b4ecf75df4e1d1a6d3e3a6466121479eac2ec28191c007487eaa15f513ed64",
+      "citations": [
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 87,
+          "line_end": 93,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 87,
+          "line_end": 93,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 90,
+          "line_end": 90,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 87,
+          "line_end": 93,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:048",
+        "answer": "Reset restores ChatClient.Alpha=(1). IngameChatClientContainer.__clipsPerState.DefaultState.DefaultClip contains these conditional transactions: DefaultState.DefaultClip [92..95]. IngameChatClientContainer.__clipsPerState.Hidden.DefaultClip contains these conditional transactions: Hidden.DefaultClip [98..104] literal alpha-assignment sites ChatClient=0. IngameChatClientContainer.__clipsPerState.StartMenu.DefaultClip contains these conditional transactions: StartMenu.DefaultClip [107..110]. IngameChatClientContainer.__onClose closes f11_arg0.ChatClient in that order, without nil guard, catch or extra cleanup. Each clip receives widget/controller and executes only when selected by the exact stopped same-class UI path. Listed assignment sites are lexical sites across nested callbacks, not an asserted synchronous execution order. Per-function ordered operations below preserve all intermediat [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1106",
+        "decision_canonical_sha256": "5b95bde08dd4447449e1f9c6e94b463991ee20d49bd6db07c2a559f0217cdb42",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00741",
+        "sha256": "cbdb93f4f034093379b8f20f3f482d4f1c02941f77d2aa0c64b55c1fb8bc6ffd",
+        "pointer": "",
+        "record_sha256": "0a308518aeea2a21046433b939f882fadf5b8b3d2723c798ff6694345c8053eb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d92a977f65e61f62f7820ca3ce196edfe4695e72bfe454753495a573db74e922",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 22,
+          "line_end": 24,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 31,
+          "line_end": 33,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 37,
+          "line_end": 45,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 51,
+          "line_end": 59,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 63,
+          "line_end": 71,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 12,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 81,
+          "line_end": 81,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 21,
+          "line_end": 21,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 9,
+          "line_end": 83,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 95,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 104,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 110,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 85,
+          "line_end": 88,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 115,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:019",
+        "answer": "Starts PC sticky registration and pre-sets menu chat, constructs ChatClient, binds ChatGlobal and sets default focus to ChatClient. Hidden means ChatClientShow is false; StartMenu is true when HUD is not visible, otherwise follows UI-active bit. Visibility subscriptions revalidate. It registers the close hook, runs optional PostLoadFunc and finishes sticky setup. Construction on a shared WZ HUD does not prove PS4 chat support.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Source-ready close body exists outside frozen allowed companion range; exact locator is retained in new_dependencies. Other class clip bodies not frozen were not authored.",
+          "Additional same-class reset/clip/close body ranges are available but outside the frozen author scope; exact locators are in unfrozen_same_class_body_locators and source-frontier.json. No body authoring or completion credit for them."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/73",
+        "decision_canonical_sha256": "e7f9959865eeef31a7adac2536871d3be2d81b63301019d9686870bcbfb74f61",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00502",
+        "sha256": "978a35ae6bc83c8b91045776c7b3d4daa2355ad89ec9607a6ab620e6b5409d0e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dd2d2abf202e966ba219d2636fe67b98d8b395c2a2e31acfb64f54fc0a73a88d",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 81,
+          "line_end": 81,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 81,
+          "line_end": 81,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 12,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 12,
+          "file_sha256": "d122a055b75cd7587b485d17c7831c2a88c97ac1e9dedb02dbd7c16cb7a104b9",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:149",
+        "answer": "The13 selected PC helpers retain their own exact contracts: conditional shortcut-lock reset, guarded/nonrepeat shortcut subscriptions, occlusion input toggling and end-score cursor guards, descending playtime threshold announcements, keyboard-navigation disable, conditional friend tracking, asserted sticky ownership/reset, chat model/safe-area/sticky setup, raw occludedBy return and cursor focus/input-lock requests. SetupPositionOverrideForWZEndGame is an empty recovered body. These are conditional common source paths; PC names do not establish PS4 invocation.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1220",
+        "decision_canonical_sha256": "e3fa76ac4870591d49c278b6552d07273d81df07d83539b525e39291d0c659ad",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00070",
+        "sha256": "39a63d68d86f5062ab5dbb042dc96cb7efeeaee3b7a6ea5c569e82316724839a",
+        "pointer": "",
+        "record_sha256": "bd4eda8815c63c4a8c367383b73d8e660f64c09036d8da2b2c8b201c8d2a8d9d"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/cb08605d5b8fca22.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/b17269d18ef285d7-001.json",
+      "sha256": "5852e2f48c9a8e48c05c94956825cc4e5af5abb9c8b8e60431da2f3c98b97150"
+    }
+  ]
+}

@@ -1,0 +1,1589 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_ai_zonemgr.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28",
+  "git_blob_sha1": "12463422f0afe09b19e3f7a56fa68d6f7cf9072d",
+  "output": "src/scripts/wz_common/wz_ai_zonemgr.gsc",
+  "output_sha256": "6dedf515f5f617e8681873689fbf986b33ff86da2eebd0b078ecd7f579702cc2",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/ai/zombie_utility.gsc",
+      "original_line": 1,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/ai/zombie_utility.gsc",
+        "sha256": "83d289293d5cddcfa8940d9d803c29da2e6d810210ffb8dfcaebd28bd711b23e",
+        "git_blob_sha1": "3ec985a68e1f8959598db240ece081518e1cba13"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0118.json",
+      "assessment": "available_source_inspected_unresolved_loader_indirect_or_context_admission",
+      "selected_caller_functions": [
+        "__init__",
+        "add_magicbox",
+        "function_1944a471",
+        "function_1c8ea11",
+        "function_2345f7a7",
+        "function_250e9641",
+        "function_2826217a",
+        "function_37411c68",
+        "function_41101f23",
+        "function_432787e",
+        "function_462b41e2",
+        "function_4b95d880",
+        "function_4e0be090",
+        "function_4fa5953",
+        "function_51961049",
+        "function_5f0d105a",
+        "function_630eb346",
+        "function_678fdc65",
+        "function_6c75dee3",
+        "function_7b0c014e",
+        "function_7c16d5e3",
+        "function_83dc6d93",
+        "function_89116a1e",
+        "function_9e142fa2",
+        "function_a2ac506b",
+        "function_a82cad64",
+        "function_aacb2027",
+        "function_b5a875df",
+        "function_bbad9099",
+        "function_bbff22d",
+        "function_bd19c3a8",
+        "function_c3bb62c1",
+        "function_c7cab34e",
+        "function_d6258153",
+        "function_dc16557c",
+        "function_f3e8cf82",
+        "function_f48ade1d",
+        "move_box",
+        "on_player_downed",
+        "on_player_killed",
+        "on_player_spawned"
+      ],
+      "remaining": "No unique ordinary qualified callee/module-load path to this target was established in the closed candidate graph. Include/autoexec, class/constructor, ambiguous/global namespace resolution, indirect delivery or caller context remains unproved; available source is not relabeled missing."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/array_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.gsc",
+        "sha256": "ba277804b598a6cbaac5e440e35cd9ca40e31a8129b3ef80238fccb2910c2999",
+        "git_blob_sha1": "a1f7edf5a22be05509e8d0802890ee5a61abc83a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/flagsys_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.gsc",
+        "sha256": "b5c793b6299033643940befd7f709316e0a8189ccc28c77b579a26c53cf461fc",
+        "git_blob_sha1": "832a18f954a3f9101a08fa0aa57dcf308bbcbb5e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/match_record.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/match_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/match_record.gsc",
+        "sha256": "c16f9e7924ac1fab7e75883ac4546e99bb306f7378b08996a9650827582d2a38",
+        "git_blob_sha1": "541ed5e9ca06a6753b85746fd23e9236d5a3f528"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/player/player_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_shared.gsc",
+        "sha256": "428b62d7e85affbe5514f468e4ee92c7711f91bc66ab9eebbae51dd3d6af2490",
+        "git_blob_sha1": "7d3e8e0c8414d3950a27c2ec9184fa586dc43c46"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/item_world.gsc",
+      "original_line": 10,
+      "output": "src/scripts/mp_common/item_world.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/item_world.gsc",
+        "sha256": "0b178acb2a2ed3ffb1128337283133c6a3debaaa0d9267d5c825f59d1d28eb61",
+        "git_blob_sha1": "449237e865beadabcddcd0c22897a42bfd364d96"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/wz_ai_utils.gsc",
+      "original_line": 11,
+      "output": "src/scripts/wz_common/wz_ai_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/wz_ai_utils.gsc",
+        "sha256": "469ae2d93c631a99492295839bc535ea58296646dd42c6d018e37a46e2af16b3",
+        "git_blob_sha1": "c09b49433ab4ec1d77cc4da3e1b52bc4987cabdf"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0119.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/wz_ai_zombie.gsc",
+      "original_line": 12,
+      "output": "src/scripts/wz_common/wz_ai_zombie.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/wz_ai_zombie.gsc",
+        "sha256": "f8b7271976be8047c1e15fe84962ac420b5233e63491e2b62e2a1175808aacd0",
+        "git_blob_sha1": "d2370a679fbacf63800a2b84decda023ba688efa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0120.json"
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "046f84823fa6dca2a4731a422fd7ee6bb748067c0a2a7fbc846e18b13c71c500",
+      "citations": [
+        {
+          "line_start": 1418,
+          "line_end": 1426,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_c3bb62c1",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/12",
+        "decision_canonical_sha256": "a0f05ee86f8f1aa2c89d49959308af5e549a393d1523ca9c7ad61b2ea12a351c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/725",
+        "record_sha256": "df5631be7806496dfcd6133847fb732590b27a689fb1a364bac1c9b36b903925"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "37503f21ff858c0d0c10c8e532fb3eb343335d13d81bf420161bc1318f734aad",
+      "citations": [
+        {
+          "line_start": 1390,
+          "line_end": 1398,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_2826217a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/302",
+        "decision_canonical_sha256": "f92d5c833d9c9eb5e6d12b08b2a65e069b8a2686e3e838ac8fee37f96602cc28",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/718",
+        "record_sha256": "7dba348814440d9989523420747bee4c6c4b824b4db3179d02a10b88f224a401"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3d4ba911be86fc8c86a7d2d3dc6a60282349f7eedce62569e6874fc79ffe3eeb",
+      "citations": [
+        {
+          "line_start": 1432,
+          "line_end": 1464,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_462b41e2",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/133",
+        "decision_canonical_sha256": "7020607339e6edacd57629df5c2e95d59de9a1f1bf601a61583138258e17467e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/719",
+        "record_sha256": "2138206c1407953561287f9d9f0ec2fb3558fb35f94a5c03c3b5d8206600c664"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3ff14ee0614a80bce9edd12ff3292a6c5781a90e5914eca5b7219bee551213fd",
+      "citations": [
+        {
+          "line_start": 29,
+          "line_end": 138,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/135",
+        "decision_canonical_sha256": "1ccede2c0c698d4db563d0cb4674af992c22e3e7d3b7c55a3644859f584c87f3",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1038",
+        "record_sha256": "573f618b364008d00f726a0573804a904aabc233d6cb35d51534f9250e7d6204"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7195c06378a7e2597189d48039778fe0e6ebe4ba0d4ad6cb0b44db34f9cbc546",
+      "citations": [
+        {
+          "line_start": 20,
+          "line_end": 23,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/517",
+        "decision_canonical_sha256": "897c95211a6355014060bfadad085f9727fcd41d154abc3b6d51680ab63d1b48",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/717",
+        "record_sha256": "a5c9b8e97ecf5028f62e78e60dec609f62f78a24549d069253f3668a3b29dd39"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7456ec5257a7485ef6fb7d6ebfc011a6446371f13eb727fadfc42d83c33183fe",
+      "citations": [
+        {
+          "line_start": 1257,
+          "line_end": 1271,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_bbff22d",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/526",
+        "decision_canonical_sha256": "7319924fb60874decfd3f34dd73827a7e4f6dda7fa93f79cc83078200986ce47",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/724",
+        "record_sha256": "83172226445e46ff9a0ae5775a1938247db3153284aa9adb7a59ce22a7e39650"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a86c3fd9051932cc4a9a44ff47128dedc08bd0cca6c1b99f4fa791cd9f4f1095",
+      "citations": [
+        {
+          "line_start": 1308,
+          "line_end": 1316,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_6c75dee3",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/917",
+        "decision_canonical_sha256": "173ba9ea7cde80277972ca0e11fa0d24bce4e943f043ae06bbdb16a5196a1b87",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1040",
+        "record_sha256": "b4eb0b673323e292ca91eadf71276a1dfc779a8c8f89c550eac8c616e29df61d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ace1f500985bc6381fc5676dcb4096b1ff25042f777734f365248f3ab5b7144e",
+      "citations": [
+        {
+          "line_start": 1294,
+          "line_end": 1302,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_d6258153",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/346",
+        "decision_canonical_sha256": "bc0446fdd806358f8fce88745af52293faf46d615e5f7a1d260355f4c9345a6d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/726",
+        "record_sha256": "d26ea6fbd6effa4010444204124aa5550a05461269de294e3458457f6c9f805f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "adfe19b0843dd4730ca03412cfa82e2302ad9952cfdb5430b0a7464d01a3b6c4",
+      "citations": [
+        {
+          "line_start": 1336,
+          "line_end": 1369,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_a2ac506b",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/951",
+        "decision_canonical_sha256": "1986dcd3a3ca23a3c867e0e8225e3333b6b91c592fbf6437ad518e96e7d31279",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/722",
+        "record_sha256": "d7887d475929b9184dfc752e9beea081af3f4920c578d0637927a28384a31a1a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c0eb1f5c4d49babaf194eb4af746b1d67a9e337d6cb9b655080d23dd3cb6dfe8",
+      "citations": [
+        {
+          "line_start": 78,
+          "line_end": 79
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:layer-diff",
+        "answer": "Layer diff, exact with JSON pointers. FRONTEND playlist 178 (categories/warzone.json rules 8360-8592, 17 rules, order as stored): SET_DVAR #g_hitdet_logging=1 env1 (8362-8367); SET_DVAR #ui_showwzaar=1 (8371-8377); #hash_6b1ec01fa78af670=1 (8380-8392); SET_DVAR #hash_1afe8b91b7b953c3=100 (8395-8401); #startplayers=80 mask7 (8404-8416); #hash_35c2d850e39fa704=80 mask7 (8419-8431); #hash_6cf5f53d1fbb1066=1 (8434-8446); #hash_3083d02ea0f5761c=0 (8449-8461); #hash_3778ec3bd924f17c=1 (8464-8476); #hash_68f4f3fd681ae3ea=1 (8479-8491); #hash_6c72667787a1fcc9=1 (8494-8506); #evolution_interval=16 mask1 (8509-8521); #wzenablewallbuyasylum=1 (8524-8536); #wzenablesentrygun=0 mask5 (8539-8551); #wzzombiesbreakdoors=1 (8554-8566); SET_DVAR #hash_35d9cdeecb132532=1 (8569-8575); #wzlootlockers=1 (8578-8590). TU23 playlist 178 (8719-8980, 19 rules): the same 17 name/value pairs but startplayers and has [excerpt; exact source record identified separately]",
+        "behavior": "layer-diff: full enumeration of 17-rule frontend entry, 19-rule TU23 entry (2 added masked rules + 2 mask changes + unke0), 28-rule gametype def; overlap/equality/changed-vs-fallback facts recorded.",
+        "unknowns": [
+          "platformMask 7/6/5/2/1/0 and environmentMask platform mapping",
+          "Which playlist package the original build selects (frontend vs TU23)",
+          "Unnamed platformMask-0 rule and unke0 semantics",
+          "SET_DVAR rule native application"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00865",
+          "sha256": "c33b8644b4062f12fd90027bf664007a8f8f74ba924c4f94e563193164f41cf6"
+        },
+        "report_pointer": "/unit_reviews/15",
+        "decision_canonical_sha256": "916a4046ca817203f1988516f731e181c4343832b0685e835b907ddaf9e8b882",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written current field of the exact frozen full correction wrapper.record, its original complete claim and records, exact original/current projection joins, declarations/receivers/effects/branches/returns/callbacks/callers/providers/error and provenance limits. Frontend/TU23/gametype stored rule comparison. Preserved raw history is not promoted to current acceptance.",
+        "limitations": [
+          "Only the exact written current recovered-source/static-record scope is reviewed. No exact PS4 build, original Lua/GSC VM, native provider, loader, effective setting, asset/service or game/runtime behavior is proved.",
+          "Historical author/status/provenance text is retained as historical evidence. Unproved original identities, settings and provider bindings remain unknown; prior negative verdicts are preserved.",
+          "Successful hashes, pointer joins, display checks and source-expression controls are supporting checks; the substantive normal/boundary/error comparisons supply the semantic verdict."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00718",
+        "sha256": "528d22ef0e729b786309ce996266a85c33f844fec69c145675bf8390046aaaeb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c9ce11e4ca4c8e5f72198d6dc8894cd456c635c4fe1bf49551d88a44b2f665c9",
+      "citations": [
+        {
+          "line_start": 1470,
+          "line_end": 1581,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_5f0d105a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1114",
+        "decision_canonical_sha256": "7e586ff90876a314cf3cc3d742ca61b210132bea38e67f33bf13edb3ad013797",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/720",
+        "record_sha256": "255db76c7e25c063aeae142443fad58dbb2629ee3659de6d36ba93f945ecf561"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ced80278bf4c9c8fae9074e744c66953544f54e001777b1cecc78ba86bbca777",
+      "citations": [
+        {
+          "line_start": 1277,
+          "line_end": 1288,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_aacb2027",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/951",
+        "decision_canonical_sha256": "2a3bcac91425e0566deed69c0a3a3a3859ff8dc25a7cbd0468f333a0f3d83977",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/723",
+        "record_sha256": "d242fbc45cd875adba59db63289dea8b2835c0c7dfe9e9c4672510ed6d656136"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d06099c39f479e74f40c324d0c8cd5903cb6693f28b071a91a501ab25f2a321f",
+      "citations": [
+        {
+          "line_start": 1308,
+          "line_end": 1316,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_6c75dee3",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1148",
+        "decision_canonical_sha256": "fd9199d25d2f04b573e106180bca76898041e5dd94491df74ae0dc22cd1a4f79",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/721",
+        "record_sha256": "0be8dc7af66f7cc51d1acfc8df06f76dc416ed93ea4a2e3a1183fabe667a7b17"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e72e715a14117541a1b1268b090c9fd561dabc74832c2cc5201d685772e4c3b3",
+      "citations": [
+        {
+          "line_start": 29,
+          "line_end": 138,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/468",
+        "decision_canonical_sha256": "e667ede28a5a39b5cfd9e5914a69c77dd199c09cdae4d90f31d90909c3910b3b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/716",
+        "record_sha256": "93f92a97742d56f9d20f8537497430c90dd8c14b89530b90a8f03895b5c12fb2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fa4c07b04b60d5039d6b1e1049e5f6281afaaf3f9d8e687f193b6f230857446a",
+      "citations": [
+        {
+          "line_start": 1294,
+          "line_end": 1302,
+          "sha256": "4db2c8513df298785383c763591d810b8c28c72657a174940df75fa6d4936d28"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_d6258153",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/510",
+        "decision_canonical_sha256": "1421bb7d8a7fe2f3fa43b4ddd313a4e59b41f22dced8a4134a5349f104f0b060",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1039",
+        "record_sha256": "5312a0b9cd9c7d8f8a2ade5b94d7cd73b4532fa00e796d82b829b91ddda4dbfa"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "10b641dbb2e663a2a9b5b142c5a22a84333ae6858b6501e5356cf764d840187e",
+      "citations": [
+        {
+          "line_start": 1418,
+          "line_end": 1426,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_c3bb62c1",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01930",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/281"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/252",
+        "record_sha256": "fd87df495235f76f704a12f5def220462ecb76c5b79592892999fce81a9bd168"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "20f8b3fbd24fd3d2963d26fb152d6edc0bc931296e93b6d9745413877c7d0fe8",
+      "citations": [
+        {
+          "line_start": 1277,
+          "line_end": 1288,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_aacb2027",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01926",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/277"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/249",
+        "record_sha256": "b36fc55dc1b9d049747a2ac2b4d20e0499140578facb20f383510b95b07cce8f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "57e0b4146071acf7bf1abf3f03724770b40297aec71d4780462068040cab0b43",
+      "citations": [
+        {
+          "line_start": 1336,
+          "line_end": 1369,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_a2ac506b",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01928",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/279"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/250",
+        "record_sha256": "537b44c14acdfe682c50b3c569e8061a6be7b9d225ab2b32d7bcd0a5555eb464"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "cfb7dc7387d99a124e7f4fdf09ede6ca555ac773b592401bc7c4c434a7889736",
+      "citations": [
+        {
+          "line_start": 1432,
+          "line_end": 1464,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_462b41e2",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01931",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/282"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/253",
+        "record_sha256": "7c2073142e77d521c654e53cd2fbd938af749e3cbec8c608ea513499a90e132b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dfcd3119aba6f6a9dbe479bbecf009c1b09aa00023fcef5e986c743ef9bf2c04",
+      "citations": [
+        {
+          "line_start": 1257,
+          "line_end": 1271,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_bbff22d",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01925",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/276"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/248",
+        "record_sha256": "a03fdc727a35900b6a8a0acd59ccd802eff2b9fe22ea38b651edc7321dc54bb5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e6bb0756da0159a76c6e610752a466cbc07946c6f272615f44bc568293a4a657",
+      "citations": [
+        {
+          "line_start": 1390,
+          "line_end": 1398,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_2826217a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01929",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/280"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/251",
+        "record_sha256": "fc27ad74fabcabb8197c91d0b33540dbee24301f77cfe669dfb5f452882f0505"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ec69862f19b43d70a9bd2a50cdfb8f80a339136e4000876e5128471291de50f9",
+      "citations": [
+        {
+          "line_start": 20,
+          "line_end": 23,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01924",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/275"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/247",
+        "record_sha256": "dc2bebe31f52d0976dfa19f5fc3c6cebfc106322e3811c3cabcfe9ffbd391362"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f8e1213b30844d6b7b43f11b6a13d81bcee51c97ee315b4518f99b3d261f0058",
+      "citations": [
+        {
+          "line_start": 1470,
+          "line_end": 1581,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_5f0d105a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Dynamic invocation targets/values remain runtime-dependent; nominal source candidates do not prove dispatch.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01932",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/283"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/254",
+        "record_sha256": "3f1fc3be3221b10116a55f716d5b82f452cb93ab1b4cde63b692f3935d96fcb5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "14cf6abd8a00b8768449d4d41b589a078a56854c7e8fd621f9a354951ee7ef7a",
+      "citations": [
+        {
+          "line_start": 1336,
+          "line_end": 1369,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_a2ac506b",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01928",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/279"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/250",
+        "record_sha256": "537b44c14acdfe682c50b3c569e8061a6be7b9d225ab2b32d7bcd0a5555eb464"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "332cf52dc9f784e82864132126463fcdf088373f03496fb9022981731125914b",
+      "citations": [
+        {
+          "line_start": 1257,
+          "line_end": 1271,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_bbff22d",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01925",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/276"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/248",
+        "record_sha256": "a03fdc727a35900b6a8a0acd59ccd802eff2b9fe22ea38b651edc7321dc54bb5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3e679f45a9fc260877e64821b527c3db9595e6a8c8eb44ea844124b982068d50",
+      "citations": [
+        {
+          "line_start": 1390,
+          "line_end": 1398,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_2826217a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01929",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/280"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/251",
+        "record_sha256": "fc27ad74fabcabb8197c91d0b33540dbee24301f77cfe669dfb5f452882f0505"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "695cd1af8d83c7214fc1a688f033e24665f7ad3bea7d9568dbb4d0cb76f99d5e",
+      "citations": [
+        {
+          "line_start": 1418,
+          "line_end": 1426,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_c3bb62c1",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01930",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/281"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/252",
+        "record_sha256": "fd87df495235f76f704a12f5def220462ecb76c5b79592892999fce81a9bd168"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8266e2e7e8990367a58ff127fbb40ce50f25945a5ade5f52f0f1ba8e4af15c6c",
+      "citations": [
+        {
+          "line_start": 1277,
+          "line_end": 1288,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_aacb2027",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01926",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/277"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/249",
+        "record_sha256": "b36fc55dc1b9d049747a2ac2b4d20e0499140578facb20f383510b95b07cce8f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bd44fb2d853bbe489047c048f09e146d2c4169643333e20b3b0a22809e3312eb",
+      "citations": [
+        {
+          "line_start": 20,
+          "line_end": 23,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01924",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/275"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/247",
+        "record_sha256": "dc2bebe31f52d0976dfa19f5fc3c6cebfc106322e3811c3cabcfe9ffbd391362"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d3c4365c53b3018a8985d9582a44ad345c6fae7fec666add9219c8aa5850fe3f",
+      "citations": [
+        {
+          "line_start": 1470,
+          "line_end": 1581,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_5f0d105a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Dynamic invocation targets/values remain runtime-dependent; nominal source candidates do not prove dispatch.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01932",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/283"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/254",
+        "record_sha256": "3f1fc3be3221b10116a55f716d5b82f452cb93ab1b4cde63b692f3935d96fcb5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dfadc73ad80328511c632b05e204941ad31c631d0e5694edb8068a841db5b515",
+      "citations": [
+        {
+          "line_start": 1432,
+          "line_end": 1464,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ai_zonemgr.gsc::function_462b41e2",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01931",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/282"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/253",
+        "record_sha256": "7c2073142e77d521c654e53cd2fbd938af749e3cbec8c608ea513499a90e132b"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/5180394498caabf3.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0118",
+    "AV0119",
+    "AV0120"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/9f0e6247135669ed-001.json",
+      "sha256": "33355ca22dd1ce63a582bba74f742934a395949798e414ce7a9975848bd40620"
+    }
+  ]
+}

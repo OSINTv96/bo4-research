@@ -1,0 +1,233 @@
+{
+  "module": "src/scripts/core_common/vehicle_shared.gsc",
+  "identity": "scripts/core_common/vehicle_ai_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "vehicle_ai",
+  "witnesses": [
+    {
+      "line": 1039,
+      "text": "        self vehicle_ai::set_state( \"spline\" );",
+      "caller": "get_on_path",
+      "caller_span": [
+        985,
+        1043
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1035,
+          "opening_line": 1038,
+          "ending_line": 1040,
+          "text": "if ( isai( self ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_state",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1148,
+          1154
+        ]
+      ]
+    },
+    {
+      "line": 1052,
+      "text": "    state = self vehicle_ai::get_previous_state();",
+      "caller": "function_af0fc980",
+      "caller_span": [
+        1049,
+        1060
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_previous_state",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1221,
+          1229
+        ]
+      ]
+    },
+    {
+      "line": 1059,
+      "text": "    self vehicle_ai::set_state( state );",
+      "caller": "function_af0fc980",
+      "caller_span": [
+        1049,
+        1060
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_state",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1148,
+          1154
+        ]
+      ]
+    },
+    {
+      "line": 1455,
+      "text": "    if ( !vehicle vehicle_ai::function_6c17ee49() )",
+      "caller": "init",
+      "caller_span": [
+        1305,
+        1485
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_6c17ee49",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1310,
+          1321
+        ]
+      ]
+    },
+    {
+      "line": 4898,
+      "text": "        if ( vehicle vehicle_ai::has_state( \"off\" ) )",
+      "caller": "function_715433be",
+      "caller_span": [
+        4894,
+        4903
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 4895,
+          "opening_line": 4897,
+          "ending_line": 4902,
+          "text": "if ( isbot( bot ) && n_seat == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "has_state",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1138,
+          1142
+        ]
+      ]
+    },
+    {
+      "line": 4900,
+      "text": "            vehicle vehicle_ai::set_state( \"off\" );",
+      "caller": "function_715433be",
+      "caller_span": [
+        4894,
+        4903
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 4897,
+          "opening_line": 4899,
+          "ending_line": 4901,
+          "text": "if ( vehicle vehicle_ai::has_state( \"off\" ) )"
+        },
+        {
+          "line": 4895,
+          "opening_line": 4897,
+          "ending_line": 4902,
+          "text": "if ( isbot( bot ) && n_seat == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_state",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1148,
+          1154
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0130",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/vehicle_ai_shared.gsc",
+    "sha256": "3a8f29f5cef0c2dd29c563961ce9736225bcf90bff0e9dd958e7dea7c42f8320",
+    "git_blob_sha1": "b29ca2bbbbbbb89012215f94a011154b6bbbe908",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/vehicle_ai_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1039,
+    1052,
+    1059,
+    1455
+  ],
+  "required_callee_functions": [
+    "function_6c17ee49",
+    "get_previous_state",
+    "set_state"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/vehicle_ai_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03911",
+        "to": "N04664",
+        "line": 1455
+      },
+      {
+        "from": "N04660",
+        "to": "N04903",
+        "line": 1039
+      },
+      {
+        "from": "N05371",
+        "to": "N05599",
+        "line": 1052
+      },
+      {
+        "from": "N05371",
+        "to": "N04903",
+        "line": 1059
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

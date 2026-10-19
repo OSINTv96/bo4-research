@@ -1,0 +1,178 @@
+{
+  "module": "src/scripts/core_common/gameobjects_shared.gsc",
+  "identity": "scripts/core_common/weapons_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "weapons",
+  "witnesses": [
+    {
+      "line": 1746,
+      "text": "        self weapons::force_stowed_weapon_update();",
+      "caller": "give_object",
+      "caller_span": [
+        1677,
+        1748
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1742,
+          "opening_line": 1745,
+          "ending_line": 1747,
+          "text": "if ( isdefined( object.visiblecarriermodel ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "force_stowed_weapon_update",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          556,
+          561
+        ]
+      ]
+    },
+    {
+      "line": 2285,
+      "text": "        self weapons::detach_all_weapons();",
+      "caller": "take_object",
+      "caller_span": [
+        2281,
+        2362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2282,
+          "opening_line": 2284,
+          "ending_line": 2286,
+          "text": "if ( isdefined( object.visiblecarriermodel ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "detach_all_weapons",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/ecfad31172d04e53.json",
+          "pointer": "/claims/6",
+          "selection_id": "edccb5dd9f3682eafc68ade4b86877f9c0cd7afc0a9671443b573179cdc5c5b9",
+          "citation": {
+            "line_start": 2331,
+            "line_end": 2336
+          }
+        },
+        "entry_function": "take_object",
+        "entry_span": [
+          2281,
+          2362
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          588,
+          628
+        ]
+      ]
+    },
+    {
+      "line": 2348,
+      "text": "        self weapons::force_stowed_weapon_update();",
+      "caller": "take_object",
+      "caller_span": [
+        2281,
+        2362
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2344,
+          "opening_line": 2347,
+          "ending_line": 2349,
+          "text": "if ( isdefined( object.visiblecarriermodel ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "force_stowed_weapon_update",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/ecfad31172d04e53.json",
+          "pointer": "/claims/6",
+          "selection_id": "edccb5dd9f3682eafc68ade4b86877f9c0cd7afc0a9671443b573179cdc5c5b9",
+          "citation": {
+            "line_start": 2331,
+            "line_end": 2336
+          }
+        },
+        "entry_function": "take_object",
+        "entry_span": [
+          2281,
+          2362
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          556,
+          561
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0230",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/weapons_shared.gsc",
+    "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+    "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    2285,
+    2348
+  ],
+  "required_callee_functions": [
+    "detach_all_weapons",
+    "force_stowed_weapon_update"
+  ],
+  "output": "src/scripts/core_common/weapons_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/weapons_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N01082",
+        "to": "N03083",
+        "line": 2285
+      },
+      {
+        "from": "N01082",
+        "to": "N03084",
+        "line": 2348
+      },
+      {
+        "from": "N05290",
+        "to": "N03084",
+        "line": 1746
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

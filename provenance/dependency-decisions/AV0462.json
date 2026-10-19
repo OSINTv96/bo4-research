@@ -1,0 +1,113 @@
+{
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "identity": "scripts/mp_common/devgui.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "devgui",
+  "witnesses": [
+    {
+      "line": 2772,
+      "text": "                    level.players[ i ] devgui::devgui_give_weapon( getweaponname( level.dev_equipment[ devgui_int ] ) );",
+      "caller": "equipment_dev_gui",
+      "caller_span": [
+        2756,
+        2778
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2769,
+          "opening_line": 2770,
+          "ending_line": 2773,
+          "text": "i++ )"
+        },
+        {
+          "line": 2765,
+          "opening_line": 2768,
+          "ending_line": 2776,
+          "text": "if ( devgui_int != 0 )"
+        },
+        {
+          "line": 2760,
+          "opening_line": 2763,
+          "ending_line": 2777,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "devgui_give_weapon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          655,
+          840
+        ]
+      ]
+    },
+    {
+      "line": 2800,
+      "text": "                    level.players[ i ] devgui::devgui_give_weapon( getweaponname( level.dev_grenade[ devgui_int ] ) );",
+      "caller": "grenade_dev_gui",
+      "caller_span": [
+        2784,
+        2806
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2797,
+          "opening_line": 2798,
+          "ending_line": 2801,
+          "text": "i++ )"
+        },
+        {
+          "line": 2793,
+          "opening_line": 2796,
+          "ending_line": 2804,
+          "text": "if ( devgui_int != 0 )"
+        },
+        {
+          "line": 2788,
+          "opening_line": 2791,
+          "ending_line": 2805,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "devgui_give_weapon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          655,
+          840
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0462",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/devgui.gsc",
+    "sha256": "aa9c5e6b4ec428c7974d5040710fe96a3edcf56c5f51f598cb044a71cf7747cb",
+    "git_blob_sha1": "4b2f2f3bee89a4c1fc1ebb9cc9ed33ee51beebf1",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

@@ -1,0 +1,96 @@
+{
+  "module": "src/scripts/killstreaks/mp/killstreak_vehicle.gsc",
+  "identity": "scripts/killstreaks/remote_weapons.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "remote_weapons",
+  "witnesses": [
+    {
+      "line": 42,
+      "text": "    remote_weapons::registerremoteweapon( bundle.ksweapon.name, #\"\", &function_c9aa9ee5, &function_8cb72281, 0 );",
+      "caller": "init_killstreak",
+      "caller_span": [
+        38,
+        51
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "registerremoteweapon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          74,
+          82
+        ]
+      ]
+    },
+    {
+      "line": 124,
+      "text": "    hacker remote_weapons::useremoteweapon( vehicle, bundle.ksweapon, 1, 0 );",
+      "caller": "function_2df6e3bf",
+      "caller_span": [
+        119,
+        128
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "useremoteweapon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          88,
+          106
+        ]
+      ]
+    },
+    {
+      "line": 241,
+      "text": "    remote_weapons::useremoteweapon( vehicle, bundle.ksweapon.name, 1, 0 );",
+      "caller": "activate_vehicle",
+      "caller_span": [
+        187,
+        266
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "useremoteweapon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          88,
+          106
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0514",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/killstreaks/remote_weapons.gsc",
+    "sha256": "3ca00919703f550c80f762daebc0c5efc520261384d37129fd7a44448179b5c2",
+    "git_blob_sha1": "d1c267be2536c402b795617df6496e773847cc0d",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/killstreaks/remote_weapons.gsc"
+}

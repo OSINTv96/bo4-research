@@ -1,0 +1,145 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/mp/gadgets/gadget_smart_cover.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "175a03eee135900d4e7b99026484da954246a9eac7af5511b3c338a1b1ef2850",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::__init__system__",
+        "behavior": "Server-side autoexec registration for the MP smart-cover gadget. function autoexec __init__system__(): system::register( #\"smart_cover\", &__init__, undefined, undefined ) â€” local __init__ (unit 457) registered under system entry name smart_cover with undefined extra args. No other statements.",
+        "unknowns": [
+          "Entry name differs between the two twin files (gadget_smart_cover client vs smart_cover server) â€” as printed"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/455",
+        "record_sha256": "8f9156c4e76f23dc98b48bfef71a860da6f33f23165d920f89c0282d12ed6050"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "624e17f415390e244703c141e77bf8ad7bbfa8f8fde8ffe7761dbbbcc33e45e7",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::__init__",
+        "behavior": "MP smart-cover server init (in source order): 1) init_shared() â€” delegates to the shared gadgets/gadget_smart_cover.gsc init (owned elsewhere in this packet); 2) function_649f8cbe( &onsmartcoverplaced ) â€” installs the local placed hook (opener unqualified, outside packet); 3) function_a9427b5c( &function_a430cceb ) â€” installs the local destroyed hook (unqualified, outside packet); 4) level.var_b57c1895 = &function_9a2b3318 â€” publishes the protected-zone deploy veto consumed by the shared placement check (per prior notes consumed by function_b7f5b1cc in the shared file).",
+        "unknowns": [
+          "function_649f8cbe / function_a9427b5c resolution and the consumer function_b7f5b1cc live in the shared gadgets/gadget_smart_cover.gsc (excluded dependency of this packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/456",
+        "record_sha256": "0ccdf0c9cbb4b1e7fb6347ff8a22e029de349f3cf38c54088b14e6a6d611409b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "92819f0199002a000a645c0ced022b752e9d017b4c9c5329910cc0b20eb0701b",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::addprotectedzone",
+        "behavior": "Adds a protected objective zone: array::add( level.smartcoversettings.objectivezones, zone ) (array_shared generic add). No validation, no returns, no other state.",
+        "unknowns": [
+          "level.smartcoversettings lifetime owned by the shared smart-cover init (excluded dependency); adding a zone before it exists is not guarded here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/460",
+        "record_sha256": "195f04a852bf083abb16940337eadbd83e8a7bb9ec5e34234fa0d3d110e15487"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "9e4f009defbd5db699439f11f1efb3b9088e055d53095ca564fa6834bd669e3a",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::removeprotectedzone",
+        "behavior": "Removes a protected objective zone: arrayremovevalue( level.smartcoversettings.objectivezones, zone ). No returns, no other state.",
+        "unknowns": [
+          "Same ownership note as unit 461"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/461",
+        "record_sha256": "7ebb38e42eb00f8c5bd8173a718753792b2018e3456789a47d82f62ffffc72fa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "cc8afb91f2409c78a401a9bf2690a309369db72167c679c7c4059f73584943fd",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::onsmartcoverplaced",
+        "behavior": "Smart-cover placed hook (function(smartcover)) wired via function_649f8cbe in __init__. Two statements: 1) self battlechatter::function_bd715920( smartcover.weapon, undefined, smartcover.origin, smartcover ) â€” battlechatter module call (mp_common file, outside packet; boundary noted per prior notes); 2) self callback::callback( #\"hash_70eeb7d813f149b2\", { #owner:self, #cover:smartcover.smartcover } ) â€” generic callbacks_shared dispatch announcing the placed cover (owner = the placing player self). No returns/state.",
+        "unknowns": [
+          "battlechatter::function_bd715920 semantics outside packet",
+          "Consumer of the hash_70eeb7d813f149b2 callback is a registered callbacks_shared listener, not in packet",
+          "smartcover.smartcover sub-object producer is the shared deployment code outside the twin"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/457",
+        "record_sha256": "8c64a1f9393e7b1abba982ef25cbc9d101c3a3578b74b745c8d833bc7d77e165"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "e04cd17e47889447524a1264faa02e2d1978c7001f8b82660d03f95f0d542d5d",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::function_a430cceb",
+        "behavior": "Smart-cover destroyed hook (function(attacker, weapon)) wired via function_a9427b5c in __init__ and consumed by the shared onkilled path per prior notes. concertinawire = self (decompiler local re-using the concertina name for the smart-cover entity). Attacker re-resolution: if isdefined( level.figure_out_attacker ) -> attacker = self [[level.figure_out_attacker]]( attacker ) (level-held resolution fn, assignment outside packet). Credit branch: isdefined(attacker) && isplayer(attacker) && concertinawire.owner !== attacker && isdefined(weapon) -> attacker stats::function_e24eec31( weapon, #\"hash_1c9da51ed1906285\", 1 ) (stats module = core_common player_stats, cross-owner of the HMH progress packet; destroy/credit event hash with count 1). Finally: self callback::callback( #\"hash_15858698313c5f32\", { #owner:self.owner, #cover:self } ) â€” destroyed-cover dispatch (cover value = the entity itself). No returns.",
+        "unknowns": [
+          "stats::function_e24eec31 (player_stats module) is owned by a different packet; hash_1c9da51ed1906285 is an event/medal key whose mapping lives there",
+          "Consumer of the hash_15858698313c5f32 callback registered outside packet",
+          "level.figure_out_attacker assignment site outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/458",
+        "record_sha256": "7b38a726cd0926c5a57c6cf9a1fd5355028ae31d91bacf9d02a5e71ce61df1d7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e2389e42a79dc86e.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "f234c2ba39e2c22451cf7e7909f08effbf5b90a00851d101cd0fe9f48d09a93b",
+      "summary": {
+        "unit_id": "scripts/abilities/mp/gadgets/gadget_smart_cover.gsc::function_9a2b3318",
+        "behavior": "Protected-zone deploy veto (function(origin, angles, player), bool) published as level.var_b57c1895 in __init__. Gate: if isdefined( level.smartcoversettings.bundle.var_bc78f60e ) (nested bundle field): length2 = ( var_bc78f60e + level.smartcoversettings.bundle.maxwidth )^2 (both fields on the same bundle); foreach protectedzone in level.smartcoversettings.objectivezones: skip undefined; dist2 = distance2dsquared( origin, protectedzone.origin ); if dist2 < length2 -> return false (too close to an objective-protected zone). Otherwise return true. angles and player parameters unused.",
+        "unknowns": [
+          "Bundle field values var_bc78f60e and maxwidth are script-bundle data not in corpus",
+          "level.smartcoversettings population (bundle/ objectivezones init) is in the shared gadgets/gadget_smart_cover.gsc init_shared, excluded dependency"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/459",
+        "record_sha256": "2284cfebd8e1dc163ac0fb87dcb64cd1523949c0d3fe379fcbd20919a4817433"
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/collapse_grenade.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/e20ee2913bac3d92.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "402ded3c90ef636fe19034b354b4483f3781237c4fa63406019047644726b972",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::__init__",
+        "behavior": "Client system init: registers two replication callbacks. (1) clientfield::register( \"scriptmover\", \"collapsesphereflag\", 1, 1, \"int\", &function_fe37390, 0, 0 ) â€” watches the collapse sphere flag on scriptmover entities. (2) clientfield::register( \"toplayer\", \"playerincollapsegrenade\", 1, 1, \"int\", &function_6f48ad35, 0, 0 ) â€” watches the per-player inside-collapsed-area flag. Both with size 1, type int, and two numeric options (0, 0).",
+        "unknowns": [
+          "Meaning of the trailing (0,0) register options (e.g. send-to-host/priority bits) is engine convention, not documented here",
+          "Paired collapse_grenade.gsc is available in the original packet: function_5df80e43 writes collapsesphereflag1, playerincollapsegrenade1 on entry and0 on exit; function_adc9aab9 writes playerincollapsegrenade0 on cleanup. Actual PS4 replication and callback delivery remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00799",
+        "sha256": "1385421d38bd3149572a164e6fb46c4dfe331b6c520e513c66c57aefc095914e",
+        "pointer": "",
+        "record_sha256": "8e14e9e85b2a238f499bc23f3753e163c06cbb6d79c3c19e6b4109e33dad1ab7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e20ee2913bac3d92.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "66ae7b074d229505b3b28b96efb2cd0feea9cd2dc4e0c3eb12625af92ce8f065",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the collapsegrenade client system: system::register(#\"collapsegrenade\", &__init__, undefined, undefined) â€” &__init__ is passed as the init callback; invocation timing/count remain unresolved; main is undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init callback is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00800",
+        "sha256": "15bc188830f90321ea5f1447391926ed6f27b8366da45834693dd273341d5a2f",
+        "pointer": "",
+        "record_sha256": "003d5d5dd91623cd985ea93b26511c2e83cf3e8f317d035e18a6eb2cd22f5082"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e20ee2913bac3d92.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "7787059012f87fcce8d8933769c17424246baad7cf5d5fb5ba9a4674cd3208a2",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::function_6f48ad35",
+        "behavior": "Clientfield callback for \"playerincollapsegrenade\" on the player (toplayer field). Branch on newvalue == 1 (player now inside the collapse bubble): self codeplaypostfxbundle( #\"hash_7c7ea03189fe65d8\" ); self.var_d8c2003e = playfxoncamera( localclientnum, \"wz/fx8_plyr_pstfx_barrier_lvl_01_wz\", (0,0,0), (1,0,0), (0,0,1) ) (full-screen on-camera barrier post FX, handle stored on player.var_d8c2003e); self.var_7b79495b = function_239993de( localclientnum, \"wz/fx8_player_outside_circle\", self, \"tag_origin\" ) (second FX effect played relative to the player, handle on player.var_7b79495b); return. Otherwise (newvalue != 1, leaving/none): self codestoppostfxbundle( #\"hash_7c7ea03189fe65d8\" ); if isdefined( self.var_d8c2003e ) -> deletefx( localclientnum, self.var_d8c2003e, 1 ); self.var_d8c2003e = undefined; if isdefined( self.var_7b79495b ) -> killfx( localclientnum, self.var_7b79495b ); self.var_7b79495b = undefined. Full enter/exit cleanup of both FX handles stored on the player entity.",
+        "unknowns": [
+          "function_239993de is an unresolved external (definition not in catalog); it returns an FX handle and receives an FX path plus entity/tag",
+          "Exact distinction between deletefx and killfx (native) is unverified",
+          "The paired GSC source is available in the original packet: function_5df80e43 writes playerincollapsegrenade1 on entry and0 on exit; function_adc9aab9 writes0 during cleanup. Original field replication, callback delivery and actual native FX cleanup remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00801",
+        "sha256": "d7b83adac342bf6c04616af01e55e7d89fe95d9b7b63ada8541688cac7c49d3a",
+        "pointer": "",
+        "record_sha256": "2c865756ddbe6b12212ab475a964bffc5b145bdf97f9128a321cde14a6c047e9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/e20ee2913bac3d92.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "f0d68d906dd4f424b508e7b93eacccda39423356f0416158509c703b4bf31e30",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::function_fe37390",
+        "behavior": "Clientfield callback for \"collapsesphereflag\" on scriptmover entities (signature: localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump). Unconditional on any value change: self playrenderoverridebundle( #\"rob_wz_boundary\" ) then self function_78233d29( #\"rob_wz_boundary\", \"\", \"Scale\", 1 ) â€” applies a render-override bundle named rob_wz_boundary and sets its 'Scale' parameter to 1. No newvalue check; no teardown in this callback. Shows the collapsing boundary sphere on the affected scriptmover.",
+        "unknowns": [
+          "function_78233d29 is an unresolved external (definition not in catalog); exact parameter meaning (bundle name, group, param name, value) inferred from call form",
+          "Whether the bundle is removed on entity deletion or another path is not shown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/19",
+        "record_sha256": "c0b9454c9a730ccee285ca5310d6969ab0ae303bd4c413057a45a81ed73930fa"
+      }
+    }
+  ]
+}

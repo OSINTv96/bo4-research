@@ -1,0 +1,336 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz/wz_open_skyscrapers_fixup.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5",
+  "git_blob_sha1": "a3ab2f92368dc94d34cca1d49a37e1ebadfd4dc6",
+  "output": "src/scripts/wz/wz_open_skyscrapers_fixup.gsc",
+  "output_sha256": "0f25de2817cb3a365aea0dd3ac5346bc59fe6a0e8e39195f1f6286579153234c",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/item_world_fixup.gsc",
+      "original_line": 1,
+      "output": "src/scripts/mp_common/item_world_fixup.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/item_world_fixup.gsc",
+        "sha256": "01f561c680f5d6ef309162ccafb42efebbe301ae0317b6c5b1d3b3e9479db108",
+        "git_blob_sha1": "17dd4c5d758a22bf99de43b3caa42d93ed950993"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "02ed270db94c15d1527efd0fac3b878660d4f0863f0c436ed6f3044de523efb8",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 22,
+          "sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_4305a789",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "3b1a529aaa2a56efec5c2e6a80ba8bb562067dde2a652573db5ecff9c87132a3",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1028",
+        "record_sha256": "b204a22369623181c096f825662826f2f2e2fc2a9ebaf26aadd74f6302a28d04"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "030aee84d9ccba4bf5aa0810df416da2cc6af76eecc5f1a60d72b41709974270",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 30
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:merge-precedence",
+        "answer": "PRECEDEnCE RESULT: the playlist-entry vs gametype-def vs SET_DVAR merge order is native and unprovable from recovered source, so ORDER IS NOT PICKED; this record gives (a) proved script-side assignment orders, (b) equal recovered table values with conditional application, and (c) conditional effective-value tables per read-site style. PROVED SCRIPT ORDERS: (1) team-based chain â€” mp_common/gametypes/globallogic.gsc init sets level.teambased=0 (187), then calls gametype::init() (198); mp_common/gametypes/gametype::init first reads the bundle15 and returns19-22 if it is undefined. Only with defined bundle does line24 set level.teambased=isgametypeteambased() AFTER, so within that qualified init chain the opaque native result overwrites the earlier hardcoded0 if that call returns normally; its relationship to the anchor isTeamBased true row16 remains an unresolved dependency â€” a real lat [excerpt; exact source record identified separately]",
+        "behavior": "merge-precedence: proved script assignment orders (teambased chain, heroes loadout override chain, NOT/OR comps), read-style taxonomy with per-site defaults, and conditional effective-value tables by key class; native layer order explicitly unresolved.",
+        "unknowns": [
+          "Native playlist rules application order and override semantics (playlist entry vs gametype def vs SET_DVAR vs online) â€” the exact subject of this question; retained partial/blocked per DELIVERY",
+          "getgametypesetting absent-key return (undefined vs 0 vs native default)",
+          "platformMask/environmentMask filter semantics",
+          "clamp-on-undefined behavior for scorelimit/timelimit/roundlimit and teamcount loop condition in globallogic init_teams when teamcount is absent"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "23841c5e8c6b98f1fece2582cddf1c088b53466f6c4e5cc6bc5c04d3bcc35d0a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00396",
+        "sha256": "bc807135200038c5de8e7b0cbbcf44aaec888eccb2703d8ade0757e4c20f1e33"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 33
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW  [excerpt; exact source record identified separately]",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/44",
+        "decision_canonical_sha256": "e090a003c8c9a785ba40b2eb30804e6171509357b6cca56dee35c067df39d48d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5a1c4f90dbae9364f00712ad7a91965552c36a6820be81d5bf182c815bd072a5",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 34,
+          "sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_c94723bd",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/242",
+        "decision_canonical_sha256": "1c03ce945e3faf105ed9ccac83323e6b315657280b158174d445f0362aeb5868",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of this exact current first-section record, including its source declaration/classification or bounded contract and historical status. No acceptance of a wider file, report or runtime claim.",
+        "limitations": [
+          "Recovered source and exact current written scope only; no original build/native/VM/service/game/runtime proof.",
+          "Stored callback, thread launch or event declaration does not establish invocation or completion order.",
+          "Historical acceptance labels are data; old actual authors/settings remain unknown where unproved."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/689",
+        "record_sha256": "01ebbdc2e955bf65b79cd49f94bf4fc4f68f178878d66b2c49266dfad37d323d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "68fb5e6531d4269508e5a670666d76e7043c22199fa811ca56bebeb43f27555a",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 13,
+          "sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/477",
+        "decision_canonical_sha256": "25c8102e935bad72a008b82c6b74cd0d0652b8dbcad864b9ed8a28db26920793",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1027",
+        "record_sha256": "d7dbe9973ad4365bd0b5cfbed480e2d361f71174ca4bf9480b8f019f1cab3f3b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a38485852d39be6ab0aeabe15485400aabe9ed0dbce8cc44b1c79182043394a8",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 13,
+          "sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/735",
+        "decision_canonical_sha256": "82b680fb856e52ffb9d45c4fef59eba51a22ce034282ca9e373db290d15a0652",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/687",
+        "record_sha256": "db7280e683e4c9025c294a39faefce788342b796476a132ae41e68a473281984"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c764d454ff35f555996f94a964bce1098697539ac9a279c20fc106c1a250458a",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 22,
+          "sha256": "0762a64959364c20a16bacb321ea2cf82c284f739665f3f9d07f32d30fe607c5"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_fixup.gsc::function_4305a789",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/401",
+        "decision_canonical_sha256": "dc9c5c1c427bfc22c64d6c38670c95cb63afb2cfda8fcf6a1661c372b4ee535d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/688",
+        "record_sha256": "418c02b3e3bbeef55d06df8eae2ea7fa982d5ba3eb43fbafd8ff5c8298e939a9"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/1ec34a3864f12ee4.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/69b0893ce14405c6-001.json",
+      "sha256": "7e4ff7179ae6560181c0679fe0fa388f9f03d7ebe8ab309e7dabc3e57b209a01"
+    }
+  ]
+}

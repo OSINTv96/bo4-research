@@ -1,0 +1,116 @@
+{
+  "module": "src/scripts/core_common/gameobjects_shared.gsc",
+  "identity": "scripts/core_common/hostmigration_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "hostmigration",
+  "witnesses": [
+    {
+      "line": 3668,
+      "text": "        hostmigration::waittillhostmigrationdone();",
+      "caller": "use_object_prox_think",
+      "caller_span": [
+        3364,
+        3670
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3368,
+          "opening_line": 3371,
+          "ending_line": 3669,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "waittillhostmigrationdone",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          232,
+          242
+        ]
+      ]
+    },
+    {
+      "line": 4736,
+      "text": "        hostmigration::waittillhostmigrationdone();",
+      "caller": "use_hold_think_loop",
+      "caller_span": [
+        4667,
+        4740
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 4672,
+          "opening_line": 4675,
+          "ending_line": 4737,
+          "text": "while ( self continue_hold_think_loop( player, waitforweapon, timedout, self.usetime ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "waittillhostmigrationdone",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          232,
+          242
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0227",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/hostmigration_shared.gsc",
+    "sha256": "e8c584dd7bfc9e3b8e15690f71008ba4f5d20ca2bf332f6b9bd4c67056d22a6a",
+    "git_blob_sha1": "b11600115eb37eff08cd1870116ec6695e593087",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/hostmigration_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    3668,
+    4736
+  ],
+  "required_callee_functions": [
+    "waittillhostmigrationdone"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/hostmigration_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04476",
+        "to": "N04597",
+        "line": 3668
+      },
+      {
+        "from": "N05300",
+        "to": "N04597",
+        "line": 4736
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

@@ -1,0 +1,1329 @@
+{
+  "module": "src/scripts/mp_common/player/player_killed.gsc",
+  "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "globallogic_score",
+  "witnesses": [
+    {
+      "line": 657,
+      "text": "        self globallogic_score::incpersstat( #\"suicides\", 1 );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 647,
+          "opening_line": 649,
+          "ending_line": 669,
+          "text": "else if ( isdefined( attacker ) && ( attacker.classname == \"trigger_hurt_new\" || attacker.classname == \"worldspawn\" ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 658,
+      "text": "        self.suicides = self globallogic_score::getpersstat( #\"suicides\" );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 647,
+          "opening_line": 649,
+          "ending_line": 669,
+          "text": "else if ( isdefined( attacker ) && ( attacker.classname == \"trigger_hurt_new\" || attacker.classname == \"worldspawn\" ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 695,
+      "text": "                        globallogic_score::giveteamscore( \"kill\", attacker.team, attacker, self );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 692,
+          "opening_line": 694,
+          "ending_line": 696,
+          "text": "if ( !isdefined( killstreaks::get_killstreak_for_weapon( weapon ) ) || isdefined( level.killstreaksgivegamescore ) && level.killstreaksgivegamescore )"
+        },
+        {
+          "line": 690,
+          "opening_line": 692,
+          "ending_line": 697,
+          "text": "if ( level.teambased )"
+        },
+        {
+          "line": 688,
+          "opening_line": 690,
+          "ending_line": 700,
+          "text": "if ( self util::isenemyteam( attacker.team ) )"
+        },
+        {
+          "line": 685,
+          "opening_line": 688,
+          "ending_line": 701,
+          "text": "if ( isdefined( attacker ) && isdefined( attacker.team ) && isdefined( level.teams[ attacker.team ] ) )"
+        },
+        {
+          "line": 669,
+          "opening_line": 671,
+          "ending_line": 705,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "giveteamscore",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1497,
+      "text": "                self globallogic_score::incpersstat( #\"deaths\", 1, 1, 1 );",
+      "caller": "update_killstreaks",
+      "caller_span": [
+        1481,
+        1545
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1494,
+          "opening_line": 1496,
+          "ending_line": 1498,
+          "text": "if ( !( isdefined( self.var_cee93f5 ) && self.var_cee93f5 ) )"
+        },
+        {
+          "line": 1492,
+          "opening_line": 1494,
+          "ending_line": 1530,
+          "text": "else"
+        },
+        {
+          "line": 1482,
+          "opening_line": 1484,
+          "ending_line": 1531,
+          "text": "if ( !isdefined( self.switching_teams ) && !self.var_4ef33446 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "update_killstreaks",
+            "line": 556,
+            "form": "local_call",
+            "text": "        self update_killstreaks( attacker, weapon );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1500,
+      "text": "            self.deaths = self globallogic_score::getpersstat( #\"deaths\" );",
+      "caller": "update_killstreaks",
+      "caller_span": [
+        1481,
+        1545
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1492,
+          "opening_line": 1494,
+          "ending_line": 1530,
+          "text": "else"
+        },
+        {
+          "line": 1482,
+          "opening_line": 1484,
+          "ending_line": 1531,
+          "text": "if ( !isdefined( self.switching_teams ) && !self.var_4ef33446 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "update_killstreaks",
+            "line": 556,
+            "form": "local_call",
+            "text": "        self update_killstreaks( attacker, weapon );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1779,
+      "text": "                self globallogic_score::incpersstat( #\"suicides\", 1 );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1774,
+          "opening_line": 1777,
+          "ending_line": 1782,
+          "text": "if ( playercounts[ self.joining_team ] - playercounts[ self.leaving_team ] > 1 )"
+        },
+        {
+          "line": 1769,
+          "opening_line": 1771,
+          "ending_line": 1783,
+          "text": "if ( !level.teambased && isdefined( level.teams[ self.leaving_team ] ) && isdefined( level.teams[ self.joining_team ] ) && level.teams[ self.leaving_team ] != level.teams[ self.joining_team ] )"
+        },
+        {
+          "line": 1766,
+          "opening_line": 1769,
+          "ending_line": 1784,
+          "text": "if ( isdefined( self.switching_teams ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1780,
+      "text": "                self.suicides = self globallogic_score::getpersstat( #\"suicides\" );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1774,
+          "opening_line": 1777,
+          "ending_line": 1782,
+          "text": "if ( playercounts[ self.joining_team ] - playercounts[ self.leaving_team ] > 1 )"
+        },
+        {
+          "line": 1769,
+          "opening_line": 1771,
+          "ending_line": 1783,
+          "text": "if ( !level.teambased && isdefined( level.teams[ self.leaving_team ] ) && isdefined( level.teams[ self.joining_team ] ) && level.teams[ self.leaving_team ] != level.teams[ self.joining_team ] )"
+        },
+        {
+          "line": 1766,
+          "opening_line": 1769,
+          "ending_line": 1784,
+          "text": "if ( isdefined( self.switching_teams ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1788,
+      "text": "        self globallogic_score::incpersstat( #\"suicides\", 1 );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1784,
+          "opening_line": 1786,
+          "ending_line": 1805,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1789,
+      "text": "        self.suicides = self globallogic_score::getpersstat( #\"suicides\" );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1784,
+          "opening_line": 1786,
+          "ending_line": 1805,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1814,
+      "text": "            globallogic_score::function_17a678b7( attacker, scoresub );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1809,
+          "opening_line": 1812,
+          "ending_line": 1815,
+          "text": "if ( level.teamkillpointloss )"
+        },
+        {
+          "line": 1805,
+          "opening_line": 1808,
+          "ending_line": 1816,
+          "text": "if ( isdefined( self.friendlydamage ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_17a678b7",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1833,
+      "text": "        attacker globallogic_score::incpersstat( #\"teamkills_nostats\", teamkill_penalty, 0 );",
+      "caller": "team_kill",
+      "caller_span": [
+        1825,
+        1886
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1828,
+          "opening_line": 1831,
+          "ending_line": 1885,
+          "text": "if ( !ignore_team_kills( weapon, smeansofdeath, einflictor ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "team_kill",
+            "line": 602,
+            "form": "local_call",
+            "text": "                    self team_kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1834,
+      "text": "        attacker globallogic_score::incpersstat( #\"teamkills\", 1 );",
+      "caller": "team_kill",
+      "caller_span": [
+        1825,
+        1886
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1828,
+          "opening_line": 1831,
+          "ending_line": 1885,
+          "text": "if ( !ignore_team_kills( weapon, smeansofdeath, einflictor ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "team_kill",
+            "line": 602,
+            "form": "local_call",
+            "text": "                    self team_kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1851,
+      "text": "            globallogic_score::function_17a678b7( attacker, scoresub );",
+      "caller": "team_kill",
+      "caller_span": [
+        1825,
+        1886
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1846,
+          "opening_line": 1849,
+          "ending_line": 1852,
+          "text": "if ( level.teamkillpointloss )"
+        },
+        {
+          "line": 1828,
+          "opening_line": 1831,
+          "ending_line": 1885,
+          "text": "if ( !ignore_team_kills( weapon, smeansofdeath, einflictor ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_17a678b7",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "team_kill",
+            "line": 602,
+            "form": "local_call",
+            "text": "                    self team_kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1937,
+      "text": "            player thread globallogic_score::processassist( self, damage_done, self.attackerdamage[ player.clientid ].weapon, self.attackerdamage[ player.clientid ].time, self.attackerdamage[ player.clientid ].meansofdeath );",
+      "caller": "function_48a1200f",
+      "caller_span": [
+        1905,
+        1955
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1911,
+          "opening_line": 1912,
+          "ending_line": 1938,
+          "text": "j++ )"
+        },
+        {
+          "line": 1907,
+          "opening_line": 1910,
+          "ending_line": 1939,
+          "text": "if ( isdefined( self.attackers ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processassist",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_48a1200f",
+            "line": 737,
+            "form": "local_call",
+            "text": "        self function_48a1200f( einflictor, attacker, weapon, lpattackteam );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          276,
+          300
+        ]
+      ]
+    },
+    {
+      "line": 1943,
+      "text": "        self globallogic_score::processkillstreakassists( attacker, einflictor, weapon );",
+      "caller": "function_48a1200f",
+      "caller_span": [
+        1905,
+        1955
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1939,
+          "opening_line": 1942,
+          "ending_line": 1944,
+          "text": "if ( level.teambased )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processkillstreakassists",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_48a1200f",
+            "line": 737,
+            "form": "local_call",
+            "text": "        self function_48a1200f( einflictor, attacker, weapon, lpattackteam );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1950,
+      "text": "            self.lastattackedshieldplayer thread globallogic_score::processshieldassist( self );",
+      "caller": "function_48a1200f",
+      "caller_span": [
+        1905,
+        1955
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1947,
+          "opening_line": 1949,
+          "ending_line": 1951,
+          "text": "if ( gettime() - self.lastattackedshieldtime < 4000 )"
+        },
+        {
+          "line": 1944,
+          "opening_line": 1947,
+          "ending_line": 1952,
+          "text": "if ( isdefined( self.lastattackedshieldplayer ) && isdefined( self.lastattackedshieldtime ) && self.lastattackedshieldplayer != attacker )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processshieldassist",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_48a1200f",
+            "line": 737,
+            "form": "local_call",
+            "text": "        self function_48a1200f( einflictor, attacker, weapon, lpattackteam );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1992,
+      "text": "    attacker thread globallogic_score::givekillstats( smeansofdeath, weapon, self, var_e7a369ea );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "givekillstats",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          164,
+          170
+        ]
+      ]
+    },
+    {
+      "line": 2050,
+      "text": "    attacker thread globallogic_score::trackattackerkill( self.name, self.pers[ #\"rank\" ], self.pers[ #\"rankxp\" ], self.pers[ #\"prestige\" ], self getxuid(), weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "trackattackerkill",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2051,
+      "text": "    attacker thread globallogic_score::inckillstreaktracker( weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "inckillstreaktracker",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2062,
+      "text": "        globallogic_score::inctotalkills( attacker.team );",
+      "caller": "kill",
+      "caller_span": [
+        2058,
+        2087
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2059,
+          "opening_line": 2061,
+          "ending_line": 2063,
+          "text": "if ( !isdefined( killstreaks::get_killstreak_for_weapon( weapon ) ) || isdefined( level.killstreaksgivegamescore ) && level.killstreaksgivegamescore )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "inctotalkills",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "kill",
+            "line": 626,
+            "form": "local_call",
+            "text": "                    self kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          150,
+          158
+        ]
+      ]
+    },
+    {
+      "line": 2066,
+      "text": "    self thread globallogic_score::trackattackeedeath( attackername, attacker.pers[ #\"rank\" ], attacker.pers[ #\"rankxp\" ], attacker.pers[ #\"prestige\" ], attacker getxuid() );",
+      "caller": "kill",
+      "caller_span": [
+        2058,
+        2087
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "trackattackeedeath",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "kill",
+            "line": 626,
+            "form": "local_call",
+            "text": "                    self kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2075,
+      "text": "            globallogic_score::giveteamscore( \"kill\", attacker.team, attacker, self );",
+      "caller": "kill",
+      "caller_span": [
+        2058,
+        2087
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2071,
+          "opening_line": 2074,
+          "ending_line": 2076,
+          "text": "if ( !isdefined( killstreak ) || isdefined( level.killstreaksgivegamescore ) && level.killstreaksgivegamescore )"
+        },
+        {
+          "line": 2067,
+          "opening_line": 2070,
+          "ending_line": 2077,
+          "text": "if ( level.teambased && attacker.team != #\"spectator\" )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "giveteamscore",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "kill",
+            "line": 626,
+            "form": "local_call",
+            "text": "                    self kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2083,
+      "text": "        globallogic_score::function_17a678b7( self, scoresub );",
+      "caller": "kill",
+      "caller_span": [
+        2058,
+        2087
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2079,
+          "opening_line": 2082,
+          "ending_line": 2084,
+          "text": "if ( scoresub != 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_17a678b7",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "kill",
+            "line": 626,
+            "form": "local_call",
+            "text": "                    self kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2454,
+      "text": "    self globallogic_score::incpersstat( #\"sessionbans\", 1 );",
+      "caller": "function_3c238bc5",
+      "caller_span": [
+        2452,
+        2460
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_3c238bc5",
+            "line": 667,
+            "form": "local_call",
+            "text": "            self function_3c238bc5();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 2468,
+      "text": "    self globallogic_score::incpersstat( #\"sessionbans\", 1 );",
+      "caller": "function_dd602974",
+      "caller_span": [
+        2466,
+        2490
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "incpersstat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "team_kill",
+            "line": 602,
+            "form": "local_call",
+            "text": "                    self team_kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          },
+          {
+            "from": "team_kill",
+            "to": "function_dd602974",
+            "line": 1875,
+            "form": "local_call",
+            "text": "                attacker thread function_dd602974();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0305",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+    "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+    "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1937,
+    1992,
+    2062
+  ],
+  "required_callee_functions": [
+    "givekillstats",
+    "inctotalkills",
+    "processassist"
+  ],
+  "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03166",
+        "to": "N03919",
+        "line": 2062
+      },
+      {
+        "from": "N03169",
+        "to": "N04120",
+        "line": 1937
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

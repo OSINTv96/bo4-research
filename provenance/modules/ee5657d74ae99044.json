@@ -1,0 +1,1409 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/deployable.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "be42209c6d3b61eb365fb27b47b1f5b4b6643df006821b277ed716956532ff1e",
+  "git_blob_sha1": "d7ea9123a5f24481d747daadb1218d51e1d38c7f",
+  "output": "src/scripts/weapons/deployable.gsc",
+  "output_sha256": "eb101689b6fffe9f0ce69e6779c811b3524b3c8c069d50a8fdaa643fda4110b7",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/array_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.gsc",
+        "sha256": "ba277804b598a6cbaac5e440e35cd9ca40e31a8129b3ef80238fccb2910c2999",
+        "git_blob_sha1": "a1f7edf5a22be05509e8d0802890ee5a61abc83a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/oob.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/oob.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/oob.gsc",
+        "sha256": "41f7d7cf5ff60991cf02b9c63d0e317b63eb47f47c86e25a4621d08b732fd034",
+        "git_blob_sha1": "e6bdf9b2a58bf4d720ac462f3212a68a2275760e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "01d6b7817036d2cd02264b87f0b3ca4984e28f8385ff7e6494c864cd152ea418",
+      "citations": [
+        {
+          "line_start": 137,
+          "line_end": 147
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_b20df196",
+        "behavior": "Removes a deployable-zone by id (zoneid). Linear scan: for index 0 .. level.var_160dcfef.var_1b8ab31d.size - 1: if element ._id == zoneid -> level.var_160dcfef.var_1b8ab31d = array::remove_index( level.var_160dcfef.var_1b8ab31d, index, 0 ); break. Removes at most the first matching zone; silent no-op if not found. No other state.",
+        "unknowns": [
+          "array::remove_index third argument (0) meaning (likely preserve-order flag) is util convention, unverified",
+          "Whether duplicate zone ids can exist (id allocator prevents it in normal use)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/10",
+        "decision_canonical_sha256": "873716cbafeec36c0c1993b37e5eb913179ae2ac79bfde3d7f64e5275574b320",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/54",
+        "record_sha256": "281287481cc7aec9b3ae79d6fa36bd753974c374d646095aacd87f7d9dcb8fef"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "10ec05fbaf7213f90ccc9e9e99a2b81aed6428544a3765a0cab1c0a4af291cc8",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 65
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::register_deployable",
+        "behavior": "Server per-weapon deployable registry insert (weapon, var_c0064c29, var_94b4fa08 = undefined, placehintstr = undefined, var_a39cb3db = undefined, var_fe12c0d9 = undefined). Lazily ensures level._deployable_weapons exists ([]); branches: return if weapon.name == \"#none\"; assert( weapon.name != \"<dev string:x38>\" ) (observed obfuscated assert). Writes a spawnstruct at level._deployable_weapons[ weapon.statindex ] with: .var_159652c0 = &function_6654310c (default per-weapon placement probe function pointer), .var_9f2c21ea = var_c0064c29, .var_1463c9a8 = var_94b4fa08, .placehintstr = placehintstr, .var_a39cb3db = var_a39cb3db, .var_fe12c0d9 = var_fe12c0d9. register_deployable installs &function_6654310c. function_209fda28 only dispatches the stored pointer and does not modify it; any separate override operation remains unproved.",
+        "unknowns": [
+          "Semantics of var_9f2c21ea/var_1463c9a8/placehintstr/var_a39cb3db/var_fe12c0d9 are opaque here; consumed by later functions (resolved by their use sites)",
+          "Callers of register_deployable (weapon/equipment init code) are outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/82",
+        "decision_canonical_sha256": "0ac6c4fe328e07e7c12cd6bc2759a6ccddfcc864c4af6a85cc693a6ad53dbd47",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00821",
+        "sha256": "079213da4d39e7dd80102092a32e8f0492276e25e8bba293055632234dba1c17",
+        "pointer": "",
+        "record_sha256": "8b15ddf4b3ba3c01616c0d722c26217ce037f685c75145324ea5a432a57ecc51"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1351c52603a4343089b7920f8e1624b71eb203c5123615bef7680d202eb8fcba",
+      "citations": [
+        {
+          "line_start": 443,
+          "line_end": 446
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::location_valid",
+        "behavior": "Trivial gate (self = player context). return isdefined( self.var_b8878ba9 ) â€” true when a validated placement point is currently stored by function_b3d993e9. No other state.",
+        "unknowns": [
+          "Callers of location_valid are outside this packet (deploy-commit validation)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/94",
+        "decision_canonical_sha256": "855cd1ca61f6457fa15f9f515b7ee36159f2481a38f9d6fa65c2ba6a5177a8a4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/66",
+        "record_sha256": "0f671b7174d5a4c0eb7c95a775a23403313ba33e156cde914e9285119ef94f4b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1b24df4cae699bbb0ba5447a8ec84ef3731c08123b823be7ea97365c3f468bdd",
+      "citations": [
+        {
+          "line_start": 187,
+          "line_end": 190
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_81598103",
+        "behavior": "One-line wrapper (var_a2a6139a). var_a2a6139a function_34d37476() â€” direct method call on the passed context; per function_34d37476, the callee returns if self.var_19fde5b7 is undefined; otherwise only defined entries receive a dodamage(500,self.origin,undefined,undefined,undefined,\"MOD_EXPLOSIVE\") request. It may issue no calls and projectile detonation is not guaranteed. No branches, no state access of its own.",
+        "unknowns": [
+          "Caller of function_81598103 is outside this packet (detonation timing unknown)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/76",
+        "decision_canonical_sha256": "524169d532d70c42ad6794954040ec625a8a5ccf057f4ebea5b03ed254be3670",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00822",
+        "sha256": "bd7c4e3869cca6f1fd074d2d9ce1cb659341a305190aab542dd79e2ce26d759b",
+        "pointer": "",
+        "record_sha256": "ff3ba5926cadf5f72278831dbe3e4cbe939aaecc33b67ab0dd6e0dca2436ed2b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1fe3d51244da5435558d9abe1a676e5f8cbc74bc54759c550568262d9b41a3ca",
+      "citations": [
+        {
+          "line_start": 225,
+          "line_end": 253
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_b3d993e9",
+        "behavior": "Placement evaluation entry (deployable_weapon, sethintstring = 0; self = player). Early case: if deployable_weapon.var_e0d42861 -> player function_bf191832( 1, ( 0, 0, 0 ), ( 0, 0, 0 ) ); return 1 â€” flagged weapons always report valid at zero origin (preview suppressed). Normal case: var_2e7d45cb = player function_27476e09( deployable_weapon, sethintstring ) â€” the geometry/override probe; player.var_7a3f3edf = function_ab25be55( deployable_weapon, sethintstring ) && var_2e7d45cb.isvalid && function_d6ac81c7( deployable_weapon, player, origin, angles ) â€” combine player-state validity (swim/ground), probe validity, and the per-weapon custom callback registered in register_deployable; player setplacementhint( player.var_7a3f3edf ); player function_bf191832( player.var_7a3f3edf, var_2e7d45cb.origin, var_2e7d45cb.angles ); player clientfield::set_to_player( \"gameplay_allows_deploy\", pla [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "What deployableweapon.var_e0d42861 flags (e.g. preview/supply-drop variant) is inferred only from this early-return",
+          "function_bf191832 (unresolved external) exact effect on the player is unverified",
+          "gameplay_allows_deploy consumption is in deployable.csc packet units (mirror file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/182",
+        "decision_canonical_sha256": "f72a659e7374f9c04dd86f8b1ebea7db321e9e8ed4cc5472fd7927fd2ad290dc",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/59",
+        "record_sha256": "9d63fed42a56a140818d8df8c3bc9723f2820b773eec65fa38d20d9147d5779d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2d9c58477fe5c27874825c4959c4cbb16a846b18354e42edf2afda558718d275",
+      "citations": [
+        {
+          "line_start": 90,
+          "line_end": 93
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_84fa8d39",
+        "behavior": "Stub/log function (weapon arg; entire body is a println). println( \"<dev string:x40>\" ) â€” prints an obfuscated/dev string only. No state, no branches, no returns. The entire recovered function is explicitly enclosed by /# ... #/ and annotated Type:dev. Actual original target-build compilation/inclusion remains unresolved.",
+        "unknowns": [
+          "The printed dev string's literal text is not in the source (obfuscated) â€” message content unknown",
+          "Purpose/caller of this stub is unknown from this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/118",
+        "decision_canonical_sha256": "84f79f6f62395c1eb96637310ba2cd58fb0a22aa1dd18d2da541849b359131c2",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00823",
+        "sha256": "7c827e95e3ba36fdf08e33c37bf0f7c9c0ea50e963e89695f4ba455cc17df20b",
+        "pointer": "",
+        "record_sha256": "047f4fd09222c22b54485149b0a35223b60e814867e8ae63822fc50f9fa3819b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3f5b1640dc54cc9cf5e5920ab969c18e27a7bc46dbc9221cf8d252d136369c7a",
+      "citations": [
+        {
+          "line_start": 153,
+          "line_end": 164
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_89d64a2c",
+        "behavior": "Zone membership test (origin): foreach zone in level.var_160dcfef.var_1b8ab31d: if distance2dsquared( zone.origin, origin ) < zone.radiussqr -> return true (2D horizontal distance, ignores height). After loop returns false. Pure read; no writes. Consumes zones registered by function_d60e5a06.",
+        "unknowns": [
+          "Why 2D distance (not 3D) â€” observed; likely placement on ground level, reason not documented",
+          "Original packet includes callers function_27476e09 and function_831707e8, which call function_89d64a2c for player.origin and results.origin respectively. Actual original invocation and zone lifecycle remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/283",
+        "decision_canonical_sha256": "01a01a36aa6a48a6c81c3212597132a8369c413b1c38846e96f1bbca0ba199e6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00824",
+        "sha256": "9766eb7a001b9af53c443b6baafd7eaecf5cbaf50fff125cf99d06533bb078b4",
+        "pointer": "",
+        "record_sha256": "7bdda2e5cb952f4cd37207866f78fc46325756d6ab60b8e92585a3521a687871"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "41875418684bf93cb957a7cd2d61637ddd6c04779ae9be8429c009fa2f413cbb",
+      "citations": [
+        {
+          "line_start": 170,
+          "line_end": 181
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_6ec9ee30",
+        "behavior": "Deploy-commit helper (var_a2a6139a, deployable_weapon; self = player). Ordered: (1) if isdefined( level.var_7b83b300 ) -> self [[ level.var_7b83b300 ]]( deployable_weapon ) â€” optional extra hook invoked through the level function pointer (indirect call); (2) var_a2a6139a.weapon = deployable_weapon â€” stamps the deploying entity/player state with the weapon; (3) var_a2a6139a thread function_670cd4a3() â€” threads the deploy follow-up coroutine on that context; (4) var_4d5b521e = self gadgetgetslot( deployable_weapon ) â€” reads which gadget slot the deployable occupies; (5) self function_69b5c53c( var_4d5b521e, 0 ) â€” clears/sets that gadget slot (unresolved external; 0 likely 'empty').",
+        "unknowns": [
+          "level.var_7b83b300 owner/typical value and hook payload are opaque (level function pointer set elsewhere)",
+          "gadgetgetslot mapping and function_69b5c53c bodies are outside this packet",
+          "function_670cd4a3 (deploy follow-up) is documented as its own unit in this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/293",
+        "decision_canonical_sha256": "5cd6502e68cc16a7f50c366d991b4215b76da87df2c087986dbb9b39d5ad488e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/56",
+        "record_sha256": "f13949a7b3c3d27865fce50947689838f4295767aec278d9ba8cbc63637a15d4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4508138e011a66a129e9a59bcbd952fee99390d03d71aebedc06541c02fb35a9",
+      "citations": [
+        {
+          "line_start": 279,
+          "line_end": 324
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_831707e8",
+        "behavior": "Fallback placement probe (player, deployable_weapon; private). Returns true iff all pass, in order: (1) isdefined( deployable_weapon.var_dbbd4cec ) && deployable_weapon.var_dbbd4cec (weapon must be flagged; else false); (2) player depthinwater() <= ( isdefined( deployable_weapon.var_76127e14 ) ? deployable_weapon.var_76127e14 : 0 ) â€” water-depth limit (weapon-specific or 0); (3) !oob::chr_party( player.origin ) â€” not out-of-bounds (oob namespace helper outside packet); (4) player isonground(); (5) !function_89d64a2c( player.origin ) â€” not inside a registered deployable-zone blocker; (6) !function_54267517( player.origin ) â€” second blocker test (unresolved external); (7) traceresults = bullettrace( player.origin + ( 0, 0, 10 ), player.origin + ( 0, 0, -10 ), 0, player ) â€” short vertical trace around the player; if isdefined( traceresults[ #\"entity\" ] ) then !function_db9eb027( e [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_54267517 definition not in catalog (blocker test #2)",
+          "oob::chr_party body lives in the oob namespace (outside packet)",
+          "bullettrace mask argument 0 semantics native"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/378",
+        "decision_canonical_sha256": "446f60a02529a6ac6da7ae493e5c96f6a66d8f12b7772b398f750ff3f073c75f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/61",
+        "record_sha256": "e7067537b3b40b9b46d92c1c7d59324481185574d2017e36bebf54e112a3eae7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4b59ebc54ae85439ed3ac079ffdad21789fbe526b1d0862dbc0ba00598697492",
+      "citations": [
+        {
+          "line_start": 545,
+          "line_end": 550
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_765a2e96",
+        "behavior": "Delayed hint clear (self = player). The target recovered declaration has no private modifier; its caller function_f0adf9c is declared private. No native visibility conclusion follows from this modifier difference. Cancellation: self endon( #\"death\", #\"disconnect\" ). Order: wait 1.5; self sethintstring( \"\" ) â€” empties the placement hint. Started by function_f0adf9c when no deployable weapon is held.",
+        "unknowns": [
+          "Whether other hint writers race this delayed clear (1.5 s window) is inherent behavior, not resolvable from this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/19",
+        "decision_canonical_sha256": "b36347b5e1bba764a1cb5d4ab71d9f64eab0d156bbd57c5273a7dce4d563f19b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00825",
+        "sha256": "c079e0985ffc266d77e2a04708d669b6002ba9ab4ea1962286a14581ce09f4bf"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "52265badaa89d932ea6ec7573638b122a8623e1297533dfd451881b7834f3697",
+      "citations": [
+        {
+          "line_start": 421,
+          "line_end": 437
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_6654310c",
+        "behavior": "Default per-weapon placement probe (weapon; self = player; private; installed in var_159652c0 by register_deployable). Frame-rate limiter: if level.time == player.var_3abd9b54 -> return (already evaluated this frame â€” memoized by player); player.var_3abd9b54 = level.time. Eval: var_7a3f3edf = player function_b3d993e9( weapon ) â€” the full placement evaluation with hints and gameplay_allows_deploy replication. On failure hook: if ( !var_7a3f3edf && isdefined( level.var_228e8cd6 ) ) -> player [[ level.var_228e8cd6 ]]( weapon ) â€” indirect failure callback through level function pointer.",
+        "unknowns": [
+          "level.var_228e8cd6 owner and payload (set elsewhere) unknown",
+          "level.time granularity (per-frame tick) assumed from the memo pattern; native semantics unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/218",
+        "decision_canonical_sha256": "98a226877f426cb64c8016e6cf4c674441462c0ebbb4e8bd5e44bcb4b6a15ce6",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/65",
+        "record_sha256": "ca09140d6d565ce25d788bd25c2771ea2322d3b53a1056b832dd64c400bff44e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "54880e6cf506d8d3a23584cec22232a3e692c72f572fb413e82047f1f24a9dd9",
+      "citations": [
+        {
+          "line_start": 469,
+          "line_end": 474
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::on_player_spawned",
+        "behavior": "Player spawn wiring (registered via callback::on_spawned in __init__; self = player). Ordered: self.var_3abd9b54 = 0 (reset the probe frame memo); self clientfield::set_to_player( \"gameplay_allows_deploy\", 1 ) â€” default grant of the deploy permission on spawn; self callback::on_weapon_change( &on_weapon_change ) â€” registers the weapon-change handler that re-evaluates deployability and maintains hints.",
+        "unknowns": [
+          "callback::on_spawned/on_weapon_change registration mechanics are engine callback conventions",
+          "Whether pre-existing hints are cleared on spawn here â€” not handled in-span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/459",
+        "decision_canonical_sha256": "85a62dd26123db25e7f76d523b6c9c25560017458205c2f082aacdd4fded01ce",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/68",
+        "record_sha256": "bb41bf58118934021f86ec478c21998479cee06da3be87e5bd975578bc66d262"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "56049bed8563f92e21cc81fcba686574fcd5ab6d3887f196bef2bdeae23d5ee3",
+      "citations": [
+        {
+          "line_start": 769,
+          "line_end": 783
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_670cd4a3",
+        "behavior": "Stuck-projectile collector coroutine function_670cd4a3: the caller threads it on its explicit var_a2a6139a argument at178; that receiver is not proved to be a player. It sets self endon( #\"death\" ), initializes self.var_19fde5b7 = [], then waits for #\"grenade_stuck\" and adds a defined waitresult.projectile to the array. This body does not trim or deduplicate the list. The separate consumer function_34d37476, called on var_a2a6139a through function_81598103, returns if the list is undefined and skips undefined entries; for each defined entry it requests dodamage(500, self.origin, undefined, undefined, undefined, \"MOD_EXPLOSIVE\"). Actual damage response or detonation is unresolved; source requests do not prove those outcomes or receiver type.",
+        "unknowns": [
+          "Which spawner notifies \"grenade_stuck\" with a projectile payload (sticky/deployable throw code) is outside this packet",
+          "List is never trimmed by this function; dedup/cleanup depends on caller"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/17",
+        "decision_canonical_sha256": "99794f10d0cdb82fabb6be4603a8c8068bd333a3febf07c600b8474252d11463",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00826",
+        "sha256": "32fa8f6e73f881087550f697b07bf8fe99c00106d668e7643d0295c2ca316221"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5dbba5f257f38b733a4e67e0bf89195cce2f818d4d213376e262b6d17350f3d7",
+      "citations": [
+        {
+          "line_start": 405,
+          "line_end": 415
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_d6ac81c7",
+        "behavior": "Per-weapon custom placement validator dispatch (deployable_weapon, player, origin, angles; private). Reads var_9f2c21ea = level._deployable_weapons[ deployable_weapon.statindex ].var_9f2c21ea (the second register_deployable argument); if !isdefined -> return 1 (weapon with no custom check always passes); else return [[ var_9f2c21ea ]]( origin, angles, player ) â€” indirect custom callback receiving placement origin, angles, and the player. The caller consumes this result in function_b3d993e9's combined validity expression. This wrapper returns default numeric1 or the raw callback value, without Boolean validation or coercion; the callback return/type contract remains unknown.",
+        "unknowns": [
+          "Which deployable weapons register var_9f2c21ea callbacks (their bodies) are outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/25",
+        "decision_canonical_sha256": "f78046f7935b2adbbb752f79885ad0dd297ed939bb29f997ab569e18a9c531f4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00827",
+        "sha256": "e082c347a278a405ba3e50de3243696dd2902bdf78638f94d299848ce6d97845"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6527fb29517d48b032ee612b9bad56d428a147df834d0eb600a19cb8fbb2b5b8",
+      "citations": [
+        {
+          "line_start": 452,
+          "line_end": 463
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_dd266e08",
+        "behavior": "Position copier for spawn-time deployables (owner). If isdefined( owner ) && isdefined( owner.var_b8878ba9 ) -> self.origin = owner.var_b8878ba9 (validated placement point stored by function_b3d993e9); independently, if owner defined && owner.var_ddc03e10 defined -> self.angles = owner.var_ddc03e10. Each field copied separately; no branches beyond definitions.",
+        "unknowns": [
+          "Caller (deployable entity spawn code) is outside this packet",
+          "Whether both writes happen together guaranteed by function_b3d993e9 pairing â€” observed pattern only"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/549",
+        "decision_canonical_sha256": "171e70d6bc371b12a68884dba56ea1bd0fc750a3fb6f053f4904388e7d622f14",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/67",
+        "record_sha256": "3fb4d3ea55832852975280d471840cd0a6ef1d3bdfc616da8be381d18f9477dd"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "777b256bf137f32adc1aec1a5a2aba91121d5ed7409df14e58352f8d4c8a7d91",
+      "citations": [
+        {
+          "line_start": 758,
+          "line_end": 763
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::on_weapon_change",
+        "behavior": "Weapon-change deployability refresh (params; self = player; private; registered in on_player_spawned). Three writes: self setplacementhint( 1 ); self clientfield::set_to_player( \"gameplay_allows_deploy\", 1 ) â€” re-grant permission; self thread function_f0adf9c() â€” starts the per-frame placement/hint maintenance loop (restart idiom inside). No branches.",
+        "unknowns": [
+          "params payload shape is callback convention",
+          "setplacementhint( 1 ) semantics (boolean hint on) native"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/320",
+        "decision_canonical_sha256": "734c77d64f7bc33f8f3580e3d161815718be29cc440ba2d949320541101414fc",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/74",
+        "record_sha256": "08425d8559bb1eae0853e1170f7b32b0961bcaad809df9a679e6312030226f7a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7aadc76580c11fa9ddba2199dfa9fea654eef51f147635843983f9b826e2ff88",
+      "citations": [
+        {
+          "line_start": 196,
+          "line_end": 219
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_416f03e6",
+        "behavior": "Deploy-failure handler with an unresolved slot-helper request (deployableweapon; self = player). Order: if !isdefined( self ) -> return; var_4d5b521e = self gadgetgetslot( deployableweapon ) â€” slot that held the deployable; if isdefined( deployableweapon ) -> self function_69b5c53c( var_4d5b521e, 0 ) â€” requests the unresolved helper with the queried slot and literal0; clearing, setting and the meaning of0 remain unproved; if isdefined( deployableweapon ) && deployableweapon.issupplydropweapon !== 1 -> self setriotshieldfailhint() â€” requests the native deploy-failure hint for non-supply-drop weapons; actual UI effect remains unproved (strict !== so issupplydropweapon==1 skips the hint); if isdefined( level.var_cf16ff75 ) -> self [[ level.var_cf16ff75 ]]( deployableweapon ) â€” optional final hook through a level function pointer (indirect call).",
+        "unknowns": [
+          "function_69b5c53c body (gadget slot setter) and level.var_cf16ff75 consumer semantics are outside this packet",
+          "setriotshieldfailhint is a native/named call; its exact UI effect unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/31",
+        "decision_canonical_sha256": "61270ee8814d4bf04bc97ca77954c0aa492d97242b4b492ae79b3969ab108673",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00828",
+        "sha256": "db2b9a4812d31fb9165e230c74e7857dc85e717fcb57ff9ec8fd54a4ce4ab6c7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7bf9df0df677a4524f374ab3b3869baf212947d664fe227ca3b7580a90b1dcf0",
+      "citations": [
+        {
+          "line_start": 580,
+          "line_end": 752
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_54d27855",
+        "behavior": "Full preview/trace placement evaluator (client_pos, client_angles, var_36baa3f1, previs_weapon, ignore_entity) â€” computes a deployable placement point and orientation from a starting position and view angles. Setup: results = spawnstruct(); locals var_5130f5dd (final valid) = 0, var_caa96e8a (range ok) = 0, var_a7bfb (height ok) = 0, var_e76d3149 (wall-attach case) = 0, var_68e91c5c (facing ok) = 0, var_ae7d780d (wall-clamp failure) = 0, var_f94d59f8 = 2 (pullback margin), var_5adff8ce = (0,0,0) (origin result), var_4c59d56 = (0,0,0) (angles result); forward = anglestoforward( client_angles ).Distance selection: var_6c16750a = previs_weapon.var_f7e67f28; if previs_weapon.var_9111ccc0 && previs_weapon.var_5ac2e7a4 > var_f7e67f28 -> use var_5ac2e7a4 (extended distance for wall-attach weapons). trace_distance = var_6c16750a / abs( cos( client_angles[ 0 ] ) ) â€” pitch correction so the ho [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "All previs_weapon var_* fields (var_f7e67f28 distance, var_9111ccc0 wall-attach flag, var_5ac2e7a4 extended distance, var_849af6b4/var_227c90e1/var_ab300840 height window, var_c4aae0fa facing cone) are game-data values set elsewhere; numeric semantics inferred from use in this span only",
+          "Whether this evaluator is the body behind player function_242060b9 used by function_27476e09 cannot be confirmed from this file (no direct call link observed)",
+          "bullettrace/groundtrace/physicstrace mask and caps semantics native"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/560",
+        "decision_canonical_sha256": "c90dde7359b9c82debecc63ea7f18e97ff0e197a78dc3415f624547aa4ad5e65",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00829",
+        "sha256": "d2e5a8d69aaea1da9eb5e2afc702e651c4e10e22dc96a81022a7225f224644d3",
+        "pointer": "",
+        "record_sha256": "2521c4f73fb378610bc0e597d18f873c3d0272cf04611e245981a70d54503d9d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8825520b9e3c0ade50fdc9c065ee41c6eb19341e68f980a2dc381f3dc528c2e1",
+      "citations": [
+        {
+          "line_start": 505,
+          "line_end": 539
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_f0adf9c",
+        "behavior": "Deploy hint/placement preview maintenance loop (self = player; private). Restart idiom: self notify( \"3bd5bdfdc5aacef9\" ); self endon( \"3bd5bdfdc5aacef9\" ) â€” kills any prior loop; cancellation also via player endon( #\"death\", #\"disconnect\" ). deployable_weapon = player function_aab01e08(); if !isdefined( deployable_weapon ) -> player thread function_765a2e96() (clears the hint after 1.5 s) and return. Otherwise infinite loop: waitframe( 1 ); var_7a3f3edf = player function_b3d993e9( deployable_weapon ) â€” re-evaluate placement every frame (updates gameplay_allows_deploy, placement hint, preview position inside function_b3d993e9); if valid and level._deployable_weapons[statindex].placehintstr defined -> player sethintstring( placehintstr ) (per-weapon valid hint); continue; if invalid and var_a39cb3db (failure hint) defined -> player sethintstring( var_a39cb3db ). Reads level._deployabl [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Function-ptr notify tag \"3bd5bdfdc5aacef9\" is a string-literal tag (unhashed display form); semantics from pairing only",
+          "Frame-rate dependence of waitframe(1) evaluation frequency is engine behavior",
+          "Who threads function_f0adf9c (on_weapon_change) â€” see unit 75"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/369",
+        "decision_canonical_sha256": "d09d22287014df0846a2d99369efdaa95d28c8fb5ae7164bd2df5ac47b673f4c",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/70",
+        "record_sha256": "a129573193694b30c43fffd3dd7f44874a66331d6cd3bd0a0b4c82820cb81d11"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "88b3e9206556a39e3e9f3a0bf7032a4d3bf7af259aad8f316423a2d10a9841ee",
+      "citations": [
+        {
+          "line_start": 347,
+          "line_end": 399
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_27476e09",
+        "behavior": "Placement probe with per-weapon override (deployable_weapon, sethintstring = 0; self/player context; private). Step 1: var_ac12dd4b = level._deployable_weapons[ deployable_weapon.statindex ].var_1463c9a8; if !isdefined -> results = self function_242060b9( deployable_weapon ) (default probe, unresolved external), else results = [[ var_ac12dd4b ]]( self ) â€” indirect custom probe called with the player as argument. asserts: results, results.isvalid, results.origin, results.angles defined (observed asserts). Step 2 normalization: if !isdefined( results.waterdepth ) -> results.waterdepth = 0; if results.waterdepth > ( isdefined( deployable_weapon.var_76127e14 ) ? deployable_weapon.var_76127e14 : 0 ) -> results.isvalid = 0 (deeper than the weapon's allowed water depth); else if waterdepth > 0 && isdefined( results.waterbottom ) -> results.origin = results.waterbottom (snap placement to the w [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_242060b9 (default probe) definition not in catalog â€” client mirror deployable.csc expects it to return {isvalid, origin, angles}",
+          "function_54267517 and oob::chr_party bodies outside packet",
+          "sethintstring parameter is accepted but not used in this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/735",
+        "decision_canonical_sha256": "eb50e1b51ae0fb78a4bf877226404b5b48d6f926c490b490f2af5b53c20ccd5b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/63",
+        "record_sha256": "f869b71fde68c1a404fb9168b60df3f338d250e766fc3592ba10aaac71a75dce"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ab17ceab696608fcfa2ad7cbe7e24a80a51e58765349e88bf77564049aecc155",
+      "citations": [
+        {
+          "line_start": 330,
+          "line_end": 341
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_867664f6",
+        "behavior": "World-ground check (player; private). var_8a074131 = worldentnumber(); groundent = player getgroundent(); if !isdefined( groundent ) -> return false; return var_8a074131 == groundent getentitynumber() â€” true only when the player stands on the world entity itself rather than any spawned entity. Consumed by function_27476e09 when level.var_1765ad79 gate is set.",
+        "unknowns": [
+          "getgroundent/worldentnumber native semantics unverified beyond the comparison shown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/768",
+        "decision_canonical_sha256": "57f85bb0a32bcebe06e005946dda392e8b8ae7c27ed35072f7474b00eb4d2063",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/62",
+        "record_sha256": "685d6a47bb2cf063d83502e215af89a267a8056559cb9ba6b71d88834cbdce10"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ba5eee4763a8df09b4bb42d30e60420cc3d032243a3dfe16b32205f2527a7e65",
+      "citations": [
+        {
+          "line_start": 480,
+          "line_end": 499
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_aab01e08",
+        "behavior": "Current deployable-weapon selector (self = player; private). Branch: if self isusingoffhand() -> weapon = self getcurrentoffhand(); else weapon = self getcurrentweapon(). Gate: if ( !weapon.deployable || weapon.var_e0d42861 ) -> return undefined; else return weapon. Consumed by function_f0adf9c to choose the weapon for the placement loop.",
+        "unknowns": [
+          "Meaning of weapon.var_e0d42861 (suppress/degrade flag) inferred from gate use only",
+          "getcurrentoffhand/getcurrentweapon native return types (weapon asset) observed but unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/519",
+        "decision_canonical_sha256": "9fba6891711477b2f3abdf8c7dad56c94d45b42f27c37e7395ff85e922261f3f",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/69",
+        "record_sha256": "189119bcccbe00e74fcdce31d70bbec01e0449fea0bb9cba4083d1a794ecb9a0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d88978589d632e3ab03d6b3ae7d465bbaf756266f4d9d7bad02a598b32f667ec",
+      "citations": [
+        {
+          "line_start": 22,
+          "line_end": 39
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::__init__",
+        "behavior": "Server system init for the deployable framework. Ordered: (1) callback::on_spawned( &on_player_spawned ) â€” registers the on_player_spawned handler for player spawns (wires deployable support to players); (2) level.var_160dcfef = spawnstruct() â€” per-level deployable state holder; writes three unconditional sub-fields: .var_1b8ab31d = [] (list), .var_d4ef836e = 0 (counter/flag), .var_a48608a0 = [] (list); (3) if !isdefined( level.var_1765ad79 ) -> level.var_1765ad79 = 1 â€” same mode gate also defaulted on in deployable.csc (shared level between VMs is not implied; each VM registers independently); (4) dev-block (/# ... #/): source marker is explicit; original target-build inclusion/exclusion remains unproved â€” level.var_160dcfef.var_193db709 = [] and setdvar( #\"hash_8d4e58d73e3f876\", 0 ).",
+        "unknowns": [
+          "Field meanings var_1b8ab31d/var_d4ef836e/var_a48608a0 are opaque; resolved by their use sites in later functions",
+          "Explicit /# #/ encloses the fourth subfield var_193db709 and setdvar write. Actual original preprocessing and target-build inclusion/exclusion remain unresolved.",
+          "Whether level.var_1765ad79 is shared with the client VM value is engine-dependent (not provable from source)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1004",
+        "decision_canonical_sha256": "608f22ddd0558f264a5d41864249f866d8e239cf7a1761a2795be1bd0d62fa56",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00830",
+        "sha256": "6e5041df239a322448730cf6eafceb3d058388aaa9195d2e497d8da3091a47c9",
+        "pointer": "",
+        "record_sha256": "18e8a8db944755baf7b1e2018216c6483c16753bd4ac83b3e23bd1c2d32e0514"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d8e67f3e737bfc30502cb5966371e2cb10616d35ed0d2f2223666706f1eee26f",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 16
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::__init__system__",
+        "behavior": "Server-side autoexec registering the deployable system: system::register( #\"deployable\", &__init__, undefined, undefined ) â€” init callback __init__; main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/610",
+        "decision_canonical_sha256": "44a622da94de7581204a61a392d4e00a1f22bfd845bfd0477583e2d8b50afc04",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/47",
+        "record_sha256": "f093928ae6112356c98a8c58db7ea6ba6fa68d1dffe89596a18864f3988000b2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d9b3ba6a8144880fe75d939c34469cf39693939b2632a44bf4791031e643f6e8",
+      "citations": [
+        {
+          "line_start": 111,
+          "line_end": 131
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_d60e5a06",
+        "behavior": "Adds an area/zone blocker to the level deployable-state (center, radius). Creates spawnstruct: .origin = center; .radiussqr = radius * radius; ._id = level.var_160dcfef.var_d4ef836e (current id counter). Normalization: if !isdefined( level.var_160dcfef.var_1b8ab31d ) -> set to []; else if !isarray(...) -> array( existing ) (promotes single value into array). Appends the struct to level.var_160dcfef.var_1b8ab31d at .size; returnid = level.var_160dcfef.var_d4ef836e; level.var_160dcfef.var_d4ef836e++; returns returnid â€” a unique zone id for later removal.",
+        "unknowns": [
+          "Zone consumer semantics resolved by function_89d64a2c (radius test); who creates zones and for which gameplay (e.g. no-deploy areas) is outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1201",
+        "decision_canonical_sha256": "223691a701b3c48360efd4c698489152e6364ca742b8547f8a12507421b5c1b9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/53",
+        "record_sha256": "dfaa9bf4458e6567baab058f4f1f101cfa5b254561a208d94c0de117429027bb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dc40d1244d61a46a7ebda74147de004d86fa4558a70fd77d6ed302d1696349c2",
+      "citations": [
+        {
+          "line_start": 789,
+          "line_end": 805
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_34d37476",
+        "behavior": "Mass-detonation of accumulated stuck projectiles (self = the context holding var_19fde5b7). Branch: if !isdefined( self.var_19fde5b7 ) -> return. foreach projectile in self.var_19fde5b7: if !isdefined( projectile ) -> continue; projectile dodamage( 500, self.origin, undefined, undefined, undefined, \"MOD_EXPLOSIVE\" ) â€” deals 500 explosive damage at self.origin to each recorded projectile (indirect chain-detonation via their damage response). No list clear in this span.",
+        "unknowns": [
+          "dodamage parameter convention at call (undefined attacker/inflictor) native",
+          "Whether the 500 damage actually detonates each projectile type depends on their own damage thresholds (other files), not proven here",
+          "Caller of function_34d37476 (function_81598103 wrapper) timing is outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1026",
+        "decision_canonical_sha256": "e520ce5a8eab7de75d714c0c35754bda58ec251a560ef6b0f75ef9763b11a1d9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/76",
+        "record_sha256": "e90b13834b3d6e65a5ab87630eb05c05e35f5e7fdbc39df0790f527b456c9532"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "df2b558767ca02acf6d1f4dfcba51c1e162535c0c1ddd1e61f28190bc66178fe",
+      "citations": [
+        {
+          "line_start": 101,
+          "line_end": 105
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_cf538621",
+        "behavior": "Allows-deploy grant (weapon; self = player context). Body: println( \"<dev string:x4f>\" ) â€” obfuscated dev-string log; then self clientfield::set_to_player( \"gameplay_allows_deploy\", 1 ) â€” grants the server-replicated per-player permission consumed by function_35d1c69f (deployable.csc) and any other gate reader. No branches.",
+        "unknowns": [
+          "Caller of function_cf538621 is outside this packet",
+          "Dev string literal text unknown (obfuscated)",
+          "Whether a clear-to-0 pairing exists elsewhere (permission revocation) is not in this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1228",
+        "decision_canonical_sha256": "f67888f8cc0c6c892796af65f354f2ad7e27cee7c85ca3d03eb4e27274699a7c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/52",
+        "record_sha256": "6f9a63b70590e387596bd527c43b86659ab725bf3b206364de5ecb475510b456"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e46eee2fbd288799f0eee55910ae0393c7ba1fdee75e5a10cf80586ecbe62fd5",
+      "citations": [
+        {
+          "line_start": 71,
+          "line_end": 82
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_209fda28",
+        "behavior": "Per-weapon placement-probe dispatch (weapon; self = the deploying entity/player context). Lazily ensures level._deployable_weapons exists. Branch: if isdefined( level._deployable_weapons[ weapon.statindex ] ) && isdefined( level._deployable_weapons[ weapon.statindex ].var_159652c0 ) -> self [[ level._deployable_weapons[ weapon.statindex ].var_159652c0 ]]( weapon ) â€” indirect call through the registered function pointer (default &function_6654310c). No-op when the weapon is not registered or has no probe. This is the shared entry that routes each deployable weapon to its own placement logic.",
+        "unknowns": [
+          "Caller of function_209fda28 (fire/deploy-time code) is outside this packet",
+          "What probe functions other deployable weapons install in var_159652c0 â€” only the default is documented here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1063",
+        "decision_canonical_sha256": "6241d7bbc1ed8ed95422139de90e61728f5ca8a7e7e7c7e74fea74fc5ca0bd4e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/50",
+        "record_sha256": "88e6842080c5177b287150fcb8044c3dd43ddd4b45e5931c2a54cd56b7ea790c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "edfd9aad563d5596bbb7b1f7c3515968c3de0eb2353432628b9ad0e3af24d35b",
+      "citations": [
+        {
+          "line_start": 259,
+          "line_end": 273
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_ab25be55",
+        "behavior": "Player-state validity gate (weapon, sethintstring; self = player, private). Checks in order: (1) if self isplayerswimming() && !( isdefined( weapon.canuseunderwater ) ? weapon.canuseunderwater : 0 ) -> self sethintstring( #\"hash_37605398dce96965\" ) (hint string) and return false â€” swimming blocks deploy unless the weapon permits underwater use; (2) if !self isonground() -> return false (airborne players fail, no hint here); (3) return true.",
+        "unknowns": [
+          "sethintstring hash #\"hash_37605398dce96965\" literal text unknown (obfuscated)",
+          "Parameter sethintstring is unused throughout this complete body. The swim-rejection branch calls self sethintstring regardless of the parameter value. Original hint text/native display behavior remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1308",
+        "decision_canonical_sha256": "cd96cdf8f299b2724c3bbcb802f09dd63277746bdcac7e4d4c18846fd41ccc4d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00831",
+        "sha256": "3bd8c700ab74cae134285e9fc905b7eea05f7f7f164260ad995f196eb61f4d9f",
+        "pointer": "",
+        "record_sha256": "745f27f607f2357e2113c1e151441d37c07a557238011af6db642d661d618b0f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f03cc2ee9559c8d5c7479f8cf303d96824aab7c2fe3fe40b4348c52388b51e3a",
+      "citations": [
+        {
+          "line_start": 556,
+          "line_end": 574
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.gsc::function_db9eb027",
+        "behavior": "Hit-entity whitelist (entity; private). Branches in order: if !isdefined( entity ) -> return true (no hit entity is acceptable); if isvehicle( entity ) || isai( entity ) || entity ismovingplatform() -> return false; if isdefined( entity.weapon ) || isdefined( entity.killstreakid ) -> return false (entities carrying a weapon or killstreak id are invalid surfaces); else return true. Consumed by function_27476e09, function_831707e8 ; a client-equivalent filter link is unproved because deployable.csc calls unresolved function_242060b9. The two server callers use this filter to prevent deploying on dynamic entities.",
+        "unknowns": [
+          "ismovingplatform native predicate semantics unverified",
+          "Exact entity classes excluded in practice depend on which entities lack .weapon/.killstreakid fields"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1322",
+        "decision_canonical_sha256": "b4cb208dcc1a8348183fefebdbc36a23c3d9bcb3fda86b9d9637168397ea3597",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00832",
+        "sha256": "eb8f0312cea8153deac82e4c3f213fe8da9da0af4687d945328f7e2f127ab524",
+        "pointer": "",
+        "record_sha256": "95b1c8f79b49762f777407da9fc537f94d9faff55ab8beff3026b9b0abf13de0"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/b57f350d1ecdc1d4.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/ee5657d74ae99044-001.json",
+      "sha256": "a55c21ca9ec9eac227bc6221ea3e7dc9e9051fa484de9a8f6f4bc2704ba04068"
+    }
+  ]
+}

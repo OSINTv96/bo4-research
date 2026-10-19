@@ -1,0 +1,61 @@
+{
+  "module": "src/scripts/wz_common/infection.gsc",
+  "identity": "scripts/wz_common/wz_ai_utils.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "wz_ai_utils",
+  "witnesses": [
+    {
+      "line": 378,
+      "text": "        item thread wz_ai_utils::function_7a1e21a9( attacker, origin );",
+      "caller": "function_70f6e873",
+      "caller_span": [
+        360,
+        380
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 369,
+          "opening_line": 372,
+          "ending_line": 379,
+          "text": "foreach ( item in items )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a1e21a9",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          871,
+          901
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0238",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/wz_common/wz_ai_utils.gsc",
+    "sha256": "469ae2d93c631a99492295839bc535ea58296646dd42c6d018e37a46e2af16b3",
+    "git_blob_sha1": "c09b49433ab4ec1d77cc4da3e1b52bc4987cabdf",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/wz_common/wz_ai_utils.gsc"
+}

@@ -1,0 +1,203 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/abilities/wz/gadgets/gadget_jammer.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "e3787b32a38ca5ee3c16ec99058a893eaaca5b90db2274a1a942dc4b6da28b79",
+  "git_blob_sha1": "84b4f3698809fcadbca47498e7144f17bdc9521b",
+  "output": "src/scripts/abilities/wz/gadgets/gadget_jammer.gsc",
+  "output_sha256": "48ef4f123db8f3ed49bb25736a880796c0742c5e9efd83c09f41ed142e4d9782",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/gadgets/gadget_jammer_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/abilities/gadgets/gadget_jammer_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/gadgets/gadget_jammer_shared.gsc",
+        "sha256": "5d6fa9df9bbae17303d51c086946504eddd0761b9da23d874a601a21a9701be7",
+        "git_blob_sha1": "51a3945db2566c0ddf829a6e468dbd194d32e45a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flag_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/flag_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flag_shared.gsc",
+        "sha256": "5dedc4517a529cbaa3ffb1ca62c15d21bbe07917f1902e07d0c26dcaabe4ab38",
+        "git_blob_sha1": "f78d155a4e9aa963fd6d6bc1fba6b40d1a715118"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scene_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/scene_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scene_shared.gsc",
+        "sha256": "7ef8150687813aeaec543990e9b079d0d160fac06f08d43ecd9740e7052e74b4",
+        "git_blob_sha1": "da806faa9dee32bd48af6e242036e13003c95c01"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "59dc0bfaaa10b34bcead9cce6bc3814f515f2bf954fbe7cbf34b9b56ec3dd7df",
+      "citations": [
+        {
+          "line_start": 23,
+          "line_end": 26
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_jammer.gsc::__init__",
+        "behavior": "WZ jammer server init: single statement init_shared() â€” delegates to the shared scripts/abilities/gadgets/gadget_jammer_shared.gsc init of this packet (per prior notes: EMP grenade registry). No bundle key, no local hooks.",
+        "unknowns": [
+          "init_shared body (EMP registry wiring) is an excluded/owned dependency"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/411",
+        "decision_canonical_sha256": "394bdaf03f811b0ef64e81e1ed4ed294bfbfd72fbbdf67d90ca86e4f89d3c7f8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00734",
+        "sha256": "51dc095a0342d6da8a26dec0cc36fbcf00851bacccc0b799322af60f823e302b",
+        "pointer": "",
+        "record_sha256": "e59e075e57d0d7511214c0abc4e9e97d24d8a4668a4c96da4751a373252e8825"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fd43ec8c4bdfb7563d50211ec5c76be6100836fd249a08f8c066754139cc01e9",
+      "citations": [
+        {
+          "line_start": 14,
+          "line_end": 17
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_jammer.gsc::__init__system__",
+        "behavior": "Server-side autoexec registration for the WZ jammer gadget. function autoexec __init__system__(): system::register( #\"gadget_jammer\", &__init__, undefined, undefined ). No other statements (file 27 lines).",
+        "unknowns": [
+          "system::register semantics outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/718",
+        "decision_canonical_sha256": "1a5b0eb72b0c4a22cc8a8ab58128ecf19e8c8dcf0ca1cd015f28dfe7e286b794",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/469",
+        "record_sha256": "2ecc810ce3599aab53176ddb5e78bc19406b5928ae705e349454e307b8fb027d"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/818d9168205e4f6d.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/ad6d30de0aa4789e-001.json",
+      "sha256": "077ab1062e39a3ec403218d73db58865a92bdc6abdb214146308e53b106015c7"
+    }
+  ]
+}

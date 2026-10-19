@@ -1,0 +1,182 @@
+{
+  "module": "src/scripts/mp_common/gametypes/koth.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 791,
+      "text": "                player stats::function_dad108fa( #\"hash_60545a50ce7c9791\", 1 );",
+      "caller": "give_capture_credit",
+      "caller_span": [
+        768,
+        825
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 786,
+          "opening_line": 789,
+          "ending_line": 792,
+          "text": "if ( level.kothstarttime + 3000 > capturetime && level.kothcapteam == capture_team )"
+        },
+        {
+          "line": 782,
+          "opening_line": 785,
+          "ending_line": 819,
+          "text": "if ( !isscoreboosting( player ) )"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 824,
+          "text": "foreach ( touch in touchlist )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    },
+    {
+      "line": 815,
+      "text": "            player stats::function_bb7eedf0( #\"captures\", 1 );",
+      "caller": "give_capture_credit",
+      "caller_span": [
+        768,
+        825
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 782,
+          "opening_line": 785,
+          "ending_line": 819,
+          "text": "if ( !isscoreboosting( player ) )"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 824,
+          "text": "foreach ( touch in touchlist )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_bb7eedf0",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          533,
+          542
+        ]
+      ]
+    },
+    {
+      "line": 816,
+      "text": "            player stats::function_bb7eedf0( #\"captures_in_capture_area\", 1 );",
+      "caller": "give_capture_credit",
+      "caller_span": [
+        768,
+        825
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 782,
+          "opening_line": 785,
+          "ending_line": 819,
+          "text": "if ( !isscoreboosting( player ) )"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 824,
+          "text": "foreach ( touch in touchlist )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_bb7eedf0",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          533,
+          542
+        ]
+      ]
+    },
+    {
+      "line": 982,
+      "text": "                player stats::function_bb7eedf0( #\"objective_time\", 1 );",
+      "caller": "awardcapturepoints",
+      "caller_span": [
+        940,
+        1005
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 967,
+          "opening_line": 970,
+          "ending_line": 996,
+          "text": "foreach ( player in level.aliveplayers[ team ] )"
+        },
+        {
+          "line": 957,
+          "opening_line": 960,
+          "ending_line": 1003,
+          "text": "if ( !level.zone.gameobject.iscontested )"
+        },
+        {
+          "line": 952,
+          "opening_line": 955,
+          "ending_line": 1004,
+          "text": "while ( !level.gameended )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_bb7eedf0",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          533,
+          542
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0491",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc"
+}

@@ -1,0 +1,81 @@
+{
+  "module": "src/scripts/killstreaks/killstreakrules_shared.gsc",
+  "identity": "scripts/killstreaks/emp_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "emp",
+  "witnesses": [
+    {
+      "line": 384,
+      "text": "        if ( self emp::enemyempactive() )",
+      "caller": "iskillstreakallowed",
+      "caller_span": [
+        312,
+        420
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 373,
+          "opening_line": 376,
+          "ending_line": 397,
+          "text": "if ( self isempjammed() )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "enemyempactive",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          362,
+          393
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0371",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/killstreaks/emp_shared.gsc",
+    "sha256": "d7e0e81e51ad91eda4f735e7a4ce14c5b01e9b025438e2158f5a3337e1b8b422",
+    "git_blob_sha1": "8da8a976c53248314f1de8cae57d105a81eb7815",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/killstreaks/emp_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    384
+  ],
+  "required_callee_functions": [
+    "enemyempactive"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/killstreaks/emp_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04831",
+        "to": "N04821",
+        "line": 384
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

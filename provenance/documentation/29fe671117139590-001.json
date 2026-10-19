@@ -1,0 +1,1492 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/lua/hashed/1a51ce873fc9a4d0.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0ea9f72585a7ae6bf1c15455c9ff0f448dbc29ff9ab30abab022fe7de15d231c",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:142",
+        "answer": "Compares numeric input against numeric Warzone maximum rank plus one. At/above threshold returns the special localized string; otherwise tostring(input). Missing numeric conversions are not guarded. Requires item model not dummy/collapsed. Reads selected slot and item id. If a slot-claiming pickup would replace a nonempty item, uses firstFreeSlot when not -1 or sends inventory_drop first when full. Then sends multi_item_pickup or multi_item_pickup_stowed_weapon with pickup id and chosen slot. These are clientscript requests; no authoritative inventory result is shown. Reads WarzoneSplitInventory.current and forwards controller/item/inventory_drop/amount to SendInventoryNotify. Errors if parent and child are identical. Stores parent[field] as a zero-argument closure; invocation calls child[field]() only if nonnil. It deliberately passes no implicit child receiver, and does not prove the dynamic field provider. Requires showPickupHint. Rejects INVENTORY_FULL, IGNORES_INVENTORY or AMMO_FULL flags. Uses forced-hint item index unless -1, then first free slot unless -1, then selected index or 0. Returns true only if that inventory item model equals the supplied widget model; otherwise false. Reads controller client number and both client team fields. Returns the literal short-circuit conjunction ending in team equality; missing team fields can return nil rather than Boolean false. Missing target platoon returns false. Otherwise returns false for platoonCount=0 or mismatched controller platoon; true for the remaining path. Controller clientModel:get() is not separately guarded. If same controller team, returns teammateIndex or 0 when falsy. Other teams return -1. Gets teammate index; -1 returns empty string, otherwise concatenates empty string with index+1 under Lua operator precedence. Uses TeamPlayerColorNameForClientNum to index ColorSet, then forwards that table to ConvertTableToRGB. Returns the second argument when the third equals 1; otherwise third times first. It does not inspect or move a death circle. Trial sessions localize the special tier-skip key; other sessions localize the supplied key. Reads old mapZoom. Only requested zoom <= MAP_ZOOM_MAX proceeds; there is no lower-bound check. Writes zoom first, derives normalized cursor position from engine bounds on KBM or markerPos otherwise, computes inverse-zoom pan delta, clamps pan to [0,1-1/newZoom], writes pan and adjusts markerPos for clamp displacement. Division-by-zero and missing model/data values are not repaired. Requests the hashed engine pan operation with controller/x/y before setting the supplied model to {x=x,y=y}. Failure in the first request can prevent the model write. Captures Warzone pan/zoom and source horizontal layout, installs separate pan/zoom callbacks applying the exact horizontal transformation. A scoreboard-open subscription clears DisableZoomIn/Out then reasserts each when its trigger button flag is down. Closing the scoreboard has no reset path in this body. Captures Warzone pan/zoom and source vertical layout. Two subscriptions recompute the displayed row top/bottom positions for pan or zoom delivery using the exact retained expressions; it does not write map state. Computes sqrt(x*x+y*y), divides both supplied table coordinates by it and returns the same table. Zero-length inputs are not guarded. An existing _ignoreInputTimer returns false. Otherwise creates/attaches a timer and returns true; on invocation clears the timer field then sets the supplied model to the captured value. No explicit close call is present in the owned callback. Reads currentWeaponIndex. The recovered body calls the engine selector with 1 only within the current-index==0 path, then assigns a local 0 without calling it. Do not invent the missing reverse-selection call for index 1. With a weaponId and valid nonzero ammoType model value, returns the localized formatted text containing supplied label and ammo type. Otherwise localizes the supplied label alone. Reads hudItems.inventory.selectedItemName under the controller model and injects its get value into localization of the supplied string key. Checks the shared SplitterWidgetElement. If present returns whether its state is Open; absent returns false. The controller argument is unused. Reads objectiveN.unlockProgress from the supplied model. Nonnil/nonnegative progress is injected into the description key; absent/negative progress localizes that key alone. Reads weaponN.hasAttachments from WarzoneInventory and returns equality to numeric 1. Read f383_arg0.weaponId or0. In order, request HeaderWeapon:setText with Engine hash_4F9F1239CFD921FE(\"WZ/WEAPON_WITH_ID\", tostring(id+1)), then HeaderWeaponEquipped:setText with the same provider and literal \"WZ/WEAPON_EQUIPED\", tostring(id+1). These are numbered-label text requests, with no direct weapon-name or ammunition lookup in this selected body. Localization, text rendering, input errors and provider effects remain unverified.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00247",
+        "sha256": "0df41e22daeb772e041881b1877ac62740005fc117d9ac5926f9dd3c985ec59a",
+        "pointer": "",
+        "record_sha256": "776c574fe6ac9ea22cf1ce81045dd5279c6ec947d7dd3bef41c301733da2f460"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "6f248427200f475277e440c0534a537b7ff3fa7595a9f7e232a63c3ea2dfe9b6",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:191",
+        "answer": "Constructs CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, Background as LUI.UIImage.new, NineSliceShaderImage as LUI.UIImage.new, HeaderWeapon as LUI.UIText.new, HeaderWeaponEquipped as LUI.UIText.new, MinusButton as LUI.UIImage.new, PlusButton as LUI.UIImage.new, SwitchWeaponImage as LUI.UIImage.new, FrameSelected as LUI.UIImage.new. Requests model links f1_arg1, \"Controller\", \"alt2_button_image\". Owns 1 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 11,
+              "line_end": 11,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "a80ba5b95ee9117c405cfcd718da855d8b5384f9c522a1bec76cce5e9ddde8a2",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.StartMenu_Inventory_SwitchWeaponTab_Activate )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 14,
+              "line_end": 14,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "Background:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "08146dad6cd0cfff6992862e882deb3af34b33375482700c9451d2c5356ba82a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBackground:setRGB( 0.55, 0.54, 0.49 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "a8fb5b3512a4e4ba54e9d0eb382c5256b963063e461ca5ce038a15e9fea9861e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Background )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "NineSliceShaderImage:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "2bf2eb9c07efe2e2bca749848ea037641c1f4cd6e34ed4716e6ab3a35ee0c2d1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNineSliceShaderImage:setRGB( 0.55, 0.54, 0.49 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "NineSliceShaderImage:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 23,
+              "line_end": 23,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "db61d427b81c04544f2cc3ddc298653347bf35e42a6bf4e6d55ade7f49366dd7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNineSliceShaderImage:setImage( RegisterImage( @\"uie_highlight_border_line\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "NineSliceShaderImage:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 24,
+              "line_end": 24,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "0794f498019fc8ed42e10196e977301d001cdccfd150e2953bba90f1bac27f4b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNineSliceShaderImage:setMaterial( LUI.UIImage.GetCachedMaterial( @\"uie_nineslice_normal\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "NineSliceShaderImage:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 25,
+              "line_end": 25,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "4590107122cfe012c757420809bb2ec5795c2ac2a27bcaa33f74222737ce8995",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNineSliceShaderImage:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "NineSliceShaderImage:setupNineSliceShader",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "a0d6d0fc43efd83a3258b7b1e81fca668d591d1143f6acd588db323aaaf38d18",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNineSliceShaderImage:setupNineSliceShader( 6, 6 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "10c6882b78cec4bebd051547a135623357f2af21d43a79e8b9289364a269c34b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( NineSliceShaderImage )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 31,
+              "line_end": 31,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "20f8255af81aa3298308b862d662177b24466e8fe448c31b183f9fd62f8f91ba",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 32,
+              "line_end": 32,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "8d085327a34d5e6605e16266aafdaf58385816c44ea682074ec6580719e87e17",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setAlpha( 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 33,
+              "line_end": 33,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "dc0aca926c48e526a55a0f43bc0a77c551411538b47bf9a13c310a79b6732458",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_5B8A625B47D0EBA\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setTTF",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 34,
+              "line_end": 34,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "11b0a1d3507774a050512f4bc4c4798bf2f7b9b32b7dd303ec77f36f7e6cdcf3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setTTF( \"ttmussels_regular\" )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setLetterSpacing",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 35,
+              "line_end": 35,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "171b24399bba6b68bf8baa6b7927eeee98df7cd2969edcd82babd3ce7a79d189",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setLetterSpacing( 4 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 36,
+              "line_end": 36,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "c4f55d7e3538ac3e5ab2d4c64f2a6d4aaa1c6840c061b37737fe1062d9228017",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeapon:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 37,
+              "line_end": 37,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "1b06cdcf3a8377364f511966e2c07be722731069151eb8e8b39d004139f80f78",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeapon:setAlignment( Enum[@\"luialignment\"][@\"hash_E821F0ECFF8D1C7\"] )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 38,
+              "line_end": 38,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "a17da3065e75bbd19b4c3511fed9b51f7bbb3d19948676dada56629975f1c450",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( HeaderWeapon )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 42,
+              "line_end": 42,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "6561923e0cc86be35f6344dba60ed30eb145b78e83673cdb87398ecc725f1833",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 43,
+              "line_end": 43,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "3086b9d81fbbc91562e31a54d0cb5a816394349f0f5b0ff263923a9e2615dd0a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_52F5D67B7D6915EF\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setTTF",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 44,
+              "line_end": 44,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "653161d118465690ea30239d7b3a506249a05a4a4099f663337ca261b28c5233",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setTTF( \"ttmussels_regular\" )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setLetterSpacing",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 45,
+              "line_end": 45,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "e26d8f5a232a182a2631c95166e6442e46f642787fa535d21b9d0a42af2ad54a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setLetterSpacing( 4 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 46,
+              "line_end": 46,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "59137b6529b9a8e35be7f9cb9d977b6e47dc9a4197630b9694ab36d7ec15bf6d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "HeaderWeaponEquipped:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 47,
+              "line_end": 47,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "446effdf43f84d504693fc75ec6539cbbff073551d752a67efdb929cec2c5c5a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tHeaderWeaponEquipped:setAlignment( Enum[@\"luialignment\"][@\"hash_E821F0ECFF8D1C7\"] )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 48,
+              "line_end": 48,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "877d72b06e95b853b2b15243631f10eaa007228cd7c6f06f66e9a202071c4cf7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( HeaderWeaponEquipped )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "MinusButton:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 52,
+              "line_end": 52,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "218d51509cefda9bf5d2e025ab08a31c6ee1e5ac6b6255157dc418a75b62d764",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMinusButton:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "MinusButton:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 53,
+              "line_end": 53,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "9db4bc2551953bdb0f42267b35851e6514a633b89ca90346ed5a74944391c862",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMinusButton:setImage( RegisterImage( @\"hash_58EBD33D94FD1BCF\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 54,
+              "line_end": 54,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "0edb38c9d2c991e7697cafeaf733e314b2e670235c5bfdda189152684c46b228",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( MinusButton )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "PlusButton:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 58,
+              "line_end": 58,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "91ed57e5d1f30ccec2be8f41a6b817304ae791cb75788b7329e13707a1cac0d3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tPlusButton:setRGB( 0.66, 0.63, 0.52 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "PlusButton:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 59,
+              "line_end": 59,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "4011bd404bc673bb3c2f2dc514a97cd8389f5180bf51bff0b4a9cd5695a0d2e9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tPlusButton:setAlpha( 0.05 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "PlusButton:setZRot",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 60,
+              "line_end": 60,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "5c2f8b3beda0e5f60647cee860a5059e88967612a4ffcf96d3dae6a98b55591f",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tPlusButton:setZRot( 270 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "PlusButton:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 61,
+              "line_end": 61,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "762a3cf30c558d2919dc4f0309f676d08e6f3216f33e3c74f0c2720211504213",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tPlusButton:setImage( RegisterImage( @\"hash_58EBD33D94FD1BCF\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 62,
+              "line_end": 62,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "ab6b19b0451987a5492336806eeb293a1894d8ef47c4037c3590328c842d84bd",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( PlusButton )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "SwitchWeaponImage:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 66,
+              "line_end": 66,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "9dad01e9a24b1df368cffaa69f4d1a3bfa5005af9c1a8cba5643bee2ed6d8b70",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tSwitchWeaponImage:setAlpha( 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "SwitchWeaponImage:subscribeToGlobalModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 67,
+              "line_end": 67,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "ba92f28b6b8b5d54eb70e2b0db9e8415d1b431f9d3a6a54bdcced3d57046eb7d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tSwitchWeaponImage:subscribeToGlobalModel( f1_arg1, \"Controller\", \"alt2_button_image\", function ( model )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 68,
+              "line_end": 68,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "6807f92f5a5240fca8ac5900e7264a258c8538065c6f2b207c1a7e6f8467b690",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f2_local0 = model:get()",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:67-72",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "SwitchWeaponImage:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 70,
+              "line_end": 70,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "cf67c48a659e30aa4b8326b7d0562d430cf97b47ee0f71da450fdc6da17ae57b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tSwitchWeaponImage:setImage( RegisterImage( f2_local0 ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:67-72",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 73,
+              "line_end": 73,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "f293620d1c142d95aa820f4ca72d51c6e75d7a59efd7da3d882ebdadf677d521",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( SwitchWeaponImage )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 77,
+              "line_end": 77,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "85d8f6f54d719686c0fc46539e6ddfb2059f42204b2023d72065018fba51da8e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setAlpha( 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setScale",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 78,
+              "line_end": 78,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "c8289700d8e535b874a4a496a1efc4858688da026a444be483e10850124d00af",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setScale( 0.96, 0.96 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 79,
+              "line_end": 79,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "248723ebc20e546d53f090a67a8772706855a52a3618c02b6a10489bf558d0c9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setImage( RegisterImage( @\"uie_ui_menu_store_focus_frame\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 80,
+              "line_end": 80,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "d51ed32325a210d3c503a33359ff8b8bf31b7806b97ae8f642093465e2a6e431",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setMaterial( LUI.UIImage.GetCachedMaterial( @\"uie_nineslice_add\" ) )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 81,
+              "line_end": 81,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "f806099d9c2ae6876ce8145122f0afdd196e90f7715ca9fa4a87e4c6d22a85fe",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "FrameSelected:setupNineSliceShader",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 82,
+              "line_end": 82,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "4d1c808f0ffab0c7d4550b8c5f2d60b7d3206b26f111c92e776c46d22995f17a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tFrameSelected:setupNineSliceShader( 8, 8 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 83,
+              "line_end": 83,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "d87d1568ab60d76f79b694217589a8144b81d695bb15a19cf42aba6806024d31",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( FrameSelected )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:191",
+            "source_symbol": "CoD.StartMenu_Inventory_SwitchWeaponTab_Activate.new",
+            "symbol": "PostLoadFunc",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/4fbb20003d2ff2b1.lua",
+              "line_start": 89,
+              "line_end": 89,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1e7dbb17e2f4169dc0daa328451037bc36c15bb27b71f5e9e325d158d0893758",
+              "line_span_sha256": "4dbef5997b3a65062e8c8bbfb97d55f505c5f9f18c20af45a45813d428535171",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tPostLoadFunc( self, f1_arg1, f1_arg0 )",
+            "scope_id": "lua/hashed/4fbb20003d2ff2b1.lua:9-93",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00293",
+        "sha256": "49094910d39517a5ab52204eb1e3cf5b0d43840808d85d8197a48a4b05d720d9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "7a2aef5438956e4e405938ac7e6cd265126e6072d2028b7a778308299d8b49d3",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:018",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/17",
+        "record_sha256": "8c4df5f516a9a2fe52a4e23cc803bbfcbf64892f34b05e5c302e29ccf31db2db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "99a32e37c2df09e21ee31438ec674903c9981e942f9829c7cb077eff99f287c5",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:109",
+        "answer": "Constructs CoD.StartMenu_Inventory_ActionIconPC with the supplied menu/controller/layout values; its exact visual/data fields, condition closures, hook requests and return are retained below. Creates self via LUI.UIElement.new, Blur via LUI.UIImage.new, Background via LUI.UIImage.new, TiledBacking via LUI.UIImage.new, Image via LUI.UIImage.new, ItemFrameAdd via LUI.UIImage.new, FrameSelected via LUI.UIImage.new, FrameSelectedCorner via LUI.UIImage.new, FrontendFrame via LUI.UIImage.new.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/108",
+        "record_sha256": "8858ff0f3d391721c0c022f3f74d06b7de8caef2e5076e9bcf33103ba896993c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "c3902d1e1d34a24ce73667cd0f0f3e7a6e82cee03994a2ceef1409f5f0415cc0",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:151",
+        "answer": "On hook delivery, requests close in this exact order: f135_arg0.WeaponVignette, f135_arg0.SwitchWeaponImage, f135_arg0.WeaponHeader, f135_arg0.WeaponAttachments, f135_arg0.WeaponAttachmentsSmall, f135_arg0.DropAndDetachButtonPC, f135_arg0.DropButtonPC. No added child-nil guard, parent close, exception recovery or success confirmation; the external wrapper/base provider owns other cleanup.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.__on_close_removeOverrides",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1310,
+              "line_end": 1310,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "81960a6cf2f1ec63b3847f776adc9a098a5ce7e40c921470a9ec41fd2fd891a5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.__on_close_removeOverrides()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.WeaponVignette:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1311,
+              "line_end": 1311,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "b834de61229eb47d088397fd6f8deb45f20906158fa72a4cef0c043c8461bbec",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.WeaponVignette:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.SwitchWeaponImage:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1312,
+              "line_end": 1312,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "768447eab919de13b964eab0b8895e5ae364c1cbd8d3be2adb795b1673e1c85b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.SwitchWeaponImage:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.WeaponHeader:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1313,
+              "line_end": 1313,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "3a81341104f6a45919230cc79d021fbe448f7b2e68983e9bdc46813213209248",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.WeaponHeader:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.WeaponAttachments:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1314,
+              "line_end": 1314,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "4ca43fdb3bcb8f5fc54b1572c4d6710dc9edad835454de5c08396b24d9a086c5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.WeaponAttachments:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.WeaponAttachmentsSmall:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1315,
+              "line_end": 1315,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "ca27f8c1d41f9f4821bbf4acb2c698c7a4cc5a13e6f7daf3a6d874c7821f72b9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.WeaponAttachmentsSmall:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.DropAndDetachButtonPC:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1316,
+              "line_end": 1316,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "789297683d2e77bf4d6ee0cc9dd6bb7d50e0811a2ed0b7ceded69315a72e1397",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.DropAndDetachButtonPC:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:151",
+            "source_symbol": "CoD.StartMenu_Inventory_WeaponsDisplayPC.__onClose",
+            "symbol": "f135_arg0.DropButtonPC:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+              "line_start": 1317,
+              "line_end": 1317,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+              "line_span_sha256": "ddb1c208b420221a7916812d61a000d72ae009df783e495f6db01805351d6d23",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf135_arg0.DropButtonPC:close()",
+            "scope_id": "lua/hashed/1a51ce873fc9a4d0.lua:1309-1318",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/150",
+        "record_sha256": "f0763fe83225a05c24e6a4e5742b528fe9f239ec4450b63c5664cfdbfbdb94f6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/29fe671117139590.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "cd661f824f7ea5be0195f20b9ebb631d04fea399ff150b2904aa99743f2507ae",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:275",
+        "answer": "NEED_CONTEXT: Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity. NEED_CONTEXT: Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity. NEED_CONTEXT: Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity.",
+        "unknowns": [
+          {
+            "kind": "unresolved_provider_or_receiver",
+            "symbol": "f1_local7",
+            "target_locator": {
+              "area": "references",
+              "path": "lua/ui/utility/warutility.lua",
+              "line_start": 107,
+              "line_end": 117,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cc6f693b6fa9d374837bb8f9b42c8ff7624b686e4b146448810b10de417e3a0d",
+              "line_span_sha256": "50948f8ab95de83f850e0ad2dab9c89a3c08461b14c0ec9604cef9b4d30e5959",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "missing": "Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity.",
+            "callers": [
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/47f59a623ef1bb2b.lua",
+                  "line_start": 90,
+                  "line_end": 90,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "76064fffc83b04168f947d217e9c6771af23da1f0f39708fed4b7f8b07066ec5",
+                  "line_span_sha256": "ff503b005e07342c0bacd152f163813ecb6e753bee0708461c442e06773a15ee",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local7( f1_local6, f1_local8[\"lobbyRoot.lobbyTimeRemaining\"], function ( f6_arg0 )",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/51",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:056",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              },
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/6c9547a127735d7d.lua",
+                  "line_start": 106,
+                  "line_end": 106,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "c4826b45a913ae04c6d498d479a806097fed90e68a260f2a93b7df69b79982c5",
+                  "line_span_sha256": "5c3fc0ab82af8f49b37f4743cb8e9108520b56c2e9aa558c4cca45528645c8c3",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local7( f1_local6, f1_local8[\"hudItems.showSpawnSelect\"], function ( f10_arg0 )",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/86",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:091",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              }
+            ]
+          },
+          {
+            "kind": "unresolved_provider_or_receiver",
+            "symbol": "f1_local10",
+            "target_locator": {
+              "area": "references",
+              "path": "lua/ui/utility/warutility.lua",
+              "line_start": 120,
+              "line_end": 135,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cc6f693b6fa9d374837bb8f9b42c8ff7624b686e4b146448810b10de417e3a0d",
+              "line_span_sha256": "6a4bca561154408204e82dcb896c84920477c89d345802f3aa706ecb38e85449",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "missing": "Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity.",
+            "callers": [
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/2f74fd6231658d1d.lua",
+                  "line_start": 86,
+                  "line_end": 86,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "b582b08747ff96388c2d2018edadbe025ac6e51dec9b99cbc6734b5b88fc7d66",
+                  "line_span_sha256": "fd11a4f1881f09c246c49873e435794ad894fec8adb8bcc8dbd201efb875b01e",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local10( f1_local9, f1_local11[\"lobbyPlaylist.name\"], function ( f4_arg0 )",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/28",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:033",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              },
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/394194d688f8948f.lua",
+                  "line_start": 103,
+                  "line_end": 103,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "4074698dcdf7dfcf7cf6b354c7815f7d078ffb116d6c6dbf06c5cf9ae620ca96",
+                  "line_span_sha256": "cb3435149ac0b4fd1e2679c0160e8291d5085633f82c0f438368612e698a8076",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local10( f1_local9, f1_local11.victory, function ( f6_arg0 )",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/39",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:044",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              },
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/55fa35d3c5f6e788.lua",
+                  "line_start": 86,
+                  "line_end": 86,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "2c3b2c1233b97948e2cd832d21cfb2f47253cbb3d12123cbf33c9c6288bd7dc5",
+                  "line_span_sha256": "c4d4307416d6d2d90570be1a49d48d4be8cab41de2936ebc345e7dd95a6d0499",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local10( f1_local9, f1_local11.cycled, SpecialEventBanner.__Image ) --[[ @ 0]]",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/64",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:069",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              }
+            ]
+          },
+          {
+            "kind": "unresolved_provider_or_receiver",
+            "symbol": "f1_local13",
+            "target_locator": {
+              "area": "references",
+              "path": "lua/ui/utility/warutility.lua",
+              "line_start": 195,
+              "line_end": 198,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "cc6f693b6fa9d374837bb8f9b42c8ff7624b686e4b146448810b10de417e3a0d",
+              "line_span_sha256": "cce96d1124c2a1064075cda811ff605b01e2ec38faa001b885c94cfef7265195",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "missing": "Need a same-block lexical caller/capture or literal provider-table registration connecting the supplied other-file calls to this exact local declaration; spelling f1_localN is not shared identity.",
+            "callers": [
+              {
+                "caller_citation": {
+                  "area": "references",
+                  "path": "lua/hashed/1a51ce873fc9a4d0.lua",
+                  "line_start": 958,
+                  "line_end": 958,
+                  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                  "file_sha256": "6ec6e736d170087b5973de855be51fec151fd8c7f542acf072b29b3e946ba441",
+                  "line_span_sha256": "d995bc254370e6a5834e8cdc0d6f6d37d0587c37fd198c5f9543ddcf8674443c",
+                  "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+                },
+                "statement": "\tf1_local13( f1_local14, f1_local15.LastInput, function ( f113_arg0, f113_arg1 )",
+                "reused_records": [
+                  {
+                    "area": "inputs",
+                    "path": "STOPPED-p07-lua-follow3-lua_g-contracts.json",
+                    "json_pointer": "/units/7",
+                    "sha256": "88dcd84e44eed0eb7586fdcdee4725a72c2d716e1d4203fb319e901320429d9a",
+                    "unit_id": "hmh07-lua-follow3:012",
+                    "status": "complete_bounded_contract",
+                    "delivery_status": "awaiting_independent_review",
+                    "limit": "Reuse original saved author scope/partials/fidelity; no independent review or credit upgrade."
+                  }
+                ],
+                "status": "NEED_CONTEXT",
+                "reason": "Caller is in a different lexical file/block or has no exact literal provider path. Missing receiver/alias/capture provenance connecting this call to this target; similar names do not bind it."
+              }
+            ]
+          }
+        ],
+        "status": "blocked"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00098",
+        "sha256": "2e0211149a611e76c1299fe27afb59e95a7ddae5fe9e24a6660f747304a680dd"
+      }
+    }
+  ]
+}

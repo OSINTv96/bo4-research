@@ -1,0 +1,149 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_asylum.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "34c503fd24f4d7758f58fc88efdf27b26a46ee7441da1b6a5b800f33fa8a617a",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/735",
+        "record_sha256": "5cca33a25a27855bddcd213244b30c1f9039c2b7f83598672a234578b7bb5158"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "478c0cf359510e4b4b4240cb6543ab2b3359b28aa02dd905b5ca8ce6df025b1a",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1044",
+        "record_sha256": "6ad296873fed3337362c75ad8c59b209c9ee344cad97ece95cc2c6c5f5a3fbba"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "4fd73d991ab036a625a8f72154fe75f8f08441f637202194fb187a48c7ec7664",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/734",
+        "record_sha256": "c89bcb7a281fcf90ccab39620733b8cc0238ae6e4b5a1acc87eeeb90bf2d3e56"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5d92109a74f7e2587b3364f92cf3f97e180642eeea765b65175e8a6b2104081b",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1043",
+        "record_sha256": "945fd92f74ac757783bfce580548fd443ec899414e68d5a08cda2c8dae8fc987"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "a05a4fd116479dbe55a68389e48427a816ef4b082c4abf71ddf72665fb9bb361",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_asylum.csc::toilet_ee_play",
+        "behavior": "Client-side easter-egg audio handler for the world clientfield \"toilet_ee_play\". Full source chain: (1) client registration - wz_asylum.csc autoexec __init__system__ registers #'wz_asylum' system with &__init__ (12-15); __init__ (30-33) unconditionally calls clientfield::register( \"world\", \"toilet_ee_play\", 19000, 2, \"int\", &toilet_ee_play, 0, 0 ), forwarded by clientfield_shared.csc::register to the native registerclientfield with all eight arguments unchanged (per prior HMH-S1-INIT-A contract: no script validation, value write or callback invocation; native schema/transport unknown). (2) Server producer - wz_asylum.gsc __init__ registers the same field without callback (33) and threads function_6e7c4665 (34): when level.var_7ad3f6a0 (= getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_6382d9dfeaeaa0f3\"), default 0, computed at gsc 23) is false it pre-sets asylum_toilet dynents to state 3 and returns (43-59). Server event consumer event_handler[event_9673dc9a] function_3981d015 (gsc 66-98): returns when var_7ad3f6a0 is defined and false; for eventstruct.ent.targetname==\"asylum_toilet\" and state==3, waits 3s, reads struct target sound origin, song=randomint(2)+1 forced to 3 unless getgametypesetting(#\"hash_7d5d04df4914095e\"), then level clientfield::set( \"toilet_ee_play\", song ) at gsc 93 - the script-side producer through the clientfield write interface. (3) Target delivery: native clientfield change dispatch to the csc callback; handler (39-63) on newval>0 gets dynent #\"asylum_toilet\"; checks toilet and toilet.target, gets s_sound, then cases1/2/3 read unchecked s_sound.origin for their sound calls. No CSC s_sound guard exists; absent struct/error behavior is unresolved. Note: who moves asylum_toilet dynents to state 3 in the enabled path is not in the visible source (disabled path presets state3, but any resulting event reaches the defined-false early return at68-70 and does not execute the audio producer; enabled-path state3 origin remains unaccounted).",
+        "unknowns": [
+          "Native clientfield change-delivery mechanics for world fields with callbacks (schema, transport, initial snapshot, time-jump rules) - smallest native/build question; do not infer.",
+          "Who/what moves asylum_toilet dynent to state 3 in the enabled (var_7ad3f6a0 true) path - no visible source producer.",
+          "HMH ruleset values for hash_3778ec3bd924f17c, hash_6382d9dfeaeaa0f3, hash_7d5d04df4914095e (tables outside script corpus).",
+          "Whether an asylum_toilet dynent exists in the HMH match (map data outside script corpus)."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00511",
+        "sha256": "5f200da75ce31ca15b71657e2a99e6f789373507ef6a3a77ece960d43b121c34"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "cbec8aeeb9e9c59a2842a98c2f0cf2e1d2fb80c1e54b01a23bc26dc29f38a384",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/733",
+        "record_sha256": "eefd6c8e4f1cb0233b74b8798c0fc86910dad8e3fba0b248537b26d4baf60be1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "d22b141bbebf8551a0646d7249b495b8f70d2dc4f5fbe1e47c1d522aa4f677b6",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/259",
+        "record_sha256": "c334675cdd3214f9015ee962ecbe4d5ccc0c31208e5eefa3006495e7e798d0c2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/529d605da9240ce9.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "26f254fdbdc2aaad0c2f12091b742905f5565841bd50e0e0313e047c4c7dae0b",
+      "summary": {
+        "id": "scripts/wz_common/wz_asylum.csc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/259",
+        "record_sha256": "c334675cdd3214f9015ee962ecbe4d5ccc0c31208e5eefa3006495e7e798d0c2"
+      }
+    }
+  ]
+}

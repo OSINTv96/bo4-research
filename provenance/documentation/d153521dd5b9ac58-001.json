@@ -1,0 +1,607 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_vision_pulse.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "021896fbaac6076b4952a81b4b27aeeeaf9f36c2e80d71b8cf41762c08dd0def",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::gadget_visionpulse_reveal",
+        "behavior": "REVEAL BROADCAST handler (function(localclientnum, breveal), self = the pulsed/seen entity; exact registration and trigger location remain unresolved. The pinned file declares this target at line797, while init_shared lines25-26 registers different handlers). Entry: self notify( #\"gadget_visionpulse_changed\" ). Init-once: if !isdefined(self.visionpulserevealself) && self function_21c0fa55() -> self.visionpulserevealself = 0; if !isdefined(self.visionpulsereveal) -> self.visionpulsereveal = 0; if !isdefined(self) -> return. owner = self gadgetpulsegetowner( localclientnum ). VIEWED-BY-OTHER branch (owner !== self): LOCAL-PLAYER sub-branch (self function_21c0fa55()): if self.visionpulserevealself != breveal || ( isdefined(self.vision_pulse_owner) && isdefined(owner) && self.vision_pulse_owner != owner ) -> self.vision_pulse_owner = owner; self.visionpulserevealself = breveal; self set_reveal_self( localclientnum, breveal ); return ALWAYS from this sub-branch. VICTIM sub-branch: if isalive( self ) && self.visionpulsereveal != breveal && owner function_e9fc6a64() (opaque predicate; prior notes infer pulse-running): if isdefined(breveal) && breveal (ON case): pulseradius = owner function_692b47c1( localclientnum ) (opaque radius getter, outside packet); pulsemaxradius = level.weaponvisionpulse.gadget_pulse_max_range; var_168d7f5c (LOCAL ring index) = int( pulseradius ) / int( pulsemaxradius ); if isdefined(self.var_1d0bc391) && self.var_1d0bc391 > 0 && self.var_1d0bc391 >= var_168d7f5c -> return (already revealed this ring); dist = distance2d( owner.origin, self.origin ); dist2 = dist * dist; radius = int( pulseradius ) % pulsemaxradius; radius2 = radius * radius; if dist2 > radius2 -> return (outside current ring); if !isdefined( self.var_1d0bc391 ) -> self.var_1d0bc391 = int( floor( var_168d7f5c ) + 1 ); return (arm for the next ring). Then self.var_a768b7b6 = getservertime( localclientnum ) (alpha start). Then self.visionpulsereveal = breveal; if !( isdefined(breveal) && breveal ) -> self.var_1d0bc391 = 0; self set_reveal_enemy( localclientnum, breveal ); return. FALLTHROUGH branch (dead or predicate false and owner is other): if !( isdefined(breveal) && breveal ) -> self.var_1d0bc391 = 0. owner == self case hits no branch (only the init-once and notify run).",
+        "unknowns": [
+          "owner function_e9fc6a64 and owner function_692b47c1 are opaque (not within packet units; unqualified calls carried on owner entity), inferred meanings only",
+          "Where this handler is registered (field callback vs direct) â€” prior notes mark the registration NOT in this file; the pre-saved unit 423 holds only file-level wiring, so the actual trigger path is a boundary unknown",
+          "var_168d7f5c here is a local variable, unrelated to self.var_168d7f5c (units 433/439); decompiler coincidence noted"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00766",
+        "sha256": "1756f34d8b7d278b276a033729ee008a197e9fbf54c7fe1f8d5b68bae3890c1c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "06efd4096280add8f54670782d827d8259abc8dc1405564d7d6afc141e57007a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::is_enabled",
+        "behavior": "Goggles-enabled predicate (function(local_client_num), bool via return of an && chain): return isdefined( level.registerdevgui_dev_cac_fallimp ) && isdefined( level.registerdevgui_dev_cac_fallimp[ local_client_num ] ) && level.registerdevgui_dev_cac_fallimp[ local_client_num ]. The exact array key is the printed token registerdevgui_dev_cac_fallimp (set to 1/0 by the visor notetrack handlers, units 424/433). Consumed by toggle_spectator (unit 429) and function_ea179305 (unit 446).",
+        "unknowns": [
+          "level.registerdevgui_dev_cac_fallimp array creation is in the pre-saved file head (unit 423, unchanged)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/452",
+        "record_sha256": "c808be172c9708d2e860daac15fb2e79feb6efccd815886495114f59b3d4ba4c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "28843872830fc38088539c681cb66ca6d93eaa7002249b9886ab4363e73e440e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::on_game_ended",
+        "behavior": "Game-end handler (registered per activation via self callback::on_end_game(&on_game_ended) in function_ab898b2d). local_player = function_5c10bd79( localclientnum ) (unqualified local-player fetch, outside packet unit list); if isdefined( local_player ) -> local_player shutdown_vision_pulse( localclientnum ). No other state.",
+        "unknowns": [
+          "function_5c10bd79 resolution not verifiable in packet (unqualified include)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/434",
+        "record_sha256": "79576452905de75ec69196789856121bc5defce2cd9a84635ff3db4ec0a8ef24"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "2eecc74bcb038ec4ae011236d55c4d427dbf5a188bef224ccaf3fa67b5acf05d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::vision_pulse_owner_valid",
+        "behavior": "Owner validity predicate (function(owner), bool). Returns true only when isdefined(owner) && isplayer(owner) && isalive(owner); otherwise returns false. No state changes. Used by watch_vision_pulse_owner_death to decide whether to block on the owner waittill(\"death\").",
+        "unknowns": [
+          "None within function scope"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/439",
+        "record_sha256": "e491839b2347987335098fe7e3ddef7600836075b98f7b5d6c49117a2789850e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "2eff8a27183fa6bab6ded407cd28fb19ef5be114344230e2adfcb645e6e34f5c",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_5f4276b8",
+        "behavior": "Goggles stance-following anim loop (childthread from function_ab898b2d on \"visor_down\"). self endon( #\"stop_googles\", #\"death\" ); return when !isplayer( self ). Infinite loop: if self isplayerprone() -> clearanim( #\"pt_recon_t8_stand_vision_pulse_goggles_down_loop\", 0 ) and setanimknob( #\"pt_recon_t8_prone_vision_pulse_goggles_down_loop\", 1, 0, 1 ); else -> clearanim( #\"pt_recon_t8_prone_vision_pulse_goggles_down_loop\", 0 ) and setanimknob( #\"pt_recon_t8_stand_vision_pulse_goggles_down_loop\", 1, 0, 1 ). waitframe( 1 ) per iteration â€” swaps the goggles-down loop anim knob to match stance every frame until stop_googles or death.",
+        "unknowns": [
+          "setanimknob (anim, 1, 0, 1) argument conventions are engine anim-system, not documented in packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/429",
+        "record_sha256": "9d1effaf54f196e3382807a2661abfba7c9b7c82b860267b76963ecfdcee18e6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "30933a30c283b189833f1be6be81be1c0fa978210d629a7f5dbcca165d54a425",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::vision_pulse_changed",
+        "behavior": "7-parameter clientfield callback on the vision-pulse activation field (registration site in the pre-saved file head, unit 423; params localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump). if newval -> self notify( #\"activation_confirmed\" ) (kills the 2s watchdog unit 438). if newval && bnewent && bwastimejump (entity appeared with a time jump): self.var_1618a13f = #\"hash_5a76eaaf7f7e3de5\"; self postfx::playpostfxbundle( self.var_1618a13f ); three self function_116b95e5( self.var_1618a13f, <param>, <value> ) calls: (#\"hash_7c1a0903a45d4d45\", 0), (#\"hash_51ebcff0b5d75894\", 0), (#\"hash_2efccfad2b32081a\", 1); return (late-join snapshot restore of the base overlay). if newval == 0 -> self thread function_85790e6c( localclientnum ) (delayed 1s finisher). binitialsnap and fieldname unused in body.",
+        "unknowns": [
+          "Clientfield name and registration of this callback are in the pre-saved file head (unit 423, unchanged), not re-derivable from this unit"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/443",
+        "record_sha256": "2fcf7f0627045bbf040943c01d2fa2d108bd68df9ee09af758d7887d7cb51ba7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "34e03569b3d78f0a1c46c6ed3045f6a43503fc8262f3edbad6f794a696fd205a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_9b51bc6",
+        "behavior": "Pulsed-flag setter (function(local_client_num, pulsed)). Single statement: self.var_f4f50357 = pulsed. local_client_num unused. Shared with function_f4ebfe85 (reset to 0) and set_reveal_enemy (set to 1).",
+        "unknowns": [
+          "None within function scope"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/450",
+        "record_sha256": "85a419068e8953e39240dfbb703af7fbbf32463db8a67cd300cd1b4f13ef011d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "37be14520c8d203c681aeea3557bcb8a159c6e81af0cf165c370f10511fa3556",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::stop_postfx",
+        "behavior": "Postfx shutdown for the vision-pulse overlay (function(immediate)). Only runs when isdefined(self). Clears self.var_f0b8faa1 = undefined (active-bundle token). Two hash-managed bundles, each guarded by the shared has-bundle query self postfx::function_556665f2( <hash> ): when immediate is truthy -> self postfx::stoppostfxbundle( #\"hash_5a76eaaf7f7e3de5\" ) and, if has, self postfx::stoppostfxbundle( #\"hash_1356e810590b8caf\" ); when immediate is falsy/absent -> same guarded pattern with self postfx::exitpostfxbundle(...) on both hashes. Finally self.var_1618a13f = undefined (remembered bundle token cleared). No returns.",
+        "unknowns": [
+          "postfx::function_556665f2 (has-bundle query) and the stop/exit bundle builtin distinctions are in postfx_shared, outside packet",
+          "Which of the two hashes represents the normal vs spectating variant is only inferable from toggle_postfx/function_ea179305 call sites within this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/427",
+        "record_sha256": "b19af0ff32a7a26af37c6101b8e676ddb391d2ee448ffb1f26ceea7ea6be298b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "3fdfe6c17bac9c3d1da3de0bfd1809fbde19a19a32cd12046f32f78c30257fe4",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_f4ebfe85",
+        "behavior": "Enemy overlay cleanup (function(localclientnum)); called on overlay_off and on game end/owner-death paths. if isdefined( self ): players = getplayers( localclientnum ); foreach enemy in players: if isdefined(enemy) && isalive(enemy) && util::function_fbce7263( enemy.team, self.team ) && ( isdefined(enemy.visionpulsereveal) && enemy.visionpulsereveal || isdefined(enemy.var_f4f50357) && enemy.var_f4f50357 ): enemy stoprenderoverridebundle( #\"hash_75f4d8048e6adb94\" ); enemy stoprenderoverridebundle( #\"hash_62b3e8ea5469c2f5\" ); enemy function_9b51bc6( localclientnum, 0 ) (pulsed flag off); enemy notify( #\"rob_cleanup\" ) (kills per-enemy alpha loops via their endon). No returns.",
+        "unknowns": [
+          "Same opaque team helper polarity as elsewhere; selection of 'enemy' here is by util::function_fbce7263(enemy.team, self.team) exactly as written",
+          "renderoverridebundle builtin variants are engine-side"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/433",
+        "record_sha256": "582b2392fadccddbaa19340740446aa50b79c1f516b22724ec157f8ec6d7cbc5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "459bcbbb5a965abe298c94dd57fcaeae4e16da161106189ec6506c76cfe4d60f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::watch_vision_pulse_owner_death",
+        "behavior": "Owner-death presentation watchdog (threaded from do_vision_local_pulse line 480, on self = the local player entity). Ends: self endon(#\"death\"); self endon(#\"finished_local_pulse\"); restart-identity singleton via self notify( #\"watch_vision_pulse_owner_death\" ) + self endon( #\"watch_vision_pulse_owner_death\" ). owner = self.vision_pulse_owner; if vision_pulse_owner_valid( owner ) -> owner waittill( #\"death\" ) (INLINE until the owner dies; skips immediately when the owner is invalid). Continues regardless: self notify( #\"vision_pulse_owner_death\" ) (kills the local pulse thread); self stoprenderoverridebundle( #\"hash_75f4d8048e6adb94\" ); self stoprenderoverridebundle( #\"hash_62b3e8ea5469c2f5\" ); self player::function_f2ba057() (player_shared reset helper, not owned); goggles overlay teardown when self function_d2503806( #\"hash_1978eff2ac047e65\" ) (has-bundle query): self function_78233d29( #\"hash_1978eff2ac047e65\", \"\", #\"brightness\", 0 ) then self stoprenderoverridebundle( #\"hash_1978eff2ac047e65\" ); level callback::callback( #\"vision_pulse_off\", localclientnum ) (level-callback dispatch via callbacks_shared); self.vision_pulse_owner = undefined.",
+        "unknowns": [
+          "function_d2503806 / function_78233d29 / player::function_f2ba057 are external to packet (unqualified / player_shared includes); inferred has-bundle query and param-setter roles from call shape only",
+          "Consumer of the level callback #\"vision_pulse_off\" is registered outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/440",
+        "record_sha256": "1925e369ec68a95902372cb29b065f4ecb12eabfe0c5ce52a209bb450916cc71"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "5c19d18bfcfbab31b3e7d78ce48a7c86d27ad0eef8b37f1f9ba2b0fffa76e2a8",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::init_shared",
+        "behavior": "Vision pulse csc init_shared: level.vision_pulse = [] (per-client overlay state) and goggles-state array (source key registerdevgui_dev_cac_f a l l imp as printed); level.weaponvisionpulse = getweapon(\"gadget_vision_pulse\"); four callback registrations (localplayer_spawned / spawned / player_corpse / hash-named callback -> &function_17381fe); toplayer clientfields vision_pulse_active (-> &vision_pulse_changed) and toggle_postfx (-> &toggle_postfx), flag pairs 0,1; visionset register_visionset_info(\"vision_pulse\", 1, 12, undefined, \"vision_puls_bw\"); animation::add_notetrack_func(\"gadget_vision_pulse::vision_pulse_notetracks\", &function_ab898b2d) (notetrack FX driver).",
+        "unknowns": [
+          "visionset_mgr / animation_shared registration mechanics (modules not owned)",
+          "goggles-state array key exact spelling as printed in source lines 19"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/422",
+        "record_sha256": "66705f86e787c389634e25a37394d105bb09e8cc668d2cf2ceb4251d92b90864"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "5d118e68afa84a7e343a2fafc9b788cde978b420c93d06b833acb915617640c5",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::on_localplayer_spawned",
+        "behavior": "Local-player spawn reset (client VM). Gate 1: if self function_21c0fa55() (opaque local-player predicate, same helper re-used across gadget files): level.vision_pulse[ localclientnum ] = 0; level.registerdevgui_dev_cac_fallimp[ localclientnum ] = 0 (exact array key as printed at line 40); self.vision_pulse_owner = undefined; self.var_f0b8faa1 = undefined; self gadgetpulseresetreveal() (builtin, no namespace); self set_reveal_self( localclientnum, 0 ); self set_reveal_enemy( localclientnum, 0 ); self toggle_spectator( localclientnum ). Gate 2 (independent of gate 1): if self function_da43934d() (second opaque predicate) -> self stop_postfx( 1 ) (immediate stop).",
+        "unknowns": [
+          "function_21c0fa55 and function_da43934d predicates are not among this file's assigned units and are not in the packet corpus; prior notes infer local-player / spectator-ish meaning â€” unresolved",
+          "Registration callback (callback::on_localplayer_spawned wiring) is in the file header / __init__system__ area at lines 1-33 (unit 423 pre-saved, unchanged)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/423",
+        "record_sha256": "3afb212b47fb9600abbd229f9f4a008df22299053276ac8658624626b368ab0f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "87e01720e8c4ec0a77fe08adb0408eec7b7adcde4a1689685117a25e1a93b855",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_9e2a452e",
+        "behavior": "Per-enemy reveal ALPHA loop (threaded from set_reveal_enemy on_off=true, on self = the SEEN player). Restart-identity: self notify( \"55d14ddd4012cb9a\" ) then self endon( \"55d14ddd4012cb9a\" ) â€” NOTE: plain string, no # prefix, exactly as printed at lines 645-646. self endon( #\"death\", #\"disconnect\", #\"rob_cleanup\" ). speed = function_c505bc89( localclientnum ) â€” opaque helper, captured but UNUSED in the body (review note). maxradius = getvisionpulsemaxradius( localclientnum ) (builtin, also unused here). fadeout_duration = level.weaponvisionpulse.var_8e0b0827; jammed = 0; when isplayer(self): jammed = self clientfield::get( \"gps_jammer_active\" ) (cross-gadget field); var_8ac8d61d = weaponvisionpulse.var_5be370e9 or 1 (jammer fade stretch); var_6f9f5fef (effective fade) = fadeout_duration * ( jammed ? var_8ac8d61d : 1 ); var_42a54adc (plateau) = var_6f9f5fef * ( var_a2d7b97c or 0.8 ). elapsedtime = 0; owner = self gadgetpulsegetowner( localclientnum ) (builtin query; captured, not read in body). Infinite loop, waitframe(1) FIRST each iteration; active body only when isdefined(self.visionpulsereveal) && self.visionpulsereveal: currenttime = getservertime( localclientnum ); elapsedtime = currenttime - self.var_a768b7b6 (start time set by corpse handler / gadget_visionpulse_reveal). Alpha thirds: elapsed < var_42a54adc -> alpha = 1; else < var_6f9f5fef -> alpha = 1 - (elapsed - var_42a54adc) / (var_6f9f5fef - var_42a54adc); else < fadeout_duration -> alpha = 0; ELSE (reveal window over): self.visionpulsereveal = 0; alpha = 0; if !isdefined(self.var_1d0bc391) -> self.var_1d0bc391 = 0; THEN self.var_1d0bc391++ (ring counter increment); self stoprenderoverridebundle( robname ); self function_9b51bc6( localclientnum, 0 ). Inside the reveal branch each frame: self function_78233d29( robname, \"\", \"Alpha\", alpha ); default-bundle fill if self.var_1618a13f undefined -> #\"hash_5a76eaaf7f7e3de5\"; when has-bundle( self.var_1618a13f ): self function_116b95e5( self.var_1618a13f, #\"enemy tint\", 1 - alpha ) (enemy-tint postfx param mirrors the fade). Window expiry clears the reveal flag and performs counter/cleanup work, then the outer loop continues waiting each frame; a later reveal can reenter the active branch. Only the declared endons terminate this body; actual event/thread semantics remain unresolved.",
+        "unknowns": [
+          "function_c505bc89 is called and its captured result is unused in this recovered body. The reason/origin of that unused result and provider effects remain unknown; decompiler-artifact origin is not proved.",
+          "var_1d0bc391 ring-counter is the same token set to 0 per-enemy at activation (unit 433) and gated by gadget_visionpulse_reveal (unit 450)",
+          "maxradius also unused in this body",
+          "the 55d14ddd4012cb9a notify/endon token is a plain string without the # hash prefix, unlike other events in this file: recorded exactly as printed"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00767",
+        "sha256": "9292a3e77d9cb9624c8633fb10cb3dbc0b8ca0369f0081085bb212272e87e2e8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "8c126b7a3f83de04f22758e05e07b29d49033fe2d708936b55ca70a1cf86d28d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_17381fe",
+        "behavior": "Shoutcaster overlay sync (function(localclientnum)). If shoutcaster::is_shoutcaster( localclientnum ) (shoutcaster module, not owned): localplayer = function_5c10bd79( localclientnum ) (unqualified call, not among this file's units, not in packet corpus); localplayer function_ea179305( localclientnum, shoutcaster::function_2e6e4ee0( localclientnum ) ) â€” applies the goggles overlay state for the shoutcaster view using the shoutcaster-provided enabled value. No other branches.",
+        "unknowns": [
+          "function_5c10bd79 resolution (include in file header, outside unit spans) â€” local-player fetch helper per prior notes, unverified in packet",
+          "shoutcaster::is_shoutcaster / function_2e6e4ee0 semantics live in the shoutcaster module outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/426",
+        "record_sha256": "1f1a707f79d2f5d03e7f83768e423b95b08aadba313ea47ce9b069dc1658eaf6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "93e5d7366da460c5101ce9f3de68a011beca8036a3bba95de0f03351cb32e139",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_844dbcb7",
+        "behavior": "2-second activation confirmation watchdog (the function_ab898b2d caller threads this watchdog only when self function_21c0fa55() is truthy, the event is overlay_on, and self.var_f0b8faa1 is undefined; caller230/238/240/250). Restart singleton: self notify( #\"hash_72d43e802a417711\" ) then self endon( #\"hash_72d43e802a417711\" ). self endon( #\"activation_confirmed\" ) â€” killed by vision_pulse_changed when the server field turns on (unit 444). wait 2 (seconds); if isdefined( self ) && self function_da43934d(): self stop_postfx( 1 ); self clearanim( #\"pt_recon_t8_stand_vision_pulse_goggles_down_loop\", 0 ); self clearanim( #\"pt_recon_t8_prone_vision_pulse_goggles_down_loop\", 0 ) â€” rolls back the overlay if activation was never confirmed within 2s.",
+        "unknowns": [
+          "function_da43934d opaque predicate (not in packet); prior notes infer it distinguishes spectator/never-activated states",
+          "Producer of the \"activation_confirmed\" notify is vision_pulse_changed (unit 444) in this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00768",
+        "sha256": "26130547a65ddbc0d9d5d1afa6acc71060b4609795b7b06cc2cbe2d7bb4d31c9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "98ce2433444fdadc93971ad7d93792f85dfe8d177161c5f3527a29495967aae0",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::do_vision_world_pulse_lerp_helper",
+        "behavior": "Per-frame lerp callback for the world pulse ring (invoked by thread util::lerp_generic(localclientnum, duration, &this) from function_ab898b2d with duration = gadget_pulse_duration + 3000). if !isdefined(self) -> return. pulseduration = level.weaponvisionpulse.gadget_pulse_duration. Iris curve: elapsedtime < pulseduration * 0.1 -> irisamount = elapsedtime / pulseduration * 0.1 (for positive duration and ordinary arithmetic, approaches0.01 before10%); else if elapsedtime < pulseduration * 0.6 -> irisamount = 1 - elapsedtime / pulseduration * 0.5 (ordinary arithmetic:0.95 at the10% boundary, approaches0.7 before60%, then becomes0 exactly at60%; original VM/rendering behavior unproved); else irisamount = 0. pulseradius = getvisionpulseradius( localclientnum ) (builtin); pulsemaxradius = level.weaponvisionpulse.gadget_pulse_max_range (bundle field). Sound-once + ring-wrap using the shared counter token var_168d7f5c (resolved exactly, lines 394-408; set to 0 at activation in function_ab898b2d): if pulseradius > 0 && self.var_168d7f5c == 0 -> self.var_168d7f5c = 1 and playsound( localclientnum, #\"hash_151b724086b2955b\" ) (token resolved from line 397; second occurrence line 405); if pulseradius > pulsemaxradius: if self.var_168d7f5c * pulsemaxradius < pulseradius -> self.var_168d7f5c++ and playsound( localclientnum, #\"hash_151b724086b2955b\" ); pulseradius = int( pulseradius ) % pulsemaxradius (wrapped display radius). Then default-bundle fill: if !isdefined(self.var_1618a13f) -> self.var_1618a13f = #\"hash_5a76eaaf7f7e3de5\"; when self postfx::function_556665f2( self.var_1618a13f ) (has-bundle query): self function_116b95e5( self.var_1618a13f, #\"hash_7c1a0903a45d4d45\", pulseradius ); self function_116b95e5( self.var_1618a13f, #\"hash_51ebcff0b5d75894\", irisamount ); self function_116b95e5( self.var_1618a13f, #\"hash_2efccfad2b32081a\", pulsemaxradius ) â€” note max-range param gets pulsemaxradius every frame (unit 433 sets it to 1 once at activation).",
+        "unknowns": [
+          "util::lerp_generic callback protocol (args currenttime, elapsedtime, localclientnum, duration) is shared util code outside packet",
+          "function_116b95e5 / postfx::function_556665f2 semantics outside packet (unqualified include + postfx_shared)",
+          "bundle fields gadget_pulse_duration and gadget_pulse_max_range values are bundle data not in corpus"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00769",
+        "sha256": "59d3da7c0d0cd59f619f338e60f2df12e320613d6e0864965d4e0cbbaed99e10",
+        "pointer": "",
+        "record_sha256": "afdf278dd0bbd3382a93889c28f6ab0a11fc6d61809689818f8211038bdecdb4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "a494ec17bf7eb67ea675f067d56f835a87221bdd4eadc63918bb1ffe7dfdd075",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_ea179305",
+        "behavior": "Shoutcaster goggles overlay state switch (function(localclientnum, enabled)); called from the shoutcaster path (unit 427) and per prior notes from a spectator field callback. Gate: if is_enabled( localclientnum ) (goggles-down state, unit 453): if enabled: if !isdefined(self.var_1618a13f) -> self.var_1618a13f = #\"hash_5a76eaaf7f7e3de5\"; if self postfx::function_556665f2( self.var_1618a13f ) -> self postfx::stoppostfxbundle( self.var_1618a13f ); return. ELSE (enabled falsy): if self postfx::function_556665f2( #\"hash_5a76eaaf7f7e3de5\" ) -> self postfx::stoppostfxbundle( #\"hash_5a76eaaf7f7e3de5\" ); if NOT self postfx::function_556665f2( #\"hash_1356e810590b8caf\" ) -> self.var_1618a13f = #\"hash_1356e810590b8caf\"; self postfx::playpostfxbundle( self.var_1618a13f ) (the alternate bundle request is gated by the negative query for alternate hash_1356e810590b8caf itself, after the separate normal-bundle query/stop request). The query wrapper delegates to opaque function_d2cb869e; its actual playing-state meaning and stop/play outcomes remain unproved.",
+        "unknowns": [
+          "postfx::function_556665f2 (has-bundle query) is postfx_shared outside packet",
+          "Which HUD state 'enabled' comes from is shoutcaster module logic (unit 427 caller)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00770",
+        "sha256": "bd2c47ff85149b5c935e2582fd9a93c68d05caca602e9950afade677aed0b894"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "a50dbe6d138a668a2518585e38d1e41babdc099d1d58e8b679b8ca12a2d8f519",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::set_reveal_self",
+        "behavior": "Self-view reveal master (function(localclientnum, on_off)); called from gadget_visionpulse_reveal local branch and on_localplayer_spawned reset. if !isplayer( self ) -> return. ON path: if on_off && self function_da43934d() (opaque predicate gate, see unit 438 unknowns) -> self thread do_vision_local_pulse( localclientnum ) (the goggles overlay loop); return always after this branch. OFF-only path: if !on_off: when self function_d2503806( #\"hash_1978eff2ac047e65\" ) (has-bundle query): self stoprenderoverridebundle( #\"hash_1978eff2ac047e65\" ). When on_off truthy but the predicate fails, nothing happens.",
+        "unknowns": [
+          "function_da43934d opaque (outside packet); do_vision_local_pulse only starts when it passes: exact gating state unresolvable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/448",
+        "record_sha256": "864fb3f39573632dad91a18ce4a4154838ce0a0077a83a556e98e7e4eb4d4b87"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "a53a7525313cd9eafd2adbe5f0447356847b3bf990049691c61cf6dadead06a2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_85e399a9",
+        "behavior": "Activation death/game-end watchdog thread. The function_ab898b2d caller requests this thread only inside self function_21c0fa55(), notifystring == overlay_on, and !isdefined(self.var_f0b8faa1). A separate set_reveal_enemy caller threads it on owner when on_off is truthy and the insmoke/non-local-owner early return is not taken. These source call sites do not prove original runtime delivery. If invoked, source337-344 requests self notify(#\"hash_54f15501beb799f9\"), self endon(the same hash), self endon(#\"stop_googles\"), then exactly self waittill(#\"death\",#\"game_ended\"). Only if execution continues beyond that wait does it request self shutdown_vision_pulse(localclientnum). No explicit logical-OR event loop or singleton registry is present in this body. Multi-argument event/output interpretation, delivery, cancellation/replacement, scheduling and successful shutdown require unproved original VM/provider contracts; the request pattern alone does not establish them.",
+        "unknowns": [
+          "Original VM/native multi-argument waittill interpretation, notify/endon event identity, delivery, cancellation/replacement and continuation timing are unresolved. The supplied source records exact calls/receivers/arguments only; external event producers and shutdown effects are not runtime proof."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00771",
+        "sha256": "933ed49fabbaecda6aed1283ea0f600734d9861d814b774f19c4b9063625d377"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "ab0a169b8b27bb089fa50d6280708839e8a8ae8ec04ce965e21b77c286c0cb14",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_3e2cd736",
+        "behavior": "Overlay-ON settle thread (function_ab898b2d\"overlay_on\" path line 243). self endon( #\"stop_googles\" ); wait 0.8 (seconds); level.vision_pulse[ local_client_num ] = 1; level notify( #\"hash_7f642789ed08aae0\" ) (global settle event consumed elsewhere, consumer not in packet). Thread dies early if stop_googles fires during the 0.8s wait.",
+        "unknowns": [
+          "Consumer of level notify hash_7f642789ed08aae0 is not in this packet (level-held listener registered elsewhere)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/430",
+        "record_sha256": "25bf1c7b7d5a3087fbf87b3b419d1553ffb289e0d899996d9c4b6f410d9b2886"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "aede826356effef8d947b43a93eb2936f911f62a8aa27885c731e36a06a979b3",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_ab898b2d",
+        "behavior": "Notetrack dispatcher for the vision-pulse goggles (registered via animation::add_notetrack_func per prior notes; registration site not in this unit). self endon( #\"death\" ); localclientnum = self.localclientnum. GOGGLES TRACKS (all clients watching self): notifystring == \"visor_down\" -> self childthread function_5f4276b8() and level.registerdevgui_dev_cac_fallimp[ localclientnum ] = 1; notifystring == \"visor_up\" -> clearanim both goggles loops (stand + prone, flag 0), self notify( #\"stop_googles\" ), level.registerdevgui_dev_cac_fallimp[ localclientnum ] = 0. LOCAL-PLAYER BRANCH (self function_21c0fa55() truthy): \"visor_up\" -> stop_postfx(); return. \"overlay_on\": only when !isdefined( self.var_f0b8faa1 ) (idempotence of one activation): stop_postfx(); self thread function_3e2cd736( localclientnum ) (0.8s settle to is_active); self.var_f0b8faa1 = 1; self.var_1618a13f = #\"hash_5a76eaaf7f7e3de5\" (bundle token); self postfx::playpostfxbundle( self.var_1618a13f ); three self function_116b95e5( self.var_1618a13f, <param>, <value> ) calls: (#\"hash_7c1a0903a45d4d45\", 0), (#\"hash_51ebcff0b5d75894\", 0), (#\"hash_2efccfad2b32081a\", 1) â€” pulse-radius / iris / max-range style params per prior notes; self thread function_844dbcb7( localclientnum ) (2s confirmation watchdog); self thread function_85e399a9( localclientnum ) (death watchdog); self callback::on_end_game( &on_game_ended ) â€” RE-REGISTERED PER ACTIVATION (registration is called per accepted activation; accumulation/removal/deduplication and runtime delivery remain unresolved); waitframe(1); self.var_168d7f5c = 0 (exact sound-once counter token, resolved from line 254; used as the ring-counter in do_vision_world_pulse_lerp_helper); enemies = getplayers( localclientnum ); foreach enemy: if isdefined(enemy) && util::function_fbce7263( enemy.team, self.team ) -> enemy.var_1d0bc391 = 0 (per-enemy reveal ring counter reset, selection by the same opaque team helper); extraduration = 3000; thread util::lerp_generic( localclientnum, level.weaponvisionpulse.gadget_pulse_duration + extraduration, &do_vision_world_pulse_lerp_helper ). Always returns after the matched case. \"overlay_off\" (local branch): self notify( #\"stop_googles\" ); self thread function_43c942dc( localclientnum ) (0.85s settle to is_active false); stop_postfx(); self function_f4ebfe85( localclientnum ) (enemy overlay cleanup).",
+        "unknowns": [
+          "function_21c0fa55 opaque (no source): local-player predicate meaning per prior notes only",
+          "function_116b95e5 unqualified (file-header include outside spans; prior notes infer a postfx bundle param setter)",
+          "util::function_fbce7263 polarity unknown (see units 414/415)",
+          "util::lerp_generic and level.weaponvisionpulse.gadget_pulse_duration are shared/bundle references (outside packet)",
+          "Repeated accepted activations call on_end_game registration again. Callback registry accumulation, deduplication, removal and actual invocation multiplicity remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00772",
+        "sha256": "7c031ea56dd2af89db53327315c87ce5001cb03acb310c7ebab55a5bef5b4bd1",
+        "pointer": "",
+        "record_sha256": "1a733228026f3c0f31d30cee688b335a9dfdb5a3705343a2b4cbf7b82a2c0741"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "b87f21ae45bd4aef5d2ed4cf7761e84593e7f088540c8419da21f99d712e8006",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_43c942dc",
+        "behavior": "Overlay-OFF settle thread (function_ab898b2d\"overlay_off\" path line 275). self endon( #\"stop_googles\" ); wait 0.85 (seconds); level.vision_pulse[ local_client_num ] = 0; level notify( #\"hash_7f642789ed08aae0\" ) (same settle event as overlay-on).",
+        "unknowns": [
+          "Same consumer-of-notify unknown as unit 431"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/431",
+        "record_sha256": "4efd427a9caa829c36e0c7c71e6d56d99adffc2db556c308e6f30eaab97d372b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "c20d4732967c4ec9e15f69df22d0009459e7c34bb0f3443e5b3ba4f3e339c28f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::toggle_spectator",
+        "behavior": "Spectator cleanup on toggle (function(localclientnum)). If is_enabled( localclientnum ) is truthy (goggles state array check at unit 453) -> return. Otherwise stop_postfx( 1 ) (immediate stop of both overlay bundles). No other state.",
+        "unknowns": [
+          "File head registers vision_pulse_changed and toggle_postfx, not toggle_spectator. The available on_localplayer_spawned body directly calls self toggle_spectator(localclientnum) at46. Separate spectator field registration and original invocation remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00773",
+        "sha256": "7f2439f7b3eaf0fc5c6706644e5ad4e1587559983e2ff1d24f8e7f7de4fc486f",
+        "pointer": "",
+        "record_sha256": "2c9478963f98ceb7bbe2129e6c8e7ae0f9038314535ba9b342fe078d6bca6012"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "c6181644290fcb9c3af97d3c06525d3562414a035b884fe678d7fbdc14556b71",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::function_85790e6c",
+        "behavior": "Delayed overlay-off finisher (threaded from vision_pulse_changed when the field turns off). self endon( #\"death\", #\"disconnect\", #\"rob_cleanup\" ) (three endons in one call); wait 1 (second); self stop_postfx() (non-immediate exit path); self function_f4ebfe85( localclientnum ) (enemy overlay cleanup). No other state.",
+        "unknowns": [
+          "Single endon accepting three event args is engine event-system behavior, as printed"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/442",
+        "record_sha256": "3b85a4200cfd5a20e0786f48453b087f1c4a65415e14605a40a70d355e548e2b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "cee660a0dc3f054e9f928ac484f88b56d306777b140efb401c491093892538d6",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::shutdown_vision_pulse",
+        "behavior": "Overlay shutdown (function(localclientnum)). Gate: if isdefined( level.vision_pulse[ localclientnum ] ) && level.vision_pulse[ localclientnum ]: self stop_postfx( 1 ) (immediate, both bundles); self function_f4ebfe85( localclientnum ) (enemy overlay cleanup); level.vision_pulse[ localclientnum ] = 0. When the gate is false, nothing happens. Called from on_game_ended and the death watchdogs.",
+        "unknowns": [
+          "level.vision_pulse is a shared level array; its full lifecycle spans the pre-saved file head (unit 423) which is unchanged"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/435",
+        "record_sha256": "f10489a282da0719892dee9c19964d8e59e55cc7f832699fab8a31a96875fed5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "d6933c02d3856611074956433b15c390cacfad8eb6151fa1adad6553917edf6d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::is_active",
+        "behavior": "Overlay-active predicate (function(local_client_num), bool via return of an && chain): return isdefined( level.vision_pulse ) && isdefined( level.vision_pulse[ local_client_num ] ) && level.vision_pulse[ local_client_num ]. True only when the per-localclient overlay state entry is defined and truthy. Consumed by toggle_postfx (unit 445).",
+        "unknowns": [
+          "level.vision_pulse array creation is in the pre-saved file head (unit 423, unchanged)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/451",
+        "record_sha256": "849bf85e7a54a8e02afa6631bbaf4f21f05c34088e54ff18485908f822e1701a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "e1c1ccc2134b7b541a0a69a10a6846eb2eeab976558a638491ae9a0d2126aa70",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::on_player_corpse",
+        "behavior": "Corpse reveal inheritance (function(localclientnum, params)). self endon( #\"death\" ). var_1edcbdd3 = params.player.visionpulsereveal; if isdefined(var_1edcbdd3) && var_1edcbdd3: self.visionpulsereveal = 1; self.var_a768b7b6 = params.player.var_a768b7b6 (reveal start time carried over); self util::waittill_dobj( localclientnum ) (blocks until dobj ready); self set_reveal_enemy( localclientnum, 1 ). No else branch.",
+        "unknowns": [
+          "params structure (caller of on_player_corpse) is engine/client-side callback convention; producer of params.player fields is not in packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/425",
+        "record_sha256": "0f018f36ef8a9f58218e22caae795598cb7b8430ef7063c09dcaa2a7473a61d2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "ea8a993ff899f454cddbb309ca9a80e84e47e569644d6ed9e4ee54da158a776c",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::toggle_postfx",
+        "behavior": "7-parameter clientfield callback on a toggle_postfx field (spectator-style overlay toggle; registration site pre-saved file head, unit 423). Gate: if is_active( localclientnum ) (unit 452): when newval truthy: if isdefined(self.var_1618a13f) && self postfx::function_556665f2( self.var_1618a13f ) -> self postfx::stoppostfxbundle( self.var_1618a13f ); return. When newval falsy: if !isdefined( self.var_1618a13f ) -> self.var_1618a13f = #\"hash_5a76eaaf7f7e3de5\" (default fill); if !self postfx::function_556665f2( self.var_1618a13f ) -> self postfx::playpostfxbundle( self.var_1618a13f ). The query wrapper delegates to opaque native function_d2cb869e; these bytes prove the conditional request, while actual playing-state meaning, completion and idempotence remain unproved. bnewent / binitialsnap / fieldname / bwastimejump unused.",
+        "unknowns": [
+          "Clientfield name for this callback is in the pre-saved file head (unit 423, unchanged)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00774",
+        "sha256": "08c3a8cdd29e1fbaded1a77fe89c158a718e6287158250628f8a147f26c33a9a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "f3ec60ced16393aae3d094d3743b9f78be608d8ac008629a36e7465ebaf0eaf6",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::on_player_spawned",
+        "behavior": "Player spawn anim reset (client VM). Gate: if !self hasdobj( local_client_num ) -> return. Then self clearanim( #\"pt_recon_t8_stand_vision_pulse_goggles_down_loop\", 0 ) and self clearanim( #\"pt_recon_t8_prone_vision_pulse_goggles_down_loop\", 0 ) â€” clears both vision-pulse goggles loops with flag 0. No other state.",
+        "unknowns": [
+          "hasdobj builtin semantics (dobj/distributed-object check) not documented in packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/424",
+        "record_sha256": "604447dbbad929d4af3bf75ee37eae52ba9dc92001b1d39c54cb353211c8bbfc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "f6c44e99a5d8b6ea4ac49ec7ebd34fa31ff883d553b884547c834b815bc5d362",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::set_reveal_enemy",
+        "behavior": "Enemy highlight master setter (function(localclientnum, on_off)). ON branch (on_off truthy): owner = self gadgetpulsegetowner( localclientnum ) (builtin owner query); smoke gate: if isdefined( self.insmoke ) && !owner function_21c0fa55() -> return (smoke hides the pulse unless the viewer predicate passes); owner thread function_85e399a9( localclientnum ) (attach death/game-end watchdog onto the owner); main apply branch when isalive( owner ) && isdefined( level.gameended ) && !level.gameended && util::function_fbce7263( owner.team, self.team ): robname = #\"hash_75f4d8048e6adb94\"; if !owner function_21c0fa55() (observer/non-local player view) -> robname = #\"hash_62b3e8ea5469c2f5\"; if !( isdefined(self.var_f4f50357) && self.var_f4f50357 ) (not already pulsing): self function_9b51bc6( localclientnum, 1 ); self player::function_f2ba057() (player_shared reset helper, not owned); self playrenderoverridebundle( robname ); self thread function_9e2a452e( localclientnum, robname ) (alpha fade loop). THEN regardless of the pulsing gate: self function_78233d29( robname, \"\", \"Alpha\", 1 ); and when !owner function_21c0fa55(): additionally self function_78233d29( robname, \"\", \"Tint\", 0 ) and self function_78233d29( robname, \"\", \"Alpha\", 1 ) again (observer variant forced full alpha). Returns. OFF branch (on_off falsy, falls past the if): self stoprenderoverridebundle( #\"hash_75f4d8048e6adb94\" ); self stoprenderoverridebundle( #\"hash_62b3e8ea5469c2f5\" ); self function_9b51bc6( localclientnum, 0 ); self notify( #\"rob_cleanup\" ).",
+        "unknowns": [
+          "util::function_fbce7263 polarity unknown (opaque shared helper; here it GATES the reveal branch as written)",
+          "function_21c0fa55 opaque local-player predicate (see unit 424)",
+          "function_78233d29 param setter external to packet (unqualified include)",
+          "Registration of set_reveal_enemy as a clientfield callback (its trigger) is in the pre-saved file head / remote gadget code, not in this unit"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/447",
+        "record_sha256": "3acaca2768c299fedbe2eebf66306bb276fb01bb6ddac84a0e3afca4b084cb27"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/d153521dd5b9ac58.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "ff801e362914d826bc810e669e7fcdde821ae8bb7cc0978c93401ea82989a7f4",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_vision_pulse.csc::do_vision_local_pulse",
+        "behavior": "Local (self-view) goggles overlay pulse (function(localclientnum)); threaded from set_reveal_self when the opaque predicate passes and reveal turns on. Ends: self endon( #\"death\" ); self endon( #\"vision_pulse_owner_death\" ) (owner-death watchdog notify); restart-identity: self notify( #\"local_pulse\" ) then self endon( #\"startlocalpulse\" ) (distinct emitted/listened events; these lines do not establish cancellation of earlier instances). self thread watch_vision_pulse_owner_death( localclientnum ). self playrenderoverridebundle( #\"hash_1978eff2ac047e65\" ) (goggles overlay bundle). origin = getrevealpulseorigin( localclientnum ) â€” captured but NEVER used in the body (reason for the unused value unknown; the source query/arithmetic still execute and provider effects or errors remain unproved). self function_78233d29( #\"hash_1978eff2ac047e65\", \"\", #\"brightness\", 1 ). starttime = function_41f5de53( localclientnum ) (opaque start-time helper, outside packet). revealtime = level.weaponvisionpulse.var_b9951041 (full reveal threshold, bundle field; original time units unknown); fadeout_duration = level.weaponvisionpulse.var_8e0b0827; jammed = self clientfield::get( \"gps_jammer_active\" ) â€” cross-gadget field read; var_8ac8d61d = isdefined(level.weaponvisionpulse.var_5be370e9) ? ... : 1 (jammer fade stretch factor); var_6f9f5fef (effective fade) = fadeout_duration * ( jammed ? var_8ac8d61d : 1 ); var_42a54adc (plateau) = var_6f9f5fef * ( isdefined(level.weaponvisionpulse.var_a2d7b97c) ? var_a2d7b97c : 0.8 ). Loop: elapsedtime = getservertime( localclientnum ) - starttime; break when elapsedtime >= revealtime; pulseradius computed (elapsed/pulseduration * 2000 within gadget_pulse_duration) but NEVER read in this loop body (reason for the unused value unknown; the source query/arithmetic still execute and provider effects or errors remain unproved); t = elapsedtime % fadeout_duration; brightness frac thirds: t < var_42a54adc -> 1; else t < var_6f9f5fef -> 1 - ( t - var_42a54adc ) / ( var_6f9f5fef - var_42a54adc ); else 0; self function_78233d29( #\"hash_1978eff2ac047e65\", \"\", #\"brightness\", frac ); waitframe( 1 ). TAIL (after break): brightness set to 0; self stoprenderoverridebundle( #\"hash_75f4d8048e6adb94\" ) (only the observer rob hash, as written); self notify( #\"finished_local_pulse\" ); self function_9b51bc6( localclientnum, 0 ); self.vision_pulse_owner = undefined.",
+        "unknowns": [
+          "Bundle fields var_b9951041, var_8e0b0827, var_5be370e9, var_a2d7b97c values are bundle data not in corpus",
+          "function_41f5de53 (start-time) source outside packet; ms-vs-seconds unit of the comparison not resolvable from this file alone",
+          "clientfield \"gps_jammer_active\" is owned/managed by another gadget module; value typing assumed clientfield int per register conventions elsewhere",
+          "Only one of the two rob hashes is stopped in the tail (75f4d8048e6adb94); the second (62b3e8ea5469c2f5) is cleared by owner-death and overlay-off paths"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00775",
+        "sha256": "a49ee6a77872871d0eaaf345fa9598231a671d1162f4c463e10c218d1d5b06c8"
+      }
+    }
+  ]
+}

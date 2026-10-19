@@ -1,0 +1,83 @@
+{
+  "module": "src/scripts/killstreaks/mp/killstreak_vehicle.gsc",
+  "identity": "scripts/core_common/audio_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "audio",
+  "witnesses": [
+    {
+      "line": 291,
+      "text": "    vehicle thread audio::sndupdatevehiclecontext( 1 );",
+      "caller": "function_c9aa9ee5",
+      "caller_span": [
+        286,
+        310
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "sndupdatevehiclecontext",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          132,
+          154
+        ]
+      ]
+    },
+    {
+      "line": 333,
+      "text": "        vehicle thread audio::sndupdatevehiclecontext( 0 );",
+      "caller": "function_8cb72281",
+      "caller_span": [
+        328,
+        343
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 329,
+          "opening_line": 331,
+          "ending_line": 334,
+          "text": "if ( exitrequestedbyowner == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "sndupdatevehiclecontext",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          132,
+          154
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0507",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/audio_shared.gsc",
+    "sha256": "e804b8c7d9bb79030d42464eb64759a3ddca64df0cfb4bd81e0535e92142d722",
+    "git_blob_sha1": "a4150e9db2b9f7137e525b06fa0b444ec40c50f9",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/audio_shared.gsc"
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+      "summary": {
+        "unit_id": "scripts/mp_common/gametypes/dev.gsc::getormakebot",
+        "behavior": "Dev bot-finder/creator helper: scans level.players for a player on the requested team with isbot() true and returns it; otherwise bot::add_bot(team); if defined, plays sound marker x617 on players and waits 1; returns the bot entity. HMH-path limit: the function body and all recorded callers are dev-delimited. Pointer store level.devongetormakebot=&getormakebot happens only inside the dev block of the NON-dev dev.gsc __init__ (51-53); dev system registration itself is dev-delimited (autoexec 35-38). Inbound edges: four in-file dev callers (updatehardpoints 191, addenemyheli 1755, addtestcarepackage 1845, force_grenade_throw 2832), mp rat rscaddenemy:66 dev::getormakebot(team), and two dev dvar-poll field-dispatch consumers (killstreak_hacking::killstreak_switch_team 232-234 gated on isdefined(level.devongetormakebot), weaponobjects::switch_team 3787-3789 same pattern). The observed pointer store and both field-dispatch consumers are developer-delimited. If a consumer is included and reached, its defined-pointer guard/fallback applies. Original-build inclusion, effective pointer writers/values, VM loading and invocation remain unknown; omitted consumer code does not execute a fallback.",
+        "unknowns": [
+          "Whether dev-delimited dev.gsc content exists in the original PS4 script VMs for any VM that HMH loads (exact original-build evidence still needed)",
+          "Recovered source importer is globallogic.gsc81 #using scripts/mp_common/rat, reached in the Warzone source closure through warzone.gsc30. Actual original VM loading/execution remains unproved.",
+          "on_start_gametype / on_connect native dispatch timing",
+          "bot::add_bot contract (m1 scope) and sound marker x617"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00338",
+        "sha256": "474625b951fa3b88b32fa3ec8a7056643601efa164f08f040683a71e2c2d5f87"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "7ab783ccd1d8015a0d6e5af5d99e6044afcc9998624e86e83153d36fc6f96d8b",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/dev.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/956",
+        "record_sha256": "e0204cdfec141d06e41340d4dfc3ab37eec1c48068cf17183c4607f3561456d3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "aa013fd4196ea535a8613e2d0e33646b1f72e5164f290efd5a1c04a36b56d4ae",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/dev.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/533",
+        "record_sha256": "3a17ad653c80daef62987ea2d1ffa65d3212a6af3b9d016b7088260130fe93a6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "fa7acc2da7c6d71262f5f4c88acd1d089c469b13d8999d929e2df510f01bd607",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/dev.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/532",
+        "record_sha256": "ed22b8dd3f84850f71d5bf14ad3e3093f8df631db34b6670d3fab008a2db5674"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "a77964374ab0a4ee86fd8638673abdb40f1c4b618d78c532f4f2eafed159ac32",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/dev.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/169",
+        "record_sha256": "a0396f3ee54634ea81b3ee423ff5a75dc8e85f76dc749dc266db85bca190cc28"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/895acfab45fe716a.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "987ed9fd1ef6b935cd28296886537882b34dbea8ae87aab3f93fa720150c27a6",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/dev.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/169",
+        "record_sha256": "a0396f3ee54634ea81b3ee423ff5a75dc8e85f76dc749dc266db85bca190cc28"
+      }
+    }
+  ]
+}

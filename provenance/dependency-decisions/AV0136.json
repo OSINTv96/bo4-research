@@ -1,0 +1,50 @@
+{
+  "module": "src/ui/main.lua",
+  "identity": "lua/ui/uieditor/menus/overlaysystem/systemoverlay_messagedialog.lua",
+  "kind": "lua_require",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": null,
+  "witnesses": [
+    {
+      "line": 141,
+      "text": "\trequire( \"ui/uieditor/menus/overlaysystem/systemoverlay_messagedialog\" ) --[[ @ 0]]",
+      "limit": "Textual require witness. Executable-load and menu/platform admission remain bounded by selected caller records; strings/comments alone are not runtime proof.",
+      "entry": "execution of containing recovered Lua module",
+      "condition": "Only when this caller module is loaded and control reaches this require; containing UI/platform/runtime admission is unproved. Read the complete original caller for earlier returns and gates.",
+      "selected_claims": []
+    }
+  ],
+  "assessment": "lua_load_relevance_unresolved",
+  "id": "AV0136",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "ui/uieditor/menus/overlaysystem/systemoverlay_messagedialog.lua",
+    "sha256": "61a750780635c238d97de6adb2b1468a3059a7c5a0e330c634b565cb1280a980",
+    "git_blob_sha1": "15aa170986344bfe05b358cad3dca455035d34ff",
+    "source_id": "SRC-006",
+    "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    141
+  ],
+  "required_callee_functions": [],
+  "output": "src/ui/uieditor/menus/overlaysystem/systemoverlay_messagedialog.lua",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/ui/uieditor/menus/overlaysystem/systemoverlay_messagedialog.lua",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00583",
+        "to": "N02238",
+        "line": 141
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

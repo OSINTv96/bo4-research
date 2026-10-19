@@ -1,0 +1,60 @@
+{
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "identity": "scripts/killstreaks/helicopter_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "helicopter",
+  "witnesses": [
+    {
+      "line": 1769,
+      "text": "                ent thread helicopter::usekillstreakhelicopter( \"<dev string:x602>\" );",
+      "caller": "addenemyheli",
+      "caller_span": [
+        1731,
+        1778
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1763,
+          "opening_line": 1766,
+          "ending_line": 1775,
+          "text": "switch ( enemyheli )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "usekillstreakhelicopter",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          158,
+          216
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0460",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/killstreaks/helicopter_shared.gsc",
+    "sha256": "268acfb0964e8bf6303fe1d08d7fbe32e4601eab781ffe8cb97cca6978652af1",
+    "git_blob_sha1": "007c64b43f97c7b11f876def05bd39142998a6cb",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/killstreaks/helicopter_shared.gsc"
+}

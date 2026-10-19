@@ -1,0 +1,97 @@
+{
+  "module": "src/scripts/abilities/mp/gadgets/gadget_smart_cover.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 59,
+      "text": "        attacker stats::function_e24eec31( weapon, #\"hash_1c9da51ed1906285\", 1 );",
+      "caller": "function_a430cceb",
+      "caller_span": [
+        48,
+        63
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 55,
+          "opening_line": 58,
+          "ending_line": 60,
+          "text": "if ( isdefined( attacker ) && isplayer( attacker ) && concertinawire.owner !== attacker && isdefined( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/e2389e42a79dc86e.json",
+          "pointer": "/claims/5",
+          "selection_id": "e04cd17e47889447524a1264faa02e2d1978c7001f8b82660d03f95f0d542d5d",
+          "citation": {
+            "line_start": 48,
+            "line_end": 63
+          }
+        },
+        "entry_function": "function_a430cceb",
+        "entry_span": [
+          48,
+          63
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/e2389e42a79dc86e.json",
+          "pointer": "/claims/5",
+          "selection_id": "e04cd17e47889447524a1264faa02e2d1978c7001f8b82660d03f95f0d542d5d",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0251",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    59
+  ],
+  "required_callee_functions": [
+    "function_e24eec31"
+  ],
+  "output": "src/scripts/core_common/player/player_stats.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N01220",
+        "to": "N02577",
+        "line": 59
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

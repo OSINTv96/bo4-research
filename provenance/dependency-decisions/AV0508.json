@@ -1,0 +1,146 @@
+{
+  "module": "src/scripts/killstreaks/mp/killstreak_vehicle.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 240,
+      "text": "    self stats::function_e24eec31( bundle.ksweapon, #\"used\", 1 );",
+      "caller": "activate_vehicle",
+      "caller_span": [
+        187,
+        266
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    },
+    {
+      "line": 700,
+      "text": "                    attacker stats::function_e24eec31( bundle.ksweapon, #\"destroyed\", 1 );",
+      "caller": "explode",
+      "caller_span": [
+        664,
+        719
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 695,
+          "opening_line": 698,
+          "ending_line": 702,
+          "text": "if ( isdefined( weapon ) && weapon.isvalid )"
+        },
+        {
+          "line": 690,
+          "opening_line": 693,
+          "ending_line": 709,
+          "text": "if ( isdefined( bundle ) )"
+        },
+        {
+          "line": 681,
+          "opening_line": 684,
+          "ending_line": 710,
+          "text": "if ( util::function_fbce7263( self.team, attacker.team ) )"
+        },
+        {
+          "line": 677,
+          "opening_line": 680,
+          "ending_line": 711,
+          "text": "if ( !( isdefined( self.abandoned ) && self.abandoned ) && isplayer( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    },
+    {
+      "line": 701,
+      "text": "                    attacker stats::function_e24eec31( bundle.ksweapon, #\"destroyed_controlled_killstreak\", 1 );",
+      "caller": "explode",
+      "caller_span": [
+        664,
+        719
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 695,
+          "opening_line": 698,
+          "ending_line": 702,
+          "text": "if ( isdefined( weapon ) && weapon.isvalid )"
+        },
+        {
+          "line": 690,
+          "opening_line": 693,
+          "ending_line": 709,
+          "text": "if ( isdefined( bundle ) )"
+        },
+        {
+          "line": 681,
+          "opening_line": 684,
+          "ending_line": 710,
+          "text": "if ( util::function_fbce7263( self.team, attacker.team ) )"
+        },
+        {
+          "line": 677,
+          "opening_line": 680,
+          "ending_line": 711,
+          "text": "if ( !( isdefined( self.abandoned ) && self.abandoned ) && isplayer( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0508",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc"
+}

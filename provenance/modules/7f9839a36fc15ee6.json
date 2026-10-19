@@ -1,0 +1,3841 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/utility/spawnselectionutility.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+  "git_blob_sha1": "6803dd3eda6afea13fb8ee7ff5a6cf5d0c281b51",
+  "output": "src/ui/utility/spawnselectionutility.lua",
+  "output_sha256": "590f4d553160b38017385e05d1a318dd93ed2d4324b102389dd9b86d0b4a1062",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [],
+  "claims": [
+    {
+      "selection_id": "32715fd75b1a4e4dd45a31d407e4eaf64001f4c925660945b3fc0dbaacdb420f",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:041",
+        "answer": "Builds the WZ back HUD children including team/player/ammo/inventory/compass/collapse/reinsertion/death notifications. Spawn selection hides deployable notifications; dead+not hacked+not spawn-select gates DeathCamContainer. KilledBy is locally always hidden; killer identity is hidden outside killcam, binds Attacker and updates emblem/name/rank views only for nonnil data. Overall caster-profile/spawn-select hides are separate predicates. The constructor wires child source contracts; it does not reconstruct every child, event producer or server state.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Source-ready close body exists outside frozen allowed companion range; exact locator is retained in new_dependencies. Other class clip bodies not frozen were not authored.",
+          "Additional same-class reset/clip/close body ranges are available but outside the frozen author scope; exact locators are in unfrozen_same_class_body_locators and source-frontier.json. No body authoring or completion credit for them."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-H-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00864",
+          "sha256": "ab2fa484cee7404748a56c6f7f1158d506034c39d15b30656eb5dd98bce8f0c5"
+        },
+        "report_pointer": "/unit_reviews/0",
+        "decision_canonical_sha256": "b249dd6d5bbb11c77914b8320ff2c4e9c9168ab03a84cb46c8a5c2b40714977e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": {
+          "title": "WZ back HUD constructor and its deferred callbacks",
+          "scope": "Entire frozen correction wrapper and complete current wrapper.record, complete original claim/evidence, all current linked semantic replacements and projections, and necessary exact source/caller/helper/receiver/branch/return/error/callback/lifetime witnesses. This is the written recovered-source request/conditional contract and historical-data scope, including unchanged fields."
+        },
+        "limitations": [
+          "Pinned recovered-source text only. Original source/bytecode fidelity, PS4 build/platform/loader/global/table identity, native/VM bindings, effective settings/assets/data/enum/model/provider values, online/server/service effects and runtime behavior retain the written unknowns.",
+          "Requests, callback registrations, clip/property assignments, constructor calls and static case comparisons do not prove successful execution, rendering, cleanup, delivery or gameplay. Unselected helper/companion body locators receive only their declared locator role.",
+          "Historical author/owner/reviewer/route/model/status/credit strings remain preserved historical data or unknown provenance. All 12 old historical reports remain UNIMPORTED; no missing author/route or old negative verdict is converted into current approval.",
+          "No runtime, build, native, VM, new-function, whole-mode or manager-acceptance credit. Verdict applies only to these exact frozen current bytes and their explicit scope; later versions require their own review.",
+          "Unfrozen same-class reset/clip/close body locators remain outside newly authored body scope. Necessary close source was read only to assess the written binding/limit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00334",
+        "sha256": "d7b01efaff174a0a14ed475e48e08a33c016b6923722ae27d3d1cba3b746a1d0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "74427cf5e1480cbc923bf289c3db17054b3ba7d5b70afc60f5eb4860ac0955fa",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:087",
+        "answer": "Constructs CoD.KillcamCover with the supplied menu/controller/layout values; its exact visual/data fields, condition closures, hook requests and return are retained below. Creates self via LUI.UIElement.new, Background via LUI.UIImage.new. Stores state predicates On, Hidden; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/631",
+        "decision_canonical_sha256": "84ad6ed7fa591e5832426d46fbc5cc517882c22bb20ef122ec3272c421a2cbb8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/86",
+        "record_sha256": "f89d45783af169d931f44bbb8c8b74de029b4f8e0162902b35ecb68f28135909"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "886b66977d5963e2a248438a35e4edf435220e4c9a1a94f9aa5dca92cbfe1a36",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:237",
+        "answer": "ShowScoreboard forwards its sole argument; HideScoreboard forwards argument1, preserving the different signatures. Show/hide permission tests retain scoreboard-open/spawn-select, multiplayer/game-ended and WZ-map gates. SetScoreboardUIModels initializes local/controller0 fields, writes team summaries for multiplayer and conditionally player score, then writes all five column headers again unconditionally. Preserve duplicate header writes and absent native/model guards; no scoreboard or match was opened by this author.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00874",
+          "sha256": "6e9219780f17200689b460c5f63edf855b0802b28c5ea54d7715ed95d51932a1"
+        },
+        "report_pointer": "/unit_reviews/7",
+        "decision_canonical_sha256": "c65cb733d5b76bc19b76ad22b24ee3936c1dcccf90643f736d8c8d6f5ac2c41d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": {
+          "title": "Scoreboard utility five wrappers and corrected Hud reuse",
+          "scope": "Full wrapper.record and complete original claim/evidence, including unchanged fields, all current linked semantic reuse/projections, exact current/original joins, original source, required callers/callees/callbacks/companions/errors and explicit limits. No diff-only or quote-only semantic acceptance.",
+          "body_contracts": 5,
+          "compared_top_level_fields": [
+            "unit_id",
+            "task_id",
+            "owner",
+            "status",
+            "question",
+            "canonical_name"
+          ],
+          "traversed_nodes": 2288,
+          "traversed_scalar_fields": 1758
+        },
+        "limitations": [
+          "Recovered pinned Lua source scope only; original source/bytecode fidelity and PS4 build/platform/loader/table-global identity remain unverified.",
+          "External/native/LUI/Engine/model/enum/settings/assets/data/storage/service/provider effects, VM behavior, callback/animation/timer delivery and errors are not established beyond the literal source requests.",
+          "Historical author/reviewer/route/status bytes remain preserved history; unavailable exact historical identity or settings are not inferred from labels, paths, receipt success or this new review.",
+          "Every old source/review/failure and current frozen subject is unchanged. Higher author copies reported during review were not read. Manager alone may import exact-version verdicts; this report accepts no package or whole mode.",
+          "No new reconstruction, web/network/GLM/model calls, nested agents, installation, live console/game/account/router/save action, scheduler or restart occurred. All runtime/build/native/VM/function/whole-mode credits are zero."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00250",
+        "sha256": "0035cf029d406dfbafc9c7f578f9846a20bb958143151ad62c77b5abbe7a7c21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "926d272bea21812a24bf7871e34e16dde534bd9f184eb445a44d4d10884f8ce0",
+      "citations": [
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:089",
+        "answer": "Calls engine getobjectiveentityposition(controller argument1,objective argument3), receiving three coordinates. Calls SpawnSelectionUtility.PositionMarker(argument0,argument1,argument2,{x=x,y=y,z=z}) only when all three returned coordinates are truthy; otherwise falls through. Under source Lua truthiness numeric0 is not filtered out. No receiver/model guard, loop, return value or protected error handling exists. Reads selectedMarker; if absent prints the literal SpawnSelect invalid-region diagnostic and returns no values. Otherwise obtains its four local-rectangle values (unused), center and leftStickVector. Iterates pairs(markers), computes candidate-center minus selected center, keeps candidates whose dot with the stick is >0, and stores marker plus squared reject distance. If candidates exist, passes an excluded comparator pointer to table.sort and returns first.marker; otherwise expl [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Pinned recovered source only; no originating Lua bytecode, exact PS4 build/loader/overwrite/VM/native binding, effective HMH settings, resource availability, service/server behavior or runtime delivery proof. Author checks are not independent correctness review. Source defects and unguarded accesses remain literal.",
+          "Only the selected callable's immediate statements are authored. Each unlisted nested callable is excluded from semantic authoring, including returned/local/condition/model/timer callbacks. Its exact lexical pointer and delivery site are metadata for later scope selection; containing its text does not authorize its body."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/127",
+        "decision_canonical_sha256": "01000bf9c860f7b6b4977d10324cb8cc2815abbb5d8bbbbee3ae506cd0405f5b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/88",
+        "record_sha256": "febac3c809c047bbca7ec4c30b888179eeed360d53281ff2c061f43a64230414"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a3d2adea25361c1568658eeeccc928b878d5fde087fa4f7796dd3973de738e36",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 866,
+          "line_end": 866,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 866,
+          "line_end": 866,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:118",
+        "answer": "IsSpawnSelectActive returns ModelUtility.IsModelValueEqualTo(controller,hudItems.showSpawnSelect,1). It consumes a model and does not open/close spawn selection or normalize arbitrary truthy values. Producer and live selection remain conditional.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/450",
+        "decision_canonical_sha256": "9d811d615f11f9a60ef04bdb4916dadb9d42df728a438faa371aff11926a8132",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/117",
+        "record_sha256": "dea8a5324286ed33f3327fef1419262ed52c9e3d8f46251651464ba5f2c2ac65"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b5da4e084aba9d53db1d317d11f79a2f20cd0f378c221ed46c45b896c721407d",
+      "citations": [
+        {
+          "line_start": 931,
+          "line_end": 938,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:145",
+        "answer": "Constructs CoD.SpawnRegionMarker.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, Background as LUI.UIImage.new, NoiseBacking as LUI.UIImage.new, TiledShaderImage as LUI.UIImage.new, CommonCornerPips as CoD.CommonCornerPips01.new, SpawnSelectIconBg as CoD.SpawnSelectLocationMarker.new, SpawnSelectPulse as CoD.SpawnRegionPulse.new, AutoSpawnPoint as CoD.SpawnRegionAutoSpawn.new, Label as LUI.UIText.new. Stores source state predicates in order Hidden. Requests model links self, \"visStatus\", true. Owns 2 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 14,
+              "line_end": 14,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "745f4b40c6a28651e75ceb7ea4c9293688a790ea361decbe80e02c6b581bf4ac",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.SpawnRegionMarker )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Background:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 21,
+              "line_end": 21,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "b3e9d4e0eb4453cfc01c5bbf3ebc75ddbd5bf43b452b1110e39047f00f24a075",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBackground:setRGB( 0.07, 0.07, 0.07 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "a8fb5b3512a4e4ba54e9d0eb382c5256b963063e461ca5ce038a15e9fea9861e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Background )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "3f8354ca7ef841b61a4254adc0869bd2d0217048af143e02fa8eb841990f453d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setAlpha( 0.85 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "228de2a932dffce4d86b235369bf2429cd4335f30fdaf94bf9c7f0df267daf30",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setImage( RegisterImage( @\"uie_ui_menu_store_price_bg\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/37",
+        "decision_canonical_sha256": "00f567af385efff0e0c1b7f054e5c9b436f8f3f07d23b14eaa187868bfe7c375",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": [
+            {
+              "kind": "original_build_bytecode",
+              "missing": "Original bytecode and exact intended PS4 source/build binding."
+            },
+            {
+              "kind": "native_vm_lui_engine",
+              "missing": "Original Engine/LUI/model/DDL/native contracts, error behavior and callback/timer dispatch."
+            },
+            {
+              "kind": "effective_data_settings_assets",
+              "missing": "Effective tables/bundles/dvars/enum values/localization/materials/assets and model population."
+            },
+            {
+              "kind": "server_online_persistence",
+              "missing": "Unavailable service/server/network implementation, authoritative ownership/progression/persistence and transaction outcomes."
+            },
+            {
+              "kind": "runtime",
+              "missing": "Game loading, scenario reachability, ordering across callbacks, display/audio results and resource lifetimes."
+            }
+          ],
+          "unknowns": [
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "self:setClass",
+              "caller_citation": {},
+              "statement": "\tself:setClass( CoD.SpawnRegionMarker )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            },
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+              "caller_citation": {},
+              "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            },
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "Background:setRGB",
+              "caller_citation": {},
+              "statement": "\tBackground:setRGB( 0.07, 0.07, 0.07 )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            },
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "self:addElement",
+              "caller_citation": {},
+              "statement": "\tself:addElement( Background )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            },
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "NoiseBacking:setAlpha",
+              "caller_citation": {},
+              "statement": "\tNoiseBacking:setAlpha( 0.85 )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            },
+            {
+              "unit_id": "hmh07-lua-follow4:145",
+              "source_symbol": "CoD.SpawnRegionMarker.new",
+              "symbol": "NoiseBacking:setImage",
+              "caller_citation": {},
+              "statement": "\tNoiseBacking:setImage( RegisterImage( @\"uie_ui_menu_store_price_bg\" ) )",
+              "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+              "scope_role": "selected_callable",
+              "classification": "NEED_CONTEXT",
+              "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+              "target_semantics_authored": false
+            }
+          ],
+          "evidence_limit": "Recovered Lua text at the pinned revision only. Literal source binding is conditional on original loader/table/global identities and overwrites. No original bytecode/PS4-build match, native/VM execution, effective settings/assets/data, service/server availability, runtime delivery, correctness review, acceptance or function completion is proved."
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/144",
+        "record_sha256": "45c30e91a9b229059b2f3b1292944c3abdd433588fc02fde5afd362f84c97e41"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b78531760181092e932ba65a2035bdc42e3d8ecaabeb972cbb34b3277f07b3df",
+      "citations": [
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 92,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 92,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 95,
+          "line_end": 95,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 95,
+          "line_end": 95,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 95,
+          "line_end": 95,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 95,
+          "line_end": 95,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow6:083",
+        "answer": "Pass all four arguments in order to Engine.sendmenuresponse. The wrapper has no explicit return, local validation, retry, state change or server-handler implementation. Return a fresh {x=arg0.x-arg1.x,y=arg0.y-arg1.y} table. No input mutation or type/nil guards. Return arg0.x*arg1.x + arg0.y*arg1.y in the written grouping. No normalization or mutation. Return arg0.x*arg0.x + arg0.y*arg0.y. No square root, normalization or mutation. Call Vec2Project(arg0,arg1), then return Vec2Sub(arg0,that result). Projection semantics and its denominator/normalization requirements belong to the separate provider. Return args1,2,3,4 as four values and ignore arg0. Despite the name and callers passing 500, this body starts no animation or timer and performs no mutation.",
+        "unknowns": [
+          "Exact original source/build match and loader/table/global overwrite order",
+          "Effective settings/storage/table/profile/model values",
+          "Native render/model/event/timer lifetime and delivery",
+          "Unavailable service/server behavior and final HMH membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1005",
+        "decision_canonical_sha256": "cf5a53bc4aecf86beac6f3c06a7f86521d10de0ce08b269fabfd1c2e55b4954b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00056",
+        "sha256": "9b5470295d8bc5b945061358d29d8430f5da2392ccde6abf20deb11b8b9c027f",
+        "pointer": "/units/82",
+        "record_sha256": "802191c4e3432e3604317721e935b8a667897227f082fbfce462fcd70fa1c803"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bd7287f14709af8bb32c1073352531c8f010b5c0e38e2e20fd5e259559a1e3da",
+      "citations": [
+        {
+          "line_start": 177,
+          "line_end": 179,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 177,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 321,
+          "line_end": 321,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 321,
+          "line_end": 321,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 177,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 177,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 179,
+          "line_end": 179,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 177,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 257,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 235,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 328,
+          "line_end": 328,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 328,
+          "line_end": 328,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 235,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 236,
+          "line_end": 236,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 253,
+          "line_end": 253,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 254,
+          "line_end": 254,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 255,
+          "line_end": 255,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 238,
+          "line_end": 238,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 235,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 236,
+          "line_end": 236,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 238,
+          "line_end": 238,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 239,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 241,
+          "line_end": 241,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 242,
+          "line_end": 242,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 243,
+          "line_end": 243,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 244,
+          "line_end": 244,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 245,
+          "line_end": 245,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 246,
+          "line_end": 246,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 247,
+          "line_end": 247,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 249,
+          "line_end": 249,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 250,
+          "line_end": 250,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 251,
+          "line_end": 251,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 252,
+          "line_end": 252,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 253,
+          "line_end": 253,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 254,
+          "line_end": 254,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 255,
+          "line_end": 255,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 256,
+          "line_end": 256,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 257,
+          "line_end": 257,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 242,
+          "line_end": 242,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 249,
+          "line_end": 249,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 253,
+          "line_end": 253,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 235,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 292,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 259,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 330,
+          "line_end": 330,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 330,
+          "line_end": 330,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 259,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 260,
+          "line_end": 260,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 262,
+          "line_end": 262,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 284,
+          "line_end": 284,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 261,
+          "line_end": 261,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 259,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 260,
+          "line_end": 260,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 261,
+          "line_end": 261,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 262,
+          "line_end": 262,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 263,
+          "line_end": 263,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 264,
+          "line_end": 264,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 265,
+          "line_end": 265,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 266,
+          "line_end": 266,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 267,
+          "line_end": 267,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 268,
+          "line_end": 268,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 269,
+          "line_end": 269,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 271,
+          "line_end": 271,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 272,
+          "line_end": 272,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 273,
+          "line_end": 273,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 274,
+          "line_end": 274,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 275,
+          "line_end": 275,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 276,
+          "line_end": 276,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 277,
+          "line_end": 277,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 278,
+          "line_end": 278,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 280,
+          "line_end": 280,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 281,
+          "line_end": 281,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 282,
+          "line_end": 282,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 284,
+          "line_end": 284,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 285,
+          "line_end": 285,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 286,
+          "line_end": 286,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 287,
+          "line_end": 287,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 288,
+          "line_end": 288,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 289,
+          "line_end": 289,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 290,
+          "line_end": 290,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 291,
+          "line_end": 291,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 292,
+          "line_end": 292,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 260,
+          "line_end": 260,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 267,
+          "line_end": 267,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 269,
+          "line_end": 269,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 271,
+          "line_end": 271,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 276,
+          "line_end": 276,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 278,
+          "line_end": 278,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 280,
+          "line_end": 280,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 259,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 284,
+          "line_end": 284,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 179,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 257,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 292,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 242,
+          "line_end": 242,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 249,
+          "line_end": 249,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 253,
+          "line_end": 253,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 260,
+          "line_end": 260,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 267,
+          "line_end": 267,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 269,
+          "line_end": 269,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 271,
+          "line_end": 271,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 276,
+          "line_end": 276,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 278,
+          "line_end": 278,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 280,
+          "line_end": 280,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 261,
+          "line_end": 261,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 179,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 235,
+          "line_end": 257,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 259,
+          "line_end": 292,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow6:094",
+        "answer": "Call PositionObjectiveMarker(arg0,arg1,arg0.beacons[arg2],arg2); no guard, explicit return or direct native position claim. Args are map/root,beacon widget,controller. Read local width/height, compass corners,north. If abs(northX)>0 set scale=width/abs(corner5-corner3); else if abs(northY)>0 scale=width/abs(corner4-corner2). Both branches use width and no zero-denominator guard. Fetch default_spawnbeacon_settings collectionradiusmax and multiply by scale, which remains nil if both north components are zero. If SpawnSelectRadius exists set centered left/right and top/bottom to +/-scaled radius. Independently test it again, play DefaultClip, then set nested MinimapSpawnRegion data(objId,unscaled radius). No fallback/settings/nested-field guards or cleanup. Only when arg0 and SpawnSelectionLabel exist, determine KBM and traverse SpawnPromptContainer.Icon. In the KBM branch set local4=0 and  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Exact original source/build match and loader/table/global overwrite order",
+          "Effective settings/storage/table/profile/model values",
+          "Native render/model/event/timer lifetime and delivery",
+          "Unavailable service/server behavior and final HMH membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1043",
+        "decision_canonical_sha256": "d8ec9f77f65d817f913af8743c1bd135297854baf5e804c411c9272c3b5abd62",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00056",
+        "sha256": "9b5470295d8bc5b945061358d29d8430f5da2392ccde6abf20deb11b8b9c027f",
+        "pointer": "/units/93",
+        "record_sha256": "311b8dd2414f496092afe632dab0feea4ea332200c5129e4c52f7e17d5129f7e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c1bfb1008f96c4d139d635a39ddfa9fced6a7e0f32e2fbebbfff91eb9a6a83fa",
+      "citations": [
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:016",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/41",
+        "decision_canonical_sha256": "303a3f2411b305feb6dc862aaae5c81fec0bc33ad74a22c49ae9cdb9ab14e53e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": "See source-frontier.json native_VM_gaps and separate_missing_inputs; no original binding/runtime proof.",
+          "unknowns": [
+            "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+            "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+          ],
+          "evidence_limit": "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review."
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/15",
+        "record_sha256": "16bfd3621162941181866addf7e9f0ed5cb2bd331a82c592be2e33fdc3fb1f29"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c1c472b740b79ef5b2b59d19e17537b769261eccbfa186f8f5638a0d4878fc43",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 865,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:212",
+        "answer": "Common Hud constructs this back safe-area wrapper directly. Builds Notifications, ObjectiveInfoWidgetContainer and CursorHint. HideNotificationsSpawnSelect delegates IsSpawnSelectActive; Warzone delegates IsWarzone. Recovered HideNotifications predicate has an early return when none of final/game-ended/killcam flags is set and round-end flag is false, but its later not-play-of-match assignment lacks a return; retain this nil-return fidelity gap instead of normalizing to an intended boolean. Spawn-select, visibility flags and lobbyNav notifications reevaluate self. CallOriginalSecond close registers self.__onClose; unselected outside class bodies remain dependencies. Optional postload then self return; screen-safe/native/model behavior not proven.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1067",
+        "decision_canonical_sha256": "1ca4653bb889405fa3b6f6156a80dc27d84e1a02ae01db41024acb4c26a9cf88",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/211",
+        "record_sha256": "10e3b75a86ff60e0c1a1dc4b079cb02b315652cf56fb35233e4dc511a56c04b9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c36cf39c5d23ba54d10c07fbe845c4ff34d39c73300b1bd3fd462d419b52b160",
+      "citations": [
+        {
+          "line_start": 719,
+          "line_end": 723,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 661,
+          "line_end": 709,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:060",
+        "answer": "Constructs CoD.SpawnSelectionMap from the displayed menu/controller/layout arguments. Creates MinimapFogOfWar as CoD.MinimapFogOfWar.new, MapItems as LUI.UIImage.new, DeathMarker as CoD.DeathMarker.new, SpawnGroupMarker as CoD.SpawnGroupMarker.new, AutoSpawnMarker as CoD.SpawnRegionMarker.new, SpawnBeaconMarker as CoD.SpawnBeaconMarker.new, SpawnRegionCursor as CoD.SpawnRegionCursor.new. Installs 2 event/action/override bindings; each callback keeps its captured controller/menu/widget references and executes only on its bound delivery. The ordered effect contract retains every property, model, visual, navigation, callback and return mutation in source order; returning self is not proof the original game loads this widget.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/42",
+        "decision_canonical_sha256": "c5b51e28fae8d410e0a76a1fb4b035db11dfe233242e62ad2ed2eec90a454453",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00009",
+        "sha256": "a3d6f5c60a40e31703313d00d5d0eaaea843693c358681b4434a397dd8386d75"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "cc6df863f1e4fdf3154dc53191aca9903db57d3ffc5449909814ca84f1db9dd5",
+      "citations": [
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 548,
+          "line_end": 548,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 66,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 546,
+          "line_end": 546,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 68,
+          "line_end": 72,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 523,
+          "line_end": 523,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 108,
+          "line_end": 128,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 539,
+          "line_end": 539,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 130,
+          "line_end": 143,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 520,
+          "line_end": 520,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 193,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 561,
+          "line_end": 561,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 211,
+          "line_end": 217,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 225,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 386,
+          "line_end": 417,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 760,
+          "line_end": 760,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 419,
+          "line_end": 421,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 534,
+          "line_end": 534,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 423,
+          "line_end": 425,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 534,
+          "line_end": 534,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 427,
+          "line_end": 432,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 794,
+          "line_end": 794,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 661,
+          "line_end": 709,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 719,
+          "line_end": 723,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 725,
+          "line_end": 743,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 766,
+          "line_end": 766,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 799,
+          "line_end": 808,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 826,
+          "line_end": 863,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 877,
+          "line_end": 887,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 66,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 68,
+          "line_end": 72,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 108,
+          "line_end": 128,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 130,
+          "line_end": 143,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 193,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 211,
+          "line_end": 217,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 225,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 386,
+          "line_end": 417,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 419,
+          "line_end": 421,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 423,
+          "line_end": 425,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 427,
+          "line_end": 432,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 661,
+          "line_end": 709,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 719,
+          "line_end": 723,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 725,
+          "line_end": 743,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 799,
+          "line_end": 808,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 826,
+          "line_end": 863,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 877,
+          "line_end": 887,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "line_start": 548,
+          "line_end": 548,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 546,
+          "line_end": 546,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 523,
+          "line_end": 523,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 539,
+          "line_end": 539,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 520,
+          "line_end": 520,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 561,
+          "line_end": 561,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 760,
+          "line_end": 760,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 534,
+          "line_end": 534,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 534,
+          "line_end": 534,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 794,
+          "line_end": 794,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 766,
+          "line_end": 766,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 551,
+          "line_end": 551,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 20,
+          "line_end": 20,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 36,
+          "line_end": 36,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 69,
+          "line_end": 69,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 113,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 135,
+          "line_end": 135,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 106,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 138,
+          "line_end": 138,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 66,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 140,
+          "line_end": 140,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 388,
+          "line_end": 388,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 231,
+          "line_end": 233,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 389,
+          "line_end": 389,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 181,
+          "line_end": 189,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 390,
+          "line_end": 390,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 207,
+          "line_end": 209,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 391,
+          "line_end": 391,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 193,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 392,
+          "line_end": 392,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 199,
+          "line_end": 205,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 396,
+          "line_end": 396,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 306,
+          "line_end": 333,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 398,
+          "line_end": 398,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 335,
+          "line_end": 344,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 399,
+          "line_end": 399,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 306,
+          "line_end": 333,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 403,
+          "line_end": 403,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 335,
+          "line_end": 344,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 678,
+          "line_end": 678,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 483,
+          "line_end": 488,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 681,
+          "line_end": 681,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 227,
+          "line_end": 229,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 684,
+          "line_end": 684,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 193,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 685,
+          "line_end": 685,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 195,
+          "line_end": 197,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 686,
+          "line_end": 686,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 199,
+          "line_end": 205,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 687,
+          "line_end": 687,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 207,
+          "line_end": 209,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 689,
+          "line_end": 689,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 363,
+          "line_end": 384,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 690,
+          "line_end": 690,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 306,
+          "line_end": 333,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 691,
+          "line_end": 691,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 231,
+          "line_end": 233,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 697,
+          "line_end": 697,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 363,
+          "line_end": 384,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 698,
+          "line_end": 698,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 306,
+          "line_end": 333,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 721,
+          "line_end": 721,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 335,
+          "line_end": 344,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 734,
+          "line_end": 734,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 66,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 737,
+          "line_end": 737,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 738,
+          "line_end": 738,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 490,
+          "line_end": 502,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 741,
+          "line_end": 741,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 839,
+          "line_end": 839,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 842,
+          "line_end": 842,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 857,
+          "line_end": 857,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 883,
+          "line_end": 883,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 181,
+          "line_end": 189,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 17,
+          "line_end": 17,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 29,
+          "line_end": 29,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 31,
+          "line_end": 31,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 41,
+          "line_end": 41,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 44,
+          "line_end": 44,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 45,
+          "line_end": 45,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 46,
+          "line_end": 46,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 49,
+          "line_end": 49,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 50,
+          "line_end": 50,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 57,
+          "line_end": 57,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 61,
+          "line_end": 61,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 64,
+          "line_end": 64,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 110,
+          "line_end": 110,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 389,
+          "line_end": 389,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 412,
+          "line_end": 412,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 429,
+          "line_end": 429,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 667,
+          "line_end": 667,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 668,
+          "line_end": 668,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 669,
+          "line_end": 669,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 673,
+          "line_end": 673,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 680,
+          "line_end": 680,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 692,
+          "line_end": 692,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 694,
+          "line_end": 694,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 695,
+          "line_end": 695,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 800,
+          "line_end": 800,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 801,
+          "line_end": 801,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 829,
+          "line_end": 829,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 839,
+          "line_end": 839,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 842,
+          "line_end": 842,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 849,
+          "line_end": 849,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 850,
+          "line_end": 850,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 858,
+          "line_end": 858,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 882,
+          "line_end": 882,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 883,
+          "line_end": 883,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 54,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 66,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 68,
+          "line_end": 72,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 108,
+          "line_end": 128,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 130,
+          "line_end": 143,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 193,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 211,
+          "line_end": 217,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 225,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 386,
+          "line_end": 417,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 419,
+          "line_end": 421,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 423,
+          "line_end": 425,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 427,
+          "line_end": 432,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 661,
+          "line_end": 709,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 719,
+          "line_end": 723,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 725,
+          "line_end": 743,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 799,
+          "line_end": 808,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 826,
+          "line_end": 863,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 877,
+          "line_end": 887,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 504,
+          "line_end": 659,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 504,
+          "line_end": 659,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:273",
+        "answer": "With a cursor, computes bounds centered on the target. Animated path plays Release, begins50ms movement, updates bounds, and registers its focus/selection helper on transition completion; direct path updates bounds and calls it now. That helper chooses Snap/Acquire, sends gain_focus, stores selectedRegion and sends SpawnRegionFocus only for the written lobby mode or simulatedCT. Requests target lose_focus then DefaultClip, clears selectedRegion and hides cursor only when the keep-visible argument is falsy. Gets the stick vector, negates y in that same table and stores it on the receiver. Collects beacons whose native hit-test contains the cursor, computes squared center distance, sorts by ascending distance with its owned comparator, and returns first marker or nil. Equal-distance tie order is unspecified. Missing SpawnSelectionMap returns. Found target optionally deselects old region, s [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:getLocalSize",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "24c1616793b89c8adfa39a21bf3157c565950f0bb759dc48060b5df1b0927f39",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f1_local1, f1_local2 = f1_local0:getLocalSize()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "98678d345f2d827aceb6a6aa0091a0fca1dddf119c49dd6a0b18c376aeaa2428",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf1_local0:playClip( \"Snap\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 29,
+              "line_end": 29,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "5dba045db3321498eec6998f3aa62c6a147c33f24840d0d61b1506df95924cb5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf1_local0:playClip( \"Acquire\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_arg1:processEvent",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 31,
+              "line_end": 31,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "3ebf1a2e19e17d4d22b8d4856d60ee9ee094eaf5a75f2941840ca88c32c63ad1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tlocal f2_local0 = f1_arg1:processEvent( {",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 41,
+              "line_end": 41,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "196940c191fc0d296e961b6719881c7c8378f165e57dedbc7e94bebde45caf6b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_local0:setAlpha( 1 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 43,
+              "line_end": 43,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "ee51517a176d1a04f85d92e62b262d3d701b854fb50e57d32e935dce6d151d88",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:playClip( \"Release\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/173",
+        "decision_canonical_sha256": "619a47e54b59135c991a6df8654c4020fcf7ce7b92571ec741d5e3698cde066c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/272",
+        "record_sha256": "be15514d311a618722f6e2d5f2beac9535af0568628dbfac9e4e7917832fac7e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dcd59166d91cbe054accfc8b3285cdd1f13fb7c33c39e090a34a681c2a4cff46",
+      "citations": [
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 865,
+          "line_end": 867,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:033",
+        "answer": "Creates Hud_MP_Codcaster menu, safe-area child and MP HUD components, current-weapon damage model binding, score notifications and spectator/profile state consumers. On score_event it prioritizes bounty score, then combat-efficiency score when spawn selection is inactive, then normal score. Objective ShowNotification predicates are AlwaysFalse here. HideAllButScoreboard is killcam/final/round/stage visibility union; SpeedBoost uses exact gadget id/state; HideForCodCaster requires spectator profile. X input is blocked only while AreXButtonPressesDisallowed; player_spawned outside draft disallows X400ms. Menu_loaded sizes PC to HUD area and console to safe area, dispatches to children when unhandled; then focus/state restoration, close registration, postload, back-button preservation, grenade warnings and cursor disable occur in literal order. Menu selection into this MP codcaster path rem [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1219",
+        "decision_canonical_sha256": "b463db95a637c257a0fc1c7540ab2d36618525ee459b8a74b81d4f58f836b260",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00141",
+        "sha256": "ddad7dbd01ea8649b951264dc42cba35d6d9601b1a529d9f54126cea9955928d",
+        "pointer": "",
+        "record_sha256": "c56ebf9c608a15c79d23ec0f75faaafe8069aa9ead3cd0db39b2bea6006b294a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ea27f1e1aa2720185bb05712acc7124c5a4480cb34224338ebae4b5ba465a445",
+      "citations": [
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 145,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 145,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 145,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 146,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 147,
+          "line_end": 147,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 148,
+          "line_end": 148,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 149,
+          "line_end": 149,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 150,
+          "line_end": 150,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 151,
+          "line_end": 151,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 152,
+          "line_end": 152,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 153,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 154,
+          "line_end": 154,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 155,
+          "line_end": 155,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 156,
+          "line_end": 156,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 157,
+          "line_end": 157,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 158,
+          "line_end": 158,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 159,
+          "line_end": 159,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 160,
+          "line_end": 160,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 161,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 163,
+          "line_end": 163,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 146,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 152,
+          "line_end": 152,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 155,
+          "line_end": 155,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 164,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 166,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 178,
+          "line_end": 178,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 166,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 166,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 166,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 166,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 167,
+          "line_end": 167,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 168,
+          "line_end": 168,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 169,
+          "line_end": 169,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 170,
+          "line_end": 170,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 171,
+          "line_end": 171,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 172,
+          "line_end": 172,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 173,
+          "line_end": 173,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 174,
+          "line_end": 174,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 168,
+          "line_end": 168,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 175,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 294,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 283,
+          "line_end": 283,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 294,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 294,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 295,
+          "line_end": 295,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 296,
+          "line_end": 296,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 297,
+          "line_end": 297,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 298,
+          "line_end": 298,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 299,
+          "line_end": 299,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 300,
+          "line_end": 300,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 301,
+          "line_end": 301,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 302,
+          "line_end": 302,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 303,
+          "line_end": 303,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 295,
+          "line_end": 295,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 298,
+          "line_end": 298,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 300,
+          "line_end": 300,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 304,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 908,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 908,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 908,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 902,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 902,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 902,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 903,
+          "line_end": 903,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 904,
+          "line_end": 904,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 905,
+          "line_end": 905,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 906,
+          "line_end": 906,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 907,
+          "line_end": 907,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 903,
+          "line_end": 903,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 904,
+          "line_end": 904,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 905,
+          "line_end": 905,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 906,
+          "line_end": 906,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 904,
+          "line_end": 904,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 906,
+          "line_end": 906,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 908,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 146,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 152,
+          "line_end": 152,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 155,
+          "line_end": 155,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 168,
+          "line_end": 168,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 295,
+          "line_end": 295,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 298,
+          "line_end": 298,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 300,
+          "line_end": 300,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 903,
+          "line_end": 903,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 904,
+          "line_end": 904,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 905,
+          "line_end": 905,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 906,
+          "line_end": 906,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 145,
+          "line_end": 164,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 166,
+          "line_end": 175,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 294,
+          "line_end": 304,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 902,
+          "line_end": 908,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:027",
+        "answer": "If marker falsy do nothing. Else obtain container width,height, compass corners x0,y0,x1,y1, compass-north x,y and marker width,height. If abs(northX)>0, horizontal=(position.y-y0)/(y1-y0)*containerWidth and vertical=(position.x-x0)/(x1-x0)*containerHeight. Else if abs(northY)>0, horizontal uses position.x/x range and width; vertical uses position.y/y range and height. Subtract half marker width/height, then setLeftRight(0,0,left,left+markerWidth) followed by setTopBottom(0,0,top,top+markerHeight). No explicit return. Call getobjectiveposition(controller,objectiveId) for x,y,z. Only if all three results are truthy call the selected same-file PositionMarker(container,controller,marker,{x=x,y=y,z=z}). Otherwise do nothing. Return implicitly nil. Numeric zero remains truthy under ordinary Lua; no independent marker check is added here. If SpawnSelectionLabel is nil do nothing. Otherwise eva [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original PS4 build/source match, effective settings, assets/data and HMH invocation.",
+          "Unavailable service/server/persistence/transport implementation; no inferred contract closure.",
+          "Excluded nested callback implementations and actual dispatch/unsubscribe/lifetime where listed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/191",
+        "decision_canonical_sha256": "5298d842d1d432a22514e78ddea47e772f1a4bb15a6fd27ffbed1c5568c48c0e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/26",
+        "record_sha256": "db8b2f463ca8540e62cd8cd684d39a9797c3b7291c1e87cb7881abecd1e5863d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f597ce2f4ac9914ece9d8abbf17969e5b4eba07e38e5254d60dda2a366cfc0e2",
+      "citations": [
+        {
+          "line_start": 877,
+          "line_end": 887,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 889,
+          "line_end": 900,
+          "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:028",
+        "answer": "Builds a spawn-beacon radius/icon/label/pulse/name. Name states map exact gamemodeFlags 0..4 to threat/EMP/manual labels plus the inactive-beacon predicate. Parent Destroyed uses the disabled-or-destroyed helper and Hidden calls AlwaysFalse. It does not activate or spawn a beacon. Creates self via LUI.UIElement.new, SpawnSelectRadius via CoD.SpawnRegionRadius.new, SpawnSelectIconBg via CoD.SpawnSelectLocationMarker.new, SpawnSelectLabel via CoD.SpawnSelectionLabel.new, SpawnSelectPulse via CoD.SpawnRegionPulse.new, SpawnBeaconPoint via CoD.SpawnRegionName.new. Stores state predicates Destroyed, ThreatLow, ThreatMedium, ThreatHigh, DisabledEMP, ManualDisabled, Destroyed, Hidden; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1357",
+        "decision_canonical_sha256": "1ac1dccdbb8ece2d6ee8fee4bca92deb894439ed6207a9a0cf1f2c2dbab53a57",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/27",
+        "record_sha256": "6d256eebea7296a33bbcb545bf1e75f227387a98b75e1e73fad6f41daac08331"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/76793630e470e8e1.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/7f9839a36fc15ee6-001.json",
+      "sha256": "245653f1f53d8fe952266b2c7300c85379a2c6f9142382afffe5472f5c2d4540"
+    }
+  ]
+}

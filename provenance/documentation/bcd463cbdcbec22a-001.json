@@ -1,0 +1,147 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/acid_bomb.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "115eb9bc98be0539634bdebb10c834fc7224f2604b161220e1b3ac48a599111b",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::fx_think",
+        "behavior": "Blinking-light FX loop threaded on the grenade by spawned(). Ordered: (1) self notify(#\"light_disable\") to kill any prior loop; (2) self endon(#\"death\", #\"light_disable\") â€” loop ends on entity death or the light_disable notify; (3) util::waittill_dobj( localclientnum ) waits for dobj readiness; (4) var_18407835 = self.origin captured once; (5) infinite for-loop with interval starting 0.3: each pass calls self stop_light_fx(localclientnum), self start_light_fx(localclientnum), self fullscreen_fx(localclientnum), playsound(localclientnum, #\"hash_2bb4a8b02a0d697\", var_18407835) at the captured origin, then util::server_wait(localclientnum, interval, 0.01, \"player_switch\"). Loop-local interval update: interval = math::clamp(interval / 1.2, 0.08, 0.3) so the beacon accelerates from 0.3s down to 0.08s and stays there. Termination only via endon death/light_disable; no other exit.",
+        "unknowns": [
+          "util::waittill_dobj and util::server_wait wait semantics (third arg 0.01 and tag \"player_switch\") are util/native, not resolvable from this span",
+          "Sound #\"hash_2bb4a8b02a0d697\" identity not in catalog",
+          "Whether origin staleness during grenade motion is intentional is unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/3",
+        "record_sha256": "42cdb24c633e3f5c308295345e3cf858fefb9447e1f29413667d51f8d9d693f1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "31763c267c92cbb4efdabff13386da5a22a9449d8649651eeb772271c2058d43",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::__init__system__",
+        "behavior": "Client-side (CSC) autoexec system registration for the acid bomb grenade. Sole statement: system::register(#\"acid_bomb\", undefined, &__main__, undefined) â€” registers namespace system named 'acid_bomb' with undefined init callback and __main__ as the main callback, undefined extra argument. No state reads/writes beyond this registration; no branching.",
+        "unknowns": [
+          "system::register fourth-argument semantics (undefined passed) not resolvable from this span",
+          "runtime registration timing/effect is engine behavior, unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/0",
+        "record_sha256": "8114e1930112c10b5fb9867586f9c0204aee6a419e744e956b0db7ec4e5f2e97"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "498913b279b6768c757ca68b5d85ebc375a97be4bbee7bdbf251c5d20090f3da",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::spawned",
+        "behavior": "Entity-spawned client callback (takes localclientnum). Branch: if self isgrenadedud() -> return (no FX threading for dud grenades). Otherwise: self thread fx_think( localclientnum ) â€” spawns the FX loop coroutine on the grenade entity. No state writes.",
+        "unknowns": [
+          "isgrenadedud is a native predicate; dud conditions not documented in this span",
+          "who/what entity calls spawned (engine grenade spawn callback) is not shown in-file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/2",
+        "record_sha256": "7ecc583c23e7227c9b47be0ed428ba90af2a2a4a7e2506a77c8d0d7399ec53cc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5f3a42d8f845ecb13d92c41ca31a312e2754818afe49bdd2142c91dbbad0ad7d",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::fullscreen_fx",
+        "behavior": "Fullscreen/rumble gate called each blink iteration from fx_think. Ordered early-outs: (1) if function_1cbf351b( localclientnum ) -> return; (2) else if util::is_player_view_linked_to_entity( localclientnum ) -> return; (3) if self function_83973173() -> return. Then: parent = self getparententity(); if isdefined( parent ) && parent function_21c0fa55() -> parent playrumbleonentity( localclientnum, \"buzz_high\" ). Effect: controller rumble 'buzz_high' on the parent entity (e.g. the player holding/viewing the bomb) when all three gates pass. No state writes to level.",
+        "unknowns": [
+          "Definitions of function_1cbf351b, function_83973173, function_21c0fa55 are not in the frozen catalog (unresolved externals); call sites elsewhere assign function_1cbf351b(localclientnum) to 'inkillcam', so plausibly a killcam/spectator-view gate, but semantics are not proven from definition",
+          "util::is_player_view_linked_to_entity native semantics unverified",
+          "Which concrete parent entities pass function_21c0fa55 is unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/6",
+        "record_sha256": "18b722a6a48966ea2255a83b4b361b711db8ae10cd27c641c016e3291df5f743"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "76418363ec2eb4ba4aff509aa1b0e2db72002b184bce02773cada05519c5c804",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::stop_light_fx",
+        "behavior": "Stops the light FX handle cleanly. Branch: if isdefined( self.fx ) && self.fx != 0 -> stopfx( localclientnum, self.fx ); self.fx = undefined. No-op when no live handle. This is the per-iteration teardown paired with start_light_fx inside fx_think's loop (toggle-style blink).",
+        "unknowns": [
+          "Whether self.fx can be a stale/invalid handle after entity FX teardown is engine-dependent and unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/5",
+        "record_sha256": "3c1f5b95c61ee6a824637888ce51b939bcf0b6a68d851a04d50f49fa1d04e2d3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "842d832c12e6a9433f6e3ca05ba7f256d529e1e31f395fc274a1e8ec1ba3fc76",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::__main__",
+        "behavior": "System main callback for acid_bomb on client VM. Single write: level._effect[#\"grenade_light\"] = #\"weapon/fx8_equip_light_os\" â€” installs the grenade light FX alias used later by start_light_fx. __init__system__ passes &__main__ in system::register; actual invocation timing/count remain unresolved; no branches.",
+        "unknowns": [
+          "Exact when __main__ is invoked by system::register (engine dispatch) is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00749",
+        "sha256": "bec6aea08a425e2a744b11ea7795bec2dc992edfe94b8be67c5ac7e77941a7ff",
+        "pointer": "",
+        "record_sha256": "7ef7c72d45565881d3a63d6d18aaae12cb8b3ef1201be5f75109caada2ed4a76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bcd463cbdcbec22a.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "ef49d0e14b934e3d19d87155314bd90b611ca570d89ab9d7cf4eb5c36f2cd45d",
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::start_light_fx",
+        "behavior": "Starts the grenade light FX: self.fx = util::playfxontag( localclientnum, level._effect[#\"grenade_light\"], self, \"tag_fx\" ). Reads level._effect[#\"grenade_light\"] (set by __main__), stores the FX handle on the entity field self.fx. No branches.",
+        "unknowns": [
+          "util::playfxontag return-handle semantics (0 vs undefined when FX fails) are native behavior",
+          "tag_fx assumption on the grenade model is game-data, not verifiable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/4",
+        "record_sha256": "1bfa6c99adaa0d2b6eccc876498b77892a963f8ef8fee829cdc90b749f4fc70c"
+      }
+    }
+  ]
+}

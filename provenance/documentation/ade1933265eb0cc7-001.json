@@ -1,0 +1,135 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/challenges.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "02e8138ed3170a890cf670c3c1a5ce190a13265cae117686b43ffcf99faba776",
+      "summary": {
+        "id": "scripts/mp_common/challenges.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/521",
+        "record_sha256": "cea3cc0bb19b5fb6980aef15cffdd12904bef8428ac5e8e56988c0327679bda3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "49f74d773e0f8ab45fd32ca99e73496ce504b0cebed11f15dc067560df851958",
+      "summary": {
+        "unit_id": "scripts/mp_common/challenges.gsc::function_a79ea08b",
+        "behavior": "Death-contributor challenge callback (self = selected contributor player; ~880-line block of per-condition challenge stats; registered via player::function_3c5cc656( &function_a79ea08b ) in excluded start_gametype). SETUP section (after guards self/victim players and victim.var_ea1458aa.attackerdamage defined, non-teammate): time, talents from function_65776b07() (NOT in catalog - boundary talent getter), killstreak classification, THEN only for non-killstreak weapons: copy victim damage record (structcopy), victim gadget_weapon; var_bcbcb4ec=victim supplypod::function_49ef5263() feeds golden-ammo condition; var_fff76b4=victim.var_b6672e47 feeds bonus-health condition, countplayers(victim.team), victim entnum, per-class arms (init var_ea1458aa.ekia primary/secondary buckets), primary/secondary detection via function_b958b70d (boundary loadout getter), ekia-pair flag when BOTH bucket counts > 0 (with decrement), bundle equipment flag var_8a4cfbd, smart-cover signature path: self.var_9cd2c51d defined, weapon signature and defined list entry===1 -> initialize/increment per-session var_d298c9a8, modulo4 sets var_828dac8f. Only if var_828dac8f undefined: signature AND per-spawn self.var_ea1458aa.var_96d50420 defined -> initialize similarly named per-session field if missing, but increment/test PER-SPAWN field; else equipment-bundle AND per-spawn var_59ac2f5 defined -> similarly initialize per-session field but increment/test PER-SPAWN field. Missing per-spawn field skips that counter. Preserve this source mismatch, extclip counter var_23f5861b, EVERY-ENEMY flag when totalenemies >= 4 (per-entnum kill map -> when filled all, var_2adaec2f = 1 + clear), var_1f0bdb8f via level.var_1aef539f hook (dynamic; boundary), var_70137a58=structcopy(self.var_ea1458aa) for later attacker-state reads, stun-context flags (var_ef9b6f0b stunned state, lastflashedby, shock_seeker_mine owner) unless talent_resistance in talents, sensor setup calls scoreevents::function_c28e2c05(victim.origin,var_6af452fc.sensordarts,0); later gate uses var_6af452fc.sensor_darts, a distinct spelling, before testing proximity result. MAIN SECTION after util::waittillslowprocessallowed() and self re-check (still defined): for non-killstreak weapons ONLY: (a) class-based ekia_primary_secondary_weapon + >2 attachments obfuscated hash per side; overkill requests a hash stat plus contract_mp_overkill, whereas underkill requests only hash_9cb265b8b1483b0 through the stat helper, with no underkill contract call in this branch (bonuscard checks via function_db654c9 boundary) when var_95ac2e77; (b) TALENT GREED GLUTTONY: per perk-greed slot checks -> ekia_perkN_greed; gluttony (with >2 remaining talents) -> ekia_perkN_gluttony + contract_mp_class_gluttony; >= 5 talents -> contract_mp_class_5_perks; (c) TALENT CONDITIONALS: ekia_stunned_slowed_irradiated_cuav_resistance (victim var_5745c480) or via victim.status effects list matching ability_smart_cover/eq_swat_grenade/hash seeker/eq_seeker_mine/eq_concertina_wire/eq_slow_grenade/gadget_radiation_field; ekia_minimap_teamlink (victim var_53611a9c + talent OR var_ec93e5f2), ekia_tracker, ekia_deadsilence, ekia_enemy_uav_sensordart_ghost (talent_ghost + victim uav/darts flags var_8e35fb71/var_efc9cf4d), hash_cdd16b48f26b85f (gungho talent + victim sprint flag var_e8072c8d), ekia_swap_weapon_jump_mantle_dexterity (dexterity + victim mantling/jumping), ekia_ammo_pickup_scavenger (scavenger + victim var_54433d4b); (d) WILDCARDS > 1 (function_6f2c0492 boundary) -> hash_3c794263f2d7e231; GEAR switches (function_b958b70d tacticalgear): gear_armor + victim armor damage flag -> ekia_against_armor_damager; gear_awareness + victim minimap var_85997af0 < (function_fd82b127 boundary minimap range * 0.5)^2 -> ekia_minimap_awareness (+ tracker variant); gear_equipmentcharge: equipment bundle -> ekia_specialist_equipment_equipmentcharge + var_9cd2c51d.var_b385927 counter with 7th-equal hash_7db6a4180312b94c; gear_medicalinjectiongun: victim full-heal flag var_46a82df0 -> ekia_full_heal_medicalinjectiongun (+ revenge variant var_69b66e8e); (e) TDM/DM ekia hc/core split stats; (f) ATTACHMENT KILL CHAIN (>0 attachments): grip/quickdraw/stalker/swayreduc ads combos, extclip pair-hash, steadyaim + jumping + overkill to 5 -> hash_6c13ae81deff608b, hipfire rf -> ekia_hipfire_steadyaim_rf, damage launcher -> hash_4ad196e3eaceeb26, fmj through wall -> ekia_enemy_through_wall_with_fmj (idflags & 8), fastreload -> ekia_fastreload_mixclip (+ launcher variant), mixclip independently requests same stat; both fastreload and mixclip may issue it twice, attachmentupgrades count 1 or > 1 -> two step-up hashes, launcher supply -> hash, uber attachments statname switch (smg_capacity/sniper_quickscope/lmg_spray -> speedcenter...; pistol_revolver/lmg_heavy/shotgun_pump -> dw_fatbarrel...; tr_midburst/ar_fastfire/smg_fastfire [+ moving > 100 speed] -> burstaccelerator variants; tr_longburst/tr_powersemi EXTENDS to smg_accurate/sniper_fastrechamber fallthrough -> hash_3e107dcbf6a27d6b for both; lmg_standard/shotgun_semiauto -> strobeflash) with long-distance check via scoreevents::get_distance_for_weapon (owned); (g) dw smg_handling -> dw stat; (h) radiation field shutdown (victim gadget radiation, not already hit var_75c08813) -> radiation_field_shutdown_ekia; golden ammo victim hash; bonus health victim hash; stun-context kills (talent_resistance absent): one nested var_2d4a24ea AND var_6c5ba24c branch requests kill_enemy_who_stunned_you_during_stun; independently var_ba9c5900===1 requests SAME stat, so both can request twice; (i) kill_after_shot_in_back reads var_70137a58.var_64ffda50[victimentnum], copied from SELF state, with defined entry and entry+6000>time; PICKUP WEAPON STREAK: pickedupweapons[weapon] matches victim entnum -> var_c9062c1c[weapon][ownerEntnum]++ per kill and var_93da0d74[weapon] counter chain (init then ++ ; every 5 with current owner match -> killstreak_5_picked_up_weapon stat with -5 and victim counter - -1 decrement) + contract_mp_pickup_weapon_kills each kill; (j) every-enemy-onelife flag -> ekia_every_enemy_onelife; hook flag var_1f0bdb8f -> hash_3bf4605458c33226; equipment bundle stats: ekia_specialized_equipment vs ekia_specialized_weapons (weapon signature); (k) victim debuff attribution (var_9a5c07a + var_79eb9a59 == self) OR sensor-dart proximity (var_30f88120 via function_c28e2c05) OR the later victim-effects scan1221-1252, guarded by !(var_38a1a18===1) and defined effect list, skips entries without a defined owner, with owner != self, or without a defined effect descriptor1225. Listed switch names1232-1239 set award=1 at1240, but default1242-1243 leaves the same recovered award variable unchanged. The earlier resistance scan can already set that variable1 at721 and break730; there is no written award reference/reset between734 and1202. Thus if a carried1 remains and the later guard/entry checks pass, a nonmatching later switch name can still reach award===1 at1246 and request ekia_debuffed_enemies_specialized_weapon_equipment1248, then break1249. Do not require a fresh matching later effect or insert a reset. This is the literal recovered-source value dependency, retaining original VM/decompiler/native and actual-path uncertainty; var_828dac8f -> hash_23d2a4d333f13590; slow-grenade purchased + victim stun endtime > time -> ekia_concussed_enemy; END non-killstreak main block at1269. Independent tails outside it: defined level.activeplayeruavs AND indexed truthy AND (forceradar undefined OR==0) -> ekia_uav; defined level.activeplayercounteruavs AND indexed>0 -> ekia_counteruav; killstreak===#\"dog\" AND weapon.issignatureweapon truthy -> ekia_specialized_weapons.",
+        "calls": [
+          "stats::function_dad108fa / function_e24eec31 (owned/excluded player_stats units)",
+          "contracts::increment_contract (owned)",
+          "scoreevents::function_c28e2c05 / get_distance_for_weapon (owned mp scoreevents units)",
+          "globallogic_score::function_3cbc4c6c (owned core unit)",
+          "killstreaks::get_from_weapon (outside packet)",
+          "supplypod::function_49ef5263 (supplypod - outside packet)",
+          "level.var_1aef539f dynamic hook (install site outside spans)",
+          "function_65776b07 / function_b958b70d / function_6f2c0492 / function_db654c9 / function_fd82b127 / function_4a9f1384: six uncatalogued talent/loadout helper boundaries, with original bodies/bindings unresolved",
+          "weaponhasattachmentandunlocked / countplayers / structcopy / weaponhasattachment / getvelocity / lengthsquared / bullettracepassed / vectordot (builtins)"
+        ],
+        "lifecycle": "Selected start_gametype calls player::function_3c5cc656(&function_a79ea08b) with default threaded=1, stored in level.var_fa66fada. player_killed953 invokes contributor traversal; each qualifying contributor calls function_b8871aa2 with accumulated damage/inflictor/weapon, and dispatcher starts self thread for threaded entries. Optional registrations can use threaded0, but this registration selects1. This does not prove a synchronous per-hit callback; native/death-delivery/setup ordering remains unproved.",
+        "ordered_state_changes": [
+          "damage record copy",
+          "bucket/counter arms",
+          "many conditional stats and contracts"
+        ],
+        "unknowns": [
+          "Six uncatalogued helper boundaries: function_65776b07,function_b958b70d,function_6f2c0492,function_db654c9,function_fd82b127,function_4a9f1384; preserve exact identities and unresolved native/original behavior",
+          "level.var_1aef539f hook installer",
+          "dozens of obfuscated stat-hash names (data side)",
+          "which stats write to AAR vs bygametype inside function_dad108fa (documented in player_stats excluded unit)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00735",
+        "sha256": "145323e0da4d21abd99b7a831417d2fe923cd483c51631119d69321ed9c74771"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "4f45c5d0b9a7d5fd61a321d81e15d6d23470c2c0cc81c806b70de57a3620a7df",
+      "summary": {
+        "unit_id": "scripts/mp_common/challenges.gsc::challengekills",
+        "behavior": "MP master CHALLENGE KILL pipeline (self = level; start_gametype appends via registerchallengescallback(\"playerKilled\",&challengekills) to level.challengescallbacks when canprocesschallenges; MP __init__39-44 returns in WZ, so this source registration does not establish live HMH invocation; ~1050 lines). SETUP: assigns attacker.lastkilledplayer=victim at1301 before the later team/self guards, then unpacks saved data fields (both attacker/victim context incl. move-event timestamps from the watched listeners, inflictor cooked/sprinting/engineerperk, victim attack lists); var_937b6de2 = victim.challenge_combatrobotattackclientid[player.clientid] defined; weaponclass/baseweapon via OWN getbaseweapon (owned), baseweaponitemindex = getbaseweaponitemindex (NOT in catalog - boundary), weaponpurchased = isitempurchased; support indexes = team or entnum (FFA); bulletkill classification (head/pistol/rifle; flechette impact/projectile/splash); TEAM GUARD: same-team (teambased) or self-kill (FFA) -> return; killstreak = get_from_weapon; (A) NO-KILLSTREAK path: HARDCORE set (kill_hc; stim within 4.5s (var_e5241328); crit health; melee fist); processspecialistchallenge( \"kills\" ) (owned); HEAVY weapon: pers challenge_heroweaponkills chain (init; processspecialistchallenge kills_weapon; heavyweaponkillsthisactivation++; pers counter 6 -> kill_one_game_weapon + reset); (B) else function_ea966b4a( killstreak ) (owned air/ground streak kill counts); (C) BULLET path (bulletkill && no killstreak): genericbulletkill( data, victim, weapon ) (owned core_common unit? NO - challenges_shared. Verify: genericbulletkill is in challenges_shared owned list - the call is challenges namespace? It's called unqualified - same-file or challenges_shared via namespace? The function genericbulletkill is cataloged in challenges_shared (MY file) - so unqualified call resolves to challenges_shared via #namespace link? Actually unqualified = same NAMESPACE challenges; challenges_shared namespace is also \"challenges\"! So genericbulletkill could BE the challenges_shared one - same namespace. Since both namespaces are \"challenges\", the calls resolve within the COMBINED namespace - cross-FILE calls are seamless. I'll document carefully: callee = challenges_shared::genericbulletkill (owned, same namespace); (D) weaponpurchased one-bullet variants: sniper (firstbullet pers counter /10 hash), shotgun; checkkillstreak5 (owned); function_b2b18857 (owned headshot-5); head-shot armor gear armor hash; lightweight talent kill stat; dual wield check (owned) when ISdualwield and purchased; OPTIC/ATTACHMENT CHAIN: getweaponoptic + attachmentkillsthisspawn counter 5 -> killstreak_5_attachment weapon stat; pistol suppressed+extbarrel; suppressed + 3 perks -> ghost/hardwired/blastsuppressor; thermal smoke ADS; grip/quickdraw ADS; swayreduc/stalker ADS; hipfire rf+steadyaim+fasthands (via util has_*_prk_purchased_and_equipped - outside packet); fastreload+extclip one-life counter -> kills_one_life_fastmags_and_extclip per 5; head-shot-heavy 3+ attachments FMJ/damage/extbarrel; revolver uber triple; 5-attachments five-way combo; after-fastreload (5s); through-wall (idflagstime == time, idflags & 8) + FMJ variant; PARTIAL COVER: facing-away victims (vectordot < -0.98) with recent damage var_642d3a64 within 5.5s -> !bullettracepassed(victimorigin+(0,0,31), victimorigin+(0,0,31)+victimforward*144,0,victim): forward-direction probe -> kill_enemy_shooting_in_partial_cover; (E) MELEE path: melee stat; fists; bayonet (ar_stealth/pistol_standard with uber); checkkillstreak5; (F) OTHER non-killstreak path: launcher hash; weaponpurchased block: resupplied-nade logic (scavengedcount-- per primary-grenade-slot kill, count >= 3 one-life stat); cooked frag (inflictoriscooked); stun-then-lethal (victimlaststunnedby == player && grenade class) -> kill_stun_lethal; BALLISTIC KNIFE: function_80327323(data) (shared stance handler: reads attackerstance, requests crouch/prone stat; genericbulletkill also calls it unconditionally) + lightweight; CROSSBOW: dual-wield check; ENERGY SHOTGUN one-bullet; forced-damage-hitlocation/crossbow/energy/ballistic -> checkkillstreak5 again; (G) PICKUP kill: attacker/tookweaponfrom/weapon entry/previousowner all defined, then previousowner.team undefined OR !=player.team qualifies; (K) BLINDED chains: attackerwasflashed by victim (no tactical mask) -> kill_enemy_that_blinded_you; OR stun-based attackerlaststunnedby == victim within 5s (no mask) -> same stat (one-shot latch); stunnedvictim detection: victim.lastconcussedby == attacker AND concussionendtime > time; victim.lastshockedby == attacker AND shockendtime > time -> (purchased proximity -> kill_shocked_enemy; ALWAYS function_be7a08a8( proximity_grenade, 1 ) [boundary] + flag; bouncingbetty root -> kill_trip_mine_shocked); victim isflashbanged && lastflashedby == player -> flag + purchased flash -> kill_flashed_enemy + function_be7a08a8( flash_grenade, 1 ); (L) TEAM-BASED bonus: kill_every_enemy_with_specialist (enemy count > 3 AND pers killed_players_with_specialist size >= team count; one-time latch); victim attackersthisspawn > 5 with > 4 same-team non-self attackers -> kill_enemy_5_teammates_assists; (M) ULTIMATE TURRET streak: inflictor.challenge_killcount 5 -> hash; (N) ROBOT-damaged victim (var_937b6de2) not via combat_robot killstreak -> kill_enemy_who_damaged_robot; (O) HATCHET: hatchet kills when primarygrenadecount loadout setting and <= 2 tosses -> challenge_hatchetkills == 2 -> kills_first_throw_both_hatchets; trackkillstreaksupportkills( victim ) (owned; UAV/satellite/CUAV/microwave kills_while_active weapon stats); (P) NO-KILLSTREAM deep block: underwater kills (kill_while_underwater, kill_enemy_on_land_underwater when depth < 5 and not sliding var_8556c722 - NOTE var_e828179e < 5 comparison); empty jetcharger if (no-op); tracker/sixthsense/awareness + dexter combo flags; overcharge hero; gpsjammer + victim UAV -> kill_uav_ghost; blind-eye + active streak types (drone_striked?/uav/comlink/sentinel) -> kill_blindeye_ghost_aircraft; flakjacket survive (challenge_lastsurvivewithflakfrom == victim) + tactic mask while stunned windows (3.5s/2.5s); hardwired + counteruav active -> kills_counteruav_emp_hardline; scavenger resupply + tracked combo; fast hands sprint kill (+ gungho variant); hardwired + coldblooded; gungho bullet sprint no-ADS hipfire, grenade-class inflictor-owner-sprinting variant; awareness; stunned-victim tacmask (+ gungho combo); ninja (dead silence) + close variants < 14400 sq (awareness / jetquiet); PRIMARY/SECONDARY slot killed chain: function_b644fd9? NO - loadout primary/secondary detection with function_7ec2f2c( slot, killed ) / function_861fe993( slot ) (both owned; marks both slots cleared when BOTH killed, else marks current); hacker+hardwired + betty/proximity near victim origin (distancesquared(origin,victimorigin)<400*400, strict boundary; not400 squared-distance units) -> kill_near_plant_engineer_hardwired; kill_enemy_after_they_heal (var_70763083 within 2.5s); kill_enemy_after_you_heal (own stim var_e5241328 within 4.5s AND health delta > 40); team fog-of-war flag (var_d6553aa9) in team-based -> stat; in-air victim (not on ground, depth var <= 0) -> kill_enemy_thats_in_air; victim signature weapon FIRST kill (var_f91a4dd6 undefined OR <1) -> kill_before_specialist_weapon_use; ballistic shield back-shutdown (sig_buckler_dw + bullet + facing away) -> shutdown_ballisticshield_in_back; vision pulse shutdown within duration/3 + 500 -> shutdown_visionpulse_immediately; right-hand-only kill (var_1fa3e8cc && not sliding && var_911b9b40 !== 1); kill_enemy_damage_you (attacker.attackerdamage[victim.clientid].lasttimedamaged within 1.5s); grav-slam shutdown midair after grapple (victim in slam, var_d24b8539 == 1, not on ground); rCRXD survivor kill (isdefined(var_58b48038), including defined0); (Q) killstreak path: supplydrop + isdefined(inflictorplayerhasengineerperk), including defined0 -> kill_booby_trap_engineer; victim signature/equipment + source controlled-streak condition: dart/inventory_dart/recon_car/inventory_recon_car OR (tank_robot/inventory_tank_robot AND var_911b9b40===1) -> shutdown_enemy_by_controlling_scorestreak; no remote_missile label in this guard; (R) heavy/hero/killstreak + overcharge+anteup -> kill_anteup_overclock_scorestreak_specialist; (S) signature-vs-signature (weapon special vs victim weapon special) -> kill_specialist_with_specialist; purifier/molotov and annihilator/revolver shutdown hashes.",
+        "lifecycle": "Source registration uses challengescallbacks, a separate table from scoreeventcallbacks. waitandprocessplayerkilledcallback2846-2862 starts level thread dochallengecallback, whose dispatcher starts each registered function as a thread; separate level thread doscoreeventcallback follows. challengekills has no explicit wait in its body, but that does not make its selected callback delivery synchronous. MP __init__ returns in WZ; original HMH/build binding remains open.",
+        "ordered_state_changes": [
+          "attacker.lastkilledplayer=victim before team/self guard",
+          "reuse existing unchanged exact complete source comparison; conditionally request stats/contracts under corrected branch guards; originating native outcomes remain unproved"
+        ],
+        "unknowns": [
+          "Known assigned registerchallengescallback/doch​allengecallback (exact function name: dochallengecallback) use level.challengescallbacks and threaded level dispatch; native event delivery and HMH binding remain unresolved",
+          "getbaseweaponitemindex / player::function_14e61d05 / function_be7a08a8 / util has_*_perk_purchased_and_equipped predicates (boundaries - not in assigned catalog)",
+          "~40 obfuscated stat hashes (data side)",
+          "the challenge counters cross-entity fields (combatrobotattackclientid producer is owned combat_robot_damage)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00736",
+        "sha256": "5c611f86ecfbbbe238f3a8532b245beec5e66540aea9ab1b42390b8dd3ec2284",
+        "pointer": "",
+        "record_sha256": "a2484d09a1c56a0544008af8f45efc2a1b32f2894238779fd173dcd55d46559e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "6b535f18d3110a69535da5cce9d4ee1658c2754cb4825aaced20c14fdcc93f03",
+      "summary": {
+        "id": "scripts/mp_common/challenges.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/951",
+        "record_sha256": "621f209ed5b17875dc00da8c76d85f6873e4fe6675d52189785f8b1402fcc16f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "de8ca7793960a903900f701c5cfbaa951115ace4ad5f91166b7aeeee60b3cb37",
+      "summary": {
+        "id": "scripts/mp_common/challenges.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/952",
+        "record_sha256": "895595f9e92fb2e67090ae7f981d7328dd36c1812efc2a77965c49e0fc1786e1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/ade1933265eb0cc7.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "e30551ea2f10a6a92e853e319fb870f6a4a40dddb34de8085e261ed1ec45bb8b",
+      "summary": {
+        "id": "scripts/mp_common/challenges.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/522",
+        "record_sha256": "5ec3eec379a55f1f7ae4b8a146b20e70aaa7b7eb8b051757a7395e28bebe7655"
+      }
+    }
+  ]
+}

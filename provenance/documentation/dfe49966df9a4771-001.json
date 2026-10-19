@@ -1,0 +1,1013 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/scoreevents.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0bf846c0cb01f81ba97ede6d48ae6b3937e5c69d293e4c6b80b6dcfd61cff0d2",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::on_player_spawned",
+        "behavior": "Per-spawn handler (wired by __init__): (1) self player_spawned() (scoreevents_shared unit - clears self.var_ae639436 with profiling); (2) self thread function_dcdf1105() (scoreevents_shared unit - registers fully_healed callback on self); (3) self callback::on_weapon_change( &on_weapon_change ) (weapon-swap timestamp tracker registration).",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "player_spawned / function_dcdf1105 (owned scoreevents_shared units)",
+          "callback::on_weapon_change (outside packet)"
+        ],
+        "lifecycle": "Per-spawn; registrations repeat per spawn.",
+        "ordered_state_changes": [
+          "synchronous player_spawned clears self.var_ae639436 with profiling",
+          "launch self thread function_dcdf1105; registration completion not joined",
+          "then call callback::on_weapon_change; no guaranteed ordering versus child completion"
+        ],
+        "unknowns": [
+          "none significant beyond callback internals"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00788",
+        "sha256": "64b0a564e5bbe04d20c3aa1165f47f4d8b4d3b6ee414fba4dc99f4a256906108",
+        "pointer": "",
+        "record_sha256": "a8c9f236814525ac882a6554016a386d02c3480487787fd87508323e6d3a8970"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "1bf325c8c7aebc064c1abad5e433182049d1c21072d990ca8f5d2faec6dc6aca",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_43ee1b3d",
+        "behavior": "Deployable-cover kill/assist attribution (self = level or none; args only). Guards: level.smartcoversettings and its var_f115c746 (cover list) must exist; return 0 when the killing weapon IS a killstreak weapon via level.iskillstreakweapon hook (installed by killstreak code outside owned spans). Ordered scan: foreach smartcover in cover list: skip undefined; skip when victim == smartcover.owner (owner's own covers don't count); skip when distancesquared( smartcover.origin, attacker.origin ) > level.smartcoversettings.var_357db326 (attacker out of cover range); compute var_eb870c (victim-to-cover), var_ae30f518 (victim-to-attacker distancesquared), conditions var_d9ecf725 = victimtoattacker > attackertoCover, var_1d1ca33b = victimtoattacker > victimtoCover; BOTH true -> var_a3aba5a9 = 1, var_71eedb0b = smartcover.owner, break; The matching path breaks immediately at2350, so no later cover is iterated on that successful source path. The following smartcover.owner reference therefore corresponds to that matched iteration under normal source loop binding; original VM foreach lifetime remains unproved AWARD: when matched: if smartcover.owner == attacker -> deployable_cover_kill for owner else deployable_cover_assist for owner; weapon = level.smartcoversettings.smartcoverweapon.",
+        "branches": [
+          "no covers/settings -> return",
+          "killstreak weapon -> 0 return",
+          "per-cover geometry gates",
+          "matched cover -> kill or assist award by owner identity"
+        ],
+        "calls": [
+          "level.iskillstreakweapon dynamic hook",
+          "distancesquared (builtin)",
+          "scoreevents::processscoreevent (owned base unit)"
+        ],
+        "lifecycle": "Synchronous caller-unknown helper (likely damage/end-of-life path); smartcoversettings producer = gadget_smart_cover (worker h4 packet - cross-owner).",
+        "ordered_state_changes": [
+          "score award or nothing"
+        ],
+        "unknowns": [
+          "No later-iterated-cover mismatch follows a successful source break; original VM foreach binding/lifetime and native effects remain unresolved",
+          "smartcoversettings fields (var_f115c746 cover list, var_357db326 range, smartcoverweapon) producers",
+          "caller of this helper (damage pipeline?)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00789",
+        "sha256": "f927dda8fe79a794009829d445d71b15ebce785fd6e67ec1c0a392fe8fa76cdc",
+        "pointer": "",
+        "record_sha256": "2391c2dff143873820b182887169c6347e4f9139831f7ee9c12a696b8f970057"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "2cc97652448b23e70910d46ed7abd5a367a81d426e1105c1f2c49148b908b6ff",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_3932ffa2",
+        "behavior": "Sensor-dart disarmer (self = none): foreach dart in sensor_darts: skip undefined; sensor.var_1fd3a368 = 0. Marks all darts of the set as already-rewarded (success path suppresses further gadget VO credit).",
+        "branches": [
+          "foreach input sensor_darts without explicit array/type guard",
+          "undefined sensor entry -> continue",
+          "defined sensor entry -> assign var_1fd3a368=0"
+        ],
+        "calls": [
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Synchronous; mutates dart structs (producer outside owned spans - sensor gadget code).",
+        "ordered_state_changes": [
+          "sensor.var_1fd3a368 = 0 per dart"
+        ],
+        "unknowns": [
+          "var_1fd3a368 default true in consumers (verified in same file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00790",
+        "sha256": "2078ecd63a00be4e16045325cebd8b71b7b03f12fae771a3bb4adef6f974fe0e",
+        "pointer": "",
+        "record_sha256": "38a4279749890b3bf706a230fdf6db30ef6d12fb6f9cf6896150113cf592426f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "2e994af09e5f2dadcd46b270c6dfb6487c3c928b33d3627771a98d8f01b82575",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::heavyweaponkill",
+        "behavior": "Heavy-weapon kill award router (args only, self unused). (1) return when weapon undefined; (2) switch weapon.name: hero_minigun -> \"minigun_kill\"; hero_flamethrower -> \"flamethrower_kill\"; hero_lightninggun / hero_lightninggun_arc -> \"tempest_kill\"; hero_firefly_swarm / hero_chemicalgelgun -> \"gelgun_kill\"; hero_bowlauncher2/3/4 + sig_bow_quickshot / 2 / 3 / 4 + hero_bowlauncher -> \"bowlauncher_kill\"; sig_minigun family (sig_minigun, sig_minigun_alt, sig_minigun_turret_28, sig_minigun_turret_32, four obfuscated hash aliases) -> \"mounted_kill\" only when attacker function_a867284b() (NOT in assigned catalog - integration boundary) AND playerads() == 1, otherwise \"minigun_kill\"; default -> return (no award); (3) processscoreevent( event, attacker, victim, weapon ).",
+        "branches": [
+          "weapon undefined -> return",
+          "per-name event mapping above",
+          "mounted_kill requires mounted predicate + playerads() == 1",
+          "default -> silent return"
+        ],
+        "lifecycle": "Assigned scoreeventplayerkill1088 calls heavyweaponkill inside the outer !isdefined(killstreak) block297-1089. This callsite is therefore non-killstreak gated; actual callback receiver/native scheduling and other caller eligibility remain unproved.",
+        "ordered_state_changes": [
+          "processscoreevent per matching weapon name"
+        ],
+        "unknowns": [
+          "function_a867284b (mount predicate, not in catalog)",
+          "playerads/getweapon builtins"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00791",
+        "sha256": "05f1b9f773ddc8eb87aa9083017a59ff9aaac195e190f630e2618e46fa4f1c08",
+        "pointer": "",
+        "record_sha256": "343b6dd34916038778a6d6c91c418dcb28d5fdc4ac877b24e2412e2ae69101db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "3490b5932f0759db5c8dd61b16b826401f64750e4c4fc92ac68f50b6f8ce3090",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::updatemultikills",
+        "behavior": "MP recent-kill streak accumulator and per-weapon multikill evaluator (self = killer; threaded from one of two mutually exclusive scoreeventplayerkill sites:840 when killstreak undefined,1142 when defined). SYNC: self endon( \"disconnect\" ); self notify( \"updaterecentkills\" ) + self endon( same ) - a NEW invocation kills older running ones (single-flight). Ordered: (1) baseweapon = weapons::getbaseweapon( weapon ); (2) init self.recentkillvariables via resetrecentkillvariables (owned) when missing; (3) loadout primary/secondary getters - increment var_a95c605e (primary kill count) or var_3e5d9e0f (secondary count) when baseweapon.statname matches those slots; (4) SAME-WEAPON streak: if recentkillcountweapon != baseweapon -> reset countsameweapon to 0 and remember weapon; if NO killstreak arg -> recentkillcountsameweapon++ AND recentkillcount++ (counts per weapon and total recent kills); (5) SPECIAL/EQUIPMENT streak var_311e32f++ when baseweapon is signature or var_76ce72e8; > 8 -> hash_658629ce68f99fb5 event; else > 1 -> \"specialist_weapon_equipment_multikill_x<N>\" string event; (6) LMG/SMG: recent_lmg_smg_killcount++ when playerads() < 1 (hip-fire kills only); grenade class -> recentlethalcount++; satchel_charge -> recentc4killcount++; killstreakweapons map: remote_missile/inventory_remote_missile -> recentremotemissilecount++; rcbomb family -> recentrcbombcount++; (7) HEAVY weapons: recentheavykill = gettime(); recentheavyweaponkillcount++; recentheavyweaponvictims[ victimEntnum ] = victim; per-weapon counters: annihilator/minigun/bowlauncher2-4/flamethrower/lightninggun(+arc)/pineapple family/gelfam (firefly_swarm/chemicalgun) counters; (8) grapple-slam: self.var_a7f5c61e && weapon == eq_gravityslam -> var_cc5ece37++; (9) HERO ABILITY killer check: victim ability_player::gadget_checkheroabilitykill( self ) (worker h4 boundary) -> reset recentheroabilitykillcount when ABILITY CHANGED, set recentheroabilitykillweapon = self.heroability, ++count; (10) killstreak arg switch: remote_missile -> recentremotemissilekillcount++; rcbomb -> recentrcbombkillcount++; recon_car family -> var_70845d87++; m32 family -> recentmglkillcount++; (11) same-weapon 2 -> function_e24eec31( weapon, multikill_2, 1 ); 3 -> multikill_3 (weapon-lodged stats); (12) self function_179829ab( 4 ) (owned 4s wait thread - BLOCKS the rest of this function 4 seconds? NO: it's called, so this code waits 4s (endon death/game_ended), THEN evaluates group thresholds); (13) group award evaluations: LMG/SMG >= 3 -> challenges::multi_lmg_smg_kill(); rcbomb killstreak kills >= 2 -> multi_rcbomb_kill(); recon_car count >= 2 -> challenges::function_46754062() (owned) + contract hash_741b3c0ab3e7a55f; mgl >= 3 -> multi_mgl_kill(); remotemissile killstreak >= 3 -> multi_remotemissile_kill() + contract hash_276886a0fbac5de0; heroweapon killcount > 1 -> hero_weapon_multikill_event( count, weapon ) (owned scoreevents_shared dispatch); heavy kills > 5 -> arrayremovevalue( victims, undefined ) && victims.size > 5 -> kill_entire_team_with_specialist_weapon stat; annihilator >= 3 or == 2 -> multikillmedalachievement(); minigun >= 3 -> minigun_multikill event + medal achievement; == 2 -> minigun_multikill_2 + achievement; bowlauncher/flamethrower/lightninggun/hash_1ff9cffb9d62d81a (2 case)/pineapple (no events, achievement only)/gelgun/armblades: >= 3 or == 2 variants as coded; c4 >= 2 -> c4_multikill; remotemissile weapon count >= 3 -> multikill_3_remote_missile stat; rcbomb weapon count >= 2 -> multikill_2_rcbomb stat; recentlethalcount>=2 -> initialize pers[#\"challenge_kills_double_kill_lethal\"]=0 if missing, then increment that pers counter; its value>=3 (NOT recentlethalcount>=3) gates kills_double_kill_3_lethal request; (14) recentkillcount > 1 -> self multikill( self.recentkillcount, weapon ) (owned core chain) AND when recentkillcountsameweapon < recentkillcount -> contract_mp_hotswap_multikill (hot-swap multikill!); (15) recentkillcountsameweapon > 1 -> function_8fe4629e(self.recentkillcountsameweapon,weapon) (owned camo ladder); (16) hero ability killcount > 1 -> multiheroabilitykill(...) (owned) + hero_ability_multikill_event(...) (owned dispatch); (17) grapple-slam count >= 2 -> \"grapple_slam_multikill_<n>\" string event; (18) self resetrecentkillvariables() (owned) - reset only explicit1919-1946 fields: numeric counters, recentheavyweaponvictims=[], three undefined fields, marker1; recentheroweaponkillcount/recentheroabilitykillweapon/recentheavykill are not cleared by that helper.",
+        "branches": [
+          "single-flight notify kill",
+          "primary/secondary statname matching",
+          "killstreak args skip same-weapon counting",
+          "special/equipment streak ladder > 8 / > 1",
+          "hip-fire LMG/SMG only",
+          "per-weapon heavy counters",
+          "hero-ability-kill attribution via victim gadget_checkheroabilitykill",
+          "4s wait gate then group threshold evaluations",
+          "hot-swap multikill contract when mixed weapons",
+          "normal continuation reaches exact reset helper; cancellation/error before it skips that reset; no all-recent-fields reset implied"
+        ],
+        "calls": [
+          "weapons::getbaseweapon / loadout::function_18a77b37 (outside packets)",
+          "resetrecentkillvariables / function_179829ab / multikill / function_8fe4629e / multiheroabilitykill (owned)",
+          "hero_weapon_multikill_event / hero_ability_multikill_event (owned scoreevents_shared)",
+          "challenges::multi_lmg_smg_kill / multi_rcbomb_kill / function_46754062 / multi_mgl_kill / multi_remotemissile_kill (owned mp challenges units)",
+          "contracts::increment_contract (owned)",
+          "stats::function_dad108fa / function_e24eec31 (units)",
+          "processscoreevent (owned base unit)",
+          "multikillmedalachievement (owned)",
+          "ability_player::gadget_checkheroabilitykill (worker h4 packet - cross-owner)",
+          "arrayremovevalue (engine builtin)",
+          "playerads (builtin)"
+        ],
+        "lifecycle": "Threaded; cancels: endon updaterecentkills (newer call), disconnect, and function_179829ab's endon death/game_ended (the whole function dies if the killer dies within its 4s window - subsequent group awards are SKIPPED then); counters reset at the end.",
+        "ordered_state_changes": [
+          "~25 recent counters",
+          "weapon-lodged multikill_2/3 stats",
+          "group events/contracts",
+          "exact resetrecentkillvariables fields only, including victim array clear; untouched recentheroweaponkillcount/recentheroabilitykillweapon/recentheavykill retain prior values in this helper"
+        ],
+        "unknowns": [
+          "death during the 4s window suppresses remaining evaluation (source shows evaluation after the blocking call); impact on pending awards preserved as source",
+          "gadget_checkheroabilitykill semantics (worker h4)",
+          "challenges::function_46754062 (owned unit, defined in mp challenges)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00792",
+        "sha256": "5b6feda600476cd1aec3ee591eb81fcf6fc122228ded05da08644006cd77e9fc",
+        "pointer": "",
+        "record_sha256": "4742f440d7ae1137705ad8799dcb1f702941a83793f704d4858ef713819f394a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "425faa2eaaec4607db8bace6eff259008a20e6516e564f38825d4554db1c3986",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::scoreeventplayerkill",
+        "behavior": "MP master kill-award pipeline (registered on 'playerKilled'; receiver depends on actual native callback delivery, not proved by source registration). Ordered: (1) unpack victim (undefined -> return); attacker must be defined and isplayer; (2) time = data.time (arg effectively overwritten; undefined when data.time missing); level.numkills++; attacker.lastkilledplayer = victim; copy ~45 data fields to locals incl. attacker.var_a7f5c61e = data.var_be469b25; return EARLY when victimbledout == 1 (bleed-out kills award nothing); (3) setup: attackershotvictim (pistol/rifle bullet/head shot); weapon default level.weaponnone via data.weapon; inflictor = data.einflictor; isgrenade; killstreak = killstreaks::get_from_weapon(weapon) when weapon defined; victim.anglesondeath saved; explosive means-of-death set -> exlosivedamage = 1 with weapon fallback from data.victim.explosiveinfo[\"weapon\"]; OUTER !isdefined(killstreak) begins297 and encloses steps4-42 through heavyweaponkill1088; after that block, steps43-49 apply independently except their own gates. (4) TEAM-BASED AVENGER/DEFENDER: victim.lastkilltime within 3000 AND lastkilledplayer non-enemy != attacker -> kill_enemy_who_killed_teammate + activecamo avenger marks + recordkillmodifier(avenger); damagedplayers scan (skip attacker.clientid, missing entity, entities that ARE enemy of attacker... wait: skip when attacker IS enemy of damaged entity) - when time - damaged.time < 1000 -> kill_enemy_injuring_teammate + lastrescuedby/lastrescuedtime writes + modifier defender; (5) NON-GRENADE block (or hero_gravityspikes): kill_enemy_while_sliding / traversal_kill / stim_kill-or-stim_assist (var_406186a6 with var_3febb1e9 healer; weapon eq_localheal) / kill_enemy_while_flashbanged / victim sig_bow_quickshot1-4 -> hash_6530935b474f2e11 / kill_enemy_while_stunned (attacker concussed) / attacker heatwave-stunned -> kill_enemy_that_heatwaved_you + killed_hero_ability_enemy event / victim heatwave-stunned by attacker (victim._heat_wave_stunned_by[attacker.clientid] >= time) -> heatwave_kill + hero_ability_kill_eventHeat + specialistmedalachievement + thread specialiststatabilityusage(4,0) + kill_enemy_with_their_hero_ability variants (direct hit or attackerisroulette, victim not thief); (6) SENSOR DARTS: killer's darts var_cf13980c -> sensor = function_c01cb128(victim, darts) (owned, range 2400 WZ / 800 else +50): sensor_dart_kill via sensor.weapon; success-path sensorkill counter vs level.var_ac6052e9 hook (default 3) -> gadgetsuccess VO + function_3932ffa2(darts disarm, owned) + reset; OR victim's own darts var_4f6eb670 -> for var_78056843 (dart owner): signature predicate function_9aef690a(weapon) -> hash_1f661efe5e6707ad else sensor_dart_assist; counter logic on var_78056843; (7) CONCUSSION: var_9084d6e && var_f048a359 == concussion_grenade -> concussion_kill + assist_concussion for var_157f4d3b unless == attacker; (8) BUCKLER: sig_buckler_turret/dw -> hash_63b75d5e59c12f69 when var_e020b97e && var_af1b39cb == attacker; else swat_grenade_kill_blinded_enemy when NOT var_c3f8aa38; (9) attacker.var_121392a1 array: hash_3f62a872201cd1ce / seeker_mine_arc / eq_slow_grenade effects -> hash_61640bd6bb7451ad (first match breaks); (10) SPEED BURST kill -> speed_burst_kill + hero_ability_kill_event + specialistmedalachievement + usage thread + roulette-ability variant; (11) swap kill: attacker.var_6f3f5189 defined AND +2000>=time AND !(weapon.var_76ce72e8===1) -> kill_enemy_after_switching_weapons (string event); (12) victimspeedburstlastontime>time-50 -> kill_enemy_who_is_speedbursting + killed_hero_ability_enemy; (13) victimcombatefficiencylastontime>time-50 -> kill_enemy_who_is_using_focus + killed_hero_ability_enemy; (14) victim slam state -> killed_hero_weapon_enemy event; (15) HIGH-SCORE VICTIM: challenges::ishighestscoringplayer(victim) (owned) -> kill_enemy_who_has_high_score + kingslayer + obfuscated camo hash + contract hash_a75db3f2b544591; (16) underwater explosive -> kill_underwater_enemy_explosive; (17) shield attacker flag -> hash_7c2d800a84be69a2; (18) electrified by other -> electrified award to victimelectrifiedby; (19) VISION PULSE: victim pulsed within 4000ms: attacker-in-pulse-array match -> early break if pulse still active (timing math) else vision_pulse_shutdown + showstopper + killed_hero_ability_enemy; hero_shutdown notifies to attacker when victim hero ability; lastvisionpulsed path when pulser != attacker and not enemy: signature predicate -> hash_bad79b50f40ce0b else vision_pulse_assist; hash_6d41ba237c04cb10 unconditional in that sub-path; ELSE of the defined-pulser/non-attacker/non-enemy test (also missing/enemy pulser, not only self) -> hero_ability_kill_event(weaponvisionpulse, ...) + specialistmedalachievement + usage thread + roulette variant; visionpulsekill success counter (default 3) -> VO via playgadgetsuccess; (20) sticky_kill (var_989b2258, eq_breachlauncher weapon) / shrapnel_kill (breachlauncher explosive); (21) SMOKE/ARM-BLADE: var_ab4f5741 === 1: victim._gadgets_player has mute_smoke -> hash_438160ef75ca2ea; eq_arm_blade kill -> hash_1e657ba6178ae2c6; var_7006e4f4 && var_504c7a2f == 1 -> hash_3d3467f13cf43727 (attacker=dealer, mute_smoke weapon) or hash_5a52344f66f68864 for var_7006e4f4; (22) SUPPRESSION: var_a99236f2 dealer: attacker==dealer -> hash_6dee98175676f663 else suppression_assist; (23) GRAPPLE: attacker.var_a7f5c61e truthy -> grapple VO >30s apart (not for gravityslam) THEN grapple_gun_kill award (string event); (24) eq_gravityslam -> gravity_slam_kill; (25) VICTIM ACTIVE ABILITY: hero_shutdown notifies; armor/resurrect/camo/clone specific awards (kill_enemy_who_has_powerarmor / kill_enemy_that_used_resurrect / kill_enemy_that_is_using_optic_camo / end_enemy_psychosis) each + killed_hero_ability_enemy; else powerarmor recently damaged <= 3s -> powerarmor notify pair + powerarmor award + event; (26) HEAVY SHUTDOWN notify pairs (data.victimweapon.isheavyweapon OR victim.heavyweapon with gadget power < 100 active last damage); (27) ATTACKER ACTIVE ABILITY: power_armor_kill / resurrect_kill / optic_camo_kill / kill_enemy_while_using_psychosis + hero_ability_kill_event + specialistmedalachievement + usage thread; roulette same-name victim ability -> kill_enemy_with_their_hero_ability; (28) victim lunging arm blades -> end_enemy_armblades_attack; var_9fb5719b -> hash_300c1c6babed2cb3; (29) data.victimweapon: killedheavyweaponenemy (owned) + minigun-stat-index hash_3988d3aa940f2e77 / m32 killed_multiple_grenade_launcher_enemy; (30) kills_frag_grenade / kills_molotov stats via function_dad108fa; (31) attacker thread updatemultikills( weapon, weaponclass, killstreak, victim ) (owned); (32) FIRST KILL: victim recordkillmodifier(firstblood) + first_kill + level.var_8a3a9ca4.firstblood = gettime() + contract hash_61c7d530de491c8d + util::function_5a68c330(22, team, entnum); ELSE revenge (attacker.lastkilledby == victim) -> globalpaybacks++ + revenge_kill + weapon stat + camo revenge credits + modifier + clear lastkilledby; buzzkill via killstreaks::is_an_a_killstreak(victim) -> globalbuzzkills++ + stop_enemy_killstreak + camo credits + modifier; victim.lastmansd == 1 -> final_kill_elimination (+ elimination_and_last_player_alive when attacker also last); (33) LONGSHOT via is_weapon_valid (owned): victim.vattackerorigin fallback attacker.origin; long-range -> challenges::longdistancekillmp (owned), hatchet root -> challenges::longdistancehatchetkill (owned), longshot_kill + contract_mp_longshot + pers longshots mirror + modifier; every 3rd per-life (var_ea1458aa.longshot_kills %3) -> longshot_3_onelife; kill_distances/num_kill_distance_entries pers accumulation (same gate); (34) INJURED kill (alive && health < 35% max) -> lastkillwheninjured + kill_enemy_when_injured + weapon stat; toughness perk -> perk_bulletflinch_kills; ELSE afterlife (deathtime+800 < time, not in vehicle) -> globalafterlifes++ + kill_enemy_after_death + modifier posthumous; (35) comeback (cur_death_streak >= 3) -> globalcomebacks++ + comeback_from_deathstreak + modifier; (36) MICROWAVE assists/kill (via victim.beingmicrowavedby; non-enemy, != attacker -> microwave_turret_assist + challenges::earnedmicrowaveassistscore(scoregiven) (owned); attacker involved && weapon != microwave_turret -> challenges::killwhiledamagingwithhpm() (owned) + microwave_turret_kill for last loop element beingmicrowavedby + function_be7a08a8(weapon, 1)); (37) MELEE: pers stabs mirror; angleclamp180(victim.anglesondeath[1] - attacker.anglesonkill[1]); backstab-capable (var_cfc07f04) and diff in (-30, 70) -> globalbackstabs++ + backstabber_kill + function_eec52333 weapon stat with pickedup flag + pers backstabs mirror; else-if !(isdefined(weapon.var_cfc07f04)&&weapon.var_cfc07f04) AND (anglediff<-30 OR anglediff>70 OR defined/truthy victim.laststand): gunbutt when MOD_MELEE_WEAPON_BUTT and weapon.name!=\"ball\", otherwise fists when ispunch; exact angle boundaries -30/70 are not outside by these strict comparisons; (38) ONE-BULLET: victim.firsttimedamaged == time AND (hero-annihilator statindex OR inventorytype != ability) AND attackershotvictim -> thread updateoneshotmultikills (owned) + weapon stat kill_enemy_one_bullet; (39) ARMOR BREAK: attacker == victim.var_d6f11c60 within 2s of var_e6c1bab8 OR headshot on armored victim -> kill_enemy_with_armor; (40) asserts: attacker defined; attacker.tookweaponfrom defined (assert calls shown; originating VM/build failure behavior unproved); pickup-kill when previousowner == victim -> kill_enemy_with_their_weapon + dual weapon stats (main + matching melee); (41) bomb roles: killed_bomb_defuser / killed_bomb_planter; (42) heavyweaponkill( attacker, victim, weapon ) (owned); (43) specificweaponkill( attacker, victim, weapon, killstreak, inflictor ) (owned); (44) VTOL support gunner: kill_as_support_gunner stat + mothership_assist_kill for level.vtol.owner; (45) alarm_kill within 5300ms; (46) empty var_c274d62f branch (no-op); (47) ROOT-WEAPON switch: hatchet -> pers tomahawks mirror + hatchet_kill + contract hash_172456fa969d6c82; bounces (explosiveinfo.projectile_bounced) -> globalbankshots++ + bounce_hatchet_kill + contract_mp_bankshot; supplydrop family -> care-package crush vs hacked care package awards by means-of-death; (48) killstreak defined -> alternate updatemultikills thread at1142, mutually exclusive with non-killstreak840, not a second call per kill + victim modifier killstreak; (49) attacker.cur_death_streak = 0; attacker disabledeathstreak().",
+        "branches": [
+          "bleed-out -> early return (no awards)",
+          "outer !isdefined(killstreak) gates297-1089, including base multikill spawn and heavyweaponkill; subsequent tails retain independent guards",
+          "first-kill vs subsequent-kill ladder",
+          "team-based avenger/defender sub-branches",
+          "at most one of parent multikill spawn sites840(non-killstreak) or1142(killstreak) on a surviving invocation; native child completion/order unproved"
+        ],
+        "lifecycle": "Source scoreevent callback registration is distinct from original native receiver/delivery proof. Two updatemultikills spawn sites are mutually exclusive:840 lies inside !isdefined(killstreak),1142 inside isdefined(killstreak). Other specialist usage children may be requested by their own branches. Original VM scheduling/cancellation and actual persistence remain unproved; preserve explicit source endon/notify statements in callees.",
+        "ordered_state_changes": [
+          "level.numkills++",
+          "attacker.lastkilledplayer",
+          "many conditional score awards",
+          "counters (globalpaybacks/buzzkills/comebacks/bankshots/afterlifes/globalsharepackages excluded path)",
+          "pers longshots/stabs/backstabs/tomahawks",
+          "cur_death_streak reset + disabledeathstreak"
+        ],
+        "unknowns": [
+          "kill event data field producers (native kill pipeline + player_record/laststand code)",
+          "activecamo::function_896ac347 effects (worker h4 boundary)",
+          "recordkillmodifier/recordmultikill/disablesdeathstreak (player_record/outside packet)",
+          "challenges::longdistancekillmp/longdistancehatchetkill/killwhiledamagingwithhpm/multi_lmg_smg_kill/multi_rcbomb_kill/multi_mgl_kill/multi_remotemissile_kill (owned mp challenges units - verified referenced)",
+          "function_be7a08a8 (grapple/gravelslam credit) - not in catalog",
+          "level.vtol/matchrecorderkillstreakkills writers",
+          "data.var_be469b25 -> attacker.var_a7f5c61e (grapple state) producer",
+          "util::function_5a68c330/has_toughness_perk_purchased_and_equipped (outside packet)",
+          "excluded function_4013aee1 remains the status-effect handler wired by init (not re-documented here)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00793",
+        "sha256": "087f6c11d3892c42047f37272781307ce151ee65cf62ed78ff7d9f6f579c9105",
+        "pointer": "",
+        "record_sha256": "133ed9aacc11878d6f5d4879a36f9ab609f214350b595584e9c3a08b2b01aa88"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "51ceb14aae165a04a800a8b1b27ffbed6d66d716eeab7e643586d0a634554a4a",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::resetrecentkillvariables",
+        "behavior": "Recent-kills counter reset (self = player): zeroes ~25 counters (listed individually in source 1919-1946) also clears recentheavyweaponvictims=[]; and sets recentkillvariables = 1 as the initialized marker; var_a95c605e/var_3e5d9e0f set to undefined; recentkillcountweapon = undefined.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "none"
+        ],
+        "lifecycle": "Synchronous reset; called by updatemultikills init+final (owned).",
+        "ordered_state_changes": [
+          "recentkillvariables = 1 marker + zeroed counters",
+          "recentheavyweaponvictims=[]; only exact fields1919-1946 reset, other recent fields not implicitly cleared"
+        ],
+        "unknowns": [
+          "none - closed unit"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00794",
+        "sha256": "ad4c15e64014e25cf354d8e2cc547a7a2d0b83300a66df01f4f1c10f514a8998",
+        "pointer": "",
+        "record_sha256": "b1b25314a95b4c2ab269e77f6e523ca9ee92bf8d223fe5dbfd9031a0a8277bb6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "55382b38cf7444495840f92e5150ab8feea0d365ad9e34032efb91ee385d797c",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::ongameend",
+        "behavior": "Match-end XP award (self = level? registered as level.scoreeventgameendcallback by owned init; data.player/winner). (1) when winner defined: TEAM-BASED: not tie flag via match::get_flag(\"tie\") (mp match - outside packet) AND player.team == winner -> pers[\"hash_6344af0b142ed0b6\"] = 1 (same dirty marker) + won_match event + RETURN; NON-TEAM: top-3 scan of level.placement[\"all\"] (placement table produced outside owned spans): player in top three -> pers marker + won_match event + return; (2) All paths not already returned: missing winner, teambased nonwinner/tie, or defined-winner FFA player outside top3; defined-winner FFA top3 still takes won_match even if tie flag true -> completed_match event. So both won and completed events are scored via processscoreevent (rank XP path gated by shouldaddrankxp inside).",
+        "branches": [
+          "winner defined AND teambased AND !tie AND matching team -> won_match then return",
+          "winner defined AND !teambased AND player in top3 -> won_match then return, with no local tie test",
+          "missing winner OR other unrewarded paths -> completed_match"
+        ],
+        "calls": [
+          "processscoreevent (owned base unit)",
+          "match::get_flag (mp match - outside packet)"
+        ],
+        "lifecycle": "Synchronous at game end.",
+        "ordered_state_changes": [
+          "pers hash_6344af0b142ed0b6 = 1 on winners",
+          "won_match or completed_match event"
+        ],
+        "unknowns": [
+          "level.placement producer (gametype end resolution)",
+          "level.scoreeventgameendcallback consumer (verified set in owned init)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00795",
+        "sha256": "34094746eb38dbfb376ad014255220c4c5855adc37ec7854468793a2b2893e07",
+        "pointer": "",
+        "record_sha256": "8fb800ca3dedf9f7751f0a514c0ee99d37acacfc933c4c3c60043417b88fb1e6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "cb106c7474f16215d445c4deb533349e419c4fa3d79ac0ed1b926789ac6dc555",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::scoreeventtablelookupint",
+        "behavior": "Source returns int(tablelookup(getscoreeventtablename(),0,index,scoreeventcolumn)). The no-argument resolver first returns a defined loaded override if available; otherwise undefined gametype becomes \"base\", using current-session cp/zm/wz/mp prefix and base.csv path. It does not select the current gametype implicitly. Original native lookup, int(empty/invalid), numeric conversion and exact build effects remain unproved.",
+        "branches": [
+          "None (caller passes index)"
+        ],
+        "calls": [
+          "tablelookup/getscoreeventtablename (native + excluded unit)",
+          "int (builtin)"
+        ],
+        "lifecycle": "Synchronous table accessor; no caching in span.",
+        "ordered_state_changes": [
+          "read-only"
+        ],
+        "unknowns": [
+          "table row/column semantics (data-side)",
+          "per-call table resolution cost - native"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00796",
+        "sha256": "9f6aa71c6736b338ca15e4621e668db615d8664d8c7435ca189f482083ffad2c",
+        "pointer": "",
+        "record_sha256": "e60e0b30627330c27b577c8643b64403fae7cdee2b525c0469945d5c51582b20"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "dbb53d25c769d069d987e31a21f600b2129dc65bef217ff3776487e508e7f17d",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::updateoneshotmultikills",
+        "behavior": "One-shot multikill (collateral) thread (self = attacker). SYNC: self endon( death, disconnect ); notify( \"updateoneshotmultikills\" + firsttimedamaged ) + endon same - single-flight PER FIRST-DAMAGED-TIME. (1) if oneshotmultikills undefined OR firsttimedamaged newer than recorded oneshotmultikillsdamagetime -> reset counter to 0; (2) oneshotmultikills++; oneshotmultikillsdamagetime = firsttimedamaged; (3) wait 1 (second); (4) if counter > 1 -> kill_enemies_one_bullet event + contract_mp_collateral; (5) ELSE if weapon.statindex != level.weapon_hero_annihilator.statindex (the >1 test failed and weapon is non-annihilator; no ==1 test is present and shared-counter scheduling leaves the actual else-path value unresolved): kill_enemy_one_bullet event; if NOT level.hardcoremode -> contract hash_47f2f8fa5afb9d01; head shot: read kill_enemy_one_bullet_headshot global + tier (function_af5584ca - owned player_stats) read current stat then tier BEFORE write, start delta1; if defined tier1 AND current<50 -> delta+=50 (51); if tier2 AND current<150 -> delta+=150 (151); otherwise delta stays1. No subtraction of current stat and no zero delta; write via function_dad108fa; (6) oneshotmultikills = 0 (reset; note: damagetime NOT cleared).",
+        "branches": [
+          "counter reset when newer damage",
+          "> 1 -> collateral",
+          "Else path after the counter >1 test fails, additionally requiring a non-annihilator weapon: one-bullet event + non-hardcore contract + headshot tier logic. The source has no counter ==1 test. Shared counter changes during waits and per-damage-time notify keys leave the exact else-path counter value and scheduling unresolved.",
+          "After the counter >1 test fails, an annihilator weapon also fails the else-if weapon guard, so neither event branch is requested on that path. This is not a counter ==1 condition; the shared counter can change during waits, and exact scheduling remains unresolved."
+        ],
+        "calls": [
+          "threads/notify/endons/wait (builtins)",
+          "stats::get_stat_global/function_af5584ca/function_dad108fa (units)",
+          "contracts::increment_contract (owned)",
+          "processscoreevent (owned base unit)"
+        ],
+        "lifecycle": "Threaded one-shot per kill; 1s window; single-flight per damage time.",
+        "ordered_state_changes": [
+          "oneshotmultikills counter/pair stats/contracts"
+        ],
+        "unknowns": [
+          "Source reads current stat/tier before requesting delta1/51/151; actual callee gates/native storage and VM numeric behavior remain unproved",
+          "Source resets oneshotmultikills=0 but does not clear oneshotmultikillsdamagetime in this body. No across-match lifetime is established."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00797",
+        "sha256": "47d03297bb485b7dee4f6128729b33e5997ff807351230546afaffc4f6888e59"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "fcf71155ef1c8d4133de29b2403009279e98fd6c156176c572eb7e6c0d195136",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::multikill",
+        "behavior": "Multikill medal/stat/contract chain (self = killer). (1) assert killcount > 1; (2) challenges::multikill( killcount, weapon ) (mp challenges - owned); (3) event: killcount > 7 -> exact source #\"multikill_more_than_7\"; else exact source #\"multikill_\" + killcount expression. Original VM concatenation/value-type semantics remain unresolved; processscoreevent on self with undefined victim; (4) if self.var_a95c605e primary-count AND self.var_3e5d9e0f secondary-count both > 0 -> stats::function_dad108fa( hash_1be224b059c35269, 1 ) (both-weapon-type multikill); (5) killcount > 3 -> util::function_5a68c330( 19, self.team, self getentitynumber(), killcount ) (outside packet broadcaster); (6) killcount > 2 AND self.challenge_objectivedefensivekillcount > 0 -> self.challenge_objectivedefensivetriplekillmedalorbetterearned = 1 (objective defensive challenge arm); (7) killcount >= 2 -> bundle( weapon ) via globallogic_score::function_3cbc4c6c (owned core file unit): equipment flag path (var_76ce72e8 AND scoreevents.var_fcd2ff3a === 1) -> hash_2fa96b97166080d2 stat + contract hash_7861508178a93a0f; else signature weapon -> hash_cb8c5c845093e02 stat + contract hash_3f50e5536ee788ab; (8) killcount >= 3 -> contract_mp_multikill_3_or_better + contract_wl_multikill_3_or_better; (9) killcount >= 2 -> contract_mp_multikill_2_or_better + contract_wl_multikill_2_or_better; (10) pers[\"highestmultikill\"] monotonic max; (11) self recordmultikill( killcount ) (player_record - outside packet).",
+        "branches": [
+          "assert(killcount>1) invoked; originating VM/build failure behavior unproved",
+          "killcount>7 passes #\"multikill_more_than_7\"; else passes the source #\"multikill_\" + killcount expression, without proving a plain-string value/type for every tier",
+          "primary+secondary both-type stat",
+          ">3 broadcast",
+          "killcount>2 AND objective defensive counter defined/>0 -> arm objective defensive field",
+          "equipment vs signature weapon contracts",
+          "3+/2+ contract pairs",
+          "highestmultikill monotonic"
+        ],
+        "calls": [
+          "scoreevents::processscoreevent (owned base unit)",
+          "challenges::multikill (owned mp challenge unit)",
+          "util::function_5a68c330 (outside packet)",
+          "stats::function_dad108fa (excluded unit)",
+          "contracts::increment_contract (owned)",
+          "globallogic_score::function_3cbc4c6c (owned core bundle-cache unit)",
+          "recordmultikill (player_record - outside packet)"
+        ],
+        "lifecycle": "Synchronous; triggered from updatemultikills (owned) when recentkillcount > 1.",
+        "ordered_state_changes": [
+          "stat/contract/ladder writes as above",
+          "pers highestmultikill"
+        ],
+        "unknowns": [
+          "challenge_objectivedefensivekillcount writer (objective challenge code)",
+          "recordmultikill internals (player_record outside packet)",
+          "broadcast call function_5a68c330 semantics"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00798",
+        "sha256": "e1cff5b2c307b6284549ed1cb3014349e5c644b01670b1840cda271d3ef9f86a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "04cf860ec764e497ed2ce5258b2ed3fb007aa4e5cf02e85f8f8691887d4bb71f",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::init",
+        "behavior": "Gametype-start init (wired by __init__): (1) level.scoreeventgameendcallback = &ongameend (game-end handler reference; consumed by gametype logic outside owned spans); (2) registerscoreeventcallback( \"playerKilled\", &scoreeventplayerkill ) (owned registration into level.scoreeventcallbacks - the CORE kill-award pipeline registration); (3) status_effect::function_7505baeb( &function_4013aee1 ) (status-effect util setter - file outside owned spans; wires the EXCLUDED prior status-effect handler, still present in source).",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "registerscoreeventcallback (owned unit)",
+          "status_effect::function_7505baeb (status_effect_util outside packet)"
+        ],
+        "lifecycle": "Once per gametype start.",
+        "ordered_state_changes": [
+          "scoreeventgameendcallback",
+          "scoreeventcallbacks[playerKilled] append",
+          "status-effect callback install"
+        ],
+        "unknowns": [
+          "consumer of level.scoreeventgameendcallback (gametype code)",
+          "function_7505baeb setter internals"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/335",
+        "record_sha256": "fa79d2566e66c33fbc49795227738f1854541a50b8ae36489ffd26828e53ad76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "29b8637e220fdeca0941528f405dbe48f3a6bf17f8b5f2ed9aa1898cc7589bd4",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_9aef690a",
+        "behavior": "Signature/equipment weapon predicate (Type: bool): baseweapon = weapons::getbaseweapon( weapon ); return ( baseweapon.issignatureweapon defined AND truthy ) OR ( baseweapon.var_76ce72e8 defined AND truthy ). Used to pick between sensor-dart signature award and assist award paths.",
+        "lifecycle": "Pure predicate.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "two special flags (issignatureweapon / var_76ce72e8) both treated as signature-equipment class",
+          "getbaseweapon internals (weapons_shared outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/358",
+        "record_sha256": "049c1b2a78c413c40cfb915d836efc39ae8320846c9391f09ea57d134944c2dd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "2d4254372d4c545d2625449e4deb2c8c6836cdafda5bef4aff4b11f9a61f643a",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::specialiststatabilityusage",
+        "behavior": "Specialist ability-usage challenge tracker (self = player; threaded). SYNC: self endon( \"disconnect\" ); notify( \"updatethread specialiststatabilityusage\" ) + endon same (single-flight). (1) isroulette = self.isroulette === 1; (2) if self.heroability defined AND NOT roulette -> self function_be7a08a8( self.heroability, 1 ) (function_be7a08a8 NOT in assigned catalog - integration boundary); (3) challenges::processspecialistchallenge( \"kills_ability\" ) (owned mp challenges); (4) init pers[ \"specialistusagepergame\" ] = 0 when missing; ++; (5) when >= usagesinglegame (callers pass 4) -> processspecialistchallenge( \"kill_one_game_ability\" ) AND counter = 0; (6) PER-LIFE variant when multitrackperlife truthy: pers[ \"specialiststatabilityusage\" ]++; when >= 2 -> processspecialistchallenge( \"multikill_ability\" ); RETURN (no 4s wait, no reset of the per-life counter in span); (7) default: init self.specialiststatabilityusage = 0 when missing; ++; self function_179829ab( 4 ) (owned 4s blocking stub - death/game_ended endons kill the whole thread); when >= 2 -> processspecialistchallenge( \"multikill_ability\" ); self.specialiststatabilityusage = 0.",
+        "branches": [
+          "roulette -> skip hero-ability credit",
+          "per-game threshold -> kill_one_game_ability + reset",
+          "multitrackperlife -> per-life path with early return",
+          "default -> 4s window double-use check with reset",
+          "newer thread kills this one via updatethread notify",
+          "death or game end during the 4s wait kills the thread"
+        ],
+        "lifecycle": "THREADED (callers spawn specialiststatabilityusage(4, 0) in owned paths); cancel paths: endon disconnect, endon updatethread (newer spawn kills this one); per-life variant returns early after increment.",
+        "ordered_state_changes": [
+          "specialistusagepergame with reset at threshold",
+          "per-life or per-4s multi-use tracking",
+          "challenge events"
+        ],
+        "unknowns": [
+          "exact challenge stat names map through challenges::processspecialistchallenge (owned mp challenges unit)",
+          "callers spawn with (4, 0) in this file; other arg combos possible elsewhere"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/357",
+        "record_sha256": "3aa01ddee2ede4241d0f7440c67b67b91a3d0f9496c0110a29d90729aab2498f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "364c634264e1013e375866300bef2d5b0de852b8b72966de90996e4ca34467a5",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::killedheavyweaponenemy",
+        "behavior": "Victim-heavy-weapon shutdown award (self = any caller context). Guards (each -> return): victim_weapon undefined; victim_gadget_power undefined; victim_gadget_power >= 100 (fully-charged gadget power means the shutdown award is withheld). switch victim_weapon.name: hero_minigun -> killed_minigun_enemy; hero_flamethrower -> killed_flamethrower_enemy; hero_lightninggun/arc -> tempest_shutdown; hero_chemicalgelgun -> killed_gelgun_enemy; hero_bowlauncher2/3/4 + hero_bowlauncher -> killed_bowlauncher_enemy; default -> return. Then processscoreevent( event, attacker, victim, weapon ) AND attacker contracts::player_contract_event( \"killed_hero_weapon_enemy\" ) (owned contract event dispatcher).",
+        "branches": [
+          "missing victim_weapon/victim_gadget_power returns",
+          "gadget power >= 100 -> no award",
+          "per-name event map above",
+          "both award and contract event fire after the switch"
+        ],
+        "lifecycle": "Synchronous; called from scoreeventplayerkill when data.victimweapon defined (line ~819).",
+        "ordered_state_changes": [
+          "processscoreevent per victim weapon name"
+        ],
+        "unknowns": [
+          "none major; victim_weapon producers from kill data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/344",
+        "record_sha256": "8ae5d9a9b6bf57de65504e23bbd1f6028991dfbb111d35ef2808967e8a1c9cf3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "41d5dc8a58a5b5a261476ab33cda1b03ca42d1c5fe9e5f9a8ab3b6396a9a1f8a",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::get_distance_for_weapon",
+        "behavior": "Longshot minimum distance map (distancesquared threshold; self = none): pistol_shotgun root forces weapon_cqb; switch weaponclass: smg -> 1960000; assault/tactical/lmg -> 2560000; sniper -> 4000000; pistol -> 1000000; cqb -> 302500; special: ballistic knife 2250000, special crossbow 1000000, else 0; grenade: hatchet root 2250000 else 0; default 0. Values are SQUARED distances (distancesquared consumers); unknown weaponclasses -> 0.",
+        "branches": [
+          "class map above with per-special overrides",
+          "missing class -> 0"
+        ],
+        "calls": [
+          "challenges::getbaseweapon (owned mp challenges)"
+        ],
+        "lifecycle": "Pure lookup.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "actual world-unit scale (values are squared distances used against distancesquared) - engine unit basis unproven",
+          "tactical class exists in the table but rarely used in other owned spans"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/354",
+        "record_sha256": "d8dc6eef00fa50fd44d132c41a4c65b12a501404d07698f5b5498c3dc7d6a5dc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "55a52219ea1874e23fb4146ec8f90e6103aaddf5d9ef6962804871f0875c7539",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_8fe4629e",
+        "behavior": "Activecamo killstreak-credit ladder (self = attacker). Computes integer division counts: doublekill = killcount/2, triplekill = /3, furykill = /4, pentakill = /5; each > 0 gets attacker activecamo::function_896ac347( weapon, <credit>, count ) - cumulative camo challenge credits for each tier reached by the SAME kill count (so a 10-kill streak credits double x5, triple x3, fury x2, penta x2). Called with recentkillcountsameweapon in updatemultikills path.",
+        "branches": [
+          "per-tier count > 0 -> credit with count"
+        ],
+        "calls": [
+          "activecamo::function_896ac347 (worker h4 cross-owner boundary)"
+        ],
+        "lifecycle": "Synchronous.",
+        "ordered_state_changes": [
+          "activecamo credits with counts"
+        ],
+        "unknowns": [
+          "activecamo::function_896ac347 semantics (worker h4 packet)",
+          "killcount type (weapon-based recent counts)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/346",
+        "record_sha256": "6916b93b73a4928630b0b8cb46f732b855f107a74e80094cc469723bc4cc105b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "567d97a7da4ab395afcbe5cff1c47b5773b902396f1ae310cc60ee71b642aa54",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::is_weapon_valid",
+        "behavior": "Longshot weapon-validity gate (returns 0/1). Order: killstreak defined -> 0 (killstreaks never longshot); get_distance_for_weapon( weapon, weaponclass ) == 0 -> 0 (owned range map; no range means not valid); meansofdeath pistol/rifle bullet -> 1; head shot -> 1; hatchet root + MOD_IMPACT -> 1; special weapons: baseweapon == level.weaponspecialcrossbow OR weapon.isballisticknife OR baseweapon == level.weaponflechette AND MOD_IMPACT -> 1; (baseweapon.forcedamagehitlocation OR baseweapon == level.weaponshotgunenergy) AND MOD_PROJECTILE -> 1; else 0.",
+        "branches": [
+          "killstreak -> 0",
+          "no distance -> 0",
+          "bullet/head shot -> 1",
+          "hatchet impact -> 1",
+          "crossbow/ballistic/flechette impact -> 1",
+          "forced-hitlocation/energy shotgun projectile -> 1",
+          "else 0"
+        ],
+        "calls": [
+          "get_distance_for_weapon (owned unit)",
+          "challenges::getbaseweapon (owned mp challenges unit)"
+        ],
+        "lifecycle": "Pure predicate.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "weapon data flags (isballisticknife/forceddamagehitlocation producers = weapon defs)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/349",
+        "record_sha256": "d35e4a3905b76a78fe63aed07fc7a4ec778a3bc7eeb56f94f417393e23b28baf"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "83aa2075eb25b805ea8eaa8be5fdf23069b2e4e5d5271c0742887f7d3c1feee7",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::registerscoreeventcallback",
+        "behavior": "IDENTICAL registration to core globallogic_score::registerscoreeventcallback (owned unit): appends func into level.scoreeventcallbacks[callback] table, creating both containers when missing. NOTE: two files share the SAME level.scoreeventcallbacks store - registrations from both accumulate; no dedup.",
+        "lifecycle": "Setup-time registration; consumed by the playerKilled dispatch loop (dispatch site outside owned spans).",
+        "ordered_state_changes": [
+          "scoreeventcallbacks[callback] append func"
+        ],
+        "unknowns": [
+          "dispatch order/locking with core globallogic_score registration (both files append into the same level.scoreeventcallbacks; core init registers function_f7f7b14e owned in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/340",
+        "record_sha256": "139d5c65edc484ad89907e45b05d3cd0655d6913fc02d7d45dfbcacf2220913d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "971cbac8c3ac1e7e01c9bcb4d275084b5a7541aad83cfa717ba7e4a2ac65b8ed",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_179829ab",
+        "behavior": "Threaded 4s blocking stub (self = player): self endon( \"death\" ); level endon( \"game_ended\" ); wait timeout (callers pass 4). When this stub RETURNS, the CALLING thread continues - called directly (not spawned) in updatemultikills (owned) and specialiststatabilityusage (owned) - so the calling thread blocks 4 seconds and aborts early on death/disconnect/ game end.",
+        "branches": [
+          "death or game end within wait -> whole calling thread dies"
+        ],
+        "calls": [
+          "none (endons + wait)"
+        ],
+        "lifecycle": "In-line wait helper; the endons apply to the CURRENT thread (the caller).",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "timeout values (4 in both call sites verified)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/352",
+        "record_sha256": "9c768c0bdcf03d37e267493f9b388df9a189cb2ff2d83dcbb2bfc1700cf9f31d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "99d1bb4b5afbbb307f3de05c7723fe33472d970cdf810f6493eb0343a93cf01d",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::__init__system__",
+        "behavior": "autoexec entry: system::register( \"scoreevents\", &__init__, undefined, undefined ) - no main callback. No state changes.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "system::register (outside packet)"
+        ],
+        "lifecycle": "Script load.",
+        "ordered_state_changes": [
+          "system registration"
+        ],
+        "unknowns": [
+          "system::register internals (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/333",
+        "record_sha256": "d4ed852e286912eb57c4b8ccfd27a9977c3e03a395769347c917eb8d6ee0e187"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "b78a1354bd7d48605ef4e46d1f9d892c7fa22043e5d8927e9fc57a34ef26a0fe",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::__init__",
+        "behavior": "System init: (1) callback::on_start_gametype( &init ); (2) callback::on_spawned( &on_player_spawned ). Registers gametype-start and per-spawn handlers for the scoreevents namespace; dev none.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "callback::on_start_gametype / on_spawned (outside packet)"
+        ],
+        "lifecycle": "One-time; persists per match.",
+        "ordered_state_changes": [
+          "two callback registrations"
+        ],
+        "unknowns": [
+          "callback dispatch internals (callbacks_shared outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/334",
+        "record_sha256": "22d7ef202bc40a2a9e888968c1e418ec7f5531e408575c7bdb1f0af3475eb9b8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "c87dae6aa7a323812b9ab8c450fbac72914dee8d28f7bb35ae29745a18193fd3",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_c28e2c05",
+        "behavior": "Sensor dart scanner (returns dart or undefined): (1) when var_e13a103a (skip-arg-check flag) falsy: require sensor_darts array and entity_origin defined else undefined; (2) foreach dart in sensor_darts: skip undefined; return dart when distancesquared( entity_origin, sensor.origin ) < ( WZ ? 2400 : 800 ) + 50 SQUARED (i.e. within ~2450/~850 linear units).",
+        "branches": [
+          "first in-range dart -> return",
+          "none -> undefined",
+          "arg-check skipped only when flag truthy"
+        ],
+        "calls": [
+          "distancesquared/sessionmodeiswarzonegame (builtins)"
+        ],
+        "lifecycle": "Pure scan.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "WZ range constant intent (2400 vs 800 units)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/361",
+        "record_sha256": "297df943996e8739efbf7363a9ea82d2d1fcda453185b52ec2d5f769c3dd1337"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "d309334ecd1afd3144f179f1529a74e1bfee7925340d245e0e26eeed8c0b7897",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::multiheroabilitykill",
+        "behavior": "Hero-ability double/triple stats (self = killer): killcount > 1 -> four stat writes: multikill_2_with_heroability = int(killcount/2) AND e24eec31 weapon stat heroability_doublekill same; multikill_3_with_heroability = int(killcount/3) AND heroability_triplekill same. No gates besides killcount > 1.",
+        "branches": [
+          "killcount > 1 -> four writes",
+          "else nothing"
+        ],
+        "calls": [
+          "stats::function_dad108fa / function_e24eec31 (excluded + owned player_stats units)"
+        ],
+        "lifecycle": "Synchronous.",
+        "ordered_state_changes": [
+          "two global double/triple stats + two weapon-lodged stats"
+        ],
+        "unknowns": [
+          "caller verified: updatemultikills line 1900 with recentheroabilitykillcount (same file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/348",
+        "record_sha256": "566447bf26ef4e58138354b68385a0d3acec1e640e884f83a1e31ce7ca28d3bb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "d7f025104fb95df1fe1335578ede2d38200b18c00fc09241fbd8d8e73e386ace",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::multikillmedalachievement",
+        "behavior": "Multikill medal achievement (self = player). Only when level.rankedmatch: giveachievement( \"MP_MULTI_KILL_MEDALS\" ) (native - unproven) AND challenges::processspecialistchallenge( \"multikill_weapon\" ) (owned mp challenges unit). Unranked -> nothing.",
+        "branches": [
+          "ranked -> achievement + challenge",
+          "unranked -> no-op"
+        ],
+        "calls": [
+          "giveachievement (native)",
+          "challenges::processspecialistchallenge (owned mp challenge unit)"
+        ],
+        "lifecycle": "Synchronous; called from updatemultikills (owned) per weapon tier and self multikill evaluation.",
+        "ordered_state_changes": [
+          "achievement unlock attempt",
+          "multikill_weapon challenge event"
+        ],
+        "unknowns": [
+          "achievement counting granularity (every call, native dedups)",
+          "MP_MULTI_KILL_MEDALS unlock criteria native-side unproven"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/359",
+        "record_sha256": "4df5836b1c62f767ccee1a68efd36deac2ccf54e7e28249ece86b9fdc5ae3e5b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "db3a970c273577b8cafa5e3cdf8b7a842f8c784be35f2e478563b363f1934536",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::scoreeventtablelookup",
+        "behavior": "Scoreinfo table string read: tablelookup( getscoreeventtablename(), 0, index, scoreeventcolumn ) - string variant of scoreeventtablelooksint without int coercion.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "tablelookup/getscoreeventtablename"
+        ],
+        "lifecycle": "Synchronous accessor.",
+        "ordered_state_changes": [
+          "read-only"
+        ],
+        "unknowns": [
+          "column semantics (data side)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/339",
+        "record_sha256": "741d4bc6418f3d3400825d4188211cdaa039ae2904e43951396cd6cfbe2ff0bd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "def972b6ce4725d0f1ecd9b2243bd6435c1bbfcff1aa8be204caa91e3e81212e",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::on_weapon_change",
+        "behavior": "Weapon-swap timestamp tracker (private method). Guards (each returns): params.weapon and params.last_weapon defined AND isweapon; self defined isplayer; base weapons defined and DIFFERENT; neither side is special (var_76ce72e8 === 1 / issignatureweapon === 1) nor name == \"none\"; NOT killstreak-linked via killstreaks::get_from_weapon on either base weapon. Then self.var_6f3f5189 = gettime() - the last non-special weapon-swap time, consumed within 2 seconds by the kill_enemy_after_switching_weapons award in scoreeventplayerkill.",
+        "branches": [
+          "missing/non-weapon params -> return",
+          "same base weapon -> return",
+          "special/signature/none weapons -> return",
+          "killstreak weapons -> return",
+          "valid swap -> timestamp"
+        ],
+        "calls": [
+          "weapons::getbaseweapon (weapons_shared - outside packet)",
+          "killstreaks::get_from_weapon (killstreaks_shared - outside packet)",
+          "isweapon/isdefined (builtins)"
+        ],
+        "lifecycle": "Synchronous per weapon change; field persists per match (no reset in span); consumed only within +2s window by kill path.",
+        "ordered_state_changes": [
+          "var_6f3f5189 = gettime()"
+        ],
+        "unknowns": [
+          "special-flag producers (weapon data)",
+          "var_6f3f5189 read site verified: scoreeventplayerkill hash kill_enemy_after_switching_weapons branch (same file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/337",
+        "record_sha256": "c1aabca210adabfba98dfccbac55cbf1de001a256a7d8c5530b01db342b00423"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "e42956d8ea310711af1675789e999a532d540af729fe0e485ababec4b446d4ce",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::specificweaponkill",
+        "behavior": "Killstreak/equipment-weapon kill router. (1) switchweapon = weapon.name; when killstreak arg defined -> switchweapon = killstreak AND bundle = level.killstreakbundle[ killstreak ] (fetched but UNUSED in span - preserved); (2) switch: eq_arm_blade -> blade_kill; autoturret/inventory_autoturret -> sentry_gun_kill; tank_robot(+launcher_turret) -> tank_robot_kill (+ if attacker.var_5f28922a truthy [controlled-AI-tank flag, producer outside spans] -> stats::function_dad108fa( \"kill_with_controlled_ai_tank\", 1 )); microwave turret family (4 names) -> microwave_turret_kill; combat_robot family -> combat_robot_kill; claymore -> claymore_kill; rcbomb family -> hover_rcxd_kill; incendiary_fire -> thermite_kill; eq_frag_gun -> frag_kill; overwatch_helicopter -> overwatch_helicopter_kill; swat_team -> swat_team_kill; default -> return; (3) MATCH-RECORD tally: if inflictor.killstreak_id (or inflictor.killcament.killstreak_id) matches level.matchrecorderkillstreakkills entry -> level.matchrecorderkillstreakkills[id]++; (4) processscoreevent( event, attacker, victim, weapon ).",
+        "branches": [
+          "per-name mapping above",
+          "killstreak arg replaces weapon name",
+          "default -> return (no award, no tally)",
+          "match recorder two lookup paths (direct or killcament)"
+        ],
+        "calls": [
+          "isdefined (builtins)",
+          "stats::function_dad108fa (excluded unit)",
+          "scoreevents::processscoreevent (owned scoreevents_shared unit)"
+        ],
+        "lifecycle": "Synchronous; called from scoreeventplayerkill (verified same file); bundle var unused.",
+        "ordered_state_changes": [
+          "matchrecorderkillstreakkills[id]++",
+          "score event award"
+        ],
+        "unknowns": [
+          "level.killstreakbundle writers",
+          "attacker.var_5f28922a producer (controlled tank killstreak code)",
+          "level.matchrecorderkillstreakkills table producer (match recorder code)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/345",
+        "record_sha256": "f43fbdca3ddbf2a54110cd764bbef9c3adbcf811fa8a87ff94cd9b4d83967f72"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "f0d6dd43b36ad28eec75497ed8a1573fe301ddc255fe766322beb61a02631c22",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::get_equipped_hero_ability",
+        "behavior": "Ability-name to weapon converter: return undefined when ability_name undefined; else getweapon( ability_name ) - converts a victim hero ability name into a weapon reference used for awards (gadget_* weapon entities).",
+        "lifecycle": "Pure accessor.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "getweapon builtin hash resolution"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/342",
+        "record_sha256": "7d90f2a736d5082c3bab667298830189595ba77bdfad4577265fd743685ab629"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "f5e0910f024dc134a760d8d4fbd23388ecbea8f8fd2d2408b9533f76c7d0a20c",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::function_c01cb128",
+        "behavior": "Sensor-dart proximity finder wrapper (returns dart struct or undefined): guards -> undefined when entity missing OR sensor_darts missing/not array OR entity.origin missing; return function_c28e2c05( entity.origin, sensor_darts, 1 ) (owned scanner with distance-squared threshold).",
+        "branches": [
+          "guards -> undefined",
+          "else -> scan"
+        ],
+        "calls": [
+          "function_c28e2c05 (owned unit)"
+        ],
+        "lifecycle": "Pure scan; no state.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "none significant"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/360",
+        "record_sha256": "5070e1aac3ea1ac8981ac76c7c0ec6dcebe28e7dea47688c5ab32504cc0f3a8d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/dfe49966df9a4771.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "fd6deb487cea7a315c779be6b2033825e69df918582c90fe496c54dda8421a47",
+      "summary": {
+        "unit_id": "scripts/mp_common/scoreevents.gsc::specialistmedalachievement",
+        "behavior": "Specialist medal achievement counter (self = player). Ranked only: (1) if level.rankedmatch: init pers[\"specialistmedalachievement\"] = 0 when missing; ++; when == 5 -> giveachievement( \"MP_SPECIALIST_MEDALS\" ) (5 specialist medals in match); (2) ALWAYS in ranked: contracts::player_contract_event( \"earned_specialist_ability_medal\" ) (owned dispatcher). Unranked: nothing at all.",
+        "branches": [
+          "ranked-only; == 5 achievement",
+          "contract event also ranked-only (inside the if)"
+        ],
+        "calls": [
+          "giveachievement (native unproven)",
+          "contracts::player_contract_event (owned)"
+        ],
+        "lifecycle": "Synchronous; per-counter persists in pers; called from scoreeventplayerkill/scoreevent paths (verified in same file).",
+        "ordered_state_changes": [
+          "specialistmedalachievement counter",
+          "achievement at 5",
+          "earned_specialist_ability_medal event"
+        ],
+        "unknowns": [
+          "reset timing of the counter (not reset in span; pers is per-match persistence)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/356",
+        "record_sha256": "f0a97a0e2508530d4f2bb03f24169d2f74a362e03f5a7430dc9e99c2ed87e4b1"
+      }
+    }
+  ]
+}

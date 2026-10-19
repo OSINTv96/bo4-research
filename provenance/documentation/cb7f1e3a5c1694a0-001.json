@@ -1,0 +1,70 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/gamestate.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/cb7f1e3a5c1694a0.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerability is a separate earlier callback veto, with a visible warzonestaging value-registry chain to enable/disableinvulnerability but unresolved native effects and stacked resets. End_round writes postgame before onendround and the table/server-notify/clientfield end channels. Warzone's later game_ended matchflag pulse does not change that state and therefore does not reopen ordinary admission. Finally, ordinary game-over rejection does not erase the earlier postgame hook: allowed trigger-hurt/crush paths may already call finishplayerdamage as MOD_POST_GAME. All remaining old vetoes/returns are reused unchanged; none of these connections proves HMH runtime behavior or closes the native down-versus-kill decision.",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/cb7f1e3a5c1694a0.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "57b5dcd196e518d968428d510793ae072613b42e1556fbb73f0a471928816282",
+      "summary": {
+        "id": "scripts/core_common/gamestate.gsc::set_state",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1101",
+        "record_sha256": "8a2f817763a82d6e3b6a729a2f7c2b7f0c6b638a086c4f5aec265629fe1ed561"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/cb7f1e3a5c1694a0.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "98875cf61b68030c128182dbbc1d45e85c384eee14165a120127c62fb5e27802",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:playing-transition",
+        "answer": "The EXACT transition that can deliver on_game_playing (and therefore start_warzone) is set_game_playing() (globallogic.gsc 4340-4385), whose SOLE caller is startgame 4453, behind the pregame re-check 4448-4451; startgame's sole gsc caller is the driver 5179 (corpus searches this packet: `thread startgame()` = globallogic.gsc 5179 + the zm twin file only; `set_game_playing();` = 4453 only). The on_game_playing fan-out has EXACTLY ONE dispatch site in the recovered corpus: 4344 `level callback::callback(#\"on_game_playing\")`; the registration wrapper is callbacks_shared.gsc on_game_playing(func,obj) -> add_callback (435-438), with exactly two in-chain registrants: warzone.gsc 155 `callback::on_game_playing(&start_warzone)` (run at native gametype_init during warzone.gsc::main, unit 1) and globallogic.gsc 4433 `callback::on_game_playing(&globallogic_utils::gametimer)` (run at startgame entry, before the dispatch). Three mechanisms distinguished (unit question): (1) MATCH/ROUND FLAGS AND STATE - gamestate::set_state (gamestate.gsc 7-11) writes game.state = state and calls function_cab6408d(state) which is ABSENT from the recovered corpus (one call site only); is_state is a plain comparison (17-20). Sequence: startgame 4436 sets \"pregame\" (startgame also zeroes level.timerstopped/playabletimerstopped at 4434-4435 and sets VOIP match flags via function_8111babb 4437, body 2011-2021); the \"playing\" write happens INSIDE set_game_playing at 4343 - the prior setmatchflag(\"game_ended\",0) at b9b7618 4813 and level.gameended=0 (b9b7618 4906) are the match-END flags (cleared for the new match), distinct from the game.state string; a completed prior callback sets gametypestarted and suppresses later deliveries; reentrant/concurrent events while the callback runs are not excluded; round switching does not re-run it in source. (2) SCRIPT NOTIFICATION - 4342 level notify(#\"game_playing\"): a same-thread engine notify on LEVEL with a DIFFERENT key from the fan-out event; delivery/timing native. (3) CALLBACK DISPATCH - 4344 per the reused g3 callback@ contract: level-table iteration of 3-tuple entries, delivery on new threads via util::_single_thread, no join, tombstones invisible, purge after each dispatch; add_callback APPENDS: array::add(...,0) means allow_dupes=0, while array_shared276-285 writes array[array.size]=item. Thus earlier start_warzone registration is before later gametimer in the list, with other registered callbacks retained; iteration/spawn order follows that list, and completion/interleaving remains VM-dependent. set_game_playing's remaining tail runs on the startgame thread after the spawn statements (may interleave with the fan-out): conditional level thread function_b4262bec() when var_6aec2d48>0 (4346-4349), clientfield::set(\"gameplay_started\",1) (4351), alive-count tally (4352-4361), function_5fad41b5() (4363, untraced callee), then telemetry data struct (var_7dc1df3a fields with gettime(), player_count) -> function_92d1707f(#\"hash_24f510499c464072\", data) + match_record::set_stat(#\"prematch_duration_ms\", gettime()) (4365-4384) - telemetry shape observed; native/stat-record sinks stay opaque. Delivery conditions (EXACT, from source + g3/f2 reuse): (A) REACHED: requires (i) native gametype_start delivery (poster absent from corpus - standing g2 N2/g3 A.1), (ii) gsc trigger guard !isdefined(level.gametypestarted) || !level.gametypestarted (callbacks_shared.gsc 1177-1184; csc twin 694-701 additionally requires the pointer defined and would soft-skip), (iii) startgame not destroyed before 4453 (see C), (iv) gamestate still pregame at 4448. (B) REPEATED delivery: after the callback returns, gametypestarted=1 suppresses later event deliveries. There is no in-progress marker, so reentrant/concurrent events before return are not excluded; the sole literal caller chain does not prove one runtime invocation. Dedup concerns registration entries and does not prevent repeated dispatch. Native restart/reset/event-order behavior remains unknown. (C) MISSING delivery: (c1) game_ended during the prematch waits - prematchperiod() (4619-4675) registers level endon(\"game_ended\") at 4622 and waitforplayers() at 4508 (4506-4600); both waits run ON the startgame thread (4445 sync call), so the endon destroys the single startgame thread and 4453 never runs (no dispatch; also inprematchperiod=0/weapon-enable/prematch_end at 4663-4674 are skipped, draft.gsc path likewise: draft_complete wait 4628); (c2) state left pregame during prematch (4448-4451 early return): possible writers = [[level.custom_prematch_period]] (4441; zero corpus writers, conditional) or any prematch end path that changes game.state (e.g. l3-owned end events); then set_game_playing and the entire start_warzone chain are skipped silently. (c3) gsc failure-variant: undefined/noncallable level.callbackstartgametype raises a script failure BEFORE the marker is set (gsc 1179-1183 shape) - set_default_callbacks67 installs the pointer in recovered source, but native initialization/event order is unverified, so the missing/noncallable-pointer route is not proven unreachable. g3/f2 contracts used (not reauthored): dispatcher/dedup/tombstone/purge from PRIOR-MAPPINGS 27659-27727 and remove_callback@ 27784-27838; f2 readiness graph (record 10) for upstream ordering (system_init_complete / on_finalize_initialization) - the playing transition itself has no flagsys gate: the only gate is the game.state string compare. Distinction for the mode: warzone's client twin fires from callback::on_gameplay_started (warzone.csc 66; a different key), so on_game_playing is server-side only (corpus dispatch search returned exactly one site).",
+        "behavior": "startgame (4431-4466): register gametimer on on_game_playing (4433); timerstopped/playabletimerstopped=0; gamestate::set_state(\"pregame\") (4436; gamestate.gsc 7-11 writes game.state + calls absent-definition function_cab6408d); VOIP flags (4437); prematch branch: custom pointer (no corpus writer) or prematchperiod() (4445) - sync call carrying endon(game_ended) and the real waits; early return if state left pregame (4448-4451); set_game_playing() (4453) = the sole playing transition: level notify(\"game_playing\") + set_state(\"playing\") + the corpus-unique callback::callback(\"on_game_playing\") fan-out (threaded delivery per g3; append list order puts earlier start_warzone before later gametimer, with other callbacks retained; completion remains VM-dependent) + gameplay_started clientfield + alive count + telemetry (4340-4385). Then startgame tails: showobjectivenotification/timelimitclock/graceperiod/watchmatchendingsoon/announcer/music threads + function_edb0e0f0 match records (4459-4465). Repeated delivery after successful callback return is suppressed by gametypestarted; reentrant/concurrent events before that write and native event-order gaps remain; missing delivery: game_ended kills the startgame thread during the prematch waits (endon 4622/4508) or a pregame-state change early-returns at 4448-4451.",
+        "unknowns": [
+          "whether the original build's gametype_start can re-fire within one level after a failed dispatch (native retry semantics)",
+          "function_cab6408d (gamestate hook) body - absent definition",
+          "completion order between gametimer/start_warzone threads and set_game_playing's tail (f2 N4)",
+          "function_5fad41b5/function_b4262bec bodies (untraced; called from set_game_playing)",
+          "prematch_end / game_playing waiter fan-out completeness (deliberately not expanded - l3-owned end paths and cross-cutting waiters)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00322",
+        "sha256": "a9c8b2d5cb3c8a4eb68a6bbd48539bd098759321d1a64b1914b72a01f2ca5359",
+        "pointer": "",
+        "record_sha256": "912b94c53470487a5ccee1a45f055dbc6b7dee60b0eee4e5c76712f83adc5b05"
+      }
+    }
+  ]
+}

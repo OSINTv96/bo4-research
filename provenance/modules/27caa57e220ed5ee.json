@@ -1,0 +1,365 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/deployable.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "d13e4da33bd45bb3c515691573f7c86cb854b00891be367576484b6f105157be",
+  "git_blob_sha1": "c18cc07e90e768d200f6d0d9443cbfbb60f179f8",
+  "output": "src/scripts/weapons/deployable.csc",
+  "output_sha256": "64289825fcddd69d71b1bf2da113bbf53fbfbd235d9aeb483445963e24eecae0",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/clientfield_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.csc",
+        "sha256": "68ebd6e58269bf4481b3f3b3c32a3d36e93c92b7b18efef98acda1b215651510",
+        "git_blob_sha1": "1d741c3a0186dc6564d27c7ac45e5342370a71bc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "05f0eb47673fd46a576bdac09317f996febaac3c9b2f10e92fcea3227ecd3b96",
+      "citations": [
+        {
+          "line_start": 75,
+          "line_end": 79
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_c1ee2dce",
+        "behavior": "Deploy-preview update callback (player, localclientnum, weapon) stored as level.var_c442de72 by __init__. Two steps: var_314a434f = function_35d1c69f( localclientnum, player, weapon ) â€” computes placement result struct {isvalid, origin, angles}; then player function_bf191832( var_314a434f.isvalid, var_314a434f.origin, var_314a434f.angles ) â€” pushes the preview position/rotation/validity onto the player (unresolved external). No branches.",
+        "unknowns": [
+          "function_bf191832 is an unresolved external (definition not in catalog); plausibly a preview-model update, inferred from arguments only",
+          "Who calls level.var_c442de72 (HUD/placement code) is outside this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/20",
+        "decision_canonical_sha256": "26f92e23ada73a77663167bbecb5f810c3ddca7659fde3965c55c962b7199392",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/44",
+        "record_sha256": "b238f6778be7797a377df352057e510a866e31937a3d175bca12a7e47a7d92db"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "10f736ec1a06fcaa9c32f9226b2091b3335d55554cbc1ec0e9cb6c79b5284b22",
+      "citations": [
+        {
+          "line_start": 85,
+          "line_end": 102
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_35d1c69f",
+        "behavior": "Deployability evaluator returning the placement result (localclientnum, player, weapon). Case 1 ( !weapon.var_dbbd4cec, weapon uses scripted placement ): var_10c45189 = player function_242060b9( weapon ) â€” placement probe (unresolved external) returning {isvalid, origin, angles}; var_7ed1816f = var_10c45189.isvalid || isdefined( level._deployable_weapons[ weapon.statindex ] ) && ( isdefined( level._deployable_weapons[ weapon.statindex ].var_7ec218c6 ) ? level._deployable_weapons[ weapon.statindex ].var_7ec218c6 : 0 ) â€” probe result, or the register_deployable stored flag for registered weapons. Case 2 ( weapon.var_dbbd4cec ): var_7ed1816f = 1; var_10c45189 = { #isvalid:1, #origin:player.origin, #angles:player.angles } â€” deploy at the player's own origin/angles unconditionally position-valid. Then var_c3743e82 = !level.var_1765ad79 || function_e0d90bc8( localclientnum ) || isdefined [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "player function_242060b9(weapon), function_e0d90bc8(localclientnum) are unresolved externals (definitions not in catalog)",
+          "Meanings of weapon.var_dbbd4cec and weapon.var_33d50507 (flags) and level.var_1765ad79 are opaque; only the gate expression is observed",
+          "The paired original-packet deployable.gsc contains writers: function_cf538621 and on_player_spawned/on_weapon_change set gameplay_allows_deploy1; function_b3d993e9 sets its computed player.var_7a3f3edf. Actual original replication and invocation remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/7",
+        "decision_canonical_sha256": "dd9c3f64d422184c940b8e799c291ad92074027133d09c3079bb8200c0de873c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00288",
+        "sha256": "3deb1bb497c8cbc74e515e88b9f15de6003a37f7313ceb83f6c994473b556693"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3ca92d806ecb1eb7f0de0915524eb3eb31658d57e5947a866d51727a57dfc6a5",
+      "citations": [
+        {
+          "line_start": 55,
+          "line_end": 69
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::function_3e8d9b27",
+        "behavior": "Previs model setup for a deployable weapon preview (self = previs_model; takes previs_weapon). Branch: if isdefined( previs_weapon.var_4bcd08b0 ) -> previs_model setmodel( previs_weapon.var_4bcd08b0 ) (weapon-specific preview model); else previs_model setmodel( #\"hash_7a80bed4a96537e6\" ) (fallback preview model). Unconditional previs_model notsolid(). No FX or state beyond model/solidity.",
+        "unknowns": [
+          "Model alias hash_7a80bed4a96537e6 identity is game data not in catalog",
+          "Caller of function_3e8d9b27 is not in this file (called from previs machinery elsewhere)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/269",
+        "decision_canonical_sha256": "71507b18390cd2f6b52770feb18a1efbb1976d9c91e3ac77423c804b63e40938",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/43",
+        "record_sha256": "6fa3a0c3760c9cfe95089007dc7c79066e3d5fac2aca964ff0f003aea75373d3"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "81ada0e8e5f986f036ca5a5e840b9ba230bdc7c7be6522e7fc7a7a3d22858613",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 33
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::__init__",
+        "behavior": "Client system init for deployable placement-preview support. Ordered: (1) if !isdefined( level._deployable_weapons ) -> level._deployable_weapons = [] (per-deployable registry keyed by weapon.statindex, populated by register_deployable); (2) level.var_c442de72 = &function_c1ee2dce â€” stores the update callback (player, localclientnum, weapon) as a level function pointer consumed elsewhere (unknown consumer); (3) level thread group_mega_round_end_abcd_talking() â€” starts the previs indicator loop; (4) if !isdefined( level.var_1765ad79 ) -> level.var_1765ad79 = 1 (mode gate default on; consulted by function_35d1c69f as !level.var_1765ad79 || ...).",
+        "unknowns": [
+          "Consumer of level.var_c442de72 is not in this file (indirect-call dependency)",
+          "Exact meaning of level.var_1765ad79 (default 1) is opaque; used only in the gate expression in function_35d1c69f"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/350",
+        "decision_canonical_sha256": "316f563bd7447c027af29c375d2873a1f8d62021378081f8381ab4c7b9710a99",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/41",
+        "record_sha256": "57fc3cb2c01c1ffcfa1624da7055f908b0aa3cc42ff6e16f399f6ce446cfe994"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8c64681cf8689bd6f155a12c6091e1a371f202f7041578c469999fa7a9d016d3",
+      "citations": [
+        {
+          "line_start": 39,
+          "line_end": 49
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::register_deployable",
+        "behavior": "Per-weapon deployable registry insert (weapon, var_7ec218c6). Branch: if ( weapon.name == \"#none\" ) -> return. assert( weapon.name != \"<dev string:x38>\" ) â€” asserts against an obfuscated/dev weapon name (observed literal). Writes: level._deployable_weapons[ weapon.statindex ] = spawnstruct(); level._deployable_weapons[ weapon.statindex ].var_7ec218c6 = var_7ec218c6 â€” the stored flag is read by function_35d1c69f as the registered deployable permission fallback. Keyed by statindex, so collisions overwrite silently (observed behavior of array assignment).",
+        "unknowns": [
+          "Meaning of var_7ec218c6 (plausibly 'may deploy from this weapon') inferred from consumption in function_35d1c69f only",
+          "Callers of register_deployable (shared weapon registration code) are outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/380",
+        "decision_canonical_sha256": "d1caf94fbe897637f3796ed9f9f4dac5f28c9b9faf4b5fce29bcc63aac4adc15",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/42",
+        "record_sha256": "4a7466d0594097f24b8e2aa01079a13ded71e30da62b4d05d59871719af409c1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ad80c648188bebad747d475656f3aa529703f803493c3cb5b2f75ea336546b1e",
+      "citations": [
+        {
+          "line_start": 108,
+          "line_end": 194
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::group_mega_round_end_abcd_talking",
+        "behavior": "Deployable placement-preview indicator loop threaded from __init__ (default arg localclientnum = 0). Re-entrancy: level notify( \"previs_deployable_\" + localclientnum ) then level endon( \"previs_deployable_\" + localclientnum ) â€” each new invocation broadcasts the cancellation tag before installing its own endon listener. The source __init__27 threads group_mega_round_end_abcd_talking; a new call/thread creates a loop, whereas notify requests cancellation of existing listeners. Actual cancellation timing and a single-instance guarantee remain VM/scheduling-dependent. Startup: wait 10; previs_model = spawn( localclientnum, ( 0, 0, 0 ), \"script_model\" ); previs_weapon = getweapon( #\"eq_alarm\" ); locals var_5929417d (shown flag) = 0, var_2e40ce22 (had can_deploy bundle) = 0, var_d4d81eb4 (had cannot_deploy bundle) = 0. Infinite loop: var_fdadca2a = previs_weapon (dead store â€” never read). [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "The function name 'group_mega_round_end_abcd_talking' is an opaque auto-translated name; its behavior here is the deploy previs indicator loop (observed)",
+          "Unresolved externals: function_5c10bd79, function_96d4f30e, function_e9fe14ee, function_c7b681af, function_bf191832; none are defined in the catalog",
+          "Dvar #\"hash_4df6a4cc1cfae912\" identity not in catalog (default 1)",
+          "The source __init__ caller and in-loop cancellation-tag publisher are visible in this file. Other repeated/indirect callers and actual VM cancellation/scheduling/singleton behavior remain unknown.",
+          "Where rob_deployable_can_deploy/cannot_deploy bundles get started (render-override start path) was not observed in this file's assigned units"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/55",
+        "decision_canonical_sha256": "38f54ed643d6faca384c15a407a7e98539ad758ae892f968a2693e0b0ff9caf4",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00289",
+        "sha256": "e61412ea764f9cbae7fed984fa90fe56cd6b326c9a025deb72e66730a85eb492"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c9eb878ba57da4452ed7153aaac01c9dc6ee30ac27e802db145e7c8ee0fa7092",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/deployable.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the deployable system: system::register( #\"deployable\", &__init__, undefined, undefined ) â€” init callback __init__; main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/566",
+        "decision_canonical_sha256": "fa6108ed69f0f47dec8040d018389b0e728d0a5812ba5ad7dc505935f653bfa3",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/40",
+        "record_sha256": "d4d0c43849270d36cde091e356e9c87aa0061f1b75b596fa8b2bd2be429c413e"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/e6500a6635ce7d68.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/27caa57e220ed5ee-001.json",
+      "sha256": "fcda2f37d95af5b3090404005cbf6d2b2d6944fb86d5d952bb065d2a09961b1d"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/battlechatter.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/56c4a5581afc4ed6.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "6799c371cdee95571a9c1e446b8224e97d5849d12f1f692e3119c98bf76d5557",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:dialog",
+        "answer": "allowbattlechatter and allowannouncer: neither key is set by any recovered HMH layer (corpus-wide script/tables search zero matches; absent from frontend 8360-8592, TU23 8719-8980, gametype def 8244-8639 and anchor bundle). allowbattlechatter PRODUCERS (script copies, all reading getgametypesetting(#allowbattlechatter) at init): mp_common/gametypes/battlechatter.gsc:109 stores raw (no isdefined guard): level.allowbattlechatter[bc] = getgametypesetting(#allowbattlechatter); mp_common/battlechatter.csc:27 uses isdefined&&value guard (client copy); core_common/dialog_shared.gsc:83 repeats the same raw store in a separate core_common system (dual install of the same setting, matching m1's dual-install note). CONSUMER GATES: battlechatter.gsc:333 skips specialist conversation when level.splitscreen || !level.allowbattlechatter[bc]; battlechatter.gsc:153-154 builds allowspecialistdialog/playstartconversation as mpdialog.enableherodialog/enableconversation AND allowbattlechatter[bc]; dialog_shared.gsc:116-117 same product expressions. The mpdialog bundle enableherodialog value lives in mpdialog_default bundle data NOT in the script corpus (m3 unit-9 unknown retained). allowannouncer: producer globallogic.gsc:5049 level.allowannouncer = getgametypesetting(#allowannouncer) (raw, no guard); consumer per m1's globallogic_audio record â€” announcer queue insertion first requires defined dialogkey and truthy level.allowannouncer, then either defined truthy self.playleaderdialog or defined truthy introdialog; the latter bypasses the player flag. Later queue guards still apply (see reused_records). Native defaults and actual audio delivery remain unknown. Absence semantics, kept conditional: for battlechatter.gsc:333 the gate blocks chatter when level.allowbattlechatter[bc] is falsy; under BOTH absent-key hypotheses (native returns undefined or 0) the stored value is falsy, so IF battlechatter init runs in the wz VM with no producer, the 333 gate blocks â€” the only escape is a native non-falsy return for the absent key, which is never observed in-source. For allowannouncer at 5049 an undefined return leaves level.allowannouncer undefined (falsy) â€” same conditional. ABSENT IS NOT FALSE as a data fact: no layer writes 0; the falsy outcome is a conditional consequence of the exact script expressions given an unproven native default. HMH-side leader-dialog key selection is separate: warzone.gsc:169-184 picks only among wzspectrerising/wzhardcore/wzzombieapocalypse (all absent from HMH layers) falling to key startWarzone â€” again conditional on absent-key falsiness.",
+        "behavior": "dialog: allowbattlechatter/allowannouncer candidates resolved to their three/four producer sites and consumer gates; absent-setting outcome recorded as conditional falsy, not data-false; mpdialog bundle and native default kept as gaps.",
+        "unknowns": [
+          "Effective value of getgametypesetting(#allowbattlechatter) and (#allowannouncer) in HMH sessions (no recovered producer)",
+          "Native absent-key return (undefined vs 0)",
+          "mpdialog_default bundle enableherodialog/enableconversation values",
+          "Whether battlechatter/dialog_shared system init runs in the wz/HMH VM (native script-bundle question)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00400",
+        "sha256": "b98d0e97898e8e430b7b2829e36cc7e7fb98558f755b59dd5f3a28425dfbe156"
+      }
+    }
+  ]
+}

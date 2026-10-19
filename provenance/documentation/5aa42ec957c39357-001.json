@@ -1,0 +1,267 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/player/player_reinsertion.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerability is a separate earlier callback veto, with a visible warzonestaging value-registry chain to enable/disableinvulnerability but unresolved native effects and stacked resets. End_round writes postgame before onendround and the table/server-notify/clientfield end channels. Warzone's later game_ended matchflag pulse does not change that state and therefore does not reopen ordinary admission. Finally, ordinary game-over rejection does not erase the earlier postgame hook: allowed trigger-hurt/crush paths may already call finishplayerdamage as MOD_POST_GAME. All remaining old vetoes/returns are reused unchanged; none of these connections proves HMH runtime behavior or closes the native down-versus-kill decision.",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "1af4436952a9f9009ee2bb83efe170979f02bf70d87fe87ddb2248118364992f",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-install",
+        "answer": "The HMH spawn-behavior install is spawn.gsc::function_e93291ff (42-114), threaded exactly once in the corpus by warzone.gsc::on_start_game_type at 562 (level thread spawn::function_e93291ff();), with on_start_game_type installed by warzone.gsc::main:92 as level.onstartgametype. It installs ONLY spawn-destination state: (a) destinations = [[ level.var_1710ced9 ]]() if defined, else struct::get_array(\"destination_influencer\") map structs (44-51) - level.var_1710ced9 has NO writer in the corpus (reads only at 44/46), which establishes only no literal writer in the pinned lookup; the delegate path remains conditional on actual definedness, and map structs are selected only if it is undefined (map fixture data gap); (b) empty destinations -> return (53-56): no queue initialization or cleanup; incoming queue state is unchanged. The later undefined-queue branch requires the queue to be undefined when override_spawn checks it; this return alone does not establish that state; (c) arraysortclosest + globalindex (58-63); level.var_7767cea8 = [] (65); dev-block totalspawnpoints (67-77); hijacked removal (79-86); getdvarint wz_dest_id(-1): valid index pins exactly one destination (88-94) else random up to 5 (95-103); dest.spawns = struct::get_array(dest.target, \"targetname\") cache (105-108); unused destinations removed from the level.struct array (110-113 via function_3b1d0553/178abfd; isarray guard 457; first-match removal). Its only players-relevant queue consumers are override_spawn (unit 3) and the start_warzone cleanup function_cb5864fc (120-129, called at warzone.gsc:726); the wz_open_skyscrapers.gsc:1705 queue reader is inside a dev-only debug function (Type: dev, 1696). f2 readiness semantics applied: this installer registers NO callback and waits on NO readiness flag - its readiness is plain call order inside on_start_game_type (the spawning_allowed flagsys clear at 565 and the hash_774be40ec06d5212 add_callback at 564 are siblings in the same body), unlike player-bound waits that sit in player-insertion bodies; player_insertion::__init__ (40-83) registers callback::on_finalize_initialization(&on_finalize_initialization, insertion) at 59 and builds level.insertions with insertion.allowed=1 (51-62) - the exact f2 on_finalize_initialization readiness chain (f2 record 10) - and the reinsertion driver consumes level.insertion.allowed at player_reinsertion.gsc:704. Pre-insertion vs already-playing connection paths are NOT distinguished inside this installer: both the pregame-staged connect (spawnclient -> staging block while game.state == \"pregame\") and the already-playing connect (immediate spawnclient) resolve placements later through the SAME level.var_7767cea8 via override_spawn; the installer is connection-phase-agnostic (conditional inference: caller set is on_start_game_type once per gametype start; no second installer or late-join queue exists in corpus).",
+        "behavior": "function_e93291ff (42-114): destination producer fallback (var_1710ced9 defined -> delegate call; undefined -> destination_influencer structs; no literal writer found does not select an effective branch), empty->return, sort/globalindex, queue init, dev-block totalspawnpoints, hijacked removal, wz_dest_id pin or random <=5 pick, per-selected-dest spawn-struct cache, unused-destination struct cleanup. Queue level.var_7767cea8 is the shared state later read by override_spawn 145-171 and cleaned by function_cb5864fc 122-127.",
+        "unknowns": [
+          "level.var_1710ced9 producer (no corpus writer; possibly an unset hashed registration in the original build)",
+          "Effective destination_influencer map data for wz_open_skyscrapers (recorded HMH rotation map)",
+          "Whether on_start_game_type runs before, after, or concurrently with first connects (native order, N2)",
+          "Dev-block totalspawnpoints evaluation in retail (N3 family, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00110",
+        "sha256": "8f251acf7245cf5316f408e9131817a226bc7e448537312304d8289be27b3cbd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "1b1e4d1e0476bef1ef40e9cfa038dd9b0d2e077b82c4e889e267516c9f66a2fe",
+      "summary": {
+        "unit_id": "hmh-link:HMH-HEALTH-LINKS-01:02-health-baseline",
+        "answer": "Connected the baseline producer to the saved health equip/unequip/reset and spawn/redeploy boundaries. The source baseline is gadget_health_regen: equip requests baseline-to-selected replacement, unequip requests selected-to-baseline replacement, and a reached warzone reset loadout rewrites that shared value before blank inventory initialization. The shared weapon value, player possession/native slot, slot10 record and count remain different states. Pointer installation/final-writer order and native grant/event success are conditional; all conclusions remain source-only drafts.",
+        "unknowns": [
+          "No guarantee that a defined shared baseline is non-none, a valid resolved asset, distinct from the selected weapon, possessed by the invoking player or assigned a native gadget slot in the original session.",
+          "No proved baseline writer-before-consumer ordering across separately delivered initialization, spawn, reset and health cleanup threads. The exact-name reference scan is limited to the frozen recovered-source spellings and cannot exclude native/alias/missing-script writers.",
+          "No guaranteed tail after death/disconnect, prefix failure, native predicate wait or wrapper error. Normal return/UI/debug/busy0 and slot blanking are separate from successful weapon/health effects.",
+          "Historical body and mapping statuses/wording are retained; this connection does not independently review, repair or promote earlier records. The unpinned original binding-contracts.json was not needed or read."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00302",
+        "sha256": "bb5c1d791612007ce03e15db335b61b2ea4c9ac819165865ceacc043682c6591",
+        "pointer": "",
+        "record_sha256": "c9f803435422444ba53d14c27da4daac1b9a547f35db3e18ed402c1583e455ed"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "8faf79ca91f94657d312e5bec66f3f5ac64f68c7c08ccd5cef4f3ec75e1aedc0",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/381",
+        "record_sha256": "d8b0c07f334d73433cd5ed8cb8c9660af4c03f4868f395214144ed4ce9d5a706"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "a6672aa5f63ce56e6ebcd0deefeafa58fca4537413815277856572e58854ce8d",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::function_3c4884f1"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00540",
+        "sha256": "19f861b48602340b5b492fe7cebcf8d7ed0f165e61df8e650f5282c3df2d3602"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "a9a20c56eafc26aa50db9b5333d125db7f33c72e387f6a20c3cd2f1c2c5ad963",
+      "summary": {
+        "unit_id": "hmh-link:HMH-WEAPON-LINKS-01:01-kit-state",
+        "answer": "Connected the historical HMH giver to the saved spawn/redeploy, health and inventory-reset phases. self.var_6b7861bb records an admitted request ordinal on the current receiver: initialize absent to0, increment before world readiness, then re-read the shared field after any inventory wait. It does not count successful grants, completed resets, lives or respawns. The only four literal references in the pinned script corpus are this check, initialization, increment and switch; no explicit separate reset was found. Inventory replacement alone does not clear that outer receiver field. A source request can consume an ordinal without granting a kit, and overlapping requests could select an already advanced shared value if the unresolved VM/entity scheduling permits them. First kit has no explicit equip_weapon call here; later cases request equip with(1,1,0,1). These are conditional source connections, not proof of actual player items, HMH respawn frequency, native equip, health gained or original-build behavior.",
+        "unknowns": [
+          "The exact explicit counter search has four hits in wz_loadouts.gsc only; aliases, indirect/native writes, scripts outside the pinned corpus and receiver recreation are not excluded.",
+          "Effective type0/type1/type2 HMH setting and whether any source producer actually runs once, repeatedly, concurrently or at all on the intended PS4 target remain unresolved.",
+          "Inventory definedness does not prove shape, selection lock/reset admission, health item count, native weapon possession or successful item grants.",
+          "No local post-wait alive check/endons does not prove that execution survives native cancellation or grants items to a dead/disconnected receiver.",
+          "Preserve historical case5 overwritten tritium/duplicate-fastmag source quirk and literal table unchanged; this assignment performs no source repair or independent review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00433",
+        "sha256": "19befd916e2ff6d573af4ca6f73efb43eba6e35e982e08f1aa81f4db9f046a85",
+        "pointer": "",
+        "record_sha256": "4ae5c674676a8a55523134adcb33dd8b8ab000a8bf83c87d960969d187e2816f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "bbd0d32250fdd414246f5d1e85950684c33aeda6861e5d6691e0c7a702b23295",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:warzone-spawned",
+        "answer": "Existing full body connected to lifecycle phases, with settings kept conditional. Delivery into the body: globallogic_spawn::spawnplayer tail (1062-1063) notifies spawned_player and dispatches callback::callback( #\"on_player_spawned\" ) (level+self dual-table per f2 record 10) to the wz registration warzone.gsc:152 callback::on_spawned( &on_player_spawned ) (store add_callback \"on_player_spawned\" callbacks_shared.gsc:329). Phases in the body 823-930: [P1 gates] 825-826 endon death/game_ended; [P2 HMH perk gate] 828-832 getgametypesetting(#\"wzheavymetalheroes\") defined-truthy -> setperk specialty_doublejump/specialty_fallheight - the named source reads wzheavymetalheroes here; its producer and effective value remain unresolved. Old g1/g2 producerless/zero-match labels are preserved as historical context only and do not establish current absence; the same setting feeds item_inventory 1112-1116 / player_insertion 497-506 / player_reinsertion 441-447 per the g1 equipment record; [P3 state capture] 834-836 var_1ab1ec0c = origin; laststand_warzone::function_7e714b6a; level function_22df4165() count-refresh (same dirty flag the connect body raises, warzone.gsc 1993-1996/1995); [P4 appearance] 837-851 character fields, hidepart tag_ability_hero/tag_equipment_hero; [P5 lives/redeploy flags 853-883] only defined pers/lives updates UI: spawn::function_1390f875( lives ) (855; spawn.gsc 476-486 pers[\"lives\"]-1 clamped >= 0 into hudItems.playerLivesRemaining - UI request, not a permission grant, prior claim reused); infected route (857-868): function_47851c07() (1899-1922: 0 unless game.state == \"playing\", 1 for infection, death_circle::function_d66a3de1() (1152-1177: deny at final circle var_78442886 >= final or >= var_245d4af9) under deathcirclerespawn, wave_spawn deny past level.var_75db41a7 (wave_spawn.gsc:120 producer)) truthy -> showReinsertionPassengerCount = 1 + playerCanRedeploy = 1 + var_874448e8 = 1, else playerCanRedeploy = 0; normal route (870-882): lives != 1 && flag not set -> playerCanRedeploy = 1 + var_874448e8 = 1; lives == 1 -> playerCanRedeploy = 0 (flag not cleared) - all clientfield UI requests; [P6 staging early-return 885-899] menu pointer WaypointPlaced registered (885), then function_cc47bb2f() (= game.state == \"pregame\", 809-817): resets spawn_player freezecontrols/disablegadgets (889-890), warzonestaging takedamage = 0 (891 - the staging keys start_warzone later resets globally at 713), optional start gate if level.var_79219af4 (startplayers setting, main:84) > 0 and activeplayers.size + 1 >= it -> level function_73b0f715() (893-896; 1877-1893: pregame-only, dedicated sv_wznostartever guard, notifies hash_78e53817cafb5265), then RETURN - a joining player spawned during pregame stops here (staged, not inserted); [P7 insertion-type dispatch 901-928] infected helper exit (901-905); dev scr_disable_infiltration menu exit (907-913); else var_7eb8f61a = getgametypesetting(#\"wzplayerinsertiontypeindex\") defined-or-0 (915 - effective value unknown; same setting read player_reinsertion.gsc 682 and player_insertion 627), clientfield realtime_multiplay = 1 (916), switch: case 0 -> thread player_reinsertion::function_584c9f1() (921), case 1 -> function_39a51e47() (924), case 2 -> function_3c4884f1() (927); other values -> no thread (switch has no default). Reinsertion callees read: 584c9f1 (635-657: no level.reinsertion.vehicle -> player_insertion::function_77132caf; else function_f9348c1d + function_564e0871 + player_insertion::function_f795bf83( level.insertion, vehicle, angle ) + setplayerangles + function_acdf637e); 39a51e47 (557-579: warp_portal_vehicles missing -> function_77132caf; function_5425f45d portal positioning 761-811 true -> function_acdf637e + function_f2867466, else function_77132caf); 3c4884f1 (585-629: nonempty living-teammate array assigns random targetplayer602, but origin603 and angles604 read the foreach variable player, not targetplayer. Preserve this variable mismatch; VM loop-variable lifetime/value is unknown. Empty-array path uses lastdeathpos(+deathcircle bearing), spawnorigin = target - fwd*1000 + 500Z, setorigin + player_insertion::start_freefall( fwd*1000, 0 )); the three bodies arm disconnect endon at559/587/637, respectively. Their continuations differ: function_584c9f1 missing-vehicle arm646-649 threads the fallback and returns without function_acdf637e; its vehicle arm reaches the call656 only on normal continuation. function_39a51e47 requests function_acdf637e at564/572/578 in its respective arms; function_3c4884f1 requests it628 on normal continuation. The exact function_acdf637e body439-448 uses its OR-composed settings guard441, then a defined-pointer guard443 before requesting the pointer thread445. That request and actual native/VM delivery remain conditional;419-433 is the different function_564e0871. The late-arriving/queued-player spawnclient driver is player_reinsertion::function_fec68e5c (680-754) with its var_c5134737 = 1 + [[ level.spawnclient ]] loop (716-721) - reached from the death-circle reinsertion cycle function_77319881 (warzone.gsc 2649-2676), not from this body. Event order and effective settings stay conditional (native delivery order g2 N2/g3 A.1-A.4; startplayers/wzplayerinsertiontypeconfig effective values unknown).",
+        "behavior": "warzone.gsc::on_player_spawned (823-930) is the on_spawned-callback lifecycle body: gates, settings-gated perks, origin capture, counts dirty flag, character fields, lives/redeploy UI clientfields, staging pregame early-return with start gate, insertion-type dispatch 0/1/2 to player_reinsertion functions; missing setting defaults to type0 at915 and dispatches case0; only unmatched values skip all switch branches; pregame staging never reaches dispatch.",
+        "unknowns": [
+          "Effective values of wzheavymetalheroes / wzplayerinsertiontypeindex / startplayers in an original HMH session (producer identity and effective native/online settings remain unresolved; the old g1 absence label is historical context only)",
+          "The other named laststand/player_insertion callee implementations are not established by this record alone; reuse their separate exact reviews where present. function_acdf637e439-448 has been read here as guarded source pointer-thread requests, with native/VM delivery unresolved.",
+          "The direct895 call is outside the separate developer192 call site. The complete threshold helper1877-1893 has been inspected: non-pregame returns, dedicated sv_wznostartever can return, otherwise it requests the release notification1892. Effective runtime state/dvars and notification delivery remain unknown.",
+          "Native ordering between on_player_spawned dispatch and any native spawn finalization (retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00323",
+        "sha256": "a6b9d3cd48314b4e9a4549400cb2ea0b709b0b056c53d93554bf5202bbb4e412"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "d30917026fd7e394f6e35792213946dc5ff6d22703fddb6f746e4a5a03990f2f",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:connect-entry",
+        "answer": "This bounded wz on_player_connect consumer initializes per-player state through a registered callback. It does not establish the presence or absence of all script-level HMH admission/permission checks. Registration: warzone.gsc::main (event_handler[gametype_init], 64-202) calls callback::on_connect(&on_player_connect) at 153, stored via callbacks_shared.gsc::on_connect 273-276 as add_callback(#\"on_player_connect\", func, obj, vararg); core store add_callback/function_2b653c00 113-169 (append3-tuple (array::add third argument0 forbids duplicates; array[array.size]=item appends), dedup, obj death-waiter) per g3 record. Delivery requires the native player_connect event (native boundary, unobserved in this packet): event_handler[player_connect] codecallback_playerconnect (callbacks_shared.gsc 1190-1194) -> [[ level.callbackplayerconnect ]]() -> level.callbackplayerconnect = &player::callback_playerconnect (mp_common/callbacks.gsc 65-68) -> player_connect.gsc::callback_playerconnect35 -> self waittill(#\"begin\")39 -> reached waittillframeend46 -> intervening initialization -> level notify connected63 -> callback::callback(#\"on_player_connect\") (64) -> wz on_player_connect as a 0-extra-arg thread on the connecting player (applied f2 delivery shape (b): obj undefined, no params). The concrete HMH connection initialization is exactly four statements at 756-762: (1) var_63af7f75 = -1; (2) var_c5134737 = 1; (3) level function_22df4165() = level.var_22df4165 = 1 (warzone.gsc 1993-1996), consumed by the per-frame watcher function_5db32126 (2002-2013, threaded at on_start_game_type:587) -> function_e91890a7 player-count refresh (2019-2032) - the same dirty flag wz on_player_disconnect raises (768-772); (4) wz_progression::player_connected(). Spawn-readiness feed, source-visible: the two per-player writes are have later source writes, with var_63af7f75 also read for definedness before its default write at spawn.gsc266 on the spawn path - var_63af7f75 is re-defaulted/overwritten from level.deathcircleindex in spawn.gsc::on_spawn_player 266-274, var_c5134737 zeroed at spawn.gsc:281 and re-set to 1 by player_reinsertion.gsc 691/718 before [[ level.spawnclient ]] - while corpus-wide search shows the var_63af7f75 definedness read266 plus later writes; no further literal semantic consumer was identified. Computed/native/hashed consumers remain unresolved, not excluded. Join-adjacent script work in the connect pipeline beyond the anchor: no pers team/needteam -> spectator + [[ level.spawnspectator ]] + [[ level.autoassign ]] + ranked kickifdontspawn (player_connect.gsc 254-291); the persisted-team branch requests thread [[level.spawnclient]]()326 only when !draft::is_draft_this_round()322 AND valid class AND valid player role324. Independently, sessionteam!=#\"spectator\" AND sessionstate!=\"playing\" AND !isalive(self)337 guard a threaded spawning::onspawnplayer(1) request339, not an unconditional synchronous prediction. No claim that joining a live match works is made.",
+        "behavior": "wz on_player_connect (warzone.gsc 756-762): var_63af7f75 = -1 (opaque slot; definedness read at spawn.gsc266; no further literal semantic consumer identified); var_c5134737 = 1 (opaque flag; no corpus reader; cleared spawn.gsc:281, re-set player_reinsertion.gsc 691/718); level function_22df4165() sets level.var_22df4165 = 1 dirty flag consumed by the on_start_game_type-threaded watcher 5db32126 -> e91890a7 counts; wz_progression::player_connected(). Registered at warzone.gsc:153 in the wrapper block 150-157. This initialization scope is not proof of blanket join-permission absence. The pipeline first waits for begin39 and frame-end46; later spawnclient326 and prediction339 are distinct guarded thread requests, with actual admission, event delivery and scheduling unproved.",
+        "unknowns": [
+          "Meaning/consumer of var_63af7f75 beyond spawn.gsc definedness read266 and writes268/273 (further literal/computed/native consumers unresolved)",
+          "Meaning/consumer of var_c5134737 (write-only pattern: 1 connect, 0 spawn hook, 1 before spawnclient in insertion)",
+          "wz_progression module bodies (player_connected/player_disconnected) outside packet",
+          "function_e91890a7 tail beyond 2032 (count consumers)",
+          "Native event order: gametype_init/on_start_gametype vs first player_connect (N2, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00325",
+        "sha256": "6776f58ca62a884350a4b22f2b664f9f4328461e38bf01969f39b3047e84cdb8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "ee07d1f9aac1278f5b85b0276a7780ec25fb2defe1e8d0af1fceb5efbc6ea5ca",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/380",
+        "record_sha256": "88e11f0ff19201b590083e53cc3e2b30ee8eb547099028bf023e952d2faadbdb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "174e996aa1f397c793178f07f92c839abec6d368193408d596166bd490a682a4",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/102",
+        "record_sha256": "ddaa9dca8390785bb69bc013afab7cfbfc074db86b99461263ce841d07ca3db5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "1caf903f01379c69c4bbe23a1bc97bb4800f245f4fe9ef5eeaf704b3fc674114",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/101",
+        "record_sha256": "58bb9c30099ddbe0a682ede55744f91ff2a1a4b45b9179bbabd1aba002b5cd78"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "5b07d72ab13223c4fbd0f9077c0badbbf62a7b6bb5a23d9da698854f3ad7b2f7",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/101",
+        "record_sha256": "58bb9c30099ddbe0a682ede55744f91ff2a1a4b45b9179bbabd1aba002b5cd78"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5aa42ec957c39357.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "ad3d1d0084fb093f9b0378387db6da3df19e8821d4e7e92dff1a7e9328ffc9ed",
+      "summary": {
+        "id": "scripts/core_common/player/player_reinsertion.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/102",
+        "record_sha256": "ddaa9dca8390785bb69bc013afab7cfbfc074db86b99461263ce841d07ca3db5"
+      }
+    }
+  ]
+}

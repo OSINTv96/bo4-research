@@ -1,0 +1,318 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_perk_bloody_tracker.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "b1a328b0a48ca5291861f69f252aa30c5e4f9db9b83bcdb3b2e485d24d186f90",
+  "git_blob_sha1": "ba64bdaea488e88dab9d0840c178308ecbe73cbc",
+  "output": "src/scripts/wz_common/wz_perk_bloody_tracker.csc",
+  "output_sha256": "5764e0e0e76c4cd21eb8111373409a1dfe159408c5578e83d93cd5388197a5cd",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "73d6232f31b58be1996302aad52e057c3b2b6e9e409711070bb293a7950351f4",
+      "citations": [
+        {
+          "line_start": 42,
+          "line_end": 83
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::bloody_tracker",
+        "behavior": "Blood-tracker scan loop (threaded on level per connect, never returns). while(true): wait 0.2 (5 Hz). Perk gate: if !function_5778f82( localclientnum, #\"specialty_tracker\" ) -> continue (opaque unqualified helper; prior notes infer local-player-has-perk-style query); helper not in packet. origin = getlocalclientpos( localclientnum ); players = getplayers( localclientnum ); players = arraysortclosest( players, origin, undefined, 1, 6000 ) (unqualified five-argument call; exact source/native provider and binding remain unresolved). tracked = 0. foreach player: stop/skip branch when tracked >= 10 (quota of10 processed eligible players per pass; no simultaneous FX lifetime limit is established) || !isalive( player ) || player function_83973173() (opaque predicate, also used by wz_perk_engineer helpers; prior notes infer spectating/dead-ish) || isdefined( getplayervehicle( player ) ) (players [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_5778f82 and function_83973173 sources are not in packet; inferred meanings are prior-note inferences only",
+          "Thread lifetime: because the loop never checks game end, it depends on level/thread cleanup semantics outside this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/28",
+        "decision_canonical_sha256": "c0d93c000a746c1873f3faa7b7c8b44d5f5e02c82402dfa866b603609ec3003b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00646",
+        "sha256": "cf9007dcd598fcaad3c60fc7ceb4569893b0e51e748b7d41f5d1e6ab09787ac2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ca373071a12d8ef0e8ad61e684d5096c2ec9e04b4acdd648189540df0c912f93",
+      "citations": [
+        {
+          "line_start": 89,
+          "line_end": 157
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::gettrackerfxposition",
+        "behavior": "Footstep-fx position/rotation builder for the tracked player (method on the TRACKED player, uses self). positionandrotation = undefined; player = self; offset = ( 0, 0, 1 ); dist2 = 1024 (32-unit squared threshold). FX selection by foot flag: if isdefined( self.trailrightfoot ) && self.trailrightfoot -> fx = \"player/fx8_plyr_footstep_tracker_blood_r\" ; else fx = \"player/fx8_plyr_footstep_tracker_blood_l\" (exact asset strings as printed). pos = self.origin + offset. Movement gate: if distancesquared( self.tracker_last_pos, pos ) > dist2 (previous stored raw entity origin versus current origin+(0,0,1); emitted ground-FX position is separate. For flat horizontal32 displacement the tested square is1025, not1024): trace = physicstraceex( pos, pos + ( 0, 0, -10 ), ( 0, 0, 0 ), ( 0, 0, 0 ), self, 1 ) (builtin 6-arg ex-form ground probe). if trace[ #\"fraction\" ] < 1 (ground hit): up = trace[ #\"n [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "physicstraceex builtin semantics (flags/skipself) engine-side",
+          "Cross products are not normalized in-source; fx orientation magnitude behavior engine-side",
+          "dist2 = 1024 is a local literal (32 units), not a bundle field"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/567",
+        "decision_canonical_sha256": "0ca5cc644e1a448970e85787b784b3f419af2a289be22ee3a39bd5b411cfe3f1",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00647",
+        "sha256": "ab63047628b9d4cd43ebeee6783a9d492863a3915ba38b1949db5d1bdf4e6937",
+        "pointer": "",
+        "record_sha256": "2e083791bfe3cfb05c4854d1ea52a38892300335cd8dafdd33b77e6d461a4af4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "cb59bea754079ea995f007f389400a3d073d031a1ed64f5521b0e8f3d180ba02",
+      "citations": [
+        {
+          "line_start": 163,
+          "line_end": 166
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::tracker_playfx",
+        "behavior": "Blood-tracker fx emitter (function(localclientnum, positionandrotationstruct)). Single statement: handle = playfx( localclientnum, positionandrotationstruct.fx, positionandrotationstruct.pos, positionandrotationstruct.fwd, positionandrotationstruct.up ) â€” client 5-arg playfx with the produced struct fields (fx string, pos, fwd, up); handle captured and unused.",
+        "unknowns": [
+          "None within function scope beyond engine playfx conventions"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/571",
+        "decision_canonical_sha256": "20c64b0fbc2557b1f58c451ba8b1083808b7acd1714c27448c7aa25dd322e728",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/478",
+        "record_sha256": "7b90ba09e9559e479b6a24efea79ad9bef102c8354c1a3b0467e9c77927259f2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e2f91be82a43f32c6991a11efa107dd45a72ecb47cdf706b267ce5b21cea9494",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::__init__system__",
+        "behavior": "Client-side autoexec registration. function autoexec __init__system__(): system::register( #\"wz_perk_bloody_tracker\", &__init__, undefined, undefined ). No other statements (file 167 lines).",
+        "unknowns": [
+          "system::register semantics outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1056",
+        "decision_canonical_sha256": "4a70034a486c4461d83ed2af2f7a497202ec3a880b606a653ee8ce1084fd78bc",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/473",
+        "record_sha256": "71ab62b1be52c77c8a7f26e9f1081e40eb5ab1fb0deaed45ea9b6200f2308e38"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fa4fd472e7e361f463b9060dcfda5c0a8961d0bc46190490508716ac154972e0",
+      "citations": [
+        {
+          "line_start": 33,
+          "line_end": 36
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::on_player_connect",
+        "behavior": "Connect handler (registered only when the init gate passes): level thread bloody_tracker( localclientnum ) â€” one statement, threads the tracker loop on level with level as the receiver and only localclientnum passed; this body retains no connecting entity argument or receiver.",
+        "unknowns": [
+          "None within function scope"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/711",
+        "decision_canonical_sha256": "189e611411bbfd0cd24d92e9740e19a1b714a63a75f1545e26bfb05cc8ed521e",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00648",
+        "sha256": "a77e2d957f7af102cbd8ba3c0e2ca5d7d6c4905d978e76213114ce63f0426cd3",
+        "pointer": "",
+        "record_sha256": "f4d20b2911e155618dd592f29ed64aa51e695c46a51574be9be0253f7c1acbc2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fa83e725e0bccf224e98f7cc265d46efa5947a2c39354f58787aa8b2d3d5e73b",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 27
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_bloody_tracker.csc::__init__",
+        "behavior": "Blood-tracker init with MODE GATE (line 21 token resolved exactly): if !( isdefined( getgametypesetting( #\"hash_1d02e28ba907a343\" ) ) && getgametypesetting( #\"hash_1d02e28ba907a343\" ) ) -> return â€” the connect hook is wired ONLY when that gametype setting is defined AND truthy; otherwise nothing registers. When the gate passes: callback::on_localclient_connect( &on_player_connect ).",
+        "unknowns": [
+          "The meaning of gametype setting hash_1d02e28ba907a343 (per prior notes it toggles between the two tracker flavors in wz_perk_tracker.csc) is not derivable from source text",
+          "getgametypesetting value producer is mode/playlist data outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/712",
+        "decision_canonical_sha256": "be3e15fb6431deb7bc0f5af57179e397b97e715e464d4d4b025d25571633c7b8",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/474",
+        "record_sha256": "2e35b4f1141668394f78d8a7170247fa3b4d0dc076825deb98f90b5012aa18cd"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/2160e1fc59ffe3a8.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/8bddf70ab1be9be0-001.json",
+      "sha256": "c667ba13816edd2f18d6593c3a8b06433c801240abd926965137b2d92a25f899"
+    }
+  ]
+}

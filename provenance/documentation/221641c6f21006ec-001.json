@@ -1,0 +1,46 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/perks.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/221641c6f21006ec.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "4d62442a65e9ec45c6e22739102f746cd15a1fa29ac70461445643a800644884",
+      "summary": {
+        "unit_id": "scripts/core_common/perks.gsc::perk_hasperk",
+        "behavior": "Script-side reference-counted perk check (function(str_perk), bool): if isdefined( self.var_fb3c9d6a ) && isdefined( self.var_fb3c9d6a[ str_perk ] ) && self.var_fb3c9d6a[ str_perk ] > 0, explicitly return true; otherwise explicitly return false. NOTE: only the script-side counter; the ENGINE perk set is a separate mechanism (callers also use the hasperk builtin directly, e.g. power_gain_event_score in packet notes).",
+        "unknowns": [
+          "Divergence between script counter and engine perk set is observable only at callers outside this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00276",
+        "sha256": "dc255dc5084f9969d42d66ac07d15b8080f3e5cdf7a2763b5d08786a09b95e13",
+        "pointer": "",
+        "record_sha256": "bca7200e4f1be4db15dd33d9ba6c264fc4ce1bf2e77e2e7fc2b81956006386ef"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/221641c6f21006ec.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "dafedb6e2f36cfcba5e6dbc5dd4b7dadcef4d9a523594424121312127a9fa548",
+      "summary": {
+        "unit_id": "scripts/core_common/perks.gsc::perk_unsetperk",
+        "behavior": "Reference-counted perk unsetter (function(str_perk)) on a player/script entity. 1) if !isdefined( self.var_fb3c9d6a ) -> self.var_fb3c9d6a = [] (count map init; field resolved exactly from source). 2) if !isdefined( self.var_fb3c9d6a[ str_perk ] ) -> entry = 0. 3) self.var_fb3c9d6a[ str_perk ]-- (decrement). 4) assert( self.var_fb3c9d6a[ str_perk ] >= 0, \"<dev string:x38>\" ) (dev-only assertion text as printed). 5) if self.var_fb3c9d6a[ str_perk ] <= 0 -> self unsetperk( str_perk ) (engine builtin removal, no namespace = builtin). Companion setter perk_setperk and perk_reset_all are excluded units in this file (not re-authored); this function only decrements and removes at zero.",
+        "unknowns": [
+          "var_fb3c9d6a consumers outside this file (perk_setperk increments it) are excluded units/unassigned",
+          "unsetperk engine-side removal effects (stat recomputation) not in packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/471",
+        "record_sha256": "86f45f0c02f36b64e3c32404915629880484ff3870a770a4198a2d5f57794f70"
+      }
+    }
+  ]
+}

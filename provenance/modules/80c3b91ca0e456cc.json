@@ -1,0 +1,1091 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/death_circle.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7",
+  "git_blob_sha1": "1d2248c2a9836c1b9581d851d06aad21dfed0634",
+  "output": "src/scripts/core_common/death_circle.gsc",
+  "output_sha256": "465e3e8c39ab70f0647dd306ebbde49aa0ed2d9bd2d53d8b3de601e3d7576c7b",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/flagsys_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.gsc",
+        "sha256": "b5c793b6299033643940befd7f709316e0a8189ccc28c77b579a26c53cf461fc",
+        "git_blob_sha1": "832a18f954a3f9101a08fa0aa57dcf308bbcbb5e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/map.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/map.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/map.gsc",
+        "sha256": "5d31130ffb8a3d5503b70566b95793f84d4e167804035cb4d40c9352e031923b",
+        "git_blob_sha1": "bb86b71e4a8c8ae9372ce5aa119c51f59f2ac2a9"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/match_record.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/match_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/match_record.gsc",
+        "sha256": "c16f9e7924ac1fab7e75883ac4546e99bb306f7378b08996a9650827582d2a38",
+        "git_blob_sha1": "541ed5e9ca06a6753b85746fd23e9236d5a3f528"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0232.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0f399a061dcd6737a6bc40fdf08a415a2c8b094628871dd455f443bc3c064269",
+      "citations": [
+        {
+          "line_start": 95,
+          "line_end": 100,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_d81873aa",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/78",
+        "decision_canonical_sha256": "76247c335e8a2a56be343fc65562806e8a6f7b73255cb8acfeee5f8fd24e7cab",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/859",
+        "record_sha256": "36fad538133f8419a5b2bfa1fa469a49fa219a9fe0c450989b67c8c2d3df1d8d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "11c01119932d94f621791df6da9f5ef48fbd18f636fb72c9803e17739ea0e500",
+      "citations": [
+        {
+          "line_start": 488,
+          "line_end": 504
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-hook",
+        "answer": "Branch ladder of the wz spawn hook (262-302), applied to source-visible flags, grace and queued respawn, and what start_warzone changes: (1) 264 usingobj = undefined; (2) 266-269 var_63af7f75 default -1 if missing (the definedness test at266 is an actual source read: missing field gets default -1 at268; a defined prior value skips that default. The conditional deathcircleindex store at273 can overwrite either. Field meaning and further consumers remain unresolved), 271-274 overwritten with level.deathcircleindex when defined (producer: death_circle.gsc:504 inside the per-collapse loop of death_circle::start's continuation - i.e. the slot tracks which collapse circle the player is spawning under); (3) 276-279 the start-spawn clearing rule level.usestartspawns = 0 fired only when usestartspawns && !ingraceperiod && !playerqueuedrespawn (producers: globallogic.gsc 4928 usestartspawns = 1 an [excerpt; exact source record identified separately]",
+        "behavior": "on_spawn_player(predictedspawn) (262-302) is the wz onspawnplayer hook (level.onspawnplayer = &on_spawn_player, warzone.gsc:93; invoked by globallogic_spawn::spawnplayer:916 [[ level.onspawnplayer ]]( 0 ) through warzone.gsc::on_spawn_player 208-223 which passes no args): field prep, placement delegation, streamer hint, first-spawn air-hold vs immediate finish, kit stats (function_ea62f5af 308-321 match_record parachute/second/wingsuit lootids for current_life_index).",
+        "unknowns": [
+          "death-circle module internals (collapse cadence/wave interplay) out of packet; only the index producer line was read",
+          "Whether the ordinary game.state/defined-field LUI prematch-timer arms in function_bb9099b9 at246-255 and function_c263fd97 at423-432 execute on the original build, and their native delivery/outcomes. They are outside the saved source dev-delimited block67-77; no dev-only classification is established.",
+          "Native reason hash_4fca7a48128c4741 callback consumers (registered elsewhere; not traced here - no self-selected extension)",
+          "Effective grace period value for wz (graceperiod 15 vs 5 arm globallogic.gsc 5100-5107 depends on numlives/wavedelay/playerqueuedrespawn settings)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00871",
+          "sha256": "dc33d2960c16b7176e85c28030bb1b9a5aaf9d4f216c47b1670f508d6b5a62d2"
+        },
+        "report_pointer": "/unit_reviews/0",
+        "decision_canonical_sha256": "1120a7a297b3e5d022d7ecbe5fd28e7fe9d53fd575b9dea1c53f27191814ecb5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the complete corrected v2 spawn-hook record and its wrapper, plus exact original/current/history/projection joins; all written recovered-source behavior including unchanged claims.",
+        "limitations": [
+          "Exact recovered-source and record scope only; original PS4 build, VM fidelity, native effects, settings, callback delivery and game behavior remain unproved.",
+          "Historical original author/reviewer identities and old status/provenance wording remain history. This reviewer is independent of the current representation authors; no historical approval is inherited.",
+          "Unknown or opaque callees retain the written limits. Local hash and pointer tests are integrity checks, not semantic or runtime proof."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00109",
+        "sha256": "5caf1aa1356542ae7981a711c73f6a03880844387879894c3ecc4615d1002b21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "198f5ac8a6f385c91a1efa74fe6fa18a8d9833ce93ab47f0be3f566f531e7e71",
+      "citations": [
+        {
+          "line_start": 73,
+          "line_end": 89,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/144",
+        "decision_canonical_sha256": "9c0640778f0e76f5d9484c25ec0da19802ee6e2f8b5ddc638322086d225d3c8e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/312",
+        "record_sha256": "b7bf5e73da38f87f97100e300adb563b91af98937700b0ef876625ac7b3aa212"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4f3314f59653b78057203459faddfa6b96527f3504690e1f77d663b4c32e2177",
+      "citations": [
+        {
+          "line_start": 16,
+          "line_end": 19,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/160",
+        "decision_canonical_sha256": "36a39a27150d455d7363a908a407f6465a72dadfcbbf912fc764168506357014",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/858",
+        "record_sha256": "e8b68c7cb70da23fe260bef6a8b22beed4805cab7a93e79812ceefe9ddfb0c23"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+      "citations": [
+        {
+          "line_start": 450,
+          "line_end": 468
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:wait-and-spawn",
+        "answer": "Bounded HMH use of the waiting orchestration (1586-1711): ENTRY/OWNERSHIP: reached from globallogic_spawn::spawnclient 1572 (self waitandspawnclient( timealreadypassed )) after mayspawn passed OR defined-truthy self.usedresurrect bypassed !mayspawn denial at1548; shared team-lives denial632 additionally requires !level.numlives && level.numteamlives && game.lives[self.team]<=0 - the join/respawn request thread from player_connect.gsc:326 or player_killed routes; and threaded after death from laststand paths: laststand_warzone::respawn_player_after_time 1241-1259 (waits spawned_spectator + n_time_seconds; still sessionstate == spectator -> thread waitandspawnclient()) and laststand.gsc:934. QUEUE OWNERSHIP: waitingtospawn set 1 by spawnclient (1564) before the wait, cleared at 1705 (and 1576 after return; both writers exist and cancellation skips the tail); allowqueuespawn cleared 1565; s [excerpt; exact source record identified separately]",
+        "behavior": "waitandspawnclient(timealreadypassed) (1586-1711): cancellation endons; teamkill spectator wait; wave index; delay consumption; timed spectator wait + conditional intermission hook (no literal writer found does not prove runtime inactivity) + waitfortimeornotify(force_spawn); manual press-to-spawn arm; tail clears state, increments pers[\"spawns\"], threads [[ level.spawnplayer ]]().",
+        "unknowns": [
+          "Whether any native/frontend mechanism posts force_spawn during wz waits (poster bounded absent in corpus; unobserved)",
+          "stop_wait_safe_spawn_button consumer absent in corpus - native/hashed consumer possible: unobserved",
+          "function_821200bb (teamkill penalty) body outside packet; wantsafespawn/playerforcerespawn writers out of packet",
+          "Synchronous-call endon cancellation stack semantics (retained prior unknown; N4)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/25",
+        "decision_canonical_sha256": "4e16b01746be23ab090e93db4c08f06e0075f69acbb07815c1374b136b4bcb4b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00448",
+        "sha256": "e03136d70826aa2604bf9ca1eb5abfa73d5cf068f7746b8446fc4581383ec584"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "99b3e4d656988a29096acd74a21a365803621b89524a41ac603fd075a6373d7c",
+      "citations": [
+        {
+          "line_start": 57,
+          "line_end": 67,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/834",
+        "decision_canonical_sha256": "2e77b4d81eaf2fec4bcbfe1c1b17e414702b14cc0bd75ba59bec7d2fed7ba96b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/314",
+        "record_sha256": "93d7c874393d43f14ed938504275d2a7d752b133744f5b3ce18c78f617cc5081"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a9b2c11b08becfe9243c63a0375b2f35ae133ebaa6a214a517eb58fa5828b5dc",
+      "citations": [
+        {
+          "line_start": 117,
+          "line_end": 128,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/335",
+        "decision_canonical_sha256": "efab48f7dd4efb71de2383ebe70d7503789d5c146aab40fd69930ea8c1eb3d49",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/310",
+        "record_sha256": "152e17dc9c484cfe7b92311721de49204aea1361ed42031ca782b0aa99e88b1d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ba6f777f463d51d9375861907ce1c3d75fbd3221725d6c19758039d00403d27d",
+      "citations": [
+        {
+          "line_start": 16,
+          "line_end": 19,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/378",
+        "decision_canonical_sha256": "46aedf1683ad30ead69ad0ae2c09ab24883c916eafb73ce72f575f57916576fa",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/309",
+        "record_sha256": "b1a7772bb5007b2ddcff79934d49d2047ded9f397a8757ac33d15ba2aa3de780"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bbd0d32250fdd414246f5d1e85950684c33aeda6861e5d6691e0c7a702b23295",
+      "citations": [
+        {
+          "line_start": 1152,
+          "line_end": 1177
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:warzone-spawned",
+        "answer": "Existing full body connected to lifecycle phases, with settings kept conditional. Delivery into the body: globallogic_spawn::spawnplayer tail (1062-1063) notifies spawned_player and dispatches callback::callback( #\"on_player_spawned\" ) (level+self dual-table per f2 record 10) to the wz registration warzone.gsc:152 callback::on_spawned( &on_player_spawned ) (store add_callback \"on_player_spawned\" callbacks_shared.gsc:329). Phases in the body 823-930: [P1 gates] 825-826 endon death/game_ended; [P2 HMH perk gate] 828-832 getgametypesetting(#\"wzheavymetalheroes\") defined-truthy -> setperk specialty_doublejump/specialty_fallheight - the named source reads wzheavymetalheroes here; its producer and effective value remain unresolved. Old g1/g2 producerless/zero-match labels are preserved as historical context only and do not establish current absence; the same setting feeds item_inventory 1112-1 [excerpt; exact source record identified separately]",
+        "behavior": "warzone.gsc::on_player_spawned (823-930) is the on_spawned-callback lifecycle body: gates, settings-gated perks, origin capture, counts dirty flag, character fields, lives/redeploy UI clientfields, staging pregame early-return with start gate, insertion-type dispatch 0/1/2 to player_reinsertion functions; missing setting defaults to type0 at915 and dispatches case0; only unmatched values skip all switch branches; pregame staging never reaches dispatch.",
+        "unknowns": [
+          "Effective values of wzheavymetalheroes / wzplayerinsertiontypeindex / startplayers in an original HMH session (producer identity and effective native/online settings remain unresolved; the old g1 absence label is historical context only)",
+          "The other named laststand/player_insertion callee implementations are not established by this record alone; reuse their separate exact reviews where present. function_acdf637e439-448 has been read here as guarded source pointer-thread requests, with native/VM delivery unresolved.",
+          "The direct895 call is outside the separate developer192 call site. The complete threshold helper1877-1893 has been inspected: non-pregame returns, dedicated sv_wznostartever can return, otherwise it requests the release notification1892. Effective runtime state/dvars and notification delivery remain unknown.",
+          "Native ordering between on_player_spawned dispatch and any native spawn finalization (retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00872",
+          "sha256": "9898dfc3f803dfc01a3c2cabadc11f54c615c862e935d375a395176b8338a41c"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "881ef561315a847e5b040220d5889b9eca8aad08945dbfc32700816774436419",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every current answer/behavior/trace/evidence/history/limits field and original claim; exact spawned body and required callback dispatcher,staging,count,lives,death-circle,reinsertion branches and gates.",
+        "limitations": [
+          "Pinned recovered-source scope only; original loader/table/global/receiver identity,overwrites,VM numeric behavior/native providers,effective settings/data/assets,server/service and actual delivery/lifetime/rendering remain unproved where the record leaves them open.",
+          "Historical author/status/reviewer/provenance strings are preserved data. The12 old raw reports remain UNIMPORTED with unknown original authors/routes; this review supplies no missing historical identity or route proof.",
+          "Zero runtime,original-build,native,VM,function-completion and whole-mode completion credit; source cases are static traces,not emulator or game executions."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00323",
+        "sha256": "a6b9d3cd48314b4e9a4549400cb2ea0b709b0b056c53d93554bf5202bbb4e412"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c66f51303b518075751ad9fc27dfc14c57460c09051dffd37a0a9bd50cd6bab4",
+      "citations": [
+        {
+          "line_start": 25,
+          "line_end": 51,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1093",
+        "decision_canonical_sha256": "6a9fe7fba6835cd3097be8690996a981187b048b3a302d19176c4cbd199240c9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/308",
+        "record_sha256": "b1d66609885f877048b96238f24c88ce3c6d206192065d6e713ac8183137d1e6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ef8462c204d131ce25e47bb1ff9d6310db2178b24fc3be189912579e46722c96",
+      "citations": [
+        {
+          "line_start": 95,
+          "line_end": 100,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_d81873aa",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1120",
+        "decision_canonical_sha256": "4a2b7604a77bf0e1dc0c96a2226e807f4310dbde4be82d197de3087e68c61bf5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/313",
+        "record_sha256": "e9d2fdc51ce65af54e0653fb5f46e65d8be441076220060b366cbbaacf8e0984"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f92a3af91d3f3a21f3c5fee34b2c78a48370414119c69effa71d9e544ab5d6d8",
+      "citations": [
+        {
+          "line_start": 106,
+          "line_end": 111,
+          "sha256": "35d0c6a1c754eef2de22ed14df9b373e5ab81aa198f26dc781f4fc49cdcfcde7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1172",
+        "decision_canonical_sha256": "37706c9012c1f5b0037e0aeefce6d774146ecb4b40bfcd7cb94436101330ce84",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/311",
+        "record_sha256": "ba499475d8c4ea1cd298b99fce9078f5610ecdb6f6f3d0fd3706a344a6fb9679"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "050d43cd07b0ee02ecaa5b334fc9873969221f895ef9768d9e13b9d261e20777",
+      "citations": [
+        {
+          "line_start": 117,
+          "line_end": 128,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02004",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/8"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/66",
+        "record_sha256": "d5e979a1c3d75f3e1d459eb309ecada032ea91ac357576c3cebfb1314216358e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "09449bdb30583d332ddb6ae08ecd241d61f4ca2632c8af60a08e496683c768b4",
+      "citations": [
+        {
+          "line_start": 106,
+          "line_end": 111,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02003",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/7"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/65",
+        "record_sha256": "a242b5c7fcefafab5a772fadafca9fd38075110bf3d3e9f60d5c900cbb53490b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4528c9755da827dc54b68928a0c72143e2c59fa0c283baf7e3f9fdc3d196baaf",
+      "citations": [
+        {
+          "line_start": 25,
+          "line_end": 51,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02000",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/4"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/62",
+        "record_sha256": "8c34ba96670750c3910c4637c0e00556de50310c2e34f8e9586e75e67c98f864"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "97f43ac020035e0542eea82407dddd6da0f3ad66a4391849d3f00b678fb35c99",
+      "citations": [
+        {
+          "line_start": 73,
+          "line_end": 89,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02002",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/6"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/64",
+        "record_sha256": "8587e2e70a1ec41fe713a49dd1ccdac61f51602d0b7eebf23d2c3269caed6a90"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9ea95238fbf212f50a86d927ea996daeec27613ae82104c82b9248419a61295a",
+      "citations": [
+        {
+          "line_start": 57,
+          "line_end": 67,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "later_exact_ten_record_source_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00641",
+        "sha256": "410f450f790e8bc7f1ef184566d7d01ac817ee8f6606f887695a13486ebfe9d1",
+        "pointer": "/record",
+        "record_sha256": "85fb473b4edfe556bd5060fe3e4812355c1928278a80a56f5ddaf1e6cc61d127"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "03ff88040f6eceaa15f133473f64b89e96b4bd35b6bcb67168886bf740531e2e",
+      "citations": [
+        {
+          "line_start": 25,
+          "line_end": 51,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02000",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/4"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/62",
+        "record_sha256": "8c34ba96670750c3910c4637c0e00556de50310c2e34f8e9586e75e67c98f864"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "269e0f71a9d27e82778274ecc02c8bfae3a0c52e56cfaee892650f5538c57905",
+      "citations": [
+        {
+          "line_start": 73,
+          "line_end": 89,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02002",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/6"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/64",
+        "record_sha256": "8587e2e70a1ec41fe713a49dd1ccdac61f51602d0b7eebf23d2c3269caed6a90"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5cc0ee1cfc2f8415e2209a5e3ed1e8150ca99e13483342b5bf5d87ed3bb4f1a0",
+      "citations": [
+        {
+          "line_start": 117,
+          "line_end": 128,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02004",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/8"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/66",
+        "record_sha256": "d5e979a1c3d75f3e1d459eb309ecada032ea91ac357576c3cebfb1314216358e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "963e11a0e62b33f3b010c47efcaf1554b7b389860b454b76372a0abae23149e6",
+      "citations": [
+        {
+          "line_start": 106,
+          "line_end": 111,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02003",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/7"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/65",
+        "record_sha256": "a242b5c7fcefafab5a772fadafca9fd38075110bf3d3e9f60d5c900cbb53490b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "efb6cb950d0b47af83ec33d13dbe96531788cd31f99dffe2358657640ba2ba94",
+      "citations": [
+        {
+          "line_start": 57,
+          "line_end": 67,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC2GO1",
+            "unit_id": "LD02001",
+            "report": {
+              "evidence_id": "archived-record-00852",
+              "sha256": "a8e9c5a5fae30f4926dd0290719cb4838bbe25fa99c5ee3c6ccc39adc50af833"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "reviewed_partial_contract",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/107/unit_reviews/5"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/63",
+        "record_sha256": "9fe1ed457cdb1a6d37386bce2e370f80bee7b39ddbb029d97a7b19ebd9c13faf"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/11bebf6926806f6f.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0232"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/80c3b91ca0e456cc-001.json",
+      "sha256": "962b096903e767ac376964219ea6c3f183280b61a5d85a19561edcaf27dbe670"
+    }
+  ]
+}

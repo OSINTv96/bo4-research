@@ -1,0 +1,134 @@
+{
+  "module": "src/scripts/core_common/scene_shared.gsc",
+  "identity": "scripts/core_common/ai_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "ai",
+  "witnesses": [
+    {
+      "line": 2009,
+      "text": "        ai::waittill_dead( a_ai );",
+      "caller": "function_9bf1aeb9",
+      "caller_span": [
+        2002,
+        2017
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2005,
+          "opening_line": 2008,
+          "ending_line": 2010,
+          "text": "if ( a_ai.size > 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "waittill_dead",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/6e43c125896a7977.json",
+          "pointer": "/claims/1",
+          "selection_id": "edccb5dd9f3682eafc68ade4b86877f9c0cd7afc0a9671443b573179cdc5c5b9",
+          "citation": {
+            "line_start": 2070,
+            "line_end": 2078
+          }
+        },
+        "entry_function": "play_pair",
+        "entry_span": [
+          2023,
+          2080
+        ],
+        "local_references": [
+          {
+            "from": "play_pair",
+            "to": "play",
+            "line": 2058,
+            "form": "local_call",
+            "text": "    self thread play( var_a33156af );"
+          },
+          {
+            "from": "play",
+            "to": "function_845e67f0",
+            "line": 1821,
+            "form": "local_call",
+            "text": "                            s_instance function_845e67f0( isdefined( s_instance.script_notify ) ? s_instance.script_notify : s_instance.script_wait, isdefined( s_instance.script_waittill ) ? s_instance.script_waittill : s_instance.script_timer, var_f7d56e76 );"
+          },
+          {
+            "from": "function_845e67f0",
+            "to": "function_9bf1aeb9",
+            "line": 1947,
+            "form": "local_call",
+            "text": "    self thread function_9bf1aeb9( a_ai );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          128,
+          181
+        ]
+      ]
+    },
+    {
+      "line": 3827,
+      "text": "    return isdefined( ent ) && ( !isdefined( ent.isdying ) && !ent ai::is_dead_sentient() || self._s.ignorealivecheck === 1 );",
+      "caller": "is_valid_ent",
+      "caller_span": [
+        3825,
+        3828
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_dead_sentient",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          114,
+          122
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0383",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/ai_shared.gsc",
+    "sha256": "0ff8ec986bc1301aa67f26179954d55b55a494fb49e9a12128dbb34a6dbdd14e",
+    "git_blob_sha1": "d6e748b588e3edd26f14c0b4d080fd5657a2abe1",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    2009
+  ],
+  "required_callee_functions": [
+    "waittill_dead"
+  ],
+  "output": "src/scripts/core_common/ai_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/ai_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04739",
+        "to": "N05128",
+        "line": 2009
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

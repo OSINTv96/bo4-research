@@ -1,0 +1,506 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/ballistic_knife.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "9b508c5fd507acfd5d037e4cb062d5814199b7259ff2a4a09ddc8ddf71f744eb",
+  "git_blob_sha1": "c40a1a169e461c7e70ac7442fe821b2bd45fb845",
+  "output": "src/scripts/weapons/ballistic_knife.gsc",
+  "output_sha256": "00a0724a77ea6d74e0b7c374f6f9bda7abf66d16ca41c9cb5965fee500f5bb85",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/challenges_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/challenges_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/challenges_shared.gsc",
+        "sha256": "f4bbff2aeb5cf365137b4176f0d4d09ade6ee0397cc381596d72a2fe31a8bea2",
+        "git_blob_sha1": "11d8d86eac4a6ec18326e1fae6b62a54cb465829"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weaponobjects.gsc",
+      "original_line": 3,
+      "output": "src/scripts/weapons/weaponobjects.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weaponobjects.gsc",
+        "sha256": "591761b45975b2875169fdb489260a4930bf1997f6fa04b92f389af290d21f4e",
+        "git_blob_sha1": "5de9dc3363a3dcccc48a8fbfd337ce93e0e5f49f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "43327c7ef62d85bfc034272c0f726d6afaf1f8ec03d54a3ecb21a75579b92772",
+      "citations": [
+        {
+          "line_start": 174,
+          "line_end": 187
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::destroy_ent",
+        "behavior": "Destruct cleanup for the retrievable model (self). Branch: if isdefined( self ): pickuptrigger = self.pickuptrigger; if isdefined( pickuptrigger ) -> pickuptrigger delete(); then self delete(). Removes the linked pickup trigger before the model. No registration of this function is shown. Watcher.ondetonatecallback names the different qualified weaponobjects::deleteent; an indirect link to destroy_ent is unresolved.",
+        "unknowns": [
+          "destroy_ent callers and registration remain unresolved. Watcher shutdown patterns do not prove that weaponobjects::deleteent invokes it."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/299",
+        "decision_canonical_sha256": "d6459a1a5765d0aade97b1656a287a41d6774aabeab85d9afd0450aafa9ec9cf",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00306",
+        "sha256": "1f58ae11a6d36eaf047418b95ad41bb284da6dbe97bf05f6d296def4e164684c",
+        "pointer": "",
+        "record_sha256": "10f45d448f3326dff95418770657791162daec004215ff281b2022524e82397c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4546e4e34e3657735dde31564941d4318a26f55c7d12f41f8dc18fd4dc7647a2",
+      "citations": [
+        {
+          "line_start": 193,
+          "line_end": 202
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::dropknivestoground",
+        "behavior": "Persistent ground-drop listener threaded on the retrievable knife model by onspawn. Cancellation: self endon(#\"death\"). Infinite loop: waitresult = level waittill(#\"drop_objects_to_ground\") â€” waits on a level-wide event whose result carries position and radius; then self droptoground( waitresult.position, waitresult.radius ) (file-local variant) which re-launches and re-anchors the pickup trigger when the knife lies within the event radius. Runs until model death.",
+        "unknowns": [
+          "Who fires level event \"drop_objects_to_ground\" (likely a shared map/system utility) is not in this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/379",
+        "decision_canonical_sha256": "99fea1f2566a60a7f0abb8e8ec2fe36b6d053615ead190918f3684451da7fd2e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/12",
+        "record_sha256": "3f6210bd61b8b6c4b3dd6f61382917fcb1e8bcdf3297b269f2dc5f07b55d6587"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4b50b77d3724e7e2c9aaa606665c5ab3e40701fcb821df86fc00d451ccca8a89",
+      "citations": [
+        {
+          "line_start": 221,
+          "line_end": 232
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::updateretrievetrigger",
+        "behavior": "Reposition the pickup trigger after a re-drop. Cancellation: self endon(#\"death\"). Wait: self waittill(#\"stationary\"). Then trigger = self.pickuptrigger; if isdefined( trigger ): trigger.origin = ( self.origin[0], self.origin[1], self.origin[2] + 10 ) (10 units above the settled knife); trigger linkto( self ). One-shot; no loop.",
+        "unknowns": [
+          "Whether the trigger field exists relies on weaponobjects::function_57152a5 having created pickuptrigger (outside-packet dependency)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/338",
+        "decision_canonical_sha256": "0c4c3ac572bdfeb5e54c09bae1102bf344329f1d31314eba4b7e2fad26bf17c1",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/14",
+        "record_sha256": "434f90a57e0a67c2c483a2fc06ee525ed78237a81edd779a26639a9c381ce424"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5c163fb2006e57bc40bbe7a8c6645d698851145daac48ed994e580989fcf6ee3",
+      "citations": [
+        {
+          "line_start": 36,
+          "line_end": 110
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onspawn",
+        "behavior": "Projectile land handler threaded with (watcher, player); self is the thrown ballistic-knife projectile entity. Cancellation: one combined player endon(#\"death\",#\"disconnect\"), level endon(#\"game_ended\"). Waits: waitresult = self waittill(#\"stationary\", #\"death\") â€” wait result carries position, normal, direction, attacker, target (prey), bone_name. If !isdefined( self ) -> return. Reads endpos, normal, angles(=direction), attacker, prey(=target), bone. isfriendly = 0. If isdefined( endpos ): spawns \"script_model\" retrievable_model at endpos; ordered setup: setmodel( watcher.weapon.projectilemodel ), setteam( player.team ), setowner( player ), .owner = player, .angles = angles, .name = watcher.weapon, .weapon = watcher.weapon, .targetname = \"sticky_weapon\". If prey defined: .prey = prey; if level.teambased && player.team == prey.team -> isfriendly = 1; if !isfriendly: if isalive( prey )  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "waittill(#\"stationary\",#\"death\") multi-event result layout (position/normal/direction/attacker/target/bone_name) is engine-provided; only field names observed",
+          "watcher.weapon.projectilemodel content is game data",
+          "physicslaunch parameter semantics (dir, velocity?) native",
+          "Whether watcher.objectarray pre-exists / is cleaned elsewhere lives in weaponobjects (owner dependency)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/502",
+        "decision_canonical_sha256": "17c96a8efa2b236e1535b118d2239f333657c9be106b40cf5752050a835bb4eb",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00307",
+        "sha256": "53a0a2d48e767a6f8c20d807e94d84bde6b45a38cd973887273578e89b76d961",
+        "pointer": "",
+        "record_sha256": "43ac586ac45668b56f31d0c427e8a514679d78e010b82f173aa7ef3f1d9873f2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "65153184e9fffaec494e80413bbaeaf2cd3d0bf314bdb049dc261423017a3a9a",
+      "citations": [
+        {
+          "line_start": 249,
+          "line_end": 257
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::createballisticknifewatcher",
+        "behavior": "Watcher-callback installer registered for the ballistic-knife/crossbow names in init_shared. Registration stores the callback and does not invoke it. The separate weaponobjects lookup/createwatcher path may invoke it with a watcher when that path reaches its defined createfunc call. Called with the watcher object; pure assignment of callbacks: watcher.onspawn = &onspawn; watcher.pickup = &onpickup; watcher.onfizzleout = &onfizzleout; watcher.ondetonatecallback = &weaponobjects::deleteent; watcher.onspawnretrievetriggers = &onspawnretrievetrigger; watcher.storedifferentobject = 1. No branches; no other state.",
+        "unknowns": [
+          "Semantics of watcher.storedifferentobject=1 (likely keeps the retrievable model rather than the raw projectile in watcher.objectarray) inferred from member name only",
+          "The full watcher lifecycle (when onspawn/ondetonatecallback fire) is the weaponobjects.gsc system outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/28",
+        "decision_canonical_sha256": "2c5ee33df0cea3722884fafa3b6a1b0d321b57bb6f01b494af230aec3fab2e71",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00308",
+        "sha256": "94d15893218ed0f014aa5a20848eaa23b573407639d8d8ebe84dfbf7978ae2f6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8628d0ab46b8106dcb2f04847c7357f9ef3ce25c8af12d73f2f8954cf4963d45",
+      "citations": [
+        {
+          "line_start": 208,
+          "line_end": 215
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::droptoground",
+        "behavior": "Re-drop of a grounded knife within a level event radius (origin, radius args; self = retrievable model). Branch: if distancesquared( origin, self.origin ) < radius * radius -> self physicslaunch( ( 0, 0, 1 ), ( 5, 5, 5 ) ) (upward nudge) then self thread updateretrievetrigger() which waits for stationary and re-links the pickup trigger. No writes outside self/its trigger.",
+        "unknowns": [
+          "physicslaunch velocity/direction argument convention is native behavior, unverified",
+          "Why (0,0,1)/(5,5,5) constants â€” tuning values observed, meaning not documented"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/599",
+        "decision_canonical_sha256": "953999e09cf14453e88370f85a923a3d3fc5025237d4ec1abc6e734b0a04c6a0",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/13",
+        "record_sha256": "cc79ef9e04f4ce4a0eebdbf2855b46b4ccd082b8b136c6257101debb6338d1fe"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8b9d3d0bc81878dfcca1d02f25631fd20de8d87a276ebced71f346db5e86ac4f",
+      "citations": [
+        {
+          "line_start": 238,
+          "line_end": 243
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onfizzleout",
+        "behavior": "Fizzle (despawn timeout/dud) handler on the ground model. Cancellation: self endon(#\"death\"). Ordered: playfx( level.var_f676fe5a, self.origin ) â€” plays the FX registered in init_shared (hash_4b7ed37163f1ec57); then self delete(). Registered into watcher.onfizzleout by createballisticknifewatcher.",
+        "unknowns": [
+          "Which watchtimeout/fizzle timer invokes onfizzleout lives in the weaponobjects watcher machinery (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/376",
+        "decision_canonical_sha256": "4d9097e8c600a6d7a9373fdff629fbd76efa764f0047519757abbeff0de358c5",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/15",
+        "record_sha256": "f5b37024929bbef5388be3ee87b5e01a9f9cfc6cfe95ea79222ccc082425d5a5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9f7d454f487c2d4a8b5dea37ef806d0d176fd8af177a4e1aa00d45b91ce6c072",
+      "citations": [
+        {
+          "line_start": 116,
+          "line_end": 158
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onspawnretrievetrigger",
+        "behavior": "Retrieval-trigger setup, called by the weaponobjects watcher machinery with (watcher, player); this body never reads self; the actual callback receiver remains unresolved. The retrievable_model is received from the player notification. Cancellation: two separate calls player endon(#\"death\") and player endon(#\"disconnect\"), level endon(#\"game_ended\"). Waits: player waittill(#\"ballistic_knife_stationary\"); retrievable_model = waitresult.retrievable_model; return if undefined. Reads normal = retrievable_model.normal, prey = retrievable_model.prey; vec_scale = 10. Trigger position selection: if prey defined && ( isplayer( prey ) || isai( prey ) ) -> trigger_pos = prey.origin + ( 0, 0, vec_scale ); else trigger_pos = retrievable_model.origin + vec_scale * normal. State writes: clientfield::set( \"retrievable\", 1 ) and clientfield::set( \"enemyequip\", 1 ) on retrievable_model; retrievable_model  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "weaponobjects::function_57152a5 (creates pickuptrigger) and weaponobjects::watchshutdown bodies are outside this packet",
+          "clientfield \"retrievable\"/\"enemyequip\" client-side interpretation is engine-side",
+          "Whether function_57152a5 also stores player/team filtering is unknown from this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/866",
+        "decision_canonical_sha256": "2c30eb45569a3820e0a965f63b9679ca134ddee8bbc813be921cb7577bf62f6e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00309",
+        "sha256": "36a884d6e75cc869d4c5ffa8c09b697119c58a19d54c6dc4dfcea4a3e485a206",
+        "pointer": "",
+        "record_sha256": "d8d3afb85ac691133bb2a1eb84d755f2b1b35aa59fd54d9acd029f2354ee866f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c0252c07339debf5e026670a5d112a821ac91e0aceecba057536969e758030e6",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 30
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::init_shared",
+        "behavior": "Server-side shared init for the ballistic knife / crossbow thrown-weapon watcher system. Writes level.var_f676fe5a = #\"hash_4b7ed37163f1ec57\" (the fizzle FX consumed by onfizzleout). Registers &createballisticknifewatcher as the spawn-watcher creator via weaponobjects::function_e6400478 for weapon names: special_ballisticknife_t8_dw, special_ballisticknife_t8_dw_dw, hash_4646a4e86c781e84, special_crossbow_t8, and hash_6c40a7a156b05224 (after weaponobjects::function_dcc8b5d5(special_crossbow_t8, \"pistolscope\", hash_6c40a7a156b05224) aliases the pistolscope attachment variant name). Gate: if isdefined( level.var_b68902c4 ) && level.var_b68902c4 (upgraded-weapons level flag), additionally registers the upgraded variants: special_ballisticknife_t8_dw_upgraded, special_ballisticknife_t8_dw_upgraded_dw, hash_176b8e0e47a43cb9, special_crossbow_t8_upgraded, alias hash_73258bb36ebe26d (via functi [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "weaponobjects:: functions function_e6400478/function_dcc8b5d5/function_57152a5/function_db70257/watchshutdown/deleteent live in scripts/weapons/weaponobjects.gsc which is outside this packet; their bodies were not reconstructed",
+          "Meaning of level.var_b68902c4 gate (plausibly an upgraded-weapon mode flag) is inferred from the upgraded registrations only",
+          "Exact identity of hashed weapon names hash_4646a4e86c781e84/hash_176b8e0e47a43cb9/hash_6c40a7a156b05224/hash_73258bb36ebe26d is not in the catalog"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/540",
+        "decision_canonical_sha256": "423bca5c45cd9e0104687a4c1f61c54ca3fb69acc4da71c47ad1ef9676740c8d",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00310",
+        "sha256": "022ccc55c98834e0e6f2bcdab68fd9a5cf0d1233524e97efd17a7ab2491d0d76",
+        "pointer": "",
+        "record_sha256": "89966cd0adbeaaf45314b818236a1d0679479d1a35001f000e40d37f4368f252"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f979f8d9137c2d5c99798c6583a8b00fe203ad56e225e7a97c3c6aed7b9b7843",
+      "citations": [
+        {
+          "line_start": 164,
+          "line_end": 168
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onpickup",
+        "behavior": "Pickup handler on the retrievable knife model, called with (player, heldweapon). Ordered: self weaponobjects::function_db70257( player, heldweapon ) â€” weaponobjects helper that presumably restores the weapon to the picking player; then self delete() â€” removes the ground model. Immediate cleanup path; no branches.",
+        "unknowns": [
+          "weaponobjects::function_db70257 body lives in weaponobjects.gsc (outside packet); exact weapon-restore/ammo behavior unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1173",
+        "decision_canonical_sha256": "019e138758855652a7592a7076b78d892218a6a814f996caf7858659997a4501",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/10",
+        "record_sha256": "cd65c9de92af7cef2f6b06722ab1db4e7d46850f23c4931409e17cb500d14433"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/7bad19e1142df6c7.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/2d2cab7b35a597d9-001.json",
+      "sha256": "2039838c7a4b5f1e68795e3d8f0d12e4b01a39bcad89858ade19cdb188e91678"
+    }
+  ]
+}

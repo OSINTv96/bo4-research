@@ -1,0 +1,234 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/item_world_util.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "9938b537d8a72061dadee71df2082553f414dd8492e59528cf4d04f14de098fc",
+  "git_blob_sha1": "812dc2ec47a6ba2d012a70ecc7f9595a3950ab93",
+  "output": "src/scripts/mp_common/item_world_util.gsc",
+  "output_sha256": "06fd4df5b75e72eddb5aa468ee9710d3371fca3c5f7f99fca1a77f5fefb8a9db",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "28ff915b304a1b4a399f8e76aa11cbfe60067859b43ed136e72025f5b5e0955a",
+      "citations": [
+        {
+          "line_start": 308,
+          "line_end": 325,
+          "sha256": "9938b537d8a72061dadee71df2082553f414dd8492e59528cf4d04f14de098fc"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-link:HMH-GRANT-LINKS-01:02-inventory-insert",
+        "answer": "HMH kit counts are requests against current inventory space. The reused insertion first merges matching stacks across the entire items array, then tries a supplied blank slot, then ordinary capacity slots unless an explicit special slot14/15/16 is now occupied. A request can be partly accepted and leave remainder; one supplied object can name only the latest merged/filled network ID, not every installed record. Supplied gun state, installed record fields/cache, array slot and slot-derived network key have separate lifetimes. Attachment/cosmetic completion exists only in the completed explicit-blank arm. These are conditional recovered-source links, with no native success or original-PS4 proof.",
+        "unknowns": [
+          "Actual HMH M, capacity and type/handler after remapping are unknown. Numeric branch examples are explicitly supplied source inputs, not recovered bundle values or game tests.",
+          "Root owns common caller/selection/grant ABI/handler behavior and asynchronous prior drop/removal. Ammo owns ammo-stock transfer. This output neither consumes their active outputs nor reconstructs those bodies.",
+          "No guarantee that a slot suggestion remains blank, every recursive attachment resolves/installs, a native clip/cache exists, or all accepted source counts are synchronized to a client.",
+          "The installed explicit record is not assigned the supplied object wholesale. Hidden VM aliases could nevertheless connect references; source field differences alone do not prove deep copies, freshness, destruction or uniqueness.",
+          "Source return0 can follow complete consumption or failed admission; it is not unconditional success. Interruptions can occur after mutation, and no complete rollback or child/native acknowledgment is established."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/36",
+        "decision_canonical_sha256": "4fe63bd7087275fc14943100911bc759cca3ed575aa692203755e956fa8ebac8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00295",
+        "sha256": "989de0e759da2220c2172ea009d3043fbb991a1ff1fefc12eb9d0c6fbb9c0252",
+        "pointer": "",
+        "record_sha256": "80cc1fea703042e87899bbd9ad3552c8c8f5d0ced39695f235c1318e5187074d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "796f5a3b93dcd4324b0ae36ff5df4c7e49e7788b7f8e701ac2988b289d8b42ca",
+      "citations": [
+        {
+          "line_start": 623,
+          "line_end": 626
+        },
+        {
+          "line_start": 318,
+          "line_end": 324
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-item:HMH-ITEM-LIFETIME-10:02-slot-lookup",
+        "answer": "The reused helper returns the first current array index whose record has the requested network ID. That index is a position, not an item-definition ID, a lasting record identity or a native gadget slot. Health equip uses it only for a below-capacity move into inventory slot10. Debit and removal use fresh ID scans instead of carrying that index. A swap/reset/refill can change both occupancy and network ID, so neither an old index nor an old numeric key proves the same item is still present.",
+        "unknowns": [
+          "Whether malformed/duplicate keys or described interleavings occur in the original game.",
+          "Any native or external guarantee that keys are unique, slot occupancy reserved, or old work cancelled on reset.",
+          "No bounded case demonstrates native equip/removal success; other owners retain full readiness/removal/reselection/reset work."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/102",
+        "decision_canonical_sha256": "2f33d451de3161e06e62a64fa4c944a6f13d49591b0a158a5356980f13ba736b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00430",
+        "sha256": "b3d7529a0ebadcf8e0f5e471104d36393efad9fdecb33aabba93550954ff4c0d",
+        "pointer": "",
+        "record_sha256": "eefcf299a1f95513113adc36b9773beecef61d26d71b30b19bd18c785b103a35"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8cd74d5020093ac78fead48d3f4212bffbd84297d5d8d1764174dcf1047a80ad",
+      "citations": [
+        {
+          "line_start": 673,
+          "line_end": 711,
+          "sha256": "9938b537d8a72061dadee71df2082553f414dd8492e59528cf4d04f14de098fc"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-link:HMH-WEAPON-LINKS-01:03-weapon-cache",
+        "answer": "The HMH giver requests attachment objects, and successful add-helper paths append those actual objects to the gun and request a rebuild. Rebuild starts from the entry weapon, combines its base attachment list with each defined attached record var_4c342187, appends the literal string null or custom2 from var_42caf41a, calls getweapon and function_1242e467, then writes item.var_627c698b. The getter returns an existing defined cache before examining current attachment state. Missing base returns before a cache write; direct mutation and failed adds therefore do not prove cache invalidation or a successful gun. The later explicit equip edge rewrites the flag and rebuilds again, with its slotid uncertainty retained. This is a conditional recovered-source link only.",
+        "unknowns": [
+          "No guarantee that each requested _get_item result, compatibility name, attachment add, clip-size lookup, world grant or later equip succeeds. World grant and whole equip logic remain frozen boundaries owned elsewhere.",
+          "A defined cache is not a demonstrated current weapon: missing base preserves earlier cache, skipped rebuild leaves it unchanged, and later opaque errors have no proved recovery.",
+          "Neither duplicate native options nor idempotent rebuilds are proved. The source has no local name/options deduplication, but actual base-array aliasing and getweapon normalization are unknown.",
+          "The literal equip slotid write precedes its later lookup assignment. No substitution of destination var_68dc9720 or inference of null/custom2 meaning is made.",
+          "The supplied prior-body set contains exact GSC rebuild/getter/removal contracts. The add-helper reads here establish only the narrow requested input/mutation connection; no whole add/fit/world/UI/native body is reauthored and no CSC twin is used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/121",
+        "decision_canonical_sha256": "e0ffe1bac9f510363e1327d43886d9a7a048c04f88939dc7348638054401ca9e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00298",
+        "sha256": "f6eb35a9c39b96681a32ecf4fc6afd49decd68b9ab4239746c9fdc6f8c684df7",
+        "pointer": "",
+        "record_sha256": "7933946c3cbffb3cf33b7aabd4bbd17ee7e037c099ee52581a527e22ea3803e0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c34a9a3dcd140d011477688d94f786bf778246d5c8756bda18e54e00c6dd004e",
+      "citations": [
+        {
+          "line_start": 318,
+          "line_end": 324
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-item:HMH-ITEM-LIFETIME-10:01-id-lookup",
+        "answer": "The resolver finds the first current inventory record with a strict-equal network ID; it does not establish a lasting object identity or an item-definition match. Health equip and debit use different snapshots: equip retains a selected item argument, while debit passes a captured numeric ID into a later scan. Slot moves, removal, refill and reset can separate those snapshots. The connection preserves conditional stale/duplicate/reused-ID cases without claiming a real race or native outcome.",
+        "unknowns": [
+          "Whether duplicate or stale-key situations occur in an original HMH run; examples are conditional source cases.",
+          "Whether a pending use/reset/unequip interleaving is possible under the original scheduler and event order.",
+          "Which actual object an old local refers to after slot clearing or whole inventory replacement; no garbage-collection, invalidation or alias guarantee is inferred.",
+          "Other owners retain full removal/reselection/reset scopes; no task or acceptance is added here."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1075",
+        "decision_canonical_sha256": "d45482f6db7b90d5a2287cb0682868479ee56d48c96c528c8992c30b706fab47",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00436",
+        "sha256": "980f17715aa43e336e6929029e644717339b72cf0483c70ec33cf1c0781f5d6a",
+        "pointer": "",
+        "record_sha256": "b88f18b1dae30e5470d21f240543949ffcbc3c527f68d245cac76ad8fad4631d"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/b7262393e36071df.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/9b3d1bca0f051112-001.json",
+      "sha256": "d64ef6e52dbe024fb051d8acf123be5d22f7fd0ac08b0c749bb6c7a420998ee7"
+    }
+  ]
+}

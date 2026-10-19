@@ -1,0 +1,318 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_perk_tracker.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "7d0de74e770040a1810d4444d07318850d849abf615d840670ed982df6809f74",
+  "git_blob_sha1": "fd30df284135c92bf5fc9735d15780cb81dc688d",
+  "output": "src/scripts/wz_common/wz_perk_tracker.csc",
+  "output_sha256": "886668fbd224a9704d46d23d68463925e5c660a2aed0ed3b9a99976e1ee249b6",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "1731d41d0128ce836838d0cc63f6fa7b412fd42e5966150ddeef91cec59204ad",
+      "citations": [
+        {
+          "line_start": 42,
+          "line_end": 83
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::tracker",
+        "behavior": "WZ tracker loop, level receiver per connect: while(true), wait0.2; use function_5778f82(localclientnum,#\"specialty_tracker\") as opaque perk gate, then get local position/players and arraysortclosest(players,origin,undefined,1,6000). tracked starts0 each pass. Skip tracked>=10, dead, truthy function_83973173, or defined vehicle, clearing tracker_last_pos. Otherwise increment tracked; initialize missing tracker_last_pos to player.origin, call player gettrackerfxposition(localclientnum), and call player tracker_playfx only when returned struct is defined. Clear local players at pass end. Printed control flow matches bloody_tracker; later gettrackerfxposition/tracker_playfx calls have this namespace binding, while function_5778f82 is not an FX resolver. The quota limits10 eligible players processed per pass, not concurrent FX handles. Native timing/FX lifetime and actual namespace dispatch r [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_5778f82 / function_83973173 sources outside packet (prior-note inferences only)",
+          "Thread lifetime without game-end guard mirrors unit 477"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/108",
+        "decision_canonical_sha256": "39020026d5318311e2b22e88bd57c09151da31000801da9ab1d339d8832f7b38",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00209",
+        "sha256": "3a7ec2f2d3554f70d3d895ac54874cb9bd1be19955a057e53ccdf1bb2798e014",
+        "pointer": "",
+        "record_sha256": "ec207e83e26b2bbb7f6135cf5ca01ff87ca1b5344f87e606f38bc3934ab198a4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "198dd444ae3e42a49f18410db83f72cf51215556359f6e314dbc848721e80aad",
+      "citations": [
+        {
+          "line_start": 33,
+          "line_end": 36
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::on_player_connect",
+        "behavior": "Connect handler: level thread tracker( localclientnum ) â€” one statement, threads the tracker loop (unit 501) on level.",
+        "unknowns": [
+          "None within function scope"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/70",
+        "decision_canonical_sha256": "ca9628317c22b72904f279aedf2b6c9831b3edd93c7f0fcb76317aa1028f02ca",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/499",
+        "record_sha256": "e5f5c523bfc61d5790d5fa2777aacf8ba2ae78654f384599d4ce04b3e3fd8292"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "382d3b6a91b89681b0529a03fa97a0a9885501110b5bdcd278130777e87633bb",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::__init__system__",
+        "behavior": "Client-side autoexec registration. function autoexec __init__system__(): system::register( #\"wz_perk_tracker\", &__init__, undefined, undefined ). No other statements (file 152 lines).",
+        "unknowns": [
+          "system::register semantics outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/147",
+        "decision_canonical_sha256": "91bd6b553deb2d94772a6b675705f7c1c7e20942ec8684b5d93c18d647b7f1b6",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/497",
+        "record_sha256": "8d5770b44ae51f7c8628c3efdfe5b959c723f2bb497b385697fee0f28ad8a57c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "44ac76ad23c25343e9fb32ef5c57ea3d621ed95e60e629dafc96c5bf14d75b7e",
+      "citations": [
+        {
+          "line_start": 89,
+          "line_end": 142
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::gettrackerfxposition",
+        "behavior": "NO-trace footstep-fx builder for the tracked player (method on the TRACKED player). positionandrotation = undefined; offset = ( 0, 0, getdvarfloat( #\"perk_tracker_fx_foot_height\", 0 ) ) â€” hash-typed dvar name with default 0 (engine dvar, not a bundle field); dist2 = 1024. FX selection by foot flag: \"player/fx_plyr_footstep_tracker_r_wz\" / \"player/fx_plyr_footstep_tracker_l_wz\" (exact asset strings; NO blood variants here â€” differs from bloody tracker unit 478). pos = self.origin + offset. Basis: fwd = anglestoforward( self.angles ); right = anglestoright( self.angles ); up = anglestoup( self.angles ); vel = self getvelocity(); when lengthsquared( vel ) > 1: up = vectorcross( vel, right ); if lengthsquared( up ) < 0.0001 -> up = vectorcross( fwd, vel ); fwd = vel (RAW velocity, not normalized). Movement gate KEPT: if distancesquared( self.tracker_last_pos, pos ) > dist2 -> build spawn [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "getdvarfloat value of perk_tracker_fx_foot_height is runtime/console configuration, not source data",
+          "Velocity cross-products remain unnormalized as written; fx orientation magnitude engine-side"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/185",
+        "decision_canonical_sha256": "56f57cfe710d420e0776a7bcaee1b32dfb9729ed83741aef396bacb55321c28c",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/501",
+        "record_sha256": "cd812f6560fde70175f4e02b5c52995f60c2374b94438bd78aa818fa1af67d21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "af426b3c37a54831b58f70ed42e6954b086eaf86bd42160d0cd7e74ae842079e",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 27
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::__init__",
+        "behavior": "Tracker init with INVERTED MODE GATE vs wz_perk_bloody_tracker (same gametype key, token exact): if isdefined( getgametypesetting( #\"hash_1d02e28ba907a343\" ) ) && getgametypesetting( #\"hash_1d02e28ba907a343\" ) -> return (registers NOTHING when the setting is defined and truthy). Only when the setting is ABSENT/FALSY: callback::on_localclient_connect( &on_player_connect ). The conditions are complements only for matching stable getter results across both initializations. Separate/repeated reads and existing registrations mean this source alone does not prove live mutual exclusion or registry cleanup.",
+        "unknowns": [
+          "The playlist meaning of hash_1d02e28ba907a343 is data outside packet",
+          "getgametypesetting evaluated twice in the gate (as printed)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/485",
+        "decision_canonical_sha256": "0aacf4702b2c5249a2769631561e3ad0eb104f99b1c15e157b80879ba78a97ff",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00210",
+        "sha256": "5cc732bf6dc1fa0e35e18b553c4b7eac1fdba1f50d5279d675901d6f10031622",
+        "pointer": "",
+        "record_sha256": "088debf95e24db02b1870fec407f2fea21b22cecb1a7900586427d0172cc0718"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e1305c6fd100536e6ccabb6529cc02efa390dd95eeb1a03ac6d5a3c9de2432a1",
+      "citations": [
+        {
+          "line_start": 148,
+          "line_end": 151
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_tracker.csc::tracker_playfx",
+        "behavior": "Tracker fx emitter, no-trace flavor (function(localclientnum, positionandrotationstruct)). Single statement: handle = playfx( localclientnum, positionandrotationstruct.fx, positionandrotationstruct.pos, positionandrotationstruct.fwd, positionandrotationstruct.up ) (client 5-arg playfx); handle captured and unused. Identical call shape to bloody tracker unit 479.",
+        "unknowns": [
+          "None beyond engine playfx conventions"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1237",
+        "decision_canonical_sha256": "2a64da22642a50f689641698525c0508a387cda371de9dcc8cfd0c58d003c0a2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/502",
+        "record_sha256": "537571ec71cfe4ab11540ca3784b2fae86424cdea3e264053692a18dc093ec2b"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/0ae33f6acf11afca.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/1743440f2f5bfb11-001.json",
+      "sha256": "0e4f35f74f833bfc7c77524c1ba97e4a0e350553a97293e1548923fa7c934a51"
+    }
+  ]
+}

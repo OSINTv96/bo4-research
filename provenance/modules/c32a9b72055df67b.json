@@ -1,0 +1,841 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/killstreaks/mp/supplydrop.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "6ebd0a9c7df586ceb6e3df4430f7492f01ea09bae84cb5fe722916366e079858",
+  "git_blob_sha1": "302b27fdbaf1f186d9e4c48f1f11d9cc4bc0ebf7",
+  "output": "src/scripts/killstreaks/mp/supplydrop.gsc",
+  "output_sha256": "a35fd042f0d49673f5f4371015019d106f6f027d66d8f289ee0c5fed9631955e",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "script_52d2de9b438adc78.gsc",
+      "original_line": 1,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/ai_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/ai_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/ai_shared.gsc",
+        "sha256": "0ff8ec986bc1301aa67f26179954d55b55a494fb49e9a12128dbb34a6dbdd14e",
+        "git_blob_sha1": "d6e748b588e3edd26f14c0b4d080fd5657a2abe1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0329.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/challenges_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/challenges_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/challenges_shared.gsc",
+        "sha256": "f4bbff2aeb5cf365137b4176f0d4d09ade6ee0397cc381596d72a2fe31a8bea2",
+        "git_blob_sha1": "11d8d86eac4a6ec18326e1fae6b62a54cb465829"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/entityheadicons_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/entityheadicons_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/entityheadicons_shared.gsc",
+        "sha256": "9919573b1fa63632f6f9f347a3c0ea47190fab6357b650cca95df22f9ae93c54",
+        "git_blob_sha1": "b7181ca0a102200ee4441fe9a1e348d0466b6e4c"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0330.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/flagsys_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.gsc",
+        "sha256": "b5c793b6299033643940befd7f709316e0a8189ccc28c77b579a26c53cf461fc",
+        "git_blob_sha1": "832a18f954a3f9101a08fa0aa57dcf308bbcbb5e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/gameobjects_shared.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/gameobjects_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/gameobjects_shared.gsc",
+        "sha256": "a0ae65b0b74cad215472fd59337be999a7eddcc2f9d2dad1a825e90dd45bd0cb",
+        "git_blob_sha1": "bd23bb2bd2e6441f6e2ccb6715adf144c0a1c2dd"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/hostmigration_shared.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/hostmigration_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/hostmigration_shared.gsc",
+        "sha256": "e8c584dd7bfc9e3b8e15690f71008ba4f5d20ca2bf332f6b9bd4c67056d22a6a",
+        "git_blob_sha1": "b11600115eb37eff08cd1870116ec6695e593087"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0331.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/influencers_shared.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/influencers_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/influencers_shared.gsc",
+        "sha256": "89615f6491c2cb5f2948d576943f6218a8d8f556d022b7390525ead93a36fba0",
+        "git_blob_sha1": "a53342d8a8212c4b63952fadd2e82d9c6e68b261"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 11,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0332.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/popups_shared.gsc",
+      "original_line": 12,
+      "output": "src/scripts/core_common/popups_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/popups_shared.gsc",
+        "sha256": "4802b071c218243530dc7097816ca16bfa70f244158bedb0e32ee43201b75d3d",
+        "git_blob_sha1": "a82f07d72070c479ca383557fe55591f623d2054"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0333.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 13,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0334.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/sound_shared.gsc",
+      "original_line": 14,
+      "output": "src/scripts/core_common/sound_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/sound_shared.gsc",
+        "sha256": "aee728a3bd055e2aaf7a53f0b7cd720a1184c028532756eb31cacbb17f58b201",
+        "git_blob_sha1": "d0d13ef9c50e6094aad4dac99ce22e50bc08cf74"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0335.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 15,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 16,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 17,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/values_shared.gsc",
+      "original_line": 18,
+      "output": "src/scripts/core_common/values_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/values_shared.gsc",
+        "sha256": "9f3b4a443df55ec01b42be88bb21658e445bfd1eb615be0e8d16b95a86ac5995",
+        "git_blob_sha1": "936d1d4c850203df1c59ac830f309238ae635fff"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/ai_tank_shared.gsc",
+      "original_line": 19,
+      "output": "src/scripts/killstreaks/ai_tank_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/ai_tank_shared.gsc",
+        "sha256": "825f58075062c85b91e0504db8a59330f7a0f455cba8b165a0f18108b056baa4",
+        "git_blob_sha1": "db49cbadb9b9d05e4f793014307f92e2769f0592"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0336.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/airsupport.gsc",
+      "original_line": 20,
+      "output": "src/scripts/killstreaks/airsupport.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/airsupport.gsc",
+        "sha256": "b759d6c08af933a4e411d5def639ccbb3377a3c928fe82a8e7fb9e29ce5ccd1f",
+        "git_blob_sha1": "ad5926a1434de49a00335248ab197fae94cbc6d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0337.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/emp_shared.gsc",
+      "original_line": 21,
+      "output": "src/scripts/killstreaks/emp_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/emp_shared.gsc",
+        "sha256": "d7e0e81e51ad91eda4f735e7a4ce14c5b01e9b025438e2158f5a3337e1b8b422",
+        "git_blob_sha1": "8da8a976c53248314f1de8cae57d105a81eb7815"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0338.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/helicopter_shared.gsc",
+      "original_line": 22,
+      "output": "src/scripts/killstreaks/helicopter_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/helicopter_shared.gsc",
+        "sha256": "268acfb0964e8bf6303fe1d08d7fbe32e4601eab781ffe8cb97cca6978652af1",
+        "git_blob_sha1": "007c64b43f97c7b11f876def05bd39142998a6cb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0339.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreak_bundles.gsc",
+      "original_line": 23,
+      "output": "src/scripts/killstreaks/killstreak_bundles.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreak_bundles.gsc",
+        "sha256": "fdbe017fca589fd9d9449d4901fcd3480da148685a53b14138338ca19bded62b",
+        "git_blob_sha1": "86b0a259955b3c54781fe7d149e8e19fe9ace3d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0340.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreakrules_shared.gsc",
+      "original_line": 24,
+      "output": "src/scripts/killstreaks/killstreakrules_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreakrules_shared.gsc",
+        "sha256": "01dbcc53a3cdac1da79424e77e3beb31c4d8da4dd3d26e0ae4520e0048e462af",
+        "git_blob_sha1": "bbe8c2468a7ebbe2d93cd55615e18535bf99a7a5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_shared.gsc",
+      "original_line": 25,
+      "output": "src/scripts/killstreaks/killstreaks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_shared.gsc",
+        "sha256": "35f35b2122e1d388c749ecb01bfdf87cabcbb41c47efdad6e05f195afcc370cc",
+        "git_blob_sha1": "9bebb9527bb9d1471d08d6ab66ba4de1c7c5fce2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_util.gsc",
+      "original_line": 26,
+      "output": "src/scripts/killstreaks/killstreaks_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_util.gsc",
+        "sha256": "d206d85fa990cb0611079beafeced0efe30987a5542d173ed5df52cd50aafbb8",
+        "git_blob_sha1": "9dd498f4a761ed0de24dc83927ac6caf06ac7627"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0341.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/mp/killstreak_weapons.gsc",
+      "original_line": 27,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/mp/killstreak_weapons.gsc",
+        "sha256": "2ea214d575e583866199c87ca28949319ebfe9a3b614ea4a9d4a0978d6181eb5",
+        "git_blob_sha1": "539bb671512cba8aac996883581b9ac3a984e676"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0342.json",
+      "assessment": "available_source_inspected_unresolved_loader_indirect_or_context_admission",
+      "selected_caller_functions": [
+        "__init__",
+        "__init__system__",
+        "adddroplocation",
+        "addoffsetontopoint",
+        "cleanup",
+        "continueholdthinkloop",
+        "crateactivate",
+        "cratecontrolleddrop",
+        "cratedeactivate",
+        "cratedelete",
+        "cratedroptogroundkill",
+        "cratedroptogroundtrace",
+        "crategamblerthink",
+        "cratephysics",
+        "cratereactivate",
+        "crateredophysics",
+        "cratespawn",
+        "cratetimeout",
+        "cratetimeoutthreader",
+        "crateusethink",
+        "crateusethinkowner",
+        "default_land_function",
+        "deldroplocation",
+        "deleteonownerleave",
+        "destroyhelicopter",
+        "dropalltoground",
+        "dropalltogroundaftercratedelete",
+        "dropcrate",
+        "dropcratestoground",
+        "dropcratetoground",
+        "dropeverythingtouchingcrate",
+        "finalizecratecategory",
+        "function_1c601b99",
+        "function_1f686c3b",
+        "function_200081db",
+        "function_263d3e9e",
+        "function_4c0ed253",
+        "function_6dc6bc6b",
+        "function_703ed715",
+        "function_75277c27",
+        "function_7d90f954",
+        "function_9153c267",
+        "function_accec5c5",
+        "function_bff5c062",
+        "function_d51de8cf",
+        "function_e16ff9df",
+        "function_e611181f",
+        "function_fc826e6",
+        "function_fe13a227",
+        "getchopperdroppoint",
+        "getdropheight",
+        "geticonforcrate",
+        "getrandomcratetype",
+        "givecrateitem",
+        "givecratekillstreak",
+        "helidelivercrate",
+        "helidestroyed",
+        "helidropcrate",
+        "inccratekillstreakusagestat",
+        "is_clone_touching_crate",
+        "is_equipment_touching_crate",
+        "is_touching_crate",
+        "islocationgood",
+        "issupplydropgrenadeallowed",
+        "lbexplode",
+        "loop_sound",
+        "personalusebar",
+        "play_impact_sound",
+        "refcountdecchopper",
+        "setricochetprotectionendtime",
+        "spawn_explosive_crate",
+        "spawn_helicopter",
+        "spawnuseent",
+        "speedregulator",
+        "stationarycrateoverride",
+        "supplydropheliendpath_v2",
+        "supplydrophelistartpath_v2_part2",
+        "supplydrophelistartpath_v2_part2_local",
+        "supplydrophelistartpath_v2_setup",
+        "timeoutcratewaiter",
+        "unlinkonrotation",
+        "update_crate_velocity",
+        "useentownerdeathwaiter",
+        "useholdthink",
+        "useholdthinkloop",
+        "usekillstreaksupplydrop",
+        "waitanddelete",
+        "watch_explosive_crate",
+        "watchforcratekill"
+      ],
+      "remaining": "No unique ordinary qualified callee/module-load path to this target was established in the closed candidate graph. Include/autoexec, class/constructor, ambiguous/global namespace resolution, indirect delivery or caller context remains unproved; available source is not relabeled missing."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/battlechatter.gsc",
+      "original_line": 28,
+      "output": "src/scripts/mp_common/gametypes/battlechatter.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/battlechatter.gsc",
+        "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b",
+        "git_blob_sha1": "7bc90120c8638397cfa9c4e61b06b76c81c0d99f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/hacker_tool.gsc",
+      "original_line": 29,
+      "output": "src/scripts/weapons/hacker_tool.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/hacker_tool.gsc",
+        "sha256": "ef0f25f611daccdb97f8ea1ac935f337377eb606a84b7ce8914862eb6432b5f7",
+        "git_blob_sha1": "f368c5a9862db03ec39a40d7f0cd2b7cc902ab07"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/heatseekingmissile.gsc",
+      "original_line": 30,
+      "output": "src/scripts/weapons/heatseekingmissile.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/heatseekingmissile.gsc",
+        "sha256": "97a9bafb1e4eed00e4a6ca579b3bf7d373f9a507c3f1b35cf2dfec39a05c6ac0",
+        "git_blob_sha1": "f50f35eb4cc44cf284e50bc78ae98c9dbcc309db"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0343.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/smokegrenade.gsc",
+      "original_line": 31,
+      "output": "src/scripts/weapons/smokegrenade.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/smokegrenade.gsc",
+        "sha256": "31f8edc8c214aa38cd90e15ac7111d28c5d6c7f13e9b27c752c431d89026ff41",
+        "git_blob_sha1": "57b3ef9253eaa2cb631d413ff59ca382c767de06"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/tacticalinsertion.gsc",
+      "original_line": 32,
+      "output": "src/scripts/weapons/tacticalinsertion.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/tacticalinsertion.gsc",
+        "sha256": "b7598a32572cd91be8b2b544899ec38393b008cd64cd0834e41cb26873902812",
+        "git_blob_sha1": "7016938c0e73223dbc46d8e63a3ba4482f67b8c2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0344.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weaponobjects.gsc",
+      "original_line": 33,
+      "output": "src/scripts/weapons/weaponobjects.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weaponobjects.gsc",
+        "sha256": "591761b45975b2875169fdb489260a4930bf1997f6fa04b92f389af290d21f4e",
+        "git_blob_sha1": "5de9dc3363a3dcccc48a8fbfd337ce93e0e5f49f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapons.gsc",
+      "original_line": 34,
+      "output": "src/scripts/weapons/weapons.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapons.gsc",
+        "sha256": "175f24a540714717dc31e66ba11cdaaed597c7f1d98e3216e4b27046c02fb3f4",
+        "git_blob_sha1": "cba54dd1ebd1e2fe4cb2c9e8215f662c3d77bb93"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_8dfa23e0@system_shared.csc",
+        "answer": "Source-visible answer: the preinit requirement resolver; the pre-side twin of function_5095b2c6 WITHOUT the predone||ignore assert. If func.reqs is defined: array case asserts each element then thread-spawns exec_pre_system(level.system_funcs[req]) per element and returns (129-135); scalar case asserts the registry entry exists (138) and thread-spawns exec_pre_system for it (139). No waiting: dependency scheduling is asynchronous spawn-only; ordering between requirement and dependent preinits is scheduler-dependent, each spawned call re-checks undefined/ignore/predone before running, duplicates after completed predone are suppressed, but there is no in-progress guard for reentrant/yielding calls; VM scheduling remains unresolved. Two direct callers: exec_pre_system111 and run_pre_systems151. Driver resolution at151 is followed by executor spawn152; executor can resolve requirements again [excerpt; exact source record identified separately]",
+        "behavior": "Pre requirement resolver (no assert on predone here - the corresponding predone||ignore check belongs to the post-side resolver function_5095b2c6 line 60). function_8dfa23e0(func): if func.reqs defined: array case - foreach req: assert(isdefined(req), devx120) then thread exec_pre_system(level.system_funcs[req]); return (127-135); scalar case - assert(isdefined(level.system_funcs[reqs]), devx120, with ishash/hashtostring dev rendering) then thread exec_pre_system(level.system_funcs[reqs]) (137-139). Spawn-only: neither path waits for the requirement preinit to complete or even to start; each spawned exec_pre_system independently checks !defined/ignore/!predone (102-107) before running but predone is set only after prefunc returns; reentrant calls or other calls while it yields can still see false predone. Called directly from exec_pre_system111 and run_pre_systems151 in this VM twin. Bot [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Thread spawn ordering vs dependent (native VM scheduler)",
+          "Retail assert handling",
+          "Array-form reqs use in retail HMH bundles (unobserved)"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/10",
+        "decision_canonical_sha256": "a43d1a9ebb71ce651ec49d09ad7435f10f992f0673e54617d12d2745167f7a23",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00074",
+        "sha256": "09ca5f24279cde5f0c717290725b25bfb7d4223b6e5c600d11db11255dd18945"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "57b8c5cd5ac746c9ffc1097b6d5010e7211eae36baefc851ebfb6c9ae8a3c2c8",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_5095b2c6@system_shared.csc",
+        "answer": "Source-visible answer: the post-phase requirement resolver. Ordering facts: (1) it asserts the function's preinit already completed (predone) or the system is ignore-flagged - post execution presupposes pre phase completion; (2) it walks reqs and thread-spawns exec_post_system for each required system without waiting; (3) array form asserts each requirement value is defined, not registry-entry existence; a defined absent name spawns exec_post_system(undefined), which returns at37-39. Only scalar form asserts registry-entry existence at75. Because both the array and single-req paths spawn and return, the requirement/dependent postinit ordering is scheduler-dependent, not synchronized - pre-phase completeness is asserted, with original VM assertion behavior still unknown. exec_post_system skips calls that observe ignore or postdone. It checks postdone before requirement resolution, then se [excerpt; exact source record identified separately]",
+        "behavior": "Post requirement resolver. function_5095b2c6(func): first asserts func.predone || func.ignore (dev string x8d) (60) - a post phase may only be driven for systems whose preinit completed or which are ignored, otherwise it is an assert boundary; if func.reqs defined: array case asserts each req defined and spawns thread exec_post_system(level.system_funcs[req]) per element then returns (64-72); scalar case asserts isdefined(level.system_funcs[reqs]) (75, with ishash/hashtostring dev rendering) and spawns thread exec_post_system for it (76). No waiting on the spawned requirements - dependency scheduling is asynchronous spawn, and each spawned exec_post_system re-checks !defined/ignore/postdone (37-42) before resolving its own requirements. It sets postdone after requirement resolution and before its postfunc call; suppression is supported for calls observing the mark, while once-only execut [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Thread-interleaving of spawned requirement postinits vs dependent postinit (native scheduler)",
+          "Retail assert handling",
+          "No observed wz/HMH use of multi-element req arrays; whether any loaded system uses them in retail is a bundle-level question"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/18",
+        "decision_canonical_sha256": "93a3ea44fb204479ae14c8c0d3ea2219e07de53851fcb038c049c560ca277c09",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00078",
+        "sha256": "f26ffda8a43182c03e36846cc022f3a6e7204eeadf2cbf2586adfd37758b4fa6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a7f5403632a08a8e66ea4d0f4f3ca098638e183948b2f0be3e6b1348577a3975",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:register@system_shared.csc",
+        "answer": "Source-visible answer: registration is state-only (no invocation); when an existing record has ignore=1, every repeated register call asserts that ignore flag and returns without clearing it; the record may be a placeholder or a previously real record marked by ignore (register assert only on .ignore, csc 11-15; ignore() sets ignore=1, csc 169-179). Ordering graph produced (see source_trace): autoexec __init__system__ -> register -> native level_preinit -> codecallback_preinitialization -> run_pre_systems -> exec_pre_system per entry; native level_finalizeinit -> codecallback_finalizeinitialization -> run_post_systems -> exec_post_system per entry -> set system_init_complete -> registry cleared -> on_finalize_initialization dispatch. Dependency waits: NONE - req-resolution spawns threads without joining (69/76), the only synchronization is the whole-batch flag \"system_init_complete\" (92) [excerpt; exact source record identified separately]",
+        "behavior": "Registration store for the per-VM system registry; server file lines 9-29 and client twin lines 9-29 are textually identical at this revision. register(str_name, func_preinit, func_postinit, reqs): if level.system_funcs[str_name] already exists it asserts the existing record's .ignore and returns WITHOUT replacing the stored prefunc/postfunc/reqs (csc/gsc 11-15) - repeated regular registration is an assert boundary; any existing ignore-flagged record, including a real record later marked by ignore, permits repeated early returns; ignore remains set. Otherwise it lazily creates level.system_funcs, stores a spawnstruct with prefunc/postfunc/reqs and initializes predone=!isdefined(func_preinit), postdone=!isdefined(func_postinit), ignore=0 (17-28). No execution happens here; the record is pure state consumed by exec_pre/exec_post_system. The following are named source registration witnesses [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Which registrant script set and order the retail CUSA11100 HMH VM bundle actually loads (native bundle manifest question; m1 unknowns section 1)",
+          "Whether retail script bytecode contains/executes assert() in system_shared (dev strings present; original bytecode fidelity unverified)",
+          "Iteration order of foreach over level.system_funcs hash-keyed array (VM implementation detail, not in dump)",
+          "Whether an early assert failure in retail aborts registration or is skipped (assert implementation native)"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/41",
+        "decision_canonical_sha256": "c9d8567fc88e8193f5be25efb19d5ab5e5ad0b7b9394744b848a74b10ca550b4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00082",
+        "sha256": "7f1194dc637637a7eff664f35255ad2a4c198946028d8cba1ee8ff3697b24f3f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b43da94b0e59f5735470250939f7a3d74d944952a2e1f4bb7f3803f09bb263ed",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 44
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.csc",
+        "answer": "Source-visible answer: the exclusion/placeholder primitive and the duplicate-registration enabler. ignore(str_name): asserts level.gametype is UNdefined (must run before the engine assigns the gametype - pre-gametype window only); then if no registry record exists, register(name, undefined, undefined, undefined) creates an all-undefined placeholder; finally sets .ignore=1 (169-179). Combined with register()'s duplicate rule (assert existing .ignore then return, 11-15) this yields the exact wz/HMH exclusion semantics: a system whose name is pre-ignored either (a) never stores its real pre/post functions - the later real register returns early, or (b) if real registration happened first, ignore skips placeholder creation and sets the existing record.ignore=1 while preserving its pointers; ignore asserts only that level.gametype is undefined (171), and register has the separate duplicate as [excerpt; exact source record identified separately]",
+        "behavior": "ignore(str_name): assert(!isdefined(level.gametype), devx124) (171) - the assert boundary records that exclusions are only valid while no gametype is set; if !level.system_funcs or the name is unregistered, register(str_name, undefined, undefined, undefined) creates a placeholder with undefined pre/post funcs and predone=postdone=1 (both !isdefined) (173-176); then level.system_funcs[str_name].ignore = 1 (178). Consequences: (1) an undefined-func placeholder would never invoke anything even without ignore (exec_* call [[undefined]] guarded by predone/postdone=1 and ignore skip); (2) later register() by the real system hits the early return (11-15, assert passes because ignore=1) so its pointers are discarded; (3) exec pre/post paths skip the record regardless (37-40/102-105). The wz ignore_systems autoexec runs in both server (wz_ignore_systems.gsc) and client (wz_ignore_systems.csc) VMs [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "autoexec vs level.gametype assignment order in retail (assert precondition)",
+          "Non-registry reachability of ignored systems (only registry suppression proven)",
+          "Retail assert evaluation (N3)"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/988",
+        "decision_canonical_sha256": "c48ed32ecdaab99b0b0789992bd2d312c4b1ba8470955d34b28af63f5489da36",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00229",
+        "sha256": "9445acb4c73d44c2260b9318ade823dbf0ada6c2db8617e89b091cf0566a3372",
+        "pointer": "",
+        "record_sha256": "07796bc27e56b3ab9297b03583f6594202af80a642e5a26e9658238203bd79f0"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/0c4eab284694493a.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0329",
+    "AV0330",
+    "AV0331",
+    "AV0332",
+    "AV0333",
+    "AV0334",
+    "AV0335",
+    "AV0336",
+    "AV0337",
+    "AV0338",
+    "AV0339",
+    "AV0340",
+    "AV0341",
+    "AV0342",
+    "AV0343",
+    "AV0344"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/c32a9b72055df67b-001.json",
+      "sha256": "70923f80546867511f773f37a608f0ab9eaa3cfc1d09882eadd07ddb7231d840"
+    }
+  ]
+}

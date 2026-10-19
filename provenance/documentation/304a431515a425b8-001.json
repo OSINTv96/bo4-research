@@ -1,0 +1,128 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/collapse_grenade.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "3519b7ad39368c728bc5830e2a4ff6d11c272b72200e8f461595da67362c4570",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::init_shared",
+        "behavior": "Server init_shared for the collapse grenade equipment. (1) weaponobjects::function_e6400478( #\"eq_collapse_grenade\", &function_41625261, 1 ) â€” registers the watcher-callback installer for the eq_collapse_grenade weapon; final argument 1 (in ballistic_knife.gsc the equivalent call passes 0 â€” argument meaning lives in weaponobjects). (2) clientfield::register( \"scriptmover\", \"collapsesphereflag\", 1, 1, \"int\" ) and (3) clientfield::register( \"toplayer\", \"playerincollapsegrenade\", 1, 1, \"int\" ) â€” server-side declarations of the two replicated fields consumed by the matching client callbacks in collapse_grenade.csc; registered without client callbacks here.",
+        "unknowns": [
+          "weaponobjects::function_e6400478 third visible argument (1) semantics not resolvable from this span",
+          "Server writers of field values other than in this file are outside the packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00317",
+        "sha256": "cedc8ca9666070208cd47eda2b0ce4121cbc3880a132c0359f1da7032128271c",
+        "pointer": "",
+        "record_sha256": "4ca539b282036cf6cd67ca4bfd39bbb63914f2184dc8adcb55ab1359f168a1e5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "6a5eb3076baca3cc1b62512e4d9448ae2267bdce5ada95abca09107023adb1d7",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::function_adc9aab9",
+        "behavior": "Explode/death cleanup thread for the collapse grenade (threaded with the visual sphere reference; self = grenade). Wait: self waittill( #\"explode\", #\"death\" ). Then a_players = getplayers(); foreach player: if ( isdefined( player.var_fd6d6c7b ) && player.var_fd6d6c7b == var_5ff47c38 ) -> player.var_fd6d6c7b = undefined; player clientfield::set_to_player( \"playerincollapsegrenade\", 0 ) â€” clears the inside-circle state and per-player FX flag for every player that was assigned to this grenade's sphere. Finally var_5ff47c38 delete() â€” removes the boundary sphere model. No grenade-self delete appears here; explode/death notification does not prove grenade deletion or complete client FX cleanup.",
+        "unknowns": [
+          "Which system notifies \"explode\" on the grenade (detonate path from on_damage or engine explosion) is outside this span",
+          "Boundary sphere deletion is requested, but engine teardown, original entity lifetime and complete client FX cleanup remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00318",
+        "sha256": "511904f7a0991924b8fc228564c56b20ee11357b1cceb9b650f7da86ac520ec0",
+        "pointer": "",
+        "record_sha256": "0c2502a8ab701ee346fb67c9b11655649d39c49809024f82cd878447f13b1496"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "6b9200506fd4af40f70d4bc5c895a79a1a47daceeadf81414d023e0218397287",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::function_41625261",
+        "behavior": "Watcher-callback installer for eq_collapse_grenade (called by weaponobjects machinery with the watcher). Pure assignment: watcher.onspawn = &function_5df80e43; watcher.ondamage = &on_damage. No branches; no other watcher fields set (no onfizzleout/ondetonatecallback/pickup callbacks).",
+        "unknowns": [
+          "Watcher dispatch semantics (when onspawn/ondamage fire) live in the weaponobjects system outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/23",
+        "record_sha256": "d32aa8665360aa6b0b1ff69ca0451090f5aa9b1fd09cf1e88d8854b405f120fd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "7d0afea10de25fac4f35600fd4b3e4ec0191935c1004b3881dae39667edbac3d",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::on_damage",
+        "behavior": "Damage accumulator for the deployable collapse grenade (self = grenade; registered as watcher.ondamage). Cancellation: self endon( #\"death\" ). Setup: damagemax = 50; self.damagetaken = 0. Infinite loop over damage events: waitresult = self waittill( #\"damage\" ); damage = waitresult.amount; type = waitresult.mod; weapon = waitresult.weapon; if ( !isdefined( self.damagetaken ) ) -> self.damagetaken = 0; attacker = self [[ level.figure_out_attacker ]]( waitresult.attacker ) â€” resolves the real attacker via the level function pointer (indirect call; resolved value not used afterwards in this span); damage = weapons::function_74bbb3fa( damage, weapon, self.weapon ) â€” weapon-vs-weapon damage adjustment helper called on the damage amount. Branch: if ( type == \"MOD_MELEE\" || type == \"MOD_MELEE_WEAPON_BUTT\" || weapon.isemp || weapon.destroysequipment ) -> self.damagetaken = damagemax (melee, melee-butt, EMP weapons, and weapons flagged destroysequipment instantly meet the threshold â€” equipment-killer filtering); else self.damagetaken += damage (accumulate). Exit: if ( self.damagetaken >= damagemax ) -> self detonate(); return â€” destroys/de-tonates the grenade after 50 accumulated or instant-trigger damage; loop otherwise continues.",
+        "unknowns": [
+          "level.figure_out_attacker implementation lives outside this packet (indirect-call dependency)",
+          "weapons::function_74bbb3fa body is outside this packet (damage modifier values unknown)",
+          "detonate() native behavior (explosion radius/damage) unverified",
+          "waittill(#\"damage\") result field set (amount/mod/weapon/attacker) is engine-provided"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/26",
+        "record_sha256": "a69abf12e616a04f7609f82d5f5f237990d97822a6b2dd0c145ef77b4b63b481"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "8b779fd5748822a5f8464b11998e7dc153b4485cd689ba1b4275eda27cf63b65",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::function_5df80e43",
+        "behavior": "Collapse grenade main onspawn handler (watcher, player); self = grenade entity. Cancellation: self endon(#\"death\"). Wait: grenade waittill(#\"stationary\") â€” activates after landing. Ordered setup: grenade setcandamage( 1 ); grenade.maxhealth = 10000; grenade.health = grenade.maxhealth; grenade setmaxhealth( grenade.maxhealth ) (literal high health writes plus a separate on_damage accumulator; raw health/death behavior and exclusive script control of destruction remain unproved); var_5ff47c38 = spawn( \"script_model\", grenade.origin ) at grenade.origin; setmodel( #\"p8_big_sphere\" ), setscale( 0.0225 ), linkto( grenade ) (visual boundary sphere); clientfield::set( \"collapsesphereflag\", 1 ) on the sphere â€” drives the client-side render override (collapse_grenade.csc function_fe37390); grenade thread function_adc9aab9( var_5ff47c38 ) â€” explodes/death cleanup thread. Loop state: var_80994c8c = 225 * 225 (effective area radius 225, squared); grenade_weapon = getweapon( #\"eq_collapse_grenade\" ); var_f4d9a132 = gettime() + 1000 (next damage-window time). Infinite while(true): time = gettime(); a_players = getplayers(); foreach player: eye_pos = player gettagorigin( \"tag_eye\" ); if ( !( isdefined( player.outsidedeathcircle ) && player.outsidedeathcircle ) && distancesquared( eye_pos, grenade.origin ) <= var_80994c8c ) â€” opt-out flag player.outsidedeathcircle excludes a player; inside players: if ( !isdefined( player.var_fd6d6c7b ) || player.var_fd6d6c7b != var_5ff47c38 ) -> player clientfield::set_to_player( \"playerincollapsegrenade\", 1 ); player.var_fd6d6c7b = var_5ff47c38 (tracks which grenade's area holds the player); if time >= var_f4d9a132 -> player dodamage( 5, grenade.origin, grenade.owner, grenade, undefined, \"MOD_DEATH_CIRCLE\", 0, grenade_weapon ) â€” 5 damage per 1s window, damage credited to grenade.owner with the grenade as inflictor; continue. Else if ( isdefined( player.var_fd6d6c7b ) && player.var_fd6d6c7b == var_5ff47c38 ) -> player.var_fd6d6c7b = undefined; player clientfield::set_to_player( \"playerincollapsegrenade\", 0 ). After the player pass: if time >= var_f4d9a132 -> var_f4d9a132 = gettime() + 1000 (advance the window). waitframe( 1 ). Per-player set_to_player keeps the inside-circle FX private to each affected client.",
+        "unknowns": [
+          "player.outsidedeathcircle writer is not in this file (mode/gamemode side effect; owner elsewhere)",
+          "dodamage parameter convention (positions of inflictor and two trailing ints) is native; observed call form only",
+          "Whether damage pauses while game_ended is not handled in this function (only grenade death ends the loop)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00319",
+        "sha256": "2b07feec912c7376845031cbf3daa84dabf87e6d6cb043bbaf887cab97e8a56f",
+        "pointer": "",
+        "record_sha256": "2dd390ff66957f6e0eef6b9ad14af9b3cc21923ed627efb453b2617b0b2b8eea"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/304a431515a425b8.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "9962d54a42cbf12b67028fbc12f982d25c790a8f135c5b0622f52fc413b41f8e",
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.gsc::__init__system__",
+        "behavior": "Server-side (GSC) autoexec registering the collapsegrenade system: system::register(#\"collapsegrenade\", &init_shared, undefined, undefined) â€” init_shared is the init callback; main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/21",
+        "record_sha256": "4cc438aaec95b3faf35bfba307a337544d3f2699aeb7706a01b4758a0205f510"
+      }
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/acid_bomb.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "bb1385661b382555b6b3664112d699f1d0c5598d1720adc8446f535f4244d1a0",
+  "git_blob_sha1": "8fcefe9f79c19f30c9c494eaa45612f4c2fdcbed",
+  "output": "src/scripts/weapons/acid_bomb.csc",
+  "output_sha256": "6bcef014ca654056ba17f0f93a366a03d0e416f0446d627ac27b1201e532ee44",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/math_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/math_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/math_shared.csc",
+        "sha256": "f31c4b103d2835df67271ef5ed7ef6079f7feda7da0f4790abb54c9212c03025",
+        "git_blob_sha1": "1d4a282282627e8743b93bd920557f121b22624d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0239.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/struct.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.csc",
+        "sha256": "cc19aa9a8e2c9498b7c2d8f39db8e0d1fecb82f923e193141a6c9b2ac95025bf",
+        "git_blob_sha1": "dd18dee32c18f4ed1abbf5b5b0a811cc1184f372"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "115eb9bc98be0539634bdebb10c834fc7224f2604b161220e1b3ac48a599111b",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 59
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::fx_think",
+        "behavior": "Blinking-light FX loop threaded on the grenade by spawned(). Ordered: (1) self notify(#\"light_disable\") to kill any prior loop; (2) self endon(#\"death\", #\"light_disable\") â€” loop ends on entity death or the light_disable notify; (3) util::waittill_dobj( localclientnum ) waits for dobj readiness; (4) var_18407835 = self.origin captured once; (5) infinite for-loop with interval starting 0.3: each pass calls self stop_light_fx(localclientnum), self start_light_fx(localclientnum), self fullscreen_fx(localclientnum), playsound(localclientnum, #\"hash_2bb4a8b02a0d697\", var_18407835) at the captured origin, then util::server_wait(localclientnum, interval, 0.01, \"player_switch\"). Loop-local interval update: interval = math::clamp(interval / 1.2, 0.08, 0.3) so the beacon accelerates from 0.3s down to 0.08s and stays there. Termination only via endon death/light_disable; no other exit.",
+        "unknowns": [
+          "util::waittill_dobj and util::server_wait wait semantics (third arg 0.01 and tag \"player_switch\") are util/native, not resolvable from this span",
+          "Sound #\"hash_2bb4a8b02a0d697\" identity not in catalog",
+          "Whether origin staleness during grenade motion is intentional is unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/103",
+        "decision_canonical_sha256": "2882373726098e1bacd9b9cb5a11b682e5b6e04aa28d3fcedb5de512af5f2508",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/3",
+        "record_sha256": "42cdb24c633e3f5c308295345e3cf858fefb9447e1f29413667d51f8d9d693f1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "31763c267c92cbb4efdabff13386da5a22a9449d8649651eeb772271c2058d43",
+      "citations": [
+        {
+          "line_start": 12,
+          "line_end": 15
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::__init__system__",
+        "behavior": "Client-side (CSC) autoexec system registration for the acid bomb grenade. Sole statement: system::register(#\"acid_bomb\", undefined, &__main__, undefined) â€” registers namespace system named 'acid_bomb' with undefined init callback and __main__ as the main callback, undefined extra argument. No state reads/writes beyond this registration; no branching.",
+        "unknowns": [
+          "system::register fourth-argument semantics (undefined passed) not resolvable from this span",
+          "runtime registration timing/effect is engine behavior, unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/274",
+        "decision_canonical_sha256": "f0171afd524d924f30ba7998499fcedfa81db76578da816a76f67f4519e50702",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/0",
+        "record_sha256": "8114e1930112c10b5fb9867586f9c0204aee6a419e744e956b0db7ec4e5f2e97"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "498913b279b6768c757ca68b5d85ebc375a97be4bbee7bdbf251c5d20090f3da",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 38
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::spawned",
+        "behavior": "Entity-spawned client callback (takes localclientnum). Branch: if self isgrenadedud() -> return (no FX threading for dud grenades). Otherwise: self thread fx_think( localclientnum ) â€” spawns the FX loop coroutine on the grenade entity. No state writes.",
+        "unknowns": [
+          "isgrenadedud is a native predicate; dud conditions not documented in this span",
+          "who/what entity calls spawned (engine grenade spawn callback) is not shown in-file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/402",
+        "decision_canonical_sha256": "7b299f55cafd31be864d6471b71364b042489ef452e06b98bba655612a98bfee",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/2",
+        "record_sha256": "7ecc583c23e7227c9b47be0ed428ba90af2a2a4a7e2506a77c8d0d7399ec53cc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5f3a42d8f845ecb13d92c41ca31a312e2754818afe49bdd2142c91dbbad0ad7d",
+      "citations": [
+        {
+          "line_start": 87,
+          "line_end": 109
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::fullscreen_fx",
+        "behavior": "Fullscreen/rumble gate called each blink iteration from fx_think. Ordered early-outs: (1) if function_1cbf351b( localclientnum ) -> return; (2) else if util::is_player_view_linked_to_entity( localclientnum ) -> return; (3) if self function_83973173() -> return. Then: parent = self getparententity(); if isdefined( parent ) && parent function_21c0fa55() -> parent playrumbleonentity( localclientnum, \"buzz_high\" ). Effect: controller rumble 'buzz_high' on the parent entity (e.g. the player holding/viewing the bomb) when all three gates pass. No state writes to level.",
+        "unknowns": [
+          "Definitions of function_1cbf351b, function_83973173, function_21c0fa55 are not in the frozen catalog (unresolved externals); call sites elsewhere assign function_1cbf351b(localclientnum) to 'inkillcam', so plausibly a killcam/spectator-view gate, but semantics are not proven from definition",
+          "util::is_player_view_linked_to_entity native semantics unverified",
+          "Which concrete parent entities pass function_21c0fa55 is unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/522",
+        "decision_canonical_sha256": "508493b1ef82d6c13ec3a902d3975b5abd3062c95e34b72e3df9ea21205e4515",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/6",
+        "record_sha256": "18b722a6a48966ea2255a83b4b361b711db8ae10cd27c641c016e3291df5f743"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "76418363ec2eb4ba4aff509aa1b0e2db72002b184bce02773cada05519c5c804",
+      "citations": [
+        {
+          "line_start": 74,
+          "line_end": 81
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::stop_light_fx",
+        "behavior": "Stops the light FX handle cleanly. Branch: if isdefined( self.fx ) && self.fx != 0 -> stopfx( localclientnum, self.fx ); self.fx = undefined. No-op when no live handle. This is the per-iteration teardown paired with start_light_fx inside fx_think's loop (toggle-style blink).",
+        "unknowns": [
+          "Whether self.fx can be a stale/invalid handle after entity FX teardown is engine-dependent and unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/640",
+        "decision_canonical_sha256": "706c583436bba7196b009a4c80c5324bff2268e80b61b27698a37688c5e8b6e9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/5",
+        "record_sha256": "3c1f5b95c61ee6a824637888ce51b939bcf0b6a68d851a04d50f49fa1d04e2d3"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "842d832c12e6a9433f6e3ca05ba7f256d529e1e31f395fc274a1e8ec1ba3fc76",
+      "citations": [
+        {
+          "line_start": 21,
+          "line_end": 24
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::__main__",
+        "behavior": "System main callback for acid_bomb on client VM. Single write: level._effect[#\"grenade_light\"] = #\"weapon/fx8_equip_light_os\" â€” installs the grenade light FX alias used later by start_light_fx. __init__system__ passes &__main__ in system::register; actual invocation timing/count remain unresolved; no branches.",
+        "unknowns": [
+          "Exact when __main__ is invoked by system::register (engine dispatch) is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/711",
+        "decision_canonical_sha256": "cdfcff834701ef01b74781ddb3a1904e814dc57d3db6e65e31ba9118b7dd272d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00749",
+        "sha256": "bec6aea08a425e2a744b11ea7795bec2dc992edfe94b8be67c5ac7e77941a7ff",
+        "pointer": "",
+        "record_sha256": "7ef7c72d45565881d3a63d6d18aaae12cb8b3ef1201be5f75109caada2ed4a76"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ef49d0e14b934e3d19d87155314bd90b611ca570d89ab9d7cf4eb5c36f2cd45d",
+      "citations": [
+        {
+          "line_start": 65,
+          "line_end": 68
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/acid_bomb.csc::start_light_fx",
+        "behavior": "Starts the grenade light FX: self.fx = util::playfxontag( localclientnum, level._effect[#\"grenade_light\"], self, \"tag_fx\" ). Reads level._effect[#\"grenade_light\"] (set by __main__), stores the FX handle on the entity field self.fx. No branches.",
+        "unknowns": [
+          "util::playfxontag return-handle semantics (0 vs undefined when FX fails) are native behavior",
+          "tag_fx assumption on the grenade model is game-data, not verifiable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1119",
+        "decision_canonical_sha256": "5928a01bf02a38f046981ffd7526907a21a5ba3fb8dc490f9b24733845633c0f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/4",
+        "record_sha256": "1bfa6c99adaa0d2b6eccc876498b77892a963f8ef8fee829cdc90b749f4fc70c"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/58347b27a102ad6a.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0239"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/bcd463cbdcbec22a-001.json",
+      "sha256": "20d5da3ee345f62b6c837d1f00e11314dd1efe5b6dd2a77c095c53f95e8e2f39"
+    }
+  ]
+}

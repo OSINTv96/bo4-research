@@ -1,0 +1,158 @@
+{
+  "module": "src/scripts/mp_common/player/player_monitor.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 281,
+      "text": "                    self stats::function_d40764f3( #\"distance_traveled_foot\", int( distance ) );",
+      "caller": "travel_dist",
+      "caller_span": [
+        243,
+        308
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 277,
+          "opening_line": 280,
+          "ending_line": 288,
+          "text": "if ( isdefined( groundent ) && !isvehicle( groundent ) )"
+        },
+        {
+          "line": 274,
+          "opening_line": 276,
+          "ending_line": 289,
+          "text": "if ( !self isinvehicle() )"
+        },
+        {
+          "line": 271,
+          "opening_line": 274,
+          "ending_line": 290,
+          "text": "if ( gamestate::is_state( \"playing\" ) && distance > 0 )"
+        },
+        {
+          "line": 256,
+          "opening_line": 259,
+          "ending_line": 307,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d40764f3",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          291,
+          305
+        ]
+      ]
+    },
+    {
+      "line": 285,
+      "text": "                        self stats::function_d40764f3( #\"hash_630fffa7f053a2b7\", int( distance ) );",
+      "caller": "travel_dist",
+      "caller_span": [
+        243,
+        308
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 281,
+          "opening_line": 284,
+          "ending_line": 287,
+          "text": "if ( isdefined( self.outsidedeathcircle ) && self.outsidedeathcircle )"
+        },
+        {
+          "line": 277,
+          "opening_line": 280,
+          "ending_line": 288,
+          "text": "if ( isdefined( groundent ) && !isvehicle( groundent ) )"
+        },
+        {
+          "line": 274,
+          "opening_line": 276,
+          "ending_line": 289,
+          "text": "if ( !self isinvehicle() )"
+        },
+        {
+          "line": 271,
+          "opening_line": 274,
+          "ending_line": 290,
+          "text": "if ( gamestate::is_state( \"playing\" ) && distance > 0 )"
+        },
+        {
+          "line": 256,
+          "opening_line": 259,
+          "ending_line": 307,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d40764f3",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          291,
+          305
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0481",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/player/player_stats.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    281,
+    285
+  ],
+  "required_callee_functions": [
+    "function_d40764f3"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03824",
+        "to": "N02475",
+        "line": 281
+      },
+      {
+        "from": "N03824",
+        "to": "N02475",
+        "line": 285
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

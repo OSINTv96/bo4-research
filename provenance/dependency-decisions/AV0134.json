@@ -1,0 +1,96 @@
+{
+  "module": "src/scripts/core_common/vehicle_shared.gsc",
+  "identity": "scripts/weapons/heatseekingmissile.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "heatseekingmissile",
+  "witnesses": [
+    {
+      "line": 1484,
+      "text": "    heatseekingmissile::initlockfield( vehicle );",
+      "caller": "init",
+      "caller_span": [
+        1305,
+        1485
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "initlockfield",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1060,
+          1070
+        ]
+      ]
+    },
+    {
+      "line": 5227,
+      "text": "    self thread heatseekingmissile::missiletarget_proximitydetonate( missile, missile.owner, missile.weapon, \"death\" );",
+      "caller": "function_b5f1f39",
+      "caller_span": [
+        5224,
+        5233
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "missiletarget_proximitydetonate",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1633,
+          1708
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0134",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/weapons/heatseekingmissile.gsc",
+    "sha256": "97a9bafb1e4eed00e4a6ca579b3bf7d373f9a507c3f1b35cf2dfec39a05c6ac0",
+    "git_blob_sha1": "f50f35eb4cc44cf284e50bc78ae98c9dbcc309db",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1484
+  ],
+  "required_callee_functions": [
+    "initlockfield"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03911",
+        "to": "N04072",
+        "line": 1484
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

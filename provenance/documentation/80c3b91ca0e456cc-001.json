@@ -1,0 +1,424 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/death_circle.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0f399a061dcd6737a6bc40fdf08a415a2c8b094628871dd455f443bc3c064269",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_d81873aa",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/859",
+        "record_sha256": "36fad538133f8419a5b2bfa1fa469a49fa219a9fe0c450989b67c8c2d3df1d8d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "11c01119932d94f621791df6da9f5ef48fbd18f636fb72c9803e17739ea0e500",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-hook",
+        "answer": "Branch ladder of the wz spawn hook (262-302), applied to source-visible flags, grace and queued respawn, and what start_warzone changes: (1) 264 usingobj = undefined; (2) 266-269 var_63af7f75 default -1 if missing (the definedness test at266 is an actual source read: missing field gets default -1 at268; a defined prior value skips that default. The conditional deathcircleindex store at273 can overwrite either. Field meaning and further consumers remain unresolved), 271-274 overwritten with level.deathcircleindex when defined (producer: death_circle.gsc:504 inside the per-collapse loop of death_circle::start's continuation - i.e. the slot tracks which collapse circle the player is spawning under); (3) 276-279 the start-spawn clearing rule level.usestartspawns = 0 fired only when usestartspawns && !ingraceperiod && !playerqueuedrespawn (producers: globallogic.gsc 4928 usestartspawns = 1 and 4932 playerqueuedrespawn = getgametypesetting(#\"playerqueuedrespawn\"); level.ingraceperiod = 1 at globallogic.gsc 5109 in the prematch init and = 0 at 2364 game-end and warzone.gsc:706 start_warzone); (4) 281 var_c5134737 = 0 (connect field cleared); (5) 282 spawning::onspawnplayer( predictedspawn ) - the actual placement delegation to the unit-3 routing (undefined predictedspawn through the wz wrapper); (6) 284-287 streamer hint StreamerSetSpawnHintIndex = var_25fe2d03 when defined (producer override_spawn:170); (7) FIRST-SPAWN DEFER/FINISH BRANCH 289-299, keyed on self.pers[ #\"spawns\" ] == 1: if ( var_7070a94c && !player_insertion::function_e5d4df1c() ) (the alt/air flag set by override_spawn under wz_alt_spawn && !isbot AND no insertion currently holds flagsys hash_122f326d72f4c884 per player_insertion.gsc 2977-2990) -> self thread function_c263fd97() (293): the HELD spawn - endon start_warzone/disconnect (349-350), unlink, spawn_anchor at resurrect_origin + playerlinkto + setplayerangles, weapon HUD hidden + ghost (351-356), freeze/disable gadgets via hash_5bb0dd6b277fc20c val keys (357-358), streamer-load loop with dvar windows (stability threshold hash_78198bd3a356f650 0.5; first window hash_24ce936622303dc1 4000ms; second window hash_6e24885f4fa8a2a2 10000ms, added to first4000ms for a default outer deadline starttime+14000ms (373), subject to sampling/waits; required stable samples hash_723f28907e9e4cd0 3; 365-414), then unlink + function_8cef1872 + setorigin(resurrect_origin) + show + forcefreefall( 1, var_df8c6469, 0 ) (416-420), and a pregame LUI timer arm (423-432); ELSE function_8cef1872() (297): the IMMEDIATE finish (spawn_anchor delete 329-333, hudItems.wzLoadFinished = 1 / streamerLoadFraction = 1 / ClearStreamerLoadingHints = 1 clientfields 335-337, val resets of freezecontrols/disablegadgets 338-339, callback hash_4fca7a48128c4741 340); (8) 301 function_ea62f5af() kit stats always. Which branch can finish or defer a JOINING player: the defer arm is exactly branch 7's threaded function_c263fd97 (first spawn only, alt/air, no insertion flag) - the defer branch requests linked/ghost/frozen setup. Its ordinary loop can exit independently when now > starttime+both window values385-388, before the readiness/stability test398 and required sample test409; it can also exit through the qualifying sample-count condition409-412. Either normal break reaches unlink416, cleanup417, setorigin418, show419 and forcefreefall420 requests if execution continues, including a timeout with no ready/stable samples. The registered start_warzone/disconnect endons349-350 are separate cancellation requests; cancellation is not proof that the normal post-loop cleanup ran. The immediate alternative requests function_8cef1872 at297. Actual native effects, clock units, sampling, notification delivery and scheduling remain unproved. What changes once start_warzone releases staging (677-727): level notify start_warzone679 is a cancellation request matching the level endon(#\"start_warzone\") in actual function_c263fd97 at349. No additional function_c23600e7d identity is established; actual notification delivery/termination and other independently registered holders remain outside this statement; start_insertion (705) sets level flagsys spawning_allowed (648) and runs player_insertion::function_8dcd8623 (603-644: insertions allowed-gate, per-type drivers, waits flagsys insertion_begin_completed); 706 level.ingraceperiod = 0; 710-724 per CURRENT player spawn::function_8cef1872() + val::reset(#\"warzonestaging\", \"takedamage\") - the same staging keys the pregame block in on_player_spawned set (warzone.gsc 891); 726 spawn::function_cb5864fc() cleanup. After start_warzone, the pregame staging predicate is false (function_cc47bb2f = game.state == \"pregame\", warzone.gsc 809-817), so that callback staging block no longer applies. The separate hook hold at spawn.gsc289-293 has NO game.state/pregame guard: a late first spawn with alt flag and no insertion flag can still enter function_c263fd97; an earlier start_warzone notification is not proof of cancelling a newly armed waiter.",
+        "behavior": "on_spawn_player(predictedspawn) (262-302) is the wz onspawnplayer hook (level.onspawnplayer = &on_spawn_player, warzone.gsc:93; invoked by globallogic_spawn::spawnplayer:916 [[ level.onspawnplayer ]]( 0 ) through warzone.gsc::on_spawn_player 208-223 which passes no args): field prep, placement delegation, streamer hint, first-spawn air-hold vs immediate finish, kit stats (function_ea62f5af 308-321 match_record parachute/second/wingsuit lootids for current_life_index).",
+        "unknowns": [
+          "death-circle module internals (collapse cadence/wave interplay) out of packet; only the index producer line was read",
+          "Whether the ordinary game.state/defined-field LUI prematch-timer arms in function_bb9099b9 at246-255 and function_c263fd97 at423-432 execute on the original build, and their native delivery/outcomes. They are outside the saved source dev-delimited block67-77; no dev-only classification is established.",
+          "Native reason hash_4fca7a48128c4741 callback consumers (registered elsewhere; not traced here - no self-selected extension)",
+          "Effective grace period value for wz (graceperiod 15 vs 5 arm globallogic.gsc 5100-5107 depends on numlives/wavedelay/playerqueuedrespawn settings)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00109",
+        "sha256": "5caf1aa1356542ae7981a711c73f6a03880844387879894c3ecc4615d1002b21"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "198f5ac8a6f385c91a1efa74fe6fa18a8d9833ce93ab47f0be3f566f531e7e71",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/312",
+        "record_sha256": "b7bf5e73da38f87f97100e300adb563b91af98937700b0ef876625ac7b3aa212"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "4f3314f59653b78057203459faddfa6b96527f3504690e1f77d663b4c32e2177",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/858",
+        "record_sha256": "e8b68c7cb70da23fe260bef6a8b22beed4805cab7a93e79812ceefe9ddfb0c23"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:wait-and-spawn",
+        "answer": "Bounded HMH use of the waiting orchestration (1586-1711): ENTRY/OWNERSHIP: reached from globallogic_spawn::spawnclient 1572 (self waitandspawnclient( timealreadypassed )) after mayspawn passed OR defined-truthy self.usedresurrect bypassed !mayspawn denial at1548; shared team-lives denial632 additionally requires !level.numlives && level.numteamlives && game.lives[self.team]<=0 - the join/respawn request thread from player_connect.gsc:326 or player_killed routes; and threaded after death from laststand paths: laststand_warzone::respawn_player_after_time 1241-1259 (waits spawned_spectator + n_time_seconds; still sessionstate == spectator -> thread waitandspawnclient()) and laststand.gsc:934. QUEUE OWNERSHIP: waitingtospawn set 1 by spawnclient (1564) before the wait, cleared at 1705 (and 1576 after return; both writers exist and cancellation skips the tail); allowqueuespawn cleared 1565; spawnqueuedclientonteam skips waitingtospawn players (1404) - no double-request. CANCELLATION: endon( disconnect, end_respawn ) 1588 + level endon( game_ended ) 1589; helper waits arm the same keys (waitrespawnorsafespawnbutton 1752; b2 teardown: disconnect death-notify 1202 kills player-owned waits while level entries persist). WAIT BRANCHES: (W1) teamkillpunish 1598-1622: penalty player::function_821200bb (1600), split vs timealreadypassed (1602-1611), positive remainder -> friendly-fire message + thread respawn_asspectator( self.origin + 60Z, angles ) + spawnedasspectator = 1 + wait remainder (1613-1619), clear punish (1621); respawn_asspectator 1105-1108 -> in_spawnspectator 1149+ (spectator state). (W2) wave index 1624-1628. (W3) delay 1630-1641: timeuntilspawn( 0 ) (535-596: grace + never-spawned -> 0; hasspawned -> onrespawndelay/playerrespawndelay/incremental/suicide/teamkilled arms; deathcirclerespawn -> function_ac5b273c 698-708 keyed on level.var_56baa802 (death_circle.gsc 31/423/467, set only after level flagsys wait_till insertion_teleport_completed at 466) - wz reinsertion waits are COLLAPSE-CLOCK timed; wavebased -> timeuntilwavespawn 714-735 with 50ms/index stagger; usedresurrect -> 0). (W4) positive remainder 1643-1688: spectator hud only when NOT sessionmodeiswarzonegame() (1645-1655), thread respawn_asspectator unless already spawned (1657-1674) with the conditional intermission hook (no literal writer found does not prove runtime inactivity) level.useintermissionpointsonwavespawn (1662; no corpus writer), then the warzone arm: self globallogic_utils::waitfortimeornotify( timeuntilspawn, \"force_spawn\" ) (1684 = self endon( notifyname ); wait time; globallogic_utils.gsc 535-539), notify stop_wait_safe_spawn_button 1687 (NO corpus waiter - new bounded observation), non-warzone arm function_6c23d45b countdown (1680/1717-1744). (W5) manual wait 1690-1703: wavebased = waverespawndelay > 0; if !playerforcerespawn && hasspawned && !wavebased && !wantsafespawn && !playerqueuedrespawn -> press_to_spawn + spectator + waitrespawnorsafespawnbutton (use-button polling 1750-1762). TAIL 1705-1710: clears waitingtospawn/message/wavespawnindex/respawntimerstarttime, pers[ #\"spawns\" ]++, thread [[ level.spawnplayer ]]() -> globallogic_spawn::spawnplayer 885 -> wz chain (units 3-5). FAILURES: (F1) spawnclient defers to spectator only for !mayspawn AND !(isdefined(self.usedresurrect)&&self.usedresurrect); defined-truthy usedresurrect bypasses that denial (1553); (F2) notify(force_spawn) has NO wz poster in corpus (only koth.gsc:511 across mp; userspawnselection posts an LUI force_spawn_selection only, 585) -> no literal wz poster was found; computed/hash/native/frontend notification remains unresolved, so full-duration waiting is conditional (unobserved - not claimed); (F3) never-spawned joiner kick: kickifidontspawninternal 1263-1322 (waits streamer-ready then 90s/scr_kick_time; kicks EXE/PLAYERKICKED_NOTSPAWNED when unspawned, not private, not spectator, and !( !mayspawn && pers[\"time_played_total\"] > 0 )); (F4) no spawnpoint -> spawning_shared abort_level (506-510); (F5) waitinspawnqueue (1769-1780) waits queue_respawn with NO corpus poster AND no caller - no literal caller/poster found in the pinned source lookup; dynamic/hashed/native reachability unresolved. b2/p3 lifetime reuse: entity-owned waits die at disconnect without cleanup (b2); insertion transport flags/timeouts use the same flagsys wait_till_timeout family (fec68e5c 723-725). Native thread/notify/admission unproved: no claim a wait completes against a live server.",
+        "behavior": "waitandspawnclient(timealreadypassed) (1586-1711): cancellation endons; teamkill spectator wait; wave index; delay consumption; timed spectator wait + conditional intermission hook (no literal writer found does not prove runtime inactivity) + waitfortimeornotify(force_spawn); manual press-to-spawn arm; tail clears state, increments pers[\"spawns\"], threads [[ level.spawnplayer ]]().",
+        "unknowns": [
+          "Whether any native/frontend mechanism posts force_spawn during wz waits (poster bounded absent in corpus; unobserved)",
+          "stop_wait_safe_spawn_button consumer absent in corpus - native/hashed consumer possible: unobserved",
+          "function_821200bb (teamkill penalty) body outside packet; wantsafespawn/playerforcerespawn writers out of packet",
+          "Synchronous-call endon cancellation stack semantics (retained prior unknown; N4)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00448",
+        "sha256": "e03136d70826aa2604bf9ca1eb5abfa73d5cf068f7746b8446fc4581383ec584"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "99b3e4d656988a29096acd74a21a365803621b89524a41ac603fd075a6373d7c",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/314",
+        "record_sha256": "93d7c874393d43f14ed938504275d2a7d752b133744f5b3ce18c78f617cc5081"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "a9b2c11b08becfe9243c63a0375b2f35ae133ebaa6a214a517eb58fa5828b5dc",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/310",
+        "record_sha256": "152e17dc9c484cfe7b92311721de49204aea1361ed42031ca782b0aa99e88b1d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "ba6f777f463d51d9375861907ce1c3d75fbd3221725d6c19758039d00403d27d",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/309",
+        "record_sha256": "b1a7772bb5007b2ddcff79934d49d2047ded9f397a8757ac33d15ba2aa3de780"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "bbd0d32250fdd414246f5d1e85950684c33aeda6861e5d6691e0c7a702b23295",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:warzone-spawned",
+        "answer": "Existing full body connected to lifecycle phases, with settings kept conditional. Delivery into the body: globallogic_spawn::spawnplayer tail (1062-1063) notifies spawned_player and dispatches callback::callback( #\"on_player_spawned\" ) (level+self dual-table per f2 record 10) to the wz registration warzone.gsc:152 callback::on_spawned( &on_player_spawned ) (store add_callback \"on_player_spawned\" callbacks_shared.gsc:329). Phases in the body 823-930: [P1 gates] 825-826 endon death/game_ended; [P2 HMH perk gate] 828-832 getgametypesetting(#\"wzheavymetalheroes\") defined-truthy -> setperk specialty_doublejump/specialty_fallheight - the named source reads wzheavymetalheroes here; its producer and effective value remain unresolved. Old g1/g2 producerless/zero-match labels are preserved as historical context only and do not establish current absence; the same setting feeds item_inventory 1112-1116 / player_insertion 497-506 / player_reinsertion 441-447 per the g1 equipment record; [P3 state capture] 834-836 var_1ab1ec0c = origin; laststand_warzone::function_7e714b6a; level function_22df4165() count-refresh (same dirty flag the connect body raises, warzone.gsc 1993-1996/1995); [P4 appearance] 837-851 character fields, hidepart tag_ability_hero/tag_equipment_hero; [P5 lives/redeploy flags 853-883] only defined pers/lives updates UI: spawn::function_1390f875( lives ) (855; spawn.gsc 476-486 pers[\"lives\"]-1 clamped >= 0 into hudItems.playerLivesRemaining - UI request, not a permission grant, prior claim reused); infected route (857-868): function_47851c07() (1899-1922: 0 unless game.state == \"playing\", 1 for infection, death_circle::function_d66a3de1() (1152-1177: deny at final circle var_78442886 >= final or >= var_245d4af9) under deathcirclerespawn, wave_spawn deny past level.var_75db41a7 (wave_spawn.gsc:120 producer)) truthy -> showReinsertionPassengerCount = 1 + playerCanRedeploy = 1 + var_874448e8 = 1, else playerCanRedeploy = 0; normal route (870-882): lives != 1 && flag not set -> playerCanRedeploy = 1 + var_874448e8 = 1; lives == 1 -> playerCanRedeploy = 0 (flag not cleared) - all clientfield UI requests; [P6 staging early-return 885-899] menu pointer WaypointPlaced registered (885), then function_cc47bb2f() (= game.state == \"pregame\", 809-817): resets spawn_player freezecontrols/disablegadgets (889-890), warzonestaging takedamage = 0 (891 - the staging keys start_warzone later resets globally at 713), optional start gate if level.var_79219af4 (startplayers setting, main:84) > 0 and activeplayers.size + 1 >= it -> level function_73b0f715() (893-896; 1877-1893: pregame-only, dedicated sv_wznostartever guard, notifies hash_78e53817cafb5265), then RETURN - a joining player spawned during pregame stops here (staged, not inserted); [P7 insertion-type dispatch 901-928] infected helper exit (901-905); dev scr_disable_infiltration menu exit (907-913); else var_7eb8f61a = getgametypesetting(#\"wzplayerinsertiontypeindex\") defined-or-0 (915 - effective value unknown; same setting read player_reinsertion.gsc 682 and player_insertion 627), clientfield realtime_multiplay = 1 (916), switch: case 0 -> thread player_reinsertion::function_584c9f1() (921), case 1 -> function_39a51e47() (924), case 2 -> function_3c4884f1() (927); other values -> no thread (switch has no default). Reinsertion callees read: 584c9f1 (635-657: no level.reinsertion.vehicle -> player_insertion::function_77132caf; else function_f9348c1d + function_564e0871 + player_insertion::function_f795bf83( level.insertion, vehicle, angle ) + setplayerangles + function_acdf637e); 39a51e47 (557-579: warp_portal_vehicles missing -> function_77132caf; function_5425f45d portal positioning 761-811 true -> function_acdf637e + function_f2867466, else function_77132caf); 3c4884f1 (585-629: nonempty living-teammate array assigns random targetplayer602, but origin603 and angles604 read the foreach variable player, not targetplayer. Preserve this variable mismatch; VM loop-variable lifetime/value is unknown. Empty-array path uses lastdeathpos(+deathcircle bearing), spawnorigin = target - fwd*1000 + 500Z, setorigin + player_insertion::start_freefall( fwd*1000, 0 )); the three bodies arm disconnect endon at559/587/637, respectively. Their continuations differ: function_584c9f1 missing-vehicle arm646-649 threads the fallback and returns without function_acdf637e; its vehicle arm reaches the call656 only on normal continuation. function_39a51e47 requests function_acdf637e at564/572/578 in its respective arms; function_3c4884f1 requests it628 on normal continuation. The exact function_acdf637e body439-448 uses its OR-composed settings guard441, then a defined-pointer guard443 before requesting the pointer thread445. That request and actual native/VM delivery remain conditional;419-433 is the different function_564e0871. The late-arriving/queued-player spawnclient driver is player_reinsertion::function_fec68e5c (680-754) with its var_c5134737 = 1 + [[ level.spawnclient ]] loop (716-721) - reached from the death-circle reinsertion cycle function_77319881 (warzone.gsc 2649-2676), not from this body. Event order and effective settings stay conditional (native delivery order g2 N2/g3 A.1-A.4; startplayers/wzplayerinsertiontypeconfig effective values unknown).",
+        "behavior": "warzone.gsc::on_player_spawned (823-930) is the on_spawned-callback lifecycle body: gates, settings-gated perks, origin capture, counts dirty flag, character fields, lives/redeploy UI clientfields, staging pregame early-return with start gate, insertion-type dispatch 0/1/2 to player_reinsertion functions; missing setting defaults to type0 at915 and dispatches case0; only unmatched values skip all switch branches; pregame staging never reaches dispatch.",
+        "unknowns": [
+          "Effective values of wzheavymetalheroes / wzplayerinsertiontypeindex / startplayers in an original HMH session (producer identity and effective native/online settings remain unresolved; the old g1 absence label is historical context only)",
+          "The other named laststand/player_insertion callee implementations are not established by this record alone; reuse their separate exact reviews where present. function_acdf637e439-448 has been read here as guarded source pointer-thread requests, with native/VM delivery unresolved.",
+          "The direct895 call is outside the separate developer192 call site. The complete threshold helper1877-1893 has been inspected: non-pregame returns, dedicated sv_wznostartever can return, otherwise it requests the release notification1892. Effective runtime state/dvars and notification delivery remain unknown.",
+          "Native ordering between on_player_spawned dispatch and any native spawn finalization (retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00323",
+        "sha256": "a6b9d3cd48314b4e9a4549400cb2ea0b709b0b056c53d93554bf5202bbb4e412"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "c66f51303b518075751ad9fc27dfc14c57460c09051dffd37a0a9bd50cd6bab4",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/308",
+        "record_sha256": "b1d66609885f877048b96238f24c88ce3c6d206192065d6e713ac8183137d1e6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "ef8462c204d131ce25e47bb1ff9d6310db2178b24fc3be189912579e46722c96",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_d81873aa",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/313",
+        "record_sha256": "e9d2fdc51ce65af54e0653fb5f46e65d8be441076220060b366cbbaacf8e0984"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "f92a3af91d3f3a21f3c5fee34b2c78a48370414119c69effa71d9e544ab5d6d8",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/311",
+        "record_sha256": "ba499475d8c4ea1cd298b99fce9078f5610ecdb6f6f3d0fd3706a344a6fb9679"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "050d43cd07b0ee02ecaa5b334fc9873969221f895ef9768d9e13b9d261e20777",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/66",
+        "record_sha256": "d5e979a1c3d75f3e1d459eb309ecada032ea91ac357576c3cebfb1314216358e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "09449bdb30583d332ddb6ae08ecd241d61f4ca2632c8af60a08e496683c768b4",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/65",
+        "record_sha256": "a242b5c7fcefafab5a772fadafca9fd38075110bf3d3e9f60d5c900cbb53490b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "4528c9755da827dc54b68928a0c72143e2c59fa0c283baf7e3f9fdc3d196baaf",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/62",
+        "record_sha256": "8c34ba96670750c3910c4637c0e00556de50310c2e34f8e9586e75e67c98f864"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "97f43ac020035e0542eea82407dddd6da0f3ad66a4391849d3f00b678fb35c99",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/64",
+        "record_sha256": "8587e2e70a1ec41fe713a49dd1ccdac61f51602d0b7eebf23d2c3269caed6a90"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "9ea95238fbf212f50a86d927ea996daeec27613ae82104c82b9248419a61295a",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00641",
+        "sha256": "410f450f790e8bc7f1ef184566d7d01ac817ee8f6606f887695a13486ebfe9d1",
+        "pointer": "/record",
+        "record_sha256": "85fb473b4edfe556bd5060fe3e4812355c1928278a80a56f5ddaf1e6cc61d127"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "03ff88040f6eceaa15f133473f64b89e96b4bd35b6bcb67168886bf740531e2e",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/62",
+        "record_sha256": "8c34ba96670750c3910c4637c0e00556de50310c2e34f8e9586e75e67c98f864"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "269e0f71a9d27e82778274ecc02c8bfae3a0c52e56cfaee892650f5538c57905",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_5e412e4a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/64",
+        "record_sha256": "8587e2e70a1ec41fe713a49dd1ccdac61f51602d0b7eebf23d2c3269caed6a90"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "5cc0ee1cfc2f8415e2209a5e3ed1e8150ca99e13483342b5bf5d87ed3bb4f1a0",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::add_circle",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/66",
+        "record_sha256": "d5e979a1c3d75f3e1d459eb309ecada032ea91ac357576c3cebfb1314216358e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "963e11a0e62b33f3b010c47efcaf1554b7b389860b454b76372a0abae23149e6",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::function_114f128a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/65",
+        "record_sha256": "a242b5c7fcefafab5a772fadafca9fd38075110bf3d3e9f60d5c900cbb53490b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/80c3b91ca0e456cc.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "efb6cb950d0b47af83ec33d13dbe96531788cd31f99dffe2358657640ba2ba94",
+      "summary": {
+        "id": "scripts/core_common/death_circle.gsc::init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/63",
+        "record_sha256": "9fe1ed457cdb1a6d37386bce2e370f80bee7b39ddbb029d97a7b19ebd9c13faf"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/decoy_grenade.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/0805be35818dd79a.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "545f919e29f8d38755092dc8d167835041a23c9260a93d949d980394c1d41a17",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.csc::__init__",
+        "behavior": "Client system init: single registration: clientfield::register( \"missile\", \"decoy_grenade_footsteps\", 1, 1, \"int\", &function_52b6cd8b, 0, 0 ) â€” watches the per-missile footsteps flag replicated on missile entities, int, size 1, with client callback function_52b6cd8b and trailing options (0, 0).",
+        "unknowns": [
+          "Trailing register options semantics are engine convention",
+          "Server-side writer (decoy_grenade.gsc side) is documented separately in that file's packet units"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/28",
+        "record_sha256": "b8a8366f51c26b4eab1a001e13f043f48323077be40b3e3a06419f52246303e8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0805be35818dd79a.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "67d50b736f6f76c9b8c306fac9cbd00ea741c4f917f027946642656549d59345",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.csc::monitor_footsteps",
+        "behavior": "Decoy footstep playback loop (self = decoy missile entity; takes localclientnum). Loop: while ( clientfield::get( \"decoy_grenade_footsteps\" ) === 1 ) -> self playsound( localclientnum, #\"defaultplayerfootstep_sprint_plr\" ) â€” plays the default player sprint-footstep sound as if the fake player were walking; then wait 0.23 (â‰ˆ every 0.23 s). Terminates when the field no longer reads exactly 1. Simulates audible movement for the decoy; no other state or FX.",
+        "unknowns": [
+          "Sound #\"defaultplayerfootstep_sprint_plr\" playback position/attenuation (native playsound on entity) unverified",
+          "Server logic deciding when the field stays 1 (walking vs stopped decoy) is in decoy_grenade.gsc/packet's other units"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/30",
+        "record_sha256": "abb38b01c72a97767172ecc8f7da6c2bb4b410001ae5eb4a085636226e28b92b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0805be35818dd79a.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "67eb544e7a8fb8e8e4e0b4cd77cc9532f19dd49b1409a37b0fa3149e44ed82de",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.csc::function_52b6cd8b",
+        "behavior": "Clientfield callback for \"decoy_grenade_footsteps\" on missile entities (full 7-arg clientfield callback signature). Branch: if ( newvalue == 1 && newvalue !== oldvalue ) -> self monitor_footsteps( localclientnum ) â€” direct (non-threaded) call that runs the footstep loop in the callback context. Only enters on a 0->1-style transition (value becomes 1 and differs from old). No state writes. No teardown callback for the exit transition; the loop self-terminates when the field no longer reads 1.",
+        "unknowns": [
+          "Whether the callback executes on a dedicated coroutine/context that tolerates blocking waits is engine behavior, unverified from this span",
+          "The loop uses clientfield::get on the same field to detect removal â€” no explicit cancellation otherwise"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/29",
+        "record_sha256": "4a3f1a5c5bc673489b4aab871acfac922457d652fff40f00d46fa09005943c38"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0805be35818dd79a.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "aa29ecedc27b0418b274b8bb409b25ba8e0c1c473076872adca25ebb5f0249fb",
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the decoy grenade client system: system::register( #\"decoygrenade\", &__init__, undefined, undefined ) â€” init callback __init__; main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/27",
+        "record_sha256": "7f5963a3aecdf193a026b676587ac503f1843cbd73ea6aeee627c046c848c26c"
+      }
+    }
+  ]
+}

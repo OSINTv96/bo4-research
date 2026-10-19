@@ -1,0 +1,1249 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/player/player_damage.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0",
+  "git_blob_sha1": "3e2b6684cab03c15818b657f23f9dab58aa39a49",
+  "output": "src/scripts/mp_common/player/player_damage.gsc",
+  "output_sha256": "dba5b86d22a5d48f33c583d43e7540e5926033d01ad16cf6b54710fdb84c22e6",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/ability_player.gsc",
+      "original_line": 1,
+      "output": "src/scripts/abilities/ability_player.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/ability_player.gsc",
+        "sha256": "874c04014d0a60e0f8d8923b25a40cb941321dc580cfbf9a8aa3307bc599c844",
+        "git_blob_sha1": "8c1908bc8b09c87e5c335012b731f70ef07a4f7e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/ability_power.gsc",
+      "original_line": 2,
+      "output": "src/scripts/abilities/ability_power.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/ability_power.gsc",
+        "sha256": "fa850d31897d5d4c454cd65c66d2d9cac48e61377cc936dc29cefcb27cd4a31c",
+        "git_blob_sha1": "955c59cfee20c4c6e2ab0e5096bacd105ea90021"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/ability_util.gsc",
+      "original_line": 3,
+      "output": "src/scripts/abilities/ability_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/ability_util.gsc",
+        "sha256": "be3b3e68885b071e12df536f109efb434627f21cf898be4da138d08077570886",
+        "git_blob_sha1": "f88ef55b06a4db3802f2afaa3e5aaf3cd78ed9d9"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0042.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/burnplayer.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/burnplayer.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/burnplayer.gsc",
+        "sha256": "c59d7390f695556af5f1af61eb6d02297be540f65b66661aaacda6d1df9e6dea",
+        "git_blob_sha1": "a842fdfeb05832e4419ddf2fd5edf0152f992e67"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0043.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/contracts_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/contracts_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/contracts_shared.gsc",
+        "sha256": "047a4a51bbf5b18df5661aa04099ffa8f34ef370235565d8b91b94d4e5401c0c",
+        "git_blob_sha1": "04331cf1247061cca4b6afee14557c2a46f152b4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/damagefeedback_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/damagefeedback_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/damagefeedback_shared.gsc",
+        "sha256": "0d32ea1cb501297c06dd828d5756357cf342d387c34248a645774a3546621683",
+        "git_blob_sha1": "a79fd2c57329325653727a14544b7851ec6c4a79"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/gamestate.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/gamestate.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/gamestate.gsc",
+        "sha256": "efc344f292473a3e2e9eca9cc50666bc920178bc4085ddbc22c85ae7f8ea7499",
+        "git_blob_sha1": "25d73f95ab995553ee9c8f8d108b9a33ca32ef1b"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_player.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/globallogic/globallogic_player.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_player.gsc",
+        "sha256": "a60e3878dd087a22bd7ec6d0635b05817106730f1aeaeec17cec1608f040b452",
+        "git_blob_sha1": "6fc8f49f447835bdb3af7295bb801dd87e82d287"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0044.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/laststand_shared.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/laststand_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/laststand_shared.gsc",
+        "sha256": "7c694e608d7323039952f470d5af50dfb70ce17609702dfff6e6f37bc23a639b",
+        "git_blob_sha1": "6e4eec731395402034fe8b9cf9b09fc48b3df0ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/math_shared.gsc",
+      "original_line": 11,
+      "output": "src/scripts/core_common/math_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/math_shared.gsc",
+        "sha256": "0161936e5a7eb2220acea8c6657528eea0252c5f054f8b06150ce5181a3e239e",
+        "git_blob_sha1": "85fbb43596f9226b15c9e8863dcd77dfb88c2ac4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/persistence_shared.gsc",
+      "original_line": 12,
+      "output": "src/scripts/core_common/persistence_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/persistence_shared.gsc",
+        "sha256": "530cc6e19ab2c62d8ecb2339c902f174e1f2f48b79012f38452817421e504576",
+        "git_blob_sha1": "008821e117bffee3793c6760ceff21b1013179cd"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_role.gsc",
+      "original_line": 13,
+      "output": "src/scripts/core_common/player/player_role.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_role.gsc",
+        "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+        "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0045.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_shared.gsc",
+      "original_line": 14,
+      "output": "src/scripts/core_common/player/player_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_shared.gsc",
+        "sha256": "428b62d7e85affbe5514f468e4ee92c7711f91bc66ab9eebbae51dd3d6af2490",
+        "git_blob_sha1": "7d3e8e0c8414d3950a27c2ec9184fa586dc43c46"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 15,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0046.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/rank_shared.gsc",
+      "original_line": 16,
+      "output": "src/scripts/core_common/rank_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/rank_shared.gsc",
+        "sha256": "35ce1ae5f6ef2bdb0225e5f215352bbf0a80c721e9250102282f872f5aa87119",
+        "git_blob_sha1": "db5cb0b0a2a60ae464abfc022b4fc25a2dd78c1a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 17,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0047.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/status_effects/status_effect_util.gsc",
+      "original_line": 18,
+      "output": "src/scripts/core_common/status_effects/status_effect_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/status_effects/status_effect_util.gsc",
+        "sha256": "d458411fe077aa3b13fbe4844a2e7af5c3e8ce9ba3e95cf27e896d91df7f9c99",
+        "git_blob_sha1": "33c9ed9b7452fb631deb3aca69cc26bf30e96a78"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0048.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 19,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/weapons_shared.gsc",
+      "original_line": 20,
+      "output": "src/scripts/core_common/weapons_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/weapons_shared.gsc",
+        "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+        "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0049.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_shared.gsc",
+      "original_line": 21,
+      "output": "src/scripts/killstreaks/killstreaks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_shared.gsc",
+        "sha256": "35f35b2122e1d388c749ecb01bfdf87cabcbb41c47efdad6e05f195afcc370cc",
+        "git_blob_sha1": "9bebb9527bb9d1471d08d6ab66ba4de1c7c5fce2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_util.gsc",
+      "original_line": 22,
+      "output": "src/scripts/killstreaks/killstreaks_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_util.gsc",
+        "sha256": "d206d85fa990cb0611079beafeced0efe30987a5542d173ed5df52cd50aafbb8",
+        "git_blob_sha1": "9dd498f4a761ed0de24dc83927ac6caf06ac7627"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0050.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/mp/killstreaks.gsc",
+      "original_line": 23,
+      "output": "src/scripts/killstreaks/mp/killstreaks.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/mp/killstreaks.gsc",
+        "sha256": "4b77e81e5c2f120e2e33c6ee2e43d160f3e9268cbac5ab599a11c8b123665c44",
+        "git_blob_sha1": "ea8942db50a2787164841f585078f61761055912"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/armor.gsc",
+      "original_line": 24,
+      "output": "src/scripts/mp_common/armor.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/armor.gsc",
+        "sha256": "a9082fd6cde9c5a2a7c6a708604d760cf031c2efc0ec852384aea323902ef210",
+        "git_blob_sha1": "7149d83816a594f97d594157039eb8189e63552a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0051.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/bb.gsc",
+      "original_line": 25,
+      "output": "src/scripts/mp_common/bb.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/bb.gsc",
+        "sha256": "1a4d9e15f012189b64729dbda1c81aab71c3f7a0faeff2944ec3ddd9ffabc2bf",
+        "git_blob_sha1": "2beaafd0958b9e662362553b59799f111005eb59"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/challenges.gsc",
+      "original_line": 26,
+      "output": "src/scripts/mp_common/challenges.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/challenges.gsc",
+        "sha256": "a710b1640846367c603c8c989150144530678a2960e323c58163bd1a5a67abdd",
+        "git_blob_sha1": "6fcd822b77798ff508128aee3b3baf66e6ef875c"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/battlechatter.gsc",
+      "original_line": 27,
+      "output": "src/scripts/mp_common/gametypes/battlechatter.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/battlechatter.gsc",
+        "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b",
+        "git_blob_sha1": "7bc90120c8638397cfa9c4e61b06b76c81c0d99f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic.gsc",
+      "original_line": 28,
+      "output": "src/scripts/mp_common/gametypes/globallogic.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic.gsc",
+        "sha256": "f2c1f092aa27e2373ee44767e8df2012251a1cb42061b7764d7a3746dd022fc9",
+        "git_blob_sha1": "57d5d28f5add6a585170ffb28a7ee903de871e22"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_score.gsc",
+      "original_line": 29,
+      "output": "src/scripts/mp_common/gametypes/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_score.gsc",
+        "sha256": "0fe39baf1316fe36a6c4c5d8808ded6a19ee0fe78251ccff3d52f08bc67e1612",
+        "git_blob_sha1": "cb6c895292792a7d81ca43576b3b2fbcaf121f36"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "original_line": 30,
+      "output": "src/scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+        "sha256": "1f1ed6cf6da9a1d8f8accf87b23bba4a592f78533cd1f3b38a00897a7fe9ca57",
+        "git_blob_sha1": "59327dafe473d6266396057ff6c357fe5b03daf6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_loadout.gsc",
+      "original_line": 31,
+      "output": "src/scripts/mp_common/player/player_loadout.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_loadout.gsc",
+        "sha256": "dbff15b84499614d4f73cc2ff4a71de3f8a07a4ee5cd69a86cac39fd53b84a54",
+        "git_blob_sha1": "06602a555d9b63c7aeb96d9e1d19e464b425e5f9"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_utils.gsc",
+      "original_line": 32,
+      "output": "src/scripts/mp_common/player/player_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_utils.gsc",
+        "sha256": "e2e3cad045e3cd3b7d82779e8772eddb3eaacf0e873126ac1fe7ccb1c168eda3",
+        "git_blob_sha1": "ddec994d015cb03366e0a33482c9680f475fd127"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/vehicle.gsc",
+      "original_line": 33,
+      "output": "src/scripts/mp_common/vehicle.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/vehicle.gsc",
+        "sha256": "c953823834373bb541e22535a93be62ddcb8b910c775056c25cf5ba1a39d5b13",
+        "git_blob_sha1": "970c1e104e5a4abbb8947235d6f7015354a3535d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0052.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapon_utils.gsc",
+      "original_line": 34,
+      "output": "src/scripts/weapons/weapon_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapon_utils.gsc",
+        "sha256": "3f6cb525a53abb0881186085aa372ef3b8a66f9168ae897bb8339be94a0425cd",
+        "git_blob_sha1": "131b4010b301def7aced9d7e9e50b6643b1822cb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0053.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapons.gsc",
+      "original_line": 35,
+      "output": "src/scripts/weapons/weapons.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapons.gsc",
+        "sha256": "175f24a540714717dc31e66ba11cdaaed597c7f1d98e3216e4b27046c02fb3f4",
+        "git_blob_sha1": "cba54dd1ebd1e2fe4cb2c9e8215f662c3d77bb93"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "02b39b2972ee0c1d9f27178fef0365dc8d8c1bda5224318ef8d173aac6dae829",
+      "citations": [
+        {
+          "line_start": 132,
+          "line_end": 156
+        },
+        {
+          "line_start": 625,
+          "line_end": 644
+        },
+        {
+          "line_start": 139,
+          "line_end": 146
+        },
+        {
+          "line_start": 625,
+          "line_end": 644
+        },
+        {
+          "line_start": 139,
+          "line_end": 147
+        },
+        {
+          "line_start": 139,
+          "line_end": 147
+        },
+        {
+          "line_start": 132,
+          "line_end": 156
+        },
+        {
+          "line_start": 625,
+          "line_end": 644
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-health:HMH-HEALTH-RECOVERY-01:damage-gates",
+        "answer": "The added connection is a conditional sampled-health contract. Once the saved tick's earlier gates pass, health lower than old_health records the current polling time in var_ba47a7a3 and skips heal for that call; equal or higher health goes to heal instead (healthoverlay.gsc:625-690,704). Damage table callbacks, laststand_damage notify, local health++ and the later finishplayerdamage boundary are separate channels, so a damage notification does not by itself establish this timestamp or net health loss (player_damage.gsc:132-156,625-644). Downed/remote-control gates normally leave the old sample and delay marker untouched; full-health return refreshes old_health, while a lower-cap return writes health without refreshing old_health (healthoverlay.gsc:340-360,565-583,646-668). After revive clears laststand, the next eligible call can therefore see restored health against an older pre-down s [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "No read-order winner is assumed between damage callbacks, their listeners, native health writes, laststand clear, revive wait/native return and polling.",
+          "A damage event can be rejected, deferred, reflected, offset or health-gated; its payload and fatal return do not establish this tick's H<O branch. Exact damage accounting/engine event posting is outside this bounded connection.",
+          "Same-table post-revive examples are conditional. Root decides source init/restart reachability; this record does not assert that every revive, spawn or redeploy replaces or preserves the table.",
+          "Source asserts do not establish valid runtime ranges. Numeric cases use explicitly defined finite positive baselines/caps/delays except the stated zero/negative boundary; undefined values, invalid cap, numeric coercion and native failure behavior are not guessed.",
+          "Prior author records and labels remain unchanged and awaiting independent review. New exact comparisons are dependency algebra only, not a retrospective correctness review or a runtime defect finding.",
+          "Passing the delay gate does not prove healing: amount0/later clamp or native field behavior can prevent an observed increase; heal_policy owns the producer/rate conditions."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/14",
+        "decision_canonical_sha256": "13636b5ef1ae3623e14bcd99d3a1ad718f7f210c4d752c123634b96c39dd4823",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00145",
+        "sha256": "9ff1715c882c68ccb33c6af9dda00843abb62fe15f4cad1d9bdf8ea4d63870ff",
+        "pointer": "",
+        "record_sha256": "fb968c0f12c9658788af3adab15bf810bbdd2b5e8748b9d1c24a408f6d3febe5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "citations": [
+        {
+          "line_start": 43,
+          "line_end": 82
+        },
+        {
+          "line_start": 1036,
+          "line_end": 1056
+        },
+        {
+          "line_start": 43,
+          "line_end": 57
+        },
+        {
+          "line_start": 749,
+          "line_end": 784
+        },
+        {
+          "line_start": 1043,
+          "line_end": 1045
+        },
+        {
+          "line_start": 1048,
+          "line_end": 1056
+        },
+        {
+          "line_start": 52,
+          "line_end": 57
+        },
+        {
+          "line_start": 43,
+          "line_end": 78
+        },
+        {
+          "line_start": 716,
+          "line_end": 743
+        },
+        {
+          "line_start": 1038,
+          "line_end": 1041
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1128
+        },
+        {
+          "line_start": 43,
+          "line_end": 55
+        },
+        {
+          "line_start": 749,
+          "line_end": 784
+        },
+        {
+          "line_start": 756,
+          "line_end": 765
+        },
+        {
+          "line_start": 43,
+          "line_end": 55
+        },
+        {
+          "line_start": 47,
+          "line_end": 57
+        },
+        {
+          "line_start": 716,
+          "line_end": 743
+        },
+        {
+          "line_start": 1038,
+          "line_end": 1041
+        },
+        {
+          "line_start": 43,
+          "line_end": 78
+        },
+        {
+          "line_start": 1043,
+          "line_end": 1045
+        },
+        {
+          "line_start": 1043,
+          "line_end": 1045
+        },
+        {
+          "line_start": 1048,
+          "line_end": 1051
+        },
+        {
+          "line_start": 1053,
+          "line_end": 1056
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1128
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1120
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1128
+        },
+        {
+          "line_start": 52,
+          "line_end": 55
+        },
+        {
+          "line_start": 1038,
+          "line_end": 1041
+        },
+        {
+          "line_start": 43,
+          "line_end": 82
+        },
+        {
+          "line_start": 1036,
+          "line_end": 1056
+        },
+        {
+          "line_start": 43,
+          "line_end": 57
+        },
+        {
+          "line_start": 749,
+          "line_end": 784
+        },
+        {
+          "line_start": 1043,
+          "line_end": 1045
+        },
+        {
+          "line_start": 1048,
+          "line_end": 1056
+        },
+        {
+          "line_start": 52,
+          "line_end": 57
+        },
+        {
+          "line_start": 43,
+          "line_end": 78
+        },
+        {
+          "line_start": 716,
+          "line_end": 743
+        },
+        {
+          "line_start": 1038,
+          "line_end": 1041
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1128
+        },
+        {
+          "line_start": 43,
+          "line_end": 55
+        },
+        {
+          "line_start": 756,
+          "line_end": 765
+        },
+        {
+          "line_start": 47,
+          "line_end": 57
+        },
+        {
+          "line_start": 1048,
+          "line_end": 1051
+        },
+        {
+          "line_start": 1053,
+          "line_end": 1056
+        },
+        {
+          "line_start": 1117,
+          "line_end": 1120
+        },
+        {
+          "line_start": 52,
+          "line_end": 55
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerabili [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/12",
+        "decision_canonical_sha256": "022e88dba644031924b79a7f7c0d32eac6e322558ca4fd02fd9770ca75523f26",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0bf20d073e6816cf0a750da70d53d84e928a2c4176d7c59f7ca9854ffde8b45d",
+      "citations": [
+        {
+          "line_start": 139,
+          "line_end": 147
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-player:HMH-PLAYER-LASTSTAND:bleedout-phase",
+        "answer": "SOURCE-ONLY ANCHOR: unit-context/0004 has prior_body_records = [] and SOURCE-ONLY-ANCHORS.json records the 819 threading as the only prior connection; this is a NARROW dependency trace of the pinned recovered source - NO full-body contract/completion is claimed and zero function credit applies. TIER INPUT: args (bleedouttime, var_969fabf4) are the unit-1-selected tier values passed at playerlaststand:819 (dvar default 796 / maxhealth 797 replaced by tier.time/tier.health 805-811). END CHANNELS (endons 1013-1014, applied to l3's four-channel map and b2/f2 cancellation): level endon(#'game_ended') (1013) = the l3 SERVER-LEVEL-NOTIFY channel delivered by globallogic::function_dd9663e5:2353 in the end_round chain (matchflag game_ended has zero script readers; clientfield is the client-side latch); whether endon cancellation interrupts this mid-waitframe loop is the standing g3 A.4/f2 N4 nati [excerpt; exact source record identified separately]",
+        "behavior": "Bounded dependency trace of the downed timer with l3 end channels and b2/f2 cancellation applied; no prior full-body contract exists (unit-context/0004 empty; SOURCE-ONLY-ANCHORS points only at the 819 threading). Setup 1015-1023 stores unit-1 tier values and clears progress/forced/coward flags; damage thread 1027 -> 927-978 (setting-gated takedamage via hash_4c7c8c4bd1b2a58b, laststand_damage feed from player_damage.gsc:143, melee shortcut 953, fractional reduction 957-964, var_1cc38de0 + var_a1d415ee on expiry 962-968, update_bleedout notify with no wz waiter). Loop 1031-1073: 1 Hz gettime-ms deadline decrements (1051-1056), HMH coward's-way self-drain (1035-1050: wzenablecowardswayout + no revive/finish + held use, 6% per 100 ms), per-frame progress UI suppressed while var_d887a4ad==1 (1058-1063), revive/finish pause loop (1069-1072). Exit 1076-1088: unknown-writer var_bef1bc5d wait,  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "What writes self.var_bef1bc5d (the 1076-1079 pre-exit wait; no corpus writer).",
+          "Whether endon cancellation (game_ended/player_revived/player_bleedout/death) interrupts at waitframe boundaries per the native scheduler (g3 A.4/f2 N4).",
+          "Effective values of level.var_46a21fe9 (wzenablecowardswayout) and level.var_5c13c13f (hash_4c7c8c4bd1b2a58b) in an original HMH playlist (standing g1 config; no invented values).",
+          "getdvarfloat(overridebleedouttime) dev-span reachability (f2 N3).",
+          "Exact per-frame UI cadence in the original build (gettime/waitframe alignment; not proven)."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/77",
+        "decision_canonical_sha256": "188e0a2f9f049e191de68b79eba10e8934cee062c7733974ab5e1b26731b9a30",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00398",
+        "sha256": "57bf20b4f69e9b0135aa134a26dc19ab90b63812ed317350b2156d2440a0751a",
+        "pointer": "/units/3",
+        "record_sha256": "f0b165fce3f3eb3ac02b2b737740364ccbff748079b0982ab3ee4cd622788f5f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "80e9f96b7ccfbd24f9397562688af29a07cb4e6ae87576fc0ef30803708e3686",
+      "citations": [
+        {
+          "line_start": 139,
+          "line_end": 147
+        },
+        {
+          "line_start": 633,
+          "line_end": 644
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-player:HMH-PLAYER-LASTSTAND:downed-transition",
+        "answer": "ENTRY (source producers/callers only; native admission unknown): the native player_laststand event reaches codecallback_playerlaststand (callbacks_shared.gsc 1308-1313): self endon(disconnect) (1310), stopanimscripted (1311), then the 9-field pointer call (1312) forwarding eventstruct.inflictor/attacker/amount/mod/weapon/direction/hit_location/time_offset/delay - exactly playerlaststand's 9 parameters (652). Pointer ownership for wz/HMH: level.callbackplayerlaststand = &laststand_warzone::playerlaststand installed at warzone::on_start_game_type:558 inside the l1-saved gametype_start chain, overriding the mp default &player::callback_playerlaststand (mp_common/callbacks.gsc:75; precedence per native install order stays a condition of the g-series GAP-EVENTS record). WHY the engine downed instead of killed is the standing native admission gap (wz-visible dvars only: g_allowlaststandforacti [excerpt; exact source record identified separately]",
+        "behavior": "Connects entry gates, laststandcount changes, the on_player_downed callback and the immediate-vs-bleedout selection of playerlaststand through the exact tier map and prior body claims; native damage/admission stays unknown by question rule. Entry: callbacks_shared.gsc:1308-1313 (9-field forwarding) -> wz pointer warzone.gsc:558 over mp default callbacks.gsc:75. Body: 654-657 re-entry guard; 659-673 attribution/laststandparams; 675-680 laststandcount; 682-699 inflictor list; 701 telemetry open (2079-2097); 702 on_player_downed fan-out; 714-758 immediate-elimination branch gated by function_b1158c52 (601-646: nonremote-airborne vehicle branch can bypass the final-else tier.time<=0 lookup); 761-829 downed path ending in the three threads (laststand_bleedout 819 / laststand_invulnerability 820 / function_5ccd602d 829) plus the disconnect-trigger watcher (823) and the revive-prompt opener (77 [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "When/why the native engine posts player_laststand (down admission criteria) - standing native boundary.",
+          "Native suicide() continuation after 750 (later statements' reachability).",
+          "function_bd85bc2f/function_201c298c/function_ca27b62b/figure_out_attacker externals remain unreviewed/dynamic-unresolved (no contracts supplied).",
+          "Dev-block spans 776-778/815-817 are lexical only; retail evaluation is standing f2 N3.",
+          "Concurrent laststandcount++ and callback fan-out order not established (g3 draft)."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/35",
+        "decision_canonical_sha256": "24f3427571df954d1960d4be9cfd548cd92e375ae3f7e35084d5138fdad69b72",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00321",
+        "sha256": "69d7bf90f107e4b59da465feefc554a49fcb46bb5c6dcc2d3876c1517f233414"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "cc08281c58d46fa77ebf6598fa643727a123ef9a384c3e45502830ce9e114939",
+      "citations": [
+        {
+          "line_start": 132,
+          "line_end": 139
+        },
+        {
+          "line_start": 1177,
+          "line_end": 1189
+        },
+        {
+          "line_start": 138,
+          "line_end": 157
+        },
+        {
+          "line_start": 141,
+          "line_end": 147
+        },
+        {
+          "line_start": 138,
+          "line_end": 184
+        },
+        {
+          "line_start": 190,
+          "line_end": 240
+        },
+        {
+          "line_start": 45,
+          "line_end": 79
+        },
+        {
+          "line_start": 119,
+          "line_end": 139
+        },
+        {
+          "line_start": 132,
+          "line_end": 139
+        },
+        {
+          "line_start": 1177,
+          "line_end": 1189
+        },
+        {
+          "line_start": 139,
+          "line_end": 146
+        },
+        {
+          "line_start": 138,
+          "line_end": 147
+        },
+        {
+          "line_start": 138,
+          "line_end": 147
+        },
+        {
+          "line_start": 139,
+          "line_end": 141
+        },
+        {
+          "line_start": 52,
+          "line_end": 55
+        },
+        {
+          "line_start": 143,
+          "line_end": 146
+        },
+        {
+          "line_start": 138,
+          "line_end": 169
+        },
+        {
+          "line_start": 154,
+          "line_end": 184
+        },
+        {
+          "line_start": 190,
+          "line_end": 240
+        },
+        {
+          "line_start": 141,
+          "line_end": 147
+        },
+        {
+          "line_start": 132,
+          "line_end": 157
+        },
+        {
+          "line_start": 154,
+          "line_end": 184
+        },
+        {
+          "line_start": 240,
+          "line_end": 240
+        },
+        {
+          "line_start": 132,
+          "line_end": 139
+        },
+        {
+          "line_start": 1177,
+          "line_end": 1189
+        },
+        {
+          "line_start": 138,
+          "line_end": 157
+        },
+        {
+          "line_start": 141,
+          "line_end": 147
+        },
+        {
+          "line_start": 138,
+          "line_end": 184
+        },
+        {
+          "line_start": 190,
+          "line_end": 240
+        },
+        {
+          "line_start": 45,
+          "line_end": 79
+        },
+        {
+          "line_start": 119,
+          "line_end": 139
+        },
+        {
+          "line_start": 139,
+          "line_end": 146
+        },
+        {
+          "line_start": 138,
+          "line_end": 147
+        },
+        {
+          "line_start": 139,
+          "line_end": 141
+        },
+        {
+          "line_start": 52,
+          "line_end": 55
+        },
+        {
+          "line_start": 143,
+          "line_end": 146
+        },
+        {
+          "line_start": 138,
+          "line_end": 169
+        },
+        {
+          "line_start": 154,
+          "line_end": 184
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:armor-downed-relay",
+        "answer": "Connected the existing post-armor damage payload to two different channels: threaded on_player_damage table listeners observe the victim and can record damage to a reviver on its revivee's stats, while laststand_damage is an entity notify consumed by the already-downed bleedout listener. That listener uses the pre-local-substitution payload damage and selected tier health/time. Local idamage=1, self.health++ and self.laststanddamage follow notification; they do not explicitly rewrite params. The later damage gate can return after these side effects. Revive marker/clears and cancellation paths are mapped without claiming listener ordering, native delivery, parameter alias rules or real PS4 behavior.",
+        "unknowns": [
+          "Exact parameter object alias/copy rules across native eventstruct -> callback locals -> params -> threaded table listeners -> entity notify payload are unproved. The source reuses one params variable and does not write params.idamage=1; this does not prove immutable/deep-copy payloads or forbid a shared listener mutation.",
+          "Only the bounded WZ on_player_damage consumer was inspected for writes: it reads params and writes revivee telemetry. Other loaded/hashed subscribers, callback-table mutations and native field aliases can change observations; no global absence or immutable payload claim is made.",
+          "Thread spawn/run interleave and live-state read timing are unresolved: WZ reviver comparison uses self.health, producer checks self.laststand after table dispatch, and revive window/health writes can overlap. No callbacks finish-before-notify assumption is used.",
+          "Native notify delivery/queueing and endon/endoncallback cancellation semantics, especially combined keys and a notification during the initial wait, remain standing g3 A.4/f2 N4/b2 conditions. Source notification is not delivery proof.",
+          "Effective hash_4c7c8c4bd1b2a58b setting, g_gametype HMH selection, tier initialization/re-entry, revive delay and revive health overrides remain d3/l1/g1 conditions. H=150 algebra is conditional on the HMH tier route.",
+          "Native player_damage and player_laststand posting, down-vs-kill admission, finishplayerdamage/health/invulnerability effects, builtin telemetry semantics, retail module set and original saved-PS4 source binding remain unverified. Root owns the later fatal pointer boundary."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/572",
+        "decision_canonical_sha256": "8596547eb35cc97d899fb185da2795e3caf97b234ff56917dda3cfae4a893111",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00178",
+        "sha256": "4a7781155e4ca01e4bca6d2b20afcf42869b8bc14bc805bbb5fcc78a1dc7963f",
+        "pointer": "",
+        "record_sha256": "6fa819ec371c47424982477c27c08fff96aa23fe22e55849785634c9d1efe078"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+      "citations": [
+        {
+          "line_start": 132,
+          "line_end": 156,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        },
+        {
+          "line_start": 159,
+          "line_end": 188,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        },
+        {
+          "line_start": 190,
+          "line_end": 254,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        },
+        {
+          "line_start": 620,
+          "line_end": 648,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        },
+        {
+          "line_start": 1628,
+          "line_end": 1648,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        },
+        {
+          "line_start": 1594,
+          "line_end": 1622,
+          "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:fatal-handoff",
+        "answer": "The saved damage and return value belong to the actual final-damage receiver. A normal return from finishplayerdamage supplies an initial fatal value; after the optional status helper the source re-reads laststand. If laststand is true it replaces that value with either the installed pointer result (and then clears saved damage) or literal1 when either required field is absent. The three final-damage callsites include a reflected friendly-fire call on the attacker: a second result can overwrite the first victim result. The outer callback passes its resulting fatal variable into damage feedback; the shown override/feedback code does not itself call the native downing or killing operation. Actual native damage/death effects already lie across finishplayerdamage and remain unknown.",
+        "unknowns": [
+          "No actual runtime source/build binding or effective HMH friendly-fire/playlist settings established.",
+          "The source does not guard denominator zero/undefined, stale saved damage or pointer callability; native/VM handling cannot be invented.",
+          "The reflected call reads attacker state and its own saved field; when/how an older field survives a skipped/aborted call is conditional, not an observed game defect.",
+          "Damage notifications and timer updates may occur in different orders; no selected scheduler ordering or exact health effect.",
+          "Prior mapping92 labels predicate outcomes as death/starting laststand. This new source handoff traces a return into feedback and retains the prior wording for project-end reconciliation without changing or reviewing it."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/723",
+        "decision_canonical_sha256": "065bf602eafe42e318f558c6ca8d726a44cfc3d2c74e41317cb3b8a22eaca1d5",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00412",
+        "sha256": "47430e32ca57c8ef06ac19e097873e34b05140d6ba34295e6640eb3b070a306b",
+        "pointer": "",
+        "record_sha256": "194efb98b660634a6b04c88d4f3bfb008ac97ec2ad6e157cbfc5726fbfb1295f"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/7580d4ae045190b2.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0042",
+    "AV0043",
+    "AV0044",
+    "AV0045",
+    "AV0046",
+    "AV0047",
+    "AV0048",
+    "AV0049",
+    "AV0050",
+    "AV0051",
+    "AV0052",
+    "AV0053"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/9add0a4eed687081-001.json",
+      "sha256": "fe75c3ad46ea70196cec947bb2ed6392b6881a9714d3798ac69a1cab96489ab5"
+    }
+  ]
+}

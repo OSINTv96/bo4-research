@@ -1,0 +1,660 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/lua/hashed/4920b7ab045e53bd.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7b33541bad4100d8.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0ea9f72585a7ae6bf1c15455c9ff0f448dbc29ff9ab30abab022fe7de15d231c",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:142",
+        "answer": "Compares numeric input against numeric Warzone maximum rank plus one. At/above threshold returns the special localized string; otherwise tostring(input). Missing numeric conversions are not guarded. Requires item model not dummy/collapsed. Reads selected slot and item id. If a slot-claiming pickup would replace a nonempty item, uses firstFreeSlot when not -1 or sends inventory_drop first when full. Then sends multi_item_pickup or multi_item_pickup_stowed_weapon with pickup id and chosen slot. These are clientscript requests; no authoritative inventory result is shown. Reads WarzoneSplitInventory.current and forwards controller/item/inventory_drop/amount to SendInventoryNotify. Errors if parent and child are identical. Stores parent[field] as a zero-argument closure; invocation calls child[field]() only if nonnil. It deliberately passes no implicit child receiver, and does not prove the dynamic field provider. Requires showPickupHint. Rejects INVENTORY_FULL, IGNORES_INVENTORY or AMMO_FULL flags. Uses forced-hint item index unless -1, then first free slot unless -1, then selected index or 0. Returns true only if that inventory item model equals the supplied widget model; otherwise false. Reads controller client number and both client team fields. Returns the literal short-circuit conjunction ending in team equality; missing team fields can return nil rather than Boolean false. Missing target platoon returns false. Otherwise returns false for platoonCount=0 or mismatched controller platoon; true for the remaining path. Controller clientModel:get() is not separately guarded. If same controller team, returns teammateIndex or 0 when falsy. Other teams return -1. Gets teammate index; -1 returns empty string, otherwise concatenates empty string with index+1 under Lua operator precedence. Uses TeamPlayerColorNameForClientNum to index ColorSet, then forwards that table to ConvertTableToRGB. Returns the second argument when the third equals 1; otherwise third times first. It does not inspect or move a death circle. Trial sessions localize the special tier-skip key; other sessions localize the supplied key. Reads old mapZoom. Only requested zoom <= MAP_ZOOM_MAX proceeds; there is no lower-bound check. Writes zoom first, derives normalized cursor position from engine bounds on KBM or markerPos otherwise, computes inverse-zoom pan delta, clamps pan to [0,1-1/newZoom], writes pan and adjusts markerPos for clamp displacement. Division-by-zero and missing model/data values are not repaired. Requests the hashed engine pan operation with controller/x/y before setting the supplied model to {x=x,y=y}. Failure in the first request can prevent the model write. Captures Warzone pan/zoom and source horizontal layout, installs separate pan/zoom callbacks applying the exact horizontal transformation. A scoreboard-open subscription clears DisableZoomIn/Out then reasserts each when its trigger button flag is down. Closing the scoreboard has no reset path in this body. Captures Warzone pan/zoom and source vertical layout. Two subscriptions recompute the displayed row top/bottom positions for pan or zoom delivery using the exact retained expressions; it does not write map state. Computes sqrt(x*x+y*y), divides both supplied table coordinates by it and returns the same table. Zero-length inputs are not guarded. An existing _ignoreInputTimer returns false. Otherwise creates/attaches a timer and returns true; on invocation clears the timer field then sets the supplied model to the captured value. No explicit close call is present in the owned callback. Reads currentWeaponIndex. The recovered body calls the engine selector with 1 only within the current-index==0 path, then assigns a local 0 without calling it. Do not invent the missing reverse-selection call for index 1. With a weaponId and valid nonzero ammoType model value, returns the localized formatted text containing supplied label and ammo type. Otherwise localizes the supplied label alone. Reads hudItems.inventory.selectedItemName under the controller model and injects its get value into localization of the supplied string key. Checks the shared SplitterWidgetElement. If present returns whether its state is Open; absent returns false. The controller argument is unused. Reads objectiveN.unlockProgress from the supplied model. Nonnil/nonnegative progress is injected into the description key; absent/negative progress localizes that key alone. Reads weaponN.hasAttachments from WarzoneInventory and returns equality to numeric 1. Read f383_arg0.weaponId or0. In order, request HeaderWeapon:setText with Engine hash_4F9F1239CFD921FE(\"WZ/WEAPON_WITH_ID\", tostring(id+1)), then HeaderWeaponEquipped:setText with the same provider and literal \"WZ/WEAPON_EQUIPED\", tostring(id+1). These are numbered-label text requests, with no direct weapon-name or ammunition lookup in this selected body. Localization, text rendering, input errors and provider effects remain unverified.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00247",
+        "sha256": "0df41e22daeb772e041881b1877ac62740005fc117d9ac5926f9dd3c985ec59a",
+        "pointer": "",
+        "record_sha256": "776c574fe6ac9ea22cf1ce81045dd5279c6ec947d7dd3bef41c301733da2f460"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b33541bad4100d8.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "1296bc90c701a2ba2b020e3dbe82a03cfb5567562952986c51530083f6e6fc48",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:059",
+        "answer": "Constructs CoD.ScoreboardMapRowHeadingsContainer from the displayed menu/controller/layout arguments. Creates RowHeadings as CoD.ScoreboardMapRowHeadings.new. Installs 1 event/action/override bindings; each callback keeps its captured controller/menu/widget references and executes only on its bound delivery. The ordered effect contract retains every property, model, visual, navigation, callback and return mutation in source order; returning self is not proof the original game loads this widget.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/58",
+        "record_sha256": "fa94ad3f4aa98bc463393ea63a65ea816e667f9e50f92176c96515964020b6cc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b33541bad4100d8.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "7a2aef5438956e4e405938ac7e6cd265126e6072d2028b7a778308299d8b49d3",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:018",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/17",
+        "record_sha256": "8c4df5f516a9a2fe52a4e23cc803bbfcbf64892f34b05e5c302e29ccf31db2db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b33541bad4100d8.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "cd9472e3afb5840b74fa8380ff100ce32bc6b7d322571d61b8a1240e3df814a5",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:230",
+        "answer": "Constructs CoD.ScoreboardMapRowHeadings.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, MapGridRowHeading as LUI.UIImage.new, MapGridRowHeadingTint as LUI.UIImage.new, Row1 as CoD.ScoreboardMapRowHeadingWZ.new, Row2 as CoD.ScoreboardMapRowHeadingWZ.new, Row3 as CoD.ScoreboardMapRowHeadingWZ.new, Row4 as CoD.ScoreboardMapRowHeadingWZ.new, Row5 as CoD.ScoreboardMapRowHeadingWZ.new, Row6 as CoD.ScoreboardMapRowHeadingWZ.new, Row7 as CoD.ScoreboardMapRowHeadingWZ.new, Row8 as CoD.ScoreboardMapRowHeadingWZ.new. Owns 0 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 11,
+              "line_end": 11,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "a5980a483deec70cc5d6454e3d6edb372c0e0798461b738a0191d9f234f98cc9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.ScoreboardMapRowHeadings )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeading:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 16,
+              "line_end": 16,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "deabe4f20c3a0659d0b3a6f345c15feb7902baf1047f550de4ec7c74b1b4630e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeading:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_E2354BE557C4C7A\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeading:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "eb915acfcb05ab04e3cffbd7be9a78b62b7439a41321254cc9d2642263e70585",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeading:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "5613bdddbe32f4d48a7dafe5a426037e8d922428fb5de9d0de92ceb4e35e8f9e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( MapGridRowHeading )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeadingTint:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "7a46cd91311559f8483a9d1e489ef02edf6cd9a5c81d965992d0e8e12f4cb2df",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeadingTint:setRGB( 0, 0, 0 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeadingTint:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 23,
+              "line_end": 23,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "9b53027fe2815e6c165d8437c7b1b6ab3bc62e5cffe15a76a3102bd4d9503b5e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeadingTint:setAlpha( 0.9 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeadingTint:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 24,
+              "line_end": 24,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "c412c581b382a23c4cf248e3a358defb3a6f63a593b7b058c323dbfa36f08cf4",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeadingTint:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_F755127C95CF5B6\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "MapGridRowHeadingTint:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 25,
+              "line_end": 25,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "d02e9d12d167ea2144de03f62f8f7c2a6f899016e78932695d67e6876ddc67e6",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tMapGridRowHeadingTint:setShaderVector( 0, 1, 0, 0, 0 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "49146f9da7ab720ecc1bf4285e111fb470ab224eb70cc6b903674cbfb10933a6",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( MapGridRowHeadingTint )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 30,
+              "line_end": 30,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "d2e25c35830187dc8f6c4ce1d9c51396a279a63166eaf376d3e8d2ae98e8e25e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row1 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row2.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 34,
+              "line_end": 34,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "c3a3d14721378eb5e343320f8ddababd5589a00a5ed03acbde13cefd08880abb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow2.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_109088B4202CB718\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 35,
+              "line_end": 35,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "468c508d57943e7a46d0d4d82a2f2f5ae53bbfbd50229172a682a93c473abd30",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row2 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row3.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 39,
+              "line_end": 39,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "bad1256a1cafcffdbed7eb4a53e7e1ba873a16ad7a8bcc4609835bd5eb47031b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow3.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_109089B4202CB8CB\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 40,
+              "line_end": 40,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "3497fd9b776d5f8b25aaf695531e2db91b5d49dcc9972fb888e4f51dd71db1ab",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row3 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row4.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 44,
+              "line_end": 44,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "719fda85cf7053eb16b2311234af181e3e34be9f1282b0342beee063b2f5f8bb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow4.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_10908EB4202CC14A\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 45,
+              "line_end": 45,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "44c0dd752ee3b11057cfd3f33640d2c9105fbd7f11b927896536678f94b43300",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row4 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row5.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 49,
+              "line_end": 49,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "cb55268b608239b231a676d61cc7c68f1ba27cd867381668e745032413c32ceb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow5.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_10908FB4202CC2FD\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 50,
+              "line_end": 50,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "704c5becb5df20d84be86c5b286dd29b56999ed53a196d0ea349b84d430ddeaa",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row5 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row6.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 54,
+              "line_end": 54,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "3a34cd0048bc3aaae9e09cf8ac6754498a0ab9e94e320c4990c7efda6f5b247a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow6.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_10908CB4202CBDE4\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 55,
+              "line_end": 55,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "96f86439874044bff9aae5d746b1cfa6e05843d9abbbca99fa37a536390965a7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row6 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row7.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 59,
+              "line_end": 59,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "12789db5ce827590e4a8e67bd9d1381182ebf1a83de1048b4db97c7b715d1456",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow7.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_10908DB4202CBF97\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 60,
+              "line_end": 60,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "9b335c2768be25b69b8e062b2fc8d5a7fd38bb9c14f88b478272dfd95553a5e9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row7 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "Row8.TextBox:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 64,
+              "line_end": 64,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "931640cc7102d7bc34b00834710b5bc84d32178de34958930ad7f25e54ba2232",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tRow8.TextBox:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_109082B4202CACE6\" ) )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 65,
+              "line_end": 65,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "5d8a0fb5197e6880d32da12a8cc92f635342fb969b28dd4718457cac955bf2b2",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Row8 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:230",
+            "source_symbol": "CoD.ScoreboardMapRowHeadings.new",
+            "symbol": "PostLoadFunc",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/7d151f5f1f01c4f6.lua",
+              "line_start": 71,
+              "line_end": 71,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "0a78cdaad0be77a206927f4b938106b01d112288e4ed7f4d84001f5cb2ec14e3",
+              "line_span_sha256": "4dbef5997b3a65062e8c8bbfb97d55f505c5f9f18c20af45a45813d428535171",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tPostLoadFunc( self, f1_arg1, f1_arg0 )",
+            "scope_id": "lua/hashed/7d151f5f1f01c4f6.lua:9-75",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/229",
+        "record_sha256": "fecb438e0d6a9c371fec6831f83c3fa19432dd45565a876d2051a6a6081f9891"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b33541bad4100d8.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "e8f99bdd2f4a124625561c19726d8b86ea9bcf9512beb1a649d6397d5e05b4c8",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:054",
+        "answer": "On invocation requests these child closes in exact order: f2_arg0.RowHeadings:close(). No nil guard, protected call, timer cancellation, field clearing or explicit return is added.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/53",
+        "record_sha256": "c0cfbeb8a18f913136b179ae0b68af040ce7846ae8849d8cd6826f524c30a026"
+      }
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/gametypes/globallogic_utils.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/fd2a80f88564998b.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "54b023565e0cacd45fbdb926b434c0d4b4d67184ef77b3335437b5d2b4645c2e",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/globallogic_utils.gsc::function_4aa8d809",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/566",
+        "record_sha256": "cc63fc324e1c8ea8c56f355f40c3a6e21f45d3633431a6789bfcbbbe73e586fe"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/fd2a80f88564998b.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "8a373e26e9bfd9241a1d0ce32496ff318a64b7d583e512e7ca02e6a22e64f71a",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:wait-and-spawn",
+        "answer": "Bounded HMH use of the waiting orchestration (1586-1711): ENTRY/OWNERSHIP: reached from globallogic_spawn::spawnclient 1572 (self waitandspawnclient( timealreadypassed )) after mayspawn passed OR defined-truthy self.usedresurrect bypassed !mayspawn denial at1548; shared team-lives denial632 additionally requires !level.numlives && level.numteamlives && game.lives[self.team]<=0 - the join/respawn request thread from player_connect.gsc:326 or player_killed routes; and threaded after death from laststand paths: laststand_warzone::respawn_player_after_time 1241-1259 (waits spawned_spectator + n_time_seconds; still sessionstate == spectator -> thread waitandspawnclient()) and laststand.gsc:934. QUEUE OWNERSHIP: waitingtospawn set 1 by spawnclient (1564) before the wait, cleared at 1705 (and 1576 after return; both writers exist and cancellation skips the tail); allowqueuespawn cleared 1565; spawnqueuedclientonteam skips waitingtospawn players (1404) - no double-request. CANCELLATION: endon( disconnect, end_respawn ) 1588 + level endon( game_ended ) 1589; helper waits arm the same keys (waitrespawnorsafespawnbutton 1752; b2 teardown: disconnect death-notify 1202 kills player-owned waits while level entries persist). WAIT BRANCHES: (W1) teamkillpunish 1598-1622: penalty player::function_821200bb (1600), split vs timealreadypassed (1602-1611), positive remainder -> friendly-fire message + thread respawn_asspectator( self.origin + 60Z, angles ) + spawnedasspectator = 1 + wait remainder (1613-1619), clear punish (1621); respawn_asspectator 1105-1108 -> in_spawnspectator 1149+ (spectator state). (W2) wave index 1624-1628. (W3) delay 1630-1641: timeuntilspawn( 0 ) (535-596: grace + never-spawned -> 0; hasspawned -> onrespawndelay/playerrespawndelay/incremental/suicide/teamkilled arms; deathcirclerespawn -> function_ac5b273c 698-708 keyed on level.var_56baa802 (death_circle.gsc 31/423/467, set only after level flagsys wait_till insertion_teleport_completed at 466) - wz reinsertion waits are COLLAPSE-CLOCK timed; wavebased -> timeuntilwavespawn 714-735 with 50ms/index stagger; usedresurrect -> 0). (W4) positive remainder 1643-1688: spectator hud only when NOT sessionmodeiswarzonegame() (1645-1655), thread respawn_asspectator unless already spawned (1657-1674) with the conditional intermission hook (no literal writer found does not prove runtime inactivity) level.useintermissionpointsonwavespawn (1662; no corpus writer), then the warzone arm: self globallogic_utils::waitfortimeornotify( timeuntilspawn, \"force_spawn\" ) (1684 = self endon( notifyname ); wait time; globallogic_utils.gsc 535-539), notify stop_wait_safe_spawn_button 1687 (NO corpus waiter - new bounded observation), non-warzone arm function_6c23d45b countdown (1680/1717-1744). (W5) manual wait 1690-1703: wavebased = waverespawndelay > 0; if !playerforcerespawn && hasspawned && !wavebased && !wantsafespawn && !playerqueuedrespawn -> press_to_spawn + spectator + waitrespawnorsafespawnbutton (use-button polling 1750-1762). TAIL 1705-1710: clears waitingtospawn/message/wavespawnindex/respawntimerstarttime, pers[ #\"spawns\" ]++, thread [[ level.spawnplayer ]]() -> globallogic_spawn::spawnplayer 885 -> wz chain (units 3-5). FAILURES: (F1) spawnclient defers to spectator only for !mayspawn AND !(isdefined(self.usedresurrect)&&self.usedresurrect); defined-truthy usedresurrect bypasses that denial (1553); (F2) notify(force_spawn) has NO wz poster in corpus (only koth.gsc:511 across mp; userspawnselection posts an LUI force_spawn_selection only, 585) -> no literal wz poster was found; computed/hash/native/frontend notification remains unresolved, so full-duration waiting is conditional (unobserved - not claimed); (F3) never-spawned joiner kick: kickifidontspawninternal 1263-1322 (waits streamer-ready then 90s/scr_kick_time; kicks EXE/PLAYERKICKED_NOTSPAWNED when unspawned, not private, not spectator, and !( !mayspawn && pers[\"time_played_total\"] > 0 )); (F4) no spawnpoint -> spawning_shared abort_level (506-510); (F5) waitinspawnqueue (1769-1780) waits queue_respawn with NO corpus poster AND no caller - no literal caller/poster found in the pinned source lookup; dynamic/hashed/native reachability unresolved. b2/p3 lifetime reuse: entity-owned waits die at disconnect without cleanup (b2); insertion transport flags/timeouts use the same flagsys wait_till_timeout family (fec68e5c 723-725). Native thread/notify/admission unproved: no claim a wait completes against a live server.",
+        "behavior": "waitandspawnclient(timealreadypassed) (1586-1711): cancellation endons; teamkill spectator wait; wave index; delay consumption; timed spectator wait + conditional intermission hook (no literal writer found does not prove runtime inactivity) + waitfortimeornotify(force_spawn); manual press-to-spawn arm; tail clears state, increments pers[\"spawns\"], threads [[ level.spawnplayer ]]().",
+        "unknowns": [
+          "Whether any native/frontend mechanism posts force_spawn during wz waits (poster bounded absent in corpus; unobserved)",
+          "stop_wait_safe_spawn_button consumer absent in corpus - native/hashed consumer possible: unobserved",
+          "function_821200bb (teamkill penalty) body outside packet; wantsafespawn/playerforcerespawn writers out of packet",
+          "Synchronous-call endon cancellation stack semantics (retained prior unknown; N4)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00448",
+        "sha256": "e03136d70826aa2604bf9ca1eb5abfa73d5cf068f7746b8446fc4581383ec584"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/fd2a80f88564998b.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "f549d169f9220cc041d23e5e8d93c65a482f23676a2a751d7c17c90180db9a2b",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/globallogic_utils.gsc::registerpostroundevent",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "additional_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1091",
+        "record_sha256": "c44bc7d979c6252c5aa19ba00ceadd756ceae73ff8444542af72389ab8637e61"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/fd2a80f88564998b.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "88b666290d9383e8d3bb7ae541b9fb1ab19832d9b3da0d2a10c18d979ce45789",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/globallogic_utils.gsc::function_4aa8d809",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/183",
+        "record_sha256": "e6e6f610d3596a5d35bda228b3381117672d95d8ee8c0c9b9e39529a8127a316"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/fd2a80f88564998b.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "99834f8286386a0690737a748972e873d61b58cd240f3ae572081598ae6878d4",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/globallogic_utils.gsc::function_4aa8d809",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/183",
+        "record_sha256": "e6e6f610d3596a5d35bda228b3381117672d95d8ee8c0c9b9e39529a8127a316"
+      }
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz/wz_open_skyscrapers.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW (fixups): wz_common_mode_heavy_metal_heroes_fixup.gsc:28-53 builds item_replacer sets: per-stash gun lists (array_list_guns_dlc1, asylum, boxing_gym, clearing, construction, diner, dockyard, estate, factory, farm, farmtown, firing_range, fracking, ghosttown, graveyard, hijacked, hydro, lighthouse, nuketown, rivertown, hash_5295664b3252e2a7, support_structure, train_station, wind_turbine) every call appending the replacement list #heavy_metal_heroes_list_guns_dlc1 (and .csc:28 twin); wz_open_skyscrapers.gsc:60-64 sets level.var_2089aa11 = supply_drop_stash_parent_dlc1_heroes and registers heroes flare-gun stash replacement/count data via function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); this registration does not spawn the stash; hashed script_71e26f08f03b7a7a.gsc:256-259 uses level.var_2089aa11 only when that parent is defined, var_6ed927a6 replacement is undefined and heroes is defined/truthy. Explicit replacement wins. start first waits for its flag and applies timing/count gates before threading function_2d47ee1e; heroes truth alone does not prove spawning. FLARE GUNS: wz_open_skyscrapers_fixup.gsc:30-33 enables the base stash parent dlc1 flare guns only when wzenableflareguns && !wzheavymetalheroes (explicit NOT-and; #wzenableflareguns is itself absent from all recovered HMH layers). RAMPS: hmh_ramp dynent array enable/disable (gsc 160-172, csc 91-128 both sites read wzheavymetalheroes). VEHICLES: wz_common/vehicle.gsc:3397 keeps self.deathmodel when NOT heroes; function_32607cfc (4094-4121) returns true immediately when wzheavymetalheroes (vehicle-availability/air distance bypass; stats-gated otherwise); death circle tank vehicles only when setting hash_6eb44149a8ac6dd1 truthy inside the mode-identity branch (wz_open_skyscrapers_death_circle.gsc:69-76; that hash appears ONLY in the neighboring base-warzone playlist entry at categories 2631-2644 value 0, not in any HMH layer â†’ value for HMH unknown). TABLE RULE VALUES that select equipment/vehicles (def-only, all conditional on the native store): wzenablebowieknife=1, wzenableoperatorweapons=1, wzenablecoinbag=1, wzenablemusclecar=1, wzenablesuv=1, wzenablehomewrecker=1, wzenablevendetta=1, wzenablereplacercar=0, wzenablepurifier=0 mask2; wzenableatv/wzenablemotorcycle appear ONLY in the neighboring base-warzone entry (8286-8313, value 0) not in HMH layers; the vehicle fixup switch wz_common_vehicles_fixup.gsc/.csc:102/127/163 reads wzenablemusclecar/enableatv/enablemotorcycle/enablesuv combinations â€” for HMH the atv/motorcycle keys are unset, so those branches are absent-key dependent. JETPACK: no recovered HMH-specific jetpack setting exists; the mobility change is the two perk grants above. FURTHER EXACT DEPENDENCIES: function_9de0644f body (heroes loadout supplier) and function_3fed57dd/a9b8fa06 alternatives; level.var_618194f7 writer; heavy_metal_heroes_list_guns_dlc1 and supply_drop stash asset bundles; hvolist bundle contents (m1); vehiclecustomsettings per vehicle (m2); native wzheavymetalheroes producer (units 2/4).",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "0d05c5c075e27ad08db01e6ea2df09f904178b135d862aa07f5746c25542a6b6",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:run_post_systems@system_shared.csc",
+        "answer": "Source-visible answer: the batch postinit driver, the terminal point of the ordering graph. It iterates the whole registry: for each entry run the requirement resolver (88) and spawn exec_post_system (89); after iterating set the level flag system_init_complete (92) - the signal every system::wait_till blocks on - and destroy the registry (93), without a join proving postfunc completion. register can recreate the cleared table; clearing does not prove lifetime inactivity. Its single caller is the native level_finalizeinit event handler codecallback_finalizeinitialization (callbacks_shared.gsc 1095 / csc 502). Sequence inside one native event: run_post_systems() THEN callback(#on_finalize_initialization) (1096) - so wz_open_skyscrapers gsc/csc on_finalize_initialization handlers (registered at wz_open_skyscrapers.gsc 47 / .csc 27; bodies gsc 129-133 / csc 81-85 leading to the wzheavymetalheroes-gated hmh_ramp dynent enable function_7276b578 gsc 160-175) are dispatched after the driver has spawned its batch, set the flag and cleared the registry; this does not establish that all spawned postfuncs have completed. Exact native-entry boundary: the event name and handler annotation event_handler[level_finalizeinit] (callbacks_shared.gsc 1093) are source-recorded; the engine call site and event order are not - recorded as the exact minimum evidence request.",
+        "behavior": "Batch postinit driver. run_post_systems(): foreach over level.system_funcs calling function_5095b2c6(func) (requirement resolver) and spawning thread exec_post_system(func) per entry (86-90); then level flagsys::set(\"system_init_complete\") (92) and level.system_funcs = undefined (93). The set() both flags completion and notifies all waiters (flagsys_shared.csc 9-18: self.flag[str]=1; self notify(str)); the registry is cleared only after the foreach returns - the spawned exec_post_system threads run against records that were just deleted from the array but remain valid via the func references captured in the spawn calls. Sole caller: callbacks_shared event_handler[level_finalizeinit] codecallback_finalizeinitialization (gsc 1093-1097 / csc 500-504), which calls run_post_systems() first and THEN dispatches callback(#\"on_finalize_initialization\") to all add_callback registrants (dispatch mechanism callbacks_shared.gsc 17-25, 60-107). The registry is undefined after the driver; register() can recreate it, so lifetime inactivity is not established. util_shared.gsc::__main__ waits on this flag while its postfunc is still incomplete.",
+        "unknowns": [
+          "Engine call site/order of level_finalizeinit (native)",
+          "Completion guarantee of spawned postinits before the finalize callback dispatch (native scheduler)",
+          "Retail behavior after registry clear (any register() call would recreate level.system_funcs)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00072",
+        "sha256": "5dd83a6f593ad1f1423431c250f4d6a2cb8958980f51650c6b73221c44d88ef2",
+        "pointer": "",
+        "record_sha256": "76cfd3b6723685a7f77307c35a90363a293e7c7b600190611b4a16cf398acd2e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "1af4436952a9f9009ee2bb83efe170979f02bf70d87fe87ddb2248118364992f",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:spawn-install",
+        "answer": "The HMH spawn-behavior install is spawn.gsc::function_e93291ff (42-114), threaded exactly once in the corpus by warzone.gsc::on_start_game_type at 562 (level thread spawn::function_e93291ff();), with on_start_game_type installed by warzone.gsc::main:92 as level.onstartgametype. It installs ONLY spawn-destination state: (a) destinations = [[ level.var_1710ced9 ]]() if defined, else struct::get_array(\"destination_influencer\") map structs (44-51) - level.var_1710ced9 has NO writer in the corpus (reads only at 44/46), which establishes only no literal writer in the pinned lookup; the delegate path remains conditional on actual definedness, and map structs are selected only if it is undefined (map fixture data gap); (b) empty destinations -> return (53-56): no queue initialization or cleanup; incoming queue state is unchanged. The later undefined-queue branch requires the queue to be undefined when override_spawn checks it; this return alone does not establish that state; (c) arraysortclosest + globalindex (58-63); level.var_7767cea8 = [] (65); dev-block totalspawnpoints (67-77); hijacked removal (79-86); getdvarint wz_dest_id(-1): valid index pins exactly one destination (88-94) else random up to 5 (95-103); dest.spawns = struct::get_array(dest.target, \"targetname\") cache (105-108); unused destinations removed from the level.struct array (110-113 via function_3b1d0553/178abfd; isarray guard 457; first-match removal). Its only players-relevant queue consumers are override_spawn (unit 3) and the start_warzone cleanup function_cb5864fc (120-129, called at warzone.gsc:726); the wz_open_skyscrapers.gsc:1705 queue reader is inside a dev-only debug function (Type: dev, 1696). f2 readiness semantics applied: this installer registers NO callback and waits on NO readiness flag - its readiness is plain call order inside on_start_game_type (the spawning_allowed flagsys clear at 565 and the hash_774be40ec06d5212 add_callback at 564 are siblings in the same body), unlike player-bound waits that sit in player-insertion bodies; player_insertion::__init__ (40-83) registers callback::on_finalize_initialization(&on_finalize_initialization, insertion) at 59 and builds level.insertions with insertion.allowed=1 (51-62) - the exact f2 on_finalize_initialization readiness chain (f2 record 10) - and the reinsertion driver consumes level.insertion.allowed at player_reinsertion.gsc:704. Pre-insertion vs already-playing connection paths are NOT distinguished inside this installer: both the pregame-staged connect (spawnclient -> staging block while game.state == \"pregame\") and the already-playing connect (immediate spawnclient) resolve placements later through the SAME level.var_7767cea8 via override_spawn; the installer is connection-phase-agnostic (conditional inference: caller set is on_start_game_type once per gametype start; no second installer or late-join queue exists in corpus).",
+        "behavior": "function_e93291ff (42-114): destination producer fallback (var_1710ced9 defined -> delegate call; undefined -> destination_influencer structs; no literal writer found does not select an effective branch), empty->return, sort/globalindex, queue init, dev-block totalspawnpoints, hijacked removal, wz_dest_id pin or random <=5 pick, per-selected-dest spawn-struct cache, unused-destination struct cleanup. Queue level.var_7767cea8 is the shared state later read by override_spawn 145-171 and cleaned by function_cb5864fc 122-127.",
+        "unknowns": [
+          "level.var_1710ced9 producer (no corpus writer; possibly an unset hashed registration in the original build)",
+          "Effective destination_influencer map data for wz_open_skyscrapers (recorded HMH rotation map)",
+          "Whether on_start_game_type runs before, after, or concurrently with first connects (native order, N2)",
+          "Dev-block totalspawnpoints evaluation in retail (N3 family, retained)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00110",
+        "sha256": "8f251acf7245cf5316f408e9131817a226bc7e448537312304d8289be27b3cbd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "1ce94b0c3903b4f3ce9f4fe3529d6c44f4d747cf9c653fd72137021a5a5426e1",
+      "summary": {
+        "unit_id": "scripts/core_common/util_shared.gsc::gethostplayer",
+        "behavior": "Core shared util returning the host player: getplayers() then first player passing native ishost(); returns undefined implicitly when no host present. Minimal behavior needed: this is a plain non-dev lookup utility. Production inbound path on the HMH map: wz_open_skyscrapers main (level_init, imports util_shared at line 13) calls load::main() (line 53 -> mp_common/load.gsc main 15-37) while the system-registered load preinit (load_shared.gsc:21 -> __init__ 50-108) spawns all_players_spawned() (line 97), which at load_shared.gsc:578 assigns level.host = util::gethostplayer() after waiting the all_players_connected flag, then sets the all_players_spawned flag (612, from literal search) that dev spawn tools and map logic wait on. Secondary inbound paths: stored pointer level.rat.common.gethostplayer (mp rat init line 29, wz_rat init line 30) dispatched inside dev RAT commands (wz_rat units 3/5/6/7/8, mp rat unit 12, rat_shared rscrecteleport:633), direct dev callers throughout dev/dev_shared files, and non-dev callers elsewhere (mp globallogic hostidledout:1561, zm gameplay files). Decision: needed by recovered source for the production load/host bookkeeping path; the rat/dev consumers are additional conditional paths that also funnel through this one function, so no exclusion applies anywhere.",
+        "unknowns": [
+          "Native level_init/level_preinit invocation order for the wz VM in the original build (source chain only)",
+          "Whether getplayers()/ishost() and the flag timing produce the same host identity in the original PS4 runtime",
+          "Which exact VM each stored pointer copy (mp vs wz rat) lives in at runtime",
+          "Full set of other-mode non-dev callers outside this packet's dump visibility (zm/mp files cited only as context)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00005",
+        "sha256": "6dbeb1a2afebcf56901a98f737b82cfcd11646bdb7208b47e7f3c255e8f2e0be"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "258d17f434ae7cdf413afd51610a99febeecc920c649fe3b74265f24cd135e29",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:run_post_systems@system_shared.gsc",
+        "answer": "Server twin of unit 4 (gsc 84-94 identical). Source-visible: the server post driver; sole caller codecallback_finalizeinitialization (callbacks_shared.gsc 1095). For each registry entry: requirement resolver (88) + spawn exec_post_system (89); then level flagsys::set(\"system_init_complete\") (92) and level.system_funcs=undefined (93). Server ordering graph completion: native level_finalizeinit arrives on the server VM -> this driver -> all server system postinits spawned -> completion flag + registry destroyed -> callback(#on_finalize_initialization) dispatch to handlers registered by server scripts (e.g. wz_open_skyscrapers.gsc 47 registration; body 129-133 -> function_7276b578 hmh_ramp gate with wzheavymetalheroes at 160-175). No per-postfunc completion guarantee; only the batch flag. Native boundary: level_finalizeinit delivery/order per server VM unproven.",
+        "behavior": "Server copy of the batch post driver, identical to csc 84-94. foreach level.system_funcs: function_5095b2c6(func) (88) then thread exec_post_system(func) (89); post-loop: level flagsys::set(\"system_init_complete\") (92) - stores + notifies all waiters per flagsys_shared.csc 9-18 - then level.system_funcs=undefined (93). After this event the server registry is dead; register() could recreate it but the driver will not run again unless the engine re-fires level_preinit/level_finalizeinit (re-fire behavior is a native fact, unproven). Consumed by: server-side system::wait_till callers (util_shared.gsc 45, load.gsc 35).",
+        "unknowns": [
+          "level_finalizeinit engine order/refire",
+          "spawn completion guarantee",
+          "retail registry-clear consequences (post-clear register calls)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00035",
+        "sha256": "6e442cbb5b6ce45aecb61bedd9a68f4a1a0abcc1cab9f330838bba82fb68b263",
+        "pointer": "/units/12",
+        "record_sha256": "8a833fb23ba0b76896323d2da3d952f4d345c77a4f8f09ec3da368b63f081906"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "3cf33b99f7ac81d380fcaae31548d06a2dbeb5a70a83f131e51c7629f497d26b",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:wait_till@system_shared.csc",
+        "answer": "The selected wait_till(required_systems) helper160-163 never reads its argument and only requests level flagsys::wait_till(\"system_init_complete\"). This API therefore does not select a named per-system dependency. The compared run_post_systems84-94 driver launches exec_post_system threads during88-93, then requests the system_init_complete flag and clears the registry without joining those workers. That flag is a post-driver launch-iteration signal, not proof every postfunc completed. The flagsys helper85-93 checks get(str_flag), waits while falsey and rechecks; a truthy flag at entry avoids the local wait. Exact native wake/death/error handling and scheduling remain unknown. Observed bounded callers include util_shared.gsc __main__45, mp_common/load.gsc35 and load.csc37; the latter are called from wz_open_skyscrapers.gsc53 / csc30. zm_common/load.csc76 and zm/load.gsc59 are context-only callers. The util postfunc itself waits at45 and still has function_3cb7a62d46 to execute after it resumes; no author-intent or all-postfunc-completion inference follows. The load callers request load_main_complete at their following36/38 statements if control reaches them after the observed flag. A persistent falsey flag with no cancellation/other exit can retain the wait; there is no local timeout. Missing level_finalizeinit is a possible unmet-producer condition, not proof that no dynamic/other writer or native exit can exist.",
+        "behavior": "Both saved system_shared VM twins160-163 contain the same single level flagsys::wait_till(\"system_init_complete\") request and unused required_systems formal. flagsys_shared.csc85-93 installs self endon(#death), loops on !get(str_flag), requests self waittill(str_flag) and rechecks; set9-18 stores then requests notify. The compared post driver launches without a completion join, so its flag does not certify completed post functions. util_shared registration21-24 supplies __main__ as postfunc; __main__45 waits and46 still calls function_3cb7a62d afterward. Map load waits are flag-observation boundaries, with subsequent load_main_complete requests if reached, not joins of all system work. Actual registration delivery, scheduling, wait wakeup/death/error outcomes and original VM/build/runtime remain unproved.",
+        "unknowns": [
+          "Original retail level_finalizeinit delivery, actual flag producers and native scheduling/wakeup/cancellation behavior; unmet flag can retain a wait but no universal hang outcome is proved.",
+          "Level 'death' endon semantics on level-owned waits (native)",
+          "This selected API ignores required_systems and observes only the shared flag; any finer dependency/completion requirement needs separately evidenced support."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00006",
+        "sha256": "97bf508b7c3b1f9a42326e062eea6be8f2ec56919b5d8f245894e4cfcbe0c54b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "67e932f0e33f91f53f07195833ce9b815e40f500d9e42ed7ee69765917209ded",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::on_finalize_initialization",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/661",
+        "record_sha256": "442ed22a2e3b1234b3695c192f64068e0506588ddb02a70293d1be63049cfb5f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "76c016e2f577e484b63e87af46cf7ac92832f81f061c36dbe166f39d39378f8f",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::function_7276b578",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/659",
+        "record_sha256": "0f98c43efb79813ae29112fd0b411052d60d9cbff7dd21cc78cd0254604d8b34"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "8e6231719b07d3221b111313258815f938c6a287797f1364217d4c53a224471e",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:activation",
+        "answer": "wzheavymetalheroes has no explicit assignment in the three selected HMH rule objects/anchor; the literal consumer lookup has bounded scope. A historical broad script/tables producer-absence claim remains unverified because its complete exact table-corpus membership and hashes are unavailable for this comparison. No corpus-wide absence or effective value follows. Only the selected-layer/anchor absence is established here: none of the three recovered HMH rule layers sets it â€” frontend playlist 17 rules (warzone.json 8360-8592), TU23 playlist 19 rules (8719-8980), gametype def 28 rules (playlists_online/gametypes.json 8244-8639); the anchor table bundle (rows 1-341) has no such key either. The effective value of getgametypesetting(#wzheavymetalheroes) is therefore unprovable from recovered data; the selected objects do not explicitly set it; computed names, hash aliases, other script calls and unavailable layers are not excluded; effective value stays unknown, not asserted false. Literal consumer map (each exact per-site predicate applies separately, including the independent alternate keys in the two OR gates below; effective store values and dynamic accesses remain open): wz_open_skyscrapers.gsc:60-64 (heroes supply-drop stash: level.var_2089aa11=supply_drop_stash_parent_dlc1_heroes; registration call function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4), which validates input and appends replacement/count data; actual spawn work is later in start after flag/timing/count gates); wz_open_skyscrapers.gsc:160-172 and 185 (hmh_ramp dynent enable via setdynentenabled); wz_open_skyscrapers.csc:94,116 (client-side ramp enable); warzone.gsc:828-831 (on_player_spawned: setperk specialty_doublejump + specialty_fallheight); wz_loadouts.gsc:46-50 (overwrites level.var_5c14d2e6 and level.var_317fb13c with pointer function_9de0644f); item_inventory.gsc:1112-1116 (same two perks at inventory load); item_world.gsc:519-528 (if hash_7d8c969e384dd1c9 OR wzheavymetalheroes, threads level.var_5c14d2e6 for all players); player_insertion.gsc:497-506 (threads level.var_618194f7, re-grants both perks); player_reinsertion.gsc:441-447 (if hash_4149d5d65eb07138 OR wzheavymetalheroes, threads level.var_317fb13c); vehicle.gsc:3397 (keep vehicle deathmodel when NOT heroes) and 4108-4111 (function_32607cfc returns true when heroes); wz_common_mode_heavy_metal_heroes_fixup.gsc:28-53 and .csc:28 (item_replacer replaces per-stash gun lists with #heavy_metal_heroes_list_guns_dlc1); wz_open_skyscrapers_fixup.gsc:30 and .csc:30 (NEGATED gate: wzenableflareguns AND NOT wzheavymetalheroes); hashed script_71e26f08f03b7a7a.gsc:256-259 (uses level.var_2089aa11 only when that parent is defined, current replacement is undefined and heroes setting is defined/truthy; an explicit replacement takes precedence). Conditional consequence limits: a truthy heroes value can admit the positive heroes predicates only together with their other per-site guards and actual invocation; it does not prove native effects, delivered perks, spawning or pointer execution. Falsy/undefined heroes does not admit those particular positive heroes terms, but cannot rule out all listed dispatches: item_world may pass via hash_7d8c969e384dd1c9 and player_reinsertion via hash_4149d5d65eb07138, then thread the respective pointer only when defined. No actual alternate-key value or pointer identity is established. The negated-heroes flare-gun predicate additionally requires its wzenableflareguns term; original native/store/VM outcomes remain unknown. No registration-as-invocation and no mode-name-implies-value claims are made; the separate always-true identity path (get_game_type equality, warzone.gsc:2770) is distinct from this setting path.",
+        "behavior": "activation: no explicit assignment in the selected HMH rule objects/anchor;14+ literal read sites mapped, with computed names/hash aliases/other sources unresolved with their conditional branches (stash, ramps, perks, loadout pointers, gun-list replacements, vehicle flags, flare-gun negation).",
+        "unknowns": [
+          "Effective value of getgametypesetting(#wzheavymetalheroes) for HMH sessions (no recovered producer)",
+          "Native default for absent getgametypesetting keys (undefined vs 0)",
+          "Whether the online/original-build playlist layer sets wzheavymetalheroes",
+          "Which VMs load wz_open_skyscrapers_fixup and wz_common_mode_heavy_metal_heroes_fixup (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00526",
+        "sha256": "4ee4af11116628ba5b7ba5189de2a2ab85ffdfeb0b48b559fab42e0aea051f0d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "92f2f6e97a984e8cd0b719ee4df80dae4bb21110ff2c207c5d1c002f0fcedbcc",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:main@wz_open_skyscrapers.gsc",
+        "answer": "Source-visible answer for root candidate 2: wz_open_skyscrapers.gsc::main is event_handler[level_init] (annotation eflags 0x40 at 39-41; the supplied annotation does not establish script/native emitter identity, dispatch or delivery; other emitters remain unresolved). No exhaustive current import/alias search proof is accepted here; other importers and loader routes remain unresolved; prior inventory seeds it only as a scripts/wz directory-ownership candidate with runtime_reachability_proven=false (SOURCE-LOAD-INVENTORY.json 3974-3982). Its trace: setclearanceceiling 17 (44); callback::on_spawned/on_vehicle_spawned/on_finalize_initialization registrations (45-47); mapcenter + air/ground distance vars (48-55); fx/sound mains (51-52); load::main() (53) which blocks on system::wait_till (post phase) per unit 8/17; minimap (56); dvar (57); death circle init (58); HMH branch (60-64) - getgametypesetting(#wzheavymetalheroes) sets level.var_2089aa11=supply_drop_stash_parent_dlc1_heroes and namespace_3d2704b3::function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); pandemic branch (66-70); dev block (72-74); ai_zones init (76); firing_range targets (77-78); item_world function_cbc32e1b(30000) (79); thread function_2560f130 (80) -> hmh_ramp dynent enable gated by wzheavymetalheroes (181-197). Conditional inference kept explicit: for the handler registered at 47 to actually receive on_finalize_initialization, the engine must run this level_init main before level_finalizeinit - not proven. This is one of the exact six SOURCE-ROOTS candidates; native map-script selection for #wz_open_skyscrapers is the open boundary.",
+        "behavior": "Map main (server VM), event_handler[level_init]. Full ordered body at 42-81 as listed in source_trace. HMH-specific behaviors inside the root: the wzheavymetalheroes gate at 60-64 (stash parent + flare-gun list), the threaded hmh_ramp enable at 80->181-197, HMH-relevant hashed system imports at 1-4 (whose autoexec __init__system__ registrations join the shared pre/post mechanism), load::main join at 53 (blocks until post phase), dev-only block 72-74 (init_devgui). The main does NOT call system::register/ignore/wait_till directly except through load::main.",
+        "unknowns": [
+          "Retail map-script load + level_init main invocation for #wz_open_skyscrapers (unproven)",
+          "level_init event order vs preinit/finalizeinit/gametype_init (unproven; conditional requirement recorded for the finalize-delivery link)",
+          "eventstruct field contents at native delivery",
+          "wzheavymetalheroes effective value (g1 scope)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00007",
+        "sha256": "a91a8e47020ad5713f850621c93d69456d19aed60dd23a2b6a4e3b7e4a5b241b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "9f160b091478516ed2abcfd4fec183973fda284e9a80b424b6b0bf92e4aa7aee",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "native_event_entry; relative event order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/660",
+        "record_sha256": "d03982a1d2aff41847a69e4fbd3749ee60fd87b799467a92e92095f14cfe8be2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "c3355a37e7e27573a67c31e4428dff166e36b25cb8a2fc7ccb4a0fb7f2d2e90e",
+      "summary": {
+        "unit_id": "scripts/wz/wz_open_skyscrapers.gsc::function_1880c93d",
+        "behavior": "Dev-delimited wz_open_skyscrapers devgui item-grant command handler. Threaded onto a player by devgui_handle_player_command; asserts self defined player, fetches #\"ultimate_turret_wz_item\" via wz_loadouts::_get_item, computes var_fa3df96 with self item_inventory::function_e66dcff5(item), grants with self item_world::function_de2018e3(item, self, var_fa3df96). HMH-path limit: registration and dispatch are entirely inside dev delimiters; the only inbound edge is the scr_give_wz_item dvar poll in devgui_weapon_think (case 1), so within recovered source it never runs on the non-dev production HMH path; reachable only if dev code is compiled into the VM and a developer sets scr_give_wz_item=1. The ultimate_turret_wz_item identity also appears in wz_loadouts heroes-style list (line 749), so the helper chain is a new dependency for later work.",
+        "unknowns": [
+          "Whether dev-delimited wz_open_skyscrapers functions are included in the original PS4 CUSA11100 script VMs (fastfile/bytecode presence) - the exact original-build evidence still needed",
+          "scr_give_wz_item producer and observed runtime values in the original build",
+          "native level_init -> main invocation order proof",
+          "function_e66dcff5 slot computation and function_de2018e3 native effects"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00081",
+        "sha256": "3979869e9e3d308f64a73ccc3b0b668dba1e499e6591f187e3df406df9a971b4",
+        "pointer": "/units/0",
+        "record_sha256": "a79384be9bbee27b5f4ea293d54c630da2616929d43fbf3a496fdfc054c30773"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "cabb7247082915b2100709dedc757014f7078c306b0732fd66cce7a43867441a",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::function_5725bc63",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/658",
+        "record_sha256": "d4850419b56cda04e3f8170fb59661e9f390b9f3249336fb4f67dc8dea91cdb3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "d827b97cc0c563d121de23809759280fcdb357a1bf636ced793469061ee244cd",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::function_2560f130",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/657",
+        "record_sha256": "7d84a41e3d922ee8fad1fde5292347db0bfcbcf43c3c2cdc419a0803595281ec"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "e01a985ec3a1f6f942c6915174665d0140150e60614163ec1de47d93c9753e7b",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::function_5725bc63",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1012",
+        "record_sha256": "7202fa372412d2b8328592a91799d53ce5fed57d8adad2a20e8786c366fd02e4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "fa4bd5dc670833ce0b17da95676b7e1753f25e5320812d29024a752a2ca09482",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:exec_post_system@system_shared.csc",
+        "answer": "Source-visible answer: postinit invocation body; skips undefined, ignored or already-postdone entries; an eligible !postdone branch resolves requirements before setting the marker, with no recheck after that resolver and no proved prereq-stage scheduling or exactly-once guarantee, sets postdone BEFORE invoking postfunc (49-50), and the bounded literal caller query finds run_post_systems (89) and the post-requirement resolver function_5095b2c6 (69/76) in the supplied twins; this does not prove absence of indirect, dynamically selected or native callers. Dependency 'wait' is fire-and-forget thread spawn, not a join. Ordering graph: level_finalizeinit -> run_post_systems -> foreach [function_5095b2c6 asserts predone||ignore, thread exec_post_system(func)] -> postfunc bodies run as spawned threads; run_post_systems requests the flag, without joining postfunc completion, by setting flag system_init_complete (92) AFTER all threads are spawned, then the registry is cleared (93). HMH linkage: wz/HMH postfuncs (e.g. util_shared __main__ via system::wait_till, load consumers) synchronize on that flag; wz_open_skyscrapers on_finalize_initialization (hmh_ramp dynent enable) is dispatched only after this phase by codecallback_finalizeinitialization callbacks_shared.gsc 1096. Ignore/duplicate/error: returns silently for undefined entries and ignore-flagged records (37-40); retail assert semantics unresolved.",
+        "behavior": "Postinit invocation executor. exec_post_system(func): returns when the record is undefined or func.ignore is set (37-40) - ignore-flagged systems never get postinit; if !func.postdone: if func.reqs is defined it calls function_5095b2c6(func) first (44-47), then sets func.postdone=1 BEFORE synchronously invoking [[func.postfunc]]() (49-50). The marker precedes the postfunc call, so a later entry with the same unchanged truthy marker skips that branch. The resolver precedes the marker and has no following guard recheck; actual scheduling, reentry during prerequisite work, crashes and marker mutation remain unverified. The bounded literal caller inventory shows thread launches rather than synchronous calls: run_post_systems spawns it per entry (system_shared.csc 89) and function_5095b2c6 spawns it per requirement (69, 76). The supplied twins contain the same literal caller locations (35-52, 69, 76, 89). The postfunc bodies are therefore executed inside spawned threads whose completion is not awaited individually; the unjoined dispatch phase requests the global flag through run_post_systems' flagsys::set(\"system_init_complete\") at line 92 after the foreach and only then level.system_funcs=undefined (93).",
+        "unknowns": [
+          "VM thread scheduling of the spawned exec_post_system calls relative to each other and to the foreach (native scheduler)",
+          "level_finalizeinit vs level_init/gametype_init native order (conditional: for wz_open_skyscrapers registration to be delivered the level_init main must precede level_finalizeinit; not proven)",
+          "assert evaluation in retail"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00179",
+        "sha256": "ef863dfba5d638b1ce484c4b76eecd0d217f648b932a91590fd230a785841f41"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "9134236153696d5b5d02f5c2b627a9fcc3367aa704e49c22cf0194506acd2d66",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::on_finalize_initialization",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/223",
+        "record_sha256": "55c03e87e0d1c09c1ad90cf0b5cdb17a75fab478d172d736d6f78748f6e8e0b2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/963a2c141befb513.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "6788a316ff02e03b58842df06fe13b3b39e72fd2bce2021eae463a6a535dfc24",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers.gsc::on_finalize_initialization",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/223",
+        "record_sha256": "55c03e87e0d1c09c1ad90cf0b5cdb17a75fab478d172d736d6f78748f6e8e0b2"
+      }
+    }
+  ]
+}

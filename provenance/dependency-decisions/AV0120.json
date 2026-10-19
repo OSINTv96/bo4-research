@@ -1,0 +1,173 @@
+{
+  "module": "src/scripts/wz_common/wz_ai_zonemgr.gsc",
+  "identity": "scripts/wz_common/wz_ai_zombie.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "wz_ai_zombie",
+  "witnesses": [
+    {
+      "line": 250,
+      "text": "            spawned wz_ai_zombie::function_d1e55248( #\"hash_6e6d6ff06622efa4\", 1 );",
+      "caller": "spawn_a_zombie",
+      "caller_span": [
+        239,
+        254
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 243,
+          "opening_line": 246,
+          "ending_line": 253,
+          "text": "if ( isdefined( spawned ) )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d1e55248",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1488,
+          1497
+        ]
+      ]
+    },
+    {
+      "line": 2151,
+      "text": "                            ai thread wz_ai_zombie::zombie_eye_glow( self.var_80bea5a6 );",
+      "caller": "function_1992880a",
+      "caller_span": [
+        2135,
+        2190
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2148,
+          "opening_line": 2150,
+          "ending_line": 2152,
+          "text": "if ( isdefined( ai.is_special ) && ai.is_special )"
+        },
+        {
+          "line": 2146,
+          "opening_line": 2148,
+          "ending_line": 2153,
+          "text": "if ( isalive( ai ) && ai.ai_zone === self )"
+        },
+        {
+          "line": 2144,
+          "opening_line": 2146,
+          "ending_line": 2154,
+          "text": "foreach ( ai in all_ai )"
+        },
+        {
+          "line": 2141,
+          "opening_line": 2144,
+          "ending_line": 2155,
+          "text": "if ( isdefined( all_ai ) && all_ai.size > 0 )"
+        },
+        {
+          "line": 2138,
+          "opening_line": 2140,
+          "ending_line": 2156,
+          "text": "if ( isdefined( self.var_80bea5a6 ) )"
+        },
+        {
+          "line": 2136,
+          "opening_line": 2138,
+          "ending_line": 2157,
+          "text": "if ( isdefined( level.var_7b5ba689 ) && level.var_7b5ba689 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "zombie_eye_glow",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          3743,
+          3754
+        ]
+      ]
+    },
+    {
+      "line": 2214,
+      "text": "                        ai thread wz_ai_zombie::delayed_zombie_eye_glow( 3 );",
+      "caller": "function_3effc794",
+      "caller_span": [
+        2196,
+        2256
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2211,
+          "opening_line": 2213,
+          "ending_line": 2219,
+          "text": "if ( isalive( ai ) && ai != var_9e12dd2e && ai.ai_zone === self )"
+        },
+        {
+          "line": 2209,
+          "opening_line": 2211,
+          "ending_line": 2220,
+          "text": "foreach ( ai in all_ai )"
+        },
+        {
+          "line": 2206,
+          "opening_line": 2209,
+          "ending_line": 2221,
+          "text": "if ( isdefined( all_ai ) && all_ai.size > 0 )"
+        },
+        {
+          "line": 2203,
+          "opening_line": 2205,
+          "ending_line": 2222,
+          "text": "else"
+        },
+        {
+          "line": 2197,
+          "opening_line": 2199,
+          "ending_line": 2223,
+          "text": "if ( isdefined( level.var_7b5ba689 ) && level.var_7b5ba689 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "delayed_zombie_eye_glow",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          3720,
+          3737
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0120",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/wz_common/wz_ai_zombie.gsc",
+    "sha256": "f8b7271976be8047c1e15fe84962ac420b5233e63491e2b62e2a1175808aacd0",
+    "git_blob_sha1": "d2370a679fbacf63800a2b84decda023ba688efa",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/wz_common/wz_ai_zombie.gsc"
+}

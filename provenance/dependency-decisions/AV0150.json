@@ -1,0 +1,247 @@
+{
+  "module": "src/scripts/mp_common/item_inventory.gsc",
+  "identity": "scripts/mp_common/armor.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "armor",
+  "witnesses": [
+    {
+      "line": 610,
+      "text": "            inventoryitem.amount = armor::get_armor();",
+      "caller": "function_bdc03d88",
+      "caller_span": [
+        602,
+        618
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 606,
+          "opening_line": 609,
+          "ending_line": 616,
+          "text": "if ( inventoryitem.networkid != 32767 && inventoryitem.itementry.itemtype == #\"armor\" )"
+        },
+        {
+          "line": 603,
+          "opening_line": 605,
+          "ending_line": 617,
+          "text": "if ( isplayer( self ) && isdefined( self.inventory ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_armor",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/1",
+          "selection_id": "067b9926f088ee12aa831675918ce84c1e7a9ec4f54c18730644bc1a9c046a13",
+          "citation": {
+            "line_start": 36,
+            "line_end": 55,
+            "sha256": "371256d29a67158a8ecb933106ffd7cb56db7800ea129d09bebcf0c0f586cb5d"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          36,
+          62
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "function_bdc03d88",
+            "line": 44,
+            "form": "stored_pointer",
+            "text": "    level.var_dea62998 = &function_bdc03d88;"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          201
+        ]
+      ]
+    },
+    {
+      "line": 2330,
+      "text": "    self armor::set_armor( inventoryitem.amount, isdefined( itementry.amount ) ? itementry.amount : 0, isdefined( itementry.armortier ) ? itementry.armortier : 1, isdefined( itementry.var_99c0cb08 ) ? itementry.var_99c0cb08 : 1, isdefined( itementry.var_2ee21ae6 ) ? itementry.var_2ee21ae6 : 1, isdefined( itementry.var_c690c73d ) ? itementry.var_c690c73d : 1, isdefined( itementry.var_99edb6a3 ) ? itementry.var_99edb6a3 : 1, isdefined( itementry.var_22c3ab38 ) ? itementry.var_22c3ab38 : 1, isdefined( itementry.var_9f307988 ) ? itementry.var_9f307988 : 1, isdefined( itementry.var_7a80f06e ) ? itementry.var_7a80f06e : 1, isdefined( itementry.explosivedamagescale ) ? itementry.explosivedamagescale : 1, isdefined( itementry.var_f2902d7b ) ? itementry.var_f2902d7b : 1, itementry.var_19f48bbe );",
+      "caller": "equip_armor",
+      "caller_span": [
+        2319,
+        2335
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_armor",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/18",
+          "selection_id": "ac4f15f013c4374f93c7096c93785101fffa8adb272cd78862d4e4ae8eaa6f4e",
+          "citation": {
+            "line_start": 2717,
+            "line_end": 2777,
+            "sha256": "371256d29a67158a8ecb933106ffd7cb56db7800ea129d09bebcf0c0f586cb5d"
+          }
+        },
+        "entry_function": "equip_item",
+        "entry_span": [
+          2717,
+          2777
+        ],
+        "local_references": [
+          {
+            "from": "equip_item",
+            "to": "equip_armor",
+            "line": 2737,
+            "form": "local_call",
+            "text": "                self equip_armor( item );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          207,
+          237
+        ]
+      ]
+    },
+    {
+      "line": 4761,
+      "text": "            self armor::set_armor( 0, 0, 0, 1, 0 );",
+      "caller": "function_d019bf1d",
+      "caller_span": [
+        4727,
+        4782
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 4757,
+          "opening_line": 4759,
+          "ending_line": 4763,
+          "text": "if ( itemtype == #\"armor\" )"
+        },
+        {
+          "line": 4755,
+          "opening_line": 4757,
+          "ending_line": 4779,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_armor",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/3",
+          "selection_id": "23e2703eb69236c0bab9d475f8d22e66d65b822ad47fa500566bb3e143a0761c",
+          "citation": {
+            "line_start": 4727,
+            "line_end": 4750
+          }
+        },
+        "entry_function": "function_d019bf1d",
+        "entry_span": [
+          4727,
+          4782
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/6",
+          "selection_id": "3457fea1e05a311ccc9b7fbc37e160b143663bf788304901480e2502ded79228",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/7",
+          "selection_id": "5170a68bebfb1873f5d93b466ac5231055cba6d57da3b8ae08c316157defc728",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/9",
+          "selection_id": "75d3345bacab4579ba10846c4815ececb65002fe6899fd4776cc3b33b0fdbdb9",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/18",
+          "selection_id": "ac4f15f013c4374f93c7096c93785101fffa8adb272cd78862d4e4ae8eaa6f4e",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/41168b93d8c76b99.json",
+          "pointer": "/claims/22",
+          "selection_id": "cf7915fd14dfd9c558d98fcfd007eb11072b3a2c4e8bbda85bd47f19cb9720be",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          207,
+          237
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0150",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/armor.gsc",
+    "sha256": "a9082fd6cde9c5a2a7c6a708604d760cf031c2efc0ec852384aea323902ef210",
+    "git_blob_sha1": "7149d83816a594f97d594157039eb8189e63552a",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    610,
+    2330,
+    4761
+  ],
+  "required_callee_functions": [
+    "get_armor",
+    "set_armor"
+  ],
+  "output": "src/scripts/mp_common/armor.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/mp_common/armor.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00731",
+        "to": "N02963",
+        "line": 4761
+      },
+      {
+        "from": "N02315",
+        "to": "N02963",
+        "line": 2330
+      },
+      {
+        "from": "N02927",
+        "to": "N03501",
+        "line": 610
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

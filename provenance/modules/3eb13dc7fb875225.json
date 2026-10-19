@@ -1,0 +1,279 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_jukebox.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "f9af1d4fd965c74f94417ba1806f77005fc4fc714932b54a3b289450481d8f8b",
+  "git_blob_sha1": "1f525e5b5407d5e1ae549fa2ca4a0f236fa00fac",
+  "output": "src/scripts/wz_common/wz_jukebox.gsc",
+  "output_sha256": "5eb34248df76f67f4bee705550515c32336a5ff064df4edb06c1f7fa9a9e1820",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0320.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/item_world.gsc",
+      "original_line": 2,
+      "output": "src/scripts/mp_common/item_world.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/item_world.gsc",
+        "sha256": "0b178acb2a2ed3ffb1128337283133c6a3debaaa0d9267d5c825f59d1d28eb61",
+        "git_blob_sha1": "449237e865beadabcddcd0c22897a42bfd364d96"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "29a6c40b1db4d7ecc3fe21f42f678f0f7c91105107e9e6c4064b027ffacc0f3b",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 22,
+          "sha256": "f9af1d4fd965c74f94417ba1806f77005fc4fc714932b54a3b289450481d8f8b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_jukebox.gsc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/95",
+        "decision_canonical_sha256": "f1cb802e41b5b182afb0900e51909169d7fb3059ac4750be6bfcfbeb8afc5e5b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1076",
+        "record_sha256": "104a5c442c9ee93341596bfcbc852cf931b46e3f5f288103114beedbfa7f9f3c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4c0f0831b3096bad93eb79f5ed2227ab325f59e8032e8d26fc2f5ba9e5cf2b48",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 22
+        },
+        {
+          "line_start": 28,
+          "line_end": 45
+        },
+        {
+          "line_start": 61,
+          "line_end": 70
+        },
+        {
+          "line_start": 61,
+          "line_end": 70
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_jukebox.gsc::function_1f3a1c47",
+        "behavior": "Jukebox use-stat counter stored as dynent .onuse. Registration (source-only): wz_jukebox autoexec __init computes level.var_8b13d130 = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_6935c178012cf77e\") default 0 (10-13); event_handler[level_init] main threads function_2bf3c36e (19-22); function_2bf3c36e (28-55+): if var_8b13d130, installs dynent.onuse = &function_1f3a1c47 on every \"dynent_jukebox\" dynent (36) and returns; else (setting off) waits a frame and hides/disables the jukebox dynents via item_world calls (44+). Delivery/consumer join (source-visible): dynent_world use pipeline -> use_dynent dispatch [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) (dynent_world.gsc 431-433). Handler behavior (61-70): if activator defined and !level.inprematchperiod && laststate === 0 -> activator stats::function_d40764f3( #\"activation_count_jukebox\", 1 ).",
+        "unknowns": [
+          "HMH ruleset values for hash_3778ec3bd924f17c and hash_6935c178012cf77e and usabledynents (tables outside corpus).",
+          "Whether dynent_jukebox dynents exist in the HMH match (map data outside scripts).",
+          "level_init event native ordering (shared VM event boundary)."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/414",
+        "decision_canonical_sha256": "127672753fffd9d66294083802efd1d7a10539587955afb9a3d9f4057b783084",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00417",
+        "sha256": "e8c54e9c68b091ea7a9dc814c3aae1fa34428fdc3a45538bab0eecd337a189e7",
+        "pointer": "",
+        "record_sha256": "5e0a020ce987741c5e0d22e50e6ad13552cc39e91f0a0c5b1922d411302c33aa"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "89ed1ebfa921c537bcb72b7fa20363b211ebe29a19aaa19ac4a2224c1f92d883",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "sha256": "f9af1d4fd965c74f94417ba1806f77005fc4fc714932b54a3b289450481d8f8b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_jukebox.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/615",
+        "decision_canonical_sha256": "bc2ea0dadfc9408890d67a3a0e21357e854d8d0bd4cb3a3dc66436860f1a4220",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1075",
+        "record_sha256": "e2783294fc88096cfe200e8ab029ef3168e449d8018090380192d3d6d573f213"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "92223888aa95cde41dec95bf2e1d186ea0f85d750db02bf52838422a191117b0",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 22,
+          "sha256": "f9af1d4fd965c74f94417ba1806f77005fc4fc714932b54a3b289450481d8f8b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_jukebox.gsc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "native_event_entry; relative event order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/291",
+        "decision_canonical_sha256": "e1793f30326b93706216b8c5295d606cab397071b5a9040164e0a571bdfff030",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/787",
+        "record_sha256": "57e8aa24dd40f077984dcf2cef9ffe692f081c2287588698e26047c6b4354f64"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9727c465cbb66c17200d9b18f400fa72278854217d3c4118bed959af55380bbc",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "sha256": "f9af1d4fd965c74f94417ba1806f77005fc4fc714932b54a3b289450481d8f8b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_jukebox.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/675",
+        "decision_canonical_sha256": "453ccd122f929552232f28982b605e3732f1101da5aa0288f4fa4418c5086530",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/786",
+        "record_sha256": "ef566f1baa81b1df415d79f418df8a76fb54bd66edff4d0dcb9cbc43489dc1ec"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/0159bf6168e78f63.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0320"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/3eb13dc7fb875225-001.json",
+      "sha256": "e4eca0835a8798e149e8473b14eb260658409e9f8414169ce0d7a39a18dced1f"
+    }
+  ]
+}

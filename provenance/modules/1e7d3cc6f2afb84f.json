@@ -1,0 +1,841 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/player/player_killed.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "f8459953cfcad346edbc5d9552ac9f509c20660ab741fc7d8b406977196af6a5",
+  "git_blob_sha1": "0c4733021f88ddac261c7b9f710349ba352b67fb",
+  "output": "src/scripts/mp_common/player/player_killed.gsc",
+  "output_sha256": "e4a9bc7a59dff104e9e4bab6e5d599984ba9a34b3fff187c0292402b9cbdab15",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/ability_player.gsc",
+      "original_line": 1,
+      "output": "src/scripts/abilities/ability_player.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/ability_player.gsc",
+        "sha256": "874c04014d0a60e0f8d8923b25a40cb941321dc580cfbf9a8aa3307bc599c844",
+        "git_blob_sha1": "8c1908bc8b09c87e5c335012b731f70ef07a4f7e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/activecamo_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/activecamo_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/activecamo_shared.gsc",
+        "sha256": "450268d82212a55b2030ea34376d4ac56ea168c6a7bef24934df53e7f28e5796",
+        "git_blob_sha1": "9cc30bda7952067a8cc2730cd80e50e1e9db14ff"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0302.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/audio_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/audio_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/audio_shared.gsc",
+        "sha256": "e804b8c7d9bb79030d42464eb64759a3ddca64df0cfb4bd81e0535e92142d722",
+        "git_blob_sha1": "a4150e9db2b9f7137e525b06fa0b444ec40c50f9"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0303.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/challenges_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/challenges_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/challenges_shared.gsc",
+        "sha256": "f4bbff2aeb5cf365137b4176f0d4d09ade6ee0397cc381596d72a2fe31a8bea2",
+        "git_blob_sha1": "11d8d86eac4a6ec18326e1fae6b62a54cb465829"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/contracts_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/contracts_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/contracts_shared.gsc",
+        "sha256": "047a4a51bbf5b18df5661aa04099ffa8f34ef370235565d8b91b94d4e5401c0c",
+        "git_blob_sha1": "04331cf1247061cca4b6afee14557c2a46f152b4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/demo_shared.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/demo_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/demo_shared.gsc",
+        "sha256": "1ed0ce4b45a65a6169fe5c5cd47e45225d89edbeff1f27fab9dff6eba42f0c1f",
+        "git_blob_sha1": "b4f6dd00b080cc447dad814298b08f14cda20522"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/gamestate.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/gamestate.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/gamestate.gsc",
+        "sha256": "efc344f292473a3e2e9eca9cc50666bc920178bc4085ddbc22c85ae7f8ea7499",
+        "git_blob_sha1": "25d73f95ab995553ee9c8f8d108b9a33ca32ef1b"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_player.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/globallogic/globallogic_player.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_player.gsc",
+        "sha256": "a60e3878dd087a22bd7ec6d0635b05817106730f1aeaeec17cec1608f040b452",
+        "git_blob_sha1": "6fc8f49f447835bdb3af7295bb801dd87e82d287"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0304.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+      "original_line": 11,
+      "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+        "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+        "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0305.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_vehicle.gsc",
+      "original_line": 12,
+      "output": "src/scripts/core_common/globallogic/globallogic_vehicle.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_vehicle.gsc",
+        "sha256": "da62228f39461af26090928a10c62c2282bb4c090aa5a48229e9a5b2cacfb29a",
+        "git_blob_sha1": "4a84cf033bf0694f258348ab1d681414783d8050"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0306.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/hostmigration_shared.gsc",
+      "original_line": 13,
+      "output": "src/scripts/core_common/hostmigration_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/hostmigration_shared.gsc",
+        "sha256": "e8c584dd7bfc9e3b8e15690f71008ba4f5d20ca2bf332f6b9bd4c67056d22a6a",
+        "git_blob_sha1": "b11600115eb37eff08cd1870116ec6695e593087"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0307.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/infection.gsc",
+      "original_line": 14,
+      "output": "src/scripts/core_common/infection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/infection.gsc",
+        "sha256": "38cea71d6af3e533ce86a88f39628bfaa44448842eff282977cd5d237600f6e7",
+        "git_blob_sha1": "377d8d0a5df3d74090c31edd40a45f6ae18d0077"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/killcam_shared.gsc",
+      "original_line": 15,
+      "output": "src/scripts/core_common/killcam_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/killcam_shared.gsc",
+        "sha256": "1073e0c48688250d3e790d515d3167b7e6fea0c9b1c3521a7d4628c6b7c61b70",
+        "git_blob_sha1": "72533af2875caa24311aa9d020f7fed5332719b4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/match_record.gsc",
+      "original_line": 16,
+      "output": "src/scripts/core_common/match_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/match_record.gsc",
+        "sha256": "c16f9e7924ac1fab7e75883ac4546e99bb306f7378b08996a9650827582d2a38",
+        "git_blob_sha1": "541ed5e9ca06a6753b85746fd23e9236d5a3f528"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/math_shared.gsc",
+      "original_line": 17,
+      "output": "src/scripts/core_common/math_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/math_shared.gsc",
+        "sha256": "0161936e5a7eb2220acea8c6657528eea0252c5f054f8b06150ce5181a3e239e",
+        "git_blob_sha1": "85fbb43596f9226b15c9e8863dcd77dfb88c2ac4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/medals_shared.gsc",
+      "original_line": 18,
+      "output": "src/scripts/core_common/medals_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/medals_shared.gsc",
+        "sha256": "56e18ad6d60a8437aa8f9dec362808368ed3c33649bc478eeaf7730045e5f395",
+        "git_blob_sha1": "38ec59d1d3c46d1d5ead7ee2cd200a3d07ce81fe"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0308.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/platoons.gsc",
+      "original_line": 19,
+      "output": "src/scripts/core_common/platoons.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/platoons.gsc",
+        "sha256": "4e88bf990ecb0a837c6b8f475de9a8c56a2ddf7cbaf601f77c162b3480b7a42e",
+        "git_blob_sha1": "5699a956ef1747e933e9b4759b3ac8d650e5bfb0"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_loadout.gsc",
+      "original_line": 20,
+      "output": "src/scripts/core_common/player/player_loadout.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_loadout.gsc",
+        "sha256": "bfae4813df1ca5fc8e06d19e645b57aab8fbb53a428694958e8e353847033c8b",
+        "git_blob_sha1": "cdc2c0dd17431cc1a0de0617da41fe7f947b80a6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_role.gsc",
+      "original_line": 21,
+      "output": "src/scripts/core_common/player/player_role.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_role.gsc",
+        "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+        "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0309.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 22,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0310.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/potm_shared.gsc",
+      "original_line": 23,
+      "output": "src/scripts/core_common/potm_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/potm_shared.gsc",
+        "sha256": "dff496f3f9a0bfb77e6efdb55bc4cedde644a5cf08b3a06714d10d85ea3b8605",
+        "git_blob_sha1": "0c738f33d245ece4a01cdc5a08be587788a8352a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 24,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0311.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/tweakables_shared.gsc",
+      "original_line": 25,
+      "output": "src/scripts/core_common/tweakables_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/tweakables_shared.gsc",
+        "sha256": "8dd261e3db30afff1358a24f2fb4ed3cbf6af72661f58da3e9b7d06a16f0a143",
+        "git_blob_sha1": "5f67fcb46952c142bedb770914a92ecae911f848"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 26,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/values_shared.gsc",
+      "original_line": 27,
+      "output": "src/scripts/core_common/values_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/values_shared.gsc",
+        "sha256": "9f3b4a443df55ec01b42be88bb21658e445bfd1eb615be0e8d16b95a86ac5995",
+        "git_blob_sha1": "936d1d4c850203df1c59ac830f309238ae635fff"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/weapons_shared.gsc",
+      "original_line": 28,
+      "output": "src/scripts/core_common/weapons_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/weapons_shared.gsc",
+        "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+        "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0312.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreak_bundles.gsc",
+      "original_line": 29,
+      "output": "src/scripts/killstreaks/killstreak_bundles.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreak_bundles.gsc",
+        "sha256": "fdbe017fca589fd9d9449d4901fcd3480da148685a53b14138338ca19bded62b",
+        "git_blob_sha1": "86b0a259955b3c54781fe7d149e8e19fe9ace3d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0313.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_shared.gsc",
+      "original_line": 30,
+      "output": "src/scripts/killstreaks/killstreaks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_shared.gsc",
+        "sha256": "35f35b2122e1d388c749ecb01bfdf87cabcbb41c47efdad6e05f195afcc370cc",
+        "git_blob_sha1": "9bebb9527bb9d1471d08d6ab66ba4de1c7c5fce2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_util.gsc",
+      "original_line": 31,
+      "output": "src/scripts/killstreaks/killstreaks_util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_util.gsc",
+        "sha256": "d206d85fa990cb0611079beafeced0efe30987a5542d173ed5df52cd50aafbb8",
+        "git_blob_sha1": "9dd498f4a761ed0de24dc83927ac6caf06ac7627"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0314.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/bb.gsc",
+      "original_line": 32,
+      "output": "src/scripts/mp_common/bb.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/bb.gsc",
+        "sha256": "1a4d9e15f012189b64729dbda1c81aab71c3f7a0faeff2944ec3ddd9ffabc2bf",
+        "git_blob_sha1": "2beaafd0958b9e662362553b59799f111005eb59"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/challenges.gsc",
+      "original_line": 33,
+      "output": "src/scripts/mp_common/challenges.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/challenges.gsc",
+        "sha256": "a710b1640846367c603c8c989150144530678a2960e323c58163bd1a5a67abdd",
+        "git_blob_sha1": "6fcd822b77798ff508128aee3b3baf66e6ef875c"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/battlechatter.gsc",
+      "original_line": 34,
+      "output": "src/scripts/mp_common/gametypes/battlechatter.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/battlechatter.gsc",
+        "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b",
+        "git_blob_sha1": "7bc90120c8638397cfa9c4e61b06b76c81c0d99f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/deathicons.gsc",
+      "original_line": 35,
+      "output": "src/scripts/mp_common/gametypes/deathicons.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/deathicons.gsc",
+        "sha256": "349720f5d3c5f235989f9f8e74d8ce734715eee1da9c78b809406e375aaa8e53",
+        "git_blob_sha1": "d22825bf73425f99c65cb4be73eb996a76070b26"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/display_transition.gsc",
+      "original_line": 36,
+      "output": "src/scripts/mp_common/gametypes/display_transition.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/display_transition.gsc",
+        "sha256": "ab384cad949de5360110393732f3669f13103f510417bab832ce1f6a31874899",
+        "git_blob_sha1": "1a0abee3584df786ea4c319a2c19d60764b5aeb0"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic.gsc",
+      "original_line": 37,
+      "output": "src/scripts/mp_common/gametypes/globallogic.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic.gsc",
+        "sha256": "f2c1f092aa27e2373ee44767e8df2012251a1cb42061b7764d7a3746dd022fc9",
+        "git_blob_sha1": "57d5d28f5add6a585170ffb28a7ee903de871e22"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "original_line": 38,
+      "output": "src/scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+        "sha256": "af30fc94fb7bd45380ca422a17b72372a8b8f00e1701a6d12fb3f65af672611f",
+        "git_blob_sha1": "e840df9fa289d97069e735d22ee25c1c2e1ca6a5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_score.gsc",
+      "original_line": 39,
+      "output": "src/scripts/mp_common/gametypes/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_score.gsc",
+        "sha256": "0fe39baf1316fe36a6c4c5d8808ded6a19ee0fe78251ccff3d52f08bc67e1612",
+        "git_blob_sha1": "cb6c895292792a7d81ca43576b3b2fbcaf121f36"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_spawn.gsc",
+      "original_line": 40,
+      "output": "src/scripts/mp_common/gametypes/globallogic_spawn.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_spawn.gsc",
+        "sha256": "0f052c72c1cee0a93247999ec35265855e28b04fbd26538c4acf8a7dd55ba7c1",
+        "git_blob_sha1": "288f6391dfb5b8390fe8dcede7399daf8d86f5fc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "original_line": 41,
+      "output": "src/scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+        "sha256": "1f1ed6cf6da9a1d8f8accf87b23bba4a592f78533cd1f3b38a00897a7fe9ca57",
+        "git_blob_sha1": "59327dafe473d6266396057ff6c357fe5b03daf6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_damage.gsc",
+      "original_line": 42,
+      "output": "src/scripts/mp_common/player/player_damage.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_damage.gsc",
+        "sha256": "e884c72136424c6801835637dd0d20b112b9fc0c49662a0a6e0cc552ec9f16f0",
+        "git_blob_sha1": "3e2b6684cab03c15818b657f23f9dab58aa39a49"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_record.gsc",
+      "original_line": 43,
+      "output": "src/scripts/mp_common/player/player_record.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_record.gsc",
+        "sha256": "3e3bededbe3b1e5fe329c13b837e89463233e6a1e0a67b1e9f3661d7178d8857",
+        "git_blob_sha1": "4f651fb712ca54538f6f16a22cd7278b02459dcb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0315.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/player/player_utils.gsc",
+      "original_line": 44,
+      "output": "src/scripts/mp_common/player/player_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/player/player_utils.gsc",
+        "sha256": "e2e3cad045e3cd3b7d82779e8772eddb3eaacf0e873126ac1fe7ccb1c168eda3",
+        "git_blob_sha1": "ddec994d015cb03366e0a33482c9680f475fd127"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/teams/teams.gsc",
+      "original_line": 45,
+      "output": "src/scripts/mp_common/teams/teams.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/teams/teams.gsc",
+        "sha256": "0ca222f77ca477742d6955d685283cfed98a268c7348a8e5f46d5534fd29521f",
+        "git_blob_sha1": "b4c2e723326dbd1a0e2f1aecb60144bc4af5576c"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/userspawnselection.gsc",
+      "original_line": 46,
+      "output": "src/scripts/mp_common/userspawnselection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/userspawnselection.gsc",
+        "sha256": "d29cd30f45a04f94c34bb6d8bbdf6cff0ea401853410944a3a6cff649f55dfa8",
+        "git_blob_sha1": "86c5e2ed3c56ed45cda27a4f4f9c18d02dccb89a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/util.gsc",
+      "original_line": 47,
+      "output": "src/scripts/mp_common/util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/util.gsc",
+        "sha256": "6fa54cc29372c516a4b7c89e29f5f304cd43ae71427c9beca65547ddbbcac5ec",
+        "git_blob_sha1": "c2008b1be9fee2080e7c56e491a1a713e4d6a961"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapon_utils.gsc",
+      "original_line": 48,
+      "output": "src/scripts/weapons/weapon_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapon_utils.gsc",
+        "sha256": "3f6cb525a53abb0881186085aa372ef3b8a66f9168ae897bb8339be94a0425cd",
+        "git_blob_sha1": "131b4010b301def7aced9d7e9e50b6643b1822cb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0316.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapons.gsc",
+      "original_line": 49,
+      "output": "src/scripts/weapons/weapons.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapons.gsc",
+        "sha256": "175f24a540714717dc31e66ba11cdaaed597c7f1d98e3216e4b27046c02fb3f4",
+        "git_blob_sha1": "cba54dd1ebd1e2fe4cb2c9e8215f662c3d77bb93"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+      "citations": [
+        {
+          "line_start": 949,
+          "line_end": 968
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-JOIN:override-routing",
+        "answer": "Compared source route (pinned named dispatcher/body witnesses, without exhaustive caller coverage): override_spawn is requested through the dynamic pointer level.resurrect_override_spawn, installed at warzone.gsc::main:117 (the compared wz registration; ct_* gametypemaps bind their own ct_utils twin - outside wz scope), from spawning_shared.gsc::onspawnplayer(predictedspawn = 0) 411-530: spawnresurrect = self [[ level.resurrect_override_spawn ]]( predictedspawn ) at 416-419, and its result has FIRST priority: spawn_origin/angles = self.resurrect_origin/angles (431-435), ahead of tacticalinsertion::overridespawn (413/436-444), use_start_spawns (445-493) and getspawnpoint (495-504); missing spawn_origin aborts (callback::abort_level 506-510); predictedspawn short-circuits to function_e1a7c3d9 + return without spawn (512-516); an actual spawn is self spawn( spawn_origin, spawn_angles ) (518 [excerpt; exact source record identified separately]",
+        "behavior": "override_spawn(ispredictedspawn) (135-231) returns bool; sets self.var_7070a94c, self.resurrect_origin/angles, self.var_df8c6469, self.var_25fe2d03; stamps dest.spawns[*].spawntime; branch matrix A-D; no native spawn inside the body (prior claim reused). Dispatch priority in spawning_shared::onspawnplayer: spawnresurrect > spawnoverride > start spawns > best spawnpoint.",
+        "unknowns": [
+          "infection::function_74650d7()/is_infected effective truth for HMH playlists (settings-producer gap shared with g1)",
+          "Whether matrix B (queue undefined) is reachable in practice for wz (conditional: requires on_start_game_type order N2)",
+          "var_7070a94c readers beyond spawn.gsc:291 (none further found; native/hashed unknown)",
+          "isbot()/getteammask builtin acceptance (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-D-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00866",
+          "sha256": "dcd51ef1d4ffe5c8945631ec9f9f74ce539c030119dbf9e406d7ae81c98d93dd"
+        },
+        "report_pointer": "/unit_reviews/1",
+        "decision_canonical_sha256": "70f56b66c8a416b815aa948583ae03a8ba534d45b90933300766a22ad45fecb2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire frozen correction wrapper and complete current wrapper.record, original complete claim/evidence, explicit current replacements/projections and necessary exact source/caller/callee/callback/constructor/error witnesses, including unchanged written claims. Static recovered-source/request and data/history scopes only.",
+        "limitations": [
+          "Pinned recovered-source written scope only. Original bytecode/source-to-PS4/build/native/VM bindings, effective settings/assets/data, unknown providers, online/server code, callback delivery and runtime behavior are not established.",
+          "Historical owner/author/reviewer/model/status/credit strings retain their original history or unproved provenance. All 12 historical reports remain UNIMPORTED; their original author and route remain unknown.",
+          "Locator/hash/format/receipt checks do not prove behavior. Native/provider errors, original source fidelity, dynamic global/class identity and actual invocation retain the explicit subject limits.",
+          "No new function completion, whole-mode completion, runtime, build, native, VM or manager acceptance credit. This report reviews only the frozen current version; later author copies are outside this verdict."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00111",
+        "sha256": "b57edf7bac107f345bfd6aa5a340d936abc1e69e0ea99e7bac2043f7dafc189f"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/a0e7ebf64015ab39.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0302",
+    "AV0303",
+    "AV0304",
+    "AV0305",
+    "AV0306",
+    "AV0307",
+    "AV0308",
+    "AV0309",
+    "AV0310",
+    "AV0311",
+    "AV0312",
+    "AV0313",
+    "AV0314",
+    "AV0315",
+    "AV0316"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/1e7d3cc6f2afb84f-001.json",
+      "sha256": "8fdebef2a53e6282e0a3a7f8063484a8466db5becae7dd6b6c3c14eabee76166"
+    }
+  ]
+}

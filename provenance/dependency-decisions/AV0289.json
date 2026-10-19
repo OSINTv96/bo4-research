@@ -1,0 +1,170 @@
+{
+  "module": "src/scripts/killstreaks/killstreaks_shared.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 3018,
+      "text": "            attacker stats::function_e24eec31( getweapon( killstreak_ref ), #\"destroyed\", 1 );",
+      "caller": "monitordamage",
+      "caller_span": [
+        2894,
+        3050
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3013,
+          "opening_line": 3016,
+          "ending_line": 3027,
+          "text": "if ( self.damagetaken > self.maxhealth )"
+        },
+        {
+          "line": 2900,
+          "opening_line": 2903,
+          "ending_line": 3049,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    },
+    {
+      "line": 3068,
+      "text": "        attacker stats::function_dad108fa( #\"stats_destructions\", 1 );",
+      "caller": "function_73566ec7",
+      "caller_span": [
+        3056,
+        3114
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3063,
+          "opening_line": 3066,
+          "ending_line": 3113,
+          "text": "if ( isdefined( bundle ) && isdefined( bundle.var_ebd92bbc ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    },
+    {
+      "line": 3109,
+      "text": "                assister stats::function_dad108fa( #\"stats_destructions\", 1 );",
+      "caller": "function_73566ec7",
+      "caller_span": [
+        3056,
+        3114
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3079,
+          "opening_line": 3082,
+          "ending_line": 3111,
+          "text": "foreach ( assister in self.attackers )"
+        },
+        {
+          "line": 3070,
+          "opening_line": 3073,
+          "ending_line": 3112,
+          "text": "if ( isdefined( self.attackers ) && self.attackers.size > 0 )"
+        },
+        {
+          "line": 3063,
+          "opening_line": 3066,
+          "ending_line": 3113,
+          "text": "if ( isdefined( bundle ) && isdefined( bundle.var_ebd92bbc ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0289",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/player/player_stats.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    3018,
+    3068,
+    3109
+  ],
+  "required_callee_functions": [
+    "function_dad108fa",
+    "function_e24eec31"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N05234",
+        "to": "N02577",
+        "line": 3018
+      },
+      {
+        "from": "N05257",
+        "to": "N02301",
+        "line": 3068
+      },
+      {
+        "from": "N05257",
+        "to": "N02301",
+        "line": 3109
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

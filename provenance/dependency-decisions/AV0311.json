@@ -1,0 +1,1483 @@
+{
+  "module": "src/scripts/mp_common/player/player_killed.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 443,
+      "text": "            scoreevents::processscoreevent( #\"assisted_suicide\", bestplayer, self, bestplayerweapon );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 439,
+          "opening_line": 442,
+          "ending_line": 446,
+          "text": "if ( isdefined( bestplayer ) )"
+        },
+        {
+          "line": 384,
+          "opening_line": 387,
+          "ending_line": 447,
+          "text": "if ( isdefined( self.attackers ) && ( !isdefined( attacker ) || attacker.classname === \"trigger_hurt_new\" || attacker.classname === \"worldspawn\" || isdefined( attacker.ismagicbullet ) && attacker.ismagicbullet || attacker == self ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 576,
+      "text": "        scoreevents::processscoreevent( #\"death\", self, self, weapon );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 572,
+          "opening_line": 575,
+          "ending_line": 577,
+          "text": "if ( countdeath )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 641,
+      "text": "                scoreevents::processscoreevent( #\"headshot\", attacker, self, weapon );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 637,
+          "opening_line": 640,
+          "ending_line": 643,
+          "text": "if ( ( smeansofdeath == \"MOD_HEAD_SHOT\" || smeansofdeath == \"MOD_IMPACT\" && shitloc == \"head\" ) && !wasteamkill && !isdefined( killstreaks::get_killstreak_for_weapon( weapon ) ) )"
+        },
+        {
+          "line": 605,
+          "opening_line": 607,
+          "ending_line": 646,
+          "text": "else"
+        },
+        {
+          "line": 577,
+          "opening_line": 580,
+          "ending_line": 647,
+          "text": "if ( isplayer( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 656,
+      "text": "        scoreevents::processscoreevent( #\"suicide\", self, undefined, undefined );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 647,
+          "opening_line": 649,
+          "ending_line": 669,
+          "text": "else if ( isdefined( attacker ) && ( attacker.classname == \"trigger_hurt_new\" || attacker.classname == \"worldspawn\" ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 713,
+      "text": "                scoreevents::processscoreevent( #\"hash_39926f44fa76b382\", attacker, self, weapon );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 710,
+          "opening_line": 712,
+          "ending_line": 715,
+          "text": "if ( weapon.statindex == level.weapon_hero_annihilator.statindex )"
+        },
+        {
+          "line": 708,
+          "opening_line": 710,
+          "ending_line": 716,
+          "text": "if ( attacker.pers[ #\"hash_49e7469988944ecf\" ] === 1 )"
+        },
+        {
+          "line": 705,
+          "opening_line": 708,
+          "ending_line": 717,
+          "text": "if ( isplayer( attacker ) && isdefined( attacker.pers ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1657,
+      "text": "        level thread scoreevents::decrementlastobituaryplayercountafterfade();",
+      "caller": "function_a3030357",
+      "caller_span": [
+        1626,
+        1736
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1643,
+          "opening_line": 1645,
+          "ending_line": 1666,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "decrementlastobituaryplayercountafterfade",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_a3030357",
+            "line": 525,
+            "form": "local_call",
+            "text": "        self function_a3030357( attacker, einflictor, obituaryweapon, obituarymeansofdeath, var_a1f4d122 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          260,
+          266
+        ]
+      ]
+    },
+    {
+      "line": 1664,
+      "text": "            self thread scoreevents::uninterruptedobitfeedkills( attacker, weapon );",
+      "caller": "function_a3030357",
+      "caller_span": [
+        1626,
+        1736
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1657,
+          "opening_line": 1660,
+          "ending_line": 1665,
+          "text": "if ( level.lastobituaryplayercount >= 4 )"
+        },
+        {
+          "line": 1643,
+          "opening_line": 1645,
+          "ending_line": 1666,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "uninterruptedobitfeedkills",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_a3030357",
+            "line": 525,
+            "form": "local_call",
+            "text": "        self function_a3030357( attacker, einflictor, obituaryweapon, obituarymeansofdeath, var_a1f4d122 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          217,
+          229
+        ]
+      ]
+    },
+    {
+      "line": 1778,
+      "text": "                scoreevents::processscoreevent( #\"suicide\", self, undefined, undefined );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1774,
+          "opening_line": 1777,
+          "ending_line": 1782,
+          "text": "if ( playercounts[ self.joining_team ] - playercounts[ self.leaving_team ] > 1 )"
+        },
+        {
+          "line": 1769,
+          "opening_line": 1771,
+          "ending_line": 1783,
+          "text": "if ( !level.teambased && isdefined( level.teams[ self.leaving_team ] ) && isdefined( level.teams[ self.joining_team ] ) && level.teams[ self.leaving_team ] != level.teams[ self.joining_team ] )"
+        },
+        {
+          "line": 1766,
+          "opening_line": 1769,
+          "ending_line": 1784,
+          "text": "if ( isdefined( self.switching_teams ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1787,
+      "text": "        scoreevents::processscoreevent( #\"suicide\", self );",
+      "caller": "suicide",
+      "caller_span": [
+        1763,
+        1819
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1784,
+          "opening_line": 1786,
+          "ending_line": 1805,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "suicide",
+            "line": 593,
+            "form": "local_call",
+            "text": "                awardassists = self suicide( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1827,
+      "text": "    scoreevents::processscoreevent( #\"team_kill\", attacker, undefined, weapon );",
+      "caller": "team_kill",
+      "caller_span": [
+        1825,
+        1886
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "team_kill",
+            "line": 602,
+            "form": "local_call",
+            "text": "                    self team_kill( einflictor, attacker, smeansofdeath, weapon, shitloc );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1997,
+      "text": "        if ( scoreevents::isregisteredevent( killstreak ) )",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1993,
+          "opening_line": 1996,
+          "ending_line": 2017,
+          "text": "if ( isdefined( killstreak ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "isregisteredevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          246,
+          254
+        ]
+      ]
+    },
+    {
+      "line": 1999,
+      "text": "            scoreevents::processscoreevent( killstreak, attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1996,
+          "opening_line": 1998,
+          "ending_line": 2000,
+          "text": "if ( scoreevents::isregisteredevent( killstreak ) )"
+        },
+        {
+          "line": 1993,
+          "opening_line": 1996,
+          "ending_line": 2017,
+          "text": "if ( isdefined( killstreak ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2008,
+      "text": "                scoreevents::processscoreevent( #\"ekia\", attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2004,
+          "opening_line": 2007,
+          "ending_line": 2009,
+          "text": "if ( isdefined( bundle ) && isdefined( bundle.var_ad1e41b ) && bundle.var_ad1e41b )"
+        },
+        {
+          "line": 2000,
+          "opening_line": 2003,
+          "ending_line": 2016,
+          "text": "if ( isdefined( einflictor ) )"
+        },
+        {
+          "line": 1993,
+          "opening_line": 1996,
+          "ending_line": 2017,
+          "text": "if ( isdefined( killstreak ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2026,
+      "text": "                    scoreevents::processscoreevent( #\"kill\", self.laststandparams.attacker, self, self.laststandparams.sweapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2023,
+          "opening_line": 2025,
+          "ending_line": 2028,
+          "text": "if ( isdefined( self.var_a1d415ee ) && self.laststandparams.attacker !== self.var_a1d415ee.attacker )"
+        },
+        {
+          "line": 2021,
+          "opening_line": 2023,
+          "ending_line": 2033,
+          "text": "if ( isdefined( self.laststandparams ) )"
+        },
+        {
+          "line": 2019,
+          "opening_line": 2021,
+          "ending_line": 2038,
+          "text": "if ( var_e7a369ea == attacker )"
+        },
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2027,
+      "text": "                    scoreevents::processscoreevent( #\"cleaned_up\", self.var_a1d415ee.attacker, self, self.var_a1d415ee.sweapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2023,
+          "opening_line": 2025,
+          "ending_line": 2028,
+          "text": "if ( isdefined( self.var_a1d415ee ) && self.laststandparams.attacker !== self.var_a1d415ee.attacker )"
+        },
+        {
+          "line": 2021,
+          "opening_line": 2023,
+          "ending_line": 2033,
+          "text": "if ( isdefined( self.laststandparams ) )"
+        },
+        {
+          "line": 2019,
+          "opening_line": 2021,
+          "ending_line": 2038,
+          "text": "if ( var_e7a369ea == attacker )"
+        },
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2031,
+      "text": "                    scoreevents::processscoreevent( #\"kill\", attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2028,
+          "opening_line": 2030,
+          "ending_line": 2032,
+          "text": "else"
+        },
+        {
+          "line": 2021,
+          "opening_line": 2023,
+          "ending_line": 2033,
+          "text": "if ( isdefined( self.laststandparams ) )"
+        },
+        {
+          "line": 2019,
+          "opening_line": 2021,
+          "ending_line": 2038,
+          "text": "if ( var_e7a369ea == attacker )"
+        },
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2036,
+      "text": "                scoreevents::processscoreevent( #\"kill\", attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2033,
+          "opening_line": 2035,
+          "ending_line": 2037,
+          "text": "else"
+        },
+        {
+          "line": 2019,
+          "opening_line": 2021,
+          "ending_line": 2038,
+          "text": "if ( var_e7a369ea == attacker )"
+        },
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2040,
+      "text": "        scoreevents::processscoreevent( #\"ekia\", attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2044,
+      "text": "            scoreevents::processscoreevent( #\"melee_kill\", attacker, self, weapon );",
+      "caller": "function_4e3e8bee",
+      "caller_span": [
+        1990,
+        2052
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2040,
+          "opening_line": 2043,
+          "ending_line": 2045,
+          "text": "if ( weapon_utils::ismeleemod( smeansofdeath ) )"
+        },
+        {
+          "line": 2017,
+          "opening_line": 2019,
+          "ending_line": 2046,
+          "text": "else if ( !function_f632c17e( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_284c61bd",
+            "line": 597,
+            "form": "local_call",
+            "text": "                    self function_284c61bd( attacker, smeansofdeath );"
+          },
+          {
+            "from": "function_284c61bd",
+            "to": "function_4e3e8bee",
+            "line": 219,
+            "form": "local_call",
+            "text": "            self function_4e3e8bee( einflictor, player, meansofdeath, weapon, attacker );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2940,
+      "text": "                        scoreevents::processscoreevent( #\"killstreak_\" + attacker.pers[ #\"cur_kill_streak\" ], attacker, self, weapon );",
+      "caller": "updatekillstreak",
+      "caller_span": [
+        2901,
+        2988
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2936,
+          "opening_line": 2939,
+          "ending_line": 2946,
+          "text": "if ( attacker.pers[ #\"cur_kill_streak\" ] <= 30 )"
+        },
+        {
+          "line": 2921,
+          "opening_line": 2924,
+          "ending_line": 2965,
+          "text": "if ( attacker.pers[ #\"cur_kill_streak\" ] >= 2 )"
+        },
+        {
+          "line": 2917,
+          "opening_line": 2920,
+          "ending_line": 2971,
+          "text": "if ( isdefined( level.killstreaks ) && shouldgivekillstreak )"
+        },
+        {
+          "line": 2905,
+          "opening_line": 2908,
+          "ending_line": 2972,
+          "text": "if ( !isdefined( einflictor ) || !isdefined( einflictor.requireddeathcount ) || attacker.deathcount == einflictor.requireddeathcount )"
+        },
+        {
+          "line": 2902,
+          "opening_line": 2904,
+          "ending_line": 2975,
+          "text": "if ( isalive( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "updatekillstreak",
+            "line": 622,
+            "form": "local_call",
+            "text": "                updatekillstreak( einflictor, attacker, weapon );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 2949,
+      "text": "                        scoreevents::processscoreevent( #\"killstreak_more_than_30\", attacker, self, weapon );",
+      "caller": "updatekillstreak",
+      "caller_span": [
+        2901,
+        2988
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2946,
+          "opening_line": 2948,
+          "ending_line": 2950,
+          "text": "else"
+        },
+        {
+          "line": 2921,
+          "opening_line": 2924,
+          "ending_line": 2965,
+          "text": "if ( attacker.pers[ #\"cur_kill_streak\" ] >= 2 )"
+        },
+        {
+          "line": 2917,
+          "opening_line": 2920,
+          "ending_line": 2971,
+          "text": "if ( isdefined( level.killstreaks ) && shouldgivekillstreak )"
+        },
+        {
+          "line": 2905,
+          "opening_line": 2908,
+          "ending_line": 2972,
+          "text": "if ( !isdefined( einflictor ) || !isdefined( einflictor.requireddeathcount ) || attacker.deathcount == einflictor.requireddeathcount )"
+        },
+        {
+          "line": 2902,
+          "opening_line": 2904,
+          "ending_line": 2975,
+          "text": "if ( isalive( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "updatekillstreak",
+            "line": 622,
+            "form": "local_call",
+            "text": "                updatekillstreak( einflictor, attacker, weapon );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0311",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    443,
+    576,
+    641,
+    656,
+    713,
+    1657,
+    1664,
+    1778,
+    1787,
+    1827,
+    1997,
+    1999,
+    2008,
+    2026,
+    2027,
+    2031,
+    2036,
+    2040,
+    2044,
+    2940,
+    2949
+  ],
+  "required_callee_functions": [
+    "decrementlastobituaryplayercountafterfade",
+    "isregisteredevent",
+    "processscoreevent",
+    "uninterruptedobitfeedkills"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N01396",
+        "to": "N02291",
+        "line": 443
+      },
+      {
+        "from": "N01396",
+        "to": "N02291",
+        "line": 576
+      },
+      {
+        "from": "N01396",
+        "to": "N02291",
+        "line": 641
+      },
+      {
+        "from": "N01396",
+        "to": "N02291",
+        "line": 656
+      },
+      {
+        "from": "N01396",
+        "to": "N02291",
+        "line": 713
+      },
+      {
+        "from": "N03159",
+        "to": "N04100",
+        "line": 1657
+      },
+      {
+        "from": "N03159",
+        "to": "N04101",
+        "line": 1664
+      },
+      {
+        "from": "N03162",
+        "to": "N02291",
+        "line": 1778
+      },
+      {
+        "from": "N03162",
+        "to": "N02291",
+        "line": 1787
+      },
+      {
+        "from": "N03164",
+        "to": "N02291",
+        "line": 1827
+      },
+      {
+        "from": "N03165",
+        "to": "N02291",
+        "line": 2940
+      },
+      {
+        "from": "N03165",
+        "to": "N02291",
+        "line": 2949
+      },
+      {
+        "from": "N04107",
+        "to": "N02894",
+        "line": 1997
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 1999
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2008
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2026
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2027
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2031
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2036
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2040
+      },
+      {
+        "from": "N04107",
+        "to": "N02291",
+        "line": 2044
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

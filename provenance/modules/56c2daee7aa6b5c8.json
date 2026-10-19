@@ -1,0 +1,411 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "6c8c6e5a759729df12dd6266fa41b71c667e0eb1ae3202256b046f4c4cb694f7",
+  "git_blob_sha1": "3c15d8f101f01bd9c70ebac9d4df24d4ef46646a",
+  "output": "src/scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc",
+  "output_sha256": "bb2e91eae7d79508bb058ff3e43cd5d7a88ebfd1bd6572b24a6f6ae8794e74c4",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/item_world_fixup.gsc",
+      "original_line": 1,
+      "output": "src/scripts/mp_common/item_world_fixup.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/item_world_fixup.gsc",
+        "sha256": "01f561c680f5d6ef309162ccafb42efebbe301ae0317b6c5b1d3b3e9479db108",
+        "git_blob_sha1": "17dd4c5d758a22bf99de43b3caa42d93ed950993"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/wz_common/wz_common_fixup.gsc",
+      "original_line": 2,
+      "output": "src/scripts/wz_common/wz_common_fixup.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/wz_common/wz_common_fixup.gsc",
+        "sha256": "6a50fbe934759c67a1ddddcc23602e7f7a7e9a9b9024f53dcf8d39af50946101",
+        "git_blob_sha1": "ed017b3b988f2c83b328bfcc2f419817e6c22520"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 53
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW  [excerpt; exact source record identified separately]",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/44",
+        "decision_canonical_sha256": "e090a003c8c9a785ba40b2eb30804e6171509357b6cca56dee35c067df39d48d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0c353e4cdad385857bee1d4bbc83b1ba45d4c092d15197ca5f97255ed9675735",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 58,
+          "sha256": "6c8c6e5a759729df12dd6266fa41b71c667e0eb1ae3202256b046f4c4cb694f7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc::function_b35b2850",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": null
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/39",
+        "decision_canonical_sha256": "48f9dd03df709ea6f742d4476c190eea18e4f113fba1dd9b877514f1cf165a65",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of this exact current first-section record, including its source declaration/classification or bounded contract and historical status. No acceptance of a wider file, report or runtime claim.",
+        "limitations": [
+          "Recovered source and exact current written scope only; no original build/native/VM/service/game/runtime proof.",
+          "Stored callback, thread launch or event declaration does not establish invocation or completion order.",
+          "Historical acceptance labels are data; old actual authors/settings remain unknown where unproved."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1",
+        "record_sha256": "c54850565089f9f3ce526d067e72adde1af3d69c73371f1eb08f41278ddfd2b2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3dfa69752faacd56e05882c91dc64c94c636d7e10cc82d75d80d3dd4db6d837c",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "sha256": "6c8c6e5a759729df12dd6266fa41b71c667e0eb1ae3202256b046f4c4cb694f7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/335",
+        "decision_canonical_sha256": "0b0ec1d0abf6350cdcf8b9602161725fdd065ed8351d7845c1e847fa632e631a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/765",
+        "record_sha256": "24057f662cbaadf0316d4874d43860a980c2647a77c3def4772154b6a41c6228"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "69534735ada2d6f13f50b82aa3ff00f5d8246eb3a6241bc2b0f6b9e43504c3e3",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "sha256": "6c8c6e5a759729df12dd6266fa41b71c667e0eb1ae3202256b046f4c4cb694f7"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": null
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/574",
+        "decision_canonical_sha256": "a85725b5edcf8496250b031ecbe304350e1e25a2ce6f6bbda02cc67a5b692a6a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/0",
+        "record_sha256": "2e8fbd682e5bbd01765c9e02741626db55920889455ac4a4f54277fbe98606dc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8e6231719b07d3221b111313258815f938c6a287797f1364217d4c53a224471e",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 53
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:activation",
+        "answer": "wzheavymetalheroes has no explicit assignment in the three selected HMH rule objects/anchor; the literal consumer lookup has bounded scope. A historical broad script/tables producer-absence claim remains unverified because its complete exact table-corpus membership and hashes are unavailable for this comparison. No corpus-wide absence or effective value follows. Only the selected-layer/anchor absence is established here: none of the three recovered HMH rule layers sets it â€” frontend playlist 17 rules (warzone.json 8360-8592), TU23 playlist 19 rules (8719-8980), gametype def 28 rules (playlists_online/gametypes.json 8244-8639); the anchor table bundle (rows 1-341) has no such key either. The effective value of getgametypesetting(#wzheavymetalheroes) is therefore unprovable from recovered data; the selected objects do not explicitly set it; computed names, hash aliases, other script call [excerpt; exact source record identified separately]",
+        "behavior": "activation: no explicit assignment in the selected HMH rule objects/anchor;14+ literal read sites mapped, with computed names/hash aliases/other sources unresolved with their conditional branches (stash, ramps, perks, loadout pointers, gun-list replacements, vehicle flags, flare-gun negation).",
+        "unknowns": [
+          "Effective value of getgametypesetting(#wzheavymetalheroes) for HMH sessions (no recovered producer)",
+          "Native default for absent getgametypesetting keys (undefined vs 0)",
+          "Whether the online/original-build playlist layer sets wzheavymetalheroes",
+          "Which VMs load wz_open_skyscrapers_fixup and wz_common_mode_heavy_metal_heroes_fixup (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V2-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00865",
+          "sha256": "c33b8644b4062f12fd90027bf664007a8f8f74ba924c4f94e563193164f41cf6"
+        },
+        "report_pointer": "/unit_reviews/9",
+        "decision_canonical_sha256": "16ee681fda4c6e804eae21dc9ab21ec11d958ed41bcdcec5bc41180666271b23",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written current field of the exact frozen full correction wrapper.record, its original complete claim and records, exact original/current projection joins, declarations/receivers/effects/branches/returns/callbacks/callers/providers/error and provenance limits. HMH activation setting and literal consumer map. Preserved raw history is not promoted to current acceptance.",
+        "limitations": [
+          "Only the exact written current recovered-source/static-record scope is reviewed. No exact PS4 build, original Lua/GSC VM, native provider, loader, effective setting, asset/service or game/runtime behavior is proved.",
+          "Historical author/status/provenance text is retained as historical evidence. Unproved original identities, settings and provider bindings remain unknown; prior negative verdicts are preserved.",
+          "Successful hashes, pointer joins, display checks and source-expression controls are supporting checks; the substantive normal/boundary/error comparisons supply the semantic verdict."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00526",
+        "sha256": "4ee4af11116628ba5b7ba5189de2a2ab85ffdfeb0b48b559fab42e0aea051f0d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d13e1059be805a7b94f0eeb3e9479c5ab90bea0f82cedb68040da09dd1b53219",
+      "citations": [
+        {
+          "line_start": 1,
+          "line_end": 59
+        },
+        {
+          "line_start": 10,
+          "line_end": 13
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:__init__@wz_common_mode_heavy_metal_heroes_fixup.gsc",
+        "answer": "Source-visible answer for root candidate 5 (server-side HMH fixup): entry is function autoexec __init__ (eflags 0x2 annotation) whose single action is calling function_b35b2850 (10-13). function_b35b2850 (19-58) assigns six item_world_fixup function pointer locals, then evaluates isdefined(getgametypesetting(#wzheavymetalheroes)) and, only if that test passes, a second getgametypesetting(#wzheavymetalheroes) truthiness query. An undefined first query or falsey second query suppresses the26 item_replacer requests and separate stash-parent request. The six preceding pointer-local bindings21-26 and reached queries remain source operations; their native-visible effects and failure behavior are unproved. When the gate passes it requests 26 wz_common_fixup::item_replacer calls (list-name pairs -> heavy_metal_heroes_list_guns_dlc1, plus ammo rocket double and world_base_event_parent -> guns_lau [excerpt; exact source record identified separately]",
+        "behavior": "HMH item-replacement fixup entry (server VM). autoexec __init__ (10-13, eflags 0x2 annotation like every autoexec in the dump) -> function_b35b2850: local pointer table to item_world_fixup handlers (21-26); single gate getgametypesetting(#wzheavymetalheroes) (28); on true: 24 gun-list replacers (30-53), world_base_event_parent -> guns_launchers_dlc1 (54), rocket ammo double replacer (55), supply-stash parent swap with count 20 (56). Load linkage: no script importer in the entire corpus (only self-references); prior run inventory recorded forced-script rows in tables/scriptparsetreeforced/wz_common_script.csv (row 61 server / row 166 client twin) from the ate47 source repo - data-table evidence, not runtime observation.",
+        "unknowns": [
+          " Retail load of wz_common_mode_heavy_metal_heroes_fixup.gsc into the HMH server VM (unproven)",
+          "autoexec timing vs setting/gametype availability (unproven)",
+          "wzheavymetalheroes effective value + producing playlist rule (data, g1 scope)",
+          "Native-visible effects or failures of the preceding pointer bindings and reached setting queries remain unknown. A false/absent gate omits the26 replacement requests and separate stash-parent request, not every source operation."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/49",
+        "decision_canonical_sha256": "c3ecf08b979a6a029f608ec6a63a6f6088ae7bf29fd39ca6f4143b8ec11f1411",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00527",
+        "sha256": "2cfcf424432166b7e29460cd432433fd2a7c19053acbf6bc7488092eb15a4c3f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6c886c2d9eb8dd384b21897ec174b4a58381ef16974690bdc7a7333692d20ed5",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01953",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/304"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/273",
+        "record_sha256": "8b64f648c893fe61b8e3a5f6f2c23e143664207f05261be5bbffddbd9b87492d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d433eebaa6c832daf32e15d1bf07077a14906b3b140df70f9f9c7de88f4fb418",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_common_mode_heavy_metal_heroes_fixup.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01953",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/304"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/273",
+        "record_sha256": "8b64f648c893fe61b8e3a5f6f2c23e143664207f05261be5bbffddbd9b87492d"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/ccf623ae25726fe7.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/56c2daee7aa6b5c8-001.json",
+      "sha256": "758d601f66eeaa1fad2c2860f61b2b1c4b0bf44c07354ec2f865beab7d92a2ec"
+    }
+  ]
+}

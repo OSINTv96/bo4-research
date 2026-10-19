@@ -1,0 +1,1288 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_progression.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "07db1bfee8783751d4cc23f536a4a71de21868c8da0b95bfe99fcaa00f2c40a3",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_player_killed",
+        "behavior": "Player-kill placement updater (self = victim; wired by excluded init). Ordered: (1) assert isplayer( victim ) where victim = self; (2) if victim is explicitly defined (native assert failure/outcome is unproved): (a) victim.pers[\"deathtime\"] = gettime(); (b) player_counts = warzone::function_de15dc32( victim ) (supplied source counter; alive/infection test precedes killed-player handling and conditional respawn counts can be added); (c) placement_player = player_counts.alive + 1 (the literal computed value counter.alive+1; actual death/count ordering and rank interpretation remain unproved); (d) tier stats ladder: placement <= 25 -> function_fb20ad56(); <= 10 -> function_d61fdbef(); <= 5 -> function_67949803() (all owned stat setters); (e) victim stats::function_b7f80d87( \"died\", 1 ) (teammate AAR died); (f) victim function_f874ca5e( placement_player ) (source writer203-216 has its own isplayer guard, pers placement assignment and match-record/AAR requests; actual native storage outcome is unproved).",
+        "branches": [
+          "Source invokes assert(isplayer(victim)); actual native assertion outcome remains unknown.",
+          "Only the explicit defined-victim branch continues; independent <=25/<=10/<=5 tests invoke tracking-gated tier wrappers.",
+          "Defined-victim branch requests AAR died mirror then placement writer; writer has an additional isplayer guard."
+        ],
+        "calls": [
+          "warzone::function_de15dc32 (outside owned spans - integration boundary)",
+          "function_fb20ad56/function_d61fdbef/function_67949803/function_f874ca5e (owned)",
+          "stats::function_b7f80d87 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous source on_player_killed body. Actual event delivery, death/count ordering, deathtime/placement lifetime and persistence remain unproved.",
+        "ordered_state_changes": [
+          "pers.deathtime",
+          "Qualified tier wrappers call d40764f3: tracking-gated WZ playerstatslist/statvalue increments plus addgametypestat. This differs from the separate b7f80d87 teammate AAR died mirror.",
+          "AAR died",
+          "invoke placement writer: isplayer guard, pers placement assignment, match-record and AAR requests; native storage outcome/lifetime unproved"
+        ],
+        "unknowns": [
+          "The supplied counter has alive/infection admission before killed-player handling and conditional respawn-count additions. Underlying provider behavior, actual rank interpretation and original-build/event binding remain unknown.",
+          "order of placement counting relative to actual despawn"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00187",
+        "sha256": "61b0d0d9c618352ab1e1bb46efffbc2b515f49cc5fdc31ddddc0a951e8726c70"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "135a2ed08a763931bb82e90f545150d8c16cf5555a07ab92cb6428cf17f9e978",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_8920ad6e",
+        "behavior": "Vehicle-destruction handler (self = vehicle; wired by excluded init callback::on_vehicle_killed). (1) return unless gamestate::is_state( \"playing\" ); (2) if isplayer( params.eattacker ) -> params.eattacker stats::function_d40764f3( \"vehicles_destroyed\", 1 ); (3) OCCUPANT DESTRUCTION: if params.occupants defined AND occupants.size > 0 AND self function_c7aa9338( params.occupants ) (the source helper returns true when an occupant satisfies util::function_fbce7263(ent.team,self.team). After strict-equality/alliance exclusions, an undefined team can qualify; actual enemy identity is not established): if attacker isplayer: vehicle = attacker getvehicleoccupied(); when valid AND seat === 0 -> function_d40764f3( \"vehicles_destroyed_occupied_using_vehicle\", 1 ) (attacker occupies a valid vehicle at defined seat===0 when this handler runs; no weapon/means-of-death/crush test proves ramming); then unconditionally function_d40764f3( \"vehicles_destroyed_occupied\", 1 ). Actual hostility, receiver/event delivery and native stat outcomes remain unproved.",
+        "branches": [
+          "not playing -> return",
+          "attacker not player -> skip first stat",
+          "No occupants, empty occupants, or no truthy source team-predicate match -> skip occupied stats; undefined-team admission is not proof of enemy identity.",
+          "driver-attacker -> extra stat"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "function_c7aa9338 (owned)",
+          "getvehicleoccupied/getoccupantseat (builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per vehicle destroyed.",
+        "ordered_state_changes": [
+          "vehicles_destroyed and occupied variants"
+        ],
+        "unknowns": [
+          "params.occupants producer (vehicle code)",
+          "self.team context inside function_c7aa9338 (here self = destroyed vehicle) - predicate on vehicle's team vs occupants'"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00188",
+        "sha256": "862d6bca0e054cb770640cb706ac7c45643980f414aa7ca4a54f113944afd1f8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "28fc98f534d45184f013e9e79fd6cec812c86098f132702e91569cb7bb0f5ec9",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_16de96c7",
+        "behavior": "Basketball hoop-watcher thread (self = ball projectile; player param). Guards: player and self defined else return. SYNC: level endon( \"game_ended\" ); self endon( \"stationary\", \"death\" ); player endon( \"disconnect\", \"death\" ). (1) var_299b8419 = getentarray( \"basketball_hoop\", \"targetname\" ) - return when undefined (empty arrays proceed to the loop; the zero==size passed-all exit occurs only inside a frame with ball_velocity[2]<0, so rising/zero-vertical-velocity frames keep waiting unless cancelled); (2) ball_velocity = self getvelocity(); return when undefined; (3) LOOP while not scored(var_69a93dcf) and not passed-all(var_ace707d): velocity each frame; when velocity[2] < 0 (falling): for each hoop: ball z < hoop z increments pass counter; self istouching( basket ) -> scored = 1 break; then if ALL hoops passed (below-count == hoops.size) -> var_ace707d = 1 break; if scored -> break; (4) waitframe( 1 ) per loop; (5) AFTER: if scored AND isplayer( player ) -> player stats::function_d40764f3( \"baskets_made\", 1 ).",
+        "branches": [
+          "Undefined hoop array or initially undefined velocity -> return. A valid empty hoop array exits on the first falling frame; subsequent refreshed velocity is indexed without a repeated definedness guard.",
+          "falling frames checked only",
+          "touch -> award exit",
+          "all hoops passed -> silent exit",
+          "cancel via stationary/death/disconnect/game_ended"
+        ],
+        "calls": [
+          "getentarray/getvelocity/istouching (engine builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Threaded one-shot per throw; frame-by-frame sampling.",
+        "ordered_state_changes": [
+          "baskets_made stat award"
+        ],
+        "unknowns": [
+          "basketball_hoop dynent data (map-side)",
+          "istouching radius - engine"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00189",
+        "sha256": "840722e4cf272442ab19aaaa908910c18363708ec250a79c771c92f29056a27b",
+        "pointer": "",
+        "record_sha256": "49f6694bf980609b99a5a3cb143d2a0c79e73cb93144dae0015657fd048e935d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "34cbbb14963ec9aa66d4b03b746e84bf69ddddb5dffc94b0fcbcc7ba21a87805",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f6dc1aa9",
+        "behavior": "Dev-annotated recovered-source bullseye visualizer (whole body inside /# #/ Type: dev). Infinite thread on the target dynent: var_f748425e = self.origin + (0, 0, 45); sphere( var_f748425e, 5, color (1,1,0) ) - draws a yellow sphere at the bullseye point each frame; waitframe( 1 ). No callers in owned spans (dev aid matching function_209450ae geometry).",
+        "branches": [
+          "None (infinite loop)"
+        ],
+        "calls": [
+          "sphere/waitframe (dev builtins)"
+        ],
+        "lifecycle": "Recovered /# #/ developer delimiters and Type:dev annotation surround this function. No callers are identified in the assigned spans. Exact target inclusion, stripping, reachability and original execution remain unresolved; these markers alone do not prove release absence.",
+        "ordered_state_changes": [
+          "dev visualization only"
+        ],
+        "unknowns": [
+          "dev sphere() builtin availability/args (native)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00190",
+        "sha256": "5ad2c26dd2f4d45a64054e70946721808c5214fc1ad53fe1091b111a35965bc2",
+        "pointer": "",
+        "record_sha256": "5fb10c141d615212a16360d530c811b00515dbb459c9b6532177540414fbcfa7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "3c83fe3de5178bb38c4b79891f2e4189b71f6d2ebcfde529c0cdbd917dda45d8",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_a117c988",
+        "behavior": "Downed-state annotate (self = downed player). Only in the laststandparams-present path: (1) attacker = laststandparams.attacker; (2) EFFECT FLAGS: if attacker.var_121392a1 isarray (attacker's active-crowd-control record) AND any of keys \"blind_base\" / \"swat_grenade\" / \"stunned_slow_grenade\" present -> self.laststandparams.var_6314a3a3 = 1 (attacker-effect-key-presence annotation saved on the downed victim; consumed by function_35ac33e1 kills_while_stunned stat. The key owner is attacker; native effect semantics and intended stat meaning remain unresolved); (3) VEHICLE SEAT: if isplayer( attacker ): vehicle = attacker getvehicleoccupied(); when vehicle valid: seat = getoccupantseat( attacker ); seat === 0 -> laststandparams.var_adb68654 = 1 (driver kill flag); seat > 0 -> var_69427d4d = 1 (passenger kill flag); both consumed by function_35ac33e1 vehicle-seat kill stats.",
+        "branches": [
+          "no laststandparams -> whole no-op",
+          "Defined attacker effect array containing any named key -> victim laststandparams annotation; no victim-effect-state test",
+          "seat 0 -> driver flag",
+          "seat > 0 -> passenger flag",
+          "seat undefined -> none"
+        ],
+        "calls": [
+          "isdefined/isarray/isplayer/getvehicleoccupied/getoccupantseat (builtins)"
+        ],
+        "lifecycle": "Synchronous per downed event; writes into laststandparams (per-down struct).",
+        "ordered_state_changes": [
+          "laststandparams.var_6314a3a3 / var_adb68654 / var_69427d4d conditional sets"
+        ],
+        "unknowns": [
+          "attacker.var_121392a1 writer (tactical/flashbang scripts outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00191",
+        "sha256": "770824d973c3ec0ad301c3333ce7c1aa3506c889bb853a024ccdb1e3fca1d1af",
+        "pointer": "",
+        "record_sha256": "4504861457f20df59bb0ec60017369c3583086597e6c71c54ac5ef426dc19a78"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "5a0699080d6ad2edd6f1bf5b834e72ae0e6b5e6d746b7b0431a0ec3fa82ccb3b",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_5648f82",
+        "behavior": "WIN-team mega payout (self = level; same-named helper exists in wz_contracts - DIFFERENT function). Ordered per winner in getplayers( team ) when team defined (skip when NOT stats::function_f94325d3() tracking gate or pers missing or pers[\"hash_2283e9384383a6e9\"] latch already set): (1) pers[\"hash_2283e9384383a6e9\"] = 1 (processed latch); (2) pers[\"placement_team\"] = 1; pers[\"placement_player\"] = 1; (3) tier stats: function_a0fea1a9() + function_3217b0d2() + function_6a7970fe() + function_fb20ad56() + function_d61fdbef() + function_67949803() (all owned setters - all six top tiers count on a win); (4) function_51cae91b( 1 ) (owned placement merit ladder: with placement1 it chooses the first positive eligible merit in top5/top10/top15/top20/top25/top30/top50/top60/top75 order, or none if all are nonpositive); (5) xp_amount = level.merits.win; PANDEMIC override: if util::get_game_type() == \"warzone_pandemic_quad\" AND getteamplatoon( team ) == infection::function_76601b7d() -> xp_amount = level.merits.infectedwin; (6) give_xp( \"win\", \"winxp\", xp_amount ); stats::function_dad108fa( \"wins_first\", 1 ); giveachievement( \"wz_first_win\" ); (7) if stats::get_stat_global( \"wins\" ) >= 9 -> giveachievement( \"wz_not_a_fluke\" ) (9+ lifetime wins); (8) isinfected check -> if ( NOT player.laststandcount or <= 0 ) AND NOT isinfected -> stats::function_d40764f3( \"wins_without_down\", 1 ); (9) if pers[\"kills\"] == 0 -> function_d40764f3( \"wins_without_kills\", 1 ); (10) player_counts = warzone::function_de15dc32(); if isalive( player ) AND player_counts.alive == 1 AND maxteamplayers setting > 1 -> function_d40764f3( \"wins_last_alive\", 1 ) (last alive in a squad); (11) function_f874ca5e( 1 ) (owned placement writer); match_record::set_player_stat( \"team_placement\", 1 ); stats::function_7a850245( \"placement_team\", 1 ); stats::function_b7f80d87( \"died\", 1 ) (AAR died+1 for teammates - same pattern as disconnect).",
+        "branches": [
+          "tracking gate/pers/latch -> skip player",
+          "pandemic infected-team win merit override",
+          "9+ lifetime wins -> second achievement",
+          "no-down and not infected -> stat",
+          "no kills -> stat",
+          "last alive in squad > 1 -> stat"
+        ],
+        "calls": [
+          "stats::function_f94325d3/get_stat_global/function_dad108fa/function_d40764f3/function_b7f80d87 (player_stats units/excluded)",
+          "give_xp/function_* tier units/function_f874ca5e (owned)",
+          "util::get_game_type, getteamplatoon, infection::function_76601b7d, warzone::function_de15dc32 (outside owned spans - integration boundaries)",
+          "giveachievement (native)"
+        ],
+        "lifecycle": "Synchronous at win resolution; called by the warzone gametype (outside spans); latch prevents double payout.",
+        "ordered_state_changes": [
+          "latch + placements",
+          "six tier stats",
+          "placement1 merit ladder: first positive eligible tier, with later-tier fallback; no unconditional top5 award",
+          "win XP with pandemic override",
+          "wins_first",
+          "achievements per lifetime wins",
+          "conditional no-down/no-kills/last-alive stats",
+          "team placement write x3",
+          "AAR died+1"
+        ],
+        "unknowns": [
+          "warzone::function_de15dc32 (alive-count getter) and getteamplatoon/infection predicate internals - outside owned spans",
+          "merit setting values"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00192",
+        "sha256": "193f235e6e4a3f44ff86637d49271c81c053cc0c3768ff9099e0f7a700a7ecc2",
+        "pointer": "",
+        "record_sha256": "5fd52a4a97a318081458d3af7da6b8181f35f983000dc3fb443bc7948662870d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "5aee5d91da8125b44af4282b7acd1845546ae1548e33d5aee7678fff72269dee",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_36e144fa",
+        "behavior": "Player damage bookkeeping for kill stats (self = damaged player). Ordered: (1) STUN-FROM-CIRCLE MARK: if NOT self.var_e4bec3d4 truthy AND params.smeansofdeath == \"MOD_DEATH_CIRCLE\" -> self.var_e4bec3d4 = 1 (latched once; consumed by function_3217b0d2 third stat and NOT cleared in span); (2) init self.var_9854aa3a = [] when undefined; (3) DAMAGER LIST: if isplayer( attacker ) AND attacker NOT already in list: (redundant) undefined/isarray coercion guards then self.var_9854aa3a[ size ] = attacker - unique attacker list in this handler; cross-event/match lifetime is unresolved; (4) BARE-HANDS SUBSET: bare_hands = getweapon( \"bare_hands\" ); var_c1f166f3 = self hasweapon( bare_hands ); when true: init self.var_91ddc6c5 = [] when undefined; if isplayer( attacker ) AND not in list -> append attacker (unique list of attackers who hit self while self hasweapon(bare_hands) returns truthy; this is not a currentweapon/equipped-fists test). Both lists consumed by function_35ac33e1 (kills_after_damage / kills_after_damage_unarmed stats).",
+        "branches": [
+          "death-circle marking once",
+          "attacker appended once only (isinarray guard)",
+          "hasweapon(bare_hands) truthy -> separate unique attacker list; native possession/equipped semantics remain unresolved"
+        ],
+        "calls": [
+          "isinarray/array (array_shared - outside packet)",
+          "getweapon/hasweapon (builtins)"
+        ],
+        "lifecycle": "Synchronous per damage event; this body contains no array clear. Other writers, resets, entity replacement, growth limits and match lifetime remain unresolved.",
+        "ordered_state_changes": [
+          "var_e4bec3d4 latch",
+          "var_9854aa3a append",
+          "var_91ddc6c5 append under truthy self hasweapon(bare_hands), player-attacker and membership guards; no currentweapon/equipped-fists inference"
+        ],
+        "unknowns": [
+          "MOD_DEATH_CIRCLE means-of-death producer (death circle code outside owned spans)",
+          "timing/size limits of the arrays (native limits unknown)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00193",
+        "sha256": "de4a734a0c23e01d2ef10805caacdff24376ff99a275545acc106ed462d38cac"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "6f2b3386dcae5b82ea78724c7720e30ce6c5ffaf04c824b54379298f44161a6b",
+      "summary": {
+        "unit_id": "hmh-link:HMH-HEALTH-LINKS-01:03-item-use-audiences",
+        "answer": "Connected the health debit event to all nine literal direct registrations in the REFERENCES-listed source. The producer passes the matched post-debit item on the originating player; listed no-obj callbacks run as threaded handlers on that player. Crash and playing-state progression admit health; stable health type fails Takeo equipment and contract armor-shard success gates. Ajax/Torque/Turret/Dart/Hawk require exact names or weapon data whose compatibility with health remains unknown. Turret requests its placement helper before filtering the payload. Ajax/Crash totals re-read current full inventory. These are conditional source connections, not proof of active registration, health gained, persistent stats or live behavior.",
+        "unknowns": [
+          "No proof all nine source registrations are active in HMH or precede a given use event; same-function dedup, removals, malformed entries and dynamic audiences can affect delivery.",
+          "No immutable itemtype/name/weapon guarantee between debit and each threaded handler read. Gate-time health exclusions for Takeo/contracts do not settle a payload mutated to another type.",
+          "No pinned asset proof that every health entry lacks cu01_item/concertina_wire_wz_item/barricade_wz_item/ultimate_turret/dart/eq_hawk combinations; these name gates remain conditional.",
+          "Ajax/Crash current total can reflect debit and concurrent updates or removal, with no thread join or ordering guarantee. A callback request is not guaranteed delivery or a fixed snapshot.",
+          "Unlock predicates, item placement/traces, stat update durability, challenge completion, server availability and deployment effects are opaque downstream boundaries. No whole-system absence or success claim."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00107",
+        "sha256": "8c5cde41ea843a8d88cff5cec113764e2bb0a5c1a3e362cf8a889a0a0f87468d",
+        "pointer": "",
+        "record_sha256": "fcbd7300db4cf6fb801808cd9590602f4620575f6b23089336ab3a90fad7c255"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "7bb759a687986fbf8627d8089082b91cc25cc3a1d72c8894639353de41ea4dfd",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_67949803",
+        "behavior": "Top-5 death stat incrementer (private method). Single statement: player stats::function_d40764f3( \"hash_63307a0460c698ac\", 1 ). Called from on_player_killed when placement (alive+1) <= 5 and from the win path (placement 1). Locally sets player=self and asserts isplayer(player) before the call; original assertion error behavior remains unproved.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_63307a0460c698ac,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-5 deaths)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00194",
+        "sha256": "31eb8563e0cdab3786432251416bad05b8676dc20d5cf9265118d93671c0e6d4",
+        "pointer": "",
+        "record_sha256": "f47d4505ac3ba747a6fcf68db8bde8d8ed2ece8b2d1442604e422ecc309443f8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "830b43bfcfc854046557c74e6b8b14b9d8a8defebd4ac3941004fc62c4320f56",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_d0c523bf",
+        "behavior": "Vehicle-escape checker thread (self = player; spawned by on_vehicle_enter). (1) self endon( \"death\", \"exit_vehicle\", \"disconnect\" ); (2) wait 5 (5 seconds); (3) if self isinvehicle() -> stats::function_d40764f3( \"vehicle_escapes\", 1 ). Caller on_vehicle_enter592-643 starts this thread only outside prematch, at driver seat===0, with defined lastdamagetime and now-lastdamagetime<=3000. The wait5 starts after that eligible entry/thread launch, not at damage; with ordinary nonfuture timestamps damage-to-check may be about5-8s plus scheduling. No lower-bound timestamp guard or actual timing guarantee is shown.",
+        "branches": [
+          "death/exit/disconnect within 5s -> abort",
+          "still in vehicle after 5s -> vehicle_escapes stat"
+        ],
+        "calls": [
+          "endon/wait/isinvehicle (builtins)",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Threaded one-shot with 3 cancel paths.",
+        "ordered_state_changes": [
+          "vehicle_escapes += 1 when condition holds"
+        ],
+        "unknowns": [
+          "Original wait/endon scheduling, native isinvehicle meaning, event delivery and successful stat persistence remain unresolved; source shows a5-unit wait after thread start."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00195",
+        "sha256": "fe4e1bc761b7eb670eda35a4256b3612cbc49d1d39cac22a8887091e59098c2a",
+        "pointer": "",
+        "record_sha256": "06b4ba48b41c5f79cc39b08008d7da39c3fbaa3cf0a96529952a2c2dd2db5357"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "8cba2f0a518421cb0f1715942ed982323f494f2059a0d42c96096d3bcfb5e114",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_d61fdbef",
+        "behavior": "Top-10 death stat incrementer (private method). Single statement: player stats::function_d40764f3( \"hash_25f4611fc9d40aa8\", 1 ). Called when placement <= 10 (death) and in win path. The wrapper locally assigns player=self and asserts isplayer(player) before the call.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_25f4611fc9d40aa8,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-10 deaths) - data side"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00196",
+        "sha256": "82edf139698747f85f9c547ac7069875f66185f9085680aa8aa05f683dc60ebd",
+        "pointer": "",
+        "record_sha256": "c28e7f6dd5a1ea69e50751440517686ab90b1fbb1af967c9b5d9dc64656456ae"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "8ea80dae50d51098faf5abcd3a92c1c0f617006ab5a1cc4c0d4c3881dafd49f7",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_game_shutdown",
+        "behavior": "Game shutdown callback enumerates getplayers() and attempts player function_2c8aac6() for each. The callee asserts player identity and may return for tracking disabled, bot, missing pers or existing truthy hash_39220b202c67c56b latch. Its eligible path calls contract/challenge/finalization helpers and sets the latch last. Shutdown contains no direct XP award, per-player error recovery or guarantee of successful persistence.",
+        "branches": [
+          "None (guards inside flush)"
+        ],
+        "calls": [
+          "function_2c8aac6 (owned flush unit)"
+        ],
+        "lifecycle": "Registered on_game_shutdown callback; synchronous enumeration when invoked. Exact invocation count, callback order, native persistence and recovery after an error remain unproved.",
+        "ordered_state_changes": [
+          "per-player flush chains"
+        ],
+        "unknowns": [
+          "shutdown ordering vs engine persistence (unproven)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00197",
+        "sha256": "2115addec41bded5c8b3197ce48614a5269c70230876f7569e06d4302c12085e",
+        "pointer": "",
+        "record_sha256": "8bce9a3add044b33c11d3900bebb2019343d206252ead69f8b3c44c60e8ef974"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "95824cbd53270e888128753184bccaebc9207fd0f3ec77aadb6043be87a45723",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_209450ae",
+        "behavior": "Firing-range bullseye handler (event_handler[event_cf200f34]; self = ?/event target dynent context; declared by event_handler[event_cf200f34] source annotation; init37-73 does not register it, and actual original event delivery is unresolved). Ordered: (1) return when prematch; (2) dynent = eventstruct.ent; return when targetname !== \"firing_range_target_challenge\" (only challenge targets); (3) unpack attacker/weapon/position/direction; return when missing or attacker not player; (4) RANGE: dist = distance( attacker.origin, dynent.origin ); return when dist < 3550 (too close); (5) HIT-FACE: targetangles = dynent.angles + (0, 90, 0); forward = anglestoforward( targetangles ); return when vectordot( forward, direction ) >= 0 (bullet direction must oppose the target face; dot < 0 required); (6) BULLSEYE: var_f748425e = dynent.origin + (0, 0, 45); return when distance2dsquared( var_f748425e, position ) > 25 (XY distance from the offset center greater than5; equality at squared distance25 passes, with no vertical hit-distance bound in this check); (7) attacker stats::function_d40764f3( \"longest_firing_range_bullseye\", 1 ).",
+        "branches": [
+          "prematch -> return",
+          "wrong target -> return",
+          "missing fields/non-player -> return",
+          "distance < 3550 -> return",
+          "front-facing or off-center hit -> return",
+          "bullseye -> stat"
+        ],
+        "calls": [
+          "distance/distance2dsquared/vectordot/anglestoforward/isplayer/isdefined source calls; original builtin effects remain unproved, with no time-getter call in this body",
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per event_cf200f34 hit event.",
+        "ordered_state_changes": [
+          "longest_firing_range_bullseye stat"
+        ],
+        "unknowns": [
+          "what event_cf200f34 is (obfuscated event kind - probably target-plate hit)",
+          "self identity in this handler (eventstruct.ent is used; self not referenced)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00198",
+        "sha256": "176ec2b2df0cfe5e26b8000708c296be429d9d66f87a72ce81533f85e48ef030"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "95b6529361bd7cfc331aafe86c4c38cb91d78fabcd02d6745dc17d08c6bac706",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_35ac33e1",
+        "behavior": "WZ kill XP + kill-stat evaluator; level.var_c8453874 hook (installed by excluded init; called with ( attacker, victim, kill params defaults {} )). CATALOG NOTE: manifest unit span records ONLY the signature line (968-968); the original body continues 969-1198 in the same source - documented fully here. Ordered: (1) if attacker defined: (2) xp_amount = level.merits.kill (seeded by excluded init); PANDEMIC override when util::get_game_type() == \"warzone_pandemic_quad\": attacker infected flag via clientfield::get_to_player( \"infected\" ) -> merits.killinfected; else if victim infected -> merits.var_cbafe055; else -> merits.var_56dcbb49; (3) attacker give_xp( \"kill\", \"killxp\", xp_amount ) (owned): rank XP + killxp stat; (4) attacker stats::function_b7f80d87( \"kills\", 1 ) (teammate AAR kills); (5) if attacker.pers[\"timesrevived\"] > 0 -> function_d40764f3( \"kills_after_revive\", 1 ); (6) EARLY KILL: var_2fba6abe = attacker.var_37ef8626 (spawn/insert time anchor, producer outside owned spans); if defined AND gettime() - it <= 60000 (60s) -> function_d40764f3( \"kills_early\", 1 ) AND attacker callback::callback( obfuscated event hash_22c795c5dddbfc97 ); (7) UNARMED: if var_c5948a69.sweapon === getweapon( \"bare_hands\" ) -> function_d40764f3( \"kills_unarmed\", 1 ); (8) ATTACKER EFFECT ANNOTATION: if var_c5948a69.var_6314a3a3 (producer function_a117c988896-900 tests defined blind_base/swat_grenade/stunned_slow_grenade keys in attacker.var_121392a1 and stores the flag in victim laststandparams; effect semantics remain unresolved) -> function_d40764f3( \"kills_while_stunned\", 1 ); (9) ATTACKER UNDERWATER: isplayerunderwater() -> \"kills_underwater\"; (10) SQUAD-BOOK: if victim defined: if victim.playerskilled[ attacker.team ] exists with size > 0 -> attacker.avenger = 1 (avenges team kills); maxteamplayers = setting or 1; init attacker.playerskilled[ victim.team ] = [] (array coerce when needed); append victim when not present; switch size: 2 -> function_d40764f3( hash_46971a941d93cbb4 ) AND if maxteamplayers == 2 -> scoreevents::processscoreevent( hash_36b13ed6e99e6f06, attacker, undefined, swweapon ); 3 -> hash_1b3182f99881069d; 4 -> hash_736fa2bcc0b0bf62 AND function_d40764f3( \"squads_eliminated_unassisted\" ) AND scoreevents::processscoreevent( hash_6f41f79a13199c79, attacker, undefined, swweapon ); (11) REVENGE: if attacker.var_22002c3b defined AND victim in it -> function_d40764f3( \"kills_revenge\", 1 ); (12) VICTIM UNDERWATER -> kills_underwater_enemy; (13) DAMAGE RELATION: if attacker.var_9854aa3a contains victim -> kills_after_damage else kills_without_damage; if attacker.var_91ddc6c5 contains victim (fists damage list) -> kills_after_damage_unarmed; (14) VICTIM VEHICLE: vehicle = victim.var_156bf46e; when valid vehicle: land vs air vs boat class -> kills_enemy_in_vehicle_land / _air / _water (three independent ifs); (15) SEAT FLAGS: var_c5948a69.var_adb68654 -> kills_vehicle_driver; var_69427d4d -> kills_vehicle_passenger; (16) BULLET LONG-SHOT block when weapon defined != weaponnone AND attacker/victim origins defined AND weapon.isbulletweapon: weaponclass = util::getweaponclass; dist = distance( attackerorigin, victimorigin ); if dist >= 13779 AND class == weapon_sniper -> function_d40764f3( \"kills_longshot_sniper\", 1 ); if attacker function_65776b07() (talent getter, NOT in catalog - boundary) has \"talent_deadsilence\" AND weaponhasattachment( weapon, \"suppressed\" ) -> function_dad108fa( hash_41f134c3e727d877, 1 ) AND callback::callback( hash_453c77a41df1963c ); height = attackerorigin[2] - victimorigin[2]; if height >= 240 -> function_dad108fa( hash_35020c395a89befb, 1 ) AND callback::callback( hash_7a9bdd3ee0ae95af ); LONGEST-KILL RECORD: if pers[\"longestdistancekill\"] undefined OR dist > current: pers[\"longestdistancekill\"] = dist; longestkill = dist * 0.0254; attacker.longestkill = int( floor( longestkill + 0.5 ) ) (rounds to int meters); stats::function_62b271d8( \"longest_distance_kill\", int( dist ) ) (teammate AAR mirror) AND stats::function_7a850245( \"longestdistancekill\", int( dist ) ) (AAR set); per-game-type record: var_c2d07ee0 = attacker stats::function_ed81f25e( \"longest_distance_kill\" ); if defined AND dist > it -> attacker stats::function_baa25a23( \"longest_distance_kill\", int( dist ) ) (gated bygametype overwrite).",
+        "branches": [
+          "no attacker -> whole no-op (all inside if)",
+          "pandemic infected/infected-victim/normal merit selection",
+          "revive/early/unarmed/stunned/underwater/underwater-enemy stats",
+          "squad-book ladder 2/3/4 kills with two processed scoreevents",
+          "revenge/damage-relation/unarmed-damage stats",
+          "victim vehicle class stats",
+          "vehicle seat flags stats",
+          "longshot sniper >= 13779",
+          "dead silence + suppressed hash stat + callback",
+          "height >= 240 stat + callback",
+          "new personal longest record writes (pers + AAR + teammate mirror)",
+          "new per-gametype longest -> baa25a23 set"
+        ],
+        "calls": [
+          "give_xp (owned)",
+          "stats::function_b7f80d87/function_d40764f3/function_dad108fa/function_62b271d8/function_7a850245/function_ed81f25e/function_baa25a23 (owned/excluded units)",
+          "clientfield::get_to_player (worker h5 HUD file - cross-owner boundary)",
+          "util::get_game_type/getweaponclass (outside packet)",
+          "function_65776b07 (not in assigned catalog - integration boundary)",
+          "weaponhasattachment/getweapon/isplayerunderwater/gettime/floor (builtins)",
+          "scoreevents::processscoreevent (owned)",
+          "callback::callback (callbacks_shared - outside packet)"
+        ],
+        "lifecycle": "Synchronous; called as level.var_c8453874 dynamic from the WZ kill pipeline (call site outside owned spans); longest-kill record has no reset (pers is session/match persistence; native side beyond source).",
+        "ordered_state_changes": [
+          "kill XP chain",
+          "kills AAR",
+          "many conditional stats",
+          "squad-book arrays on attacker",
+          "personal longest-kill records"
+        ],
+        "unknowns": [
+          "catalog span (968-968) covers only the signature line; body 969-1198 documented to the same unit - discrepancy flagged",
+          "attacker.var_37ef8626/var_22002c3b writers (outside owned spans)",
+          "function_65776b07 target (talent getter)",
+          "callback event hashes on early-kill/dead-silence/height paths",
+          "13779/240/0.0254 constants unit intent (source-only values)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00199",
+        "sha256": "d8429ac0dedc39f591d5e4c58dbe0c4fb8b03e14259a5af7b37b5eb84b73bacd",
+        "pointer": "",
+        "record_sha256": "df4e807e88ff1aa550a5c5c3170ab88f14755c0788121d66ff5a6792713ad4c2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "a8df4d56f1a9aeb8a0b146dea20641cb31761a4de86e7a610f31fa715546d77a",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1078",
+        "record_sha256": "069c86d9a848e34e3b0092ac625f88838fa92ee534769dab2a81b21c6432fcd7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "af2b2c8b4d0afc7208dd748a78ee0a959b3372358ed44c74c78157deb8856d38",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1079",
+        "record_sha256": "729d0e1ba04531aa59e90f9baaf4546b3c0e2bc9aec20776a64d7b5c1a6f52f7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "b0118d7623b12ffbf29240af5037411b473293405ff4b78b28bf3593da39cdc3",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_fb20ad56",
+        "behavior": "Top-25 death stat incrementer (private method). After player=self and local assert(isplayer(player)), calls player stats::function_d40764f3( \"hash_6d5e162204f447f4\", 1 ) (tracking-gated WZ increment dependency: playerstatslist/statvalue plus addgametypestat; other sessions addgametypestat). Wrapped by on_player_killed when player placement (alive+1) <= 25 and by win path; no other logic.",
+        "branches": [
+          "Local player assertion precedes the unconditional dependency call; no local branch otherwise, dependency tracking may suppress increments"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous stat setter; no threads.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_6d5e162204f447f4,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; no AAR-only destination or guaranteed native success"
+        ],
+        "unknowns": [
+          "Opaque hash_6d5e162204f447f4 meaning and native storage/persistence are unresolved; source call destinations are as described above."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00200",
+        "sha256": "dda972997b1879e5c41d48d5ecad8909c0cc370d1e4965a2c3fd94605616bf81",
+        "pointer": "",
+        "record_sha256": "d130afd0a17ddf41e2d7840adc0c29ea448934a559034e10dcf0f2ee9da4062d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "b333be1f96ed59e6c0f76704c776e0b44b37b93807eec2fb92dbb728c7d012d2",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_6a7970fe",
+        "behavior": "Top-5 team-elimination stat block (private method). Ordered: (1) stats::function_d40764f3( \"hash_5e9a745460a10f80\", 1 ); (2) if player.avenger truthy (source function_35ac33e1 sets attacker.avenger=1 when victim.playerskilled[attacker.team] is defined and nonempty: the victim individual had killed some attacker-team member, without proving that member was the exact attacker) -> function_d40764f3( \"hash_5387d5e6f15c6b55\", 1 ); (3) if player.items_picked_up defined AND size <= 1 (0 or 1 distinct item ids) -> function_d40764f3( \"hash_7158067d85c1402a\", 1 ) (minimal-looting variant). Actual event timing, other possible writers/callers and native stat outcomes remain unproved.",
+        "branches": [
+          "base always",
+          "avenger variant",
+          "items 0/1 variant"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous helper called by qualified team-elimination and win paths; avenger/items state is read but not reset here. Other writers, resets and match lifetime remain unresolved.",
+        "ordered_state_changes": [
+          "After local isplayer assertion: one unconditional d40764f3 call followed by two independently conditional d40764f3 calls. Tracking-gated WZ route increments playerstatslist/statvalue and adds gametype stats; no AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "items_picked_up writer (function_106be0dc excluded writes it in this same file - verified from source)",
+          "stat meanings"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00201",
+        "sha256": "a774a668ff981e38bffa490cf9a8e949222a39cf117e91ed18b86136c71319f7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "bab46f16f92d69c497942726356920ff1f1f762228c39207d23248091c63bcc8",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f8072c71",
+        "behavior": "Vehicle odometer thread (self = vehicle; player param; threaded per driver entry). Guards: player isplayer and self defined else return. SYNC: self endon( \"hash_2d45f3f009f1b3b3\", \"death\" ) (vehicle-local end marker via obfuscated event); player endon( \"death\", \"exit_vehicle\", \"disconnect\" ). State: prevposition = self.origin; distancetraveled = 0; classify air/boat/land ONCE at entry (var_f03db647 land). LOOP while self and player defined: wait 1; accumulate distancetraveled = int( distancetraveled + distance2d( self.origin, prevposition ) ) per second; prevposition = origin; when distancetraveled > 1000 (units, flush threshold): per-class stat flush: land -> stats::function_dad108fa( \"distance_traveled_vehicle_land\", distancetraveled ) then derive miles: current/63360 vs stats distance_traveled_vehicle_land_miles; when int(total/63360) exceeds miles stat -> function_dad108fa( ..._miles, diff ); same triplet for air/water; RESET distancetraveled = 0 after flush. 63360 is the literal source divisor used by fields named miles; physical units/inches and native interpretation are not independently proved. Air and boat flags are independent, with land=neither; air and water flush ifs can both execute if both flags are true.",
+        "branches": [
+          "guards -> return",
+          "not yet 1000 -> keep accumulating",
+          "Land flush when neither air nor boat. Separate air and water ifs may both flush the same distance when both flags are true; no exclusivity proof is present.",
+          "miles stat updated only when the whole-mile count grows"
+        ],
+        "calls": [
+          "distance2d/gettime-like wait/int/float (builtins)",
+          "stats::function_dad108fa/get_stat_global (excluded units)"
+        ],
+        "lifecycle": "Threaded infinite until: vehicle death / obfuscated vehicle end / player death/exit/disconnect; flush state local to thread; stat updates are requested through helpers/inc_stat; native durability, storage/service behavior and successful persistence remain unverified.",
+        "ordered_state_changes": [
+          "per-second 2D distance accumulation",
+          "When accumulator strictly>1000, independent class distance calls and mile-named delta calls using divisor63360, then reset; equality1000 does not flush",
+          "reset accumulator"
+        ],
+        "unknowns": [
+          "producer of the obfuscated self endon event (hash_2d45f3f009f1b3b3)",
+          "63360 units/mile assumption holds only if source units are inches - source shows only the divisor"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00202",
+        "sha256": "ab8a31c08c98acad997752461b4465d9a46c66d62e5f18a596cd092cd8eac619"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "be639f33c27019ea4987b571b618a92f4da2e866f437886d02e5e0c01b7a0ee6",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/792",
+        "record_sha256": "748987e7030030e5779a6d119862ecbf76203b2bc7f08b30da2375bb2d562080"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "c4eb3e67fb7a376163ab4418dfabce7d0e58c9d161dbdbc9823b34daad0a5634",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_3217b0d2",
+        "behavior": "Top-10 team-elimination stat block (private method). Ordered: (1) player stats::function_d40764f3( \"hash_7b8d2c77874a1c24\", 1 ); (2) if player function_ec3a8858() (owned consumed-anything predicate) -> stats::function_d40764f3( \"hash_337e05385393e3a6\", 1 ) (consumed-items variant); (3) if NOT (player.var_e4bec3d4 truthy) (death-circle damage marker set by function_36e144fa owned unit) -> stats::function_d40764f3( \"hash_702849e1bf1e3915\", 1 ). Three conditional stats per eliminated top-10 team member.",
+        "branches": [
+          "base stat always",
+          "consumed items -> variant stat",
+          "no death-circle damage -> third stat"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)",
+          "function_ec3a8858 (owned)"
+        ],
+        "lifecycle": "Synchronous helper used by qualified team-elimination and win paths. Its local isplayer assertion precedes the three conditional stat calls; exact event delivery remains unproved.",
+        "ordered_state_changes": [
+          "After local isplayer assertion: one unconditional and two conditional d40764f3 calls. If tracking allows and session is WZ, helper1d354b96 increments playerstatslist/<key>/statvalue and calls addgametypestat; success/native persistence is unproved. Other sessions use addgametypestat only."
+        ],
+        "unknowns": [
+          "stat meanings; var_e4bec3d4 producer verified as function_36e144fa (same file, owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00203",
+        "sha256": "75f02ad6a4bf09dab2dff9c1a0d705281a2ef55a46de3b4e0ae873c10ccb46b3",
+        "pointer": "",
+        "record_sha256": "c48819d9cc8faabf38808f07e31b5fa419ae7517ab80b7aec34a4190229a65df"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "d3e32aaf3ce222b3b65af42837a165d7bea775141ef29905033862706ec1dd32",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/793",
+        "record_sha256": "85f3e351f72575a7c016b98130d841c7af3548fa7ebad0bd266e229bee8158e6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "e31ead7ab79890517ae52d64b2ce61eb61eb3f44f2484dd05fc651b6a7b7a0a9",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/794",
+        "record_sha256": "d784ed850ab816f267dc05441e7edce0e90ed9738db06206768b16b6466d9767"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "f1c929368eba4359a4bc34d7fd5c45ba9c783b8e14364492de6fe8ec07a35afc",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_c7aa9338",
+        "behavior": "Enemy-list scan helper (returns bool; self = the destroyed vehicle context of callers). foreach ent in array: if util::function_fbce7263( ent.team, self.team ) -> true; else false. A valid empty array reaches false. There is no local isdefined/isarray guard; undefined/noniterable iteration and malformed entries remain unresolved VM/error boundaries. The vehicle-destruction caller1233-1235 separately requires defined occupants with size>0.",
+        "branches": [
+          "first enemy-team occupant -> true",
+          "none -> false"
+        ],
+        "calls": [
+          "util::function_fbce7263 (outside packet - team-enemy predicate)"
+        ],
+        "lifecycle": "Pure scan.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "util_shared2792-2810 contains the team predicate; nested team helpers, invalid-input iteration, original VM behavior and vehicle self.team semantics remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00204",
+        "sha256": "a7aea3106b409d9cf705695c56029a57401f46a1c92f14c622d4acd1f024589e",
+        "pointer": "",
+        "record_sha256": "9242c6164b5a7047db8ae51000899b3bd01693d58db6b350fc03af386478df9a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "f8e485c13ce22d55cc77d3e2e4fd83dd6bdb4da20b06731ba16c15d8b50226c0",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_a0fea1a9",
+        "behavior": "Top-15 team-elimination stat incrementer (private method): player stats::function_d40764f3( \"hash_6429d1fccdef2c9\", 1 ). Called from team_eliminated when team_placement <= 15 and from win path. The wrapper locally assigns player=self and asserts isplayer(player) before calling the dependency.",
+        "branches": [
+          "None"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous.",
+        "ordered_state_changes": [
+          "Call d40764f3(hash_6429d1fccdef2c9,1): tracking-gated WZ playerstatslist/statvalue increment plus addgametypestat; other sessions addgametypestat. No local AAR-only destination or guaranteed native success."
+        ],
+        "unknowns": [
+          "stat meaning (top-15 team placements)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00205",
+        "sha256": "4c12aaf512d6d1359d4285acca046d7c94c1fc13b07ee4b90f737a45163cbe02",
+        "pointer": "",
+        "record_sha256": "17b6b5f67fc9ea2191f5450422b105dac15262f4137b293460239ebb993c84ae"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "004efac34b7bacd646cf73b1bf3bfb93d6c16b19eb4000a7bcc87ba3d529079a",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_challenge_complete",
+        "behavior": "Challenge-complete XP payout (self = completing player; wired by excluded init). Guards: assert isplayer, then return if NOT isplayer OR pers undefined. Ordered: (1) if params.reward defined -> player.pers[\"meritprogression\"] += params.reward; (2) pers[\"hash_6344af0b142ed0b6\"] = 1 (marker also written by give_xp); (3) if pers[\"participation\"] undefined -> 0; pers[\"participation\"]++ (also used by excluded item-pickup path); (4) if params.reward defined: xpscale = player getxpscale(); stats::function_dad108fa( \"challengexp\", int( params.reward * xpscale ) ) - DIRECT stat write (does NOT call give_xp; no rank promotion check on this path).",
+        "branches": [
+          "assert/guard return",
+          "reward present -> merit sum + scaled challengxp",
+          "participation always ++"
+        ],
+        "calls": [
+          "getxpscale (builtin)",
+          "stats::function_dad108fa (excluded unit)"
+        ],
+        "lifecycle": "Synchronous per challenge completion.",
+        "ordered_state_changes": [
+          "meritprogression/participation/challengexp updates"
+        ],
+        "unknowns": [
+          "params.reward producer (challenge completion flow)",
+          "no rank promotion from this XP path - flagged as source behavior"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/429",
+        "record_sha256": "dd6a1bc95cf45cc02c355ed9066ec94f64ddda9163234426eedff1609e1d419b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "0506ee47f0f8489be54de42bd8a03bace2fc458c4cb9a0bdd69fe74fe633e90b",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_2c8aac6",
+        "behavior": "End-of-participation progression flush (self = player). Ordered: (1) assert isplayer; (2) gate: return if NOT stats::function_f94325d3() (tracking gate, excluded unit) OR isbot OR player.pers undefined; (3) IDEMPOTENCE: if pers[\"hash_39220b202c67c56b\"] truthy -> println(dev name) and return (already flushed); (4) read dvar floats hash_138e4c481ef6cfb1 and hash_5bb505659db06d9b (multipliers used by the challenges flush call); (5) if pers[\"teameliminatedtime\"] undefined -> set to gettime(); (6) var_1ef5a3ba = player function_59c85637() (owned time-played delta getter); (7) chain: player wz_contracts::function_9b431779( var_1ef5a3ba ) (owned per-gametype minute contracts); player contracts::function_78083139() (owned flush: contract pipe send); player challenges::function_659f7dc( var_1ef5a3ba, var_87ecbce6, var_7f6396f0 ) (owned challenges_shared time-based challenge flush); player function_4835d26a() (NOT in assigned catalog - integration boundary, called on player); (8) println(dev placement summary); (9) player.pers[\"hash_39220b202c67c56b\"] = 1 (flush latch).",
+        "branches": [
+          "tracking gate/bot/no pers -> return",
+          "already flushed -> print and return",
+          "else full flush chain then latch"
+        ],
+        "calls": [
+          "getdvarfloat/println/isbot (builtins)",
+          "stats::function_f94325d3 (excluded gate unit)",
+          "function_59c85637 (owned)",
+          "wz_contracts::function_9b431779 (owned)",
+          "contracts::function_78083139 (owned)",
+          "challenges::function_659f7dc (owned challenges_shared unit)",
+          "function_4835d26a (NOT in assigned catalog - integration boundary)"
+        ],
+        "lifecycle": "Synchronous; used by on_game_shutdown (owned), player_disconnected (owned), and other end-of-participation paths; latch pers hash_39220b202c67c56b prevents double flush.",
+        "ordered_state_changes": [
+          "teameliminatedtime default",
+          "contract/challenge flush chain",
+          "flush latch = 1"
+        ],
+        "unknowns": [
+          "function_4835d26a target (no catalog entry - integration boundary)",
+          "dvar multiplier meanings (challenge flush knobs)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/400",
+        "record_sha256": "156db7b7863cc9b10b666f64bee59e59c78d579b4718ee07a7f558e9096832d7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "1696a76599cb30975eeeaf0963961ed0b0ef31b7baa7a9d87e2c941a7c27ebc8",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_c9a18304",
+        "behavior": "Freefall event router (self = player; registered via excluded init callback::add_callback( \"freefall\", &function_c9a18304 )). (1) if eventstruct.freefall truthy (freefall STARTED?): if isplayer( self ) -> self thread function_da21a17c() (owned wingsuit odometer); return; (2) OTHERWISE: self notify( \"hash_74973f333d2fabfa\" ) - the notify hash that function_da21a17c endons on, i.e. non-freefall freefall events KILL the wingsuit odometer.",
+        "branches": [
+          "freefall flag -> start odometer thread",
+          "different eventstruct -> notify to kill odometer"
+        ],
+        "calls": [
+          "function_da21a17c (owned unit, threaded)"
+        ],
+        "lifecycle": "Synchronous router; thread lifecycle per function_da21a17c.",
+        "ordered_state_changes": [
+          "thread spawn or kill-notification"
+        ],
+        "unknowns": [
+          "eventstruct.freefall semantics (which values true; start vs enter state)",
+          "freefall event producer (parachute/wingsuit code outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/416",
+        "record_sha256": "a77eb21c55d67dbda55e54d578182aed4e4fdd0f84b0c3e478a16b393185d4b4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "1e8aa3f4586cf7cbb7d64520bafb228acd6319b63f99da9d24f1a3fb52360b86",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::codecallback_medal",
+        "behavior": "player_medal event handler (self = player getting a medal). (1) if eventstruct.var_7fcb97e3 (medal/score event id) AND level.scoreinfo[ that id ] all defined: (2) medalinfo = level.scoreinfo[medal id]; (3) self give_xp( \"medal\", \"medalxp\", medalinfo[\"xp\"] ) (owned give_xp unit) - medal XP grant derived from the scoreinfo table row xp column. Only that path; no other effects.",
+        "branches": [
+          "missing eventstruct/var_7fcb97e3/scoreinfo row -> no-op",
+          "else -> medal XP via give_xp"
+        ],
+        "calls": [
+          "give_xp (owned unit)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Wired by excluded __init__ callback::on_revived? NO - by event_handler registration; per-medal synchronous handler.",
+        "ordered_state_changes": [
+          "medalxp stat + rank XP via give_xp"
+        ],
+        "unknowns": [
+          "var_7fcb97e3 field name origin (event struct layout)",
+          "scoreinfo medalxp column values are data not source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/395",
+        "record_sha256": "bb8d469cda07929e67a2a3ef36296e4ec45b09d35a84a3e9e29f0ea607f83976"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "2f55b968c8dc1a7570d78ef02d510848e01c469cce29b55518de4a3f643cfede",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_51cae91b",
+        "behavior": "Placement XP ladder (self = player; called per placement resolution). Guarded ascending ladder with early returns - HIGHEST tier wins; each tier grants only when the merit value > 0 (unearned tiers award nothing): placement <= 5 -> give_xp( \"top5\", \"placementxp\", merits.top5 ) return; <= 10 -> top10; <= 15 -> top15; <= 20 -> top20; <= 25 -> top25; <= 30 -> top30; <= 50 -> top50; <= 60 -> top60; <= 75 -> top75; > 75 -> nothing (no award below 75).",
+        "branches": [
+          "nine placement tiers with merit>0 check",
+          "first matching tier returns (no stacking)",
+          "> 75 -> no award"
+        ],
+        "calls": [
+          "give_xp (owned unit)"
+        ],
+        "lifecycle": "Synchronous; merit values seeded by excluded init from gametype settings (wzmerittopN).",
+        "ordered_state_changes": [
+          "single tier placement XP via give_xp"
+        ],
+        "unknowns": [
+          "merit setting values (dvar/gametype settings) not enumerated"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/406",
+        "record_sha256": "343032c9f291ffc4f3d2ac23fcdab329bbb7f42338de8efafe93514838d8426d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "33c096f13898cca23b44398aeca8246458f53a40aa18dd8e9a6939f86a463fce",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_exit_locked_on_vehicle",
+        "behavior": "Locked-vehicle exit handler (self = level/vehicle context; player arg). Single branch: if isplayer( player ) -> player stats::function_d40764f3( \"vehicle_lock_exits\", 1 ).",
+        "branches": [
+          "not a player -> no-op",
+          "else stat"
+        ],
+        "calls": [
+          "stats::function_d40764f3 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous; wiring site outside owned spans (lock-on/vehicle code).",
+        "ordered_state_changes": [
+          "vehicle_lock_exits += 1"
+        ],
+        "unknowns": [
+          "caller (vehicle lock pipeline)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/415",
+        "record_sha256": "8734c8656fd1bbffc06f12d01b3e89c8bcdb5ae00806e444911c981c4fbaa522"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/31",
+      "selection_id": "351bdc7990693c672f1d8546e301b00c6c338dd58854f28a46c29153cb97667c",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_3de8b6e0",
+        "behavior": "on_revived handler (wired by excluded init). Body: return when NOT gamestate::is_state( \"playing\" ) OR params.reviver undefined - the handler contains ONLY these guards and NO other statements (dead code / vestigial handler: revive does nothing additional in wz_progression beyond the wz_medals/wz_contracts handlers). Span is fully guarded no-op.",
+        "branches": [
+          "not playing -> return",
+          "no reviver -> return",
+          "success path -> falls through with no effect"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Per revive synchronous no-op beyond guards.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "why the handler is empty (stripped logic in this build) - preserved as source behavior"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/418",
+        "record_sha256": "da0cff172bcb1c6fed3092d387a4281059b9e7448fb1d45f27634ab3bac6dd46"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/32",
+      "selection_id": "3fce6a976596f8659d7d0dfdb2d08d81b46fb968bf1cf6043c28c442a0d4320d",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_4776caf4",
+        "behavior": "Basketball fire router (event_handler[grenade_fire]; self = shooting player). (1) return when level.inprematchperiod; (2) require sessionmodeiswarzonegame() AND isplayer( self ) AND isalive( self ) AND eventstruct AND eventstruct.weapon defined; (3) if eventstruct.weapon.name === \"basketball\" AND eventstruct.projectile defined -> projectile thread function_16de96c7( self ) (owned hoop-watcher). Non-basketball grenades get nothing from this handler.",
+        "branches": [
+          "prematch -> return",
+          "guards -> return",
+          "basketball with projectile -> hoop watcher thread",
+          "otherwise -> nothing"
+        ],
+        "calls": [
+          "function_16de96c7 (owned unit, threaded on projectile)"
+        ],
+        "lifecycle": "Per grenade_fire synchronous; thread spawn only for basketball.",
+        "ordered_state_changes": [
+          "watcher thread spawn"
+        ],
+        "unknowns": [
+          "basketball weapon registration (weapon data)",
+          "eventstruct.projectile lifecycle (native projectile)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/426",
+        "record_sha256": "6dce65e878117d4bb58658b9eafd8baa7d135943bd80297a631c381e03c14f14"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/33",
+      "selection_id": "6431ad748f39159e70cebef573e529b07440716b7c6df7c4d01bb115119a7138",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_ec3a8858",
+        "behavior": "Consumed-anything predicate (returns bool; self = player). (1) return false unless isplayer; (2) true when player.inventory.consumed exists with size > 0; (3) else false. Consumed by function_3217b0d2 (owned) to branch a second stat.",
+        "branches": [
+          "not player -> false",
+          "consumed non-empty -> true",
+          "else -> false"
+        ],
+        "calls": [
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Pure predicate.",
+        "ordered_state_changes": [
+          "none"
+        ],
+        "unknowns": [
+          "inventory.consumed writer (item-use/stash code outside owned spans)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/397",
+        "record_sha256": "c1d882b4655dcc125deabc6b0eae37dfa6fecf18689a99293b7c0a831dc748a0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/34",
+      "selection_id": "8ed24aa17d56a8a5e4e761947960bccb7607701603decbb1a6b9c0f353633e34",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::on_character_unlock",
+        "behavior": "Character-unlock achievement checker (self = player; wired by excluded init). Ordered: (1) if isplayer( self ): (2) waitframe( 1 ); (3) HISTORIAN: four stats via stats::get_stat( \"characters\", prt_wz_reznov/mason/woods/menendez, \"unlocked\" ); ALL four -> giveachievement( \"wz_blackout_historian\" ); (4) SPECIALIST SUPER FAN: ten stats (battery, mercenary, firebreak, enforcer, trapper, technomancer, swatpolice, buffassault, engineer, recon); ALL ten -> giveachievement( \"wz_specialist_super_fan\" ); (5) ZOMBIE FANATIC: eight stats (bruno, scarlett, diego, stanton, dempsey, takeo, nikolai, richtofen); ALL eight -> giveachievement( \"wz_zombie_fanatic\" ).",
+        "branches": [
+          "not player -> nothing",
+          "all of each set -> corresponding achievement",
+          "partial -> nothing"
+        ],
+        "calls": [
+          "stats::get_stat (excluded unit - characters subtree)",
+          "giveachievement (native - unproven)",
+          "waitframe/isplayer/isdefined (builtins)"
+        ],
+        "lifecycle": "Synchronous per unlock event with one-frame defer.",
+        "ordered_state_changes": [
+          "native achievement unlocks per complete sets"
+        ],
+        "unknowns": [
+          "characters stat subtree writer (unlock flow outside owned spans)",
+          "achievement persistence rules (native/console)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/430",
+        "record_sha256": "5f13925590fb37848100aa74f39c276ed959431eb30dc44f7905eb94e59259c0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/35",
+      "selection_id": "ad70668a9f83063e4eeab2ccdd59f03f493f011999e47261184a138bf169554b",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/280",
+        "record_sha256": "1ef3a9caa943f34cb1f75744938f0d34b080fe7d00c293916869f9bf37ff0086"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/36",
+      "selection_id": "b6689042151a7751fea80e51be4cd0449f6b3134a11858e7e895ef199628a181",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_59c85637",
+        "behavior": "Match-local played-time getter (self = player; returns time). (1) var_c06441ec = gettime() - pers[\"teameliminatedtime\"] clamp >= 0 (excluded-from-clock window starts when the team was eliminated) else 0; (2) var_1ef5a3ba = 0 unless pers[\"hash_150795bee4d46ce4\"] defined, then = max( gettime() - pers[\"hash_150795bee4d46ce4\"] - var_c06441ec, 0 ) - elapsed ms since the player-start anchor minus eliminated time. NOTE: writer of hash_150795bee4d46ce4 is NOT in this file's owned spans (player start anchor; likely set by warzone gametype drop-in flow). Consumed by function_2c8aac6 flush chain and by excluded init as level.var_959f44cf getter.",
+        "branches": [
+          "teameliminatedtime 0/nonzero -> include or exclude eliminated time",
+          "anchor missing -> 0",
+          "else max clamp"
+        ],
+        "calls": [
+          "gettime/max (builtins)"
+        ],
+        "lifecycle": "Pure read helper; no state writes.",
+        "ordered_state_changes": [
+          "read pers.teameliminatedtime + pers.hash_150795bee4d46ce4"
+        ],
+        "unknowns": [
+          "writer/producer of pers.hash_150795bee4d46ce4 (player start anchor - outside owned spans)",
+          "time unit (ms) inferable from gettime() comparisons with / 60000 elsewhere"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/401",
+        "record_sha256": "ac0895e7429e615ee956f0d2264cb666ae66aab0bb70bddfc6ebafefd694f6b8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/37",
+      "selection_id": "c802393bf564510c97dcdce5c84d017041e2b03d91c278e42299852a81f0de5f",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_da21a17c",
+        "behavior": "Wingsuit odometer thread (self = player; spawned by function_c9a18304 owned unit). SYNC: self endon( \"hash_74973f333d2fabfa\", \"death\", \"disconnect\" ) - the same notify KILLS this thread (router posts it for non-freefall freefall events). State: prevposition = origin; distancetraveled = 0. LOOP while self defined: wait 1; accumulate int distance2d per second; when distancetraveled > 1000: stats::function_dad108fa( \"distance_traveled_wingsuit\", distancetraveled ); distancetraveled = 0; miles derivation identical to vehicles: int( total / 63360 ) vs distance_traveled_wingsuit_miles stat -> when larger, function_dad108fa( ..._miles, diff ).",
+        "branches": [
+          "kill notify/death/disconnect -> thread ends",
+          "accumulation until > 1000 -> flush + reset",
+          "miles stat grows by whole-mile diff only"
+        ],
+        "calls": [
+          "function_dad108fa/get_stat_global (excluded units)",
+          "endons/wait/distance2d (builtins)"
+        ],
+        "lifecycle": "Threaded infinite until notify/death/disconnect; per-thread accumulator only.",
+        "ordered_state_changes": [
+          "wingsuit distance + miles stats"
+        ],
+        "unknowns": [
+          "freefall router kill event semantics (verified same-file link)",
+          "inches/miles divisor intent"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/417",
+        "record_sha256": "a24896e6befca4185140ac3e3d62fcc6abcfdfeadec5e49a53cd23e9ac8a9fda"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/38",
+      "selection_id": "dfa2167640036e4ffa40292f2278124a9fba8b7d3d499f1536fece18d7aad2c4",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::give_xp",
+        "behavior": "XP grant core (self = player). Ordered: (1) assert isplayer(player); (2) var_60a35182 (paragon flag) = 1 only when player.pers[\"plevel\"] == level.maxprestige; (3) PARAGON path: prevxp = stats::get_stat_global(\"PARAGON_RANKXP\"); player addrankxpvalue( var_c14ca2e6 (reason string), amount ) (native); curxp = PARAGON_RANKXP after; (4) ELSE normal path: prevxp = RANKXP; addrankxpvalue(reason, amount); curxp = RANKXP after; PARAGON PROMOTION: if player.pers[\"plevel\"] == level.maxprestige - 1 AND curxp == level.rankxpcap (EXACT equality): set player.pers[\"plevel\"] = level.maxprestige; stats::set_stat_global( \"plevel\", level.maxprestige ) (owned set side including WZ dual-write); stats::set_stat_global( \"paragon_rank\", level.maxrank + 1 ); stats::function_62b271d8( \"plevel\", level.maxprestige ) (excluded teammate AAR mirror unit); (5) var_a402c6e3 = curxp - prevxp (actual applied delta); (6) player stats::function_dad108fa( xpstat, var_a402c6e3 ) (gated per-stat recording of the applied delta); (7) player.pers[\"hash_6344af0b142ed0b6\"] = 1 (dirty/awarded marker). Ordering: prev read -> award -> post read -> stat record -> marker.",
+        "branches": [
+          "max-prestige -> PARAGON_RANKXP path",
+          "else RANKXP path",
+          "prestige - 1 and EXACT cap hit -> plevel promotion (pers + stat + teammate mirrors)",
+          "promotion requires EXACT == cap (not >=) - over-cap XP does not promote via this path"
+        ],
+        "calls": [
+          "stats::get_stat_global/set_stat_global/function_dad108fa/function_62b271d8 (player_stats units; excluded ones in same file)",
+          "addrankxpvalue (native rank XP hook - opaque)",
+          "isdefined/assert (builtins)"
+        ],
+        "lifecycle": "Synchronous; central XP entry for medal/kill/contract/top5/win XP; persistence of paragon/rank state is native (unproven).",
+        "ordered_state_changes": [
+          "prevxp read",
+          "addrankxpvalue(reason, amount)",
+          "curxp read",
+          "conditional plevel promotion chain",
+          "xpstat += (curxp - prevxp)",
+          "pers hash_6344af0b142ed0b6 = 1"
+        ],
+        "unknowns": [
+          "addrankxpvalue native semantics (server/stat backend)",
+          "level.maxprestige/maxrank/rankxpcap setters (rank/gametype init outside owned spans)",
+          "PARAGON path skips promotion branch entirely (no plevel promotion beyond max)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/396",
+        "record_sha256": "ba2f22b209a3bcc3c0fa523cac144fbdbe3daefdb13d0691620f38ad6f8def2e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/39",
+      "selection_id": "f3f3e150e00542cfeb0a342eff228e011e4ef4ce0301c6dba3615fb0b9a31ea3",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_f874ca5e",
+        "behavior": "Placement writer (self = placed player, called per placement resolution). Guards: assert isplayer then return if not. (1) player.pers[\"placement_player\"] = placement_player; (2) player match_record::set_player_stat( \"player_placement\", placement_player ) (match_record excluded set unit - match subtree); (3) player stats::function_7a850245( \"placement_player\", placement_player ) (excluded after-action-report setter). Records the individual finish position in three stores.",
+        "branches": [
+          "assert abort when non-player",
+          "else three writes"
+        ],
+        "calls": [
+          "match_record::set_player_stat (excluded unit)",
+          "stats::function_7a850245 (excluded unit)"
+        ],
+        "lifecycle": "Synchronous; called from on_player_killed death placement and function_5648f82 win path (owned units).",
+        "ordered_state_changes": [
+          "pers.placement_player",
+          "match record player_placement",
+          "AAR placement_player"
+        ],
+        "unknowns": [
+          "placement value unit (1-based rank) per callers"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/398",
+        "record_sha256": "b7e6b151a53b3544e013e08071c86017aa43c5d7e5b6fbb0d01693e83da3b6fc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/40",
+      "selection_id": "fc410da42e988c826030b9e42d0c2af9bb722bcf51bab40e5c7df162bff1a09b",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_progression.gsc::function_393ec79e",
+        "behavior": "Item-use (health) handler (self = user player; wired by excluded init callback::on_item_use). Guards: playing state and params.item defined else return. If item.itementry.itemtype === \"health\": (1) self stats::function_d40764f3( \"items_health_used\", 1 ); (2) OUTSIDE-CIRCLE ONLY: if self.outsidedeathcircle truthy -> function_d40764f3( hash_154d42f200303577, 1 ) AND self match_record::function_34800eec( hash_154d42f200303577, 1 ) (match record increment of the same hash stat - dual store).",
+        "branches": [
+          "not playing / no item -> return",
+          "health item -> stat",
+          "outside circle -> second stat + match record increment"
+        ],
+        "calls": [
+          "gamestate::is_state (outside packet)",
+          "stats::function_d40764f3 (excluded unit)",
+          "match_record::function_34800eec (owned match_record unit)",
+          "isdefined (builtin)"
+        ],
+        "lifecycle": "Synchronous per item use.",
+        "ordered_state_changes": [
+          "items_health_used",
+          "circle-escape heal hash stat + match record"
+        ],
+        "unknowns": [
+          "self.outsidedeathcircle writer (circle logic outside owned spans)",
+          "the hash-only stat meaning"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00206",
+        "sha256": "eaea8a75eaf17d7ebcd1c32c9bafd731312a17f3983e5f7f68d0c556eea0b99d",
+        "pointer": "/units/425",
+        "record_sha256": "dc223f5bedb5fce589bb019fa2323629bf81b250ac629203c9383f8301d62514"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/15f891639129fb7d.json",
+      "claim_pointer": "/claims/41",
+      "selection_id": "06f7eef1b2ab4c8dab8771ba72a8d1f73ea8cf7e60cfe40090741876a86277ef",
+      "summary": {
+        "id": "scripts/wz_common/wz_progression.gsc::__main__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/280",
+        "record_sha256": "1ef3a9caa943f34cb1f75744938f0d34b080fe7d00c293916869f9bf37ff0086"
+      }
+    }
+  ]
+}

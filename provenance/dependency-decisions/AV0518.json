@@ -1,0 +1,97 @@
+{
+  "module": "src/scripts/weapons/sensor_dart.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 334,
+      "text": "        scoreevents::processscoreevent( #\"hash_4c5d3e163d180de8\", attacker, self.owner, undefined );",
+      "caller": "function_c142e8ec",
+      "caller_span": [
+        320,
+        343
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 324,
+          "opening_line": 327,
+          "ending_line": 340,
+          "text": "if ( isdefined( attacker ) && ( !var_3c4d4b60 || self.owner util::isenemyplayer( attacker ) ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f87e6df69a12572a.json",
+          "pointer": "/claims/0",
+          "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+          "citation": {
+            "line_start": 316,
+            "line_end": 390
+          }
+        },
+        "entry_function": "function_c142e8ec",
+        "entry_span": [
+          320,
+          343
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/f87e6df69a12572a.json",
+          "pointer": "/claims/0",
+          "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0518",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    334
+  ],
+  "required_callee_functions": [
+    "processscoreevent"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02216",
+        "to": "N02291",
+        "line": 334
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

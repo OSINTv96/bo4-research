@@ -1,0 +1,293 @@
+{
+  "module": "src/scripts/mp_common/teams/teams.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 195,
+      "text": "                    self stats::function_dad108fa( #\"time_played_\" + str_team, time );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 192,
+          "opening_line": 194,
+          "ending_line": 196,
+          "text": "if ( level.teambased )"
+        },
+        {
+          "line": 189,
+          "opening_line": 192,
+          "ending_line": 203,
+          "text": "if ( sessionmodeismultiplayergame() )"
+        },
+        {
+          "line": 186,
+          "opening_line": 188,
+          "ending_line": 206,
+          "text": "if ( isdefined( self.timeplayed[ team ] ) && self.timeplayed[ team ] )"
+        },
+        {
+          "line": 183,
+          "opening_line": 186,
+          "ending_line": 207,
+          "text": "foreach ( team, str_team in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    },
+    {
+      "line": 200,
+      "text": "                    hc_time_played = self stats::get_stat( #\"playerstatslist\", #\"hc_time_played\", #\"statvalue\" ) + time;",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 196,
+          "opening_line": 199,
+          "ending_line": 202,
+          "text": "if ( isdefined( level.hardcoremode ) && level.hardcoremode )"
+        },
+        {
+          "line": 189,
+          "opening_line": 192,
+          "ending_line": 203,
+          "text": "if ( sessionmodeismultiplayergame() )"
+        },
+        {
+          "line": 186,
+          "opening_line": 188,
+          "ending_line": 206,
+          "text": "if ( isdefined( self.timeplayed[ team ] ) && self.timeplayed[ team ] )"
+        },
+        {
+          "line": 183,
+          "opening_line": 186,
+          "ending_line": 207,
+          "text": "foreach ( team, str_team in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          82,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 201,
+      "text": "                    self stats::set_stat( #\"playerstatslist\", #\"hc_time_played\", #\"statvalue\", hc_time_played );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 196,
+          "opening_line": 199,
+          "ending_line": 202,
+          "text": "if ( isdefined( level.hardcoremode ) && level.hardcoremode )"
+        },
+        {
+          "line": 189,
+          "opening_line": 192,
+          "ending_line": 203,
+          "text": "if ( sessionmodeismultiplayergame() )"
+        },
+        {
+          "line": 186,
+          "opening_line": 188,
+          "ending_line": 206,
+          "text": "if ( isdefined( self.timeplayed[ team ] ) && self.timeplayed[ team ] )"
+        },
+        {
+          "line": 183,
+          "opening_line": 186,
+          "ending_line": 207,
+          "text": "foreach ( team, str_team in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          166,
+          195
+        ]
+      ]
+    },
+    {
+      "line": 205,
+      "text": "            self stats::function_bb7eedf0( #\"time_played_total\", time );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 186,
+          "opening_line": 188,
+          "ending_line": 206,
+          "text": "if ( isdefined( self.timeplayed[ team ] ) && self.timeplayed[ team ] )"
+        },
+        {
+          "line": 183,
+          "opening_line": 186,
+          "ending_line": 207,
+          "text": "foreach ( team, str_team in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_bb7eedf0",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          533,
+          542
+        ]
+      ]
+    },
+    {
+      "line": 212,
+      "text": "        self stats::function_dad108fa( #\"time_played_other\", time );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 207,
+          "opening_line": 210,
+          "ending_line": 214,
+          "text": "if ( self.timeplayed[ #\"other\" ] )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    },
+    {
+      "line": 213,
+      "text": "        self stats::function_bb7eedf0( #\"time_played_other\", time );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 207,
+          "opening_line": 210,
+          "ending_line": 214,
+          "text": "if ( self.timeplayed[ #\"other\" ] )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_bb7eedf0",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          533,
+          542
+        ]
+      ]
+    },
+    {
+      "line": 219,
+      "text": "        self stats::function_dad108fa( #\"time_played_alive\", timealive );",
+      "caller": "update_played_time",
+      "caller_span": [
+        176,
+        241
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 214,
+          "opening_line": 217,
+          "ending_line": 220,
+          "text": "if ( self.timeplayed[ #\"alive\" ] )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0187",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc"
+}

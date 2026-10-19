@@ -1,0 +1,117 @@
+{
+  "module": "src/scripts/core_common/array_shared.csc",
+  "identity": "scripts/core_common/flag_shared.csc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "flag",
+  "witnesses": [
+    {
+      "line": 419,
+      "text": "        if ( !ent flag::get( str_flag ) )",
+      "caller": "flag_wait",
+      "caller_span": [
+        413,
+        425
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 415,
+          "opening_line": 416,
+          "ending_line": 424,
+          "text": "i++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          118,
+          122
+        ]
+      ]
+    },
+    {
+      "line": 504,
+      "text": "        if ( ent flag::get( str_flag ) )",
+      "caller": "flag_wait_clear",
+      "caller_span": [
+        498,
+        510
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 500,
+          "opening_line": 501,
+          "ending_line": 509,
+          "text": "i++ )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          118,
+          122
+        ]
+      ]
+    },
+    {
+      "line": 591,
+      "text": "        if ( ent flag::get( str_flag ) )",
+      "caller": "flag_wait_any",
+      "caller_span": [
+        585,
+        598
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 587,
+          "opening_line": 590,
+          "ending_line": 595,
+          "text": "foreach ( ent in array )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          118,
+          122
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0499",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/flag_shared.csc",
+    "sha256": "c3c47025db54d9d9c522435b2d8e137b67ff8b56a1b7935bb94caef9563269a8",
+    "git_blob_sha1": "30631236caa392e20b46107e2e0d84d8dc345dfc",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/flag_shared.csc"
+}

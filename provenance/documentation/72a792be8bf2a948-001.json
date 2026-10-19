@@ -1,0 +1,63 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/queueutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/72a792be8bf2a948.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "041052cc8194d265b893d12f2593f87ed035cd84b6c3a5f6422e3f162f93fd93",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:148",
+        "answer": "Initializes the receiver queue, appends one record containing priority, callback and paramData, then pumps only when timedFnQueuePumping equals false exactly. A nil or truthy pumping field does not meet that test. This stores the callback identity; subsequent priority selection, invocation arguments, cancellation and completion depend on the separate pump contract. For CoD.QueueUtility.AddToTimedFnQueue, evaluate the displayed formal inputs and captured values. Its exact paths are 63: if f4_arg0.timedFnQueuePumping == false then. Its writes/requests begin 59: priority = f4_arg1,; 60: callback = f4_arg2,; 61: paramData = f4_arg3. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/147",
+        "record_sha256": "eeef1f8ddc131a2489f7c4b2b54a8352d303a2441dcc1918836bea1839e61093"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/72a792be8bf2a948.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "c8dc31b7de55f886ee2343ff7a2251b0a103344e1f7b5fc02f3d9bbc1b1f6451",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:136",
+        "answer": "Missing queue returns; empty queue sets pumping=false. Nonempty queue scans priorities below the initial 10, errors if none is valid, sets pumping=true, removes the selected item and invokes its callback immediately with element/index/paramData. clipBased branch is empty; pumpTime branch creates a recursive pump timer. The recovered Invalid Timing Type error follows that conditional unconditionally on the nonempty path. Do not repair it into an else or omit it after scheduling. Initializes absent queue to {}, absent next index to 1, and a falsy pumping flag to false. Existing truthy values are retained; it neither enqueues nor pumps.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/135",
+        "record_sha256": "a82c67ba5e5cec593c64cca28fea81600e8b135f74c601f6fda9c5934da9174e"
+      }
+    }
+  ]
+}

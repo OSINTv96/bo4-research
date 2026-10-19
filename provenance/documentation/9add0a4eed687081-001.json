@@ -1,0 +1,150 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/player/player_damage.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "02b39b2972ee0c1d9f27178fef0365dc8d8c1bda5224318ef8d173aac6dae829",
+      "summary": {
+        "unit_id": "hmh-health:HMH-HEALTH-RECOVERY-01:damage-gates",
+        "answer": "The added connection is a conditional sampled-health contract. Once the saved tick's earlier gates pass, health lower than old_health records the current polling time in var_ba47a7a3 and skips heal for that call; equal or higher health goes to heal instead (healthoverlay.gsc:625-690,704). Damage table callbacks, laststand_damage notify, local health++ and the later finishplayerdamage boundary are separate channels, so a damage notification does not by itself establish this timestamp or net health loss (player_damage.gsc:132-156,625-644). Downed/remote-control gates normally leave the old sample and delay marker untouched; full-health return refreshes old_health, while a lower-cap return writes health without refreshing old_health (healthoverlay.gsc:340-360,565-583,646-668). After revive clears laststand, the next eligible call can therefore see restored health against an older pre-down sample unless the owning lifecycle route has replaced the table; revive does not itself reset these fields in its cited transition (laststand_warzone.gsc:2007-2056; healthoverlay.gsc:605-619,675-704). For positive regen_delay, exact elapsed==delay passes the time gate, but positive delay and health below var_66cb03ad are still required. ignore_health_regen_delay skips only the elapsed comparison; disable_health_regen_delay writes marker=1, which is not an unconditional bypass for every clock/delay pair (healthoverlay.gsc:366-389). These are recovered-source conditions, not PS4 outcomes, event ordering, an effective HMH setting or a new whole-body reconstruction.",
+        "unknowns": [
+          "No read-order winner is assumed between damage callbacks, their listeners, native health writes, laststand clear, revive wait/native return and polling.",
+          "A damage event can be rejected, deferred, reflected, offset or health-gated; its payload and fatal return do not establish this tick's H<O branch. Exact damage accounting/engine event posting is outside this bounded connection.",
+          "Same-table post-revive examples are conditional. Root decides source init/restart reachability; this record does not assert that every revive, spawn or redeploy replaces or preserves the table.",
+          "Source asserts do not establish valid runtime ranges. Numeric cases use explicitly defined finite positive baselines/caps/delays except the stated zero/negative boundary; undefined values, invalid cap, numeric coercion and native failure behavior are not guessed.",
+          "Prior author records and labels remain unchanged and awaiting independent review. New exact comparisons are dependency algebra only, not a retrospective correctness review or a runtime defect finding.",
+          "Passing the delay gate does not prove healing: amount0/later clamp or native field behavior can prevent an observed increase; heal_policy owns the producer/rate conditions.",
+          "Whole-HMH, original online/server behavior and whole-function completion are not established by this one bounded answer."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00145",
+        "sha256": "9ff1715c882c68ccb33c6af9dda00843abb62fe15f4cad1d9bdf8ea4d63870ff",
+        "pointer": "",
+        "record_sha256": "fb968c0f12c9658788af3adab15bf810bbdd2b5e8748b9d1c24a408f6d3febe5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerability is a separate earlier callback veto, with a visible warzonestaging value-registry chain to enable/disableinvulnerability but unresolved native effects and stacked resets. End_round writes postgame before onendround and the table/server-notify/clientfield end channels. Warzone's later game_ended matchflag pulse does not change that state and therefore does not reopen ordinary admission. Finally, ordinary game-over rejection does not erase the earlier postgame hook: allowed trigger-hurt/crush paths may already call finishplayerdamage as MOD_POST_GAME. All remaining old vetoes/returns are reused unchanged; none of these connections proves HMH runtime behavior or closes the native down-versus-kill decision.",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "0bf20d073e6816cf0a750da70d53d84e928a2c4176d7c59f7ca9854ffde8b45d",
+      "summary": {
+        "unit_id": "hmh-player:HMH-PLAYER-LASTSTAND:bleedout-phase",
+        "answer": "SOURCE-ONLY ANCHOR: unit-context/0004 has prior_body_records = [] and SOURCE-ONLY-ANCHORS.json records the 819 threading as the only prior connection; this is a NARROW dependency trace of the pinned recovered source - NO full-body contract/completion is claimed and zero function credit applies. TIER INPUT: args (bleedouttime, var_969fabf4) are the unit-1-selected tier values passed at playerlaststand:819 (dvar default 796 / maxhealth 797 replaced by tier.time/tier.health 805-811). END CHANNELS (endons 1013-1014, applied to l3's four-channel map and b2/f2 cancellation): level endon(#'game_ended') (1013) = the l3 SERVER-LEVEL-NOTIFY channel delivered by globallogic::function_dd9663e5:2353 in the end_round chain (matchflag game_ended has zero script readers; clientfield is the client-side latch); whether endon cancellation interrupts this mid-waitframe loop is the standing g3 A.4/f2 N4 native fact - both readings bounded, neither asserted. self endon(#'player_revived', #'player_bleedout', #'death') (1014): player_revived produced by revive_success:2034 (unit 6); player_bleedout by bleed_out:1147 (also reached via the collapse path function_23089de2 230-251 threading bleed_out(1) on other downed players after wz on_player_killed 154-157); death is a native notify. SETUP (1015-1023): stores last_bleedout_time/bleedout_time/var_969fabf4; clears var_2d19ce3c (the playerlaststand:770 initial 1 -> 0), var_1cc38de0=0 (forced-finish gate), var_eb33efbc=0 (cowards flag; prompt consumer function_c025efba:330-331); quanta var_cb141a23 = int(0.1*1000) (1021) and var_93b9385d = bleedouttime*0.06 (1022); armed = !usebuttonpressed() (1023). DAMAGE THREAD (1027 when bleedout_time > 0 -> laststand_bleedout_damage 927-978): endoncallback(&function_99fa3916, player_revived/death/bled_out) resets the val(#'laststand',#'takedamage') gate; takedamage off, wait level.var_5c13c13f (gametypesetting hash_4c7c8c4bd1b2a58b from __init__:56), on (930-932); loop on waittill(#'laststand_damage') (fed by player_damage.gsc:143 while downed): same-entity melee sets bleedout_time=0 (953); else bleedout_time -= last_bleedout_time*(idamage/var_969fabf4) (957-959); at <=0 sets var_1cc38de0=1 + records var_a1d415ee (962-968; function_f8d53445 matchtime and function_a6872ca5 forward are PS4 builtins per ASTRA-005-F3); notifies update_bleedout (976; no wz waiter in this module - generic laststand.gsc only; scoped absence). TIMER LOOP (1031-1073): 1 Hz deadline path via gettime()-ms (1029/1051-1056; design units ms/1000; native tick/alignment unproven - no clock-rate proof claimed); HMH coward's way (1035-1050) only when level.var_46a21fe9 (wzenablecowardswayout from __init__:58) AND NOT is_being_revived() (993-996) AND NOT beingfinished (function_72e0c544 1002-1005) AND armed AND holding use: every 100 ms subtracts var_93b9385d (6% of tier time) from bleedout_time and pushes the 1 Hz deadline (1044-1049), sets var_eb33efbc per frame (1042, cleared 1067, armed latches |= 1066); progress fraction var_2d19ce3c = bleedout_time/bleedouttime written each frame (1058-1063) but SUPPRESSED while self.var_d887a4ad === 1 (1060 - the revive-completion-window marker from revive_success:2007); REVIVE PAUSE (1069-1072): while var_1cc38de0 NOT set and (is_being_revived() OR beingfinished) it waits frames without decrementing; beingfinished is set on the downed player's trigger by the finisher side function_1c8cab15:1928 during the function_356caede finishing scan (1369-1494). EXIT: wait while var_bef1bc5d (1076-1079) - var_bef1bc5d has NO recovered writer corpus-wide (single site), an explicit conditional gate; if var_d887a4ad === 1 the timer returns silently (1081-1084); else notify bled_out (1086) + thread bleed_out(0) (1087 -> 1136-1235: revivetrigger deleted, laststand_bleed=0 clientfield (csc FX stop), bledout bookmarks, level notify bleed_out, self notify player_bleedout, callback on_player_bleedout (table; wrapper 732-735), undolaststand, laststandparams.bledout unless var_1cc38de0, telemetry + function_1e8018b0 sink, enemy kill stats + f887b191 4/0, var_a1d415ee-based finishing/forced obituary branch (incl. modes 2/3 downs_eliminated) or MOD_BLED_OUT obituary, function_2907ce7a, NATIVE suicide(MOD_BLED_OUT or MOD_MELEE_ASSASSINATE) (1223), screen-fade dvars hash_62b8db0428755a32 default 1 / hash_44de9418bb6289ac default 1.5 (1225-1232), final notify hash_6b045e0bc320bbee (1234). RESUME: pauses exit when neither predicate holds or var_1cc38de0 was set by the damage thread; decrements resume at the pushed deadline; all timing at native scheduler granularity stays open.",
+        "behavior": "Bounded dependency trace of the downed timer with l3 end channels and b2/f2 cancellation applied; no prior full-body contract exists (unit-context/0004 empty; SOURCE-ONLY-ANCHORS points only at the 819 threading). Setup 1015-1023 stores unit-1 tier values and clears progress/forced/coward flags; damage thread 1027 -> 927-978 (setting-gated takedamage via hash_4c7c8c4bd1b2a58b, laststand_damage feed from player_damage.gsc:143, melee shortcut 953, fractional reduction 957-964, var_1cc38de0 + var_a1d415ee on expiry 962-968, update_bleedout notify with no wz waiter). Loop 1031-1073: 1 Hz gettime-ms deadline decrements (1051-1056), HMH coward's-way self-drain (1035-1050: wzenablecowardswayout + no revive/finish + held use, 6% per 100 ms), per-frame progress UI suppressed while var_d887a4ad==1 (1058-1063), revive/finish pause loop (1069-1072). Exit 1076-1088: unknown-writer var_bef1bc5d wait, silent return during the revive-success completion window (1081-1084), else bled_out notify + bleed_out(0) thread (suicide path). Channels: level endon(game_ended) 1013 = l3 server notify (globallogic.gsc:2353); self endons = player_revived (revive_success:2034), player_bleedout (bleed_out:1147 or collapse 230-251), death (native). The endon-vs-poll distinction vs the revive attempt's level.gameended poll is recorded; native scheduler/clock-rate proof claimed nowhere.",
+        "unknowns": [
+          "What writes self.var_bef1bc5d (the 1076-1079 pre-exit wait; no corpus writer).",
+          "Whether endon cancellation (game_ended/player_revived/player_bleedout/death) interrupts at waitframe boundaries per the native scheduler (g3 A.4/f2 N4).",
+          "Effective values of level.var_46a21fe9 (wzenablecowardswayout) and level.var_5c13c13f (hash_4c7c8c4bd1b2a58b) in an original HMH playlist (standing g1 config; no invented values).",
+          "getdvarfloat(overridebleedouttime) dev-span reachability (f2 N3).",
+          "Exact per-frame UI cadence in the original build (gettime/waitframe alignment; not proven)."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00398",
+        "sha256": "57bf20b4f69e9b0135aa134a26dc19ab90b63812ed317350b2156d2440a0751a",
+        "pointer": "/units/3",
+        "record_sha256": "f0b165fce3f3eb3ac02b2b737740364ccbff748079b0982ab3ee4cd622788f5f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "80e9f96b7ccfbd24f9397562688af29a07cb4e6ae87576fc0ef30803708e3686",
+      "summary": {
+        "unit_id": "hmh-player:HMH-PLAYER-LASTSTAND:downed-transition",
+        "answer": "ENTRY (source producers/callers only; native admission unknown): the native player_laststand event reaches codecallback_playerlaststand (callbacks_shared.gsc 1308-1313): self endon(disconnect) (1310), stopanimscripted (1311), then the 9-field pointer call (1312) forwarding eventstruct.inflictor/attacker/amount/mod/weapon/direction/hit_location/time_offset/delay - exactly playerlaststand's 9 parameters (652). Pointer ownership for wz/HMH: level.callbackplayerlaststand = &laststand_warzone::playerlaststand installed at warzone::on_start_game_type:558 inside the l1-saved gametype_start chain, overriding the mp default &player::callback_playerlaststand (mp_common/callbacks.gsc:75; precedence per native install order stays a condition of the g-series GAP-EVENTS record). WHY the engine downed instead of killed is the standing native admission gap (wz-visible dvars only: g_allowlaststandforactiveclients=1, player_laststandrevivehealth=50, hash_6d545f685fa213dd=3 at warzone main 161-163). GATES: re-entry guard player_is_in_laststand (laststand_shared.gsc:10-13) returns first (654-657); attribution (659-671, attackerdamage candidate or figure_out_attacker; table entry unverified - prior claim); laststandparams build (673 -> 442-463); laststandcount 0-init/++ (675-680); inflictor list (682-699); telemetry open (701 -> 2079-2097); callback on_player_downed (702, table fan-out; wz registrants wz_ai_zonemgr:107, wz_contracts:49, wz_progression:50, character_unlock_bruno:36/diego:35, wz_fishing:38). SELECTION: var_90c1e72d = function_ed72859e() (572-595, any other alive non-downed teammate on the function_2b77bc35 team set); the immediate-elimination gate function_b1158c52 (714 -> 601-646) is TRUE when level.skiplaststand, OR no such teammate, OR swimming, OR infected, else-if a defined vehicle is isvehicle, NOT remote-controlled and airborne (619): groundtrace fraction>=1 returns true; fraction<1 falls through to false645 and BYPASSES the final else tier lookup. Only when this vehicle arm and earlier true arms are not selected does the final else630-641 consult defined tier.time<=0. TRUE branch (716-758): obituary + enemy stats + f887b191 report modes 4/0 (PS4 CallBuiltinFunction per retained ASTRA-005-F3), undolaststand, uselaststandparams=1, attacker fill, native suicide (750; later statements may not run - prior claim), var_d75a6ff5.death=1 + telemetry close; NO timer. FALSE branch (761-829): MOD_DOWNED obituary, reviveprogress=0/var_2d19ce3c=1, prompt-open requests through the getplayers(self.team) list loop and opaque prompt-availability predicate; these helper bodies contain no explicit isalive filter, and neither the native player-list result nor delivery to dead players is established (771 -> 399-411 -> 417-436 wz_revive_prompt + close/poll watchers 286-296/321-336/302-315), notify entering_last_stand (772), allowjump(0)/disableoffhandweapons, health=5 (780), laststand=1 (781), on_player_laststand callback (784), attacker/weapon helper (785), revive_trigger_spawn when !no_revive_trigger && !outofbounds (787-793 -> 1275-1291 triggers revive_trigger_think), weapons disabled to 'downed' (795 -> 850-857), bleedout dvar default 0 (796) then TIER SELECTION 798-811 (consumer 1 of unit 1), laststand_bleed clientfield 1 (813 -> csc blood-drip 38/65-93), dev overridebleedouttime (815-817), threads: laststand_bleedout(bleedout_time, var_969fabf4) 819, laststand_invulnerability 820 (1094-1100, wait level.var_5c13c13f from __init__:56), demo/potm bookmarks 821-822, function_d4c9e1b5 823, dev auto_revive_on_notify 825-827/1957-1962, death watcher function_5ccd602d 829 (836-844). DOWNEED-LIFE DAMAGE (to unit 4): player_damage.gsc 141-147 notifies laststand_damage + health++ + laststanddamage=idamage + idamage forced 1; the fatal gate 633-644 consults [[level.var_b1ad0b64]] (warzone __init__:60 -> 2119-2136: melee always fatal, else fatal when bleedout_time <= last_bleedout_time*(laststanddamage/var_969fabf4)); wz on_player_killed (154-157) -> function_23089de2 (230-251): with no teammate alive outside laststand, thread bleed_out(1) on each other alive downed player (the collapse path).",
+        "behavior": "Connects entry gates, laststandcount changes, the on_player_downed callback and the immediate-vs-bleedout selection of playerlaststand through the exact tier map and prior body claims; native damage/admission stays unknown by question rule. Entry: callbacks_shared.gsc:1308-1313 (9-field forwarding) -> wz pointer warzone.gsc:558 over mp default callbacks.gsc:75. Body: 654-657 re-entry guard; 659-673 attribution/laststandparams; 675-680 laststandcount; 682-699 inflictor list; 701 telemetry open (2079-2097); 702 on_player_downed fan-out; 714-758 immediate-elimination branch gated by function_b1158c52 (601-646: nonremote-airborne vehicle branch can bypass the final-else tier.time<=0 lookup); 761-829 downed path ending in the three threads (laststand_bleedout 819 / laststand_invulnerability 820 / function_5ccd602d 829) plus the disconnect-trigger watcher (823) and the revive-prompt opener (771). Downed-life damage feeds player_damage.gsc 141-147 and the fatal gate 633-644 via level.var_b1ad0b64; the wz on_player_killed collapse path threads bleed_out(1) (230-251).",
+        "unknowns": [
+          "When/why the native engine posts player_laststand (down admission criteria) - standing native boundary.",
+          "Native suicide() continuation after 750 (later statements' reachability).",
+          "function_bd85bc2f/function_201c298c/function_ca27b62b/figure_out_attacker externals remain unreviewed/dynamic-unresolved (no contracts supplied).",
+          "Dev-block spans 776-778/815-817 are lexical only; retail evaluation is standing f2 N3.",
+          "Concurrent laststandcount++ and callback fan-out order not established (g3 draft)."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00321",
+        "sha256": "69d7bf90f107e4b59da465feefc554a49fcb46bb5c6dcc2d3876c1517f233414"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "cc08281c58d46fa77ebf6598fa643727a123ef9a384c3e45502830ce9e114939",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:armor-downed-relay",
+        "answer": "Connected the existing post-armor damage payload to two different channels: threaded on_player_damage table listeners observe the victim and can record damage to a reviver on its revivee's stats, while laststand_damage is an entity notify consumed by the already-downed bleedout listener. That listener uses the pre-local-substitution payload damage and selected tier health/time. Local idamage=1, self.health++ and self.laststanddamage follow notification; they do not explicitly rewrite params. The later damage gate can return after these side effects. Revive marker/clears and cancellation paths are mapped without claiming listener ordering, native delivery, parameter alias rules or real PS4 behavior.",
+        "unknowns": [
+          "Exact parameter object alias/copy rules across native eventstruct -> callback locals -> params -> threaded table listeners -> entity notify payload are unproved. The source reuses one params variable and does not write params.idamage=1; this does not prove immutable/deep-copy payloads or forbid a shared listener mutation.",
+          "Only the bounded WZ on_player_damage consumer was inspected for writes: it reads params and writes revivee telemetry. Other loaded/hashed subscribers, callback-table mutations and native field aliases can change observations; no global absence or immutable payload claim is made.",
+          "Thread spawn/run interleave and live-state read timing are unresolved: WZ reviver comparison uses self.health, producer checks self.laststand after table dispatch, and revive window/health writes can overlap. No callbacks finish-before-notify assumption is used.",
+          "Native notify delivery/queueing and endon/endoncallback cancellation semantics, especially combined keys and a notification during the initial wait, remain standing g3 A.4/f2 N4/b2 conditions. Source notification is not delivery proof.",
+          "Effective hash_4c7c8c4bd1b2a58b setting, g_gametype HMH selection, tier initialization/re-entry, revive delay and revive health overrides remain d3/l1/g1 conditions. H=150 algebra is conditional on the HMH tier route.",
+          "Native player_damage and player_laststand posting, down-vs-kill admission, finishplayerdamage/health/invulnerability effects, builtin telemetry semantics, retail module set and original saved-PS4 source binding remain unverified. Root owns the later fatal pointer boundary.",
+          "The telemetry threshold self.health<=params.idamage can mark equality even if a later gate cancels native damage. It is a source comparison, not a proven fatal result; a handler may execute after unrelated health state changed.",
+          "var_d887a4ad can stop the listener permanently for that downed-life thread on one delivered event during the success wait. Whether other native/hashed state paths clear the marker or restore listener liveness is outside this bounded trace; no new runtime claim."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00178",
+        "sha256": "4a7781155e4ca01e4bca6d2b20afcf42869b8bc14bc805bbb5fcc78a1dc7963f",
+        "pointer": "",
+        "record_sha256": "6fa819ec371c47424982477c27c08fff96aa23fe22e55849785634c9d1efe078"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9add0a4eed687081.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:fatal-handoff",
+        "answer": "The saved damage and return value belong to the actual final-damage receiver. A normal return from finishplayerdamage supplies an initial fatal value; after the optional status helper the source re-reads laststand. If laststand is true it replaces that value with either the installed pointer result (and then clears saved damage) or literal1 when either required field is absent. The three final-damage callsites include a reflected friendly-fire call on the attacker: a second result can overwrite the first victim result. The outer callback passes its resulting fatal variable into damage feedback; the shown override/feedback code does not itself call the native downing or killing operation. Actual native damage/death effects already lie across finishplayerdamage and remain unknown.",
+        "unknowns": [
+          "No actual runtime source/build binding or effective HMH friendly-fire/playlist settings established.",
+          "The source does not guard denominator zero/undefined, stale saved damage or pointer callability; native/VM handling cannot be invented.",
+          "The reflected call reads attacker state and its own saved field; when/how an older field survives a skipped/aborted call is conditional, not an observed game defect.",
+          "Damage notifications and timer updates may occur in different orders; no selected scheduler ordering or exact health effect.",
+          "Prior mapping92 labels predicate outcomes as death/starting laststand. This new source handoff traces a return into feedback and retains the prior wording for project-end reconciliation without changing or reviewing it."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00412",
+        "sha256": "47430e32ca57c8ef06ac19e097873e34b05140d6ba34295e6640eb3b070a306b",
+        "pointer": "",
+        "record_sha256": "194efb98b660634a6b04c88d4f3bfb008ac97ec2ad6e157cbfc5726fbfb1295f"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+// HMH RESEARCH: this header is project-added; original code follows END.
+// Recovered source: scripts/wz/wz_open_skyscrapers_fx.csc
+// HMH role, inputs, effects, callbacks and limits: docs/modules/afdbcc63a1dadf7b.md
+// Whole module retained for source context; only recorded spans carry reused review.
+// New assembly/comments await independent review. Retail/gameplay equivalence is unproved.
+// END HMH PROJECT HEADER
+#namespace wz_open_skyscrapers_fx;
+
+// Namespace wz_open_skyscrapers_fx/wz_open_skyscrapers_fx
+// Params 0
+// Checksum 0xdbc59291, Offset: 0x78
+// Size: 0xc4
+function main()
+{
+    setsaveddvar( #"enable_global_wind", 1 );
+    setsaveddvar( #"wind_global_vector", "88 0 0" );
+    setsaveddvar( #"wind_global_low_altitude", 0 );
+    setsaveddvar( #"wind_global_hi_altitude", 10000 );
+    setsaveddvar( #"wind_global_low_strength_percent", 100 );
+}

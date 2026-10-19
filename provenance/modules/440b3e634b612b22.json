@@ -1,0 +1,158 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/fx_shared.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "e4f9232b306f2a4a15a8a03cd3bd716bf1b3d4ba16f247729d87b040b379b749",
+  "git_blob_sha1": "55166ff262bcfe646af4522e238039bccb2c3bc6",
+  "output": "src/scripts/core_common/fx_shared.csc",
+  "output_sha256": "30c050decfcd3603123f580e7d52ee63f07a5aa19f85e64e08550e366892b57a",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/exploder_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/exploder_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/exploder_shared.csc",
+        "sha256": "8bd35827de4ab55996893a87b094acd58495239114ebf08fbbb733dfff18490c",
+        "git_blob_sha1": "4e878fab9f71c68d4a0e66d8e3ae5ee8a58383d6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/sound_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/sound_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/sound_shared.csc",
+        "sha256": "4233028122dc5ab8d086c2825ab2dfcf224360b2a7a210f2ee8af2b9c4efd910",
+        "git_blob_sha1": "1b09e901a00e91e520fcf4161289395b7a8e8d76"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0402.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "4af6f316b42dd688fc0072144097f421f86f8ddb0f00e7d5c6169a70e6b9cd10",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 7,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-deps7:001",
+        "answer": "Accept num with no explicit receiver requirement. Coerce num through int first. If level.createfxexploders and its num entry are both defined, iterate i from 0 while i is less than the current entry size and invoke activate_individual_exploder synchronously on each indexed entry. The lightning predicate is evaluated independently after that loop, including when the array guard fails. Only a truthy exploder_is_lightning_exploder(num) plus both defined lightning pointers starts a new fx::lightning thread with those two pointers as arguments. No payload is returned. Definition tests do not establish valid arrays, callable pointer types, index bounds, native int conversion or actual FX delivery.",
+        "unknowns": [
+          "int conversion for malformed input",
+          "array element/size validity and mutation by delegated calls",
+          "lightning predicate and individual-exploder implementation",
+          "final writers/types of the two lightning pointers and actual thread delivery"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/336",
+        "decision_canonical_sha256": "f44141665fa1b52d319d733933680906cff843d191aea73dbd7bd653f289306c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00445",
+        "sha256": "a7bb2e5aea8ad75c41ab65ff86c473160dd796a9f767c1cb89e03414cd2434a5",
+        "pointer": "/units/0",
+        "record_sha256": "545f4f04f84c934683fa388a04d2d60ce7677076ccce7eddf390947b1ed4fefc"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/17060899dd56b37a.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0402"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/440b3e634b612b22-001.json",
+      "sha256": "3ad79020ff6b5cb52564ce62da5bfbcb31d3446ade342ceef5eddc07ed8973a4"
+    }
+  ]
+}

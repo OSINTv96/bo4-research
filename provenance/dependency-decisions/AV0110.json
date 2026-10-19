@@ -1,0 +1,88 @@
+{
+  "module": "src/scripts/core_common/values_shared.gsc",
+  "identity": "scripts/core_common/string_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "string",
+  "witnesses": [
+    {
+      "line": 704,
+      "text": "            str_value = string::rjust( str_name, 20 );",
+      "caller": "display_value",
+      "caller_span": [
+        683,
+        722
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 700,
+          "opening_line": 703,
+          "ending_line": 712,
+          "text": "if ( ( isdefined( str_name ) ? \"<dev string:x127>\" + str_name : \"<dev string:x127>\" ) != \"<dev string:x127>\" )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "rjust",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          9,
+          20
+        ]
+      ]
+    },
+    {
+      "line": 711,
+      "text": "            str_value += \"<dev string:x165>\" + string::ljust( isdefined( str_id ) ? \"<dev string:x127>\" + str_id : \"<dev string:x127>\", 30 );",
+      "caller": "display_value",
+      "caller_span": [
+        683,
+        722
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 700,
+          "opening_line": 703,
+          "ending_line": 712,
+          "text": "if ( ( isdefined( str_name ) ? \"<dev string:x127>\" + str_name : \"<dev string:x127>\" ) != \"<dev string:x127>\" )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "ljust",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          26,
+          37
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0110",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/string_shared.gsc",
+    "sha256": "74db1b204a702f3e8543d715b05c38febe6f67789282582fb079c47e61a14124",
+    "git_blob_sha1": "35b83b9b412f82f242c059ad6b6beaf552fcb484",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

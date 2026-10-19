@@ -1,0 +1,192 @@
+{
+  "module": "src/scripts/mp_common/laststand.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 569,
+      "text": "            scoreevents::processscoreevent( #\"downed_enemy\", attacker, self, weapon );",
+      "caller": "playerlaststand",
+      "caller_span": [
+        453,
+        655
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 566,
+          "opening_line": 568,
+          "ending_line": 570,
+          "text": "if ( util::function_fbce7263( attacker.team, self.team ) && !function_7afe7d1e( attacker, self ) )"
+        },
+        {
+          "line": 563,
+          "opening_line": 566,
+          "ending_line": 576,
+          "text": "if ( isdefined( attacker ) && isplayer( attacker ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f5012bfeafcb9a18.json",
+          "pointer": "/claims/1",
+          "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+          "citation": {
+            "line_start": 37,
+            "line_end": 60,
+            "sha256": "a139f9a335ea089e376752ac7143379039136c92d19fe90052d415180f599029"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          37,
+          83
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "playerlaststand",
+            "line": 49,
+            "form": "stored_pointer",
+            "text": "    level.var_97c6ee7c = &playerlaststand;"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1690,
+      "text": "            reviver scoreevents::processscoreevent( #\"revived_teammate\", reviver, self );",
+      "caller": "revive_success",
+      "caller_span": [
+        1644,
+        1714
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1686,
+          "opening_line": 1689,
+          "ending_line": 1691,
+          "text": "if ( !function_7e980623( reviver, self ) )"
+        },
+        {
+          "line": 1677,
+          "opening_line": 1680,
+          "ending_line": 1692,
+          "text": "if ( isdefined( reviver ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f5012bfeafcb9a18.json",
+          "pointer": "/claims/1",
+          "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+          "citation": {
+            "line_start": 37,
+            "line_end": 60,
+            "sha256": "a139f9a335ea089e376752ac7143379039136c92d19fe90052d415180f599029"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          37,
+          83
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "playerlaststand",
+            "line": 49,
+            "form": "stored_pointer",
+            "text": "    level.var_97c6ee7c = &playerlaststand;"
+          },
+          {
+            "from": "playerlaststand",
+            "to": "revive_trigger_spawn",
+            "line": 625,
+            "form": "local_call",
+            "text": "            self revive_trigger_spawn();"
+          },
+          {
+            "from": "revive_trigger_spawn",
+            "to": "revive_trigger_think",
+            "line": 966,
+            "form": "local_call",
+            "text": "    self thread revive_trigger_think();"
+          },
+          {
+            "from": "revive_trigger_think",
+            "to": "revive_success",
+            "line": 1056,
+            "form": "local_call",
+            "text": "                self thread revive_success( reviver );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0485",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    569,
+    1690
+  ],
+  "required_callee_functions": [
+    "processscoreevent"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03399",
+        "to": "N02291",
+        "line": 569
+      },
+      {
+        "from": "N05275",
+        "to": "N02291",
+        "line": 1690
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

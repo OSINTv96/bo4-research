@@ -1,0 +1,130 @@
+{
+  "module": "src/scripts/core_common/challenges_shared.gsc",
+  "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "globallogic_score",
+  "witnesses": [
+    {
+      "line": 1913,
+      "text": "        self [[ level.var_c8de519d.multikill ]]( killcount, weapon, globallogic_score::function_3cbc4c6c( weapon.var_2e4a8800 ) );",
+      "caller": "multikill",
+      "caller_span": [
+        1861,
+        1915
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1909,
+          "opening_line": 1912,
+          "ending_line": 1914,
+          "text": "if ( isdefined( level.var_c8de519d ) && isdefined( level.var_c8de519d.multikill ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_3cbc4c6c",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          544,
+          557
+        ]
+      ]
+    },
+    {
+      "line": 3046,
+      "text": "                    scoreevents = globallogic_score::function_3cbc4c6c( weapon.var_2e4a8800 );",
+      "caller": "trophy_defense",
+      "caller_span": [
+        3020,
+        3058
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3043,
+          "opening_line": 3045,
+          "ending_line": 3048,
+          "text": "else if ( weapon.var_76ce72e8 )"
+        },
+        {
+          "line": 3034,
+          "opening_line": 3037,
+          "ending_line": 3055,
+          "text": "if ( isdefined( weapon ) )"
+        },
+        {
+          "line": 3024,
+          "opening_line": 3027,
+          "ending_line": 3056,
+          "text": "foreach ( entity in entities )"
+        },
+        {
+          "line": 3021,
+          "opening_line": 3023,
+          "ending_line": 3057,
+          "text": "if ( level.challenge_scorestreaksenabled === 1 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_3cbc4c6c",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          544,
+          557
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0199",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+    "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+    "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    1913
+  ],
+  "required_callee_functions": [
+    "function_3cbc4c6c"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03071",
+        "to": "N02563",
+        "line": 1913
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

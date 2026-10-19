@@ -1,0 +1,204 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/ballistic_knife.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "43327c7ef62d85bfc034272c0f726d6afaf1f8ec03d54a3ecb21a75579b92772",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::destroy_ent",
+        "behavior": "Destruct cleanup for the retrievable model (self). Branch: if isdefined( self ): pickuptrigger = self.pickuptrigger; if isdefined( pickuptrigger ) -> pickuptrigger delete(); then self delete(). Removes the linked pickup trigger before the model. No registration of this function is shown. Watcher.ondetonatecallback names the different qualified weaponobjects::deleteent; an indirect link to destroy_ent is unresolved.",
+        "unknowns": [
+          "destroy_ent callers and registration remain unresolved. Watcher shutdown patterns do not prove that weaponobjects::deleteent invokes it."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00306",
+        "sha256": "1f58ae11a6d36eaf047418b95ad41bb284da6dbe97bf05f6d296def4e164684c",
+        "pointer": "",
+        "record_sha256": "10f45d448f3326dff95418770657791162daec004215ff281b2022524e82397c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "4546e4e34e3657735dde31564941d4318a26f55c7d12f41f8dc18fd4dc7647a2",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::dropknivestoground",
+        "behavior": "Persistent ground-drop listener threaded on the retrievable knife model by onspawn. Cancellation: self endon(#\"death\"). Infinite loop: waitresult = level waittill(#\"drop_objects_to_ground\") â€” waits on a level-wide event whose result carries position and radius; then self droptoground( waitresult.position, waitresult.radius ) (file-local variant) which re-launches and re-anchors the pickup trigger when the knife lies within the event radius. Runs until model death.",
+        "unknowns": [
+          "Who fires level event \"drop_objects_to_ground\" (likely a shared map/system utility) is not in this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/12",
+        "record_sha256": "3f6210bd61b8b6c4b3dd6f61382917fcb1e8bcdf3297b269f2dc5f07b55d6587"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "4b50b77d3724e7e2c9aaa606665c5ab3e40701fcb821df86fc00d451ccca8a89",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::updateretrievetrigger",
+        "behavior": "Reposition the pickup trigger after a re-drop. Cancellation: self endon(#\"death\"). Wait: self waittill(#\"stationary\"). Then trigger = self.pickuptrigger; if isdefined( trigger ): trigger.origin = ( self.origin[0], self.origin[1], self.origin[2] + 10 ) (10 units above the settled knife); trigger linkto( self ). One-shot; no loop.",
+        "unknowns": [
+          "Whether the trigger field exists relies on weaponobjects::function_57152a5 having created pickuptrigger (outside-packet dependency)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/14",
+        "record_sha256": "434f90a57e0a67c2c483a2fc06ee525ed78237a81edd779a26639a9c381ce424"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5c163fb2006e57bc40bbe7a8c6645d698851145daac48ed994e580989fcf6ee3",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onspawn",
+        "behavior": "Projectile land handler threaded with (watcher, player); self is the thrown ballistic-knife projectile entity. Cancellation: one combined player endon(#\"death\",#\"disconnect\"), level endon(#\"game_ended\"). Waits: waitresult = self waittill(#\"stationary\", #\"death\") â€” wait result carries position, normal, direction, attacker, target (prey), bone_name. If !isdefined( self ) -> return. Reads endpos, normal, angles(=direction), attacker, prey(=target), bone. isfriendly = 0. If isdefined( endpos ): spawns \"script_model\" retrievable_model at endpos; ordered setup: setmodel( watcher.weapon.projectilemodel ), setteam( player.team ), setowner( player ), .owner = player, .angles = angles, .name = watcher.weapon, .weapon = watcher.weapon, .targetname = \"sticky_weapon\". If prey defined: .prey = prey; if level.teambased && player.team == prey.team -> isfriendly = 1; if !isfriendly: if isalive( prey ) || !isdefined( prey gettagorigin( bone ) ) -> retrievable_model droptoground( retrievable_model.origin, 80 ) (local variant), else linkto( prey, bone ) (sticks to the victim's hit bone). Else (friendly hit): physicslaunch( normal, ( randomint(10), randomint(10), randomint(10) ) ) and normal reset to ( 0, 0, 1 ). Then .normal = normal; appends retrievable_model to watcher.objectarray (watcher.objectarray[ watcher.objectarray.size ]); if isfriendly -> retrievable_model waittill(#\"stationary\"); if !isdefined( retrievable_model ) -> return (deleted during wait); retrievable_model thread dropknivestoground(); player notify(#\"ballistic_knife_stationary\", { #retrievable_model:retrievable_model }). Team-filtering/ownership: model carries thrower team & owner; friendly hit prevents sticking-in-body.",
+        "unknowns": [
+          "waittill(#\"stationary\",#\"death\") multi-event result layout (position/normal/direction/attacker/target/bone_name) is engine-provided; only field names observed",
+          "watcher.weapon.projectilemodel content is game data",
+          "physicslaunch parameter semantics (dir, velocity?) native",
+          "Whether watcher.objectarray pre-exists / is cleaned elsewhere lives in weaponobjects (owner dependency)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00307",
+        "sha256": "53a0a2d48e767a6f8c20d807e94d84bde6b45a38cd973887273578e89b76d961",
+        "pointer": "",
+        "record_sha256": "43ac586ac45668b56f31d0c427e8a514679d78e010b82f173aa7ef3f1d9873f2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "65153184e9fffaec494e80413bbaeaf2cd3d0bf314bdb049dc261423017a3a9a",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::createballisticknifewatcher",
+        "behavior": "Watcher-callback installer registered for the ballistic-knife/crossbow names in init_shared. Registration stores the callback and does not invoke it. The separate weaponobjects lookup/createwatcher path may invoke it with a watcher when that path reaches its defined createfunc call. Called with the watcher object; pure assignment of callbacks: watcher.onspawn = &onspawn; watcher.pickup = &onpickup; watcher.onfizzleout = &onfizzleout; watcher.ondetonatecallback = &weaponobjects::deleteent; watcher.onspawnretrievetriggers = &onspawnretrievetrigger; watcher.storedifferentobject = 1. No branches; no other state.",
+        "unknowns": [
+          "Semantics of watcher.storedifferentobject=1 (likely keeps the retrievable model rather than the raw projectile in watcher.objectarray) inferred from member name only",
+          "The full watcher lifecycle (when onspawn/ondetonatecallback fire) is the weaponobjects.gsc system outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00308",
+        "sha256": "94d15893218ed0f014aa5a20848eaa23b573407639d8d8ebe84dfbf7978ae2f6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "8628d0ab46b8106dcb2f04847c7357f9ef3ce25c8af12d73f2f8954cf4963d45",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::droptoground",
+        "behavior": "Re-drop of a grounded knife within a level event radius (origin, radius args; self = retrievable model). Branch: if distancesquared( origin, self.origin ) < radius * radius -> self physicslaunch( ( 0, 0, 1 ), ( 5, 5, 5 ) ) (upward nudge) then self thread updateretrievetrigger() which waits for stationary and re-links the pickup trigger. No writes outside self/its trigger.",
+        "unknowns": [
+          "physicslaunch velocity/direction argument convention is native behavior, unverified",
+          "Why (0,0,1)/(5,5,5) constants â€” tuning values observed, meaning not documented"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/13",
+        "record_sha256": "cc79ef9e04f4ce4a0eebdbf2855b46b4ccd082b8b136c6257101debb6338d1fe"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "8b9d3d0bc81878dfcca1d02f25631fd20de8d87a276ebced71f346db5e86ac4f",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onfizzleout",
+        "behavior": "Fizzle (despawn timeout/dud) handler on the ground model. Cancellation: self endon(#\"death\"). Ordered: playfx( level.var_f676fe5a, self.origin ) â€” plays the FX registered in init_shared (hash_4b7ed37163f1ec57); then self delete(). Registered into watcher.onfizzleout by createballisticknifewatcher.",
+        "unknowns": [
+          "Which watchtimeout/fizzle timer invokes onfizzleout lives in the weaponobjects watcher machinery (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/15",
+        "record_sha256": "f5b37024929bbef5388be3ee87b5e01a9f9cfc6cfe95ea79222ccc082425d5a5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "9f7d454f487c2d4a8b5dea37ef806d0d176fd8af177a4e1aa00d45b91ce6c072",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onspawnretrievetrigger",
+        "behavior": "Retrieval-trigger setup, called by the weaponobjects watcher machinery with (watcher, player); this body never reads self; the actual callback receiver remains unresolved. The retrievable_model is received from the player notification. Cancellation: two separate calls player endon(#\"death\") and player endon(#\"disconnect\"), level endon(#\"game_ended\"). Waits: player waittill(#\"ballistic_knife_stationary\"); retrievable_model = waitresult.retrievable_model; return if undefined. Reads normal = retrievable_model.normal, prey = retrievable_model.prey; vec_scale = 10. Trigger position selection: if prey defined && ( isplayer( prey ) || isai( prey ) ) -> trigger_pos = prey.origin + ( 0, 0, vec_scale ); else trigger_pos = retrievable_model.origin + vec_scale * normal. State writes: clientfield::set( \"retrievable\", 1 ) and clientfield::set( \"enemyequip\", 1 ) on retrievable_model; retrievable_model weaponobjects::function_57152a5( watcher, player, trigger_pos ) (weaponobjects helper that creates the pickup trigger); retrievable_model.pickuptrigger enablelinkto(); pickuptrigger linkto( prey ) if prey defined else linkto( retrievable_model ). Finally retrievable_model thread weaponobjects::watchshutdown( player ).",
+        "unknowns": [
+          "weaponobjects::function_57152a5 (creates pickuptrigger) and weaponobjects::watchshutdown bodies are outside this packet",
+          "clientfield \"retrievable\"/\"enemyequip\" client-side interpretation is engine-side",
+          "Whether function_57152a5 also stores player/team filtering is unknown from this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00309",
+        "sha256": "36a884d6e75cc869d4c5ffa8c09b697119c58a19d54c6dc4dfcea4a3e485a206",
+        "pointer": "",
+        "record_sha256": "d8d3afb85ac691133bb2a1eb84d755f2b1b35aa59fd54d9acd029f2354ee866f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "c0252c07339debf5e026670a5d112a821ac91e0aceecba057536969e758030e6",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::init_shared",
+        "behavior": "Server-side shared init for the ballistic knife / crossbow thrown-weapon watcher system. Writes level.var_f676fe5a = #\"hash_4b7ed37163f1ec57\" (the fizzle FX consumed by onfizzleout). Registers &createballisticknifewatcher as the spawn-watcher creator via weaponobjects::function_e6400478 for weapon names: special_ballisticknife_t8_dw, special_ballisticknife_t8_dw_dw, hash_4646a4e86c781e84, special_crossbow_t8, and hash_6c40a7a156b05224 (after weaponobjects::function_dcc8b5d5(special_crossbow_t8, \"pistolscope\", hash_6c40a7a156b05224) aliases the pistolscope attachment variant name). Gate: if isdefined( level.var_b68902c4 ) && level.var_b68902c4 (upgraded-weapons level flag), additionally registers the upgraded variants: special_ballisticknife_t8_dw_upgraded, special_ballisticknife_t8_dw_upgraded_dw, hash_176b8e0e47a43cb9, special_crossbow_t8_upgraded, alias hash_73258bb36ebe26d (via function_dcc8b5d5 with \"pistolscope\"), and registers that alias with the same watcher creator.",
+        "unknowns": [
+          "weaponobjects:: functions function_e6400478/function_dcc8b5d5/function_57152a5/function_db70257/watchshutdown/deleteent live in scripts/weapons/weaponobjects.gsc which is outside this packet; their bodies were not reconstructed",
+          "Meaning of level.var_b68902c4 gate (plausibly an upgraded-weapon mode flag) is inferred from the upgraded registrations only",
+          "Exact identity of hashed weapon names hash_4646a4e86c781e84/hash_176b8e0e47a43cb9/hash_6c40a7a156b05224/hash_73258bb36ebe26d is not in the catalog"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00310",
+        "sha256": "022ccc55c98834e0e6f2bcdab68fd9a5cf0d1233524e97efd17a7ab2491d0d76",
+        "pointer": "",
+        "record_sha256": "89966cd0adbeaaf45314b818236a1d0679479d1a35001f000e40d37f4368f252"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/2d2cab7b35a597d9.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "f979f8d9137c2d5c99798c6583a8b00fe203ad56e225e7a97c3c6aed7b9b7843",
+      "summary": {
+        "unit_id": "scripts/weapons/ballistic_knife.gsc::onpickup",
+        "behavior": "Pickup handler on the retrievable knife model, called with (player, heldweapon). Ordered: self weaponobjects::function_db70257( player, heldweapon ) â€” weaponobjects helper that presumably restores the weapon to the picking player; then self delete() â€” removes the ground model. Immediate cleanup path; no branches.",
+        "unknowns": [
+          "weaponobjects::function_db70257 body lives in weaponobjects.gsc (outside packet); exact weapon-restore/ammo behavior unknown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/10",
+        "record_sha256": "cd65c9de92af7cef2f6b06722ab1db4e7d46850f23c4931409e17cb500d14433"
+      }
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "module": "src/scripts/core_common/infection.gsc",
+  "identity": "scripts/core_common/player/player_role.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "player_role",
+  "witnesses": [
+    {
+      "line": 98,
+      "text": "    male_index = player_role::function_97d19493( male );",
+      "caller": "function_153000d0",
+      "caller_span": [
+        94,
+        101
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_97d19493",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          203,
+          219
+        ]
+      ]
+    },
+    {
+      "line": 99,
+      "text": "    female_index = player_role::function_97d19493( female );",
+      "caller": "function_153000d0",
+      "caller_span": [
+        94,
+        101
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_97d19493",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          203,
+          219
+        ]
+      ]
+    },
+    {
+      "line": 213,
+      "text": "    current_role = self player_role::get();",
+      "caller": "give_body",
+      "caller_span": [
+        205,
+        227
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 225,
+      "text": "    self player_role::set( level.infection.bodies[ body_index ], 1 );",
+      "caller": "give_body",
+      "caller_span": [
+        205,
+        227
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          129,
+          175
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0248",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_role.gsc",
+    "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+    "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/player/player_role.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    98,
+    99,
+    213,
+    225
+  ],
+  "required_callee_functions": [
+    "function_97d19493",
+    "get",
+    "set"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_role.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02522",
+        "to": "N02761",
+        "line": 213
+      },
+      {
+        "from": "N02522",
+        "to": "N03615",
+        "line": 225
+      },
+      {
+        "from": "N02533",
+        "to": "N03623",
+        "line": 98
+      },
+      {
+        "from": "N02533",
+        "to": "N03623",
+        "line": 99
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

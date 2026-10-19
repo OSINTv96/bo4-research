@@ -1,0 +1,1081 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/abilities/gadgets/gadget_tripwire.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "20263da7218073e3b5b22a403db0305b3aeadb9db034c609eca379712c2cbe89",
+  "git_blob_sha1": "c9c8bc39270f00d7ef2f1b37aa178212f91b10a2",
+  "output": "src/scripts/abilities/gadgets/gadget_tripwire.csc",
+  "output_sha256": "0029c44b78cc084ac472a543c805b32491cd013bb36e009659848a2e6565629c",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/beam_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/beam_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/beam_shared.csc",
+        "sha256": "bc61c7b00aa36c8c05139923dc2c27ab75ad6da7fe5f9d6c56d275f45122ad2d",
+        "git_blob_sha1": "784970e987b6a368ffe6cf6f0e5cdf8efcaedb6d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0032.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/clientfield_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.csc",
+        "sha256": "68ebd6e58269bf4481b3f3b3c32a3d36e93c92b7b18efef98acda1b215651510",
+        "git_blob_sha1": "1d741c3a0186dc6564d27c7ac45e5342370a71bc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/shoutcaster.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/shoutcaster.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/shoutcaster.csc",
+        "sha256": "4bfbbb7b5f2c3a7894c41d60bc1476a691a110a1888c5e45d88c1c70ac25fb8c",
+        "git_blob_sha1": "0fdb550c7941b50af1545a475f0e8b82c36bc91f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0033.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0099d0dc21da59522c5badf14d11642f97f4a98fe22707bc93c7af03e0c5c79a",
+      "citations": [
+        {
+          "line_start": 370,
+          "line_end": 386
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_3e8d9b27",
+        "behavior": "function_3e8d9b27(local_client_num, previs_weapon, validlocation) - preview model swap: validlocation -> setmodel(hash_2edbbbe63af8213d) else setmodel(hash_6c54a3e97ce636f0); model notsolid(); previs_weapon unused.",
+        "unknowns": [
+          "valid/invalid model hash meanings (unresolved keys)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "9e189eb0e24cdf4efebfe4e4e6cae3baa7e31da27a3e5182ef81eedd6ff58e64",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/386",
+        "record_sha256": "33775c2b0e0472072eaa336dc68e9ed2bdf5131e9f92930046db226348836b0c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "11733a95ff28499dab09269569a37857fb50e28b2744eb8cff7458962d96b8d9",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 17
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::__init__system__",
+        "behavior": "autoexec bootstrap for the csc namespace.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/52",
+        "decision_canonical_sha256": "e4654f996e5b20dbb9c2204b4fdb8b66ef542589ed0c756b6faf80dd126302d9",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/373",
+        "record_sha256": "e5eb18b6cb87d40bbba57ebfa891cc57b87f0989bb365521367bfc126d7d9d21"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2503665140a6164bde9cc22b87ecccf342e40f8fc450df537623e5203eaeab67",
+      "citations": [
+        {
+          "line_start": 360,
+          "line_end": 368
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::spawn_previs",
+        "behavior": "spawn_previs(localclientnum): localplayer = function_5c10bd79(localclientnum) (opaque); level.tripwire.localclients[localclientnum].model = spawn(localclientnum, (0,0,0), \"script_model\", localplayer getentitynumber()) [client 4-arg spawn with owner entity number].",
+        "unknowns": [
+          "spawn 4-arg client form semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/98",
+        "decision_canonical_sha256": "579f88eeda25a8b8fb0ab55c4b460a683135d21cc60d13910a1dd71894b3c6af",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/385",
+        "record_sha256": "583cf34651a7dd6debf41eab18479dac798fa1b2d5c1ef97577acb6d246a395d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2c178b9dc22949af11936576f15c91c6fc921a9c209a68a25bc065d3c78f417f",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 52
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::__init__",
+        "behavior": "__init__() - tripwire client state: 1) callback::on_killcam_begin(&function_330a13a6); 2) on_killcam_end(same fn); 3) callback::add_callback(\"hash_2fc4cfecaed47583\", &function_bd054816) (offhand-weapon state callback reading params.offhand_weapon/using_offhand/localclientnum); 4) clientfield::register(\"missile\", \"tripwire_state\", 1, 2, \"int\", &function_6868fab3, 1, 1); 5) clientfield::register(\"scriptmover\", \"tripwire_solo_beam_fx\", 1, 1, \"int\", &function_9233eb94, 0, 0); 6) level.tripwireweapon = getweapon(\"eq_tripwire\"); bundle branch: weapon.customsettings defined -> getscriptbundle(weapon.customsettings) else getscriptbundle(\"tripwire_custom_settings\"); 7) if !isdefined(level.var_77cae643): = []; 8) level.tripwire = { wires: [], localclients: [] }; per localclient: { beams: [], previs: 0, model: undefined }.",
+        "unknowns": [
+          "killcam callback params and hash callback producer (callbacks_shared/engine; not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/199",
+        "decision_canonical_sha256": "9f708ed5d9866013786ef67588968cede5bfeb611ec59b3a68e0bbb85da9d359",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/374",
+        "record_sha256": "2bbf55b1eff21ed402fff9d1bd553fe19afa3482e7a03819a3f9390836ca412e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "30d01e89d33856c4c57116a3504d29f4f0957d06e06bc6f969d746ad83695fa5",
+      "citations": [
+        {
+          "line_start": 491,
+          "line_end": 568
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_adb3eb2c",
+        "behavior": "function_adb3eb2c(localclientnum) - previs pairing builder on the model: var_c2f0f6da = 0. Loop wires: skip undefined/other-owner; record = function_8c308396(self, tripwire); pos fallback origin when tag missing (both sides); beamtrace both directions; eligible branch (function_26c580d9): linked = 1; no record -> newbeam spawnstruct {ent1, ent2, shoulddraw 1, beam_id undefined} at free slot (function_95d56693); record exists with shoulddraw false -> set true; solo fx present -> killfx and clear. Not eligible with record -> shoulddraw = 0. Post: solo fx missing and not linked -> playfxontag solo fx (hash_79d94632506eafee at tag_fx).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/130",
+        "decision_canonical_sha256": "59825d698013e3913c2d7241b297c5cf8e552cc3361d26bf8edd672bbf4e475a",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/390",
+        "record_sha256": "fda07568ebffdfc7e4b9bfa9ac8553434a48f0a5ddc228145a81a6955845dbdb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "584175de2c8ed993083d0294a7edd675f07d5eccb76dd628860e0d00272d7326",
+      "citations": [
+        {
+          "line_start": 462,
+          "line_end": 489
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_26c580d9",
+        "behavior": "function_26c580d9(localclientnum, tripwire, trace, var_f2edf308) [Type: bool] - pair-link eligibility (previs variant of the 55c50f15 checks): false when previs model.hitent defined AND isplayer; false when distancesquared(tripwire.origin, self.origin) < 100; false when greater than bundle.var_831055cb squared; false when either trace obstructed (function_a4b3da97); else true.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/403",
+        "decision_canonical_sha256": "7f9b64c4d67f50b35ffe64140a94d9d29e9ffaef91db946b7065530ac598fa6a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/389",
+        "record_sha256": "6b9d1b24bd4227cd3290df16e02c213657a65da79d5d32c8545e1bce05f7cfab"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5d2513498b7bed54e05c4ca582bf19f07941dac59f8ae0474baa7705fd021b67",
+      "citations": [
+        {
+          "line_start": 594,
+          "line_end": 609
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_c51a3b22",
+        "behavior": "function_c51a3b22() - invalidate orphaned beam records: loop level.var_77cae643: when beam OR ent1 OR ent2 undefined: record.shoulddraw = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/507",
+        "decision_canonical_sha256": "cbbe355d42f715c1bae9b715ca433ffc0efc6f151aea0f8f8eb86bcb510baba1",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/392",
+        "record_sha256": "623d110f9ba9b40ff19db3843e0f6e6eed7a62c27d3258bef40cfb1274791028"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6177539224f6b1908c1553693480c9be6912912ac9bd78215f3da78c0624f811",
+      "citations": [
+        {
+          "line_start": 54,
+          "line_end": 69
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_330a13a6",
+        "behavior": "function_330a13a6(params) - killcam beam clear: foreach beam_id in level.tripwire.localclients[params.localclientnum].beams: only if isdefined(beam_id), beamkill(localclientnum, beam_id) [beam_shared builtin]; then .beams = []. Registered on BOTH killcam begin AND end ; actual native effects and event/lifetime safety remain unproved.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/532",
+        "decision_canonical_sha256": "1fd575ba40870d2f3859a536fcdad8aece129daa96d2b5681def88bb6f4f56ef",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00634",
+        "sha256": "5a12fe1d9350edea66d617e76123e9ed79835e92ba40a84012d464572decc736",
+        "pointer": "",
+        "record_sha256": "94ac93807c0be56943489b95ad3fdfccc02a82002c6da72e6665a4ee8b2bd4c5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "64c847f6ffa3c71925480cd0cabf3546beb16dad72f2a9afbdf992f450fb9992",
+      "citations": [
+        {
+          "line_start": 148,
+          "line_end": 155
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6230a8a5",
+        "behavior": "function_6230a8a5(localclientnum): arrayremovevalue(level.tripwire.wires, self). De-registers this wire from the client-side list (shutdown or timejump path; registered via callback::on_shutdown in function_6868fab3).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/271",
+        "decision_canonical_sha256": "7f825474e9ee9480b72f2a4a164132fb112001cc0034e31c8c9403de1365251c",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/378",
+        "record_sha256": "235a05dd2e72302e4286ba84f2063baaca369402bd13110439f5ffa6cc09a19f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "68f04ded3fab44df7b65de72950106abb8b4c2e4e9d12e0fb15d0f0e86326c5e",
+      "citations": [
+        {
+          "line_start": 91,
+          "line_end": 146
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6868fab3",
+        "behavior": "function_6868fab3(7-param clientfield callback on missile/tripwire_state 2-bit): guards: return if !isdefined(self); endon(\"death\"); dobj-wait loop with 1000ms timeout (while !self hasdobj: return when elapsed > 1000; waitframe). Branch bwastimejump -> function_6230a8a5(localclientnum). SWITCH newval: case 1 (wire appeared): arrayinsert(level.tripwire.wires, self, wires.size); self callback::on_shutdown(&function_6230a8a5); self thread function_55c50f15() (link beams). case 2/3 (wire moving/destroying): beamkill all localclient beams; .beams = []; thread function_55c50f15().",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/476",
+        "decision_canonical_sha256": "ef714cd264a46967d2d0bc2559a1a448d94ad8b6fa20a539522528efb27322e8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/377",
+        "record_sha256": "214adf5db556179573c3217a3bb471f9019e5b22ac5ca85b8f1977dfd4eb7c16"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7173f80bd08ca99a9afeb2ee22da65b2f6bd95c3eeeb8e12afa8672b5998b31f",
+      "citations": [
+        {
+          "line_start": 171,
+          "line_end": 243
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_55c50f15",
+        "behavior": "function_55c50f15() - wire-PAIRING beam launch (client; self = one wire of a same-owner pair): self endon(\"death\"). foreach tripwire in level.tripwire.wires: skip undefined; skip when self.ownernum != tripwire.ownernum (same owner only); skip self == tripwire; distance gate: distancesquared >= 100 AND <= bundle.var_831055cb squared. gettagorigin(\"tag_fx\") on both (guarded); beamtrace BOTH directions; both must be unobstructed (function_a4b3da97). Per local player (level.localplayers): enemy check util::isenemyteam(self.owner.team) -> beamname = bundle.var_10e5bb56 ? beam8_plyr_equip_ied_enmy_wz : beam8_plyr_equip_ied_enmy; ELSE friendly -> ..._frnd_wz / ..._frnd; beam_id = player beam::launch(tripwire, tag_fx, self, tag_fx, beamname); append to localclients[player.localclientnum].beams.",
+        "unknowns": [
+          "beam::launch semantics (beam_shared; not owned)",
+          "bundle values var_831055cb / var_10e5bb56"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/616",
+        "decision_canonical_sha256": "bd52e1b77b76d53454a9cfb3b0099886d71ddb4c83727a4270bd6aab55132203",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/380",
+        "record_sha256": "836be830eebd205dd225cb630436c27fd273d0f9aaaf4771a75fa5132c618b3c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "89a399f7a264255c3c9f1912b4c8e81b6001899c091237e02c4935b2a5b6eb66",
+      "citations": [
+        {
+          "line_start": 343,
+          "line_end": 358
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_b882ca33",
+        "behavior": "function_b882ca33(localclientnum) - death cleanup for the previs think: self waittill(death); branch isdefined(level.tripwire.localclients[self.localclientnum].model): model hide(); function_6b69576b() (clear draw flags); function_dc76d0d0(localclientnum) (refresh). Reads self.localclientnum (engine client field) rather than the arg.",
+        "unknowns": [
+          "engine-set self.localclientnum"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/614",
+        "decision_canonical_sha256": "cc2c0aca60430b69dafe2adb22da337275202b6c716ca24b4bcc0704464978f3",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/384",
+        "record_sha256": "6dfe396f38a24d7df5646ecbc3176165092f828bf2266f25f4b93557a470862f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "942bbaf6e843d0c3b5cd9ed5d68d8b06ab417113e9f3380d9448a449959a4d10",
+      "citations": [
+        {
+          "line_start": 245,
+          "line_end": 263
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_9233eb94",
+        "behavior": "function_9233eb94(7-param clientfield callback on tripwire_solo_beam_fx): branch newval truthy: self endon(\"death\"); waittill_dobj(localclientnum); self.beam_fx = util::playfxontag(localclientnum, \"hash_253c31a9114d6029\", self, \"tag_origin\"); return. ELSE: if isdefined(self.beam_fx): killfx(localclientnum, self.beam_fx).",
+        "unknowns": [
+          "util::playfxontag/killfx module membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/403",
+        "decision_canonical_sha256": "f91e3aa1cdb51398f117fe2611947bcd662aee8efb9e9c8ace873211b8f5c15a",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/381",
+        "record_sha256": "d14fcbd6b9ab5f9dc02ac7783ea3d427dc2519f21bd22f586107a61ae7aff33e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b4b589f9326d48397bbc25054c1044be6a9ac80de05e8047e5e1f83b84042558",
+      "citations": [
+        {
+          "line_start": 157,
+          "line_end": 169
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_a4b3da97",
+        "behavior": "function_a4b3da97(trace) [Type: bool]: trace fraction < 1 -> false; else true. Beamtrace clear-path test.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/820",
+        "decision_canonical_sha256": "ff6fc5bc72e4d24250c14e2684f7680d952f833db281170fbb16ab1dd864456a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/379",
+        "record_sha256": "d9706fc95bdb5a03a3c6a94fbebe73def5051fb089f97efc811d4343a8dd762f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b67f21c6d8fc1b88694426dc80d33a6718c8b86b2d74d1857e454e7affbb8d20",
+      "citations": [
+        {
+          "line_start": 265,
+          "line_end": 289
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_2a919ef0",
+        "behavior": "function_2a919ef0(localclientnum) [Type: bool] - placement eligibility: currentoffhand = function_e9fe14ee(localclientnum); false when tripwireweapon != it; false when !function_96d4f30e(localclientnum); false when !function_182a2ad3(localclientnum); else true.",
+        "unknowns": [
+          "function_e9fe14ee / function_96d4f30e / function_182a2ad3 definitions not in corpus"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/509",
+        "decision_canonical_sha256": "75311146e7c3c37f4533a1eaaa65c49329a5c8b3a651176170b3af62615b0389",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/382",
+        "record_sha256": "dde31458b5ad8843aee2d0abf107234d28ea04623535c864374fc3cacaf7be8f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d4d6e3018357e0ad155d2c81fff63afdcfc4cede7defa730483a73e99d4a9459",
+      "citations": [
+        {
+          "line_start": 640,
+          "line_end": 653
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_810faece",
+        "behavior": "The placement-objective cleaner: waits on death/disconnect/team_changed (any), then objective_delete(local_client_num, objective_id) when defined. Threaded from update_previs once per id; ends after the first event fires.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/979",
+        "decision_canonical_sha256": "aed30090170c469994441a044682d23f1f1ae2999f886475132720dcfac35f02",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/395",
+        "record_sha256": "5ed3994b436b004a5d825d8b6ef2ae01a9738893d10fa2bc1fb8cb657018225e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "db621e5d01a3ef8143bb024c577ea62e155c0cf586ea6365f101e6388928a4de",
+      "citations": [
+        {
+          "line_start": 388,
+          "line_end": 403
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_95d56693",
+        "behavior": "function_95d56693() - previs-beam free-slot finder: loop i over level.var_77cae643: return i when entry.shoulddraw == 0; after loop return size (append at end).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/618",
+        "decision_canonical_sha256": "bfd6ce97bca3c69a0dbe6699b1f0f3578310afe867464fbdac30a5d388e3b8b6",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/387",
+        "record_sha256": "4c465dad49fbfd7914c496658b8ffb7cb32cb801e8c7ee1b8584c854ae875dec"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "eb03e12e551731df5974ce1603412d6e8e3a9621d8d037d90d3f12ff1742647b",
+      "citations": [
+        {
+          "line_start": 570,
+          "line_end": 592
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_dc76d0d0",
+        "behavior": "function_dc76d0d0(localclientnum) - previs beam dispatcher: loop level.var_77cae643 (previs beam registry): shoulddraw true AND no beam_id AND both ents -> launch via beam method function_cfb2f62a(localclientnum, ent1, tag_fx, ent2, tag_fx, beam8_plyr_equip_ied_previs); shoulddraw false AND beam_id -> kill via function_47deed80(localclientnum, beam_id) then clear the id.",
+        "unknowns": [
+          "beam methods not owned"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/656",
+        "decision_canonical_sha256": "02013ee4a20ec51061f024f6d2fc778931ed5b8afec30b299d01cecc15dc94c2",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/391",
+        "record_sha256": "95ef10d1fc5d837ee6d2d8870d18ecb2fea52e48994774d6f05dbe2f34132845"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f083db94f74d049d231dd55557e1451455cfad55c2e0c2db3ee9e35aba335d76",
+      "citations": [
+        {
+          "line_start": 611,
+          "line_end": 621
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6b69576b",
+        "behavior": "function_6b69576b() - clear all draw flags: loop level.var_77cae643: entry.shoulddraw = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1127",
+        "decision_canonical_sha256": "b2ca425866948d8f263e83c20325081c545507f84e11caa98a09c15b12b95d0f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/393",
+        "record_sha256": "8eecfd1cd412c8bcad76788db9d59f9cf33d594b6f532cc53fac1e70051cfa54"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f514313dda73cd39262e7eb9becf2e3b91fdde53ef1184159a4d216f91315fa2",
+      "citations": [
+        {
+          "line_start": 405,
+          "line_end": 460
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::update_previs",
+        "behavior": "Per-frame previs placement: setmodel valid variant via function_3e8d9b27 with (localclientnum, tripwireweapon, 1); getlocalclientangles/getlocalclienteyepos builtins; velocity = function_711c258 (opaque); trace1 = projectiletrace(eye, velocity, 0, tripwireweapon, level.var_41427f32) ignore slot; model origin = trace1 position; angles = (angleclamp180(vectortoangles(normal)[0] + 90), vectortoangles(normal)[1], 0); hitent = trace1 entity; ignore-slot updated when hitent.weapon == tripwireweapon; wires nonempty -> model function_adb3eb2c(localclientnum) else solo fx var_2045ae5c cached; objective once: var_61df85ff = util::getnextobjid + thread function_810faece (delete watcher); if isdefined(player.var_61df85ff) AND not ispc(): branch function_a8cb5322 AND not shoutcaster::is_shoutcaster: objective_add(localclientnum, id, \"active\", \"tripwire_placement\", position), objective_setgamemodeflag [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "opaque function_711c258 / function_a8cb5322 (not in corpus)",
+          "projectiletrace natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/693",
+        "decision_canonical_sha256": "2cc91d6a368894270996bc69236155b7bd7d9311ba26b3a245ff49eec59ab1ca",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00635",
+        "sha256": "e807307f8b52242ddd786c3a2633ca45a4957d5ad26aad32af8da7bf33e05e79",
+        "pointer": "",
+        "record_sha256": "3b5a19c038f6f9d719193dc0ffe33f3a63f50e697142407fb6e6c9626a42019a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f5d99b763ea98185b668a88f562d056cdacf46a9a0580110dfc9a66e2e7c1430",
+      "citations": [
+        {
+          "line_start": 623,
+          "line_end": 638
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_8c308396",
+        "behavior": "function_8c308396(ent1, ent2): foreach beam in level.var_77cae643: beam.ent1 == ent1 AND beam.ent2 == ent2 -> return beam; else undefined.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/697",
+        "decision_canonical_sha256": "4439e04f8a7e8f2c2bbddfe3cb018bc35a64ee6ed4e42a103975e4d656a5f5cb",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/394",
+        "record_sha256": "5a858498bcef16dc46dabb40c51353e3a5e21856cc873d05222266a5b0f33662"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f7ad5ede96f4ed4b68373ed1916d6dbf16b8144ac8403a84b0397a6e280cb1b2",
+      "citations": [
+        {
+          "line_start": 71,
+          "line_end": 89
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_bd054816",
+        "behavior": "function_bd054816(params) - offhand toggle handler for hash callback: branch level.tripwireweapon != params.offhand_weapon -> return (only for tripwire); branch params.using_offhand truthy: function_17d973ec(params.localclientnum) (start previs think); RETURN; else self notify(\"hash_726805ec8cfae188\") (cancel previs think).",
+        "unknowns": [
+          "params producer (engine offhand callback)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1368",
+        "decision_canonical_sha256": "2a66992614fa63076942153d2bc4ff10bfc002ccb52ff851405025e603270f52",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/376",
+        "record_sha256": "c0bc7d555dc1a0c07fa4e8365b783f09518cb57c2336b558266487a345877974"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ff88fa3fe60caf9d1552f852550cbd496563e4774806b1ac4e310b6ce5a80408",
+      "citations": [
+        {
+          "line_start": 291,
+          "line_end": 341
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_17d973ec",
+        "behavior": "function_17d973ec(localclientnum) - previs lifecycle think (started by function_bd054816 toggle): self endon(death); notify(hash_726805ec8cfae188) + endon same (restart singleton); thread function_b882ca33(localclientnum) (death cleanup watcher); localclients[localclientnum].previs = 0; settle var = 0; level.var_41427f32 = undefined (trace-ignore slot). Loop does work before its first wait: previs = function_2a919ef0 gate (own record); truthy branch: spawn_previs when model missing, show on false-to-true edge, update_previs(localclientnum). Falsy-edge branch (prev true now false): model notify(death); model delete(); model = undefined; function_c51a3b22(); function_dc76d0d0(localclientnum); objective_setstate invisible when objective (self.var_61df85ff) not already invisible. waitframe(1) is at the end of each iteration.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1411",
+        "decision_canonical_sha256": "1fac039a9fd839f939f465fb1458702f8aa26c6b3f5126fd83be75090e3f9371",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00636",
+        "sha256": "2ce469becba75ac90b0658e82da56e594b8a940e99fd5c71e8840bada64daae7",
+        "pointer": "",
+        "record_sha256": "16cfffc834d217e84d35796cef37a41f9d08d748bbe615aed538aa7b0e92df84"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/02757bd41ff36094.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0032",
+    "AV0033"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/7d50076fe45c28af-001.json",
+      "sha256": "b9ed8cfad597ebde98a85d6aa6c70c721b3807cf1492edaeba08a37704bd4645"
+    }
+  ]
+}

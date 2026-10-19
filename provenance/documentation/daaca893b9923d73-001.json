@@ -1,0 +1,118 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/killcam_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "3ea2b2804802fc0477c80003b013c08e140c9025a456c3cef6f29ae50a7a8c63",
+      "summary": {
+        "unit_id": "hmh-bridge:HMH-BRIDGE-ENTITY-CLEANUP:removal-scope",
+        "answer": "Applying g3's tombstone contract (PRIOR-MAPPINGS.json 27784-27838) and f2's dispatcher state graph ABSENT->ACTIVE->TOMBSTONE->purge with instant/all-clear/assert-abort arms (PRIOR-MAPPINGS.json 30049-30051) to only the newly identified scene/watcher teardown path. THE WATCHER TRIGGERED CALL: when the cscene::play 4484 notify completes its wait (callbacks_shared.gsc 188), the watcher runs remove_callback(event, func, self) (189) which is the 3-argument wrapper (196-199) delegating to function_3f5f097e( level, event, func, obj, instant-undefined ) (214+). Concrete differences against the generic routes: (1) TABLE = level ALWAYS: line 198 passes literal level, so the watcher route can never touch registrations stored on a non-level entity table (function_d8abfc3d self-table route 122-125; csc add_entity_callback csc 135-156 which additionally spawns no watcher); f2's R1 note (remove_callback always targets level table) is retained. (2) INSTANT = NEVER PASSED: the watcher route cannot trigger instant purge (236-240); the instant shape belongs only to third-party callers (killcam_shared.gsc 469-470: instant self-table removal function_52ac9652 with instant=1 then re-add). Therefore the scene teardown path leaves its tombstone physically in the list. (3) IDENTITY CONDITIONS: an affected entry must be isarray (244) with func_group[0] == func (loose) AND func_group[1] === obj (strict triple, 246); only the FIRST match is tombstoned (break 254). (4) STATE OUTCOMES per f2 graph: ACTIVE (registered 163, deduped 152-161) -> TOMBSTONE (slot = 0, 253) -> invisible to dispatch (non-array skip 66-69) and to dedup (isarray gate 154), so re-registration after a tombstone creates a second live entry beside it; physical purge ONLY at the next dispatch of that event on that table (105 arrayremovevalue(ent._callbacks[event], 0, 0)) or via an instant call (238). (5) RETAINED vs TOUCHED inside the scene teardown: same func/different obj retained; same event/different func retained; entries beyond the first match retained (break); self-table registrations unreachable; already-tombstoned entries skipped. (6) NEW ORDERING CAUTION, CONDITIONAL INFERENCE, NOT ASSERTED: source order at the tombstone site is `obj notify( watchkey )` (250) BEFORE the tombstone write (253), and this code executes inside the watcher's OWN resumed thread, which armed endon(watchkey) at 187; if native endon cancellation kills the executing thread at that notify (the same mechanism the prior S1 record used for the death arm - ordinary thread-wide endon would cancel it on death, unit-context/0002.json 351), the tombstone write could be skipped and the entry left ACTIVE; g3 and f2 recorded only the tombstone-kill shape. Both readings are bounded by the same retained native fact (g3 A.4 / f2 N4); neither is asserted. (7) CSC MIRROR DIFFERENCE: csc remove_callback (csc 198-214) physically removes via arrayremoveindex( level._callbacks[event], index, 0 ) under two asserts (200-201) - no tombstone on the client; csc function_52ac9652 (172-192) same arrayremoveindex shape on self tables; the func-equals / obj-triple identity conditions are VM-common. (8) Builtin contracts for arrayremovevalue/arrayremoveindex (x,0,0) remain g3 unknown 3 and are not asserted here. Required identity conditions for the scene teardown route to affect anything: registration made via the level-table route with obj exactly equal (strict) to the notified cscene instance and a still-alive watcher; obj=undefined registrations (wz block) have no watcher and are untouched.",
+        "behavior": "Scene/watcher teardown argument, table and instant facts: caller remove_callback_on_death 189 (3-arg, instant absent) -> remove_callback 196-199 (literal level) -> function_3f5f097e 214-258: no all-clear (individual func), no instant purge, foreach loop with isarray/loose-func/strict-obj conditions 244-246, obj notify key 250 then tombstone 253 then break; deferred purge only via next dispatch (dispatcher 105) or a foreign instant call 238; tombstones invisible to dispatch 66-69 and dedup 154. Entity-table (self-table) registrations unreachable by this route; killcam-style instant route (killcam_shared.gsc 469-470) is the only purge-at-rest shape in corpus. Conditional ordering caution on notify-before-tombstone recorded as inference, not asserted. csc mirror: arrayremoveindex physical removal under asserts (csc 198-214).",
+        "unknowns": [
+          "g3 unknown 3 retained: arrayremovevalue/arrayremoveindex builtin contracts for the (x,0,0) purge and index shapes",
+          "conditional: whether notify(watchkey) at 250 kills the executing watcher thread before the 253 tombstone write (g3 A.4 / f2 N4 native cancellation ordering; both readings bounded, neither asserted)",
+          "whether any retail or hashed watcher targets a scene instance (N1)",
+          "whether any retail route issues an instant purge on the on_loadout event list (no killcam-style third caller for this event in corpus)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00320",
+        "sha256": "f3b275ebeeceecb82cd43aa11936c4ed177aab369351594fd8e25c011a9c28c1",
+        "pointer": "/units/2",
+        "record_sha256": "30ae84a76e427b6ea5cd7a352d459bfc48f25fa40ddc1b17184eb49002f6e9a4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "564236d19ed43eb09432e7d94c323a67d205392e0224b83c73fb776f5ebda051",
+      "summary": {
+        "id": "scripts/core_common/killcam_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/351",
+        "record_sha256": "4915338cf2d876c17e228edf43c5cacf19cfdb1b13a5b70d2ecaf0ae5b046191"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "5927041e5f217a8d7611431811d7d6b84618a1d29ae42ac2b6b7076675b35bbe",
+      "summary": {
+        "id": "scripts/core_common/killcam_shared.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/875",
+        "record_sha256": "c547025aea356b8bcad55a6ce2c259c4c5c488fe008805179b722a861a21fa46"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "ea838178d825b37bde84783d6b9b73caf0170dcce4fe6711fc3aafd6486ab0a8",
+      "summary": {
+        "id": "scripts/core_common/killcam_shared.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/350",
+        "record_sha256": "fef085c2f1fec9c0856bb39b679e31aad6aadb2a3be95ab65d170f9927352933"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "b567cdfc95a32b7cd4f4ea1f3af4cb2e8821701ab94f9a2dc47030b08055fd57",
+      "summary": {
+        "id": "scripts/core_common/killcam_shared.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/86",
+        "record_sha256": "15aaa6718965f99fa40920cbf39edaafdf6c93a2a14a3a090eb4eb759852d107"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/daaca893b9923d73.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "77a9a881995ce1873754a8ea15b37fd54d0280a2bd4dce5a79d442fe2f8d650e",
+      "summary": {
+        "id": "scripts/core_common/killcam_shared.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/86",
+        "record_sha256": "15aaa6718965f99fa40920cbf39edaafdf6c93a2a14a3a090eb4eb759852d107"
+      }
+    }
+  ]
+}

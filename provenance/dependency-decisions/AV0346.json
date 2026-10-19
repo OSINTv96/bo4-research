@@ -1,0 +1,123 @@
+{
+  "module": "src/scripts/killstreaks/mp/uav.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 138,
+      "text": "                    scoregiven = scoreevents::processscoreevent( #\"uav_assist\", player, undefined, undefined );",
+      "caller": "fx_flesh_hit_neck_fatal",
+      "caller_span": [
+        103,
+        150
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 134,
+          "opening_line": 137,
+          "ending_line": 146,
+          "text": "if ( activeuav > 0 )"
+        },
+        {
+          "line": 126,
+          "opening_line": 128,
+          "ending_line": 147,
+          "text": "if ( isdefined( level.activeplayeruavs ) )"
+        },
+        {
+          "line": 124,
+          "opening_line": 126,
+          "ending_line": 148,
+          "text": "foreach ( player in params.players )"
+        },
+        {
+          "line": 121,
+          "opening_line": 124,
+          "ending_line": 149,
+          "text": "if ( enemycuavactive == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/50766fd9e59ab1c8.json",
+          "pointer": "/claims/0",
+          "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+          "citation": {
+            "line_start": 28,
+            "line_end": 28
+          }
+        },
+        "entry_function": "__init__system__",
+        "entry_span": [
+          26,
+          29
+        ],
+        "local_references": [
+          {
+            "from": "__init__system__",
+            "to": "__init__",
+            "line": 28,
+            "form": "stored_pointer",
+            "text": "    system::register( #\"uav\", &__init__, undefined, #\"killstreaks\" );"
+          },
+          {
+            "from": "__init__",
+            "to": "fx_flesh_hit_neck_fatal",
+            "line": 62,
+            "form": "stored_pointer",
+            "text": "    callback::add_callback( #\"hash_425352b435722271\", &fx_flesh_hit_neck_fatal );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0346",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    138
+  ],
+  "required_callee_functions": [
+    "processscoreevent"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04204",
+        "to": "N02291",
+        "line": 138
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

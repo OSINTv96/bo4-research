@@ -1,0 +1,109 @@
+{
+  "module": "src/scripts/killstreaks/killstreaks_shared.gsc",
+  "identity": "scripts/core_common/damage.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "damage",
+  "witnesses": [
+    {
+      "line": 2929,
+      "text": "        friendlyfire = damage::friendlyfirecheck( self.owner, attacker );",
+      "caller": "monitordamage",
+      "caller_span": [
+        2894,
+        3050
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2900,
+          "opening_line": 2903,
+          "ending_line": 3049,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    },
+    {
+      "line": 3148,
+      "text": "    friendlyfire = damage::friendlyfirecheck( self.owner, attacker );",
+      "caller": "ondamageperweapon",
+      "caller_span": [
+        3120,
+        3212
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "friendlyfirecheck",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          10,
+          111
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0284",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/damage.gsc",
+    "sha256": "9c2b0b74cca036c8734da67f74209cef3e5f575d4ff990847f0f156595f78b4b",
+    "git_blob_sha1": "6ab4d982725a56f1b4e889ed405bf3dac5ba89d5",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/damage.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    2929,
+    3148
+  ],
+  "required_callee_functions": [
+    "friendlyfirecheck"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/damage.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04884",
+        "to": "N02296",
+        "line": 3148
+      },
+      {
+        "from": "N05234",
+        "to": "N02296",
+        "line": 2929
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

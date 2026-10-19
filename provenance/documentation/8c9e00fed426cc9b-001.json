@@ -1,0 +1,120 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/vehicle.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW (fixups): wz_common_mode_heavy_metal_heroes_fixup.gsc:28-53 builds item_replacer sets: per-stash gun lists (array_list_guns_dlc1, asylum, boxing_gym, clearing, construction, diner, dockyard, estate, factory, farm, farmtown, firing_range, fracking, ghosttown, graveyard, hijacked, hydro, lighthouse, nuketown, rivertown, hash_5295664b3252e2a7, support_structure, train_station, wind_turbine) every call appending the replacement list #heavy_metal_heroes_list_guns_dlc1 (and .csc:28 twin); wz_open_skyscrapers.gsc:60-64 sets level.var_2089aa11 = supply_drop_stash_parent_dlc1_heroes and registers heroes flare-gun stash replacement/count data via function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); this registration does not spawn the stash; hashed script_71e26f08f03b7a7a.gsc:256-259 uses level.var_2089aa11 only when that parent is defined, var_6ed927a6 replacement is undefined and heroes is defined/truthy. Explicit replacement wins. start first waits for its flag and applies timing/count gates before threading function_2d47ee1e; heroes truth alone does not prove spawning. FLARE GUNS: wz_open_skyscrapers_fixup.gsc:30-33 enables the base stash parent dlc1 flare guns only when wzenableflareguns && !wzheavymetalheroes (explicit NOT-and; #wzenableflareguns is itself absent from all recovered HMH layers). RAMPS: hmh_ramp dynent array enable/disable (gsc 160-172, csc 91-128 both sites read wzheavymetalheroes). VEHICLES: wz_common/vehicle.gsc:3397 keeps self.deathmodel when NOT heroes; function_32607cfc (4094-4121) returns true immediately when wzheavymetalheroes (vehicle-availability/air distance bypass; stats-gated otherwise); death circle tank vehicles only when setting hash_6eb44149a8ac6dd1 truthy inside the mode-identity branch (wz_open_skyscrapers_death_circle.gsc:69-76; that hash appears ONLY in the neighboring base-warzone playlist entry at categories 2631-2644 value 0, not in any HMH layer â†’ value for HMH unknown). TABLE RULE VALUES that select equipment/vehicles (def-only, all conditional on the native store): wzenablebowieknife=1, wzenableoperatorweapons=1, wzenablecoinbag=1, wzenablemusclecar=1, wzenablesuv=1, wzenablehomewrecker=1, wzenablevendetta=1, wzenablereplacercar=0, wzenablepurifier=0 mask2; wzenableatv/wzenablemotorcycle appear ONLY in the neighboring base-warzone entry (8286-8313, value 0) not in HMH layers; the vehicle fixup switch wz_common_vehicles_fixup.gsc/.csc:102/127/163 reads wzenablemusclecar/enableatv/enablemotorcycle/enablesuv combinations â€” for HMH the atv/motorcycle keys are unset, so those branches are absent-key dependent. JETPACK: no recovered HMH-specific jetpack setting exists; the mobility change is the two perk grants above. FURTHER EXACT DEPENDENCIES: function_9de0644f body (heroes loadout supplier) and function_3fed57dd/a9b8fa06 alternatives; level.var_618194f7 writer; heavy_metal_heroes_list_guns_dlc1 and supply_drop stash asset bundles; hvolist bundle contents (m1); vehiclecustomsettings per vehicle (m2); native wzheavymetalheroes producer (units 2/4).",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "373f77d1bf1b1dab1351c1c859daf5091c400520b54fee7c0b51eb9c5c2ccc2d",
+      "summary": {
+        "id": "scripts/wz_common/vehicle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1037",
+        "record_sha256": "e6214f3b5a1711faff15cc093be5a7f33b55d05f2f4db9334e5b876091344292"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "437b0773ec18d3973d10ce47eea5426f63d7a40bfa445377c2d9f61e861eadc0",
+      "summary": {
+        "id": "scripts/wz_common/vehicle.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/711",
+        "record_sha256": "c3606b5a6d8bc86762413259ffe3b1e493a3cefecd82f99e4cbbbc4ced9646e4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "d3bcad24994fe5700187a5fed6fc9b82bccf1922cbcf63e1a1e9d381a0f1285f",
+      "summary": {
+        "id": "scripts/wz_common/vehicle.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/710",
+        "record_sha256": "91c6ddd648cebe9121ff58fbc395b3359ee09e7b25a4f3d2b0e97034853f5a5e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "7806a6f7e7ad6233fe4aedd0755898dce951eb661a5521ab43b0e6fa6db4135b",
+      "summary": {
+        "id": "scripts/wz_common/vehicle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/242",
+        "record_sha256": "45d583d2dc7ceece536b5e74295fbe0a2f8ade7a677b494256b84762e8298322"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/8c9e00fed426cc9b.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "b3b0bf015aa6ef526c35db21b731c53f36330be6225dffacfb613eb1811bafa7",
+      "summary": {
+        "id": "scripts/wz_common/vehicle.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/242",
+        "record_sha256": "45d583d2dc7ceece536b5e74295fbe0a2f8ade7a677b494256b84762e8298322"
+      }
+    }
+  ]
+}

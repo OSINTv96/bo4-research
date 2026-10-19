@@ -1,0 +1,362 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/values_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+      "summary": {
+        "unit_id": "hmh-combat:HMH-DAMAGE-DOWNED-01:admission",
+        "answer": "The new connection is a phase-aware input map, not another reconstruction of the old damage predicate. Ordinary spawn writes sessionteam=self.team and sessionstate=playing and refreshes spawntime before later on_player_spawned/insertion work. A redeploy batch merely threads the spawnclient route, whose admission/queue branches mean selection is not proof of a fresh spawn clock. Spectator camera/sessionstate and spectator sessionteam are distinct; should_do_player_damage vetoes only the latter. No explicit candocombat writer is present in the 2,632 frozen GSC/CSC references; its effective producer and original value remain unknown. Insertion holds, begin/teleport flags and HMH doublejump/fallheight branches do not directly write those inputs in the cited spans. Spawn protection is the script elapsed<=cached-ms comparison, checked here only with bit 8; equality counts. Native invulnerability is a separate earlier callback veto, with a visible warzonestaging value-registry chain to enable/disableinvulnerability but unresolved native effects and stacked resets. End_round writes postgame before onendround and the table/server-notify/clientfield end channels. Warzone's later game_ended matchflag pulse does not change that state and therefore does not reopen ordinary admission. Finally, ordinary game-over rejection does not erase the earlier postgame hook: allowed trigger-hurt/crush paths may already call finishplayerdamage as MOD_POST_GAME. All remaining old vetoes/returns are reused unchanged; none of these connections proves HMH runtime behavior or closes the native down-versus-kill decision.",
+        "unknowns": [
+          "Original HMH playlist values for spawnprotectiontime, wzheavymetalheroes, wzplayerinsertiontypeindex, deathcirclerespawn and infectionMode are not supplied by this packet. Source defaults are not effective-session values.",
+          "Actual per-player candocombat, native invulnerability and complete value-stack contents during transport, freefall, redeploy and end transitions are unknown.",
+          "Whether a selected redeploy player passes mayspawn/queue gates and when native spawn/callback delivery completes remain unproved; isalive for downed players retains the d3/native gap.",
+          "No equality/clock example in branch_matrix was executed in the game or in the GSC VM. They are literal source condition cases only.",
+          "The scoped candocombat search does not cover external/unavailable services, engine code, dynamically indexed aliases or unlisted source."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00108",
+        "sha256": "c1b5ed194ab6a598e2bbd1b763b0f82947e4eb944b7ad973ec466d1957b7e8e5",
+        "pointer": "",
+        "record_sha256": "6bf774a6e502a0a9d7123d402bb953ae59260f8b1aac3378fdb81ac9617f8300"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "067b9926f088ee12aa831675918ce84c1e7a9ec4f54c18730644bc1a9c046a13",
+      "summary": {
+        "unit_id": "hmh-health:HMH-HEALTH-RECOVERY-01:heal-policy",
+        "answer": "The conditional HMH producer-to-consumer connection is now pinned: init_heal creates the exact enabled/rate/delay-mode/cap fields only when the table is absent; the value setter and gadget write enabled, the gadget builds rate/cap, and healthoverlay consumes them. Stored rate0 selects a default-rate path when enabled, while enabled0 blocks the ordinary rate path. The separate var_44d52546 force branch bypasses that rate block but still follows delay/cap/tick admission. Stored cap0 means use var_66cb03ad, including after exempt damage drains the stored cap to0. Spawn and completion reset only their shown fields; no guaranteed automatic re-enable on revive is established. These are recovered-source conditions, not effective HMH settings or original PS4 behavior. [init-fields, value-writes, gadget-build, rate-consumer, cap-consumer, consumer-delay, consumer-force-write, force-producer, gadget-damage, gadget-spawn, gadget-stop, revive-state, revive-tail]",
+        "unknowns": [
+          "Declared defaults (new_health_model1, health_regen1, delay-control0, preamble dvar0, revive-health source write50) are not confirmed effective HMH values. No producer policy precedence or callback order was selected.",
+          "Gadget helper function_820a63e9 may have side effects that affect pending preambles; the direct source reset only emits healing_disabled if heal_end is reached. No cancellation guarantee or observed defect is claimed.",
+          "Rates use the exact source arithmetic. Neither weapon.var_4465ef1e units nor fallback role/n_regen inputs, quickrevive multiplier dvar, optional additions or missing rate multiplier are resolved here. A fallback rate of0 can still be changed by the later switch; enabled==0 returns before that switch.",
+          "Cap0 is a sentinel, including a cap drained to0. Actual tick ordering and delay after damage remain damage_gate-owned; no resulting healing observation is asserted.",
+          "The force producer does not set enabled1 in its cited span. Actual caller selection, normal completion delivery, death/abnormal exit cleanup and cross-spawn force-flag lifetime remain unknown. No automatic restart or recovery was attempted.",
+          "h4 saved398/503, all27 health-gadget records were already present in frozen PRIOR-BODIES; the105 unrelated missing records remain missing. Old h4 wording such as time-unit labels and opaque helper status remains unchanged and unreviewed; this report states only its newly pinned source connections."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00117",
+        "sha256": "4550cea524030c60c76b94ec05f8597ddf3a1872bf37e4b3bbdeb9ec3d4df887",
+        "pointer": "",
+        "record_sha256": "c6cda09d8523852c6011163076f258a265467c60eb1fbeae0bdb63cf8a8848ec"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "0d194cbabfcce4d2d26ac135e19a27887a2ff95b5f9db1c39c3a0a3c7d1d886e",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/474",
+        "record_sha256": "0caf3f34a9b9599edd3e26173f7fa539cadea69ac294bea8723d700d46bbe60c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "1a64485a6ec34b031fbe50f62226f1702b35c8f94508805fe36cbb0e7ca1a64e",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::validate",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "explicit_leftover_initializer_or_dev_registration"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1096",
+        "record_sha256": "06b5e826da3fd2dfcb560e0eccc345de10d8df774b9d42c70da31c28de34e246"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "1fd520e9c0fdec99a481737595b26ca597acbfc0d568451d55aae37e9d96c436",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_func",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/476",
+        "record_sha256": "01942dcc6d2588078b6dda2027af789bbfe05b50c4b462e939d1e1412c453571"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "2e171597b90ca00e7f23eecf80da2b1e79b837f03839e72d1928c8c108a4d5c8",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::register",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/478",
+        "record_sha256": "3e86ad7f9eb9d9eeb19327b05005e10ed61b52e6918245ea27b78f3f39333fcd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "4d5b35b1a8b9e6d84138f2859061e330fce66351ac477d79c09f5eff9f39197a",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::assert_registered",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/933",
+        "record_sha256": "0f22ec26550e022e24934f43a8c778a974a03b27ab3ca5a5663dd605704bb05c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "69f86427c4e0af54324c935a969d4392b4c4f12532df47d4721e90a9cb2a2e8c",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_value",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/477",
+        "record_sha256": "1fd123adbba4811d3e6e9ebe8b9d79ed6da8a79592939f5a51cf098da8e1e334"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "6e35d1432d93007e7c8874a6abbd21c0b1d5b75d131b0c2bbd077afad2e070fc",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::register",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/932",
+        "record_sha256": "425d6db4f410b8b357f21a5de0cb9ca9eae197752e542fb5fd092907e218ceaf"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "a0369f17ecc58500d6816d1997f20829b621adf07d6f349f09b04310e8fe86ea",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::assert_registered",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/475",
+        "record_sha256": "4d6e41d6341b874cf83fb5c94ebd24ae1bec02adc0279064b582656e22022c6f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "be3a8efce9bc8960a3cff214e34a58180edfb7f3f2d4aeadc6789fd2c869bd57",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/473",
+        "record_sha256": "ae4b85bd932f8c41cdf8abc60045bf7f803a6a4de4f5679ba06168998277a0fc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "1f0c1beb4d2f38befbcdda5cab4d2bd4da23c5783360555490870c3a38ddaece",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_value",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/143",
+        "record_sha256": "3ec905b936b488546ea94dcf23f097d80550da02b31b9142b0da09846fb26bd4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "3c3f3260ae8734dc89355f9699c5f8079dd64e65fc2459be0ff3c0325960a2a6",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/140",
+        "record_sha256": "5b67b5742ba2307bdb9aa3e59b06df69c3f8f1d18a974abf985a2d36cd60338a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "84b71250df004e9a93e305905e2bf9a3037dd018e70dcf89cc74769196cc1674",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/141",
+        "record_sha256": "afea97f933e3c305673effd8111c75ca89a037b64f3ea0ccc964094419bc9f76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "926de2e2fbba0876da9ed02a4b42593209968151089cbe9c86c86050c9392406",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_func",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/142",
+        "record_sha256": "8c7a5ef1c27952a7b5840b9a7517b2481fd2b4fba36b7ff1db7b885e3a0e5caa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "198afa37abe792d940a2dd939ee36da189e130dd3076c7b2505daab055c30331",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/140",
+        "record_sha256": "5b67b5742ba2307bdb9aa3e59b06df69c3f8f1d18a974abf985a2d36cd60338a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "22fd33aa010aef6d5fb4586888bbaa893b77ab5e00f33b84ae0727656065d096",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/141",
+        "record_sha256": "afea97f933e3c305673effd8111c75ca89a037b64f3ea0ccc964094419bc9f76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "7ea4b45d4989bbe926b80e95d7fb25c5368d12be37b8c4cc62e042583e584cc1",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_func",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/142",
+        "record_sha256": "8c7a5ef1c27952a7b5840b9a7517b2481fd2b4fba36b7ff1db7b885e3a0e5caa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/092e90c1fafc012c.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "b594bab9ff2f2e5c73df82cc71842d2bf480281aa32f7208ac21d9cca27aef80",
+      "summary": {
+        "id": "scripts/core_common/values_shared.gsc::default_value",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/143",
+        "record_sha256": "3ec905b936b488546ea94dcf23f097d80550da02b31b9142b0da09846fb26bd4"
+      }
+    }
+  ]
+}

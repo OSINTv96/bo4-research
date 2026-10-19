@@ -1,0 +1,2795 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/uieditor/menus/lobby/directorfindgamewz.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+  "git_blob_sha1": "e41341577723fa14ddf50520887ccc7b2e283c5a",
+  "output": "src/ui/uieditor/menus/lobby/directorfindgamewz.lua",
+  "output_sha256": "75d45e2987b7635a0e4d27bbe8e8e28cbe65fb16be3f9a09123170401642e421",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/common/common_tabbar_center.lua",
+      "original_line": 4,
+      "output": "src/ui/uieditor/widgets/common/common_tabbar_center.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/common/common_tabbar_center.lua",
+        "sha256": "dacf6c58c44016878d126db52e667667531975f15b7599f51b47a4eb7c8c3abb",
+        "git_blob_sha1": "731c86c1b22e30b267e64233c4df24fa94b795a3"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/common/commonheader.lua",
+      "original_line": 5,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:2d13d1dd926408a1.lua",
+      "original_line": 6,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:6d6084d285dc1ae8.lua",
+      "original_line": 7,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/footer/footercontainer_frontend_right.lua",
+      "original_line": 8,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/header/header_container_frontend.lua",
+      "original_line": 9,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0201b18988a6184ddf2d8a40744699cff69e9c7acc382b1787e1647603486833",
+      "citations": [
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 73,
+          "line_end": 73,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:052",
+        "answer": "Queries HasDoubleLootXP first; only a falsey result falls back to hasTierBoost on the supplied element. Returns the resulting value, potentially nil. No tier grant/persistence action is implemented here.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/13",
+        "decision_canonical_sha256": "0c25ce90b8f6c46a7e7104a7626678dba567afed3f1d88f9562d43c953942ad9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/51",
+        "record_sha256": "3fd081720974381c5b22b3cd66d10e20d64144415bb4beedef6009ca8d2c3d72"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0e07612bd993c330caadaa04e099b02c541773ae15ea10dafa7cda31cbf1a58d",
+      "citations": [
+        {
+          "line_start": 92,
+          "line_end": 92,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 118,
+          "line_end": 118,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 135,
+          "line_end": 135,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 182,
+          "line_end": 182,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 92,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 118,
+          "line_end": 118,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 135,
+          "line_end": 135,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 182,
+          "line_end": 182,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:080",
+        "answer": "Calls element:sizeToSafeArea(controller,false) and discards its result. Safe-area configuration and device coordinate conversion remain native.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/46",
+        "decision_canonical_sha256": "e9853ea42d7a04d25d0eed54f49f6d6e75186b66d6f4864015deba8e649e4106",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/79",
+        "record_sha256": "ee904d1db73ac57442e67636ee8adff2ccb1a8d6c6cd4143d9af2dc789c3b6a4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0f8587a3f37758414688bad6e8960221048894ed2c9e6424e8ee5f6b081e5a39",
+      "citations": [
+        {
+          "line_start": 41,
+          "line_end": 41,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 37,
+          "line_end": 45,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:226",
+        "answer": "DirectorFindGameWZ uses this class as OptionsList widget type. Constructor builds inner DirectorPlaylistOptionInternal, forwards own model and nonnil descriptionText to GameModeDescription. Featured follows self featured=true and featured link reevaluates state. No playlist action is invoked here; list callback owns selection. Qualified class reset/focus/Featured clips adjust card visuals/geometry, and __onClose closes inner widget through registered CallOriginalSecond close. Optional postload then self return. Original list instantiation, state precedence, flags/data and assets remain conditional.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/16",
+        "decision_canonical_sha256": "f4c6343f065c86d8b06933965ab4da72a0c6d62188ff46e3691a16f570037917",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/225",
+        "record_sha256": "d2f14cdb5744a24b7bbd427e3e120f27c3eb2f75e3701ceff1a27035eb177a53"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0fe128bc612c36c8ddc35714f745d4524e5eea54db8dad0387e8a3779cd1391e",
+      "citations": [
+        {
+          "line_start": 103,
+          "line_end": 103,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 99,
+          "line_end": 107,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:215",
+        "answer": "Returns Engine.toupper(Engine localization(arg0)); the nested localization finishes before uppercasing. Used for labels and model-driven text in the cited common menus. No validation or nil fallback; no subscription, persistence or cleanup.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/97",
+        "decision_canonical_sha256": "ddefd3da602967bb63aa25c4f7231204f7d0eb5a2bb5897bb594ce92848c2e16",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/214",
+        "record_sha256": "021dadb9180d2be8bae3648293f913e9c483952d2fe58405e2eb68f4dd74bdc2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "140b05397f98be30944565db0abd5e627eb3bbf6f74c66a867926b1b96510ebf",
+      "citations": [
+        {
+          "line_start": 190,
+          "line_end": 190,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:065",
+        "answer": "On first snapshot closes popups, optionally debug-closes old HUDs for reload/migration, removes children and arranges loading closure. In Warzone, loading closes only after wzLoadFinished==1; Close clip completion is tracked before freeing, except splitscreen/immediate path. Creates/tracks cursor/fade/overlay/start menu, calls common setup and selects nonZombie or Zombie setup. Finally refreshes HUD, marks snapshot processed and drains pending menu events in order. Repeated model callbacks and parent validity rely on native lifecycle; no runtime proof is claimed.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/5",
+        "decision_canonical_sha256": "9cead06e60f9c938b78c3ac89740bbe5ac053aac53cce0c1ee2285ca375ec7f5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": {
+            "engine_call_names": [
+              "createmodel",
+              "forcehudrefresh",
+              "getlobbymode",
+              "getmodelforcontroller",
+              "hash_2B3B13569A733293",
+              "issplitscreen"
+            ],
+            "implementation_unavailable": true
+          },
+          "unknowns": [
+            "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+            "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+          ],
+          "evidence_limit": "Recovered pinned Lua source statements and bounded author reasoning only. Historical AST IDs/spans are reused as structure, old observations retain their original narrow claims. No independent review, original-build verification, acceptance, live test or function-completion credit.",
+          "unresolved_names": [
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller_anchors": [
+                {},
+                {}
+              ],
+              "disposition": "No exact supplied symbol-body locator; a method may be native, dynamically registered, aliased or absent. No body invented."
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/64",
+        "record_sha256": "1258cb239654e21ede039d850d47ffc49127cbdb91ec6022153e970217b43577"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "172562ab7cc2cddd90fe66ef9352b84c2b3c8c43dbfa2843966285c90dd3b9d6",
+      "citations": [
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 73,
+          "line_end": 73,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:051",
+        "answer": "Queries MainModeHasDoubleWeaponXP with optional element mode/playlist; only a falsey result falls back to the element hasDoubleWeaponXP model. Returns that value with possible nil when no element. Main-mode reward backend remains outside this callable.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/129",
+        "decision_canonical_sha256": "95be5626ea759ef77078a583a8b3cdd9745a381d4640712b84c21444f1f2f04b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/50",
+        "record_sha256": "9bb753d7ae2fc71db95661caa0ccb1801adfbafc574dcf8b5fb58fe4a01bcc5c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1da37a2ae21f4e59b6bd80f30b10ed697f68e46e5e55b4f78d9a230fc0b5a181",
+      "citations": [
+        {
+          "line_start": 220,
+          "line_end": 220,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 220,
+          "line_end": 220,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:083",
+        "answer": "Calls menu:clearSavedState with no explicit return. It does not show any backend persistence deletion or confirmation.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/167",
+        "decision_canonical_sha256": "30332f24a8d3ae09017b842c73931313acec7ba89ddc58279ac266da4f1af74a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/82",
+        "record_sha256": "7a1b3347c3fa4276a989b8806d20e7a4d17c4c34b36cea5fb41605b5fde10864"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "23e4866c109a7344256717e998016ea95ae006129217d4740485ba4c3da89326",
+      "citations": [
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 256,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:196",
+        "answer": "UIList.new builds a GridLayout, sets UIList class/focusability, registers a confirm callback that may play list_action but always returns false, and installs navigation. PC-only mouse-wheel callbacks scroll only when navigation is enabled and return the scroll result; disabled paths fall through. It returns the list without proving user focus or button delivery.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/97",
+        "decision_canonical_sha256": "13296099c7cbb04a6131ee0f41e8c174082087def0c2cc5b5c056f0d6ae6e8ba",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/195",
+        "record_sha256": "45d2a3ef3363b165a4f3f056848ef525e49c664c72890fe287533158e15ed271"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2d64e1334d69877b56e203f8346bf115dec9b88df5d79d28efb681233398f172",
+      "citations": [
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 73,
+          "line_end": 73,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:023",
+        "answer": "Binds item image/description/name from DirectorZMLoadoutPreview. Restriction icon/text can become visible only outside director pregame and public WZ lobby, and when the restricted model flag is true. Thus this restriction-display path is source-excluded under IsPublicWZLobby, despite common construction. Whole widget Invisible follows info-shown false; TraditionalChinesePC has a distinct predicate/clip. No ZM loadout gameplay semantics are inferred.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/9",
+        "decision_canonical_sha256": "3baf4747d9d8910aa1fafba0781c02dcf8a0700c9ef6edb4ad7d81aaefb1cffb",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00241",
+        "sha256": "28e89d13900cc7ee88f2917181aa43d70f21a8e5fc9531e78172e97e94129572"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3b6cb7f63a5377282c07dce0b168dc9287f676f54a5c82e650b5c6882de00601",
+      "citations": [
+        {
+          "line_start": 32,
+          "line_end": 32,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 28,
+          "line_end": 36,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:203",
+        "answer": "Despite the MP name, DirectorFindGameWZ calls this constructor directly. It wraps DirectorFindGamePlaylistInfoDescriptionPanel, forwarding its own model by linkToElementModel. Registers CallOriginalSecond close that closes the child through linked __onClose; optional postload then self return. No MP-only gate, playlist request or gameplay action is in the selected span. Keep actual WZ/HMH selection and external child internals separate.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/51",
+        "decision_canonical_sha256": "eaaf52c327e6644d1a4879bc482ce07954c0254b818b0ed540aa89e783032408",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/202",
+        "record_sha256": "dd0453486f2e51d2a4f87130b91bc5cc2dfac248c2b66c45fec996dff30fa605"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "56071b0e7b6846c8358950de340d8c139e7dcd96314bdf484dd0880da85a8972",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 15,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:193",
+        "answer": "InheritFrom is executed at the cited class assignments, not merely imported. Missing/falsy base throws explicit LUI Error. Otherwise makes a new table with super=base, sets its metatable __index=base, creates a fresh m_eventHandlers table with __index=base.m_eventHandlers, then returns the new class. It shares fallback handlers while permitting per-class handler writes. Does not instantiate widgets, invoke inherited callbacks or close anything. Metatable/native VM behavior and base fields are assumed, no further validation.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/69",
+        "decision_canonical_sha256": "c84cc44eb2c62f4544031b38697648e3db43a3adc8190805a0c2b818c13061c6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/192",
+        "record_sha256": "28096b9a20c988def77f03e8d965db4759673d7a552db8efd9d89c53725de88c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "61ba43fd2d35784638ddc49e2499dcae00b5b50b06e10708967cd6a18c003654",
+      "citations": [
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 73,
+          "line_end": 73,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:048",
+        "answer": "Calls MainModeHasDoubleXP with optional element mode/playlist, then only if falsey consults the element hasDoubleXP model. Returns the resulting value, including a possible nil when no element exists. The unassigned MainMode helper is a source-ready dependency, not reauthored.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/533",
+        "decision_canonical_sha256": "e9d8e84df63610911863d9a59f04831210508045143ac4f712e86b501ac6fafa",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/47",
+        "record_sha256": "2d11ea2b6c89f98d4e9921ecfba25ffa668c5e0ad618d13c8fbfa621d7d7c22e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7c193e2b2b0222b7572c8abc72b776a51d00285f176ac84356c8e1f17889ab16",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow2:111",
+        "answer": "Reuse both historical exact semantic contracts: IsBitwiseAndNonZero tests bitwise intersection~=0 with original VM width/precedence limits. ClearBit subtracts1<<index only when IsBitSet; empty else falls through nil. Do not add an unchanged-value fallback. This file question has zero new draft credit because both bodies are reused.",
+        "unknowns": [
+          "Exact original PS4/source version matching, recovered Lua/VM fidelity and global/native/LUI provider identity remain unverified.",
+          "Model/storage/DDL/assets/localization/dvar/enum values, callback delivery/cancellation/error behavior, native networking and unavailable service/server code are separate inputs.",
+          "Other-file locals are not providers by spelling. Exact qualified global declarations are source candidates until loader/table identity and caller conditions bind them.",
+          "No implicit nil/type checks, exception recovery, timer/model disposal, idempotence or guarantee that later effects run after an error is added."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/27",
+        "decision_canonical_sha256": "6da6b23b20bcfa85816be80d90bb00a03494da19507c308d277c19ccfa39da3f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00028",
+        "sha256": "2f4ecc3aabb5072135e148ef5782181882bd3b940908913a20bf258d3754185e",
+        "pointer": "/units/110",
+        "record_sha256": "4567dbac7e486de026370682511823da51e716f72ad4ef365b647f4796b1fe40"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "844c6065c81bdc3f6fbfe5c4bd8e7fdcf9bf61bea726636941fb2b0eac24799e",
+      "citations": [
+        {
+          "line_start": 244,
+          "line_end": 244,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 244,
+          "line_end": 244,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:070",
+        "answer": "Assigns element[propertyKey]=value directly, including nil removal. No validation, mode gate or explicit return. Callers own key/value validity and any later interpretation.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/356",
+        "decision_canonical_sha256": "6766cf4212360b16aeae232b76e4ef42ed110d80b97688587a1144041245841b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/69",
+        "record_sha256": "bc6d3c10bca2a1f57fdff18cfaa6adbc00a466452ce2abe76ffc2bd31a354c42"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8e5ed1b6d719781cfb01cb84de19b2be60ef3cbd2f607181714d1e149b04de82",
+      "citations": [
+        {
+          "line_start": 219,
+          "line_end": 219,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 219,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 256,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:146",
+        "answer": "CallOriginalFirst appends the supplied callback to the table returned by OverrideFunction_GetFunctionTable. CallOriginalSecond inserts its callback at index1. Neither wrapper directly calls the original or callback or returns a value. The naming does not prove runtime order independently of the dispatcher, which remains a reusable available dependency.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/26",
+        "decision_canonical_sha256": "9750ddf13f4dbe86a6923fa8ffdee18bc881285ede5267d41afa748207884053",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00044",
+        "sha256": "46ecb6cfe8fa919ec918f489610848dcd8b393e632706abbfd898ba7b2a05c62"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a53360aa7c935d4fd811c85e3f46e9d9893b6d6b150db569324b3abf8832f03f",
+      "citations": [
+        {
+          "line_start": 105,
+          "line_end": 105,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 101,
+          "line_end": 109,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:237",
+        "answer": "Registers LobbyRoot at global lobbyRoot via GlobalDataSourceSetup, supplying an initializer callback and false as final flag. Only when that external helper invokes the initializer are isMatchmaking=false, showSelect=true, three status strings=hash_0, selectedXuid=INVALID_XUID_X64, selectedXuidTeam=team_free, hostGamertag='', percentInstalled=100 and selectScreenDescription=hash_0 set. It also creates leaderActivity, update/download/team/client/party models without initial values. Registration is not invocation; provider ownership/lifetime stays with the external helper.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/743",
+        "decision_canonical_sha256": "5f29380f34464b7ecb18eece60b96fb74c51d8c39bc6e5ac8c233f8ca1218353",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/236",
+        "record_sha256": "71f9ce970cd61ae6632484db1c8f55ca694e9666bf5060f9575444d6c902d8dc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a58d4776573ba53d796de4d18817c65e66f8d1ed9a249d014ce9e3e90ede133d",
+      "citations": [
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 256,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 11,
+          "line_end": 11,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 15,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:003",
+        "answer": "Assign the supplied widget type to the receiver field, then request receiver:clearLayout(). The source setter does not call the widget constructor.",
+        "unknowns": [
+          "Exact selected recovered Lua source only, conditional module/caller bindings. Original loader/global overwrite/VM/native/DDL/settings/assets/service/server/PS4 behavior remain unverified. No independent review, acceptance, function completion or runtime credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/143",
+        "decision_canonical_sha256": "9c638e54ac1f32c75e0b10cc97be4aff99b6721d528251b2d11b08fc4db57053",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/2",
+        "record_sha256": "3843c6aed3c88d59e0c2b91a3eb9d0e61ecd93d8a7660df06791bae7e79e7153"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a7dd8b6448487aadbec69b2f38b9e23ca580c49633b7401ad7166a4714996b52",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:084",
+        "answer": "NewFromState errors for nil menu name, creates UIElement, optionally captures DEV model count and binds ModelToUse, applies overwrite name, initializes callback/pending lists, registers opened/menu name and cursor snapping; missing controller falls back to primary, cursor support adds focus-paths/subscription. NewForUIEditor creates button prompts and PC/shoutcaster key prompts, returns menu. DebugClose invokes close. UpdateButtonShownState scans condition-function rows, enables at first truthy result, otherwise preserves menu/element disabled states, then disables enabled prompt for animated occluder and writes final state. SetButtonLabel updates existing label/flags, handles one overlay-label hash, clears contextual flag outside free cursor, updates PC key flags after stripping two bits and refreshes cursor prompts. GetNavigationForMenu scans navigation groups/entries backward, returns [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/914",
+        "decision_canonical_sha256": "8bed5dc3531b78288b994c035bb13cb60b364136c7e0b4f81e0adfe7bc24e83e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/83",
+        "record_sha256": "f166f3d0ac206847a0ec4bbc3c4cb28fe076b4dd678e2d9838838f5e65337d0e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ad80323257b6672f975450436d110865c366a45bed236345d7724228be015ef7",
+      "citations": [
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 12,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 8,
+          "line_end": 16,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 33,
+          "line_end": 33,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 34,
+          "line_end": 34,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 46,
+          "line_end": 46,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 49,
+          "line_end": 49,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 59,
+          "line_end": 59,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 84,
+          "line_end": 84,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 103,
+          "line_end": 103,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 104,
+          "line_end": 104,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 105,
+          "line_end": 105,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 108,
+          "line_end": 108,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 111,
+          "line_end": 111,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 128,
+          "line_end": 128,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 153,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 157,
+          "line_end": 157,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 174,
+          "line_end": 174,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 175,
+          "line_end": 175,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 188,
+          "line_end": 188,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 203,
+          "line_end": 203,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 204,
+          "line_end": 204,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 206,
+          "line_end": 206,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 209,
+          "line_end": 209,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 212,
+          "line_end": 212,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 219,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 223,
+          "line_end": 223,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 249,
+          "line_end": 249,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 250,
+          "line_end": 250,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 251,
+          "line_end": 251,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 252,
+          "line_end": 252,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 253,
+          "line_end": 253,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 254,
+          "line_end": 254,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 255,
+          "line_end": 255,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 51,
+          "line_end": 51,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 53,
+          "line_end": 53,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 57,
+          "line_end": 57,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 60,
+          "line_end": 60,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 61,
+          "line_end": 61,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 65,
+          "line_end": 65,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 70,
+          "line_end": 70,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 72,
+          "line_end": 72,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 73,
+          "line_end": 73,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 75,
+          "line_end": 75,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 77,
+          "line_end": 77,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 86,
+          "line_end": 86,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 88,
+          "line_end": 88,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 94,
+          "line_end": 94,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 97,
+          "line_end": 97,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 107,
+          "line_end": 107,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 113,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 115,
+          "line_end": 115,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 119,
+          "line_end": 119,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 122,
+          "line_end": 122,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 130,
+          "line_end": 130,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 132,
+          "line_end": 132,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 136,
+          "line_end": 136,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 139,
+          "line_end": 139,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 147,
+          "line_end": 147,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 149,
+          "line_end": 149,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 177,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 179,
+          "line_end": 179,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 183,
+          "line_end": 183,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 186,
+          "line_end": 186,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 191,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 208,
+          "line_end": 208,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 214,
+          "line_end": 214,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 217,
+          "line_end": 217,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 224,
+          "line_end": 224,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 234,
+          "line_end": 234,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 238,
+          "line_end": 238,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 245,
+          "line_end": 245,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 248,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 248,
+          "line_end": 256,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 220,
+          "line_end": 220,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 215,
+          "line_end": 225,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 102,
+          "line_end": 102,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 97,
+          "line_end": 107,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 144,
+          "line_end": 144,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 139,
+          "line_end": 149,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 32,
+          "line_end": 32,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 37,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 149,
+          "line_end": 149,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 144,
+          "line_end": 154,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 60,
+          "line_end": 60,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 55,
+          "line_end": 65,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 70,
+          "line_end": 70,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 65,
+          "line_end": 75,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 83,
+          "line_end": 83,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 78,
+          "line_end": 88,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 13,
+          "line_end": 13,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 8,
+          "line_end": 18,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 71,
+          "line_end": 71,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 66,
+          "line_end": 76,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 74,
+          "line_end": 74,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 69,
+          "line_end": 79,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 216,
+          "line_end": 216,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 211,
+          "line_end": 221,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 47,
+          "line_end": 47,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 42,
+          "line_end": 52,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 56,
+          "line_end": 56,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 51,
+          "line_end": 61,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 127,
+          "line_end": 127,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 122,
+          "line_end": 132,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 64,
+          "line_end": 64,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 59,
+          "line_end": 69,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 213,
+          "line_end": 213,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 208,
+          "line_end": 218,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 86,
+          "line_end": 96,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 196,
+          "line_end": 196,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 191,
+          "line_end": 201,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 219,
+          "line_end": 219,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 214,
+          "line_end": 224,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 237,
+          "line_end": 237,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 232,
+          "line_end": 242,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 22,
+          "line_end": 32,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 25,
+          "line_end": 25,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 20,
+          "line_end": 30,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 33,
+          "line_end": 43,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 103,
+          "line_end": 103,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 98,
+          "line_end": 108,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 239,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 234,
+          "line_end": 244,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 244,
+          "line_end": 244,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 249,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 92,
+          "line_end": 92,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 87,
+          "line_end": 97,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 118,
+          "line_end": 118,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 113,
+          "line_end": 123,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 135,
+          "line_end": 135,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 130,
+          "line_end": 140,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 182,
+          "line_end": 182,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 177,
+          "line_end": 187,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:239",
+        "answer": "The supplied factory self-definition is registration, not an observed invocation. Conditional factory contract: create DirectorFindGameWZ menu, set user-data properties, SetupDirectorFiltersCards, owner/sound, build selected info and 3x4 OptionsList using DirectorPlaylistOption. Confirm consumes over-max-party input without action; otherwise unlocked item runs ProcessListAction then GoBack and returns true; locked falls through. Label over-max/locked returns false, unlocked selects true. Selected info links active option model; tab grid dataSource changes replace OptionsList datasource. Footer/header/backing/tabbar menu_loaded handlers call local/super handler, safe-area logic (footer only non-PC) then dispatch unhandled events to children. Tabs Hidden=not MultiplePlaylistTabsAvailable, reevaluated on grid/input changes; tabs use DirectorFilters with8 columns. list_active_changed gives f [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/947",
+        "decision_canonical_sha256": "a0a70ecbade22aa9060196cf21049c2fdecf9ddb7277b475612c645faa9be0bd",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/238",
+        "record_sha256": "11b40ca38c1b41286c7e78f9d8de4acd28109ea34dc6dc0c75f3f4b5d02de76a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b49592ac84fb70e44254bf72cfdde1be503bf2222c2c821d5fb8f56187f24ae2",
+      "citations": [
+        {
+          "line_start": 25,
+          "line_end": 25,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 25,
+          "line_end": 25,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 25,
+          "line_end": 25,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:008",
+        "answer": "UIImage.new forwards all eight layout arguments to UIElement.new, sets UIImage class, calls setupUIImage and returns self. GetCachedMaterial indexes Materials by requested key; only a nil cache entry calls RegisterMaterial and writes its return to the cache, then returns the cached value. False is a cache hit; a nil RegisterMaterial result can be retried next call. No image/native/material ownership or original runtime contract is supplied.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/153",
+        "decision_canonical_sha256": "0c824ef663d69c81f0c2c0a8f4abd2f578ba9fe801b54fda18a1a6d31b56bf26",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/7",
+        "record_sha256": "7329bd99e083ca457a54272bf2df1457c445a3fb2e8a07aa636d127734ffcbbf"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b972c6515b1cc0a4bd6f9af145d719e68c7206d2a0d23950493fc009514b0978",
+      "citations": [
+        {
+          "line_start": 60,
+          "line_end": 60,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 70,
+          "line_end": 70,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 60,
+          "line_end": 60,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 70,
+          "line_end": 70,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:146",
+        "answer": "Reads global playerCount with0 fallback and element maxPartySize with0 fallback; returns maxPartySize<playerCount. Model objects themselves are not guarded. It does not query or alter session membership.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1016",
+        "decision_canonical_sha256": "8e38b8aee55bc0d6d1e4fc9e5c2653502d3cb1760ae3a747c29197afa9f5f67a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/145",
+        "record_sha256": "2cb12dc3e266dd253b61ecbd8b52d11174922905a02df8d700039802e0a913b5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bf31d75da3c1204a80f2f77cb7e70d87b4ff4432a607aebe19218171aeaebef2",
+      "citations": [
+        {
+          "line_start": 196,
+          "line_end": 196,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 196,
+          "line_end": 196,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 196,
+          "line_end": 196,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 12,
+          "line_end": 246,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:041",
+        "answer": "Creates GridLayout and its itemStencil, configures optional stencil by arg12, initializes row/column/layout/cache/navigation/scroll bookkeeping exactly as below, resets current row/column and records requested counts. Boolean defaults use Lua or false rather than argument validation. getDefaultFocus delegates getFirstSelectableItem(false); _on_menuOpened forwards its three event arguments to self:menuOpened. Registers that callback with the supplied menu and returns self. The grid's navigation/layout implementation and callback teardown are outside this constructor; native ownership is unproved.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/537",
+        "decision_canonical_sha256": "be070c4604968abec1b920de1afe3958d606c9e95ae31bf5ef588e4e9a578ba4",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/40",
+        "record_sha256": "201118336429d5ec36b9f53863229f100ee5e600b65aae1998c2498aa2c6f58c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d7f7e5f7265e85723eed354f53cee40afc357035edf4a7f0c4f71af7b751f952",
+      "citations": [
+        {
+          "line_start": 149,
+          "line_end": 149,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 149,
+          "line_end": 149,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:120",
+        "answer": "If Filters is truthy, returns #Filters>1; otherwise returns the original falsey Filters value. Lua0 is truthy, so the intermediate length check does not suppress empty lists; an empty table produces false. No registration or mutation.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1001",
+        "decision_canonical_sha256": "52be68b88c6ab24abddce291dcba37de00ed11a7a3eb9622db570b8f70a74eab",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/119",
+        "record_sha256": "940be0d4af525c50fe6aa0acb5406743efb806d0d6ff455afb231228a3f31ceb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d8a3068422c146ba858834fedc0d5fdde86e9920889ae7cc95a2956f5e016c86",
+      "citations": [
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 91,
+          "line_end": 91,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:098",
+        "answer": "Returns CoD.isPC as stored, without conversion. Original platform initialization remains the dependency for excluding PC-only paths on PS4.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/609",
+        "decision_canonical_sha256": "a9c7e8bffc7a67010321c75164244417cd8deba195c8954f984989200ee3e301",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/97",
+        "record_sha256": "ef973b45f831fc5e0b1b1cda63210d001db4795d95085aace086e30726e69b67"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e3af0d1d567dc41faf5870215f942bedbb447a656e639cc9bc7c52100b388356",
+      "citations": [
+        {
+          "line_start": 174,
+          "line_end": 174,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 174,
+          "line_end": 174,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:119",
+        "answer": "Registers DirectorFilters list provider. Its callback builds tab models/properties from Filters, marking selectIndex for an equal card.playlist only outside Featured. The compared local is getplaylistid() when FocusFeaturedFiltered is falsey and the literal false sentinel otherwise; a false-valued card.playlist can therefore match on the filtered path. No validated playlist type excludes that case here. It may append ArenaNews only in arena, then returns the list. Registration does not invoke its action values; runtime provider delivery and exact playlist set remain external.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/49",
+        "decision_canonical_sha256": "3317f03681878964e115d02418cc09374c0d6fcfc896af925077bcc9650beaec",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00285",
+        "sha256": "9277b835037b66b516aa2b4ec1ddb34d6d9822c4f35c3ba3276ae889c123ef62"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "eaa77da88352222337ed93773d05c41f7e890370f4199a65145f26f3d566b5d8",
+      "citations": [
+        {
+          "line_start": 144,
+          "line_end": 144,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 144,
+          "line_end": 144,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:113",
+        "answer": "Initializes CommonCurrentActiveTabIndex to1, constructs bumpers, basic tab list and two PC arrows. Arrow Disabled predicates test first/last tab; activation calls DoBumperGridButton with true/false respectively and consumes. ArrowShown requires ShowTabArrows and not gamepad; Hidden is locally false. Grid/input/model events revalidate. Frozen class reset/clips/close own presentation and disposal; no tab backend is reconstructed.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00874",
+          "sha256": "6e9219780f17200689b460c5f63edf855b0802b28c5ea54d7715ed95d51932a1"
+        },
+        "report_pointer": "/unit_reviews/13",
+        "decision_canonical_sha256": "b154e28ca75afdd6668f11986c2303d74172e7b14a73c35ade208c393fab80e6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": {
+          "title": "Common_Tabbar_Center constructor, callbacks and companions",
+          "scope": "Full wrapper.record and complete original claim/evidence, including unchanged fields, all current linked semantic reuse/projections, exact current/original joins, original source, required callers/callees/callbacks/companions/errors and explicit limits. No diff-only or quote-only semantic acceptance.",
+          "body_contracts": 21,
+          "compared_top_level_fields": [
+            "unit_id",
+            "task_id",
+            "owner",
+            "status",
+            "question",
+            "answer"
+          ],
+          "traversed_nodes": 4022,
+          "traversed_scalar_fields": 3033
+        },
+        "limitations": [
+          "Recovered pinned Lua source scope only; original source/bytecode fidelity and PS4 build/platform/loader/table-global identity remain unverified.",
+          "External/native/LUI/Engine/model/enum/settings/assets/data/storage/service/provider effects, VM behavior, callback/animation/timer delivery and errors are not established beyond the literal source requests.",
+          "Historical author/reviewer/route/status bytes remain preserved history; unavailable exact historical identity or settings are not inferred from labels, paths, receipt success or this new review.",
+          "Every old source/review/failure and current frozen subject is unchanged. Higher author copies reported during review were not read. Manager alone may import exact-version verdicts; this report accepts no package or whole mode.",
+          "No new reconstruction, web/network/GLM/model calls, nested agents, installation, live console/game/account/router/save action, scheduler or restart occurred. All runtime/build/native/VM/function/whole-mode credits are zero."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00286",
+        "sha256": "dcc2dee3a438b2235aea15810b19a07ef0f89481d895ed2deca6bfaebd4f10e9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "efcb0a0450ff8d7887f63fb001b05693794727a2bcd5e704630ce1e4ac985094",
+      "citations": [
+        {
+          "line_start": 64,
+          "line_end": 64,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 213,
+          "line_end": 213,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 64,
+          "line_end": 64,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 213,
+          "line_end": 213,
+          "file_sha256": "944d991abe559e3f7ae18b64c094eeb46ee6897bcb3d2b202cc05b1125cef8d3",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:081",
+        "answer": "Returns early for no menu or Rat.DisableGoBack. Otherwise climbs parents until menuName, when navigation indices exist, first assigns previousMenuName2041 and then clears the current navigation entry2042, removes an empty navigation list, saves state then returns goBack(controller). A missing menu ancestor is not guarded inside the loop; native navigation/lifetime behavior remains conditional.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/673",
+        "decision_canonical_sha256": "167b7fa6cc2c23be3a0dd51ce5e19b9bfa66848e33049fac989824177cb8303b",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00287",
+        "sha256": "07cbe5b0a687b0ba83dc2a5ec9258ad36c1cc824eb85e57754f57feadf0c1626",
+        "pointer": "",
+        "record_sha256": "42400fc183ee881a28c48c003b33637fb6678c9d2837a814ef86a198d76bd465"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/b833d0510397cccd.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/27a94c5c9c541a5c-001.json",
+      "sha256": "387c2ae54b21680f7184205510acbb190cd10b5f2b209b2ad4f5af2611c69b3a"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/collapse_grenade.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "e1c614a201fd273737ef79a54f84585b489a1740ee77e1254b380afe3a809802",
+  "git_blob_sha1": "3b982ccb1c89eede6eb6ddfbe0d400140f02f7e5",
+  "output": "src/scripts/weapons/collapse_grenade.csc",
+  "output_sha256": "54bb6aa394f1836ac716d4bb2dae9278b1034fca60a196e93f41ba664fcf86fb",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/clientfield_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.csc",
+        "sha256": "68ebd6e58269bf4481b3f3b3c32a3d36e93c92b7b18efef98acda1b215651510",
+        "git_blob_sha1": "1d741c3a0186dc6564d27c7ac45e5342370a71bc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "402ded3c90ef636fe19034b354b4483f3781237c4fa63406019047644726b972",
+      "citations": [
+        {
+          "line_start": 20,
+          "line_end": 24
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::__init__",
+        "behavior": "Client system init: registers two replication callbacks. (1) clientfield::register( \"scriptmover\", \"collapsesphereflag\", 1, 1, \"int\", &function_fe37390, 0, 0 ) â€” watches the collapse sphere flag on scriptmover entities. (2) clientfield::register( \"toplayer\", \"playerincollapsegrenade\", 1, 1, \"int\", &function_6f48ad35, 0, 0 ) â€” watches the per-player inside-collapsed-area flag. Both with size 1, type int, and two numeric options (0, 0).",
+        "unknowns": [
+          "Meaning of the trailing (0,0) register options (e.g. send-to-host/priority bits) is engine convention, not documented here",
+          "Paired collapse_grenade.gsc is available in the original packet: function_5df80e43 writes collapsesphereflag1, playerincollapsegrenade1 on entry and0 on exit; function_adc9aab9 writes playerincollapsegrenade0 on cleanup. Actual PS4 replication and callback delivery remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/287",
+        "decision_canonical_sha256": "f0908d09977e215e17bb4e062298fa5acf394e21a354b5df5f16edab7efdd95f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00799",
+        "sha256": "1385421d38bd3149572a164e6fb46c4dfe331b6c520e513c66c57aefc095914e",
+        "pointer": "",
+        "record_sha256": "8e14e9e85b2a238f499bc23f3753e163c06cbb6d79c3c19e6b4109e33dad1ab7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "66ae7b074d229505b3b28b96efb2cd0feea9cd2dc4e0c3eb12625af92ce8f065",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 14
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the collapsegrenade client system: system::register(#\"collapsegrenade\", &__init__, undefined, undefined) â€” &__init__ is passed as the init callback; invocation timing/count remain unresolved; main is undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init callback is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/464",
+        "decision_canonical_sha256": "1108279b908e00f784bf7855001f543eb9aff4f2bf1510b55f703fce69e1e937",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00800",
+        "sha256": "15bc188830f90321ea5f1447391926ed6f27b8366da45834693dd273341d5a2f",
+        "pointer": "",
+        "record_sha256": "003d5d5dd91623cd985ea93b26511c2e83cf3e8f317d035e18a6eb2cd22f5082"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7787059012f87fcce8d8933769c17424246baad7cf5d5fb5ba9a4674cd3208a2",
+      "citations": [
+        {
+          "line_start": 40,
+          "line_end": 63
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::function_6f48ad35",
+        "behavior": "Clientfield callback for \"playerincollapsegrenade\" on the player (toplayer field). Branch on newvalue == 1 (player now inside the collapse bubble): self codeplaypostfxbundle( #\"hash_7c7ea03189fe65d8\" ); self.var_d8c2003e = playfxoncamera( localclientnum, \"wz/fx8_plyr_pstfx_barrier_lvl_01_wz\", (0,0,0), (1,0,0), (0,0,1) ) (full-screen on-camera barrier post FX, handle stored on player.var_d8c2003e); self.var_7b79495b = function_239993de( localclientnum, \"wz/fx8_player_outside_circle\", self, \"tag_origin\" ) (second FX effect played relative to the player, handle on player.var_7b79495b); return. Otherwise (newvalue != 1, leaving/none): self codestoppostfxbundle( #\"hash_7c7ea03189fe65d8\" ); if isdefined( self.var_d8c2003e ) -> deletefx( localclientnum, self.var_d8c2003e, 1 ); self.var_d8c2003e = undefined; if isdefined( self.var_7b79495b ) -> killfx( localclientnum, self.var_7b79495b ); self.v [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_239993de is an unresolved external (definition not in catalog); it returns an FX handle and receives an FX path plus entity/tag",
+          "Exact distinction between deletefx and killfx (native) is unverified",
+          "The paired GSC source is available in the original packet: function_5df80e43 writes playerincollapsegrenade1 on entry and0 on exit; function_adc9aab9 writes0 during cleanup. Original field replication, callback delivery and actual native FX cleanup remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/647",
+        "decision_canonical_sha256": "41e506239e1ec8f5701d445e6e1b51f662bb8f919777e7833c10084f1ed67631",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00801",
+        "sha256": "d7b83adac342bf6c04616af01e55e7d89fe95d9b7b63ada8541688cac7c49d3a",
+        "pointer": "",
+        "record_sha256": "2c865756ddbe6b12212ab475a964bffc5b145bdf97f9128a321cde14a6c047e9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f0d68d906dd4f424b508e7b93eacccda39423356f0416158509c703b4bf31e30",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 34
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/collapse_grenade.csc::function_fe37390",
+        "behavior": "Clientfield callback for \"collapsesphereflag\" on scriptmover entities (signature: localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump). Unconditional on any value change: self playrenderoverridebundle( #\"rob_wz_boundary\" ) then self function_78233d29( #\"rob_wz_boundary\", \"\", \"Scale\", 1 ) â€” applies a render-override bundle named rob_wz_boundary and sets its 'Scale' parameter to 1. No newvalue check; no teardown in this callback. Shows the collapsing boundary sphere on the affected scriptmover.",
+        "unknowns": [
+          "function_78233d29 is an unresolved external (definition not in catalog); exact parameter meaning (bundle name, group, param name, value) inferred from call form",
+          "Whether the bundle is removed on entity deletion or another path is not shown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1326",
+        "decision_canonical_sha256": "97174c94caf94d9faeb636cca2186c86b4b94a147a212df59742a47a8f50d1d6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/19",
+        "record_sha256": "c0b9454c9a730ccee285ca5310d6969ab0ae303bd4c413057a45a81ed73930fa"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/d146334e9f76bada.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/e20ee2913bac3d92-001.json",
+      "sha256": "47d75c1d36e7e43120d03e254d62a75e7b9300deceff2e6d854e9e8d7bba0c49"
+    }
+  ]
+}

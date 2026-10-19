@@ -1,0 +1,118 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/rank_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1a518d16d87dbfffecfb01ee1bf17b32c948abbae5a0a9984baefb8950b10a3e",
+      "summary": {
+        "id": "scripts/core_common/rank_shared.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/393",
+        "record_sha256": "74e379e4767b857fc8696d5887837194be26abf447f15541f2a4e1bce4982deb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "aad5effb44b567dbfca6ed61f051c0edfe22e029772b9376b5d753e82b4dec14",
+      "summary": {
+        "id": "scripts/core_common/rank_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/394",
+        "record_sha256": "556a725dd0656fe8c404d11b0cfc9cd0ed6baffdc542039c8bfd2a2f66c7a515"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "c3db0f7860a8a29af3b35ece58ba1e1c10a15365d356d03e07785f92e1e22865",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:rank-stats",
+        "answer": "rankedmatch / gamemodeisusingstats / progression gates for HMH. PRODUCERS (proved scripts): mp_common/gametypes/globallogic.gsc init â€” level.rankedmatch = gamemodeisusingxp() at line 161 (NATIVE built-in, no GSC definition anywhere in the corpus; its value for wz/HMH is a native fact); level.leaguematch = 0 (162); level.custommatch = gamemodeismode(1) || gamemodeismode(7) (163, native builtins); level.arenamatch = gamemodeisarena() (164). DEV-ONLY override (171-176): inside /# #/ dev delimiters, if getdvarint(#scr_forcerankedmatch, 0) == 1 then level.rankedmatch = 1 â€” dev-block build inclusion is itself unverified (m3 unknown A1). level.disablestattracking = getdvarint(#scr_disablestattracking, 0) > 0 (278) â€” that dvar is set by NO recovered HMH layer (absent from frontend/TU23/def/anchor). level.contractsenabled is computed from getgametypesetting(#disablecontracts) then IMMEDIATELY hard-forced to 0 at 166-167 (an in-source override; contracts disabled regardless of any playlist value). gamemodeisusingstats() has EXACTLY ONE script read in the corpus: core_common/rank_shared.gsc:678 â€” if (sessionmodeismultiplayergame() && gamemodeisusingstats() || sessionmodeiszombiesgame() && sessionmodeisonlinegame()) guards the paragon-rank block (680-699); the builtin has no GSC definition, so for wz/HMH its truth is native-unknown. HVO progression gate (reused m1 record): core_common/high_value_operative per-spawn collector gates on dvar hash_35dbebb08d656926 set + self.var_228b6835 truthy + level.rankedmatch true + !level.disablestattracking; level.rankedmatch effective value and the two prior unknowns (dvar value, var_228b6835 producer) remain outside this packet. STATS PROVIDER/SERVICE LIMITS: rank_shared on_connect69 reaches the compared 592-739 source chain with getrankxpstat / stats::get_stat_global requests and the shouldkickbyrank604-608 branch. player_stats get_stat_global440-448 selects arena/statvalue paths, while get_stat82-104 requests self readstat. Their backing provider, persistence and online synchronization are unresolved; these calls do not establish a blanket requirement for an online service. shouldkickbyrank529-552 compares stored fields with local host/rank gates; that comparison is not itself proof of an online request. set_stat_global416-434 keeps its explicit eligibility/Warzone/arena branches, and eligibility38-67 retains its Warzone merits/pregame/dedicated-or-testing gates. Whether any provider service or enforcement applies to actual HMH sessions remains unknown; unavailable implementation is preserved as a gap. NO recovered HMH playlist layer sets any progression-related key (no rankedmatch/xp/contracts keys in frontend 8360-8592, TU23 8719-8980, def 8244-8639); the anchor bundle contributes only scoreboard column NAMES (rows 321-329) consumed via setvisiblescoreboardcolumns (gametype.gsc:25).",
+        "behavior": "rank-stats: level.rankedmatch = native gamemodeisusingxp() (161) with dev-only dvar override; disablestattracking from unset dvar; contractsenabled forced 0; gamemodeisusingstats single read rank_shared.gsc:678; HVO gate chain and unresolved backing stats providers/service requirements kept explicit; no blanket online-service dependency inferred.",
+        "unknowns": [
+          "gamemodeisusingxp()/gamemodeisusingstats() native values for wz/HMH (no GSC definition)",
+          "Original-build dvar values scr_forcerankedmatch/scr_disablestattracking and dev-block inclusion",
+          "HVO dvar hash_35dbebb08d656926 and self.var_228b6835 producer",
+          "Backing stats providers, persistence/online synchronization, service requirements and actual HMH enforcement remain unknown; no blanket online-service dependence is established by these saved source calls."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00403",
+        "sha256": "bd861bd7cafdabf83fe7120ffee0a04efc8ca5f805ba772727bdc28dd5911653"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "c6ad670f778340246b6158374a9d7270da78ca061557c9a0e51dffd36a92005e",
+      "summary": {
+        "id": "scripts/core_common/rank_shared.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/891",
+        "record_sha256": "46970212098ab35c7ae5ae0c79944b5dd0d56c9db33847b71781b9de62569cc0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "f965cc3b07ab217f0c14163827829aa05fea1f2027d8c751be984a35ba4d46df",
+      "summary": {
+        "id": "scripts/core_common/rank_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/108",
+        "record_sha256": "b7343f970210b094c833d0ea8b987df125d873281318868a4720ba2dfe47fdac"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6465b14f3d630bf0.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "691c4a6771aec283532c20c8139104a32b227c3b1d576d9a3c2d048cd4e14a46",
+      "summary": {
+        "id": "scripts/core_common/rank_shared.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/108",
+        "record_sha256": "b7343f970210b094c833d0ea8b987df125d873281318868a4720ba2dfe47fdac"
+      }
+    }
+  ]
+}

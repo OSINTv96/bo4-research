@@ -1,0 +1,66 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/smokegrenade.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/3b4b8df12421d28f.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "17c441ce1a618f6fe150b085c2d202b341e0843dbda05a2800ce3079d5705fb0",
+      "summary": {
+        "unit_id": "scripts/weapons/smokegrenade.gsc::waitanddelete",
+        "behavior": "Delayed delete (time; self = a ghosted entity): self ghost() (native ghost state); self endon( #\"death\" ); wait time; self delete(). Used for temp smoke props.",
+        "unknowns": [
+          "ghost() native semantics"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/349",
+        "record_sha256": "61341b341d5d9d156eb1ec2d484d28b81a825a3b2a38e755dc86e3728d1aab6e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/3b4b8df12421d28f.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "268d6a48dbabef2602345c73da2884016358cba5f6e7e18cfeb3c71966399ce5",
+      "summary": {
+        "unit_id": "scripts/weapons/smokegrenade.gsc::playsmokesound",
+        "behavior": "Positional smoke sound sequence(position,duration,startsound,stopsound,loopsound). Request spawn(script_origin,(0,0,1)). Only if smokesound is defined, install smokesound endon(death), reposition its origin, conditionally request startsound and loopsound, wait duration-0.5 only when duration>0.5, conditionally launch thread sound::play_in_space(stopsound,position), request smokesound stoploopsound(0.5), always wait0.5 on this continuing guarded path, then request deletion. An undefined spawn skips every post-spawn operation and falls through. For ordinary finite numeric duration<=0.5 the initial wait is skipped but the final0.5 wait remains; for duration>0.5 the requested source waits are duration-0.5 then0.5. Endon/errors/scheduling can stop or alter actual timing; no exact audio fade, playback or native lifetime outcome is proved.",
+        "unknowns": [
+          "sound::play_in_space helper outside packet",
+          "Sound aliases passed from statweapon.projsmoke* fields (weapon data)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00408",
+        "sha256": "f81833e976cb7912183e2750f2900d2c17a1e11517732bde69d61fbfee6a0273",
+        "pointer": "",
+        "record_sha256": "58c8311db915d1620805b591da3f2b798147465f2874d7eed794389f3003be72"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/3b4b8df12421d28f.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "36a18076dc4ec3e79dbafee1b2ba5a4578ca4e3f96e94b5fbedd64671958034d",
+      "summary": {
+        "unit_id": "scripts/weapons/smokegrenade.gsc::smokedetonate",
+        "behavior": "Smoke detonation core (owner, statweapon, smokeweapon, position, radius, effectlifetime, smokeblockduration). effectlifetime defaults 10 when undefined. ent = spawntimedfx( smokeweapon, position, ( 0, 0, 1 ), int( effectlifetime ) ) (native timed FX - the smoke cloud); when owner defined: ent setteam( owner.team ) and (when owner is a player) ent setowner( owner ) (team/ownership filter for the smoke entity). Threads on the ent: smokeblocksight( smokeweapon, radius ) (unit 349) and spawnsmokegrenadetrigger( smokeweapon, smokeblockduration, owner ) (unit 351). When owner defined: owner.smokegrenadetime = gettime(); owner.smokegrenadeposition = position (thrower memory consumed by other systems). Sound: thread playsmokesound( position, smokeblockduration, statweapon.projsmokestartsound, .projsmokeendsound, .projsmokeloopsound ) (unit 360). Returns ent.",
+        "unknowns": [
+          "spawntimedfx with a weapon asset creates the smoke visual/damage data natively",
+          "smokegrenadetime/position readers outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/346",
+        "record_sha256": "9445f415f63ae7283ddb571a3e9758a78d5bb733b30eba7be6583a2fc1ba3485"
+      }
+    }
+  ]
+}

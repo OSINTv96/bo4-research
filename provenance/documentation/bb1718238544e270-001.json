@@ -1,0 +1,254 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz/wz_open_skyscrapers_death_circle.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0640acdcde4e694dfdfa901f681b4d3ee014d48feac1686eb9353d9854c01e60",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:equipment",
+        "answer": "equipment/weapons/jetpack/vehicle configuration for HMH, reusing prior contracts. PRIMARY SWITCH: wzheavymetalheroes (no recovered producer â€” unit 2) drives the heroes-specific equipment set: on spawn/perk stores setperk specialty_doublejump + specialty_fallheight (the heroes double-jump mobility) at warzone.gsc:828-831, item_inventory.gsc:1112-1116 and player_insertion.gsc:497-506 (the latter also threads level.var_618194f7, an insertion hook pointer whose writer is outside this pass); loadout suppliers wz_loadouts.gsc:31-50 â€” hash_7d8c969e384dd1c9 arms level.var_5c14d2e6, hash_4149d5d65eb07138 arms level.var_317fb13c, and wzheavymetalheroes overwrites BOTH with &function_9de0644f (proved last-true-wins); consumers item_world.gsc:519-528 (threads var_5c14d2e6 per player when either key truthy) and player_reinsertion.gsc:441-447 (reinsertion same for var_317fb13c). EQUIPMENT RE-FLOW (fixups): wz_common_mode_heavy_metal_heroes_fixup.gsc:28-53 builds item_replacer sets: per-stash gun lists (array_list_guns_dlc1, asylum, boxing_gym, clearing, construction, diner, dockyard, estate, factory, farm, farmtown, firing_range, fracking, ghosttown, graveyard, hijacked, hydro, lighthouse, nuketown, rivertown, hash_5295664b3252e2a7, support_structure, train_station, wind_turbine) every call appending the replacement list #heavy_metal_heroes_list_guns_dlc1 (and .csc:28 twin); wz_open_skyscrapers.gsc:60-64 sets level.var_2089aa11 = supply_drop_stash_parent_dlc1_heroes and registers heroes flare-gun stash replacement/count data via function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); this registration does not spawn the stash; hashed script_71e26f08f03b7a7a.gsc:256-259 uses level.var_2089aa11 only when that parent is defined, var_6ed927a6 replacement is undefined and heroes is defined/truthy. Explicit replacement wins. start first waits for its flag and applies timing/count gates before threading function_2d47ee1e; heroes truth alone does not prove spawning. FLARE GUNS: wz_open_skyscrapers_fixup.gsc:30-33 enables the base stash parent dlc1 flare guns only when wzenableflareguns && !wzheavymetalheroes (explicit NOT-and; #wzenableflareguns is itself absent from all recovered HMH layers). RAMPS: hmh_ramp dynent array enable/disable (gsc 160-172, csc 91-128 both sites read wzheavymetalheroes). VEHICLES: wz_common/vehicle.gsc:3397 keeps self.deathmodel when NOT heroes; function_32607cfc (4094-4121) returns true immediately when wzheavymetalheroes (vehicle-availability/air distance bypass; stats-gated otherwise); death circle tank vehicles only when setting hash_6eb44149a8ac6dd1 truthy inside the mode-identity branch (wz_open_skyscrapers_death_circle.gsc:69-76; that hash appears ONLY in the neighboring base-warzone playlist entry at categories 2631-2644 value 0, not in any HMH layer â†’ value for HMH unknown). TABLE RULE VALUES that select equipment/vehicles (def-only, all conditional on the native store): wzenablebowieknife=1, wzenableoperatorweapons=1, wzenablecoinbag=1, wzenablemusclecar=1, wzenablesuv=1, wzenablehomewrecker=1, wzenablevendetta=1, wzenablereplacercar=0, wzenablepurifier=0 mask2; wzenableatv/wzenablemotorcycle appear ONLY in the neighboring base-warzone entry (8286-8313, value 0) not in HMH layers; the vehicle fixup switch wz_common_vehicles_fixup.gsc/.csc:102/127/163 reads wzenablemusclecar/enableatv/enablemotorcycle/enablesuv combinations â€” for HMH the atv/motorcycle keys are unset, so those branches are absent-key dependent. JETPACK: no recovered HMH-specific jetpack setting exists; the mobility change is the two perk grants above. FURTHER EXACT DEPENDENCIES: function_9de0644f body (heroes loadout supplier) and function_3fed57dd/a9b8fa06 alternatives; level.var_618194f7 writer; heavy_metal_heroes_list_guns_dlc1 and supply_drop stash asset bundles; hvolist bundle contents (m1); vehiclecustomsettings per vehicle (m2); native wzheavymetalheroes producer (units 2/4).",
+        "behavior": "equipment: full heroes configuration map â€” perk grants (doublejump/fallheight), loadout pointer overrides (proved precedence), stash/gun-list refillers, ramp dynents, vehicle deathmodel/availability gates, tank branch, table rule values for weapons/vehicles, and the exact further asset/script dependencies.",
+        "unknowns": [
+          "wzheavymetalheroes and hash_6eb44149a8ac6dd1 effective values (no recovered producer; native settings contract gap)",
+          "function_9de0644f/function_3fed57dd/function_a9b8fa06 body behavior (heroes loadout suppliers)",
+          "heavy_metal_heroes_list_guns_dlc1 and stash/vehicle data-asset contents",
+          "Which VMs execute the fixup scripts in an HMH session (HMH-GAP-STARTUP owner)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00525",
+        "sha256": "5fdb685117c6f91037c09cbe25a97cbbcac7735d1641702427826245e9ea78b9",
+        "pointer": "",
+        "record_sha256": "b7d8bd83bf160418c28ec7af4d60fc7116e9e5324ff3a52963515e1a6758d276"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "555e8cb45c3d6ca748a8bc68a392c6c9d60ef0ac08172368779d9d704b0c90b3",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_6f6f5189",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/675",
+        "record_sha256": "60173a4f8ef9da7484c91151bca4400df98f1e44131d9c4b40ae48aecd0d57ad"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "60e95b29716519fd199a4a19b5180a56393c0da89fcf5bd703e1a1728603c186",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_69e60a10",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/674",
+        "record_sha256": "0f84512313f49248ced9a7d326ab1cdfd8b609d39de6cda86e54064c73132fa2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "72fda02cdcc80a08c33a7080587c599b7d5a24abe2744f6c910025c10762f1f4",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_c213f1b5",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/677",
+        "record_sha256": "a13802b92598476cce1e7433eec994908619c5f7ee8e55511e8e96baf14968bd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "7fc4b9f1b5c6444e2db5bfd911a919357e340e7f70a43bf613e918a1607653e7",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_c213f1b5",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1021",
+        "record_sha256": "511d72d2630489b136851e7a93cd4b59403eb9c88cae570490d85030e855cef5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "86ca9cbf148fab829ff10509dbf74ff7327a195ce92e771f69ecb2bd70666673",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_69e60a10",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1022",
+        "record_sha256": "b9a1de59342a5a794ee4cb6583304521d3f2b8e73bc552d84da30bdfc5eaf708"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "95b14ea1b0daa370ac136cd6fe9374b1f7559e96b151bfdf9a80e95937f9df33",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_fdabbb8a",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/678",
+        "record_sha256": "7f1ed94698383b1d69ef86ccb66f7a2a3c8e42dfd71aa72cc917b6fd9a4972f6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "b9c079698b825c946e191896712a54fa7a9bd36ec20bea2a8fb76246561542f2",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_731497bb",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/676",
+        "record_sha256": "df938f07dbe728a34472f31bcb009838a7d9dc054fb7788935ed6434b10701f4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "c48583c5c1ea29ef29625aa4cba740c9d55d4f3d857083638779f60cb52f0b8f",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_731497bb",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1020",
+        "record_sha256": "6f2be73393614144e8e9ca655e905e8506c5e7694a5e8b17f5d26a1d08288139"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "ebb350d5bf23bad5f49708284463b14ca68e256ce0b3a8dbd82dd03125f1249b",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_320393b9",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/673",
+        "record_sha256": "a7ceef4576fac3c1d269b7c36308db5fc56ec45849cea8b3c10eed058f17fe89"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "43ffc081ba1b0343b6cadf861a4e1c25f8cbe92b5d87dd5733c161676e89e7c0",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_fdabbb8a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/229",
+        "record_sha256": "3cf47432f71cefbe3b0a69d101dac0a130d11ba47e6b3a80714dfdec2c9d9a3d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "eada926dd88e1cb33f39781b57cad358e68515f30517eaf2094434e4fe5bc26a",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_320393b9",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/228",
+        "record_sha256": "ce4b8587708ae19e86b3c6a7a0659fe1a5019a81134c8adcd41834673f4fc46a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "acfbf9444c2e38a03c7fce0813ee8f5ea66491f880b47ec7ee3011a4ba59c767",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_320393b9",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/228",
+        "record_sha256": "ce4b8587708ae19e86b3c6a7a0659fe1a5019a81134c8adcd41834673f4fc46a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/bb1718238544e270.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "b757bf402a8884e622011bbcf43867ba8449a95b0e23e7eddb1fbdaa25f2c117",
+      "summary": {
+        "id": "scripts/wz/wz_open_skyscrapers_death_circle.gsc::function_fdabbb8a",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/229",
+        "record_sha256": "3cf47432f71cefbe3b0a69d101dac0a130d11ba47e6b3a80714dfdec2c9d9a3d"
+      }
+    }
+  ]
+}

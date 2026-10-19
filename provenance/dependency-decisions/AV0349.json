@@ -1,0 +1,113 @@
+{
+  "module": "src/scripts/killstreaks/mp/uav.gsc",
+  "identity": "scripts/killstreaks/mp/counteruav.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "counteruav",
+  "witnesses": [
+    {
+      "line": 116,
+      "text": "            if ( counteruav::teamhasactivecounteruav( team ) )",
+      "caller": "fx_flesh_hit_neck_fatal",
+      "caller_span": [
+        103,
+        150
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 108,
+          "opening_line": 110,
+          "ending_line": 120,
+          "text": "foreach ( team, _ in level.teams )"
+        },
+        {
+          "line": 105,
+          "opening_line": 108,
+          "ending_line": 121,
+          "text": "if ( params.attacker hasperk( #\"specialty_immunecounteruav\" ) == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "teamhasactivecounteruav",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/50766fd9e59ab1c8.json",
+          "pointer": "/claims/0",
+          "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+          "citation": {
+            "line_start": 28,
+            "line_end": 28
+          }
+        },
+        "entry_function": "__init__system__",
+        "entry_span": [
+          26,
+          29
+        ],
+        "local_references": [
+          {
+            "from": "__init__system__",
+            "to": "__init__",
+            "line": 28,
+            "form": "stored_pointer",
+            "text": "    system::register( #\"uav\", &__init__, undefined, #\"killstreaks\" );"
+          },
+          {
+            "from": "__init__",
+            "to": "fx_flesh_hit_neck_fatal",
+            "line": 62,
+            "form": "stored_pointer",
+            "text": "    callback::add_callback( #\"hash_425352b435722271\", &fx_flesh_hit_neck_fatal );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          803,
+          806
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0349",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/killstreaks/mp/counteruav.gsc",
+    "sha256": "a8ced5f752e29af73d419e044a9ad334bd3d41c358954b61c47164e84d01e09f",
+    "git_blob_sha1": "4ddc727f532ab6aca9a4dbf1dd1f970cb77846d4",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    116
+  ],
+  "required_callee_functions": [
+    "teamhasactivecounteruav"
+  ],
+  "output": "src/scripts/killstreaks/mp/counteruav.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/killstreaks/mp/counteruav.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04204",
+        "to": "N04846",
+        "line": 116
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

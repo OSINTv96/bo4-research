@@ -1,0 +1,27 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/load_shared.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/5e05fe6f40c6068e.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1ce94b0c3903b4f3ce9f4fe3529d6c44f4d747cf9c653fd72137021a5a5426e1",
+      "summary": {
+        "unit_id": "scripts/core_common/util_shared.gsc::gethostplayer",
+        "behavior": "Core shared util returning the host player: getplayers() then first player passing native ishost(); returns undefined implicitly when no host present. Minimal behavior needed: this is a plain non-dev lookup utility. Production inbound path on the HMH map: wz_open_skyscrapers main (level_init, imports util_shared at line 13) calls load::main() (line 53 -> mp_common/load.gsc main 15-37) while the system-registered load preinit (load_shared.gsc:21 -> __init__ 50-108) spawns all_players_spawned() (line 97), which at load_shared.gsc:578 assigns level.host = util::gethostplayer() after waiting the all_players_connected flag, then sets the all_players_spawned flag (612, from literal search) that dev spawn tools and map logic wait on. Secondary inbound paths: stored pointer level.rat.common.gethostplayer (mp rat init line 29, wz_rat init line 30) dispatched inside dev RAT commands (wz_rat units 3/5/6/7/8, mp rat unit 12, rat_shared rscrecteleport:633), direct dev callers throughout dev/dev_shared files, and non-dev callers elsewhere (mp globallogic hostidledout:1561, zm gameplay files). Decision: needed by recovered source for the production load/host bookkeeping path; the rat/dev consumers are additional conditional paths that also funnel through this one function, so no exclusion applies anywhere.",
+        "unknowns": [
+          "Native level_init/level_preinit invocation order for the wz VM in the original build (source chain only)",
+          "Whether getplayers()/ishost() and the flag timing produce the same host identity in the original PS4 runtime",
+          "Which exact VM each stored pointer copy (mp vs wz rat) lives in at runtime",
+          "Full set of other-mode non-dev callers outside this packet's dump visibility (zm/mp files cited only as context)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00005",
+        "sha256": "6dbeb1a2afebcf56901a98f737b82cfcd11646bdb7208b47e7f3c255e8f2e0be"
+      }
+    }
+  ]
+}

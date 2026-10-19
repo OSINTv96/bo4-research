@@ -1,0 +1,420 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_tripwire.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0099d0dc21da59522c5badf14d11642f97f4a98fe22707bc93c7af03e0c5c79a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_3e8d9b27",
+        "behavior": "function_3e8d9b27(local_client_num, previs_weapon, validlocation) - preview model swap: validlocation -> setmodel(hash_2edbbbe63af8213d) else setmodel(hash_6c54a3e97ce636f0); model notsolid(); previs_weapon unused.",
+        "unknowns": [
+          "valid/invalid model hash meanings (unresolved keys)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/386",
+        "record_sha256": "33775c2b0e0472072eaa336dc68e9ed2bdf5131e9f92930046db226348836b0c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "11733a95ff28499dab09269569a37857fb50e28b2744eb8cff7458962d96b8d9",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::__init__system__",
+        "behavior": "autoexec bootstrap for the csc namespace.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/373",
+        "record_sha256": "e5eb18b6cb87d40bbba57ebfa891cc57b87f0989bb365521367bfc126d7d9d21"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "2503665140a6164bde9cc22b87ecccf342e40f8fc450df537623e5203eaeab67",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::spawn_previs",
+        "behavior": "spawn_previs(localclientnum): localplayer = function_5c10bd79(localclientnum) (opaque); level.tripwire.localclients[localclientnum].model = spawn(localclientnum, (0,0,0), \"script_model\", localplayer getentitynumber()) [client 4-arg spawn with owner entity number].",
+        "unknowns": [
+          "spawn 4-arg client form semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/385",
+        "record_sha256": "583cf34651a7dd6debf41eab18479dac798fa1b2d5c1ef97577acb6d246a395d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "2c178b9dc22949af11936576f15c91c6fc921a9c209a68a25bc065d3c78f417f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::__init__",
+        "behavior": "__init__() - tripwire client state: 1) callback::on_killcam_begin(&function_330a13a6); 2) on_killcam_end(same fn); 3) callback::add_callback(\"hash_2fc4cfecaed47583\", &function_bd054816) (offhand-weapon state callback reading params.offhand_weapon/using_offhand/localclientnum); 4) clientfield::register(\"missile\", \"tripwire_state\", 1, 2, \"int\", &function_6868fab3, 1, 1); 5) clientfield::register(\"scriptmover\", \"tripwire_solo_beam_fx\", 1, 1, \"int\", &function_9233eb94, 0, 0); 6) level.tripwireweapon = getweapon(\"eq_tripwire\"); bundle branch: weapon.customsettings defined -> getscriptbundle(weapon.customsettings) else getscriptbundle(\"tripwire_custom_settings\"); 7) if !isdefined(level.var_77cae643): = []; 8) level.tripwire = { wires: [], localclients: [] }; per localclient: { beams: [], previs: 0, model: undefined }.",
+        "unknowns": [
+          "killcam callback params and hash callback producer (callbacks_shared/engine; not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/374",
+        "record_sha256": "2bbf55b1eff21ed402fff9d1bd553fe19afa3482e7a03819a3f9390836ca412e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "30d01e89d33856c4c57116a3504d29f4f0957d06e06bc6f969d746ad83695fa5",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_adb3eb2c",
+        "behavior": "function_adb3eb2c(localclientnum) - previs pairing builder on the model: var_c2f0f6da = 0. Loop wires: skip undefined/other-owner; record = function_8c308396(self, tripwire); pos fallback origin when tag missing (both sides); beamtrace both directions; eligible branch (function_26c580d9): linked = 1; no record -> newbeam spawnstruct {ent1, ent2, shoulddraw 1, beam_id undefined} at free slot (function_95d56693); record exists with shoulddraw false -> set true; solo fx present -> killfx and clear. Not eligible with record -> shoulddraw = 0. Post: solo fx missing and not linked -> playfxontag solo fx (hash_79d94632506eafee at tag_fx).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/390",
+        "record_sha256": "fda07568ebffdfc7e4b9bfa9ac8553434a48f0a5ddc228145a81a6955845dbdb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "584175de2c8ed993083d0294a7edd675f07d5eccb76dd628860e0d00272d7326",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_26c580d9",
+        "behavior": "function_26c580d9(localclientnum, tripwire, trace, var_f2edf308) [Type: bool] - pair-link eligibility (previs variant of the 55c50f15 checks): false when previs model.hitent defined AND isplayer; false when distancesquared(tripwire.origin, self.origin) < 100; false when greater than bundle.var_831055cb squared; false when either trace obstructed (function_a4b3da97); else true.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/389",
+        "record_sha256": "6b9d1b24bd4227cd3290df16e02c213657a65da79d5d32c8545e1bce05f7cfab"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "5d2513498b7bed54e05c4ca582bf19f07941dac59f8ae0474baa7705fd021b67",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_c51a3b22",
+        "behavior": "function_c51a3b22() - invalidate orphaned beam records: loop level.var_77cae643: when beam OR ent1 OR ent2 undefined: record.shoulddraw = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/392",
+        "record_sha256": "623d110f9ba9b40ff19db3843e0f6e6eed7a62c27d3258bef40cfb1274791028"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "6177539224f6b1908c1553693480c9be6912912ac9bd78215f3da78c0624f811",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_330a13a6",
+        "behavior": "function_330a13a6(params) - killcam beam clear: foreach beam_id in level.tripwire.localclients[params.localclientnum].beams: only if isdefined(beam_id), beamkill(localclientnum, beam_id) [beam_shared builtin]; then .beams = []. Registered on BOTH killcam begin AND end ; actual native effects and event/lifetime safety remain unproved.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00634",
+        "sha256": "5a12fe1d9350edea66d617e76123e9ed79835e92ba40a84012d464572decc736",
+        "pointer": "",
+        "record_sha256": "94ac93807c0be56943489b95ad3fdfccc02a82002c6da72e6665a4ee8b2bd4c5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "64c847f6ffa3c71925480cd0cabf3546beb16dad72f2a9afbdf992f450fb9992",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6230a8a5",
+        "behavior": "function_6230a8a5(localclientnum): arrayremovevalue(level.tripwire.wires, self). De-registers this wire from the client-side list (shutdown or timejump path; registered via callback::on_shutdown in function_6868fab3).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/378",
+        "record_sha256": "235a05dd2e72302e4286ba84f2063baaca369402bd13110439f5ffa6cc09a19f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "68f04ded3fab44df7b65de72950106abb8b4c2e4e9d12e0fb15d0f0e86326c5e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6868fab3",
+        "behavior": "function_6868fab3(7-param clientfield callback on missile/tripwire_state 2-bit): guards: return if !isdefined(self); endon(\"death\"); dobj-wait loop with 1000ms timeout (while !self hasdobj: return when elapsed > 1000; waitframe). Branch bwastimejump -> function_6230a8a5(localclientnum). SWITCH newval: case 1 (wire appeared): arrayinsert(level.tripwire.wires, self, wires.size); self callback::on_shutdown(&function_6230a8a5); self thread function_55c50f15() (link beams). case 2/3 (wire moving/destroying): beamkill all localclient beams; .beams = []; thread function_55c50f15().",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/377",
+        "record_sha256": "214adf5db556179573c3217a3bb471f9019e5b22ac5ca85b8f1977dfd4eb7c16"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "7173f80bd08ca99a9afeb2ee22da65b2f6bd95c3eeeb8e12afa8672b5998b31f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_55c50f15",
+        "behavior": "function_55c50f15() - wire-PAIRING beam launch (client; self = one wire of a same-owner pair): self endon(\"death\"). foreach tripwire in level.tripwire.wires: skip undefined; skip when self.ownernum != tripwire.ownernum (same owner only); skip self == tripwire; distance gate: distancesquared >= 100 AND <= bundle.var_831055cb squared. gettagorigin(\"tag_fx\") on both (guarded); beamtrace BOTH directions; both must be unobstructed (function_a4b3da97). Per local player (level.localplayers): enemy check util::isenemyteam(self.owner.team) -> beamname = bundle.var_10e5bb56 ? beam8_plyr_equip_ied_enmy_wz : beam8_plyr_equip_ied_enmy; ELSE friendly -> ..._frnd_wz / ..._frnd; beam_id = player beam::launch(tripwire, tag_fx, self, tag_fx, beamname); append to localclients[player.localclientnum].beams.",
+        "unknowns": [
+          "beam::launch semantics (beam_shared; not owned)",
+          "bundle values var_831055cb / var_10e5bb56"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/380",
+        "record_sha256": "836be830eebd205dd225cb630436c27fd273d0f9aaaf4771a75fa5132c618b3c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "89a399f7a264255c3c9f1912b4c8e81b6001899c091237e02c4935b2a5b6eb66",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_b882ca33",
+        "behavior": "function_b882ca33(localclientnum) - death cleanup for the previs think: self waittill(death); branch isdefined(level.tripwire.localclients[self.localclientnum].model): model hide(); function_6b69576b() (clear draw flags); function_dc76d0d0(localclientnum) (refresh). Reads self.localclientnum (engine client field) rather than the arg.",
+        "unknowns": [
+          "engine-set self.localclientnum"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/384",
+        "record_sha256": "6dfe396f38a24d7df5646ecbc3176165092f828bf2266f25f4b93557a470862f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "942bbaf6e843d0c3b5cd9ed5d68d8b06ab417113e9f3380d9448a449959a4d10",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_9233eb94",
+        "behavior": "function_9233eb94(7-param clientfield callback on tripwire_solo_beam_fx): branch newval truthy: self endon(\"death\"); waittill_dobj(localclientnum); self.beam_fx = util::playfxontag(localclientnum, \"hash_253c31a9114d6029\", self, \"tag_origin\"); return. ELSE: if isdefined(self.beam_fx): killfx(localclientnum, self.beam_fx).",
+        "unknowns": [
+          "util::playfxontag/killfx module membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/381",
+        "record_sha256": "d14fcbd6b9ab5f9dc02ac7783ea3d427dc2519f21bd22f586107a61ae7aff33e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "b4b589f9326d48397bbc25054c1044be6a9ac80de05e8047e5e1f83b84042558",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_a4b3da97",
+        "behavior": "function_a4b3da97(trace) [Type: bool]: trace fraction < 1 -> false; else true. Beamtrace clear-path test.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/379",
+        "record_sha256": "d9706fc95bdb5a03a3c6a94fbebe73def5051fb089f97efc811d4343a8dd762f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "b67f21c6d8fc1b88694426dc80d33a6718c8b86b2d74d1857e454e7affbb8d20",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_2a919ef0",
+        "behavior": "function_2a919ef0(localclientnum) [Type: bool] - placement eligibility: currentoffhand = function_e9fe14ee(localclientnum); false when tripwireweapon != it; false when !function_96d4f30e(localclientnum); false when !function_182a2ad3(localclientnum); else true.",
+        "unknowns": [
+          "function_e9fe14ee / function_96d4f30e / function_182a2ad3 definitions not in corpus"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/382",
+        "record_sha256": "dde31458b5ad8843aee2d0abf107234d28ea04623535c864374fc3cacaf7be8f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "d4d6e3018357e0ad155d2c81fff63afdcfc4cede7defa730483a73e99d4a9459",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_810faece",
+        "behavior": "The placement-objective cleaner: waits on death/disconnect/team_changed (any), then objective_delete(local_client_num, objective_id) when defined. Threaded from update_previs once per id; ends after the first event fires.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/395",
+        "record_sha256": "5ed3994b436b004a5d825d8b6ef2ae01a9738893d10fa2bc1fb8cb657018225e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "db621e5d01a3ef8143bb024c577ea62e155c0cf586ea6365f101e6388928a4de",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_95d56693",
+        "behavior": "function_95d56693() - previs-beam free-slot finder: loop i over level.var_77cae643: return i when entry.shoulddraw == 0; after loop return size (append at end).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/387",
+        "record_sha256": "4c465dad49fbfd7914c496658b8ffb7cb32cb801e8c7ee1b8584c854ae875dec"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "eb03e12e551731df5974ce1603412d6e8e3a9621d8d037d90d3f12ff1742647b",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_dc76d0d0",
+        "behavior": "function_dc76d0d0(localclientnum) - previs beam dispatcher: loop level.var_77cae643 (previs beam registry): shoulddraw true AND no beam_id AND both ents -> launch via beam method function_cfb2f62a(localclientnum, ent1, tag_fx, ent2, tag_fx, beam8_plyr_equip_ied_previs); shoulddraw false AND beam_id -> kill via function_47deed80(localclientnum, beam_id) then clear the id.",
+        "unknowns": [
+          "beam methods not owned"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/391",
+        "record_sha256": "95ef10d1fc5d837ee6d2d8870d18ecb2fea52e48994774d6f05dbe2f34132845"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "f083db94f74d049d231dd55557e1451455cfad55c2e0c2db3ee9e35aba335d76",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_6b69576b",
+        "behavior": "function_6b69576b() - clear all draw flags: loop level.var_77cae643: entry.shoulddraw = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/393",
+        "record_sha256": "8eecfd1cd412c8bcad76788db9d59f9cf33d594b6f532cc53fac1e70051cfa54"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "f514313dda73cd39262e7eb9becf2e3b91fdde53ef1184159a4d216f91315fa2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::update_previs",
+        "behavior": "Per-frame previs placement: setmodel valid variant via function_3e8d9b27 with (localclientnum, tripwireweapon, 1); getlocalclientangles/getlocalclienteyepos builtins; velocity = function_711c258 (opaque); trace1 = projectiletrace(eye, velocity, 0, tripwireweapon, level.var_41427f32) ignore slot; model origin = trace1 position; angles = (angleclamp180(vectortoangles(normal)[0] + 90), vectortoangles(normal)[1], 0); hitent = trace1 entity; ignore-slot updated when hitent.weapon == tripwireweapon; wires nonempty -> model function_adb3eb2c(localclientnum) else solo fx var_2045ae5c cached; objective once: var_61df85ff = util::getnextobjid + thread function_810faece (delete watcher); if isdefined(player.var_61df85ff) AND not ispc(): branch function_a8cb5322 AND not shoutcaster::is_shoutcaster: objective_add(localclientnum, id, \"active\", \"tripwire_placement\", position), objective_setgamemodeflags(0); else only when objective_state != \"invisible\", setstate invisible; then function_c51a3b22(); function_dc76d0d0(localclientnum).",
+        "unknowns": [
+          "opaque function_711c258 / function_a8cb5322 (not in corpus)",
+          "projectiletrace natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00635",
+        "sha256": "e807307f8b52242ddd786c3a2633ca45a4957d5ad26aad32af8da7bf33e05e79",
+        "pointer": "",
+        "record_sha256": "3b5a19c038f6f9d719193dc0ffe33f3a63f50e697142407fb6e6c9626a42019a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "f5d99b763ea98185b668a88f562d056cdacf46a9a0580110dfc9a66e2e7c1430",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_8c308396",
+        "behavior": "function_8c308396(ent1, ent2): foreach beam in level.var_77cae643: beam.ent1 == ent1 AND beam.ent2 == ent2 -> return beam; else undefined.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/394",
+        "record_sha256": "5a858498bcef16dc46dabb40c51353e3a5e21856cc873d05222266a5b0f33662"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "f7ad5ede96f4ed4b68373ed1916d6dbf16b8144ac8403a84b0397a6e280cb1b2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_bd054816",
+        "behavior": "function_bd054816(params) - offhand toggle handler for hash callback: branch level.tripwireweapon != params.offhand_weapon -> return (only for tripwire); branch params.using_offhand truthy: function_17d973ec(params.localclientnum) (start previs think); RETURN; else self notify(\"hash_726805ec8cfae188\") (cancel previs think).",
+        "unknowns": [
+          "params producer (engine offhand callback)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/376",
+        "record_sha256": "c0bc7d555dc1a0c07fa4e8365b783f09518cb57c2336b558266487a345877974"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7d50076fe45c28af.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "ff88fa3fe60caf9d1552f852550cbd496563e4774806b1ac4e310b6ce5a80408",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_tripwire.csc::function_17d973ec",
+        "behavior": "function_17d973ec(localclientnum) - previs lifecycle think (started by function_bd054816 toggle): self endon(death); notify(hash_726805ec8cfae188) + endon same (restart singleton); thread function_b882ca33(localclientnum) (death cleanup watcher); localclients[localclientnum].previs = 0; settle var = 0; level.var_41427f32 = undefined (trace-ignore slot). Loop does work before its first wait: previs = function_2a919ef0 gate (own record); truthy branch: spawn_previs when model missing, show on false-to-true edge, update_previs(localclientnum). Falsy-edge branch (prev true now false): model notify(death); model delete(); model = undefined; function_c51a3b22(); function_dc76d0d0(localclientnum); objective_setstate invisible when objective (self.var_61df85ff) not already invisible. waitframe(1) is at the end of each iteration.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00636",
+        "sha256": "2ce469becba75ac90b0658e82da56e594b8a940e99fd5c71e8840bada64daae7",
+        "pointer": "",
+        "record_sha256": "16cfffc834d217e84d35796cef37a41f9d08d748bbe615aed538aa7b0e92df84"
+      }
+    }
+  ]
+}

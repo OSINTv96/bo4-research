@@ -1,0 +1,114 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/core_common/perks.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "b6a75b4739eb4bd3acef2c77085d287a44e89154389c5f213bf5332c0234b098",
+  "git_blob_sha1": "cd66cdc6b6c2d6f1c401a0eef77f2d0af7afe055",
+  "output": "src/scripts/core_common/perks.gsc",
+  "output_sha256": "566de190c51b699a872fac0b040e0a77b2657e369fc3bfd769841fcd95e98f91",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [],
+  "claims": [
+    {
+      "selection_id": "4d62442a65e9ec45c6e22739102f746cd15a1fa29ac70461445643a800644884",
+      "citations": [
+        {
+          "line_start": 54,
+          "line_end": 62
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/core_common/perks.gsc::perk_hasperk",
+        "behavior": "Script-side reference-counted perk check (function(str_perk), bool): if isdefined( self.var_fb3c9d6a ) && isdefined( self.var_fb3c9d6a[ str_perk ] ) && self.var_fb3c9d6a[ str_perk ] > 0, explicitly return true; otherwise explicitly return false. NOTE: only the script-side counter; the ENGINE perk set is a separate mechanism (callers also use the hasperk builtin directly, e.g. power_gain_event_score in packet notes).",
+        "unknowns": [
+          "Divergence between script counter and engine perk set is observable only at callers outside this file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/422",
+        "decision_canonical_sha256": "5ba04083c3ea80aa0ad85a40623311528fa2f28e70b2f54260d03005e59456fc",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00276",
+        "sha256": "dc255dc5084f9969d42d66ac07d15b8080f3e5cdf7a2763b5d08786a09b95e13",
+        "pointer": "",
+        "record_sha256": "bca7200e4f1be4db15dd33d9ba6c264fc4ce1bf2e77e2e7fc2b81956006386ef"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dafedb6e2f36cfcba5e6dbc5dd4b7dadcef4d9a523594424121312127a9fa548",
+      "citations": [
+        {
+          "line_start": 29,
+          "line_end": 48
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/core_common/perks.gsc::perk_unsetperk",
+        "behavior": "Reference-counted perk unsetter (function(str_perk)) on a player/script entity. 1) if !isdefined( self.var_fb3c9d6a ) -> self.var_fb3c9d6a = [] (count map init; field resolved exactly from source). 2) if !isdefined( self.var_fb3c9d6a[ str_perk ] ) -> entry = 0. 3) self.var_fb3c9d6a[ str_perk ]-- (decrement). 4) assert( self.var_fb3c9d6a[ str_perk ] >= 0, \"<dev string:x38>\" ) (dev-only assertion text as printed). 5) if self.var_fb3c9d6a[ str_perk ] <= 0 -> self unsetperk( str_perk ) (engine builtin removal, no namespace = builtin). Companion setter perk_setperk and perk_reset_all are excluded units in this file (not re-authored); this function only decrements and removes at zero.",
+        "unknowns": [
+          "var_fb3c9d6a consumers outside this file (perk_setperk increments it) are excluded units/unassigned",
+          "unsetperk engine-side removal effects (stat recomputation) not in packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1210",
+        "decision_canonical_sha256": "c12139f6127905d1c043c9648289ea5f4d34ede97bb94251beb0147e5d9552ff",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/471",
+        "record_sha256": "86f45f0c02f36b64e3c32404915629880484ff3870a770a4198a2d5f57794f70"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/b0c7700d21a16838.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/221641c6f21006ec-001.json",
+      "sha256": "dd276d420f760cae1096577220259984606998f6b2effa670a7677321b80cf53"
+    }
+  ]
+}

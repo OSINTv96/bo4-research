@@ -1,0 +1,195 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic.gsc",
+  "identity": "scripts/mp_common/gamerep.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "gamerep",
+  "witnesses": [
+    {
+      "line": 270,
+      "text": "    thread gamerep::init();",
+      "caller": "init",
+      "caller_span": [
+        150,
+        303
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "init",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/0",
+          "selection_id": "030aee84d9ccba4bf5aa0810df416da2cc6af76eecc5f1a60d72b41709974270",
+          "citation": {
+            "line_start": 187,
+            "line_end": 198
+          }
+        },
+        "entry_function": "init",
+        "entry_span": [
+          150,
+          303
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/35",
+          "selection_id": "da95a23e0f00aa4b118a44aaf983d200fc03fb28fb77ffa2661d6e13cfd17012",
+          "has_behavior_summary": false
+        }
+      ],
+      "callee_spans": [
+        [
+          10,
+          28
+        ]
+      ]
+    },
+    {
+      "line": 2391,
+      "text": "    gamerep::gamerepupdateinformationforround();",
+      "caller": "function_4720c07f",
+      "caller_span": [
+        2362,
+        2397
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gamerepupdateinformationforround",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          415,
+          429
+        ]
+      ]
+    },
+    {
+      "line": 3066,
+      "text": "    gamerep::gamerepanalyzeandreport();",
+      "caller": "function_5c159ad3",
+      "caller_span": [
+        3063,
+        3076
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gamerepanalyzeandreport",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          435,
+          488
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0075",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gamerep.gsc",
+    "sha256": "2603d7708d620c3477cf3dcf56c34d74f39d569dd0315a511d1ca9bd22f6d44b",
+    "git_blob_sha1": "6b5f01d88de52064ac373a0377de5f7385074bb4",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    270,
+    2391,
+    3066
+  ],
+  "required_callee_functions": [
+    "gamerepanalyzeandreport",
+    "gamerepupdateinformationforround",
+    "init"
+  ],
+  "output": "src/scripts/mp_common/gamerep.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/mp_common/gamerep.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00457",
+        "to": "N02646",
+        "line": 270
+      },
+      {
+        "from": "N00466",
+        "to": "N02692",
+        "line": 2391
+      },
+      {
+        "from": "N03748",
+        "to": "N04539",
+        "line": 3066
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

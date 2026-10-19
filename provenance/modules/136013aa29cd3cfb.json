@@ -1,0 +1,468 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/grapple.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "894be498c33359f9a5313df6eb3179ff9ad1ccbfda46efe06bc7dbba60758dbe",
+  "git_blob_sha1": "9755bb81d32c15fa07e60ac7e70de960bb71014a",
+  "output": "src/scripts/weapons/grapple.gsc",
+  "output_sha256": "e02cec098a2b142911d79cafe782df9098a9a94be314889e798e52958f4fe019",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/ability_player.gsc",
+      "original_line": 1,
+      "output": "src/scripts/abilities/ability_player.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/ability_player.gsc",
+        "sha256": "874c04014d0a60e0f8d8923b25a40cb941321dc580cfbf9a8aa3307bc599c844",
+        "git_blob_sha1": "8c1908bc8b09c87e5c335012b731f70ef07a4f7e"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+        "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+        "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0279.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0280.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weaponobjects.gsc",
+      "original_line": 6,
+      "output": "src/scripts/weapons/weaponobjects.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weaponobjects.gsc",
+        "sha256": "591761b45975b2875169fdb489260a4930bf1997f6fa04b92f389af290d21f4e",
+        "git_blob_sha1": "5de9dc3363a3dcccc48a8fbfd337ce93e0e5f49f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "1dec084b3672044ff2b3bc54f78b19d9f9a5ddf395d64ece92708fcfc4290797",
+      "citations": [
+        {
+          "line_start": 70,
+          "line_end": 73
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_8fa5ff65",
+        "behavior": "Spawned-callback wrapper (self = spawner; registered in __init__ via callback::on_spawned). Sole statement: self thread function_9dd08ccf() â€” starts the grapple_cancel timestamp watcher. No branches.",
+        "unknowns": [
+          "Which entities receive on_spawned (players via callback machinery) outside this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/140",
+        "decision_canonical_sha256": "4f5384aa46cbce7ecbb29b2bdc558b6884a54f28992f8e653fa583aae8124ef9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/89",
+        "record_sha256": "5663225901c69a496db1dfe9367ca1cb0ed07034e8eaf03c8ea1cfe1de438330"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4b55a4855a89119e05c3f6f2ba34e8b510154e11cc5689904a95bef7c75ff5bc",
+      "citations": [
+        {
+          "line_start": 35,
+          "line_end": 38
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_422f24cc",
+        "behavior": "Watcher-callback installer for eq_grapple: watcher.ondamage = &function_1987d583 â€” only ondamage is set; no onspawn/pickup/onfizzleout callbacks (minimal watcher).",
+        "unknowns": [
+          "Watcher dispatch semantics (weaponobjects system) outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/410",
+        "decision_canonical_sha256": "0297b4f929237c8ca989de01fc22a0bc3dc20393f1b81e2f456654b602f7817b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/86",
+        "record_sha256": "473bbd9827b4e32ba5e9e075e458a9814c5809120aae0705513f20a3e78e43db"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "56edd089a2eec21c2f392d3c5102e56b1a2015bfaa9db3189bb27f54ee024b1b",
+      "citations": [
+        {
+          "line_start": 23,
+          "line_end": 29
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::__init__",
+        "behavior": "Server system init for the eq_grapple gadget. Four registrations in order: (1) callback::on_spawned( &function_8fa5ff65 ) â€” per-entity spawned handler (threads the grapple_cancel timer watcher); (2) ability_player::register_gadget_activation_callbacks( 20, undefined, &gadget_grapple_off ) â€” gadget slot/ability id 20, activation callback undefined, deactivation callback gadget_grapple_off; (3) globallogic_score::register_kill_callback( getweapon( #\"eq_grapple\" ), &function_d79e9bb5 ) â€” registered pointer using getweapon(eq_grapple); predicate rejects a defined attackerweapon equal to weapon, otherwise requires grappling or recent-cancel context. Exact scoring/delivery semantics remain unresolved; (4) weaponobjects::function_e6400478( #\"eq_grapple\", &function_422f24cc, 1 ) â€” watcher-callback installer registration (final arg 1, same value as other gadget registrations).",
+        "unknowns": [
+          "Meaning of gadget-callback id 20 (slot index vs ability id) unverified",
+          "register_gadget_activation_callbacks activation-arg ordering inferred from names"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/397",
+        "decision_canonical_sha256": "2ddcd9563ab9b40e1ba6ad4b483deffd1c249e177b66d566408453fae91027b7",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00183",
+        "sha256": "b894ef7e0cf38538074893fbb13af886f72bced11041197c330abcbfbe3995d3",
+        "pointer": "",
+        "record_sha256": "ab306a9e46753825b85094ca56efbaf5f4559c390526b7e77b89e02e9723ee51"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5c623fc223b8232403a19d9755277ff9967e51181452480007eacd1c02f6f163",
+      "citations": [
+        {
+          "line_start": 58,
+          "line_end": 64
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::gadget_grapple_off",
+        "behavior": "Gadget deactivation handler for the grapple (slot, weapon; self = player; registered as the off-activation callback for gadget id 20). Body: if ( !function_d79e9bb5( self ) && isdefined( level.var_228e8cd6 ) ) -> self [[ level.var_228e8cd6 ]]( weapon ) â€” when the player is NOT grappling/within the cancel window, invoke the level var_228e8cd6 function pointer with the weapon (indirect call; the same pointer consumed by deployable.gsc function_6654310c as a failure hook â€” one level-level hook system, owner of the value is elsewhere). No-op otherwise.",
+        "unknowns": [
+          "level.var_228e8cd6 setter is not in this packet (indirect-call integration boundary)",
+          "Exact deactivation effect of the shared hook unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/421",
+        "decision_canonical_sha256": "7e8d404e21aaa290b5078958875a6ff29e5478d26f9892853b42c708b8cec48a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/88",
+        "record_sha256": "e263a341fc61378ea5dc3bdfdb0bf487e66ceba82bfa1cc23e543633abaaad87"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "764f8ee7a5f249a4a8183ca5ef9ff7b926b502f0b9b935b893cf20ea2a4c7c75",
+      "citations": [
+        {
+          "line_start": 79,
+          "line_end": 88
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_9dd08ccf",
+        "behavior": "Grapple-cancel timestamp watcher (self = player). Cancellation: self endon( #\"death\", #\"disconnect\", #\"joined_team\", #\"joined_spectators\", #\"changed_specialist\" ) â€” ends on death/disconnect/team/spectator/specialist changes. Loop while isdefined( self ): self waittill( #\"grapple_cancel\" ); self.var_700a5910 = gettime() â€” records the most recent grapple-cancel time; consumed by function_d79e9bb5 as var_700a5910 + 2000 > gettime() (2 s post-cancel window).",
+        "unknowns": [
+          "Who notifies \"grapple_cancel\" (grapple throw/activation code, likely native-driven or weaponobjects) is outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/314",
+        "decision_canonical_sha256": "ff5041c3d244a6e7f7645e385abe26128ce4c5e830a958330a38d1b6814bcae1",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/90",
+        "record_sha256": "e97bcd64344c74815f8fdccfc2d84ef6cdaaa8423a52e8a1a59453f67f2a34b0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7d51b82b50312867f6c518dbd87898a1999252d4b2e6a68b0ab0c0585dcee244",
+      "citations": [
+        {
+          "line_start": 44,
+          "line_end": 52
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_d79e9bb5",
+        "behavior": "Grapple-during-kill predicate; registered as the eq_grapple kill callback: (attacker, victim, weapon, attackerweapon, meansofdeath). Gate: if !isdefined( attacker ) || ( isdefined( attackerweapon ) && attackerweapon == weapon ) -> return false (no attacker, or the killing weapon equals the compared weapon â€” observed comparison of the two weapon args). Return: attacker isgrappling() || ( isdefined( attacker.var_700a5910 ) && attacker.var_700a5910 + 2000 > gettime() ) â€” true while the attacker actively grapples or within 2000 ms after a grapple_cancel (timestamp recorded by function_9dd08ccf). Source registration passes this pointer at grapple27; globallogic_score1094-1098 stores it in level.specweapons[weapon.name].kill_callback. Explicit script indirect calls at332 and899 forward the five listed arguments. Native runtime admission, VM pointer binding and actual score effects remain u [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "isgrappling native predicate semantics unverified",
+          "Which score effect (assist rule / score cancellation) the callback result drives is in globallogic_score (outside packet)",
+          "Called from gadget_grapple_off with a single argument â€” attacker=self, rest undefined: then the gate reduces to isgrappling() || recent-cancel; single-argument use shape observed"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/32",
+        "decision_canonical_sha256": "c378d0771fac978351e609d955f7bfd69a4dff746db23195eb2092365e6f81d8",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00184",
+        "sha256": "b04a589957c9a84f7edc84f5180db9ac23aaf32038a82c9bb69ce7e8b38c3c00"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d0054b4fcb98fb45a96a07620cdbb1b339ae564fbafb0940c17d059d775f060d",
+      "citations": [
+        {
+          "line_start": 14,
+          "line_end": 17
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::__init__system__",
+        "behavior": "Server-side autoexec registering the grapple system: system::register( #\"grapple\", &__init__, undefined, undefined ). No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/581",
+        "decision_canonical_sha256": "c45ce342f4b0b8f28418b06ff1bd03d434156bbaaca0fda7167be4fb6828bff2",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/84",
+        "record_sha256": "8ce960f8679dfbefded96480ab5e5d7bfcd24cb9518d620f9b4cf92be007a24b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f4208ceeb150430cf3e603caefb77310dc3ba9d913cf6952b67e9708723d97e9",
+      "citations": [
+        {
+          "line_start": 94,
+          "line_end": 97
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_1987d583",
+        "behavior": "ondamage handler for the eq_grapple entity (watcher arg; self = grapple entity). Single statement: self setcandamage( 0 ) â€” literal native request only; dispatcher event count, damage protection, other deletion paths and resulting invulnerability remain unproved. No branches or additional state.",
+        "unknowns": [
+          "Timing: runs when watcher dispatches ondamage (exact event count/semantics in weaponobjects, outside packet)",
+          "Whether setcandamage(0) is re-settable by other code â€” not shown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1145",
+        "decision_canonical_sha256": "3eafdd760d60b61d44f0d73871d41319442d07759c52e78e5f4dc48e938c6a31",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00185",
+        "sha256": "2ece4e31b9f707e756e886276eae809a29ee2c191eaea0351de8a52eb14d31b0",
+        "pointer": "",
+        "record_sha256": "3d338be49e5d995582fc0c8ef45748432c9848d601f22e10c5e3711eda92b3a0"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/ebf43873f628502e.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0279",
+    "AV0280"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/136013aa29cd3cfb-001.json",
+      "sha256": "411dbd7f3f0e1e6cd82229b7bf4a6a63b62691326ee54c49eb8e125c4e1c8af9"
+    }
+  ]
+}

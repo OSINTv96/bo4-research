@@ -1,0 +1,187 @@
+{
+  "module": "src/scripts/mp_common/laststand_warzone.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 731,
+      "text": "                    attacker scoreevents::resetrecentkillvariables();",
+      "caller": "playerlaststand",
+      "caller_span": [
+        652,
+        830
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 727,
+          "opening_line": 730,
+          "ending_line": 732,
+          "text": "if ( !isdefined( attacker.recentkillvariables ) )"
+        },
+        {
+          "line": 723,
+          "opening_line": 726,
+          "ending_line": 740,
+          "text": "if ( !var_90c1e72d )"
+        },
+        {
+          "line": 716,
+          "opening_line": 719,
+          "ending_line": 745,
+          "text": "if ( var_4db50476 )"
+        },
+        {
+          "line": 712,
+          "opening_line": 715,
+          "ending_line": 759,
+          "text": "if ( function_b1158c52( var_90c1e72d ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "resetrecentkillvariables",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/cbca8252b116ff62.json",
+          "pointer": "/claims/0",
+          "selection_id": "02b39b2972ee0c1d9f27178fef0365dc8d8c1bda5224318ef8d173aac6dae829",
+          "citation": {
+            "line_start": 769,
+            "line_end": 784
+          }
+        },
+        "entry_function": "playerlaststand",
+        "entry_span": [
+          652,
+          830
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/cbca8252b116ff62.json",
+          "pointer": "/claims/8",
+          "selection_id": "80e9f96b7ccfbd24f9397562688af29a07cb4e6ae87576fc0ef30803708e3686",
+          "has_behavior_summary": true
+        },
+        {
+          "record": "provenance/modules/cbca8252b116ff62.json",
+          "pointer": "/claims/15",
+          "selection_id": "cc08281c58d46fa77ebf6598fa643727a123ef9a384c3e45502830ce9e114939",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": []
+    },
+    {
+      "line": 1473,
+      "text": "                    scoreevents::processscoreevent( #\"finishers\", finisher, self, weapon );",
+      "caller": "function_356caede",
+      "caller_span": [
+        1369,
+        1494
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1469,
+          "opening_line": 1471,
+          "ending_line": 1480,
+          "text": "if ( isdefined( var_62728357 ) && var_62728357 )"
+        },
+        {
+          "line": 1466,
+          "opening_line": 1469,
+          "ending_line": 1487,
+          "text": "if ( isdefined( self ) )"
+        },
+        {
+          "line": 1457,
+          "opening_line": 1460,
+          "ending_line": 1490,
+          "text": "if ( isdefined( finisher ) )"
+        },
+        {
+          "line": 1401,
+          "opening_line": 1404,
+          "ending_line": 1491,
+          "text": "foreach ( finisher in players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/cbca8252b116ff62.json",
+          "pointer": "/claims/2",
+          "selection_id": "094f7a52853cf84e4ef5a57641306575a17da7a06db9b4cf6ecec481320dbc71",
+          "citation": {
+            "line_start": 1306,
+            "line_end": 1363
+          }
+        },
+        "entry_function": "revive_trigger_think",
+        "entry_span": [
+          1306,
+          1363
+        ],
+        "local_references": [
+          {
+            "from": "revive_trigger_think",
+            "to": "function_356caede",
+            "line": 1354,
+            "form": "local_call",
+            "text": "                if ( function_356caede( team ) )"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0055",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1473
+  ],
+  "required_callee_functions": [
+    "processscoreevent"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02491",
+        "to": "N02291",
+        "line": 1473
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

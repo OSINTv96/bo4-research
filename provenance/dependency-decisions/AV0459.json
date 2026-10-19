@@ -1,0 +1,67 @@
+{
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "identity": "scripts/core_common/sound_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "sound",
+  "witnesses": [
+    {
+      "line": 1801,
+      "text": "            sound::play_on_players( \"<dev string:x617>\" );",
+      "caller": "getormakebot",
+      "caller_span": [
+        1784,
+        1806
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1797,
+          "opening_line": 1800,
+          "ending_line": 1803,
+          "text": "if ( isdefined( ent ) )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [
+        {
+          "record": "provenance/modules/895acfab45fe716a.json",
+          "pointer": "/claims/0",
+          "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0459",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/sound_shared.gsc",
+    "sha256": "aee728a3bd055e2aaf7a53f0b7cd720a1184c028532756eb31cacbb17f58b201",
+    "git_blob_sha1": "d0d13ef9c50e6094aad4dac99ce22e50bc08cf74",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/sound_shared.gsc"
+}

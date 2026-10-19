@@ -1,0 +1,181 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/analyticsutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "13a2900e0a0008b724d7c39eb5f20effdf1e8511f94a3fc40c76c015a22222c4",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:124",
+        "answer": "Mutates and returns the supplied array. Starting at its length while >=2, chooses math.random(currentLength), swaps that entry with the last current entry and decrements the bound. RNG implementation and seed are external. Reads surveyId from current-player AAR stats. A zero match-ID returns false,false. Otherwise creates/updates lobbyRoot.lastMatchID before duplicate checking. Repeated IDs return false,false. surveyId 0 returns a random survey-chance result,false for quitters, else false,true; a nonzero surveyId returns true,false. Missing stat structure returns false,true. The first argument is unused in this span.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00136",
+        "sha256": "bfa423258f3e81545633c652a31014c5a5a52ff99a63f38e2243f3e227326207"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "51d57771de91b1f135a9242b6cf1ff8e3a40212aebe3e9cf7f61978b15e8cd69",
+      "summary": {
+        "unit_id": "hmh07-lua-follow5:253",
+        "answer": "Only in multiplayer resolves global lobbyRoot.quitGameFlag and returns the model's truthiness combined with value differing from HAS_NOT_QUIT; absent model can yield nil. Other modes return false. No forced boolean conversion is added.",
+        "unknowns": [
+          {
+            "kind": "unknown_receiver_or_VM_delivery",
+            "receiver": "f23_local0",
+            "method": "get",
+            "caller": {
+              "unit_id": "hmh07-lua-follow5:253",
+              "source_symbol": "CoD.AnalyticsUtility.IsQuitter",
+              "citation": {
+                "area": "references",
+                "path": "lua/ui/utility/analyticsutility.lua",
+                "line_start": 190,
+                "line_end": 190,
+                "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+                "file_sha256": "a05a8f41eb9dd56bfd6a10c02dcd32eb2a64e454c94b006cde0b4f931e2fdf51",
+                "line_span_sha256": "5b781782efd3083a1728ae52916645e841cd0587f25fc6034c1d9d4ca88ce81f",
+                "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+              },
+              "statement": "\t\treturn f23_local0 and f23_local0:get() ~= LuaEnum.QUIT_FLAG.HAS_NOT_QUIT",
+              "scope_id": "lua/ui/utility/analyticsutility.lua:187",
+              "guards_and_loops": [
+                {
+                  "line": 188,
+                  "branch": "if Engine[@\"currentsessionmode\"]() == Enum[@\"emodes\"][@\"mode_multiplayer\"] then"
+                }
+              ],
+              "limit": "Observed source call/reference only. Owned callback bodies execute only on invocation; inherited caller gates and loading remain conditional."
+            },
+            "limit": "No generic method-name/get/close lookup. Receiver allocation may be visible in exact body, but its VM/class/provider implementation and actual callback delivery are not established by this call."
+          },
+          {
+            "kind": "original_VM_build_and_runtime",
+            "limit": "Source-to-original bytecode/PS4 loading, original VM dialect, effective settings, actual asset/data values and runtime behavior are unverified."
+          },
+          {
+            "kind": "unavailable_online_server_service",
+            "limit": "Online service/server implementations and real account/progression/persistence/network responses remain unavailable/unverified; not reconstructed or counted complete."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00034",
+        "sha256": "781c1c1aee59bfc36951652bab7a837686810fc0aebaac4cb4ddfe8fe782f24f",
+        "pointer": "/units/252",
+        "record_sha256": "2b6a25d53245b9c548df01f2ef4b1d4eeb318623897abcfae0064f4d6a60517e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "8cc66597e04c67fca833ed6fadecad0c0dbff9cd6441c618afd359c51dbcaded",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:086",
+        "answer": "For CoD.SurveyUtility.GetAARSurveyType, evaluate the displayed formal inputs and captured values. Its exact paths are 7: if f1_local0 == Enum[@\"lobbymainmode\"][@\"lobby_mainmode_mp\"] then; 8: if LuaUtils.IsArenaPublicGame() then; 9: return Enum[@\"surveytype\"][@\"hash_39C29FF5FD1A1A8C\"]; 11: return Enum[@\"surveytype\"][@\"hash_5643D8CABE3C78B2\"]; 13: elseif f1_local0 == Enum[@\"lobbymainmode\"][@\"lobby_mainmode_zm\"] then; 14: return Enum[@\"surveytype\"][@\"hash_74FC6F1FD23A171E\"]; 15: elseif f1_local0 == Enum[@\"lobbymainmode\"][@\"lobby_mainmode_wz\"] then; 16: return Enum[@\"surveytype\"][@\"hash_4A6900E33A2623FA\"]; 18: return nil. The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. For CoD.SurveyUtility.OpenSurvey, evaluate the displayed formal inputs and captured values. Its exact paths are 40: if Engine[@\"sessionmode_ispubliconlinegame\"]() == false then; 41: return false; 42: elseif f3_arg0 and f3_arg0:getParent() == nil then; 43: return false; 44: elseif f3_arg2 == nil then; 45: return false; 48: if f3_local0 == nil then; 49: return false; 50: elseif f3_local0.randomizeButtonOrder == true then; 57: return true. Its writes/requests begin 55: f3_local1.answered:set( false ). The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/85",
+        "record_sha256": "b716e60405d1a1f7f3c6da53904fcfec70966c7466075426359e162d0cb45ef0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "b3c8970cb18ee9fba83f0828e6f0ea4f42d7de69bcc495a0ec11375d846d9d57",
+      "summary": {
+        "unit_id": "hmh07-lua-follow2:226",
+        "answer": "Calls ShouldShowMatchSurvey for two return values. A truthy first value takes ShowMatchSurvey; otherwise only a second result exactly true requests an AAR survey type and opens it if truthy. No survey is sent or backend outcome established.",
+        "unknowns": [
+          "Original PS4/source exact-version and original Lua/VM binding remain unverified.",
+          "Effective enum/mode/platform/settings and asset/model/storage data are unavailable.",
+          "Native/LUI event/subscription/timer dispatch, cleanup guarantees and errors not shown in selected source remain open.",
+          "Unavailable service/server code is not reconstructed or counted."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00028",
+        "sha256": "2f4ecc3aabb5072135e148ef5782181882bd3b940908913a20bf258d3754185e",
+        "pointer": "/units/225",
+        "record_sha256": "d52eef0502f195dd600e8e6998573be162f96dbf917542c6d04e3a72afaa9a31"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "c6d6ff61ce0f02a60da91c7d8655b5471b7cf54dc87d9efcaf4b1bd348b74d80",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:104",
+        "answer": "CanShowAAR requires both stats records and one allowed menu state, resolves current gametype/fallback hash, checks a gametype stats entry, then mode-specific validity: zombies excludes tutorial; WZ compares TIME_PLAYED_TOTAL old<new; other modes require AAR.valid==1. ForceAAR is only the elseif fallback, requiring current stats and allowed menu state. OpenAARIfNeeded creates viewedAAR, returns when already true, otherwise postpones/forces images and schedules next-frame work; streamed images open immediately, otherwise50ms timer accumulates timeElapsed until >6000 or streamed, resumes streams, closes spinner, opens report, clears saved state and closes timer. viewedAAR is set true after scheduling. Ineligible public/arena invokes match survey. OpenAAR prioritizes WZ, zombies, arena, then MP overlay. Missing models, callback cancellation and backend validity are not supplied.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/103",
+        "record_sha256": "ae137128b156f2f0665d617515467cae912d7fb992d5064b37d53ba2a6ef2979"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/0d26fab291c93140.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "fb5b3577a3cdb454ef858c165815538ced8d2884358cf559102ca8daf1991a24",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:287",
+        "answer": "Returns SurveyShouldShow(controller,second argument) unchanged; survey eligibility is delegated rather than reimplemented. Requests LUI.UITimer.new with interval argument0 and open_survey targeted at menu. Under the exact pinned UITimer.new/create source binding, create stores math.max(1, interval), yielding interval1 for this input; actual VM units, scheduling and delivered timing remain unverified. It registers the menu handler, then adds the timer. When that event is delivered the handler chooses PostMatchSurveyPC if CoD.isPC, otherwise PostMatchSurvey, and delegates overlay creation. No eligibility test, explicit cancellation, or handler unregistration is present here.",
+        "unknowns": [
+          "Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.",
+          "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.",
+          "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.",
+          "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.",
+          "No independent correctness review, acceptance, original-build or function-completion credit is recorded."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00137",
+        "sha256": "b2737d308c0ea28c8eda2cd70ca0ef93b7b41135fa7ec7b984536ecaa1004d89",
+        "pointer": "",
+        "record_sha256": "8bfafe02dfe91f1c961ad9fbbaecd9bcc544cd21af16d7b3c54f2618f07b82a0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_dynents.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "09aeab9d0f2c851a37f46b2c6e300b6d8480ab01dd0a09cd186c18d6470eb37a",
+      "summary": {
+        "id": "scripts/wz_common/wz_dynents.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1061",
+        "record_sha256": "8ef3727943456f0a1fb99afa55b39b6a099b9e59a23a38e9d6c41d799b3430c8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "3b1a80ccf826f330a0278cffcc247f01a7b6583a33cee8650fc0a97215fc4b57",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_dynents.gsc::function_31042f91",
+        "behavior": "Elevator call-button handler stored as dynent .onuse. Registration (source-only): wz_dynents system __init__ (wz_dynents.gsc 31-63) threads init_elevator(\"dynent_elevator_button\"...\"_5\") for five targetnames (57-61); init_elevator (96-151) returns if none, asserts exactly two dynents per name, and sets dynent.onuse = &function_31042f91 (109) plus dynent.ondamaged = &function_724a2fa5 (110, separately owned by unit 8), dynent.buttons = pair, resolves position struct (dynent.target) and elevator ent (position.target), stores elevator.buttons; marks script_noteworthy==\"start\" side with setdynentstate(dynent,1). Delivery/consumer join (source-visible): dynent_world use pipeline - usabledynents gate + trigger pairing + hold-use -> use_dynent dispatch [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) at dynent_world.gsc 431-433. Handler behavior (546-560): if self.target defined, position = struct::get(self.target,\"targetname\"), elevator = getent(position.target,\"targetname\"); if elevator.moving, elevator waittill(#\"movedone\"); elevator_move(elevator). Signature matches (activator,laststate,state).",
+        "unknowns": [
+          "HMH ruleset value of usabledynents and presence of elevator button dynents/structs on the HMH map (both outside script corpus).",
+          "elevator_move implementation and elevator ent type (not read; later dependency, not a delivery boundary).",
+          "Native dynentstate bundle data behind the pairing condition (shared open interface: function_489009c1/function_ffdbe8c2 definitions absent from corpus)."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00600",
+        "sha256": "d126e878bc0bc4f9cfc33bc9f4252f864ed13cc03c75009e5263a9efef4898c0",
+        "pointer": "/units/6",
+        "record_sha256": "1a8ed3fd1ef32e64a2a562886d4b4d4d38df622cf7718b0e9643d2ac1787a821"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "6243a78fd8f053adb2a0c1d8ac8b528b0cec4cf6ad811bbdadb2858daf146df7",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_dynents.gsc::function_724a2fa5",
+        "behavior": "Shoot-to-actuate handler stored as dynent .ondamaged (signature (eventstruct)). Registrations (source-only): (a) wz_dynents::__init at gsc 39 installs dynent.ondamaged = &function_724a2fa5 on every \"dynent_garage_button\" dynent; (b) wz_dynents::init_elevator at gsc 110 installs the same pointer on each of the five elevator button pairs. Delivery/consumer join (source-visible): dynent_world event_handler[event_cf200f34] function_209450ae (dynent_world.gsc 545-557) forwards [[ dynent.ondamaged ]]( eventstruct ) at 553-555; producer of event_cf200f34 (native dynent damage event posting) is the unresolved native boundary. Also a script-side damage producer exists nearby: infection.gsc function_ff850b97 dodamage pattern (recorded for unit 2 as an example of producers). Handler behavior (671-692): first reads dynent = eventstruct.ent at673 before checking eventstruct; only dynent.health += eventstruct.amount at677 is guarded by isdefined(eventstruct). Later dynent/event field reads are not newly validated. Missing event is not proven a safe no-op; event contract and VM error behavior remain open; returns if dynent.var_a548ec11 cooldown (settime + var_a852a7dd*1000 after actuation) still active; returns if distancesquared(eventstruct.ent.origin, eventstruct.position) > 225 (hit must land near the button); then var_a852a7dd = dynent_world::use_dynent( dynent ) - the damage event actuates the same stored .onuse pipeline (garage door / elevator), and var_a548ec11 = gettime() + var_a852a7dd*1000.",
+        "unknowns": [
+          "Native producer of #event_cf200f34 and its eventstruct contract (.amount, .position, .ent) - smallest native/build question.",
+          "HMH map presence of dynent_garage_button / dynent_elevator_button* dynents (outside script corpus).",
+          "Where garage/elevator .onuse targets (function_51a020 - owned by m1) then actuate after use_dynent - not reauthored here; owner recorded."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00601",
+        "sha256": "2ef766d9ef31c5c983ebb72119ad133e7ec9892c06d03ff627b0d8e65f5d4f91",
+        "pointer": "",
+        "record_sha256": "767054caaf4281f1f6e6591ecd3c67f0e06531be60afef96f4880a1151b2d187"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "88dfee22a7d954db018b6704859e5651de2ab22bdbe9f330110c3d704d96591e",
+      "summary": {
+        "id": "scripts/wz_common/wz_dynents.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/769",
+        "record_sha256": "4e4bd46bf13d73225dd07b653c4f266202c0da3ba839c8996b9109f05284cb0f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "a4294ee92fae0cbb783d5e3caa1ff4843546da38e726aa351e0dcc7bf5f03e89",
+      "summary": {
+        "id": "scripts/wz_common/wz_dynents.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00640",
+        "sha256": "b8a3ead68ded1d1ee1679d4b17347ab50dcbbe2641a759c2f3cab4be66d4a6b7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7daa56e7560cd75d.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "d99a005b67fa9e44f01272b0226c2684bbd829b5c3d21edcb056ceddbc8066f4",
+      "summary": {
+        "id": "scripts/wz_common/wz_dynents.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/768",
+        "record_sha256": "01a2e746ceb02a4143b4e4133b3605377aafe4b984f425f3bce02e4c98cbfd21"
+      }
+    }
+  ]
+}

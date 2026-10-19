@@ -1,0 +1,66 @@
+{
+  "module": "src/scripts/wz_common/wz_ai_zonemgr.gsc",
+  "identity": "scripts/core_common/ai/zombie_utility.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "zombie_utility",
+  "witnesses": [
+    {
+      "line": 1988,
+      "text": "            ent zombie_utility::setup_zombie_knockdown( origin, var_43b3242 );",
+      "caller": "function_d9a69cf2",
+      "caller_span": [
+        1973,
+        1992
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1978,
+          "opening_line": 1980,
+          "ending_line": 1990,
+          "text": "if ( !isdefined( forward ) || vectordot( origin - ent.origin, forward ) < 0 )"
+        },
+        {
+          "line": 1975,
+          "opening_line": 1978,
+          "ending_line": 1991,
+          "text": "foreach ( ent in nearby_zombies )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "setup_zombie_knockdown",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          2699,
+          2764
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "init_ignore_player_handler"
+  ],
+  "id": "AV0118",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/ai/zombie_utility.gsc",
+    "sha256": "83d289293d5cddcfa8940d9d803c29da2e6d810210ffb8dfcaebd28bd711b23e",
+    "git_blob_sha1": "3ec985a68e1f8959598db240ece081518e1cba13",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

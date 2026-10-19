@@ -1,0 +1,378 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/grapple.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "02ba7b1943ca86bba19a9a8756e4f52f4a21a8729a84f0520213772cd3501b23",
+  "git_blob_sha1": "b5f45c9e5d142e635efeee07099a0f6d40339332",
+  "output": "src/scripts/weapons/grapple.csc",
+  "output_sha256": "46f989e2dcdcac172f8ca32208e4b9d6ad2b1dd03758e5fa3b39c8165131ff77",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/dialog_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/dialog_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/dialog_shared.csc",
+        "sha256": "49e4092e517304c80a9f2386fccf70d5c4761e34cdfbb5afabc16f534682b9aa",
+        "git_blob_sha1": "07ec1dc120aa7a7a29dd4d74cb4a5f0083312dfc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "028ad2f45c400e2549ae31f29632126de63384e138fc5b87978e24bd8216a0a8",
+      "citations": [
+        {
+          "line_start": 131,
+          "line_end": 171
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::function_2297363d",
+        "behavior": "Grapple earthquake/vignette loop (localclientnum; self = player). Restart idiom: self notify( \"567d59ecc92fd8f5\" ); self endon( \"567d59ecc92fd8f5\" ). player = self; doearthquake = 1; var_30f9f328 = 0 (shader constant accumulator). while isdefined( player ): first call function_fd33f2ef(localclientnum) is compared with3, without caching a state local. Branch1 (first result==3, meaning unproved): if doearthquake -> player.grappleeq = earthquake( localclientnum, level.var_1b2035de.var_1598129, 10000, player.origin, 0, 0 ) â€” screen-shake started once, magnitude from the 'grapple_custom_settings' bundle, duration arg 10000, at player origin; doearthquake = 0. Then player mapshaderconstant( localclientnum, 0, \"scriptVector1\", var_30f9f328, 0, 0, 0 ); var_30f9f328 += 0.05 (ramps a shader effect up 0.05 per frame, no clamp in-span). Branch2 (a second separate call to function_fd33f2ef(localcli [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_fd33f2ef (state reader) and function_196e7c4b (earthquake stop) definitions not in catalog; state meanings 3/0/other inferred from branch structure only",
+          "earthquake parameter convention (magnitude, duration 10000, position, two zeros) native",
+          "mapshaderconstant 'scriptVector1' target shader is game data; negative constant handling (ramp-down below 0) unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "0f6ef90963bdd3235de36883aa325a76a42b7eb1e34fa5c7015f5a8f4dfded14",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00817",
+        "sha256": "cee26ab7a0f3934fe0ffa5665e7f0fce06d71b1cf1b3e8de0c7b1bb04137790c",
+        "pointer": "",
+        "record_sha256": "5ea02f854a465c9dede86c4d31b082b0a07e1ff98914ba1b1a183f45f4135c7b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3480c2d9da4da459b283a0783bb394a3cac5ceffdff07d8ffd0a1ca5e1a8a630",
+      "citations": [
+        {
+          "line_start": 113,
+          "line_end": 125
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::grapple_light_watch_end",
+        "behavior": "Per-handle FX cleanup watcher (localclientnum, handle, name; self = player). Ordered: player endon( \"grapple_light_done_watch\" + name ) â€” dies when the main loop itself kills this handle (then notifies done_watch); player notify( \"grapple_light_watch_end\" + name ) then endon( \"grapple_light_watch_end\" + name ) â€” restart idiom clearing any previous watcher of the same name; player waittill( #\"death\" ); if isdefined( handle ) -> killfx( localclientnum, handle ) â€” final cleanup of leftover viewmodel FX on death.",
+        "unknowns": [
+          "Interaction detail: the notify('grapple_light_watch_end'+name) at start could also be consumed by other systems â€” only the pairing observed",
+          "waittill(#\"death\") result usage none (only death triggers cleanup)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/239",
+        "decision_canonical_sha256": "cb49209aecdef161a21531022bcfc1581e9b772a305f8804abd2e60ca09c4f9a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/81",
+        "record_sha256": "44776edd8adf3f3807fe55cd33c74a3607fc1c9f835e32f146d87aec2ba3fbff"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8affce344018171c01b779221b61d39a942aaddd50e37d5033e0e73893b26b18",
+      "citations": [
+        {
+          "line_start": 20,
+          "line_end": 25
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::__init__",
+        "behavior": "Client system init for grapple visuals/audio. Ordered: (1) callback::on_localplayer_spawned( &player_on_spawned ) â€” wires per-local-player spawn handling; (2) level.var_c3e66138 = &function_bbd7fc60 â€” stores the dialog hook (plays 'grappleGunWeaponUseFail' dialog; consumer of the pointer is unknown from this file); (3) level.var_1b2035de = getscriptbundle( \"grapple_custom_settings\" ) â€” loads the grapple settings script bundle; field var_1598129 is consumed by function_2297363d as the earthquake magnitude argument.",
+        "unknowns": [
+          "Consumer of level.var_c3e66138 is outside this file",
+          "getscriptbundle content (var_1598129 value) is bundle data not readable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/747",
+        "decision_canonical_sha256": "d66f0d7a7c4dfa89809041559d0383e68e7164ea5f3ecf553a8b1c3406444783",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/78",
+        "record_sha256": "2df8eaa3a4c93e147828f4434e7195be5b6cd9451667a94d60b04b124e65c7f6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "94915aa0638442ce10d654ebbc24bc5c7ba6b417fb730742551f5632307a2ed2",
+      "citations": [
+        {
+          "line_start": 51,
+          "line_end": 107
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::function_664d0a50",
+        "behavior": "Grapple aim light maintenance loop (localclientnum; self = player). Restart idiom: self notify( \"16bdee31b75b050b\" ); self endon( \"16bdee31b75b050b\" ). player = self; var_e413b7c3 (valid FX handle) = undefined; invalidhandle = undefined. while isdefined( player ): var_6e521a44 = function_15f112c3( localclientnum ) â€” unresolved external queried every frame (grapple-target validity state). Cases: (a) isdefined( var_6e521a44 ) && var_6e521a44 && !isdefined( var_e413b7c3 ) â€” target just became valid: if isdefined( invalidhandle ) -> killfx( localclientnum, invalidhandle ), player notify( \"grapple_light_done_watch\" + \"invalid\" ), invalidhandle = undefined; then var_e413b7c3 = playviewmodelfx( localclientnum, #\"hash_2a3978ae302f2faf\", \"tag_fx1\", 0 ) â€” valid-branch FX request (actual color/asset meaning unresolved) on the viewmodel tag_fx1; thread grapple_light_watch_end( localclientnum,  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "function_15f112c3 definition not in catalog (the queried grapple state semantics unknown; three-way return true/false/undefined observed)",
+          "FX aliases hash_2a3978ae302f2faf/hash_39ed4a0ecba806a2 identity not in catalog",
+          "The player death case while loop exits only when player becomes undefined (undefined-ness driven by engine entity lifetime; endon/death handled by grapple_light_watch_end for the live handle)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/662",
+        "decision_canonical_sha256": "9d20e422896c9f95647bc3ba0f204552b9c2254b2d7a28d8dd93a0f1119e43f1",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00818",
+        "sha256": "d29eba69d830cbe8ff3550a77f6b621a1f14f6f252bf3b7b373068a528669c94",
+        "pointer": "",
+        "record_sha256": "e27377ad1ecd00c6b8910f4f9b82bdcc5417cfde6fce5f7097be6540337e2ca1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bd28927956939645ce113b2b21d0981d114f65b23a142e14c07d8504c6409332",
+      "citations": [
+        {
+          "line_start": 31,
+          "line_end": 45
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::player_on_spawned",
+        "behavior": "Local-player spawn wiring (localclientnum arg; self = player). Gate chain: if sessionmodeismultiplayergame() || sessionmodeiswarzonegame() â€” only MP or warzone sessions proceed; then if !player function_21c0fa55() -> return â€” unresolved external predicate (same helper name appears in scripts/weapons/acid_bomb.csc line 105 gating rumble on a parent); if it passes: player thread function_664d0a50( localclientnum ) (grapple light FX loop) and player thread function_2297363d( localclientnum ) (earthquake/shader loop). Non-MP/non-warzone sessions start neither loop. No state writes.",
+        "unknowns": [
+          "function_21c0fa55 definition not in catalog; role (plausibly local-ownership/is-local-player check) inferred from usage sites only",
+          "Session-mode predicate exact semantics (native) unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/531",
+        "decision_canonical_sha256": "4bfa1e45aabb18242dc2b95e0b9dd2a78f33bf35f5d0c586e31581afce80f0ac",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/79",
+        "record_sha256": "eb8c841f6737d95c3deaf09a0ec890d762ea00daed883bee2704304234bf08dc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c3b3543b2a91a1ed205f7bd44f6ff2883bdb3204e37ea5528349f6ae91248401",
+      "citations": [
+        {
+          "line_start": 177,
+          "line_end": 192
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::function_bbd7fc60",
+        "behavior": "Grapple use-failure dialog hook (var_428d0be2 = player target of the hook; stored as level.var_c3e66138 in __init__). Gates: if !isdefined( var_428d0be2 ) || ( isdefined( level.allowspecialistdialog ) && !level.allowspecialistdialog ) -> return (mode gate â€” dialog suppressed when level.allowspecialistdialog is false). dialogalias = var_428d0be2 dialog_shared::get_player_dialog_alias( \"grappleGunWeaponUseFail\" ); if !isdefined( dialogalias ) -> return; var_428d0be2 playsound( 0, dialogalias ) â€” plays the alias with leading argument 0 (observed call form).",
+        "unknowns": [
+          "playsound( 0, dialogalias ) two-arg call convention on entities is native; exact channel meaning unverified",
+          "Which code calls level.var_c3e66138 and with which entity (the player?) is the integration boundary noted in unit 79"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/901",
+        "decision_canonical_sha256": "bb815a34e04d3d4135b198f76489af74afe658c4d5a1941ef3c68a5eda7615af",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/83",
+        "record_sha256": "bf498dfca91465a49b3a738776ed9ecb36ae94ae8e322101ea5f286701ddf779"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e68829b8806cd3efe580e89d370f94c3240bd4d902963f7ce67a3e3f7fea25e5",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 14
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.csc::__init__system__",
+        "behavior": "Client-side autoexec registering the grapple system: system::register( #\"grapple\", &__init__, undefined, undefined ). No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1076",
+        "decision_canonical_sha256": "a469dd52abe1c911629ef91aaf7e3f55cad2f9254a7d6bee36683288d34a3ca3",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00819",
+        "sha256": "4f8d2cad9b12d6a7c8fb209e885755159e8e4d447f44c01cd41a6a1dc0e695b0",
+        "pointer": "",
+        "record_sha256": "fcd402e203efc15f51939a6ef4059643f7a31459f9c22976281cd71dba36b2ba"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/28b2b6bf684cd7be.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/ebac79d6dcd78c42-001.json",
+      "sha256": "e258eecadba7665b93ca10cfd184f8f9c1bb40c7c45ed056f9ebd80a6bba9a1c"
+    }
+  ]
+}

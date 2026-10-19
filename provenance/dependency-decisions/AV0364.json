@@ -1,0 +1,101 @@
+{
+  "module": "src/scripts/wz_common/player.gsc",
+  "identity": "scripts/mp_common/item_supply_drop.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "item_supply_drop",
+  "witnesses": [
+    {
+      "line": 91,
+      "text": "            item_supply_drop::drop_supply_drop( org, 1 );",
+      "caller": "function_cd8ee3c5",
+      "caller_span": [
+        79,
+        94
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 86,
+          "opening_line": 89,
+          "ending_line": 92,
+          "text": "if ( isdefined( trace[ #\"position\" ] ) && trace[ #\"surfacetype\" ] != #\"none\" )"
+        },
+        {
+          "line": 82,
+          "opening_line": 85,
+          "ending_line": 93,
+          "text": "if ( waitresult._notify == #\"explode\" )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drop_supply_drop",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1283,
+          1320
+        ]
+      ]
+    },
+    {
+      "line": 114,
+      "text": "            item_supply_drop::drop_supply_drop( org, 1, 1, vehicletypes[ randomint( vehicletypes.size ) ] );",
+      "caller": "function_f3edce9a",
+      "caller_span": [
+        100,
+        117
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 108,
+          "opening_line": 111,
+          "ending_line": 115,
+          "text": "if ( isdefined( trace[ #\"position\" ] ) && trace[ #\"surfacetype\" ] != #\"none\" )"
+        },
+        {
+          "line": 103,
+          "opening_line": 106,
+          "ending_line": 116,
+          "text": "if ( waitresult._notify == #\"explode\" )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drop_supply_drop",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1283,
+          1320
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0364",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/item_supply_drop.gsc",
+    "sha256": "d68a88995ec7f533abdb881187b2ac1d4a68e699ae15b67f4df36a47e5feeb37",
+    "git_blob_sha1": "39f87e4ee30f3ef7e13ef50b85890ccf47958854",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

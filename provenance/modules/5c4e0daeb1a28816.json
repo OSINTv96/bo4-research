@@ -1,0 +1,675 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/gametypes/battlechatter.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b",
+  "git_blob_sha1": "7bc90120c8638397cfa9c4e61b06b76c81c0d99f",
+  "output": "src/scripts/mp_common/gametypes/battlechatter.gsc",
+  "output_sha256": "29acbab4638d6fdba811b7ca14040f1cbf35da0f27014757b58f19b5824c8949",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/array_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.gsc",
+        "sha256": "ba277804b598a6cbaac5e440e35cd9ca40e31a8129b3ef80238fccb2910c2999",
+        "git_blob_sha1": "a1f7edf5a22be05509e8d0802890ee5a61abc83a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_role.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/player/player_role.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_role.gsc",
+        "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+        "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0327.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/struct.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.gsc",
+        "sha256": "706587e8ed269609b4bd9db283992bfc68174affdce1f56acdc2089a29e87127",
+        "git_blob_sha1": "86a74f75f7f118cd29773df5723c439304dc0db8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/killstreaks/killstreaks_shared.gsc",
+      "original_line": 8,
+      "output": "src/scripts/killstreaks/killstreaks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/killstreaks/killstreaks_shared.gsc",
+        "sha256": "35f35b2122e1d388c749ecb01bfdf87cabcbb41c47efdad6e05f195afcc370cc",
+        "git_blob_sha1": "9bebb9527bb9d1471d08d6ab66ba4de1c7c5fce2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "original_line": 9,
+      "output": "src/scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+        "sha256": "af30fc94fb7bd45380ca422a17b72372a8b8f00e1701a6d12fb3f65af672611f",
+        "git_blob_sha1": "e840df9fa289d97069e735d22ee25c1c2e1ca6a5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "original_line": 10,
+      "output": "src/scripts/mp_common/gametypes/globallogic_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_utils.gsc",
+        "sha256": "1f1ed6cf6da9a1d8f8accf87b23bba4a592f78533cd1f3b38a00897a7fe9ca57",
+        "git_blob_sha1": "59327dafe473d6266396057ff6c357fe5b03daf6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/match.gsc",
+      "original_line": 11,
+      "output": "src/scripts/mp_common/gametypes/match.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/match.gsc",
+        "sha256": "9706b06f175d95be09cf7159c1cf0ad103176a99c7165f9b1ee6da7a1be4e339",
+        "git_blob_sha1": "bfc6f6ca4393e881d084bacbd36bba75c7fefdd2"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/grapple.gsc",
+      "original_line": 12,
+      "output": "src/scripts/weapons/grapple.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/grapple.gsc",
+        "sha256": "894be498c33359f9a5313df6eb3179ff9ad1ccbfda46efe06bc7dbba60758dbe",
+        "git_blob_sha1": "9755bb81d32c15fa07e60ac7e70de960bb71014a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weapon_utils.gsc",
+      "original_line": 13,
+      "output": "src/scripts/weapons/weapon_utils.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weapon_utils.gsc",
+        "sha256": "3f6cb525a53abb0881186085aa372ef3b8a66f9168ae897bb8339be94a0425cd",
+        "git_blob_sha1": "131b4010b301def7aced9d7e9e50b6643b1822cb"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0328.json"
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "2d9eab2e78e820d8ef3e65842d0a7d185c7782532aa8e02f355c8d84b1a9e82b",
+      "citations": [
+        {
+          "line_start": 21,
+          "line_end": 24,
+          "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/250",
+        "decision_canonical_sha256": "4f967c98335cf344fd39a104d4242637fc05dc2496f2a6cb033e9b0d15f41ba9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/526",
+        "record_sha256": "ae01e9fb50b6c4617731b7b184fd02d7d4c89081fe1b709bcce55bba7f7a49a5"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "59eeff53af5710f7c22bc2edf16c547943eed08ec70f05e29c867579a0560e9b",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 156,
+          "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/177",
+        "decision_canonical_sha256": "da7d34f02b9d06735cb5b429b937943fe57ecc40134a2a644f31f0c3c8d7062a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/525",
+        "record_sha256": "828d0ee5e223ca90930ff91c31367f809f05b089e0f8a3307c56762506623d36"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5bb372de2dabef5fdd18eded18329912cc1039ee6bf2c715121b9eae10feae1a",
+      "citations": [
+        {
+          "line_start": 21,
+          "line_end": 24,
+          "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/500",
+        "decision_canonical_sha256": "ca821033fcd14e641540630572e85c99b21d18bb4650143e795708a2f4bd07a4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/953",
+        "record_sha256": "ee2a41dccfd5dbb2c5d1a51faff42c8382f6e90148b7d8a338e170d25fbfe164"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "6799c371cdee95571a9c1e446b8224e97d5849d12f1f692e3119c98bf76d5557",
+      "citations": [
+        {
+          "line_start": 109,
+          "line_end": 154
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:dialog",
+        "answer": "allowbattlechatter and allowannouncer: neither key is set by any recovered HMH layer (corpus-wide script/tables search zero matches; absent from frontend 8360-8592, TU23 8719-8980, gametype def 8244-8639 and anchor bundle). allowbattlechatter PRODUCERS (script copies, all reading getgametypesetting(#allowbattlechatter) at init): mp_common/gametypes/battlechatter.gsc:109 stores raw (no isdefined guard): level.allowbattlechatter[bc] = getgametypesetting(#allowbattlechatter); mp_common/battlechatter.csc:27 uses isdefined&&value guard (client copy); core_common/dialog_shared.gsc:83 repeats the same raw store in a separate core_common system (dual install of the same setting, matching m1's dual-install note). CONSUMER GATES: battlechatter.gsc:333 skips specialist conversation when level.splitscreen || !level.allowbattlechatter[bc]; battlechatter.gsc:153-154 builds allowspecialistdialog/playst [excerpt; exact source record identified separately]",
+        "behavior": "dialog: allowbattlechatter/allowannouncer candidates resolved to their three/four producer sites and consumer gates; absent-setting outcome recorded as conditional falsy, not data-false; mpdialog bundle and native default kept as gaps.",
+        "unknowns": [
+          "Effective value of getgametypesetting(#allowbattlechatter) and (#allowannouncer) in HMH sessions (no recovered producer)",
+          "Native absent-key return (undefined vs 0)",
+          "mpdialog_default bundle enableherodialog/enableconversation values",
+          "Whether battlechatter/dialog_shared system init runs in the wz/HMH VM (native script-bundle question)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/20",
+        "decision_canonical_sha256": "d735998b0b6d1a1da69462f74e6d44fb8af431f3278ac0149b59cd4bf67c8dfa",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00400",
+        "sha256": "b98d0e97898e8e430b7b2829e36cc7e7fb98558f755b59dd5f3a28425dfbe156"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "865701a11ec200ef75f4db12876a0cf62fd9b7174187b28eb291b3fcecb3f74a",
+      "citations": [
+        {
+          "line_start": 2850,
+          "line_end": 2868,
+          "sha256": "7a217d5796e473ef28dedcaf5c2f8a779dfbb2e5be744bb22e45f5be69a0d16b"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/600",
+        "decision_canonical_sha256": "1266bece8ecc1c486514e107a5b575c7f59de228457c284e0eb8d2d6affe12a8",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/527",
+        "record_sha256": "4c4b65cd6280dcff44158e6944074b5c2b3b185f1e4abd73ab629a600c5e32b2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+      "citations": [
+        {
+          "line_start": 15,
+          "line_end": 56
+        },
+        {
+          "line_start": 109,
+          "line_end": 154
+        },
+        {
+          "line_start": 1723,
+          "line_end": 1812
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/mp_common/gametypes/battlechatter.gsc::function_f5c48bfa",
+        "behavior": "Non-dev battlechatter specialist dialog for enemy-destroyed gadget/equipment: gates in order - level.allowspecialistdialog true; attacker defined and isplayer and lacks perk specialty_quieter; gadgetweapon defined and NOT (owner defined and owner==attacker); attackerweapon (when defined) is not a killstreak weapon (killstreaks::get_from_weapon undefined); attacker has an mpdialog_player bundle; switch on gadgetweapon.name across 14 equipment identities (eq_sensor, gadget_spawnbeacon, claymore, eq_concertina_wire, gun_mini_turret, dog_ai_defaultmelee, seeker_mine_arc, ability_smart_cover, gadget_supplypod, eq_tripwire, trophy_system, eq_emp_grenade, eq_hawk, eq_shroud) with default return; on match threads function_5896274(mpdialog_value(enemyKillDelay,0), dialogkey, 2, undefined, undefined, cancel_kill_dialog) and for seeker_mine_arc additionally function_a43a3519. HMH-path limit: level. [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original-build presence of battlechatter in the warzone VM and the runtime value of allowbattlechatter/enableherodialog for warzone_heavy_metal_heroes",
+          "Which destroy drivers reach each of the16 non-Zombies dispatch sites in HMH matches (the17th site is Zombies-only) (event/native damage delivery unproven)",
+          "function_5896274/function_a43a3519 dialog delivery and native audio outcomes",
+          "getmpdialogname home file and bundle semantics",
+          "zm_weap_mini_turret call site VM scope (zm context only, not HMH)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/89",
+        "decision_canonical_sha256": "f7cf340e0a6cae896350ec418aaeba539fd2a1fb6cbcbaaae7890922de562851",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00411",
+        "sha256": "9e591d0ec98fa5549ed8b13b44cabbcf7202a924dae454fcab966b6867c0a43c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "140d8d1ca26cf439d0732b0137196f584000d438b47076234ddcbf9abe95332f",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 156,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01833",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/184"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/165",
+        "record_sha256": "65b4cc1ca268057b0fa5d2bbd27938e4800edbb3360b4f6f02337145be0cb095"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1d6cc2c9078f59253192dd0395741ef26af2a03ddaacf43c52d97b9375078cb1",
+      "citations": [
+        {
+          "line_start": 2850,
+          "line_end": 2868,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01834",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/185"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/166",
+        "record_sha256": "4a23bacecc59362689f10ac42c08e5b191a4c2ec796b115b22c2e49ed7a2df3e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8547a04d5464a4b92449a58cf2e84dbeef21d61912aa6a1756428e0efcd51be0",
+      "citations": [
+        {
+          "line_start": 2850,
+          "line_end": 2868,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::count_keys",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01834",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/185"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/166",
+        "record_sha256": "4a23bacecc59362689f10ac42c08e5b191a4c2ec796b115b22c2e49ed7a2df3e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d5d8c476513c898cea815337945d27e1c23d8e53ce12ecdc57e993dc79af4a37",
+      "citations": [
+        {
+          "line_start": 30,
+          "line_end": 156,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/battlechatter.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01833",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/184"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/165",
+        "record_sha256": "65b4cc1ca268057b0fa5d2bbd27938e4800edbb3360b4f6f02337145be0cb095"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/f3b0939ad54ca8c1.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0327",
+    "AV0328"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/5c4e0daeb1a28816-001.json",
+      "sha256": "7011370c987cabd64498ac74381a46eaf4de6a5d28d6025ae7f34cc4e4e66ab6"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/gametypes/gametype.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "030aee84d9ccba4bf5aa0810df416da2cc6af76eecc5f1a60d72b41709974270",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:merge-precedence",
+        "answer": "PRECEDEnCE RESULT: the playlist-entry vs gametype-def vs SET_DVAR merge order is native and unprovable from recovered source, so ORDER IS NOT PICKED; this record gives (a) proved script-side assignment orders, (b) equal recovered table values with conditional application, and (c) conditional effective-value tables per read-site style. PROVED SCRIPT ORDERS: (1) team-based chain â€” mp_common/gametypes/globallogic.gsc init sets level.teambased=0 (187), then calls gametype::init() (198); mp_common/gametypes/gametype::init first reads the bundle15 and returns19-22 if it is undefined. Only with defined bundle does line24 set level.teambased=isgametypeteambased() AFTER, so within that qualified init chain the opaque native result overwrites the earlier hardcoded0 if that call returns normally; its relationship to the anchor isTeamBased true row16 remains an unresolved dependency â€” a real later-write-wins case, not a guess: the two writes are in the same call chain (warzone.gsc:29 #using gametype; warzone main:67 globallogic::init). (2) heroes loadout pointer override chain â€” wz_loadouts.gsc __init__ 31-34 sets level.var_5c14d2e6=&function_3fed57dd if hash_7d8c969e384dd1c9; 36-44 sets level.var_317fb13c if hash_4149d5d65eb07138; 46-50 then overwrites BOTH with &function_9de0644f if wzheavymetalheroes â€” last-true-wins among the three, consumed by item_world.gsc:519-528 and player_reinsertion.gsc:441-447. (3) proved cross-setting compositions: OR-union player_reinsertion.gsc:441 and item_world.gsc:519; NOT-and wz_open_skyscrapers_fixup.gsc:30 (wzenableflareguns AND NOT wzheavymetalheroes); AND-pairs against hash_3778ec3bd924f17c at wz_asylum.gsc:23, wz_blast_doors.gsc:29, wz_jukebox.gsc:12, wz_buoy_stash.gsc:24, wz_array_broadcast.gsc:22, while the compared per-character fixups normally combine hash_50b1121aee76a7e4 with their own setting key (for example ajax30 adds d084b5063bb0c55 and battery30 adds2cd26947d8f311fa). Longer conjunctions add hash_3778ec3bd924f17c in mason30, nikolai30, richtofen30, seraph41 and takeo30; mason also adds24e281e778894ac9 and seraph adds4a035e3775089f40. Each repeated definedness/read and its own left-to-right conjunction is retained. This does not generalize to the generic character_unlock_fixup.gsc readers. READ-STYLE TAXONOMY with site-level defaults: fallback-with-default (warzone.gsc:363-370 e.g. hash_35c2d850e39fa704 default 100, evolution_interval default 20; wz_ai_zonemgr.gsc:36 default 1, 78-79 default 3); core_common/infection.gsc24 passes literal second argument0, whose native meaning is unresolved; raw direct store (battlechatter.gsc:109; globallogic.gsc:188,195,5049); exact-compare (arena.gsc:45-46 ==1); isdefined&&value guards (wz_open_skyscrapers.gsc60 for the HMH guard; warzone.gsc119/169/173/177 for their own settings; warzone.gsc60 is a declaration comment). CONDITIONAL EFFECTIVE-VALUE TABLES: (a) keys set by BOTH playlist and def with EQUAL values (hash_68f4f3fd681ae3ea=1, hash_6c72667787a1fcc9=1): equal values1 in those recovered inputs, conditional on their actual applicable native application and on no other effective override â€” equality alone does not prove an effective value or resolve other layers, mask selection or application; (b) playlist-entry-only keys (startplayers=80, hash_35c2d850e39fa704=80, hash_6cf5f53d1fbb1066=1, hash_3083d02ea0f5761c=0, hash_3778ec3bd924f17c=1, evolution_interval=16, wzenablewallbuyasylum=1, wzenablesentrygun=0, wzzombiesbreakdoors=1, wzlootlockers=1, hash_6b1ec01fa78af670=1): the listed table value is an input candidate conditional on actual applicable native application without another override. If not applied, the provider result remains unknown; a particular script fallback is taken only when that read actually returns undefined â€” no native outcome picked; (c) def-only keys (maxteamplayers=4, wzaizones=0, wzzombies=0, wzenablebowieknife=1, killcamhistoryseconds=1800, allowkillcam=1, wzenableoperatorweapons=1, wzenablemusclecar/suv/homewrecker/vendetta=1, wzenablereplacercar=0, wzenablecoinbag=1, wzenablepurifier=0 with platformMask2 (native mask-selection unresolved), hash_450463e38ea8bf1=3, hash_69ad073972c1c4ea=3, hash_446a66a4499c4e5d=6, hash_22431a9369b5d7c0=50, hash_9ccb8e5d58cd832=1, hash_2491cd92f1d6a91c=1, hash_52d705a46da9e55f=1, hash_7695bdd7b20cdda=0): same native-application/other-override qualification; 450463â€¦/69ad07â€¦ match the written script fallback3 numerically, without proving either path is selected; applicable returned wzaizones0 differs from the written wz_ai_zonemgr fallback1, but neither actual native result nor fallback selection is established; (d) keys set by NO recovered layer (wzheavymetalheroes, allowbattlechatter, allowannouncer, allowplayofthematch, infectionMode, pregamedraftenabled, pregameitemvoteenabled, maxplayofthematchevents, the 9 potm weighting hashes, hash_7d8c969e384dd1c9, hash_4149d5d65eb07138, hash_6eb44149a8ac6dd1, teamcount, scorelimit, timelimit, roundlimit, roundwinlimit, playernumlives, teamnumlives): effective unknown; per-site consequences are listed in their own units (potm disable branch, arena ==1 false branch, battlechatter falsy branch, infection literal-second-argument0 call with unresolved native meaning). CONTRADICTION CHECK: across the three HMH layers no shared key has conflicting values; the only 80-vs-50 duplicates (TU23 startplayers, hash_35c2d850e39fa704) differ only by platformMask (6 vs 1), so the effective selection/application for a single-store reader depends on unresolved native mask and application semantics â€” recorded as a native question, not resolved here. Also recorded: contractsenabled is read from getgametypesetting(#disablecontracts) then immediately hard-forced to 0 (globallogic.gsc:166-167) â€” an in-source override that beats any playlist value for that key.",
+        "behavior": "merge-precedence: proved script assignment orders (teambased chain, heroes loadout override chain, NOT/OR comps), read-style taxonomy with per-site defaults, and conditional effective-value tables by key class; native layer order explicitly unresolved.",
+        "unknowns": [
+          "Native playlist rules application order and override semantics (playlist entry vs gametype def vs SET_DVAR vs online) â€” the exact subject of this question; retained partial/blocked per DELIVERY",
+          "getgametypesetting absent-key return (undefined vs 0 vs native default)",
+          "platformMask/environmentMask filter semantics",
+          "clamp-on-undefined behavior for scorelimit/timelimit/roundlimit and teamcount loop condition in globallogic init_teams when teamcount is absent"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00396",
+        "sha256": "bc807135200038c5de8e7b0cbbcf44aaec888eccb2703d8ade0757e4c20f1e33"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "115fe88faa038a77428a8c95f5acac9177345297316bfad55d5054fef5fb2e09",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_f2f4dfa7",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1103",
+        "record_sha256": "62a76b25984a5c334e157a9b91a0fa07b0405e2fdb0a44e9d5c6cb44040e930e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "528e3c2407ce8e765a588764eea1b2b084962253d7b919fa7aa64d414068c225",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/539",
+        "record_sha256": "232a4ac43715c0ccd600511d60d803a7177a1400753efba619a5cded1379609b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "627101eb07ea7f978b56683aed57922bf0d102daa95d4a0dff74843de49109f1",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:teams",
+        "answer": "teams: isTeamBased, level.teambased, maxteamplayers and source assignments relevant to HMH teams/respawn. (1) isTeamBased â€” anchor table row 16 true. Consumer chain: gametype.gsc init:24 assigns the result of the opaque isgametypeteambased() call to level.teambased; the separate recovered JSON has isTeamBased=true. These source observations do not prove that the native call reads that table or returns its value; assignment ORDER is proved inside the init chain: globallogic.gsc:187 sets level.teambased = 0 FIRST, then globallogic.gsc:198 calls gametype::init(), which first reads bundle15 and returns19-22 if undefined. Only a defined bundle reaches the native builtin/write24; if missing, the earlier0 survives this chain. With a defined bundle and a returning call, the later assignment uses that opaque result. An effective HMH true value is conditional on an unverified mapping between the recovered table and the native call; neither native internal reads nor its actual result are established. (2) maxteamplayers â€” gametype def rule #maxteamplayers = 4 (playlists_online/gametypes.json 8626-8637, def-only key: NOT in the playlist entries); consumer globallogic.gsc:195 level.maxteamplayers = getgametypesetting(#maxteamplayers) (raw store); a known HMH consumer gate is character_banter start which returns unless level.maxteamplayers >= 2 (prior m1 record; so with the def value 4 the banter gate passes CONDITIONALLY on the native store delivering def rules). (3) teamcount â€” globallogic.gsc:188 level.teamcount = getgametypesetting(#teamcount); the compared recovered HMH layer rules contain no explicit identified #teamcount name. That literal observation does not establish semantic key absence: opaque hash-named fields/settings, native/online layers and store merging remain unresolved. The opaque getgametypesetting result stored in level.teamcount is unknown and is not constrained to undefined/0; level.multiteam = level.teamcount > 2 at194 compares that unknown returned value if evaluation reaches and completes. Actual key absence and its return/default contract are conditional unknown cases only; init_teams326-349 first copies level.teamcount to local teamcount. Only the ==1 block332-336 changes that local to getdvarint(#\"com_maxclients\",17)+1 and writes the free-team entry. Both paths then reach common team/index writes338-343 and the loop345, whose local-bound behavior when the original count is undefined remains an original VM/engine uncertainty â€” left unknown. (4) The compared bundle has no explicit named teamcount, maxteamplayers, playernumlives or teamnumlives keys. Its opaque hash-named fields remain uninterpreted; no absence of all semantic team data is established. (5) respawn-adjacent config: registernumlives(0,100) at warzone.gsc:73 reads playernumlives/teamnumlives (util.gsc 752-760) â€” no explicit identified named entries for those settings in the compared HMH layers; opaque identities and actual native-store membership/values remain unknown; wz hero perks (specialty_doublejump/fallheight) are gated by wzheavymetalheroes, NOT teambased (warzone.gsc:828-831). (6) teams assignment plumbing: warzone.gsc #using team_assignment/teams (43-44); the compared literal rules identify no explicit named override; opaque settings and other loader/store behavior remain unresolved. Distinguish observed source from conditional inference: table value + script store sites are observed; the effective4 and true are conditional inferences only if the native store/builtin maps to and delivers the separate recovered values (the same native gap as unit 4); The named compared initializer sites establish only their local writes and order. Other possible writers, loaders and later reachability remain unresolved; these witnesses are not a closed corpus-wide absence proof.",
+        "behavior": "teams: the separate recovered table has isTeamBased=true; within the named initializer chain a defined bundle reaches the opaque isgametypeteambased request/write24, while its missing-bundle early return preserves the earlier0 within that compared chain. Other writes/loaders remain unresolved. maxteamplayers=4 is a recovered def-rule literal; the settings-store result and consequent character_banter >=2 branch are conditional on actual delivered values. teamcount is an unknown opaque settings-store result, not an established absent-key/undefined-or-0 state. init_teams copies that value and has the shown ==1 local-bound substitution and common writes/loop; actual value/type, reachability, native/VM behavior and result remain unknown.",
+        "unknowns": [
+          "Native isgametypeteambased() table-field mapping (builtin behavior unverified)",
+          "Effective level.teamcount, opaque settings/field identities, native-store membership, other native/online layers and merge behavior are unknown. If the native key actually is absent, its return/default contract is also unknown; undefined/0 are not an established or exhaustive result set. init_teams reachability, comparisons and loop behavior depend on the actual returned value/type and original VM/provider behavior.",
+          "Effective level.maxteamplayers (conditional on native store delivering def rules)",
+          "Whether the shipped original build's table and playlist rules equal the recovered data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00399",
+        "sha256": "79946c164badbf76f2c1887a8ba13178a01908c7c8518112f14ecbe49889485a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "8a186dc0cc1e3d6a48e9f02afcefb6054b360ad50d6382fda64888fbd375a339",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::on_start_game_type",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1100",
+        "record_sha256": "9a6c2d0c95e1b8261fda30548331e0aa7e1de944775a0b95ccf76fac9c4e55d9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "9890625b8f10b5dfea42ad4694066c12d400a9297dbd1009e8a2e9fe6f821d68",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/538",
+        "record_sha256": "bb0146cb7e47b2a132246545860806d50afa664e0334fcd2325ca5fc4de44f2b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "bd8621bf749e560f82295dca1dd3639dcf01a189fd7a9446e664b3b1902ff5af",
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:gametype-driver",
+        "answer": "Triggering and invocation separation (source-side, revision f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac): globallogic::callback_startgametype5169-5201 has no explicit literal caller found in the exact bounded2374-file query pool. One demonstrated source route is callbacks_shared.gsc::codecallback_startgametype (event_handler[gametype_start],1177-1184), which tests the undefined/falsey level.gametypestarted marker, invokes [[level.callbackstartgametype]]() without a defined/callable guard, then writes the marker1 if control reaches that following statement. This post-call marker is not an in-progress guard. Source does not establish the VM failure, continuation or marker state after an undefined/noncallable invocation, nor sole runtime entry or absence of dynamic/external callers. CSC694-701 adds isdefined(pointer): its undefined arm skips invocation and marker assignment, but definedness does not prove callability. Actual event delivery, reentrancy and failures remain unknown. The installer is mp_common/callbacks.gsc::set_default_callbacks line 67, run by the autoexec system registration chain callbacks.gsc 23-34 (system::register(#\"callback\").__init__), i.e. part of the g2 system-init/preinit or finalizeinit batch per g2/f2; the level.onstartgametype mode pointer is installed at warzone.gsc::main 92 (event_handler[gametype_init] main at 64), overriding the setup_callbacks default &blank (globallogic.gsc 466), and native delivery of both gametype_init and gametype_start events has no script-side emitter in the corpus (standing g2 N2/g3 A.1). Source preconditions inside the driver body: none - no isdefined checks; for the particular traced Warzone pointer assignment, main92 is the observed installer; this does not exclude other writers. On the compared default-pointer path before that assignment, 5175 calls the harmless &blank default and 5173's gametype::on_start_game_type returns early when its bundle (level.var_d1455682 from gametype::init at globallogic::init 198) is undefined. Phase writes in exact source order on the single handler thread: (1) function_b9b7618 (4807-5163) - prematchrequirement/prematchperiod/intermission zeroed 4809-4810, setmatchflag(\"game_ended\",0) 4813, first-game branch sets pregame game.state/UI strings 4820-4826, [[level.onprecachegametype]]() + game.gamestarted=1 4850-4851, reads getgametypesetting(\"prematchrequirement\")/(\"prematchperiod\") at 4865-4866 (in-source dvar overrides 4868-4892 are dev-blocked), inprematchperiod=1 at 5093, rankedmatch jitter prematchperiod += randomfloat(4)-2 ONLY when prematchperiod>2 && rankedmatch at 5095-5098, level.graceperiod=15 vs 5 at 5100-5107 (registernumlives(0,100) at warzone73 clamps playernumlives and teamnumlives setting values to0..100;100 is a maximum. Grace15 requires actual level.numlives || anyteamhaswavedelay() || level.playerqueuedrespawn; otherwise5, so HMH choice remains setting-dependent), ingraceperiod=1 at 5109; (2) [[level.var_6c4ec3fc]]() 5172 - default &function_8af3b312 (setup_callbacks 472; body 4778-4787: optional var_cdb8ae2c pointer call, influencers::create_map_placed_influencers(), globallogic_spawn::addspawns()); (3) gametype::on_start_game_type() 5173 - generic gametype.gsc 40-56, bundle-gated early return; (4) callback::callback(\"on_start_gametype\") 5174 - per the reused g3 callback@ contract (PRIOR-MAPPINGS 27659-27727) the callback helper reads the actual entity callback table, skips nonarray entries and returns on an invalid pointer; reached valid entries request util::_single_thread delivery without a join. add_callback separately has entity/function guards and duplicate suppression. The cited teams/killstreaks/weapons registrations are potential entries conditional on actual loading, initialization and table contents. The approximate corpus registration inventory includes other-mode and developer-only entries and does not establish an effective HMH callback set or its completion; (5) [[level.onstartgametype]]() 5175 = warzone.gsc::on_start_game_type (556-588; unit 2 anchor); (6) driver threads in source order 5176-5185: level thread function_54b079aa (5207-5224: waittillframeend then per-frame poll until game.state==\"playing\" then hudItems.specialistSwitchIsLethal worlduimodel set - a frame-delayed state poll that can pass whenever game.state is observed as playing; it has no writer identity check or join tying that observation exclusively to unit4 set_game_playing, and an already-playing state or another writer is not excluded), killcam::do_final_killcam, updategametypedvars, thread startgame() (5179 - the unit 4 transition driver), simple_hostmigration::updatehostmigrationdata, conditional radar_sweeps only when level.var_f16f6c66 is not defined-truthy (5182-5185); (7) dev-only tail 5187-5200 (scr_writeconfigstrings forceend path / scr_hostmigrationtest). The nondeveloper local statement path contains no explicit wait. The body also contains developer-region wait1 at5192, reached when that region is included and scr_writeconfigstrings==1; excluded region or false guard skips that local wait. Exact original-build inclusion and synchronous-callee/VM timing remain unknown. Downstream waits include (matchstarttimer thread, prematchperiod()/waitforplayers() on the startgame thread, function_54b079aa state poll). g2/f2 foundation ties: the callback system registration runs in the g2 system-init batches; the f2 readiness conclusion that requirement resolution spawns exec threads WITHOUT joining and the only synchronization is the whole-batch system_init_complete flag carries over unchanged - this driver adds a second marker (level.gametypestarted, 1179-1183) as its own post-return suppression marker, without an in-progress guard.",
+        "behavior": "One demonstrated source route is native-event-declared gametype_start -> callbacks_shared.gsc1177-1184, with an unguarded pointer call then marker1 only if that statement is reached. CSC694-701 skips an undefined pointer but does not establish callability of a defined one. The post-call marker is not an in-progress guard; VM failure/continuation and actual delivery remain unknown. The bounded literal query finds no explicit source caller of globallogic::callback_startgametype; no sole runtime route or absence of dynamic/external callers follows. Observed pointer installer is mp_common/callbacks.gsc67 through23-34. Phase chain (source-sequential, one thread): function_b9b7618 reset/settings/jitter/graceperiod writes -> [[level.var_6c4ec3fc]] default function_8af3b312 (influencers+addspawns) -> gametype::on_start_game_type (bundle-gated generic) -> guarded on_start_gametype callback-table dispatch (reached valid entries request separate threads without a join; actual loaded HMH set unknown) -> [[level.onstartgametype]] = warzone pointer (default &blank, overridden warzone.gsc::main 92) -> six driver-side threads (startgame at 5179 drives the playing transition) -> dev-only forceend/hostmigration blocks. No explicit local wait on the nondeveloper statement path. Developer-region wait1 at5192 remains conditional on region inclusion and scr_writeconfigstrings==1; original-build inclusion and synchronous-callee/VM timing are unverified.",
+        "unknowns": [
+          "gametype_start poster and event order relative to finalizeinit/bundle load in the original build (standing N2; unchanged)",
+          "original-build evaluation of dev blocks 5187-5200",
+          "effective prematchperiod/prematchrequirement values for warzone_heavy_metal_heroes: no producer in LAYER_A/LAYER_B/gametypetable layers; native absent-key return + online layer unknown (g1 unit 4 partial)",
+          "VM scheduling/completion order of the six driver threads (f2 N4); source order is statement order only",
+          "level.var_f16f6c66 (radar gate) writer not traced - outside this chain scope; recorded as an unknown, not a claim"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00324",
+        "sha256": "024e3a750c4a70f4298769170aa870c73ad1102a6392edcbd64e72d3d462346a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "d5c0c83d80842ec2500a1f53cb9496e1ead64135e67ca1717b9daeabff903632",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/540",
+        "record_sha256": "451707f3aa431e1c4cd5e0c275f2c8d9bfbd5508f287c7346acd531ba3016d5e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "d9686c6680ba9c3d5f61d61584755d2e56859c9037a0b188d87300070dfd1bee",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/173",
+        "record_sha256": "e71ad6bd3fecadc52da770da9e2bf0789371d39bc404cb810a08b2ab15cb11b7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "f2c72533147b0d5c208a41abdaa2706e0615b2ab919854701599198b902bf305",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/172",
+        "record_sha256": "9622265d9b25a7bc6e8d9da7bd8d46bbfeb8a471f8c71fc883798afef06d1b47"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "3354edf6c70df1c2752428ab0fc2c601324a3405dd4b4247d4ae853b317a8f8b",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/172",
+        "record_sha256": "9622265d9b25a7bc6e8d9da7bd8d46bbfeb8a471f8c71fc883798afef06d1b47"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/558044dc6eff0527.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "899e4797dd81125836ecf42820053ebc7b459a8a8186617725c1bb00fa016501",
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/173",
+        "record_sha256": "e71ad6bd3fecadc52da770da9e2bf0789371d39bc404cb810a08b2ab15cb11b7"
+      }
+    }
+  ]
+}

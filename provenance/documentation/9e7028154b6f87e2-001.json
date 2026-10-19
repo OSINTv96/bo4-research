@@ -1,0 +1,115 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/sticky_grenade.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "33cfae2f143b32b6be6b85a2e0b05d0ead4ade3b6d6b12d23b3fa28141da42b6",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::spawned_arrow",
+        "behavior": "Bow-arrow spawned handler (localclientnum): dud gate -> return; else self thread fx_think( localclientnum, 2 ) - the mode-2 arrow variant (unit 368).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/363",
+        "record_sha256": "492e4e4c6fd2a76f400f990340a4f882b9a3e443f46fece9a2313cb79f97ae37"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "61b93e12ff301f2715875ebb52b13fdea30339f9c4983c9aaadd8c1da279165c",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::__init__system__",
+        "behavior": "Sticky grenade client autoexec: system::register( #\"sticky_grenade\", &__init__, undefined, undefined ). No branches.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/360",
+        "record_sha256": "44445cb5bb4c3d0ae2474d72760b84548910971b0d60be02860d44889d693629"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "aa895fd226ec44cc7d77f55acaa146dd580450f930a6e200650a175b1e46a5ed",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::function_6054cc1e",
+        "behavior": "Special sticky-type spawned handler (localclientnum; registered for hash_66401df7cd6bf292): dud gate -> return; else self thread function_c879d0fd( localclientnum ) (alternate FX loop, unit 371).",
+        "unknowns": [
+          "Hashed weapon type identity data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/364",
+        "record_sha256": "97e762da6209f3e28f1096ffcb7230fea010f9079645b724c96ee279647a564a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "b4a0fb08eefac6e5d9064e3d4cb01ecd2a8371119e344c3c2f073e2a2e0e4501",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::stop_sound_on_ent_shutdown",
+        "behavior": "Countdown sound killer (handle; self = the explosive): self waittill( #\"death\" ); stopsound( handle ). One-shot cleanup.",
+        "unknowns": [
+          "stopsound native on the returned handle"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/366",
+        "record_sha256": "48c88228a47946270f0ccd3657f905617c9e6a393dbdbba6696616b7a905ea57"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "c1bbf6c9f7b3ca563a27c8e5e7e998508e1e1563897a1426967f9fea1a506b78",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::sticky_indicator",
+        "behavior": "Stuck-image HUD indicator (localclientnum, indicator; self = the stuck grenade). controllermodel = getuimodelforcontroller( localclientnum ); stickyimagemodel = createuimodel( controllermodel, \"hudItems.stuckImageIndex\" ); setuimodelvalue( stickyimagemodel, indicator ) (shows the stuck warning image; indicator is the fx_think mode 1/2); player = function_5c10bd79( localclientnum ). while isdefined( self ): waitframe( 1 ) - keeps the image until the grenade stops existing; then setuimodelvalue( 0 ) (clear image); when player defined -> player notify( #\"sticky_shutdown\" ).",
+        "unknowns": [
+          "UI model APIs retain their native/UI boundary. The source separately emits the player sticky_shutdown notification; its actual consumer, language, location and delivery remain unresolved without positive pinned listener evidence.",
+          "function_5c10bd79 unresolved as before",
+          "createuimodel/setuimodelvalue native UI APIs"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00714",
+        "sha256": "77951a8b60a52de11cc6836c769476dec6231741b3391d304ba39153807fe73a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/9e7028154b6f87e2.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "ff2761b3392e38ac6fb6687224640e33e77031aea83092160093d72a8d8b6f5f",
+      "summary": {
+        "unit_id": "scripts/weapons/sticky_grenade.csc::spawned",
+        "behavior": "Sticky-grenade spawned handler (localclientnum): dud gate (self isgrenadedud()) -> return; else self thread fx_think( localclientnum, 1 ) - the mode-1 grenade light FX loop (unit 368).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/362",
+        "record_sha256": "46190fc8ae02e90848be605bd45e72c5a15fb16a797fb17ab96fd8aa62f8d668"
+      }
+    }
+  ]
+}

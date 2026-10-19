@@ -1,0 +1,1213 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/utility/prestigeutility.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+  "git_blob_sha1": "151eb06d92e9013ae7f672e5efdd8c71e71ec5c0",
+  "output": "src/ui/utility/prestigeutility.lua",
+  "output_sha256": "0e9f5a58585cb89017b946e366794338f825e561b21f1f723f3a2ecc422709e0",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/utility/overlayutility.lua",
+      "original_line": 4,
+      "output": "src/ui/utility/overlayutility.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/utility/overlayutility.lua",
+        "sha256": "49cdc58ff81d49093e0059e0944b197a484c7ac22de57178967b91b4b25c9988",
+        "git_blob_sha1": "bf78e0114f9f694ad46daf1fae16e76778bdaace"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0ea9f72585a7ae6bf1c15455c9ff0f448dbc29ff9ab30abab022fe7de15d231c",
+      "citations": [
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:142",
+        "answer": "Compares numeric input against numeric Warzone maximum rank plus one. At/above threshold returns the special localized string; otherwise tostring(input). Missing numeric conversions are not guarded. Requires item model not dummy/collapsed. Reads selected slot and item id. If a slot-claiming pickup would replace a nonempty item, uses firstFreeSlot when not -1 or sends inventory_drop first when full. Then sends multi_item_pickup or multi_item_pickup_stowed_weapon with pickup id and chosen slot. These are clientscript requests; no authoritative inventory result is shown. Reads WarzoneSplitInventory.current and forwards controller/item/inventory_drop/amount to SendInventoryNotify. Errors if parent and child are identical. Stores parent[field] as a zero-argument closure; invocation calls child[field]() only if nonnil. It deliberately passes no implicit child receiver, and does not prove the d [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "ebd5120108326f12a05460ca82c5f936cc2654d1a29b779c0e7da0df0e6d96d9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": [
+            {
+              "caller": {},
+              "statement": "\t\treturn Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_54008CE61FE52DCD\" )",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local0 = Engine[@\"getclientnum\"]( f68_arg0 ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local1 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f68_arg1 ), \"team\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local2 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f68_local0 ), \"team\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f70_local0 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f70_arg1 ), \"platoonNumber\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f70_local1 = Engine[@\"getmodelforcontroller\"]( f70_arg0 ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "original_build",
+              "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+            },
+            {
+              "kind": "effective_data_settings_assets",
+              "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+            },
+            {
+              "kind": "server_service_persistence",
+              "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+            },
+            {
+              "kind": "runtime_callback_lifetime",
+              "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+            }
+          ],
+          "evidence_limit": "Pinned recovered Lua source revision only. Literal global/table/class/lexical links remain conditional on original loading, receiver identity and overwrite order. No original PS4-byte/build match, native/VM implementation, effective data/settings/assets, server/service behavior, callback delivery, correctness acceptance, whole-mode inventory or runtime proof follows from this draft.",
+          "unresolved_names": [
+            {
+              "symbol": "DataSources.WarzoneInventory.getModel",
+              "caller": {},
+              "statement": "\t\tlocal f4_local0 = DataSources.WarzoneInventory.getModel( f4_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.WarzoneSplitInventory.getModel",
+              "caller": {},
+              "statement": "\tlocal f19_local0 = DataSources.WarzoneSplitInventory.getModel( f19_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\tlocal f62_local0 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\t\tf62_local0 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\t\tlocal f62_local1 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.WarzoneInventory.getModel",
+              "caller": {},
+              "statement": "\t\t\tlocal f62_local2 = DataSources.WarzoneInventory.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00247",
+        "sha256": "0df41e22daeb772e041881b1877ac62740005fc117d9ac5926f9dd3c985ec59a",
+        "pointer": "",
+        "record_sha256": "776c574fe6ac9ea22cf1ce81045dd5279c6ec947d7dd3bef41c301733da2f460"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1fe202f79a493f5af69461382aaf56990cf8470b9a01481a40738913cdd2fc58",
+      "citations": [
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:149",
+        "answer": "For CoD.RankUtility.GetRankCap, evaluate the displayed formal inputs and captured values. Its exact paths are 16: if not f1_arg0 then; 19: return Engine[@\"getrankcap\"]( f1_arg0 ). Its writes/requests begin 17: f1_arg0 = Engine[@\"currentsessionmode\"](). The statement contracts below preserve exact arguments, reads/writes, short-circuit tests, loop and return behavior. For CoD.RankUtility.ForceStreamRankIcons, evaluate the displayed formal inputs and captured values. Its exact paths are 34: if not (f3_arg0 ~= Enum[@\"emodes\"][@\"mode_invalid\"] or not LuaUtils.OnlineOnlyDemo()) or LuaUtils.OfflineOnlyDemo() then; 38: if LuaUtils.GetDisplayNameForEMode( f3_arg0 ) ~= @\"hash_0\" then; 40: if f3_local1 then; 41: for f3_local5, f3_local6 in ipairs( f3_local1 ) do. Its writes/requests begin 35: f3_arg0 = Enum[@\"emodes\"][@\"mode_multiplayer\"]; 42: f3_local0[f3_local6] = true; 46: CoD.RankUtility.Force [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/88",
+        "decision_canonical_sha256": "073a09fa55d835cd18edbe234c44eb68d595ff229408a0f21646c4c7b3c2b5e2",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/148",
+        "record_sha256": "2864363d47b5ff5f437dd241a30e5606b81a23c6047c2a6ec8e7e81a0914e26a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3f3100464311446fc955b4c71da2d3de5a8aa09f8b76561f5fb1ad21837955bf",
+      "citations": [
+        {
+          "line_start": 202,
+          "line_end": 219,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 202,
+          "line_end": 202,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 208,
+          "line_end": 208,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 202,
+          "line_end": 219,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 202,
+          "line_end": 202,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 203,
+          "line_end": 203,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 206,
+          "line_end": 206,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 208,
+          "line_end": 208,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 202,
+          "line_end": 219,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow5:135",
+        "answer": "Return0 off live network. Otherwise default missing mode with GetPrestigeGameMode, read normal-location playerstats, and return truthy PlayerStatsList.PLEVEL.StatValue:get(). Missing stats/value ends by assigning local0 with no final return; preserve that defect.",
+        "unknowns": {
+          "provider_or_lexical": [],
+          "source_fidelity": [
+            {
+              "symbol": "CoD.PrestigeUtility.GetCurrentPLevel",
+              "limit": "Fallback assigns local0 but does not return0 in the recovered live-network path."
+            }
+          ],
+          "original_build": "Recovered source is not matched to original PS4 bytecode/build; @0 is not a native address.",
+          "VM_native": "Lua dialect, metatables, native/UI API execution, model dispatch/cancellation and input timing remain unverified.",
+          "data_settings_assets": "Literal references do not supply effective model values, settings, data tables, localization or asset availability.",
+          "server_service": "Online, stats, progression, marketing, lobby and backend behavior are unavailable service boundaries when requested by these exact bodies.",
+          "runtime": "No game, console, account, router, save, native tool or independent review was run."
+        },
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/167",
+        "decision_canonical_sha256": "9e878de82dda30df19e8add1702e846e3c8cf7185c279e470ed074bfa724499d",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00034",
+        "sha256": "781c1c1aee59bfc36951652bab7a837686810fc0aebaac4cb4ddfe8fe782f24f",
+        "pointer": "/units/134",
+        "record_sha256": "41048576a277eb66220f927822aee95b18ba5f3c3a10d7c26e923a0608d025d2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4f5c7930b98b1a2e1d0f5cac57570368628cff640776b33f29b6f9ebd3057d3d",
+      "citations": [
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:198",
+        "answer": "Builds the killer-identity card. attackerClientModel pointer changes remove old XUID/clientNum/rank/rankIcon subscriptions before following non-nil models and binding their updater; calling-card model is replaced on a non-nil pointer. Name, cleaned clan tag, rank and image updates preserve distinct source helpers. Hidden is AlwaysFalse; WZCustom delegates the custom-game predicate. Existing close and optional PostLoadFunc precede self return; no attacker/result producer is reconstructed.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/18",
+        "decision_canonical_sha256": "22ba97154ae6f7dd5819ed9194a7f7252557e334aa8a303f21ec41c93c8a1d8d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": [
+            "Original source-to-PS4 version/loader and byte identity remains unverified.",
+            "Original LUI/Engine/model/VM/event dispatch, enum values, effective settings and data/assets remain conditional.",
+            "Unavailable original online/server/storage/network/services and runtime behavior remain explicit gaps."
+          ],
+          "unknowns": [
+            "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+            "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+            "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+          ],
+          "evidence_limit": "Bounded recovered-source author contract only; no independent review, original-build match, runtime, whole-stage or function completion claim.",
+          "unresolved_provider_names": [
+            {
+              "symbol": "CoD.CallingCards_FrameWidget.new",
+              "caller_anchors": [
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            },
+            {
+              "symbol": "GetClientName",
+              "caller_anchors": [
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            },
+            {
+              "symbol": "GetClientClantag",
+              "caller_anchors": [
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            },
+            {
+              "symbol": "SetValueIfEmptyString",
+              "caller_anchors": [
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            },
+            {
+              "symbol": "CoD.CommonCornerPips01.new",
+              "caller_anchors": [
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            },
+            {
+              "symbol": "LocalizeToUpperString",
+              "caller_anchors": [
+                {},
+                {}
+              ],
+              "status": "unresolved_provider_name_not_claimed_available_source"
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00330",
+        "sha256": "1dd9dd84ab293238884712050d60bc36ff321ecb99cf04dbcc9521386774c633",
+        "pointer": "",
+        "record_sha256": "2b66dfc89b186c5dbb21264ae319ea76ab66c246a8bb18635df94b1f53de09dc"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5b61b6882c2762e50828f2dfadc0d5256eb392de39bb00d94e107a40a5cbf667",
+      "citations": [
+        {
+          "line_start": 983,
+          "line_end": 983,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:186",
+        "answer": "Hud_WZ directly constructs this result widget. SetupGameEndScoreWidget and DisableAutoButtonCallback run first; demo.processedKeyframeJump and lobbyRoot.publicLobby.stage are initialized to0 (real model writes, not backend stage proof). Builds result/outcome/eliminator/status/timer/deathcam/VOIP/quit/placement/killer/weapon/AAR/director/crosshair children. The constructor requests a GameScore/titleString subscription. Only if its callback is delivered and model:get() is nonnil, it requests LocalizeToUpperString with that value and passes the unknown result to Outcome:setText, if earlier accesses/calls succeed; nil takes no explicit setText arm. Callback delivery, localization/case result and displayed effect remain unresolved; aliveTeammateCount drives DownNotOut art; GameScore model forwarded to eliminator/challenge/killer/weapon displays. Victory controls challenge coin visibility. mea [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-C-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00858",
+          "sha256": "909258cf0ae9038ebade5c5fc9477bcfd4142265ce64ac1f7b84d5a319f7541b"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "9498a033a93dc27d97c047e9d26eab68d58cfe359cd4ee6f4cb8d4563e5c1ea5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire frozen correction wrapper and full current record, including retained fields, linked current semantic replacements/projections and complete original claim/evidence at its written scope.",
+        "limitations": [
+          "Review is confined to the complete written current corrected recovered-source contract and its linked current projections; no original source reconstruction outside named witnesses.",
+          "Original/source-to-PS4/build/native/VM/provider bindings, online/service code, real delivery, runtime behavior and whole-mode completeness remain unproved.",
+          "Historical identity/status/acceptance fields are preserved history. Unproved original authors, exact historical model/backend/effort and current exact backend/capacity remain unknown.",
+          "Dynamic loader/global/class-table identity, opaque callees and callback/constructor/error paths retain each written limitation. Requests and registrations do not prove execution."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00142",
+        "sha256": "b0d33370bc53b6d610906b9981c296de28bdc07228c9f239705a7c6393a02db3"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5e6f6297418788652e56b32b82daff91cad411b3237301aaa30244fbcd1b9fd2",
+      "citations": [
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 985,
+          "line_end": 985,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 986,
+          "line_end": 986,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 987,
+          "line_end": 987,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 987,
+          "line_end": 987,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:117",
+        "answer": "LocalizeIfMaxRank compares tonumber(maxRankForCurrentPrestigeMode)+1 to tonumber(arg1). When the written threshold comparison holds984, it directly returns the unknown result of opaque Engine[@\"hash_4F9F1239CFD921FE\"](arg0)985; provider implementation, output and localization remain unproved; otherwise it calls LocalizeIfXHash(arg1). Numeric conversion failures are not guarded, and no rank/progression write occurs. Mode/rank table/native localization remain external.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-C-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00858",
+          "sha256": "909258cf0ae9038ebade5c5fc9477bcfd4142265ce64ac1f7b84d5a319f7541b"
+        },
+        "report_pointer": "/unit_reviews/9",
+        "decision_canonical_sha256": "919af078a1f8ab39577600b611967286acd959c16f2f39a8141e049e204b0bf6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire frozen correction wrapper and full current record, including retained fields, linked current semantic replacements/projections and complete original claim/evidence at its written scope.",
+        "limitations": [
+          "Review is confined to the complete written current corrected recovered-source contract and its linked current projections; no original source reconstruction outside named witnesses.",
+          "Original/source-to-PS4/build/native/VM/provider bindings, online/service code, real delivery, runtime behavior and whole-mode completeness remain unproved.",
+          "Historical identity/status/acceptance fields are preserved history. Unproved original authors, exact historical model/backend/effort and current exact backend/capacity remain unknown.",
+          "Dynamic loader/global/class-table identity, opaque callees and callback/constructor/error paths retain each written limitation. Requests and registrations do not prove execution."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00345",
+        "sha256": "33a206de3d3579eea6595978db1db5b1d086614b342f6828dc4500cb46dc8eaf"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "67fea1dadfa23dfbd32e0e227e80d48a06a2d58785537f414d5d21c167f454cc",
+      "citations": [
+        {
+          "line_start": 202,
+          "line_end": 219,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 151,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:272",
+        "answer": "Retain block-local f6_local1 and f6_local6 definitions whose later references lie outside those blocks. The literal outer expressions choose prestige/default paragon data, then either paragon icon pair or ordinary rank icon pair; do not repair optional-argument/value scope to match intent.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:272",
+            "source_symbol": "CoD.RankUtility.GetRankIcons",
+            "symbol": "f6_local5:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/rankutility.lua",
+              "line_start": 89,
+              "line_end": 89,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "1bbb336969a8b08cc93e2830f7ddf4c7770d87a52d2f44d3d0526903c2a5bbf6",
+              "line_span_sha256": "b293a51dc40206a8ad56bc7fb629034bcd7947aeb8c468b0297a192ef3e32267",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tlocal f6_local6 = f6_local5:get()",
+            "scope_id": "lua/ui/utility/rankutility.lua:75-102",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/29",
+        "decision_canonical_sha256": "8ad6810e31c01db194cdd6fcb39b8b27bd0a9b9c573ffc87fb8a00702dec72fe",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00165",
+        "sha256": "38369248239330f60ec115b5171bdca0d0d4fc1cb7d1027b23129be4c95eb96d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7a2aef5438956e4e405938ac7e6cd265126e6072d2028b7a778308299d8b49d3",
+      "citations": [
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:018",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/103",
+        "decision_canonical_sha256": "a35665b0f93919e7ca5f439ff74bb49713823d1ff55330864bed65c4cf77e0c5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/17",
+        "record_sha256": "8c4df5f516a9a2fe52a4e23cc803bbfcbf64892f34b05e5c302e29ccf31db2db"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a79b1b7da63c8fc1ab1acae3db38eac0369710f4a2f501356937d44a752fc7e6",
+      "citations": [
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 985,
+          "line_end": 985,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 986,
+          "line_end": 986,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 987,
+          "line_end": 987,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 155,
+          "line_end": 155,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 158,
+          "line_end": 158,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 984,
+          "line_end": 984,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 985,
+          "line_end": 985,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 986,
+          "line_end": 986,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 987,
+          "line_end": 987,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 162,
+          "line_end": 162,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 154,
+          "line_end": 154,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 153,
+          "line_end": 159,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 161,
+          "line_end": 163,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow2:242",
+        "answer": "Prestige mode defaults to multiplayer only when session mode is nil/invalid. Max-rank forwards GetRankCap for the supplied mode; neither helper changes prestige or rank.",
+        "unknowns": [
+          "Original PS4/source exact-version and original Lua/VM binding remain unverified.",
+          "Effective enum/mode/platform/settings and asset/model/storage data are unavailable.",
+          "Native/LUI event/subscription/timer dispatch, cleanup guarantees and errors not shown in selected source remain open.",
+          "Unavailable service/server code is not reconstructed or counted."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/460",
+        "decision_canonical_sha256": "1ed5e80843fa2b8b1be06097d50d6c1edf6e8a822ee3cbccd0e95c743e5f79f6",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00028",
+        "sha256": "2f4ecc3aabb5072135e148ef5782181882bd3b940908913a20bf258d3754185e",
+        "pointer": "/units/241",
+        "record_sha256": "377d427cda587ed4825898036fa3e98f6336fbdea77281cc317fd3488ae78df4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b4aeccde8a8ae8cdced3ddcb12a646043e033924583979ab404fb645076c4252",
+      "citations": [
+        {
+          "line_start": 146,
+          "line_end": 151,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 248,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 151,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 248,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 148,
+          "line_end": 148,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 150,
+          "line_end": 150,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 240,
+          "line_end": 240,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 242,
+          "line_end": 242,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 247,
+          "line_end": 247,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 146,
+          "line_end": 151,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 239,
+          "line_end": 248,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:302",
+        "answer": "Defaults false/nil mode to current session and returns engine prestige cap. Reads global prestigeGameMode; returns its nonnil and non-invalid value, else current session mode.",
+        "unknowns": [
+          "Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.",
+          "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.",
+          "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.",
+          "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.",
+          "No independent correctness review, acceptance, original-build or function-completion credit is recorded."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/990",
+        "decision_canonical_sha256": "4628607f1e4bf8c674f469014f87516835c8cd47355c7c6c4eb8551b5e8c7e8f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00003",
+        "sha256": "a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7",
+        "pointer": "/units/301",
+        "record_sha256": "323936dff687fe819637b974f4ce9502acdf57b6d82219c3d13b048be2575c8e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bef3a16ee5ad6c507a38da46fd2c6dff97ac0cebfa0b52f53cdf0d62e46f26b1",
+      "citations": [
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 983,
+          "line_end": 989,
+          "file_sha256": "18da107856c5ae0edfbafb3add6d34f7d8868d437f899bb968f5ef0c26ba2d08",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:077",
+        "answer": "Builds killer card presentation and binds entire element model to calling card. Nonnil Attacker xuid/clientNum/rank/rankIcon callbacks update emblem, name, cleaned clan, max-rank-localized rank text and icon. Nil updates do not clear old fields. Hidden predicate AlwaysFalse; CustomGames delegates IsWZCustomGame. Registers close, optional postload, returns self. It displays supplied identity without establishing who killed whom, rank truth or backend provenance.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/40",
+        "decision_canonical_sha256": "35b13dfe3cd313c36016295a5cc40228584a3b0b3459242ffea81f7c13cfc303",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": [
+            "Original LUI/Engine/VM ABI and native effects, exact PS4/source match and original loader are unproved.",
+            "Effective model producers, input/visibility/state enum values, assets/localization/audio/data/storage/network/backend/server behavior and runtime callback ordering remain external."
+          ],
+          "unknowns": [
+            "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+            "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+          ],
+          "evidence_limit": "Pinned recovered Lua source and reused stopped source contracts only. Local author checks add zero independent acceptance, original-build, function-completion or runtime credit.",
+          "unresolved_names": [
+            {
+              "symbol": "AlwaysFalse",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            },
+            {
+              "symbol": "CoD.CallingCards_FrameWidget.new",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            },
+            {
+              "symbol": "CoD.CommonCornerPips01.new",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            },
+            {
+              "symbol": "GetClientClantag",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            },
+            {
+              "symbol": "GetClientName",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            },
+            {
+              "symbol": "PostLoadFunc",
+              "caller_anchors": [
+                {}
+              ],
+              "limit": "No exact complete provider locator in frozen reusable inputs. This is an unresolved provider boundary, not proof the source is unavailable."
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/76",
+        "record_sha256": "dbf991f283aa3aeeb4e54596ca4e4c4c9b109834b8a57d5d59511b32bec65b7b"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/fe19e217ce9d140c.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/58c6efa376e41d45-001.json",
+      "sha256": "5660e12feb833d50708340d4be15e7399c6a4e6cd61b7ea10de98741cabbfdc2"
+    }
+  ]
+}

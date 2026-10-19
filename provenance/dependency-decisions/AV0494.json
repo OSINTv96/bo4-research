@@ -1,0 +1,187 @@
+{
+  "module": "src/scripts/mp_common/gametypes/koth.gsc",
+  "identity": "scripts/core_common/sound_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "sound",
+  "witnesses": [
+    {
+      "line": 426,
+      "text": "        sound::play_on_players( \"mp_suitcase_pickup\" );",
+      "caller": "kothmainloop",
+      "caller_span": [
+        406,
+        480
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 421,
+          "opening_line": 424,
+          "ending_line": 479,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    },
+    {
+      "line": 445,
+      "text": "        sound::play_on_players( \"mpl_hq_cap_us\" );",
+      "caller": "kothmainloop",
+      "caller_span": [
+        406,
+        480
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 421,
+          "opening_line": 424,
+          "ending_line": 479,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    },
+    {
+      "line": 729,
+      "text": "            thread sound::play_on_players( game.objective_gained_sound, team );",
+      "caller": "onzonecapture",
+      "caller_span": [
+        672,
+        753
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 708,
+          "opening_line": 710,
+          "ending_line": 731,
+          "text": "if ( team == capture_team )"
+        },
+        {
+          "line": 705,
+          "opening_line": 708,
+          "ending_line": 743,
+          "text": "foreach ( team, _ in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    },
+    {
+      "line": 742,
+      "text": "        thread sound::play_on_players( game.objective_lost_sound, team );",
+      "caller": "onzonecapture",
+      "caller_span": [
+        672,
+        753
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 705,
+          "opening_line": 708,
+          "ending_line": 743,
+          "text": "foreach ( team, _ in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    },
+    {
+      "line": 883,
+      "text": "            thread sound::play_on_players( game.objective_contested_sound, team );",
+      "caller": "onzonecontested",
+      "caller_span": [
+        869,
+        887
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 880,
+          "opening_line": 882,
+          "ending_line": 885,
+          "text": "if ( team == zoneowningteam )"
+        },
+        {
+          "line": 877,
+          "opening_line": 880,
+          "ending_line": 886,
+          "text": "foreach ( team, _ in level.teams )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "play_on_players",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          228,
+          261
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0494",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/sound_shared.gsc",
+    "sha256": "aee728a3bd055e2aaf7a53f0b7cd720a1184c028532756eb31cacbb17f58b201",
+    "git_blob_sha1": "d0d13ef9c50e6094aad4dac99ce22e50bc08cf74",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/sound_shared.gsc"
+}

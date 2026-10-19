@@ -1,0 +1,201 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/hashed/script/script_58d14a82f7aa9d6d.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0f8e36c5255a18958ae595c1a0c3f27b6135ad0adc5afcbd75cf399b2d86b78e",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/177",
+        "record_sha256": "df9069ce7058d3960955acd478d9bcf3b1143c5057a4ea9e348839fab17ceced"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "8c3c9d1b5acbbd49c5062d3e71b41d96c2127f70b38a3511ef87fc6c86e049c2",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/178",
+        "record_sha256": "61ae2275743693c944439d660ea2f92918889522383d2228f29530e6a9e577e5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "a7f5403632a08a8e66ea4d0f4f3ca098638e183948b2f0be3e6b1348577a3975",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:register@system_shared.csc",
+        "answer": "Source-visible answer: registration is state-only (no invocation); when an existing record has ignore=1, every repeated register call asserts that ignore flag and returns without clearing it; the record may be a placeholder or a previously real record marked by ignore (register assert only on .ignore, csc 11-15; ignore() sets ignore=1, csc 169-179). Ordering graph produced (see source_trace): autoexec __init__system__ -> register -> native level_preinit -> codecallback_preinitialization -> run_pre_systems -> exec_pre_system per entry; native level_finalizeinit -> codecallback_finalizeinitialization -> run_post_systems -> exec_post_system per entry -> set system_init_complete -> registry cleared -> on_finalize_initialization dispatch. Dependency waits: NONE - req-resolution spawns threads without joining (69/76), the only synchronization is the whole-batch flag \"system_init_complete\" (92) consumed by wait_till (162). Error behavior: all failures are assert() with dev strings; retail evaluation of assert is a native/build fact. HMH root/registrant linkage: the HMH map script wz_open_skyscrapers.gsc::main joins this mechanism by load::main -> system::wait_till(\"all\") (wz_open_skyscrapers.gsc 53; load.gsc 35) and by callback::on_finalize_initialization registration (47) delivered inside codecallback_finalizeinitialization after run_post_systems; the mechanism therefore conditions the whole HMH map startup; the exact set of registrant systems loaded into the HMH server VM is the unresolved native bundle boundary (m1 unknowns #1).",
+        "behavior": "Registration store for the per-VM system registry; server file lines 9-29 and client twin lines 9-29 are textually identical at this revision. register(str_name, func_preinit, func_postinit, reqs): if level.system_funcs[str_name] already exists it asserts the existing record's .ignore and returns WITHOUT replacing the stored prefunc/postfunc/reqs (csc/gsc 11-15) - repeated regular registration is an assert boundary; any existing ignore-flagged record, including a real record later marked by ignore, permits repeated early returns; ignore remains set. Otherwise it lazily creates level.system_funcs, stores a spawnstruct with prefunc/postfunc/reqs and initializes predone=!isdefined(func_preinit), postdone=!isdefined(func_postinit), ignore=0 (17-28). No execution happens here; the record is pure state consumed by exec_pre/exec_post_system. The following are named source registration witnesses, not a corpus-wide count or proof of the actual retail HMH registrant set; conditional server-source examples: mp_common/callbacks.gsc autoexec __init__system__ registers \"callback\" preinit &__init__ (23-26) whose preinit installs level.callbackplayerconnect etc. via set_default_callbacks (65-98); util_shared.gsc registers \"util_shared\" pre &__init__ post &__main__ (21-24); the four hashed systems #using-imported by wz_open_skyscrapers.gsc register hash_18ce058ad321248f (script_34e49e82e2f499e1.gsc 13-16), hash_32ef71953f1186eb (script_5f3e7d348fbc5283.gsc 10-13), hash_280fe2667ed2d300 with reqs #\"item_supply_drop\" (script_71e26f08f03b7a7a.gsc 12-15), hash_502d65acd9829223 (script_7611295950bc2c87.gsc 10-13); killstreak systems that wz later ignores register with reqs (killstreaks/mp/supplydrop.gsc 44 and uav.gsc 28, req #\"killstreaks\"). Client twin registrations found for script_4da75c87643c8b07.csc hash_411c8f5d7f8749b9 (14) and script_58d14a82f7aa9d6d.csc hash_18ce058ad321248f (13).",
+        "unknowns": [
+          "Which registrant script set and order the retail CUSA11100 HMH VM bundle actually loads (native bundle manifest question; m1 unknowns section 1)",
+          "Whether retail script bytecode contains/executes assert() in system_shared (dev strings present; original bytecode fidelity unverified)",
+          "Iteration order of foreach over level.system_funcs hash-keyed array (VM implementation detail, not in dump)",
+          "Whether an early assert failure in retail aborts registration or is skipped (assert implementation native)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00082",
+        "sha256": "7f1194dc637637a7eff664f35255ad2a4c198946028d8cba1ee8ff3697b24f3f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "ae7ddbcd06f6716746d76f7ad1b2fda69c7258483a77e06c94a999289962fd90",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:main@wz_open_skyscrapers.csc",
+        "answer": "Source-visible answer for root candidate 3 (client map main): wz_open_skyscrapers.csc::main is event_handler[level_init] (annotation 20-23; no script-side level_init emitter exists - native delivery is the boundary). No script importer of the file exists in the corpus; imports are load/client modules including the two HMH-adjacent hashed client systems script_4da75c87643c8b07.csc (registers hash_411c8f5d7f8749b9 at 14) and script_58d14a82f7aa9d6d.csc (registers hash_18ce058ad321248f at 13, the client twin of server script_34e49e82e2f499e1's system). Trace: callback::on_localplayer_spawned + on_finalize_initialization registrations (26-27); fx/sound mains (28-29); load::main() (30) -> blocks on system::wait_till (client post phase) then sets load_main_complete (load.csc 37-38); 4 dvars incl. cull radii and wzbigteambattle variant (31-40); util::waitforclient(0) (41); firing_range targets (42-43); thread function_2560f130 (44) -> hmh_ramp dynents gate (44-46 of load.gsc-independent body: item_world::function_4de3ca98; hmh_ramp getdynentarray; setdynentenabled by wzheavymetalheroes - gsc twin 181-197 documents the pattern). Its on_finalize_initialization client body (81-85): waitframe(3) then level function_7276b578() -> getdynentarray(\"hmh_ramp\") enable by wzheavymetalheroes (91-). Conditional inference retained explicit: delivery of that finalize handler requires this level_init main to run before level_finalizeinit (unproven). Root-candidate status per SOURCE-ROOTS candidate #3 native_loading_order_or_invocation_proven=false - unchanged.",
+        "behavior": "Client map main (client VM), event_handler[level_init]. Ordered body 24-45: registration of on_localplayer_spawned & on_finalize_initialization; fx/sound/load mains; client dvars (cg_aggressivecullradius 100; hash_53f625ed150e7700 12000 -> 6000 + hash_6d12a505ad6a6e0f 15000 when wzbigteambattle; hash_6d05981efd5d8d74 800); util::waitforclient(0); firing range targets x2; level thread function_2560f130. Finalize-init handler 81-85 -> function_7276b578 91+ = hmh_ramp dynent enable gated by getgametypesetting(#wzheavymetalheroes). No direct calls into system_shared from the body; join is via load::main's wait_till.",
+        "unknowns": [
+          "Retail client map-script load/level_init invocation (unproven)",
+          "level_init order in client VM",
+          "csc function_2560f130 body content (recording callee, not traced)",
+          "eventstruct delivery contents"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00035",
+        "sha256": "6e442cbb5b6ce45aecb61bedd9a68f4a1a0abcc1cab9f330838bba82fb68b263",
+        "pointer": "/units/20",
+        "record_sha256": "fc9f53a656e4a84fb52807811032c7436b56fb64525145e87e8dece9790c235b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "f4e4e84acb262a73f13e06f03d7312f8cccbb5d0cc0396039fc8986c01c50d00",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/176",
+        "record_sha256": "c21b88fad291408458954834389a75b09375b864c4a80587060a198e1cbbbac2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "fab709e74e2c41155e969cbfd54ed854ceda4c6296a1ad0bc2d439080a905c8e",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/801",
+        "record_sha256": "34f5c17356843a0a67a11ceac774dea824c3fe99aed7a8fe891b6ddf9b98fd4b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "6991b0e008f12f20218387612ab7f5d1aa5a1261f597cd1df0d2da9836fcfa20",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/2",
+        "record_sha256": "58a46612ffcaef2a8d50d2c39fe2aabe9c03a8ed7b76570dc2597b7330deeda9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "e66670e19a9e6ad4a972d844d7a5dba32d9b58168812171cdf5aa904fa7068b9",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/3",
+        "record_sha256": "1dcaa9fc1824646a884f09028ffb2200fb985ce79bb65df6860f694b983c3027"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "a24b72da4188644561b9ddbf67ceccc52f68041bbd2d1935a3dd9fe692773659",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Opaque source hashes and field/function names are preserved; no hash-name recovery is claimed.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/2",
+        "record_sha256": "58a46612ffcaef2a8d50d2c39fe2aabe9c03a8ed7b76570dc2597b7330deeda9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/6092575c487ad8ad.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "a5d31e293d8d904de0199a8f6636744fe486c050f84094147446189553cedeec",
+      "summary": {
+        "id": "hashed/script/script_58d14a82f7aa9d6d.csc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/3",
+        "record_sha256": "1dcaa9fc1824646a884f09028ffb2200fb985ce79bb65df6860f694b983c3027"
+      }
+    }
+  ]
+}

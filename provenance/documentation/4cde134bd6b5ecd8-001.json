@@ -1,0 +1,49 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/dialog_shared.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/4cde134bd6b5ecd8.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0334db350336ff930942390ffe6dc7507591625d9e014e01511a7d34c72157dc",
+      "summary": {
+        "unit_id": "hmh07-deps7:003",
+        "answer": "Accept dialogbundle and dialogkey. If either is undefined, explicitly return undefined. Otherwise read dynamic field dialogbundle.(dialogkey) into dialogalias. If that result is undefined, use a bare return. Read voiceprefix only after a defined alias; if the prefix is defined, replace alias with voiceprefix+dialogalias. Return the resulting alias. A defined empty or false value is not rejected by a truthiness test. No external state is written; dynamic field and concatenation type semantics remain VM-dependent.",
+        "unknowns": [
+          "actual dialog bundle/key/voiceprefix contents",
+          "VM dynamic field access and concatenation for malformed types",
+          "whether bare return and explicit undefined are bytecode-equivalent; preserved as distinct source forms"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00445",
+        "sha256": "a7bb2e5aea8ad75c41ab65ff86c473160dd796a9f767c1cb89e03414cd2434a5",
+        "pointer": "/units/2",
+        "record_sha256": "0f7611ed4649e898d2315b0a98ec0a1a87421017703ed15ffd3410e958bb3908"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/4cde134bd6b5ecd8.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "f323ddea8e6f3de9cbe18363090c2677b9f2e50909e94fd957e3c80e0ac2ff89",
+      "summary": {
+        "unit_id": "hmh07-deps7:004",
+        "answer": "Accept chancekey. Synchronously call same-namespace mpdialog_value(chancekey) once and store dialogchance. Undefined or <=0 returns false. Otherwise >=100 returns true without randomint. For the remaining comparison path, return randomint(100)<dialogchance. This records a threshold comparison, not a measured probability or a verified distribution of the engine RNG. No clamping, numeric/type conversion or retries occur locally.",
+        "unknowns": [
+          "mpdialog_value result and effective session/dialog data",
+          "native randomint range/distribution and VM comparisons for malformed values",
+          "actual invocation and RNG state"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00445",
+        "sha256": "a7bb2e5aea8ad75c41ab65ff86c473160dd796a9f767c1cb89e03414cd2434a5",
+        "pointer": "/units/3",
+        "record_sha256": "523fedaa4895cf76af2baeec2a02ef406f8208b0fa95ae7ed2d508d3c7862180"
+      }
+    }
+  ]
+}

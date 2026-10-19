@@ -1,0 +1,513 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "hashed/8f2ebd56e67c263.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+  "git_blob_sha1": "27c8c551ba486253fec5ea8b32150d3f6f8b11b1",
+  "output": "src/lua/hashed/8f2ebd56e67c263.lua",
+  "output_sha256": "9769f75eab7f1f00f248ddb2ddd34eb3bc5d02d3c4e8bd221fb83a962379e24e",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:2f5618b9151603a5.lua",
+      "original_line": 4,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/controllerdependent_textbox.lua",
+      "original_line": 5,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0ea9f72585a7ae6bf1c15455c9ff0f448dbc29ff9ab30abab022fe7de15d231c",
+      "citations": [
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:142",
+        "answer": "Compares numeric input against numeric Warzone maximum rank plus one. At/above threshold returns the special localized string; otherwise tostring(input). Missing numeric conversions are not guarded. Requires item model not dummy/collapsed. Reads selected slot and item id. If a slot-claiming pickup would replace a nonempty item, uses firstFreeSlot when not -1 or sends inventory_drop first when full. Then sends multi_item_pickup or multi_item_pickup_stowed_weapon with pickup id and chosen slot. These are clientscript requests; no authoritative inventory result is shown. Reads WarzoneSplitInventory.current and forwards controller/item/inventory_drop/amount to SendInventoryNotify. Errors if parent and child are identical. Stores parent[field] as a zero-argument closure; invocation calls child[field]() only if nonnil. It deliberately passes no implicit child receiver, and does not prove the d [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "ebd5120108326f12a05460ca82c5f936cc2654d1a29b779c0e7da0df0e6d96d9",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": [
+            {
+              "caller": {},
+              "statement": "\t\treturn Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_54008CE61FE52DCD\" )",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local0 = Engine[@\"getclientnum\"]( f68_arg0 ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local1 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f68_arg1 ), \"team\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f68_local2 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f68_local0 ), \"team\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f70_local0 = CoD.SafeGetModelValue( Engine[@\"getmodelforclient\"]( f70_arg1 ), \"platoonNumber\" ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            },
+            {
+              "caller": {},
+              "statement": "\tlocal f70_local1 = Engine[@\"getmodelforcontroller\"]( f70_arg0 ) --[[ @ 0]]",
+              "boundary_kind": "external_engine_or_setting_request",
+              "limits": "Engine/Dvar request syntax only. Exact engine bytes, VM binding, effective setting/data, service response and runtime behavior unverified; absence of a Lua provider is not native-body recovery."
+            }
+          ],
+          "unknowns": [
+            {
+              "kind": "original_build",
+              "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+            },
+            {
+              "kind": "effective_data_settings_assets",
+              "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+            },
+            {
+              "kind": "server_service_persistence",
+              "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+            },
+            {
+              "kind": "runtime_callback_lifetime",
+              "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+            }
+          ],
+          "evidence_limit": "Pinned recovered Lua source revision only. Literal global/table/class/lexical links remain conditional on original loading, receiver identity and overwrite order. No original PS4-byte/build match, native/VM implementation, effective data/settings/assets, server/service behavior, callback delivery, correctness acceptance, whole-mode inventory or runtime proof follows from this draft.",
+          "unresolved_names": [
+            {
+              "symbol": "DataSources.WarzoneInventory.getModel",
+              "caller": {},
+              "statement": "\t\tlocal f4_local0 = DataSources.WarzoneInventory.getModel( f4_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.WarzoneSplitInventory.getModel",
+              "caller": {},
+              "statement": "\tlocal f19_local0 = DataSources.WarzoneSplitInventory.getModel( f19_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\tlocal f62_local0 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\t\tf62_local0 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller": {},
+              "statement": "\t\tlocal f62_local1 = DataSources.HUDItems.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            },
+            {
+              "symbol": "DataSources.WarzoneInventory.getModel",
+              "caller": {},
+              "statement": "\t\t\tlocal f62_local2 = DataSources.WarzoneInventory.getModel( f62_arg0 ) --[[ @ 0]]",
+              "status": "NEED_CONTEXT",
+              "source_body_authored": false,
+              "known_local_alias_binding": null,
+              "missing_provenance": "No exact qualified global declaration or same-file lexical/factory/export provider has been established by these frozen locators. A bare name, method, import, file-local receiver prefix or other-file local does not bind it.",
+              "boundary_kind": "unresolved_source_provider_or_receiver",
+              "native_classification": false
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00247",
+        "sha256": "0df41e22daeb772e041881b1877ac62740005fc117d9ac5926f9dd3c985ec59a",
+        "pointer": "",
+        "record_sha256": "776c574fe6ac9ea22cf1ce81045dd5279c6ec947d7dd3bef41c301733da2f460"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "704622714bf25c68767c7ab3c514666e813684974dc2adbc5c7cac8e8a29d902",
+      "citations": [
+        {
+          "line_start": 39,
+          "line_end": 39,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 39,
+          "line_end": 39,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 39,
+          "line_end": 39,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:008",
+        "answer": "Creates a single Warzone player arrow image and optionally calls PostLoadFunc before returning the widget. Creates self via LUI.UIElement.new, arrow via LUI.UIImage.new.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/508",
+        "decision_canonical_sha256": "17b18340855f03a61648caca906e9dbd61dc6c119633700117481a7bad3a9d8f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/7",
+        "record_sha256": "f4da0f9d3141530110d2932e8f9964d36eefd1a1ba2b502d4cee92b7ee6f9b5d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7a2aef5438956e4e405938ac7e6cd265126e6072d2028b7a778308299d8b49d3",
+      "citations": [
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 43,
+          "line_end": 43,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:018",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/103",
+        "decision_canonical_sha256": "a35665b0f93919e7ca5f439ff74bb49713823d1ff55330864bed65c4cf77e0c5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/17",
+        "record_sha256": "8c4df5f516a9a2fe52a4e23cc803bbfcbf64892f34b05e5c302e29ccf31db2db"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f7ce086bc3711fd3e8b5a12638c0faa3f398a72b0897ac34f29d8d49a1a0198b",
+      "citations": [
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 100,
+          "line_end": 100,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 107,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 100,
+          "line_end": 100,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 107,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 100,
+          "line_end": 100,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 107,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 107,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 180,
+          "line_end": 183,
+          "file_sha256": "540ee7431622dd9b9a4dd03c114c4bdc4eeb94eef6696b9ca80cd70a0a134694",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:111",
+        "answer": "On invocation requests these child closes in exact order: f14_arg0.ControllerDependentTextBox:close(); f14_arg0.WarzonePlayerArrow:close(). No nil guard, protected call, timer cancellation, field clearing or explicit return is added.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1369",
+        "decision_canonical_sha256": "c6e1ec73d05f32ac5aa319a4f6742ef9eb7b5cdbf9b5bb5e40bfcd417f8c67b5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/110",
+        "record_sha256": "6d0b67a2c843d4627d1682c01b48c8d22a56a814ded7efed7c64d8c376a19fea"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/2580a1c66e5f3ea3.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/52031faaa20e7aab-001.json",
+      "sha256": "b6c4361653553af11fb8317a55f0412f168a0ff15540edce3ecac887e5cdb42e"
+    }
+  ]
+}

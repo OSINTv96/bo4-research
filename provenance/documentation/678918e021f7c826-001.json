@@ -1,0 +1,89 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_blast_doors.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/678918e021f7c826.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "344c9807ab84628c1b49bddb7b4be88d08f6dbb51d6b318e3935e6b8b32e4a6a",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_blast_doors.gsc::function_ed401dbd",
+        "behavior": "Blast-door opening via stored .onuse pointer on \"blastdoor_button\" dynents. Registration (source-only): wz_blast_doors event_handler[level_init] main (11-21) gets getdynentarray(\"blastdoor_button\") and sets blast_door_button.onuse = &function_ed401dbd on each (17), then threads function_a2279366 (20) which computes level.var_3f2c54f = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_50aa80a9bcb3b127\") (default 0): when false it pre-sets all blastdoor_button dynents to state 1 and consumes/conceals blast_doors special items (31-73); when true it also consumes every special item before the rescan (76-82), then may consume the rescanned special items again if a supply stash passes opaque function_8a8a409b (97-104). Delivery/consumer join (source-visible): the dynent_world use pipeline - usabledynents gate (dynent_world.gsc 21-26), per-player trigger (44-99), update_loop pairing (105-246), hold-use (293-354), use_dynent dispatch [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) at dynent_world.gsc 431-433. Handler behavior (147-193): missing self.target is a no-op; with defined self.target, doors=getdynentarray(self.target); helper divides by doors.size at121 without checking for an empty array (VM division/error behavior unknown); if function_cd4de84f(doors) detects a cargo_truck_wz within 32 units of the door-center (112-141), plays a denied sound and setdynentstate(self, currentstate) and returns (blocked); otherwise threads item_drop::function_4da960f6( dynent.origin, 256, 3 ) per door (164), waitframe, then setdynentstate(door, state) per door whose current state differs (169-177), also all blastdoor_button dynents (179-189), and activator stats::function_d40764f3( #\"fracking_blast_doors_opened\", 1 ) (191). stateindex/state values come from dynent_world bundle data (function_ffdbe8c2 getter definition unaccounted).",
+        "unknowns": [
+          "HMH ruleset values for hash_3778ec3bd924f17c, hash_50aa80a9bcb3b127, usabledynents (tables outside script corpus).",
+          "Whether blastdoor_button dynents and their target-linked doors exist in the HMH match (map data outside scripts).",
+          "dynent_world::function_ffdbe8c2/state-bundle source for button dynents (getter definition absent from corpus; shared open interface).",
+          "level_init event delivery details (native event ordering vs other level scripts) - shared VM event boundary."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00580",
+        "sha256": "4274acb6365393edf83173649190c0d352dc2e4165123a10646c17bdbc191e31",
+        "pointer": "",
+        "record_sha256": "5401c7e9d4114568e8e0b01d219434a9341e6f26ffcb3bc4ac9154ad9627fe53"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/678918e021f7c826.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "501f65c05c342b7c560ca57a447c16cfbb7f730a9e8bb8147f3f366981e6dafd",
+      "summary": {
+        "id": "scripts/wz_common/wz_blast_doors.gsc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "native_event_entry; relative event order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/741",
+        "record_sha256": "670c0a4065def3f8f2ab3b8fe9383cac7e94b0242bb3b96e2c45c878487e880e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/678918e021f7c826.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "3332328e026bb294b714feac8325ec635dc8fe1d11317ca9f500469461126d28",
+      "summary": {
+        "id": "scripts/wz_common/wz_blast_doors.gsc::main",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/261",
+        "record_sha256": "a9fb34104aa2060fa21fe1b8cd3b7b570ea13d62a694d31f41df92b0cf85e00a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/678918e021f7c826.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "da98afa22f8292e19d848b0db00ee3a16dfa586431fed56124783703ec143f34",
+      "summary": {
+        "id": "scripts/wz_common/wz_blast_doors.gsc::main",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/261",
+        "record_sha256": "a9fb34104aa2060fa21fe1b8cd3b7b570ea13d62a694d31f41df92b0cf85e00a"
+      }
+    }
+  ]
+}

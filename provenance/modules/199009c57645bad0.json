@@ -1,0 +1,259 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_ignore_systems.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "f63b337f56e3f6f5735e77c53a1c34940841b22f0a58872ca85aa4a26de50c0e",
+  "git_blob_sha1": "84e49c26998447a048bb618d7763f2fd8ba5f0fe",
+  "output": "src/scripts/wz_common/wz_ignore_systems.gsc",
+  "output_sha256": "e5245e57b77d643b63282547058121413d019ee84b5cfb37eef0296b262e039a",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "542e7d1a950b13975bd4edd1c3495b4adf6185271465edaa366bda84dd388c8b",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 19
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.gsc",
+        "answer": "Server twin of unit 9 (gsc 169-179 identical). Source-visible: wz/HMH exclusion primitive; assert !level.gametype; placeholder register when missing; ignore=1; combined with register duplicate rule (11-15) and exec skips (37-40/102-105) the 8 wz pre-ignores (wz_ignore_systems.gsc 11-18) guarantee that recon_car/planemortar/supplydrop/ultimate_turret/armor_station/counteruav/uav/supplypod never run preinit/postinit in the wz server VM through the system mechanism. warzone.gsc line 54 imports wz_ignore_systems, placing the autoexec in the gametype main script's load closure; warzone.csc 15 does the same client-side. Only registry-path exclusion is proven; non-registry reachability of these systems is not excluded by this mechanism (explicit non-exclusion retained).",
+        "behavior": "Server copy of ignore(), identical to csc 169-179. Assert !isdefined(level.gametype) (171) - run before gametype assignment; placeholder registration (173-176) yields predone=postdone=1 (both funcs undefined at register 26-27) so even before ignore=1 the placeholder can never invoke; ignore=1 (178) additionally blocks exec paths and legalizes the later real registration early-return (11-15).",
+        "unknowns": [
+          "autoexec vs gametype-assign order in retail",
+          "non-registry reachability of ignored systems",
+          "retail assert fidelity"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/22",
+        "decision_canonical_sha256": "be0599804841ab7927d785cd20d1dd4ae850e2ed59f7e19cc0205d3c11973ba4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00077",
+        "sha256": "addf1f88a72eb2b6b80e5ffc960879812cb921444bbecb3f4c91de4401f74f18"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9a4e14a1d586f2c914633cf762d45b1d6db95a1bcdb1bbc5739421a9baa33bcb",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 19,
+          "sha256": "f63b337f56e3f6f5735e77c53a1c34940841b22f0a58872ca85aa4a26de50c0e"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ignore_systems.gsc::ignore_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/692",
+        "decision_canonical_sha256": "4273a1c88c112922afe1ffb7ea75e6da74f5f6be82e2d18a8022c096a355a689",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1072",
+        "record_sha256": "81368e271454c1258f2c62fbe60af097fb02d4444bd326cc6116d3fe29d169fe"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b43da94b0e59f5735470250939f7a3d74d944952a2e1f4bb7f3803f09bb263ed",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 19
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.csc",
+        "answer": "Source-visible answer: the exclusion/placeholder primitive and the duplicate-registration enabler. ignore(str_name): asserts level.gametype is UNdefined (must run before the engine assigns the gametype - pre-gametype window only); then if no registry record exists, register(name, undefined, undefined, undefined) creates an all-undefined placeholder; finally sets .ignore=1 (169-179). Combined with register()'s duplicate rule (assert existing .ignore then return, 11-15) this yields the exact wz/HMH exclusion semantics: a system whose name is pre-ignored either (a) never stores its real pre/post functions - the later real register returns early, or (b) if real registration happened first, ignore skips placeholder creation and sets the existing record.ignore=1 while preserving its pointers; ignore asserts only that level.gametype is undefined (171), and register has the separate duplicate as [excerpt; exact source record identified separately]",
+        "behavior": "ignore(str_name): assert(!isdefined(level.gametype), devx124) (171) - the assert boundary records that exclusions are only valid while no gametype is set; if !level.system_funcs or the name is unregistered, register(str_name, undefined, undefined, undefined) creates a placeholder with undefined pre/post funcs and predone=postdone=1 (both !isdefined) (173-176); then level.system_funcs[str_name].ignore = 1 (178). Consequences: (1) an undefined-func placeholder would never invoke anything even without ignore (exec_* call [[undefined]] guarded by predone/postdone=1 and ignore skip); (2) later register() by the real system hits the early return (11-15, assert passes because ignore=1) so its pointers are discarded; (3) exec pre/post paths skip the record regardless (37-40/102-105). The wz ignore_systems autoexec runs in both server (wz_ignore_systems.gsc) and client (wz_ignore_systems.csc) VMs [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "autoexec vs level.gametype assignment order in retail (assert precondition)",
+          "Non-registry reachability of ignored systems (only registry suppression proven)",
+          "Retail assert evaluation (N3)"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/988",
+        "decision_canonical_sha256": "c48ed32ecdaab99b0b0789992bd2d312c4b1ba8470955d34b28af63f5489da36",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00229",
+        "sha256": "9445acb4c73d44c2260b9318ade823dbf0ada6c2db8617e89b091cf0566a3372",
+        "pointer": "",
+        "record_sha256": "07796bc27e56b3ab9297b03583f6594202af80a642e5a26e9658238203bd79f0"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b66e11c6123345e751e605e3a77eeb82bd8460916f98cd92015f1960d739f6d3",
+      "citations": [
+        {
+          "line_start": 11,
+          "line_end": 18
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_8dfa23e0@system_shared.gsc",
+        "answer": "Server twin of unit 6 (gsc 123-141 identical). Source-visible: pre requirement resolver - NO predone assert (contrast post-side 60); array/scalar spawn-only resolution with registry-existence assert for scalar reqs; dependency 'waiting' is absent by construction (spawn-and-continue), so requirement preinits may complete before, after or interleaved with the dependent - scheduler-dependent, each rechecked in exec_pre_system; predone is written only after prefunc returns, so no in-progress guard proves duplicates inert during reentrancy/yield interleaving. Direct callers exec_pre_system111 and run_pre_systems151; driver performs an additional resolver pass before its executor spawn152. HMH linkage: wz-relevant reqs-bearing server records (hash_280fe2667ed2d300 -> #item_supply_drop script_71e26f08f03b7a7a 14; killstreak supplydrop/uav -> #killstreaks supplydrop.gsc 44/uav.gsc 28) resolve he [excerpt; exact source record identified separately]",
+        "behavior": "Server copy of the pre requirement resolver, identical to csc 123-141. If reqs defined: array path (127-135) with per-req assert + thread exec_pre_system per element then return; scalar path (137-139) with assert(isdefined(level.system_funcs[reqs])) + thread. No waiting; no predone check (that lives in function_5095b2c6:60). Called directly from system_shared.gsc111 and151; the driver resolves requirements before spawning the executor, which may resolve them again.",
+        "unknowns": [
+          "Spawn scheduling",
+          "retail assert fidelity",
+          "retail reqs-array usage"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1001",
+        "decision_canonical_sha256": "b35e44f059a4edcce15326c6d21a871b12ea7299db2a236daadb6139f0dacbb0",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00084",
+        "sha256": "51e8a46e6d14a1cb59c8af7fe5270036ae74726a38bb8b001e10b6c960f14087",
+        "pointer": "",
+        "record_sha256": "f8d225f7e6f6e4646be0b0086dad057411a036442265dfda820940ba833e7103"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bfbe67ee6b14bf5c363f34cd83dcd73dea7260a1c0598219a74257616fca45bd",
+      "citations": [
+        {
+          "line_start": 9,
+          "line_end": 19,
+          "sha256": "f63b337f56e3f6f5735e77c53a1c34940841b22f0a58872ca85aa4a26de50c0e"
+        }
+      ],
+      "summary": {
+        "id": "scripts/wz_common/wz_ignore_systems.gsc::ignore_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/881",
+        "decision_canonical_sha256": "6ef74a6bfac6fef4448a5dd9eaecc06ac220588bcb31ad3e9814247149be589a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/782",
+        "record_sha256": "ee63cf6f0e778eafd62bd7166f4eea9b4c470868b74c8c4efa1938aa853d1e2f"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/7bb723694cff03a1.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/199009c57645bad0-001.json",
+      "sha256": "fb82e7ac4a87589abc2b12874184436f52c9d4ad67ea88f445d5ebc0259e80b4"
+    }
+  ]
+}

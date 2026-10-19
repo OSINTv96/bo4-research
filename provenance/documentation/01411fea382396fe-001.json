@@ -1,0 +1,248 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/load.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "00a00f317e8ebe62aa0947081b4e6078786dcf91d097c7b8b79c943268c36a4f",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::init_traverse",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/623",
+        "record_sha256": "0a7cb2a425d4ba4b8dc25c770deae2b976ab79185c30112b62c74742464621a7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "0f4722f8549ed2b3d3221e8d78bac64b836c0cb41576d3d2a23c8dc5a063314d",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::init_traverse",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/998",
+        "record_sha256": "ebb74a3980a3d41c2cb3325835b1a6b8d8225f94bba8e0b4bebf390064b14f66"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "1ce94b0c3903b4f3ce9f4fe3529d6c44f4d747cf9c653fd72137021a5a5426e1",
+      "summary": {
+        "unit_id": "scripts/core_common/util_shared.gsc::gethostplayer",
+        "behavior": "Core shared util returning the host player: getplayers() then first player passing native ishost(); returns undefined implicitly when no host present. Minimal behavior needed: this is a plain non-dev lookup utility. Production inbound path on the HMH map: wz_open_skyscrapers main (level_init, imports util_shared at line 13) calls load::main() (line 53 -> mp_common/load.gsc main 15-37) while the system-registered load preinit (load_shared.gsc:21 -> __init__ 50-108) spawns all_players_spawned() (line 97), which at load_shared.gsc:578 assigns level.host = util::gethostplayer() after waiting the all_players_connected flag, then sets the all_players_spawned flag (612, from literal search) that dev spawn tools and map logic wait on. Secondary inbound paths: stored pointer level.rat.common.gethostplayer (mp rat init line 29, wz_rat init line 30) dispatched inside dev RAT commands (wz_rat units 3/5/6/7/8, mp rat unit 12, rat_shared rscrecteleport:633), direct dev callers throughout dev/dev_shared files, and non-dev callers elsewhere (mp globallogic hostidledout:1561, zm gameplay files). Decision: needed by recovered source for the production load/host bookkeeping path; the rat/dev consumers are additional conditional paths that also funnel through this one function, so no exclusion applies anywhere.",
+        "unknowns": [
+          "Native level_init/level_preinit invocation order for the wz VM in the original build (source chain only)",
+          "Whether getplayers()/ishost() and the flag timing produce the same host identity in the original PS4 runtime",
+          "Which exact VM each stored pointer copy (mp vs wz rat) lives in at runtime",
+          "Full set of other-mode non-dev callers outside this packet's dump visibility (zm/mp files cited only as context)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00005",
+        "sha256": "6dbeb1a2afebcf56901a98f737b82cfcd11646bdb7208b47e7f3c255e8f2e0be"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "3cf33b99f7ac81d380fcaae31548d06a2dbeb5a70a83f131e51c7629f497d26b",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:wait_till@system_shared.csc",
+        "answer": "The selected wait_till(required_systems) helper160-163 never reads its argument and only requests level flagsys::wait_till(\"system_init_complete\"). This API therefore does not select a named per-system dependency. The compared run_post_systems84-94 driver launches exec_post_system threads during88-93, then requests the system_init_complete flag and clears the registry without joining those workers. That flag is a post-driver launch-iteration signal, not proof every postfunc completed. The flagsys helper85-93 checks get(str_flag), waits while falsey and rechecks; a truthy flag at entry avoids the local wait. Exact native wake/death/error handling and scheduling remain unknown. Observed bounded callers include util_shared.gsc __main__45, mp_common/load.gsc35 and load.csc37; the latter are called from wz_open_skyscrapers.gsc53 / csc30. zm_common/load.csc76 and zm/load.gsc59 are context-only callers. The util postfunc itself waits at45 and still has function_3cb7a62d46 to execute after it resumes; no author-intent or all-postfunc-completion inference follows. The load callers request load_main_complete at their following36/38 statements if control reaches them after the observed flag. A persistent falsey flag with no cancellation/other exit can retain the wait; there is no local timeout. Missing level_finalizeinit is a possible unmet-producer condition, not proof that no dynamic/other writer or native exit can exist.",
+        "behavior": "Both saved system_shared VM twins160-163 contain the same single level flagsys::wait_till(\"system_init_complete\") request and unused required_systems formal. flagsys_shared.csc85-93 installs self endon(#death), loops on !get(str_flag), requests self waittill(str_flag) and rechecks; set9-18 stores then requests notify. The compared post driver launches without a completion join, so its flag does not certify completed post functions. util_shared registration21-24 supplies __main__ as postfunc; __main__45 waits and46 still calls function_3cb7a62d afterward. Map load waits are flag-observation boundaries, with subsequent load_main_complete requests if reached, not joins of all system work. Actual registration delivery, scheduling, wait wakeup/death/error outcomes and original VM/build/runtime remain unproved.",
+        "unknowns": [
+          "Original retail level_finalizeinit delivery, actual flag producers and native scheduling/wakeup/cancellation behavior; unmet flag can retain a wait but no universal hang outcome is proved.",
+          "Level 'death' endon semantics on level-owned waits (native)",
+          "This selected API ignores required_systems and observes only the shared flag; any finer dependency/completion requirement needs separately evidenced support."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00006",
+        "sha256": "97bf508b7c3b1f9a42326e062eea6be8f2ec56919b5d8f245894e4cfcbe0c54b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "80068d20343497105bb509f388e4e2dda3ba9602cb44e0a3394a0b7663b0f2d9",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/624",
+        "record_sha256": "e2def60de6bd1b74a186c7dce3bff1e8cdbaae03c102664bb2852ff0c6c57f48"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "8a27393e9febf7bb54033402ff8a7cabb6aa0c3e047b7ae89ed559d458eeac61",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::register_clientfields",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/625",
+        "record_sha256": "1d009ea62d74adf89b5a91ad2e219e3b4ea998a026604bb966c08fce6eb98049"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "92f2f6e97a984e8cd0b719ee4df80dae4bb21110ff2c207c5d1c002f0fcedbcc",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:main@wz_open_skyscrapers.gsc",
+        "answer": "Source-visible answer for root candidate 2: wz_open_skyscrapers.gsc::main is event_handler[level_init] (annotation eflags 0x40 at 39-41; the supplied annotation does not establish script/native emitter identity, dispatch or delivery; other emitters remain unresolved). No exhaustive current import/alias search proof is accepted here; other importers and loader routes remain unresolved; prior inventory seeds it only as a scripts/wz directory-ownership candidate with runtime_reachability_proven=false (SOURCE-LOAD-INVENTORY.json 3974-3982). Its trace: setclearanceceiling 17 (44); callback::on_spawned/on_vehicle_spawned/on_finalize_initialization registrations (45-47); mapcenter + air/ground distance vars (48-55); fx/sound mains (51-52); load::main() (53) which blocks on system::wait_till (post phase) per unit 8/17; minimap (56); dvar (57); death circle init (58); HMH branch (60-64) - getgametypesetting(#wzheavymetalheroes) sets level.var_2089aa11=supply_drop_stash_parent_dlc1_heroes and namespace_3d2704b3::function_f0297225(supply_drop_stash_parent_dlc1_flare_gun_heroes,2,4); pandemic branch (66-70); dev block (72-74); ai_zones init (76); firing_range targets (77-78); item_world function_cbc32e1b(30000) (79); thread function_2560f130 (80) -> hmh_ramp dynent enable gated by wzheavymetalheroes (181-197). Conditional inference kept explicit: for the handler registered at 47 to actually receive on_finalize_initialization, the engine must run this level_init main before level_finalizeinit - not proven. This is one of the exact six SOURCE-ROOTS candidates; native map-script selection for #wz_open_skyscrapers is the open boundary.",
+        "behavior": "Map main (server VM), event_handler[level_init]. Full ordered body at 42-81 as listed in source_trace. HMH-specific behaviors inside the root: the wzheavymetalheroes gate at 60-64 (stash parent + flare-gun list), the threaded hmh_ramp enable at 80->181-197, HMH-relevant hashed system imports at 1-4 (whose autoexec __init__system__ registrations join the shared pre/post mechanism), load::main join at 53 (blocks until post phase), dev-only block 72-74 (init_devgui). The main does NOT call system::register/ignore/wait_till directly except through load::main.",
+        "unknowns": [
+          "Retail map-script load + level_init main invocation for #wz_open_skyscrapers (unproven)",
+          "level_init event order vs preinit/finalizeinit/gametype_init (unproven; conditional requirement recorded for the finalize-delivery link)",
+          "eventstruct field contents at native delivery",
+          "wzheavymetalheroes effective value (g1 scope)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00007",
+        "sha256": "a91a8e47020ad5713f850621c93d69456d19aed60dd23a2b6a4e3b7e4a5b241b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "c59e79a71dcc77bd0561816b2f4ecdfbf0ad2eccc78141e8821496111449cae7",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::setup_traversals",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/626",
+        "record_sha256": "d7229899e403eb9cb96903f73ddfda06473b865343381682c54d3578de188488"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "dcbbe87c66cbf1287c0dcd1419abd09264be523bcb89fbcc6de1411c7bfba721",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:wait_till@system_shared.gsc",
+        "answer": "Server twin of unit 8 (gsc 160-163 identical). Source-visible: sole blocking primitive; argument discarded; blocks on level flag system_init_complete produced only by run_post_systems (gsc 92). Server-side callers: util_shared.gsc __main__ 45 (util postfunc, yields inside the post phase until the driver sets the flag, without a join of spawned postfuncs) and mp_common/load.gsc main 35 (load::main called by wz_open_skyscrapers.gsc 53) which then sets load_main_complete (36). HMH lifecycle coupling: the HMH map main (level_init) therefore cannot proceed past load::main until system_init_complete is set after the spawn loop; statement order is [spawn batch; set flag] -> [wait returns; load_main_complete], not proof that every postfunc completed -> subsequent wz loader steps (later lifecycle owner's dependency). Deadlock shape retained: if level_finalizeinit never fires in a session, load::main never completes (no timeout in source).",
+        "behavior": "Server copy of wait_till, identical to csc 160-163; required_systems parameter unread. Blocking via flagsys_shared.csc 85-93 loop with endon(#death). Immediate return if flag already set (get() check first line of loop condition).",
+        "unknowns": [
+          "level_finalizeinit retail delivery guarantee (hang condition)",
+          "level death/shutdown interaction",
+          "other retail flag writers outside corpus"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00008",
+        "sha256": "8114fe3123c21b780c27d038cc05193cca5ed4fa5ddc0e46b2a1aea92899d43a",
+        "pointer": "",
+        "record_sha256": "945d7100cef89afce95c9d0de3a6daf05ebb901766a80fb896804cb3c4e84b32"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "01d0bfb1ab5b68b64d527f6b4c237030b2227baf79c46963a641501f9498c9b7",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::register_clientfields",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/208",
+        "record_sha256": "c0ef9876d840d2f4a05149247b713d1c2ffd4875da31ea73ec786bc546f904fa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "11b9ed1a1da2ff1147b8a77e52936a298bf8278578f180f7eff3031f2b3ecea4",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::setup_traversals",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/207",
+        "record_sha256": "3265202eabd70a3ce6e3957dcb2472556141192d3234a1ff9d547b3ff97c1562"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "6d90ccc0b10b7d80c516d2daa917fbfdf5218d7d6fd2599214cd454f9a9f086c",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::setup_traversals",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/207",
+        "record_sha256": "3265202eabd70a3ce6e3957dcb2472556141192d3234a1ff9d547b3ff97c1562"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/01411fea382396fe.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "ee18fc8039c6e0fe1a9767603faf2e5b520b41ff8b84613c08bbaec5980b233c",
+      "summary": {
+        "id": "scripts/mp_common/load.gsc::register_clientfields",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/208",
+        "record_sha256": "c0ef9876d840d2f4a05149247b713d1c2ffd4875da31ea73ec786bc546f904fa"
+      }
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/wz_common/wz_perk_engineer.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "16372831730af0bb1a99ce3a9c36c887dc8f1e91753f95a8f49b5f1b614fb191",
+  "git_blob_sha1": "383b4b4f5d3420e7ecf4a0c48fd72b80cb69dcd9",
+  "output": "src/scripts/wz_common/wz_perk_engineer.csc",
+  "output_sha256": "6fe2c69b1f2b84a1fe0d379ae7e65a0f7043ee9681e75d3c669eca74cac76a8a",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/array_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/array_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/array_shared.csc",
+        "sha256": "909882efda3e1b565030d2a2648ffd54fb31ef24c2aa91642917b7686224fa37",
+        "git_blob_sha1": "467426e6744978326da6cfc2fd39daa59a61ef08"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/renderoverridebundle.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/renderoverridebundle.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/renderoverridebundle.csc",
+        "sha256": "62f507f03e5e888bdc924bc60bece9867480b435e3403f74fb0e5ffebb0d0030",
+        "git_blob_sha1": "de6e29552a169643310bce2581527bd29aa261f5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0180.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/struct.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/struct.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/struct.csc",
+        "sha256": "cc19aa9a8e2c9498b7c2d8f39db8e0d1fecb82f923e193141a6c9b2ac95025bf",
+        "git_blob_sha1": "dd18dee32c18f4ed1abbf5b5b0a811cc1184f372"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weaponobjects.csc",
+      "original_line": 6,
+      "output": "src/scripts/weapons/weaponobjects.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weaponobjects.csc",
+        "sha256": "b2b54c9092ad50d9d754e75bd90fc114b4beb462fea3647674e71eebb8b8586a",
+        "git_blob_sha1": "8d8b4956fae3d86c8fc12def55907da3949e4fa4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0181.json"
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "08b7a1f3735ae7c2022a1b2d5f0a387447116f65453b2557b22cbec6aa042481",
+      "citations": [
+        {
+          "line_start": 152,
+          "line_end": 157
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_c34cebb1",
+        "behavior": "Vehicle sonar-set binder (private; runs on the vehicle item). Three ordered calls: self renderoverridebundle::function_c8d97b8e( localclientnum, #\"friendly\", #\"hash_f5de00feee70c13\" ); ( localclientnum, #\"enemy\", #\"hash_77f7418d2f2a7890\" ); ( localclientnum, #\"neutral\", #\"hash_61c696df3d5a1765\" ) â€” binds the three registered sonar sets onto the vehicle by faction slot (tokens exactly as printed at lines 154-156). No returns/state beyond the module calls.",
+        "unknowns": [
+          "renderoverridebundle::function_c8d97b8e semantics (applying a registered set to an entity) live in the renderoverridebundle module outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/50",
+        "decision_canonical_sha256": "6a8782ca6939a1be2197571b0bf8315ff5d4dd66a31919954895eb47fc81a6a1",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/485",
+        "record_sha256": "360cc62ba7dd75e49190067c07f24e10d3c973e02f3ab6050c351e156e850efb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3e6f3b225d9933db6d322d13f69eaaba148ba68925d4665c27188da121475136",
+      "citations": [
+        {
+          "line_start": 182,
+          "line_end": 195
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_da8108ae",
+        "behavior": "Complement faction helper (private, bool). Same first two gates: !isdefined( self.owner ) || !isdefined( self.owner.team ) -> return false; self.owner.team == #\"neutral\" -> return false; then return !self.owner function_83973173() (logical mirror of unit 487).",
+        "unknowns": [
+          "Same function_83973173 unknown as unit 487"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/279",
+        "decision_canonical_sha256": "947309b7343c271f9c99b4e3ae17d7ca71b2d77e0aab5f6432989aa34d93b4b7",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/487",
+        "record_sha256": "2c31dfbcbb38eb3c4cedbab7182a2ad20c01673d431004dbe4511d7e773de86c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5a4bb0b43273e886054cdf9eaf44dca88a3bfd824eab2670020182b05a1b9546",
+      "citations": [
+        {
+          "line_start": 14,
+          "line_end": 17
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::__init__system__",
+        "behavior": "Client-side autoexec registration for the WZ engineer perk. function autoexec __init__system__(): system::register( #\"wz_perk_engineer\", &__init__, undefined, undefined ). No other statements (file 283 lines).",
+        "unknowns": [
+          "system::register semantics outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/243",
+        "decision_canonical_sha256": "241208c16f96b952365ee915c6016470ce4085f4344f047d640310175d4378bf",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/479",
+        "record_sha256": "aee43c6bc5fc98f5e3338a6d0368c818e4ae99fcd4db7191baa5426fe9ebbbad"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5ffb03bd4d748996e1d9d847906512c112f383b99134a5e1434b8865ece52d87",
+      "citations": [
+        {
+          "line_start": 230,
+          "line_end": 253
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_62888a11",
+        "behavior": "ENEMY sonar-set predicate (private, bool; registered for the enemy set). Same first three gates as unit 489 (function_9d295a8c veto; ridden-vehicle exclusion via self.type === \"vehicle\" && isinvehicle( localclientnum, self ); vehicle_corpse exclusion). Accept branch uses the complement helper: if self function_da8108ae() (unit 488) && isdefined( self.var_f19b4afd ) && self.var_f19b4afd -> return true. Else return false.",
+        "unknowns": [
+          "Same function_9d295a8c unknown as unit 489"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/525",
+        "decision_canonical_sha256": "7afe9b010b244591aba246ee4a3a54699ed1ce47ce1dcb83fc36c3062bd5c91f",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/489",
+        "record_sha256": "c5c197adcf1f3640a963a46ed1e0fa480db80298621b0be7a2fcba478fc8302b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "684c8fec4d1a76568240b6fb8ca69e18f05d30e3d1ef41310bd7cf03f8229b12",
+      "citations": [
+        {
+          "line_start": 35,
+          "line_end": 41
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::on_localplayer_spawned",
+        "behavior": "Private spawn handler (eflags per prior notes): if self function_21c0fa55() (same opaque local-player predicate, see unit 424) -> self thread function_7800b9c2( localclientnum ) (the engineer scan loop, unit 484). No other state.",
+        "unknowns": [
+          "function_21c0fa55 opaque (not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/471",
+        "decision_canonical_sha256": "55c3d6e0caa4a6902776af400f1d9ed9b136d5fc8f21515e0398edbbe5a4969b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/481",
+        "record_sha256": "67c8f8e31c29f20bc7730861bb11b0936e1897d3c51d5454ecdbc5dbb1efc7e4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "72455487a0ee1f5791c4e3977ec530f010d55ad2920a31dd495b586a90bf514d",
+      "citations": [
+        {
+          "line_start": 47,
+          "line_end": 61
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_e446e567",
+        "behavior": "Death/flush hook for scanner marks (function(notifyhash); per prior notes wired via endoncallback(&this, \"death\") from the scan loop). Gate: if !isdefined( self.var_100abb43 ) || !isarray( self.var_100abb43 ) -> return (field token resolved exactly: var_100abb43). foreach item in self.var_100abb43: if isdefined( item ) -> item.var_f19b4afd = undefined (clears the per-item show marker consumed by the sonar predicates). nofn returns.",
+        "unknowns": [
+          "var_f19b4afd marker consumers are the sonar predicates in this file (units 489-491) and the shared weaponobjects update call (unit 484)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/619",
+        "decision_canonical_sha256": "45edac6277a2a3f365d7ae6a7e24fd43ba312ceefaf96bdb38b92693419fb670",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/482",
+        "record_sha256": "1629a4d06302998baf970490c2c9b8d115fcdc89bb0e55cbc43684d44edaf8f9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "980644ab7d60e25302b4bed86fa0c668ee0697ace3bf593de52bbccf445a71f5",
+      "citations": [
+        {
+          "line_start": 143,
+          "line_end": 146
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_5118c0a3",
+        "behavior": "Filter predicate for the enemy-equipment scan (private; returns bool): return isdefined( item ) && !item function_ca024039() â€” passes defined items that fail the opaque veto predicate function_ca024039 (not in packet; prior notes infer not-stunned/not-flagged). Single && return as printed.",
+        "unknowns": [
+          "item function_ca024039 source outside packet â€” veto meaning unresolved"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/823",
+        "decision_canonical_sha256": "3e01a5e5010a86801788576447eefedb22b56cebde55130aa7d4b7133c68a4fd",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/484",
+        "record_sha256": "b07fc01ff565ff7de9712414ac22692a4c7b56d03511bf979eee9d2c96592f8e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a2dbd396f493c7f3cb49f7d9b153a084685cbbdadc1e988e9663db18fbd2ca03",
+      "citations": [
+        {
+          "line_start": 163,
+          "line_end": 176
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_76a0624a",
+        "behavior": "Faction-qualify helper for the FRIENDLY sonar predicate (private; no explicit bool type; returns 0 or the predicate result). Branches: if !isdefined( self.owner ) || !isdefined( self.owner.team ) -> return 0; if self.owner.team == #\"neutral\" -> return 0; else return self.owner function_83973173() (SAME shared opaque predicate family used by bloody_tracker unit 477; prior notes infer spectating/dead-ish meaning).",
+        "unknowns": [
+          "function_83973173 source outside packet; prior-note inference unverified",
+          "#neutral is a hash-typed team value"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/447",
+        "decision_canonical_sha256": "86f4f30415cb8ad572d9d4a6dad488716d16ae81eb7e6b98338fbdfb417f62bd",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/486",
+        "record_sha256": "df3743205e981151530bbd405a5704112082989b458bff4e4db55249fb8cb29e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a3396240034344d48cf278a594e41414af86210bfca2fdc67161320ed4141098",
+      "citations": [
+        {
+          "line_start": 201,
+          "line_end": 224
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_8550d243",
+        "behavior": "FRIENDLY sonar-set predicate (private, bool; registered for the friendly-equip render set in __init__ unit 481). Gates in source order: 1) if function_9d295a8c( localclientnum ) (opaque global veto, unqualified, not in packet; prior notes infer a suppression check) -> return false. 2) if self.type === \"vehicle\" && isinvehicle( localclientnum, self ) -> return false (do not outline the vehicle the viewer rides). 3) if self.type === \"vehicle_corpse\" -> return false. Accept: if self function_76a0624a() (owner faction qualifies, unit 487) && isdefined( self.var_f19b4afd ) && self.var_f19b4afd (scanner-marked by unit 484) -> return true. Else return false.",
+        "unknowns": [
+          "function_9d295a8c source outside packet",
+          "self.type string values compare as plain strings (\"vehicle\" / \"vehicle_corpse\")",
+          "bundle param unused in body"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/448",
+        "decision_canonical_sha256": "5f210b11a3e601255baea5dbb465aa013fe56ba17598b732f04ab4b64219a33c",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/488",
+        "record_sha256": "6a461bb7bbd4162a5906c5e488c7c6e700a10050f51e02ce36f6d1a0f9a420d8"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b7cb946301a430a27ca90f099ca1cfc1c67191b7ab3cd0a89029ddd91d05c5b9",
+      "citations": [
+        {
+          "line_start": 259,
+          "line_end": 282
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_b52a94e5",
+        "behavior": "NEUTRAL sonar-set predicate (private, bool; registered for the neutral set). Same first three gates as unit 489. Accept: if !self function_76a0624a() && !self function_da8108ae() && isdefined( self.var_f19b4afd ) && self.var_f19b4afd -> return true (items that qualify for NEITHER friendly nor enemy faction slots but are markered). Else return false.",
+        "unknowns": [
+          "Same function_9d295a8c unknown as unit 489"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/837",
+        "decision_canonical_sha256": "2577ef68028bd2a382c878333b2d5e40bea917b1c94d1b750cda2010e97c3942",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/490",
+        "record_sha256": "756081910a60cc6e54f20334c070a191f2aa41d74637d59bc007754a5242f275"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "dcb0efa568d04c08b5f3bc1fe209180c9eafba9544e71fc6602341b6da070313",
+      "citations": [
+        {
+          "line_start": 67,
+          "line_end": 137
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::function_7800b9c2",
+        "behavior": "ENGINEER EQUIPMENT SCANNER loop (private; threaded on the local player from on_localplayer_spawned). level endon( #\"game_ended\" ); self endoncallback( &function_e446e567, #\"death\" ) (flush hook on death); if !isdefined( self.var_100abb43 ) -> var_100abb43 = []. Infinite loop: var_94c264dd = self hasperk( localclientnum, #\"specialty_showenemyequipment\" ) (2-arg client hasperk â€” the ENGINEER perk gate). Extension hook: if !var_94c264dd && isdefined( self.var_53204996 ) -> var_94c264dd |= self [[self.var_53204996]]( localclientnum ) (external OR-hook, assignment outside packet). IDLE branch: if !var_94c264dd && self.var_100abb43.size == 0 -> wait 0.2; continue. SCAN branch when perk-gated: var_7c16c290 = array::filter( level.enemyequip, 0, &function_5118c0a3 ) (array_shared filter with predicate unit 485); items = arraycombine( level.allvehicles, var_7c16c290, 0, 0 ); arrayremovevalue( it [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "level.enemyequip / level.allvehicles population is in other modules (outside packet; enemyequip registry per packet theme)",
+          "var_53204996 external OR-hook assignment site outside packet",
+          "weaponobjects::updateenemyequipment behavior in shared module outside packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/620",
+        "decision_canonical_sha256": "4fe02cafc6a8f27f239de98dff30c748da7e8dc3dc321ef2618dee0345f9b760",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00756",
+        "sha256": "4b2aa965dc73db30ef3772a9a65f15825c748b17f96cec95145a8ee140a7b010",
+        "pointer": "",
+        "record_sha256": "37cc87b05c9b21be4f487cc372197b1169eb34e85a87d10bf199c2aeeadeeeca"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e5797b75e9ed315a7443618fc4297d2deabd688e4f7850513897f279e4ff992b",
+      "citations": [
+        {
+          "line_start": 23,
+          "line_end": 29
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_perk_engineer.csc::__init__",
+        "behavior": "Engineer init (no mode gate; THREE render-override-set registrations (renderoverridebundle::function_f72f089c( <set-hash>, <rob-set-name>, &<predicate> )) then the spawn hook): 1) renderoverridebundle::function_f72f089c( #\"hash_f5de00feee70c13\", sessionmodeiscampaigngame() ? #\"rob_sonar_set_friendlyequip_cp\" : #\"rob_sonar_set_friendlyequip_mp\", &function_8550d243 ) â€” friendly-equipment set, campaign vs MP rob set chosen by the sessionmodeiscampaigngame() builtin; 2) renderoverridebundle::function_f72f089c( #\"hash_77f7418d2f2a7890\", #\"rob_sonar_set_enemyequip\", &function_62888a11 ) â€” enemy-equipment set; 3) renderoverridebundle::function_f72f089c( #\"hash_61c696df3d5a1765\", #\"hash_44adc567f9f60d61\", &function_b52a94e5 ) â€” neutral set with a hash-named rob set (token exact). 4) callback::on_localplayer_spawned( &on_localplayer_spawned ).",
+        "unknowns": [
+          "renderoverridebundle::function_f72f089c registration semantics (how predicates attach to render sets) live in the renderoverridebundle module outside packet",
+          "The rob-set asset names hash_44adc567f9f60d61 / rob_sonar_set_* are asset references not in corpus"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/638",
+        "decision_canonical_sha256": "fd1c87f28a73f68d80d10e6aa087c74b941cdb3f1bdf04a7a3d180004a08fcf8",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/480",
+        "record_sha256": "87beb460593edf45bc82270472f32cf769d905b2df3abcdd25bab09e8cfc0bd7"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/db72429af54f25a9.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0180",
+    "AV0181"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/c5607d1296aa447e-001.json",
+      "sha256": "e91099d7d4e0ab49d3c3a3ed1707fae7d4eb88c2c121e2281308b4a3936c8b71"
+    }
+  ]
+}

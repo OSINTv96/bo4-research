@@ -1,0 +1,435 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "lua/lobby/process/lobbyprocessnavigate.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c",
+  "git_blob_sha1": "078d510979d721e9dfe7004fdc1b003a16c726ee",
+  "output": "src/lua/lobby/process/lobbyprocessnavigate.lua",
+  "output_sha256": "99d3415a33d40d2d18ebbf1c6cf764796494fd7abe28c829d75dc0b1e810c59a",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/lobby/process/nav/lobbyprocessnavcommon.lua",
+      "original_line": 4,
+      "output": "src/lua/lobby/process/nav/lobbyprocessnavcommon.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/lobby/process/nav/lobbyprocessnavcommon.lua",
+        "sha256": "413dacf1782e6b66371bb8d958b11ee06f79460692a137c4bf8928e3ea285a3f",
+        "git_blob_sha1": "1acd5f768bccf67c83667cb665709285480e9a41"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0112.json"
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/lobby/process/nav/lobbyprocessnavcp.lua",
+      "original_line": 5,
+      "output": "src/lua/lobby/process/nav/lobbyprocessnavcp.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/lobby/process/nav/lobbyprocessnavcp.lua",
+        "sha256": "9fa481f678f8cfb291e3c14c83ba4529acc23a3edcbfcc125836b5cc998bb109",
+        "git_blob_sha1": "86b33ec28906105d03118cf322fbcb0e26377af4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0113.json"
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/lobby/process/nav/lobbyprocessnavmp.lua",
+      "original_line": 6,
+      "output": "src/lua/lobby/process/nav/lobbyprocessnavmp.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/lobby/process/nav/lobbyprocessnavmp.lua",
+        "sha256": "7291e8ece3993335f72dafb9c7e92fa320a502c9799144d94f1592a572f42ce9",
+        "git_blob_sha1": "48ef735ac1a696740b29f4ee67b225e5685befb3"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0114.json"
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/lobby/process/nav/lobbyprocessnavzm.lua",
+      "original_line": 7,
+      "output": "src/lua/lobby/process/nav/lobbyprocessnavzm.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/lobby/process/nav/lobbyprocessnavzm.lua",
+        "sha256": "7b66ec02902633ab4b225349c0955ce1d94ac0d5c46f9cf8298d643666a55de6",
+        "git_blob_sha1": "9a20154ccd44b812ebd10bf9eddb94748b0cc7da"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0115.json"
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/lobby/process/nav/lobbyprocessnavwz.lua",
+      "original_line": 8,
+      "output": "src/lua/lobby/process/nav/lobbyprocessnavwz.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/lobby/process/nav/lobbyprocessnavwz.lua",
+        "sha256": "4278692b4b46a3d3c65b5a8d4a8dec2517693c43408e3e584d12d4135ff8132d",
+        "git_blob_sha1": "027dd0826e6b21704c924bd11e180b89e9b80394"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0116.json"
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "03cd9bdcc07deae4ac93491c0519f97cb68a4d1783b29a87ca40ecaf1c634ae8",
+      "citations": [
+        {
+          "line_start": 606,
+          "line_end": 629,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.SwitchLobbiesGetGametype",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/22",
+        "decision_canonical_sha256": "b67b1b9d6208a134db0007ff566a0c17ca440421a2a739dfd5b3253eaaa8f3af",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/107",
+        "record_sha256": "db7ce7c3461f4e9fd5818caf7a36118d7f995726663aaa5e14db84304218c156"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1825bf1eaffc28d03ec83117962682e8eb46f8a8e6c0f8dee6b400a228311e69",
+      "citations": [
+        {
+          "line_start": 1075,
+          "line_end": 1159,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.LeaveGameLobby",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/55",
+        "decision_canonical_sha256": "d94c37b64745800be91b176f57b2ec764c8b8e6119bb891f6e330c375d8c1f1b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/112",
+        "record_sha256": "7acc192c76a5e13c7a1186062b0df218a860e6b597a44b559377b88f86623379"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3779ca57405a11442e8013ca45c2f49590f0ceaa5b538f921e404c6ecd8476ac",
+      "citations": [
+        {
+          "line_start": 898,
+          "line_end": 1073,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.CreatePublicGameLobby",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/303",
+        "decision_canonical_sha256": "7e4989b8cdbf4338d4bd7372d7290db9aa6d247386c715f8205a14ecb2a8d6b4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/110",
+        "record_sha256": "040f1d6551b84aff6045b7628c00b69d26b972cbc39126366b9f1fdb3dc30ecb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7b56ffe32e61666d80a3ef339c76f01177c2fd9b2098af80c99395d1eb7d5db9",
+      "citations": [
+        {
+          "line_start": 1237,
+          "line_end": 1350,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.LeaveGameLobbyAsyncMatchmaking",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/557",
+        "decision_canonical_sha256": "289e295697f027d3c85163bdd6ad7a643431ec400579b5e58eb914406720a605",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written inventory/identity/classification row only, including original node and literal source/caller witnesses. The row has contract=null. No function-body semantic acceptance is granted.",
+        "limitations": [
+          "Recovered-source inventory only; opaque/provider, original author/reviewer independence, native/VM/build/runtime and whole-mode claims remain unknown.",
+          "Registration, declaration, nominal constructor or source call inventory does not prove effective HMH loading, execution, delivery or object dispatch."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/113",
+        "record_sha256": "4d7d337d019b39400690205f8cfa47503d40c2092fb14e7c98f88f4b463053a2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9b88fe4214472ae3ec55911adec8e0d7fbde111e1c150a711a54616569cfb13f",
+      "citations": [
+        {
+          "line_start": 1161,
+          "line_end": 1235,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.CreatePublicGameLobbyAsyncMatchmaking",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/309",
+        "decision_canonical_sha256": "b319f175524a235e2894796fd28d3def7d402e3f93b66936c7c148f49ea7b15e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/111",
+        "record_sha256": "550ee7b1899e5fca1fb518522be6cdb022ea1825e16c604f7bdcadc120b55729"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "c41d4424448bfe2e93c5d335d9cbe833520cdb382a8a5f52c112ef9639d7125b",
+      "citations": [
+        {
+          "line_start": 446,
+          "line_end": 525,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.GameLobbyInterrupt",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1081",
+        "decision_canonical_sha256": "ca342ef067503689b30f4d91ea9b0d10b116b567e01436305c2893b1af3f7a18",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/114",
+        "record_sha256": "a5860ab507088bb812ef58f1047da19ff52a564f5525293bb23b74476371f264"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f239b4bb6d1b2e30969cb268f0d001e0e53955786e5d695fb9ca8455d1d5291c",
+      "citations": [
+        {
+          "line_start": 690,
+          "line_end": 828,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.PrivateLobbyNavigate",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1335",
+        "decision_canonical_sha256": "2900ab297c6026e97a2991c763e1adb48329e20cc7eef67ec02f45aec3918e73",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/109",
+        "record_sha256": "7f4a5082b1b9a8613a541e7ee67d538f5040f1c50c0a6f1f42ce7ff6cf8ce9a6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fcdb8768f55833d25ae216d0579e40361e907af737cef4078b816302c08b47f4",
+      "citations": [
+        {
+          "line_start": 674,
+          "line_end": 688,
+          "sha256": "f91fb250e1a1666ffb1f5a9f821a28907e8a951fd0094426a93948447fe0ae6c"
+        }
+      ],
+      "summary": {
+        "id": "Lobby.ProcessNavigate.SetupLobbyMapAndGameType",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1398",
+        "decision_canonical_sha256": "e6bbd75bf7546aad3777747fb1289b110c641ad22384725ec4efc20c8c299f10",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/108",
+        "record_sha256": "28ae4b645d5e018202d77b8a13bd2e890429faccd83a5ba2a7fcbb242a108cb3"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/7b35dc11f0510116.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0112",
+    "AV0113",
+    "AV0114",
+    "AV0115",
+    "AV0116"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/3251a25ee97f59da-001.json",
+      "sha256": "69c1111983caea8c7e770c65b05375bd30d37b1eb46c6724357b55e133a6816b"
+    }
+  ]
+}

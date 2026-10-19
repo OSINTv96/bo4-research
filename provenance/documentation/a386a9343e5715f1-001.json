@@ -1,0 +1,129 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/hacker_tool.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "123fb4ba49351dd9859a377e886108595a242c09bcaaf39468c3433ce726688e",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::gethackertoolouterradius",
+        "behavior": "Outer reticle radius selector (target). radius = level.hackertoollockonradius; priority chain: (1) care package -> radius = target.hackertoolradius (with assert); (2) hackable weapon object -> getweaponobjecthackerradius( target ); (3) target.hackertoolouterradius when defined; (4) target.hackertoolradius when defined. Returns radius. Mirrors unit 119 but reads the outerradius-specific field; when neither specific outer field exists, care/weapon-object paths still reuse the same single radius (making inner == outer and disabling the scale lerp in hackingtimescale).",
+        "unknowns": [
+          "Field writers of target.hackertoolouterradius outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/119",
+        "record_sha256": "6f4f735ce5ec628eabdff9babb492720ab86391e0a94ad7c0a989af1efafd902"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "55f7bd0991533724edbc3c232e4a177de2dae4ea9bc4a14df1dae756bd4d0c22",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::function_f4068d35",
+        "behavior": "Grenade-pullback event handler (eventstruct; self = player; tagged event_handler[grenade_pullback]). Branches: if !isplayer( self ) -> return; weapon = eventstruct.weapon; if ( isdefined( level.weaponhackertool ) && weapon.rootweapon == level.weaponhackertool ): waitframe( 1 ); currentoffhand = self getcurrentoffhand(); if ( self isusingoffhand() && currentoffhand.rootweapon == level.weaponhackertool ): starts four threads: self thread hackertooltargetloop( weapon ); watchhackertoolend( weapon ); watchforgrenadefire( weapon ); watchhackertoolinterrupt( weapon ). Fires when the player pulls back to the hacker tool; no other state.",
+        "unknowns": [
+          "event_handler[grenade_pullback] tag/registration is engine event convention",
+          "weapon.rootweapon native field semantics unverified",
+          "The waitframe(1) re-check guards a same-frame off-hand race window observed as-is"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/96",
+        "record_sha256": "458a02df4b453fbc99a1c09c899b9a88af517f33222fef5c933668bcb9de6ffb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "6233a999a9ad3dd187d619230ecf7c59bb59ea67e18a126a0508324512be867b",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::clearhackertarget",
+        "behavior": "Full lock-state reset (weapon, successfulhack, spawned; self = player). Ordered clears: notify #\"stop_lockon_sound\"; notify #\"stop_locked_sound\"; notify #\"clearhackertarget\"; self.stingerlocksound = undefined; stoprumble( \"stinger_lock_rumble\" ); self.hackertoollockstarttime = 0; self.hackertoollockstarted = 0; self.hackertoollockfinalized = 0; self.hackertoollocktimeelapsed = 0. Branch A: if isdefined( weapon ) -> self setweaponhackpercent( weapon, 0 ); if isdefined( self.hackertooltarget ) -> heatseekingmissile::setfriendlyflags( weapon, self.hackertooltarget ). Branch B: if successfulhack == 0: ( if spawned == 0 && isdefined( self.hackertooltarget ) -> self playsoundtoplayer( #\"evt_hacker_hack_lost\", self ) â€” lost-target sound only on failed, non-spawn resets ); then self clientfield::set_to_player( \"hacker_tool\", 0 ); self stophackertoolsoundloop(). Branch C: if isdefined( self.hackertooltarget ) -> heatseekingmissile::targetinghacking( self.hackertooltarget, 0 ) â€” releases the heatseekingmissile hack flag; then self.hackertooltarget = undefined; self weaponlockfree(); self weaponlocktargettooclose( 0 ); self weaponlocknoclearance( 0 ). Explicit recovered dev-block (/# ... #/; original target-build inclusion/exclusion unknown): self heatseekingmissile::destroylockoncanceledmessage().",
+        "unknowns": [
+          "heatseekingmissile helper bodies (setfriendlyflags/targetinghacking) are in heatseekingmissile.gsc which is in this packet's later units; documented there",
+          "weaponlockfree/weaponlocktargettooclose/weaponlocknoclearance native lock-API effects unverified",
+          "Explicit recovered dev source block surrounds destroylockoncanceledmessage. Exact original compiler preprocessing and target-build inclusion/exclusion remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00724",
+        "sha256": "8e542b381e1d914f7ed2217351a8e6222c93f88d5589fa373d31c0060bafea1f",
+        "pointer": "",
+        "record_sha256": "2554c42642a92ffb8859a5ce2b7e103b24fc9ef79dc6f64b526a6febbd7c8628"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "662785266b7e82708c9342236cb344d1a2ac70ae330be8cffab1041e9a3bea3c",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::getbesthackertooltarget",
+        "behavior": "Hackable-target enumeration and selection (weapon; self = player). Build: targetsvalid = []; targetsall = arraycombine( target_getarray(), level.missileentities, 0, 0 ); then arraycombine( targetsall, level.hackertooltargets, 0, 0 ) â€” two literal arraycombine calls over native target list, missile entities and registered hackertool targets; dedup/union/ordering semantics unresolved. Per-entry: skip when !isdefined( target_ent ) or !isdefined( target_ent.owner ). Explicit recovered dev-block (original target-build inclusion/exclusion unknown): if getdvarint( #\"scr_freelock\", 0 ) == 1 -> reticle-only accept path. TEAM path ( level.teambased || level.use_team_based_logic_for_locking_on === 1 ): care package: if self cantargetentity( target_ent, weapon ) -> add; else if target_ent.team defined: if target_ent.team != self.team && cantargetentity -> add (team filter rejects own team); else if target_ent.owner.team defined: same owner-team filter; then continue (team path ends the iteration). FREE path (non-team): if self iswithinhackertoolreticle( target_ent, weapon ): if care package -> cantargetentity -> add, continue; if isdefined( target_ent.owner ) && self != target_ent.owner -> cantargetentity -> add (ownership filter rejects own entities). Selection: if targetsvalid.size != 0 -> chosenent = targetsvalid[ 0 ] (first accepted element in resulting array; no native-then-missile-then-registered order guarantee without arraycombine contract); return chosenent or undefined.",
+        "unknowns": [
+          "target_getarray() native pool contents and ordering unverified",
+          "level.missileentities and level.hackertooltargets writers are elsewhere (heatseekingmissile / registerwithhackertool / other modules)",
+          "The scr_freelock path is inside explicit recovered dev markers. Exact original preprocessing and target-build inclusion/exclusion remain unresolved.",
+          "cantargetentity and reticle semantics are units 106/107"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00725",
+        "sha256": "5fafb5643aaeca0ef1d927e5321a29b19c57257ab1760ea8b078d63430860610",
+        "pointer": "",
+        "record_sha256": "a74775d2a166432d1e7834837f3d5a6ff083f0723dc71f9c5d1ce6041219a349"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "ce1f14a135836ab19d9ccda2dd5d43444fd69ebdb613c0c580b6cf31c2f257a7",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::gethackertoolinnerradius",
+        "behavior": "Inner reticle radius selector (target). radius = level.hackertoollockonradius (25 from init_shared; may be overwritten by the tunables loop). Priority chain: (1) isentityhackablecarepackage( target ) -> assert( isdefined( target.hackertoolradius ) ) then radius = target.hackertoolradius; (2) isentityhackableweaponobject( target ) -> radius = getweaponobjecthackerradius( target ); (3) isdefined( target.hackertoolinnerradius ) -> radius = target.hackertoolinnerradius; (4) isdefined( target.hackertoolradius ) -> radius = target.hackertoolradius. Returns radius. Per-entity override fields win over the level default; weapon objects read their watcher radius.",
+        "unknowns": [
+          "The unconditional recovered assert is a visible source precondition. Exact original compiler/build assertion handling and target runtime behavior remain unresolved; no stripped-release assumption is supported.",
+          "Field writers for target.hackertoolinnerradius/hackertoolradius on killstreaks are outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00726",
+        "sha256": "5449802deb4cef25ceb8f4955cce77f35691c365c5337a09fb65ebef5fd58a7e",
+        "pointer": "",
+        "record_sha256": "2b27fa74c8a370cb7bc2f5964839d76557ca42dd57cd163bbecae1ab22c32c69"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/a386a9343e5715f1.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "de09efec69a3201491beabbc801e989fd7a5fec08e03ce33d219103c89ee04c9",
+      "summary": {
+        "unit_id": "scripts/weapons/hacker_tool.gsc::cantargetentity",
+        "behavior": "Targetability gate (target, weapon; self = player). Two checks in order: if !self iswithinhackertoolreticle( target, weapon ) -> return false; if !isvalidhackertooltarget( target, weapon, 1 ) -> return false; return true. No side effects (does not set hint strings).",
+        "unknowns": [
+          "Purpose of the third isvalidhackertooltarget argument (1 here, 0 in the lock loop) is resolved in unit 114; combined meaning unverified beyond the values"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/105",
+        "record_sha256": "fa4ab49a923a3dc54a50f751f481857be2be59c328850f670f634d1f898de1fd"
+      }
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/load.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "9dd2a97e74eede4f756c253fa74036f73ca246713933cf724ba5e0c746666c7f",
+  "git_blob_sha1": "e7e98c78ea3900fd4b9f4c20a2bffc63a2329e23",
+  "output": "src/scripts/mp_common/load.csc",
+  "output_sha256": "b2448ad4b5a5bf26d20ff42024faef58508872ea0c3cb3a5d0315e7e007e6015",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/clientfield_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.csc",
+        "sha256": "68ebd6e58269bf4481b3f3b3c32a3d36e93c92b7b18efef98acda1b215651510",
+        "git_blob_sha1": "1d741c3a0186dc6564d27c7ac45e5342370a71bc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/flagsys_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/flagsys_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/flagsys_shared.csc",
+        "sha256": "9b8c6b3443a9d0f1fb54bbb094dcbdadd3f7b318be9c4d2b8a68ebdaa8e20778",
+        "git_blob_sha1": "0892c120b2b2add6ae5bd938266752521eeb42a0"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/map.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/map.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/map.csc",
+        "sha256": "c9ba0ddefcf738358a1288fe85d78a684248bb6d4807fe6eb20f97f92535795e",
+        "git_blob_sha1": "417760b84d45a62aa57dde2440dcdf1843ccca04"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.csc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/system_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.csc",
+        "sha256": "9928b354d25dcb0476a3f62e9057c51ca107c35db7fd5870499c4b883c83f59c",
+        "git_blob_sha1": "0d6ac6dedd7c3fbf4181233ac6c6b2949e222db6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/vehicles/driving_fx.csc",
+      "original_line": 6,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/vehicles/driving_fx.csc",
+        "sha256": "c1d22e09ac383f434b23ce436409b5b0afb385be406897d95f47010ca2afef1a",
+        "git_blob_sha1": "4d04766adca30c5c86b829c0cb59060858bd7bd5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0368.json",
+      "assessment": "available_source_inspected_unresolved_loader_indirect_or_context_admission",
+      "selected_caller_functions": [
+        "levelnotifyhandler",
+        "main",
+        "register_clientfields"
+      ],
+      "remaining": "No unique ordinary qualified callee/module-load path to this target was established in the closed candidate graph. Include/autoexec, class/constructor, ambiguous/global namespace resolution, indirect delivery or caller context remains unproved; available source is not relabeled missing."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/callbacks.csc",
+      "original_line": 7,
+      "output": "src/scripts/mp_common/callbacks.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/callbacks.csc",
+        "sha256": "9e7200fca25f271c2018e6a603a9e62c23f93fd58174ad5b13099e7a5ab7ac7e",
+        "git_blob_sha1": "2844e7af85b479e57edb85fab63f210c328be447"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0369.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/gametype.csc",
+      "original_line": 8,
+      "output": "src/scripts/mp_common/gametypes/gametype.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/gametype.csc",
+        "sha256": "3c9ac70bb894de3f64f1d1ba484e7d88f6d0b11cf286d55536f9482a34b45246",
+        "git_blob_sha1": "76365a1675472efbc98c5405ae5cc35b0e1af574"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "3cf33b99f7ac81d380fcaae31548d06a2dbeb5a70a83f131e51c7629f497d26b",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 39
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:wait_till@system_shared.csc",
+        "answer": "The selected wait_till(required_systems) helper160-163 never reads its argument and only requests level flagsys::wait_till(\"system_init_complete\"). This API therefore does not select a named per-system dependency. The compared run_post_systems84-94 driver launches exec_post_system threads during88-93, then requests the system_init_complete flag and clears the registry without joining those workers. That flag is a post-driver launch-iteration signal, not proof every postfunc completed. The flagsys helper85-93 checks get(str_flag), waits while falsey and rechecks; a truthy flag at entry avoids the local wait. Exact native wake/death/error handling and scheduling remain unknown. Observed bounded callers include util_shared.gsc __main__45, mp_common/load.gsc35 and load.csc37; the latter are called from wz_open_skyscrapers.gsc53 / csc30. zm_common/load.csc76 and zm/load.gsc59 are context-only [excerpt; exact source record identified separately]",
+        "behavior": "Both saved system_shared VM twins160-163 contain the same single level flagsys::wait_till(\"system_init_complete\") request and unused required_systems formal. flagsys_shared.csc85-93 installs self endon(#death), loops on !get(str_flag), requests self waittill(str_flag) and rechecks; set9-18 stores then requests notify. The compared post driver launches without a completion join, so its flag does not certify completed post functions. util_shared registration21-24 supplies __main__ as postfunc; __main__45 waits and46 still calls function_3cb7a62d afterward. Map load waits are flag-observation boundaries, with subsequent load_main_complete requests if reached, not joins of all system work. Actual registration delivery, scheduling, wait wakeup/death/error outcomes and original VM/build/runtime remain unproved.",
+        "unknowns": [
+          "Original retail level_finalizeinit delivery, actual flag producers and native scheduling/wakeup/cancellation behavior; unmet flag can retain a wait but no universal hang outcome is proved.",
+          "Level 'death' endon semantics on level-owned waits (native)",
+          "This selected API ignores required_systems and observes only the shared flag; any finer dependency/completion requirement needs separately evidenced support."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/18",
+        "decision_canonical_sha256": "8a0486de4803724f435300be9fb125d45b1568f1b758ff704a9ec222e224424e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00006",
+        "sha256": "97bf508b7c3b1f9a42326e062eea6be8f2ec56919b5d8f245894e4cfcbe0c54b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "584786b9b5f08e074210deb777b2c8df5ba12f9ab46cb1db0de7935e2b5158f3",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 50,
+          "sha256": "9dd2a97e74eede4f756c253fa74036f73ca246713933cf724ba5e0c746666c7f"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/load.csc::register_clientfields",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/175",
+        "decision_canonical_sha256": "9784d1b08a0bd67f4836a26a46571f59be4cd499c0f093beb9a21a666cd4d527",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/622",
+        "record_sha256": "99fb1757517c8611052640a8a1532f232c41067feef43114a72ab4312cc3774e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ae7ddbcd06f6716746d76f7ad1b2fda69c7258483a77e06c94a999289962fd90",
+      "citations": [
+        {
+          "line_start": 37,
+          "line_end": 39
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:main@wz_open_skyscrapers.csc",
+        "answer": "Source-visible answer for root candidate 3 (client map main): wz_open_skyscrapers.csc::main is event_handler[level_init] (annotation 20-23; no script-side level_init emitter exists - native delivery is the boundary). No script importer of the file exists in the corpus; imports are load/client modules including the two HMH-adjacent hashed client systems script_4da75c87643c8b07.csc (registers hash_411c8f5d7f8749b9 at 14) and script_58d14a82f7aa9d6d.csc (registers hash_18ce058ad321248f at 13, the client twin of server script_34e49e82e2f499e1's system). Trace: callback::on_localplayer_spawned + on_finalize_initialization registrations (26-27); fx/sound mains (28-29); load::main() (30) -> blocks on system::wait_till (client post phase) then sets load_main_complete (load.csc 37-38); 4 dvars incl. cull radii and wzbigteambattle variant (31-40); util::waitforclient(0) (41); firing_range targets  [excerpt; exact source record identified separately]",
+        "behavior": "Client map main (client VM), event_handler[level_init]. Ordered body 24-45: registration of on_localplayer_spawned & on_finalize_initialization; fx/sound/load mains; client dvars (cg_aggressivecullradius 100; hash_53f625ed150e7700 12000 -> 6000 + hash_6d12a505ad6a6e0f 15000 when wzbigteambattle; hash_6d05981efd5d8d74 800); util::waitforclient(0); firing range targets x2; level thread function_2560f130. Finalize-init handler 81-85 -> function_7276b578 91+ = hmh_ramp dynent enable gated by getgametypesetting(#wzheavymetalheroes). No direct calls into system_shared from the body; join is via load::main's wait_till.",
+        "unknowns": [
+          "Retail client map-script load/level_init invocation (unproven)",
+          "level_init order in client VM",
+          "csc function_2560f130 body content (recording callee, not traced)",
+          "eventstruct delivery contents"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/484",
+        "decision_canonical_sha256": "7f312ed2e61cec9c9d54f6e78946bdf7d5ba35b9e47d09615ba273be63895455",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00035",
+        "sha256": "6e442cbb5b6ce45aecb61bedd9a68f4a1a0abcc1cab9f330838bba82fb68b263",
+        "pointer": "/units/20",
+        "record_sha256": "fc9f53a656e4a84fb52807811032c7436b56fb64525145e87e8dece9790c235b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b56fae517f9bfef4dc74625e2470746cc478d9f182492fdb1ae431c514deb008",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 39,
+          "sha256": "9dd2a97e74eede4f756c253fa74036f73ca246713933cf724ba5e0c746666c7f"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/load.csc::main",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/995",
+        "decision_canonical_sha256": "b7a9e28711dc26b7817dd46081c6c35fd6e19319ed71cacb984f4df95a49aaec",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/621",
+        "record_sha256": "bfcc893ef748127744c794a8a55a12d806bcb4bf615e359b4e99f9e12f0f2658"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d394d5e7e60f4f42aec34c1401626108a361e2832af8fee7144b473afa68f1ae",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 50,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/load.csc::register_clientfields",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01879",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/230"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/206",
+        "record_sha256": "9fbb8af919acc72d025bb2036262137fcd06458f7a7b380492adaa9ab0b02745"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "20eb68fd1e5dff77cec3d13453e75892a9fb7a6f90b41beb93ad45bca40dadb7",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 50,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/load.csc::register_clientfields",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01879",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/230"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/206",
+        "record_sha256": "9fbb8af919acc72d025bb2036262137fcd06458f7a7b380492adaa9ab0b02745"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/c24ebf41aa893637.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0368",
+    "AV0369"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/035633656cdad305-001.json",
+      "sha256": "733e25f441e0b2d1b80f9e4954d89b93a968f3696f5dcee446e81145add68ecb"
+    }
+  ]
+}

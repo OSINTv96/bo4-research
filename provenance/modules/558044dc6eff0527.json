@@ -1,0 +1,623 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/mp_common/gametypes/gametype.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041",
+  "git_blob_sha1": "84a1ecbeca1b030879d378109eaf9dc75ed605b4",
+  "output": "src/scripts/mp_common/gametypes/gametype.gsc",
+  "output_sha256": "f4b93adf9a7fba21c3933fe4e99c792fa8b9835b1c3677b5050940e1100993a8",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "original_line": 2,
+      "output": "src/scripts/mp_common/gametypes/globallogic_audio.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_audio.gsc",
+        "sha256": "af30fc94fb7bd45380ca422a17b72372a8b8f00e1701a6d12fb3f65af672611f",
+        "git_blob_sha1": "e840df9fa289d97069e735d22ee25c1c2e1ca6a5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/gametypes/globallogic_score.gsc",
+      "original_line": 3,
+      "output": "src/scripts/mp_common/gametypes/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/gametypes/globallogic_score.gsc",
+        "sha256": "0fe39baf1316fe36a6c4c5d8808ded6a19ee0fe78251ccff3d52f08bc67e1612",
+        "git_blob_sha1": "cb6c895292792a7d81ca43576b3b2fbcaf121f36"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/userspawnselection.gsc",
+      "original_line": 4,
+      "output": "src/scripts/mp_common/userspawnselection.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/userspawnselection.gsc",
+        "sha256": "d29cd30f45a04f94c34bb6d8bbdf6cff0ea401853410944a3a6cff649f55dfa8",
+        "git_blob_sha1": "86c5e2ed3c56ed45cda27a4f4f9c18d02dccb89a"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/mp_common/util.gsc",
+      "original_line": 5,
+      "output": "src/scripts/mp_common/util.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/mp_common/util.gsc",
+        "sha256": "6fa54cc29372c516a4b7c89e29f5f304cd43ae71427c9beca65547ddbbcac5ec",
+        "git_blob_sha1": "c2008b1be9fee2080e7c56e491a1a713e4d6a961"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "030aee84d9ccba4bf5aa0810df416da2cc6af76eecc5f1a60d72b41709974270",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 24
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:merge-precedence",
+        "answer": "PRECEDEnCE RESULT: the playlist-entry vs gametype-def vs SET_DVAR merge order is native and unprovable from recovered source, so ORDER IS NOT PICKED; this record gives (a) proved script-side assignment orders, (b) equal recovered table values with conditional application, and (c) conditional effective-value tables per read-site style. PROVED SCRIPT ORDERS: (1) team-based chain â€” mp_common/gametypes/globallogic.gsc init sets level.teambased=0 (187), then calls gametype::init() (198); mp_common/gametypes/gametype::init first reads the bundle15 and returns19-22 if it is undefined. Only with defined bundle does line24 set level.teambased=isgametypeteambased() AFTER, so within that qualified init chain the opaque native result overwrites the earlier hardcoded0 if that call returns normally; its relationship to the anchor isTeamBased true row16 remains an unresolved dependency â€” a real lat [excerpt; exact source record identified separately]",
+        "behavior": "merge-precedence: proved script assignment orders (teambased chain, heroes loadout override chain, NOT/OR comps), read-style taxonomy with per-site defaults, and conditional effective-value tables by key class; native layer order explicitly unresolved.",
+        "unknowns": [
+          "Native playlist rules application order and override semantics (playlist entry vs gametype def vs SET_DVAR vs online) â€” the exact subject of this question; retained partial/blocked per DELIVERY",
+          "getgametypesetting absent-key return (undefined vs 0 vs native default)",
+          "platformMask/environmentMask filter semantics",
+          "clamp-on-undefined behavior for scorelimit/timelimit/roundlimit and teamcount loop condition in globallogic init_teams when teamcount is absent"
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-A-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00856",
+          "sha256": "4ba384356941a6d1338fd763fe2d7070328efad70d99dd1d9f4408fa7b280462"
+        },
+        "report_pointer": "/unit_reviews/3",
+        "decision_canonical_sha256": "23841c5e8c6b98f1fece2582cddf1c088b53466f6c4e5cc6bc5c04d3bcc35d0a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the complete frozen wrapper and current record, linked replacement/current projections where present, complete original assigned claim/projections, literal source/provider/caller/callee/callback/error context needed by the written source claims. Excluded child implementations remain excluded.",
+        "limitations": [
+          "Only pinned recovered text and exact immutable records; original PS4 build/bytecode/loader and VM fidelity unverified.",
+          "Native/provider/event/model/time/asset/settings/service/server results and actual invocation/order/cleanup remain unknown wherever not supplied by the exact source.",
+          "This record does not accept a whole function, whole HMH, unavailable child semantics or game behavior."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00396",
+        "sha256": "bc807135200038c5de8e7b0cbbcf44aaec888eccb2703d8ade0757e4c20f1e33"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "115fe88faa038a77428a8c95f5acac9177345297316bfad55d5054fef5fb2e09",
+      "citations": [
+        {
+          "line_start": 122,
+          "line_end": 131,
+          "sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_f2f4dfa7",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/85",
+        "decision_canonical_sha256": "7d8ae8a948465d112cf61a12f1b256d305951d0a22c99727048dd85685190d8e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1103",
+        "record_sha256": "62a76b25984a5c334e157a9b91a0fa07b0405e2fdb0a44e9d5c6cb44040e930e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "528e3c2407ce8e765a588764eea1b2b084962253d7b919fa7aa64d414068c225",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 34,
+          "sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/447",
+        "decision_canonical_sha256": "78f6b610a199a1f1d4e7921436205a30da1d2c562c901f67334bc6d662d38523",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact current first-section record at its written bounded recovered-source scope. Historical identity and acceptance markers remain historical data.",
+        "limitations": [
+          "Recovered-source fidelity, source-to-game binding and actual HMH reachability remain conditional.",
+          "Opaque provider/native/VM/callback effects are not approved; source requests only.",
+          "Old unproved author/reviewer identities remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/539",
+        "record_sha256": "232a4ac43715c0ccd600511d60d803a7177a1400753efba619a5cded1379609b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "627101eb07ea7f978b56683aed57922bf0d102daa95d4a0dff74843de49109f1",
+      "citations": [
+        {
+          "line_start": 13,
+          "line_end": 24
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:teams",
+        "answer": "teams: isTeamBased, level.teambased, maxteamplayers and source assignments relevant to HMH teams/respawn. (1) isTeamBased â€” anchor table row 16 true. Consumer chain: gametype.gsc init:24 assigns the result of the opaque isgametypeteambased() call to level.teambased; the separate recovered JSON has isTeamBased=true. These source observations do not prove that the native call reads that table or returns its value; assignment ORDER is proved inside the init chain: globallogic.gsc:187 sets level.teambased = 0 FIRST, then globallogic.gsc:198 calls gametype::init(), which first reads bundle15 and returns19-22 if undefined. Only a defined bundle reaches the native builtin/write24; if missing, the earlier0 survives this chain. With a defined bundle and a returning call, the later assignment uses that opaque result. An effective HMH true value is conditional on an unverified mapping between the [excerpt; exact source record identified separately]",
+        "behavior": "teams: the separate recovered table has isTeamBased=true; within the named initializer chain a defined bundle reaches the opaque isgametypeteambased request/write24, while its missing-bundle early return preserves the earlier0 within that compared chain. Other writes/loaders remain unresolved. maxteamplayers=4 is a recovered def-rule literal; the settings-store result and consequent character_banter >=2 branch are conditional on actual delivered values. teamcount is an unknown opaque settings-store result, not an established absent-key/undefined-or-0 state. init_teams copies that value and has the shown ==1 local-bound substitution and common writes/loop; actual value/type, reachability, native/VM behavior and result remain unknown.",
+        "unknowns": [
+          "Native isgametypeteambased() table-field mapping (builtin behavior unverified)",
+          "Effective level.teamcount, opaque settings/field identities, native-store membership, other native/online layers and merge behavior are unknown. If the native key actually is absent, its return/default contract is also unknown; undefined/0 are not an established or exhaustive result set. init_teams reachability, comparisons and loop behavior depend on the actual returned value/type and original VM/provider behavior.",
+          "Effective level.maxteamplayers (conditional on native store delivering def rules)",
+          "Whether the shipped original build's table and playlist rules equal the recovered data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-I-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00882",
+          "sha256": "332cf3fe05ee2cc52cd36af46f57a1b82a9108823208995481bdb3ff1d180188"
+        },
+        "report_pointer": "/unit_reviews/0",
+        "decision_canonical_sha256": "5ecb9456de3c29eca3355c684e19582232274f9c443fbdd94310d29541f9d5bb",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete assigned v4 wrapper.record and every linked current projection at their written recovered-source scope, all unchanged fields and original complete_claim_and_evidence, full relevant source/caller/branch/error witnesses, exact path/hash/pointer/canonical joins, preserved status/provenance and four named prior corrections. No source-wide absence, opaque native internals, provider value/type, original build, VM or runtime result accepted.",
+        "limitations": [
+          "Recovered source and the explicitly compared config objects only; source-to-shipped PS4/native/VM/build equivalence and actual event/callback/thread dispatch are unverified.",
+          "Native settings/table mapping, opaque hash identities, other layers/merging, possible other writers, effective values/types and errors remain unknown. Explicit name absence is not semantic/native membership absence.",
+          "Banter >=2 wording is assessed only as the ordinary numeric conditional consequence of the actual <2 early-return source test; numeric4 requires provider decoding/delivery. No unknown-type/NaN or original-VM truth table is supplied.",
+          "Native-gap and new-dependency lists are bounded unresolved evidence requests, not guarantees of future whole-unit closure. Preserved historic labels/grades/review links confer no new approval.",
+          "No original source author/model/effort is invented, and no source behavior, native binding, runtime, game or whole-HMH completion credit is granted by this record review."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00399",
+        "sha256": "79946c164badbf76f2c1887a8ba13178a01908c7c8518112f14ecbe49889485a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8a186dc0cc1e3d6a48e9f02afcefb6054b360ad50d6382fda64888fbd375a339",
+      "citations": [
+        {
+          "line_start": 40,
+          "line_end": 56,
+          "sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::on_start_game_type",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_first_section_synchronous_descendant"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/616",
+        "decision_canonical_sha256": "220dda16bde248cf30246c9f600169257447d35ff9bc9683a4a77d727232c783",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1100",
+        "record_sha256": "9a6c2d0c95e1b8261fda30548331e0aa7e1de944775a0b95ccf76fac9c4e55d9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9890625b8f10b5dfea42ad4694066c12d400a9297dbd1009e8a2e9fe6f821d68",
+      "citations": [
+        {
+          "line_start": 82,
+          "line_end": 90,
+          "sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/304",
+        "decision_canonical_sha256": "9dcb4465d181f590e65edbb828f7fa4283b69cff23e83fb5d6a358b279f0de72",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/538",
+        "record_sha256": "bb0146cb7e47b2a132246545860806d50afa664e0334fcd2325ca5fc4de44f2b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "bd8621bf749e560f82295dca1dd3639dcf01a189fd7a9446e664b3b1902ff5af",
+      "citations": [
+        {
+          "line_start": 40,
+          "line_end": 56
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh-life:HMH-LIFE-START:gametype-driver",
+        "answer": "Triggering and invocation separation (source-side, revision f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac): globallogic::callback_startgametype5169-5201 has no explicit literal caller found in the exact bounded2374-file query pool. One demonstrated source route is callbacks_shared.gsc::codecallback_startgametype (event_handler[gametype_start],1177-1184), which tests the undefined/falsey level.gametypestarted marker, invokes [[level.callbackstartgametype]]() without a defined/callable guard, then writes the marker1 if control reaches that following statement. This post-call marker is not an in-progress guard. Source does not establish the VM failure, continuation or marker state after an undefined/noncallable invocation, nor sole runtime entry or absence of dynamic/external callers. CSC694-701 adds isdefined(pointer): its undefined arm skips invocation and marker assignment, but definedness do [excerpt; exact source record identified separately]",
+        "behavior": "One demonstrated source route is native-event-declared gametype_start -> callbacks_shared.gsc1177-1184, with an unguarded pointer call then marker1 only if that statement is reached. CSC694-701 skips an undefined pointer but does not establish callability of a defined one. The post-call marker is not an in-progress guard; VM failure/continuation and actual delivery remain unknown. The bounded literal query finds no explicit source caller of globallogic::callback_startgametype; no sole runtime route or absence of dynamic/external callers follows. Observed pointer installer is mp_common/callbacks.gsc67 through23-34. Phase chain (source-sequential, one thread): function_b9b7618 reset/settings/jitter/graceperiod writes -> [[level.var_6c4ec3fc]] default function_8af3b312 (influencers+addspawns) -> gametype::on_start_game_type (bundle-gated generic) -> guarded on_start_gametype callback-table  [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "gametype_start poster and event order relative to finalizeinit/bundle load in the original build (standing N2; unchanged)",
+          "original-build evaluation of dev blocks 5187-5200",
+          "effective prematchperiod/prematchrequirement values for warzone_heavy_metal_heroes: no producer in LAYER_A/LAYER_B/gametypetable layers; native absent-key return + online layer unknown (g1 unit 4 partial)",
+          "VM scheduling/completion order of the six driver threads (f2 N4); source order is statement order only",
+          "level.var_f16f6c66 (radar gate) writer not traced - outside this chain scope; recorded as an unknown, not a claim"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/63",
+        "decision_canonical_sha256": "40696a89f5688dc24440e55d4b579e7a2332f19c72a46bcbdb84040411e018af",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00324",
+        "sha256": "024e3a750c4a70f4298769170aa870c73ad1102a6392edcbd64e72d3d462346a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d5c0c83d80842ec2500a1f53cb9496e1ead64135e67ca1717b9daeabff903632",
+      "citations": [
+        {
+          "line_start": 96,
+          "line_end": 116,
+          "sha256": "6cf38433511bc6bf8826c924fe66e611e319e8722d1a81167cf2defd364e1041"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1177",
+        "decision_canonical_sha256": "1f585c07bd3d05a4162190843edb6296855150e0fc780292840df03138ea0355",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/540",
+        "record_sha256": "451707f3aa431e1c4cd5e0c275f2c8d9bfbd5508f287c7346acd531ba3016d5e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d9686c6680ba9c3d5f61d61584755d2e56859c9037a0b188d87300070dfd1bee",
+      "citations": [
+        {
+          "line_start": 96,
+          "line_end": 116,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01842",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/193"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/173",
+        "record_sha256": "e71ad6bd3fecadc52da770da9e2bf0789371d39bc404cb810a08b2ab15cb11b7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f2c72533147b0d5c208a41abdaa2706e0615b2ab919854701599198b902bf305",
+      "citations": [
+        {
+          "line_start": 82,
+          "line_end": 90,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01841",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/192"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/172",
+        "record_sha256": "9622265d9b25a7bc6e8d9da7bd8d46bbfeb8a471f8c71fc883798afef06d1b47"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3354edf6c70df1c2752428ab0fc2c601324a3405dd4b4247d4ae853b317a8f8b",
+      "citations": [
+        {
+          "line_start": 82,
+          "line_end": 90,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::function_788fb510",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01841",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/192"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/172",
+        "record_sha256": "9622265d9b25a7bc6e8d9da7bd8d46bbfeb8a471f8c71fc883798afef06d1b47"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "899e4797dd81125836ecf42820053ebc7b459a8a8186617725c1bb00fa016501",
+      "citations": [
+        {
+          "line_start": 96,
+          "line_end": 116,
+          "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+        }
+      ],
+      "summary": {
+        "id": "scripts/mp_common/gametypes/gametype.gsc::setvisiblescoreboardcolumns",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-DETAIL2REC1GO1",
+            "unit_id": "LD01842",
+            "report": {
+              "evidence_id": "archived-record-00854",
+              "sha256": "f19e1ad13ae35a8d7d908572a5f206f9cf02d90f2012df34a9dc4c7d501f3938"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "partial",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/106/unit_reviews/193"
+          }
+        ],
+        "limit": "Current exact source contract can be reused after candidate proof review. The old artifact-wide route and historical manager/status prose are NOT accepted or rewritten."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/173",
+        "record_sha256": "e71ad6bd3fecadc52da770da9e2bf0789371d39bc404cb810a08b2ab15cb11b7"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/928ed59b82c87d77.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/558044dc6eff0527-001.json",
+      "sha256": "bf0fb68c0d363d836e3d84c901adb49cac198c10317b65a18681058c3f408faf"
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/weapons/decoy_grenade.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "eba13b83fb91498cc1be1369366ba0f610f5cfe93f84ef071a5093345809628a",
+  "git_blob_sha1": "85d9a4248b8879ff244463108f46bd9f93e16637",
+  "output": "src/scripts/weapons/decoy_grenade.gsc",
+  "output_sha256": "9602f3fea8b5ad943b33c4b126485bf719340a21f86e00cc916f725d7a63bbb3",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.gsc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.gsc",
+        "sha256": "96ba7f0161e6cd4b35d0bf6585f6b00cf9ee40a8460bf505fc28719e0ee84020",
+        "git_blob_sha1": "ea7ff41164d2ec5414f99ae4d4b394ec7d815fa1"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/clientfield_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.gsc",
+        "sha256": "acac17332fd7a918484cd4ba8c1869a29fa29210ed1a2ab754e3baf837ff8822",
+        "git_blob_sha1": "6506607919e85ca515e1423afb9882aac216eec7"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/globallogic/globallogic_score.gsc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/globallogic/globallogic_score.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/globallogic/globallogic_score.gsc",
+        "sha256": "7b5deaccc6dcb58d558932951098685419bd0c8086632b9262fcf43398b451b8",
+        "git_blob_sha1": "cb2fb032da2dc5b28f8425041d911b84612d227d"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0298.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/killcam_shared.gsc",
+      "original_line": 4,
+      "output": "src/scripts/core_common/killcam_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/killcam_shared.gsc",
+        "sha256": "1073e0c48688250d3e790d515d3167b7e6fea0c9b1c3521a7d4628c6b7c61b70",
+        "git_blob_sha1": "72533af2875caa24311aa9d020f7fed5332719b4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/math_shared.gsc",
+      "original_line": 5,
+      "output": "src/scripts/core_common/math_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/math_shared.gsc",
+        "sha256": "0161936e5a7eb2220acea8c6657528eea0252c5f054f8b06150ce5181a3e239e",
+        "git_blob_sha1": "85fbb43596f9226b15c9e8863dcd77dfb88c2ac4"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/player/player_stats.gsc",
+      "original_line": 6,
+      "output": "src/scripts/core_common/player/player_stats.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/player/player_stats.gsc",
+        "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+        "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0299.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/scoreevents_shared.gsc",
+      "original_line": 7,
+      "output": "src/scripts/core_common/scoreevents_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/scoreevents_shared.gsc",
+        "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+        "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0300.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 8,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.gsc",
+      "original_line": 9,
+      "output": "src/scripts/core_common/util_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.gsc",
+        "sha256": "5a0e19c38e584729b11f6cbbf6505f6ae1f8aba51f2f84ad65220195f8aaa1ff",
+        "git_blob_sha1": "fe64928130d9fbe66ca36be1864bec1f7af7cfae"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/weapons_shared.gsc",
+      "original_line": 10,
+      "output": "src/scripts/core_common/weapons_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/weapons_shared.gsc",
+        "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+        "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof.",
+      "decision": "provenance/dependency-decisions/AV0301.json"
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/weaponobjects.gsc",
+      "original_line": 11,
+      "output": "src/scripts/weapons/weaponobjects.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/weaponobjects.gsc",
+        "sha256": "591761b45975b2875169fdb489260a4930bf1997f6fa04b92f389af290d21f4e",
+        "git_blob_sha1": "5de9dc3363a3dcccc48a8fbfd337ce93e0e5f49f"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "2569af6c0c4b130f7b6d69a8dd82d8a852fe92acb71242ac685cb0b8196277c5",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 22
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::__init__system__",
+        "behavior": "Server-side autoexec registering the decoy grenade system: system::register( #\"decoygrenade\", &init_shared, undefined, undefined ) â€” init_shared as init callback, main undefined. No branches.",
+        "unknowns": [
+          "Engine dispatch timing of registered init is unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/174",
+        "decision_canonical_sha256": "72304e9a3d37fbad0ea19890722d6987a87d1dcee70b98182dc2fd4b34025a0c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/31",
+        "record_sha256": "5e5c9ff49e7bbd277b4c6815480d311c238e24b571de471f9682e8d199c5ec2c"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "2e3ace723e57373eef2c2d4b99d16316255f099a4c18e010e70f16cfa57d3413",
+      "citations": [
+        {
+          "line_start": 84,
+          "line_end": 123
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_e9d18b65",
+        "behavior": "Fake gunfire simulator for the landed decoy grenade (self = grenade; direct-blocked call from on_spawn). Cancellation: self endon( #\"death\" ). Setup: grenade = self; wait 0.2; weapon = getweapon( grenade.var_f64cb8d.weapon ) â€” ar_standard_t8 weapon asset; var_fa7f044f = 0 (shots-fired counter). Infinite loop: burst_time = randomfloatrange( grenade.var_f64cb8d.var_5cae5968 (0.25), grenade.var_f64cb8d.var_bbed619f (1) ); burst_time *= 1000 (seconds scaled to ms); var_f370a5d5 = gettime() + burst_time (burst deadline). Inner loop while ( gettime() <= var_f370a5d5 ): grenade playsound( #\"wpn_ar_standard_fire_plr\" ) â€” server-side rifle-shot sounds; var_fa7f044f += 1; if ( var_fa7f044f >= weapon.clipsize ) -> var_fa7f044f = 0; grenade function_7c24c60f( weapon.reloadtime ) (reload-sound thread call, blocking); continue â€” resumes the inner burst loop with no additional firetime wait; else [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "The in-burst clip-boundary reload branch skips one weapon.firetime wait, then rechecks the burst deadline. Subsequent non-boundary shots still wait weapon.firetime; fixed clipsize>1 does not imply all remaining shots run back-to-back. Original scheduling and numeric timing remain unresolved.",
+          "playsound localization/attenuation native behavior unverified",
+          "function_7c24c60f is blocking (no thread) â€” reload pauses the burst for reloadtime"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/254",
+        "decision_canonical_sha256": "199f00b7c81ca8f21fd04f5f040e12efb9f8fecf6351b75797c0bb59f2e84ab4",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00802",
+        "sha256": "0255db3342e17bbab76dba681f127fe65ffd8717244425ea3b10b332bdd8cbf4",
+        "pointer": "",
+        "record_sha256": "c0d9aa66634bdeb6d90ff434f7b25be22ebe0b4dae0410f65ef996ea8abbb258"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3036e3ed829767520dc42b47ca1f2195656229ad24743334a04f917898e74b32",
+      "citations": [
+        {
+          "line_start": 28,
+          "line_end": 32
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::init_shared",
+        "behavior": "Server init_shared for the eq_decoy_grenade equipment: (1) weaponobjects::function_e6400478( #\"eq_decoy_grenade\", &function_41625261, 1 ) â€” watcher-callback installer registration (trailing argument 1, matching the collapse grenade equipment registration); (2) clientfield::register( \"missile\", \"decoy_grenade_footsteps\", 1, 1, \"int\" ) â€” server-side declaration of the replicated footstep flag consumed by the client callback in decoy_grenade.csc (no client callback on the server side).",
+        "unknowns": [
+          "weaponobjects::function_e6400478 third visible argument semantics live in weaponobjects.gsc (outside packet)",
+          "This file never sets \"decoy_grenade_footsteps\" to 1 â€” only on_spawn writes 0; the 1-writer was not located in this file (search across packet continues)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/265",
+        "decision_canonical_sha256": "dcfc26572a5c657bdaf0e2e2784b16aa04163d25a9c46e8f0dd4d33939ddbc3e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00803",
+        "sha256": "72072aebc3f336b2bacfbcc8e91e8f4037e9244d8ff7ea9c1630c59b078de263",
+        "pointer": "",
+        "record_sha256": "0810c7614e4fcd0ac37a4d503f86027d1d68471a47faea34671d0f094f7c6239"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4f7614e44f317e7ff5bd85c8a3cc6b43ae9e62f934b3c5e22c04a66bbe8d6a7c",
+      "citations": [
+        {
+          "line_start": 129,
+          "line_end": 138
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_7c24c60f",
+        "behavior": "Reload-sound sequence for the decoy's fake weapon (self = grenade; takes reloadtime). Cancellation: self endon( #\"death\" ). time_ratio = reloadtime / 3; then three equal waits: wait time_ratio; self playsound( #\"hash_337f5ae3f1674ad3\" ) (after first third); wait time_ratio; self playsound( #\"hash_7a315f233edf3cba\" ) (after second third); wait time_ratio (silent final third). Simulates a weapon reload over reloadtime with two sound cues at thirds. No other state.",
+        "unknowns": [
+          "Sound identities hash_337f5ae3f1674ad3/hash_7a315f233edf3cba (plausibly magazine-out/in cues) are hashed aliases, exact assets not in catalog"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/432",
+        "decision_canonical_sha256": "ad19f5102f5003051839c8c48d5b8eae63566754bfb797fc215c4d2e4129eaa0",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/37",
+        "record_sha256": "301a151df7476bb90331e32fb8f8d04e6dd4b5cdfb71548d322fdbca54cd08b2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "68facc35b570894f3ec4ebea715c995d11df67be7cee41d233e53111ec784f34",
+      "citations": [
+        {
+          "line_start": 144,
+          "line_end": 153
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_a5871d04",
+        "behavior": "Config builder for the decoy's fake weapon. spawnstruct() with fields: .weapon = #\"ar_standard_t8\" (the AR whose firetime/clipsize/reloadtime drive the gunfire sim), .var_5cae5968 = 0.25 and .var_bbed619f = 1 (burst duration range in seconds), .var_c8670194 = 0.25 and .var_ebc63eca = 1 (inter-burst delay range in seconds). Returned to on_spawn and stored on grenade.var_f64cb8d. Constant values; ignores its grenade argument.",
+        "unknowns": [
+          "Decoded meaning of the hashed field-name suffixes is inferred from use sites in function_e9d18b65 only",
+          "ar_standard_t8 asset stats (clipsize/firetime/reloadtime) are weapon data, not in this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/572",
+        "decision_canonical_sha256": "3e3ec83dec423ce12f2677452e40900f735dc20c7035894fe9d28ff3285d18fc",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/38",
+        "record_sha256": "a12d51d1f27c89853e4f315441b3186c370cbcf7be8767bb635f26b93c1de677"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "90065dc622eae077d8fcf7fccd3a71ad0eeb476daf41c35a0ef2c1e0093bc68e",
+      "citations": [
+        {
+          "line_start": 38,
+          "line_end": 42
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::function_41625261",
+        "behavior": "Watcher-callback installer for eq_decoy_grenade: watcher.onspawn = &on_spawn; watcher.ondamage = &on_damage. No branches; no other watcher fields.",
+        "unknowns": [
+          "Watcher dispatch semantics (when onspawn/ondamage fire) live in the weaponobjects system outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/392",
+        "decision_canonical_sha256": "902c8ca71c1308bea9f95078015942a5af3cc74f5771d907709982b8476a61e3",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/33",
+        "record_sha256": "9dca9d3ee9cc9e798994b9fc2f42a235f77f2f80baa51fa936fd021208ccaf92"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9d6bb9dd7860cbb7d8da20274c98ab09a707cf2bb3084cbe1f3a5290e5a10a64",
+      "citations": [
+        {
+          "line_start": 68,
+          "line_end": 78
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::play_footsteps",
+        "behavior": "Server-side flight footstep loop for the airborne decoy (self = grenade). Cancellation: self endon( #\"death\", #\"hash_5a09ded231e405ad\" ) â€” ends on death or the on_spawn landing notify. Order: wait 0.25 (initial delay), then infinite loop: self playsound( #\"fly_step_sprint_plr_default\" ) â€” server-side sound request on the grenade; listener selection, replication, attenuation and audibility to individual clients remain unresolved; wait 0.23. No state writes; runs until canceled.",
+        "unknowns": [
+          "Whether the server playsound position/attenuation matches the moving grenade is native behavior",
+          "Sound identity of \"fly_step_sprint_plr_default\" is game data"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/426",
+        "decision_canonical_sha256": "1c243e9b79bf124cf47e4464cf23f4535eb13f45e5d757d56b479416fc67c9f6",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00804",
+        "sha256": "29e48959701952f5b7593dc5eec826d2ea8030979eeea0208de2793e00ac26a0",
+        "pointer": "",
+        "record_sha256": "381caba88d3a8d3550c97e7ff51c2e4400b443e4681fa8a25dcb0d2c8b430a32"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a64566bd554997abcfb8881a4d16d123ea138d04cdb4966339e2a4acafd8b80c",
+      "citations": [
+        {
+          "line_start": 159,
+          "line_end": 195
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::on_damage",
+        "behavior": "Damage accumulator for the deployed decoy grenade (registered as watcher.ondamage; self = grenade) â€” identical structure to collapse_grenade.gsc on_damage. Cancellation: self endon( #\"death\" ). damagemax = 50; self.damagetaken = 0. Loop over self waittill( #\"damage\" ): reads amount/mod/weapon; re-zeros self.damagetaken if undefined; attacker = self [[ level.figure_out_attacker ]]( waitresult.attacker ) (indirect level-pointer call, result unused in-span); damage = weapons::function_74bbb3fa( damage, weapon, self.weapon ). Branch: MOD_MELEE, MOD_MELEE_WEAPON_BUTT, weapon.isemp, or weapon.destroysequipment -> self.damagetaken = damagemax (instant destruction classes); else accumulate += damage. Exit: if self.damagetaken >= damagemax -> self detonate(); return. 50 accumulated damage threshold.",
+        "unknowns": [
+          "level.figure_out_attacker and weapons::function_74bbb3fa bodies are outside this packet",
+          "detonate() native explosion effects unverified",
+          "waittill(#\"damage\") result field set is engine-provided"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/906",
+        "decision_canonical_sha256": "29bea083dde52ae1fe33a6888252e684d72172027b3a6debd257e073526d59d3",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/39",
+        "record_sha256": "88200f01144ed18ce07d799180dd1c1af690d4b8fae993e4bd0bcd0019754fb2"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b3bb3fcf505f879aa6e95a6cb83ebd42767fbd27f6eadec673f616bb008d8a75",
+      "citations": [
+        {
+          "line_start": 48,
+          "line_end": 62
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/weapons/decoy_grenade.gsc::on_spawn",
+        "behavior": "Decoy grenade onspawn (watcher arg; self = grenade entity). Cancellation: self endon( #\"death\" ). Ordered: grenade = self; grenade thread play_footsteps() â€” server-side footstep loop during flight; grenade.var_f64cb8d = function_a5871d04( grenade ) â€” stores the fake-weapon config struct (weapon ar_standard_t8, burst/delay ranges); grenade waittill( #\"stationary\" ) â€” landing gate; grenade setcandamage( 1 ); grenade.maxhealth = 10000; grenade.health = grenade.maxhealth; grenade setmaxhealth( grenade.maxhealth ) â€” literal high health writes and a separate on_damage accumulator; exclusive destruction control or protection against raw-health death remain unproved; grenade notify( #\"hash_5a09ded231e405ad\" ) â€” stops the flight footstep thread (play_footsteps endons on it); grenade clientfield::set( \"decoy_grenade_footsteps\", 0 ) â€” ends the client-side footstep playback; grenade func [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Why the client field \"decoy_grenade_footsteps\" is only cleared to 0 here and set 1 elsewhere â€” the value-1 writer was not found in this file; likely in weaponobjects spawn/fire code (outside packet)",
+          "What hash notify #\"hash_5a09ded231e405ad\" means beyond its endon/notify pairing (land signal) is inferred from usage only"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/815",
+        "decision_canonical_sha256": "1c08afa2f2070b47fc7398affd8552bc2c9952529426c952329aaa35761ef29a",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00805",
+        "sha256": "5f6a3de612c63e1a323ce5daf4cb4ff1b70e45b429e8c548650ed843f4c5f455",
+        "pointer": "",
+        "record_sha256": "7703cdc5864d5a379d4d9409942e19da4d551af188f552fe464507b9da534980"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/9d66e49a35e4300b.json",
+  "author": "project-contributor",
+  "dependency_decisions": [
+    "AV0298",
+    "AV0299",
+    "AV0300",
+    "AV0301"
+  ],
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/e213e8f1fcca0737-001.json",
+      "sha256": "6350396220a74bb17b278140240538acee9dbef80d95701970ff86eec0e5ed2e"
+    }
+  ]
+}

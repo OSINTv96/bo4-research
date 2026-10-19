@@ -1,0 +1,100 @@
+{
+  "module": "src/scripts/weapons/weaponobjects.gsc",
+  "identity": "scripts/core_common/dev_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "dev",
+  "witnesses": [
+    {
+      "line": 1799,
+      "text": "                dev::debug_sphere( origin, innerradius, incolor, 0.25, 1 );",
+      "caller": "proximitysphere",
+      "caller_span": [
+        1791,
+        1809
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1796,
+          "opening_line": 1798,
+          "ending_line": 1800,
+          "text": "if ( isdefined( innerradius ) )"
+        },
+        {
+          "line": 1793,
+          "opening_line": 1796,
+          "ending_line": 1808,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "debug_sphere",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          12,
+          26
+        ]
+      ]
+    },
+    {
+      "line": 1804,
+      "text": "                dev::debug_sphere( origin, outerradius, outcolor, 0.25, 1 );",
+      "caller": "proximitysphere",
+      "caller_span": [
+        1791,
+        1809
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1800,
+          "opening_line": 1803,
+          "ending_line": 1805,
+          "text": "if ( isdefined( outerradius ) )"
+        },
+        {
+          "line": 1793,
+          "opening_line": 1796,
+          "ending_line": 1808,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "debug_sphere",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          12,
+          26
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0469",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/dev_shared.gsc",
+    "sha256": "ad23e6f3c3a03db769e860e402df4cff0b1d04aed8917eb9d4d54339a9f6c194",
+    "git_blob_sha1": "7da80a598a0e0e2ba8a8a9f4eb7061c0d640af4e",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

@@ -1,0 +1,921 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_smart_cover.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "0056adccf7ebf6f608b5ed530c6143d32f2dc346d61b1c63a93cd5ec24555081",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::stopmicrowave",
+        "behavior": "stopmicrowave(): return if !isdefined(self); self playsound(\"mpl_microwave_beam_off\"); branch self getentitytype() == 6: clientfield::set(\"start_smartcover_microwave\", 0); branch isdefined(self.trigger): self.trigger delete(); dev-only self notify(\"stop_turret_debug\") inside /# #/.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/366",
+        "record_sha256": "216574cdb133e900e8bfc66544132d06a6740e88b2194d1285cc98ff774e014b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "083bca3834d49a77ec986132133872de7a442c4eef920539185cea1ac6f4c565",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_e3a901c",
+        "behavior": "function_e3a901c(origins, radii) [Type: bool] - any-cover-overlap: return false when level var_f115c746 undefined; foreach cover: skip undefined; if function_4e6d9621(cover, origins, radii) return true; return false. Consumed by the concertina wire deploy probe (gadget_concertina_wire.gsc line 297); both namespaces in this packet.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/363",
+        "record_sha256": "33f8e50a1023b9c06c608e76c16c436518a4eb22577517c65b9e19f34371a490"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "0d192614fa129d3e61b52ffcbec2ccd8f119fa3c64e0efabe710e3ef1adb02fd",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::watchweaponchange",
+        "behavior": "watchweaponchange() - singleton per player: notify + endon watchweaponchange_singleton; loop first checks if self weaponswitchbuttonpressed() AND isdefined(player.smartcover): player.smartcover.var_5af6633b = 1. waitframe(1) follows the work at the end of every iteration. Caller not in this file.",
+        "unknowns": [
+          "Caller",
+          "var_5af6633b readers"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00679",
+        "sha256": "c0ed2eaecbde0fb1105d071e7d90e259713b1cb2032b367f0a873c8bf3041dc2",
+        "pointer": "",
+        "record_sha256": "f3a71cdf8545a08a5aaa81f20c1a0362f1cd6c8d7428e4e16dc5fabecb1d1f7d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "1192ad32cc3fe3bbc281df7a625cd8aad284d13cd356673c70f2fa844ba37207",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_408a9ea8",
+        "behavior": "function_408a9ea8(var_bf2bf1a) - placed-cover anim driver (threaded when deployanim defined): cover endon(\"death\"); useanimtree(\"generic\"); cover setanim(bundle.deployanim) [one explicit argument]; while animtime < 1: clientfield::set(\"smartcover_placed\", 1 - animtime); animtime = getanimtime(bundle.deployanim); waitframe(1).",
+        "unknowns": [
+          "setanim has exactly one explicit deployanim argument on var_bf2bf1a; native defaults, timing and animation effects remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00680",
+        "sha256": "72de6038e09bbabdf3ae86bc2b57e4ae76c6da006af564dd7931ea6da9da74a4",
+        "pointer": "",
+        "record_sha256": "0e1d5d25f213ca72d09b2b427080b4a27ec6913813ab0262b8a25e38be8ce235"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "1a34ae0cee15389b1c1476f60478b95fb33cda0052f1577e1637e056b42c97f9",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_716c6c70",
+        "behavior": "function_716c6c70() - microwave ping relay: endon(\"death\", \"cancel_timeout\"); util::wait_network_frame(1); branch isdefined(self) && getentitytype() == 6: clientfield::set(\"start_smartcover_microwave\", 0); wait_network_frame(1); branch isdefined(self) && self getentitytype()==6 (definedness, not an alive check): set(..., 1). Type-6-gated OFF-ON pulse.",
+        "unknowns": [
+          "entitytype 6 enum (unconfirmed)",
+          "wait_network_frame arg 1 (util_shared)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00681",
+        "sha256": "0dc1a4076ebe75825030728d77b5dbbc51debdef93458549be42c1b85c2a63b7",
+        "pointer": "",
+        "record_sha256": "efbbb6b3af28b2bdee659e0317b88f26260acb9e100d18e2fbc21bd9abc16412"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "2bb8fef4289df3b18c25447dc4c49176f57f37cdc33d44a66885ce7105edb483",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_a47ce1c2",
+        "behavior": "function_a47ce1c2(player) - deploy probe: probe = player function_287dcf4b(bundle.var_63aab046, bundle.maxwidth, 1, 1, smartcoverweapon) [opaque]; player.smartcover.lastvalid = probe; var_9e596670 = 0; if probe/origin defined: var_9e596670 = function_bf4c81d2(probe.origin, var_ff1a491d) (near-existing check); var_2b68b641 = function_54267517(probe.origin) [opaque, not in corpus]; candeploy = probe defined && probe.isvalid && !var_9e596670 && !var_2b68b641; if candeploy && (probe.width or 0) >= bundle.maxwidth: player bf191832(candeploy, probe.origin, probe.angles) else bf191832(candeploy, zeros). return probe.",
+        "unknowns": [
+          "opaque helpers 287dcf4b/bf191832/54267517 (not in corpus)",
+          "bundle fields"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00682",
+        "sha256": "c18ee55d725bb6ae62fff1700532db652d2df8b7c8cd1b6837645e8496be5f61",
+        "pointer": "",
+        "record_sha256": "c9375ca85655affc11a84804de6edab51a2b426c004ca5f067b355774be3913e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "37dbbaee9a4ba3598712338ece954a870301b9cd2197394c5c82f264b5c3e76d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_d82c03d4",
+        "behavior": "function_d82c03d4(player) - cover destroyer watcher: self endon(\"death\", \"hacked\"); player waittill(\"joined_team\", \"disconnect\"); player function_b11be5dc() (destroy all when the player changes team/disconnects).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/345",
+        "record_sha256": "f8faea6c756b5de30ef9b0123600728a353baf29c3ed225ba7bf52add35f7093"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "3cf58daf519bd117c91ed3fa389c9f28f8574ebbeb56e5d73fa57e3970742412",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_bf4c81d2",
+        "behavior": "function_bf4c81d2(origin, maxdistancesq) [Type: bool]: foreach cover in level.smartcoversettings.var_f115c746: skip undefined; distancesquared(cover.origin, origin) < maxdistancesq -> true; else false. Near-existing-cover check (concertina mirror).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/358",
+        "record_sha256": "319c4abd636f83f85d96b0ad5872d93ec19a3dcec0d23a3a34c019e0bce132e2"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "429569b61c8f8a8798aa675d61ca480cdbc2da1eefb24399ae0e9fa7709bdbd6",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_a9427b5c",
+        "behavior": "function_a9427b5c(func): level.var_a430cceb = func. Destroyed-hook setter (read in onkilled).",
+        "unknowns": [
+          "Hook supplier (mp twin function_a430cceb)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/332",
+        "record_sha256": "457ca7cd0fcf4eb13a69bafe1be62a1253fbc3406eaefbfc9a1674ca7a91f010"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "4ecb68c2ded2f0c817d849dcd39a869a8b9eca152b27c93237b98a679d22aa0b",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::ondamage",
+        "behavior": "ondamage() - feedback loop: self endon(\"death\"); level endon(\"game_ended\"); loop waittill(\"damage\"); if attacker defined && isplayer && amount > 0 && damagefeedback::dodamagefeedback(waitresult.weapon, attacker) CROSS-OWNER damagefeedback_shared.gsc to task HMH-HUD-04: then attacker damagefeedback::update(waitresult.mod, waitresult.inflictor, undefined, waitresult.weapon, self).",
+        "unknowns": [
+          "damagefeedback param shape (HMH-HUD-04 boundary)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/347",
+        "record_sha256": "68cdc0b398aba03f99b2b6744b7b71c6c04a665a4b9f953089e151a83b17eec7"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "4f0ecc8684755d1aeab4dd57a72384ee69a6447add2c33f8f9afd804f7c81581",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_1c601b99",
+        "behavior": "function_1c601b99() - double external registration: branch isdefined(level.var_1b900c1d): [[that]](smartcoverweapon, &function_bff5c062); branch isdefined(level.var_a5dacbea): [[that]](smartcoverweapon, &function_127fb8f3). The exact first callback bff5c062124-176 requests hacked notifications and owner/team changes, with conditional jam recovery. Second callback127fb8f31015-1038 sets the jammed flag, conditionally stops microwave/clears enemyequip, requests timeout/reward hooks and returns true. These are source hacking/disruption hook identities; destruction and actual callback/native delivery are not proved.",
+        "unknowns": [
+          "var_1b900c1d setter/binding remains open. Jammer setupcallbacks43-55 explicitly assigns var_a5dacbea=&function_4e7e56a8; exact cross-module callback delivery and HMH invocation remain unproved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00683",
+        "sha256": "f302035cbc932daf00c8a31580fe11bb1c9cca4bd17d2835e622ef5c0ea10e81",
+        "pointer": "",
+        "record_sha256": "487322dcdb6f2c178e10c2246c0b1c24572a3b8c339d7d5a29f0f30dccd4a16b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "51721f126d5f8601bb6e1fa8e0e511e351e39a457314979a02ff54128f18b70a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::turretdebugwatch",
+        "behavior": "turretdebugwatch() - DEV-gated debug thread (called only in dev block from startmicrowave): turret = self; endon(\"stop_turret_debug\"); loop: if getdvarint(\"scr_microwave_turret_debug\", 0) != 0: turret turretdebug(); waitframe(1); continue; wait 1.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/367",
+        "record_sha256": "4f41414f6ed666a0f2ece18ca5c22df66df59c113d3aa63754a5814331d8fada"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "611358d21cacd2fc1278f0ae17ac518e2207ce6fe15be570a017e8352978814e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::init_shared",
+        "behavior": "Server init_shared() - smart cover registry. Ordered: spawnstruct level.smartcoversettings (fresh each init); MODE GATE bundle: MP -> smartcover_custom_settings_comp when getgametypesetting(\"competitivesettings\") === 1 else smartcover_settings_mp; WZ -> smartcover_settings_wz; campaign -> smartcover_settings_cp. Strings: var_ac3f76c7 = smart_cover_objective_full; var_546a220c = smart_cover_objective_open; .smartcoverweapon = getweapon(\"ability_smart_cover\"); .var_4115bb3a = getweapon(\"hash_34575452eba07c65\"); objectivezones = []; setupdvars(); ability_player::register_gadget_should_notify(27, 1); weaponobjects::function_e6400478(\"ability_smart_cover\", &function_21e722f6, 1); callback::on_spawned(&on_player_spawned); var_f115c746 = [] (all placed covers); deployable::register_deployable(smartcoverweapon, &function_b7f5b1cc, &function_a47ce1c2, undefined, undefined, 1); var_357db326 = 10000; var_ff1a491d = bundle.var_76d79155 squared. GATE: if !WZ then globallogic_score::register_kill_callback(smartcoverweapon, &function_92112113) AND globallogic_score::function_86f90713(same) CROSS-OWNER h6 core_common/globallogic/globallogic_score.gsc, non-WZ ONLY. Clientfields server-side no handler: hudItems.smartCoverState 1-bit; smartcover_placed 5-bit float; start_smartcover_microwave 1-bit. on_end_game hook; six setdvar writes (hash_4d17057924212aa9=20; hash_686a676b28ae0af4=0; hash_7f893c50ae5356c8=-15; hash_70ce44b2b0b4005=30; hash_477cc29b988c0b75=-10; hash_41cfd0e34c53ef02=30); on_finalize_initialization(&function_1c601b99).",
+        "unknowns": [
+          "bundle value provenance (not in packet)",
+          "function_86f90713 second-register purpose (h6 module)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00684",
+        "sha256": "950dc475da0a67aa07d52d611e64dc84b7e8d54e07b53eef127516ebeb1b93fa",
+        "pointer": "",
+        "record_sha256": "fa624f4c7ca458d1f940b36185f6a03db7e43e81f97e994c0452eb97a53a92cc"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "75b05085c2d514447db2911ef53a845dc5c0a7321d43c1884fb97776d3263d36",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::reset_being_microwaved",
+        "behavior": "reset_being_microwaved(): self.lastmicrowavedby = undefined; self.beingmicrowavedby = undefined. Clears microwave bookkeeping (called from on_player_spawned).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/364",
+        "record_sha256": "053f3b86aa8255000029cd36fe5366edb8c98246cbd0d6c67e0a233db4cea94c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "7c75af3e1d9562e036cd1ec1452eb06d07de9f5d644c6502b32cc82fd0e9b329",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::on_end_game",
+        "behavior": "on_end_game() - match teardown: guard return if !isdefined(level.smartcoversettings) or !isdefined(.smartcoverweapon); foreach player: slot = gadgetgetslot(smartcoverweapon); gadgetdeactivate(slot, weapon); player function_48e08b4(slot, smartcoverweapon) [unqualified opaque call; module identity unresolved]; then return if !isdefined(.var_f115c746); copy list (arraycopy) and foreach smartcover: skip undefined entries, otherwise request destruction via function_2a494565(1) (selfdestruct variant).",
+        "unknowns": [
+          "function_48e08b4 defined in jammer family? NOT found in corpus - opaque; recorded as unresolved cross-module call"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00685",
+        "sha256": "5cb10b5337e6c2ddaf8e1c300d58298d1b14db4cb2f45083e0bc422f2589fb63",
+        "pointer": "",
+        "record_sha256": "f7c797da4a74074983f24fd9ea2b7c95c711c37ec685f37565f547ea4026d63a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "803cd7fc3532e8bc8cc9ccb87d73bb6ff29e2df0182e81d66adcd84eb5eab41d",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::startmicrowave",
+        "behavior": "startmicrowave() - turn microwave on: if isdefined(self.trigger): self.trigger delete(); clientfield::set(\"start_smartcover_microwave\", 1) (csc beam fx); trigger = spawn(\"trigger_radius\", self.origin + (0, 0, (bundle.var_b345c668 defined ? it : 0) * -1), 4096 | 16384 | level.aitriggerspawnflags | level.vehicletriggerspawnflags, radius, radius * 2) [spawn form with flags; radius = bundle.var_b345c668 or 0]; thread turretthink() (own record); dev-only self thread turretdebugwatch() inside /# #/.",
+        "unknowns": [
+          "trigger_radius spawn flag bits (4096|16384) + spawnflag fields (natives; opaque)",
+          "bundle.var_b345c668 value"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/365",
+        "record_sha256": "fef689fb1a6569274557d0a00d667d834fbbb0d2ee174b2a57aa66db10602226"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "835368240c6c1b7450f6782c30f89002bcc37a07dbaa39ba297a1c2ddcbd43e0",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::turretthink",
+        "behavior": "turretthink() - trigger-driven microwave starter: turret = self; endon(\"microwave_turret_shutdown\", \"death\"); turret.trigger endon(\"death\"); turret.turret_vehicle_entnum = turret getentitynumber() (own entity number as bookkeeping key). Loop: waitresult = turret.trigger waittill(\"trigger\"); ent = waitresult.activator; continue when ent == turret; if !isdefined(ent.beingmicrowavedby): ent.beingmicrowavedby = []; branch turret microwaveturretaffectsentity(ent) (own-record check) AND !isdefined(ent.beingmicrowavedby[turret_vehicle_entnum]): turret thread microwaveentity(ent) (own record; a conditional worker request under the defined-marker guard). This caller does not reserve a marker before starting the worker. microwaveentity later assigns turret.owner to the marker at1424; an undefined owner can leave it undefined. One-worker uniqueness therefore remains conditional on owner/marker definition and actual scheduling/delivery/lifetime semantics.",
+        "unknowns": [
+          "field name spelling turret_vehicle_entnum per source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00686",
+        "sha256": "30790cb5457d5c0c86bc4846acc1fa28d51f1eb48bb10d08452a47d915e8b0df"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "87b70f0f48363acbbf0a61984219b2cc6982d1d86c93b35b2efec600623e88b4",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::getmodel",
+        "behavior": "getmodel(var_796be15d): return self.team == \"allies\" ? bundle.var_397ed90c : bundle.var_b256e3da - team model (identical pattern to concertina getmodel).",
+        "unknowns": [
+          "bundle model hashes"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/352",
+        "record_sha256": "440efb3b426f50c32f6c12808f0c93644388d2fca54f7692b7af6e76d1fdecbf"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "8afe4a672240405fec146a0ee97fe65fe91b5377c4418e7f6643470ad1456f96",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::microwaveturretaffectsentity",
+        "behavior": "microwaveturretaffectsentity(entity) [Type: bool] - target check sequence returning false on: !isalive(entity); !isplayer AND !isai; entity.ignoreme === 1; turret.carried truthy; turret weaponobjects isstunned() truthy; entity == turret.owner (owner immune); !damage::friendlyfirecheck(turret.owner, entity, 0) [damage module, not owned]; player with geteye()[2] < turret.origin[2]; AI with maxs-mins+origin height < turret.origin[2]; ceiling: bundle var_7ba68eb6 > 0 AND entity z > turret z + it; range: distancesquared > bundle var_b345c668 squared; cone: two dot tests against forward (from apex origin+30z and from a point 50 behind) plus literal threshold cos(bundle var_cbd5f27c or 0), with no halving and unknown angle meaning/units; equality passes the cone comparison, and damageconetrace(origin, turret, forward) <= 0. Otherwise true.",
+        "unknowns": [
+          "damage::friendlyfirecheck semantics (damage module; not owned)",
+          "damageconetrace native (opaque)",
+          "bundle values"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00687",
+        "sha256": "3cb720bc32e8c87ac3794da4c7bd5833fcfe77da2c22ee434bedfc65779b264c",
+        "pointer": "",
+        "record_sha256": "8289b68023076afd598381e587c924701176b01eb0b5a2e15628a597d6d50a24"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "8bdd609d7d36a20d2baaa3809a96bc3f91456d081fda523f677606f8ab10eece",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::onkilled",
+        "behavior": "onkilled(var_c946c04c) - cover destroyed by attack (threaded from function_37f1dcd1). Branch attacker != owner: 1) owner globallogic_score::function_5829abe3(attacker, killweapon, cover weapon) CROSS-OWNER to HMH-PROGRESS-04; 2) if isdefined(level.var_d2600afc): self [[that]](attacker, owner, cover weapon, killweapon) (mode hook); 3) if owner defined: owner thread killstreaks::play_taacom_dialog(\"smartCoverWeaponDestroyedFriendly\") [killstreaks_shared; not owned]. Then cover.var_d02ddb8e = killweapon (shock-rifle fx key in teardown); if isdefined(level.var_a430cceb): cover [[that]](attacker, killweapon) (destroyed hook set by function_a9427b5c); thread function_2a494565(0) (destructive teardown).",
+        "unknowns": [
+          "function_5829abe3 / var_d2600afc / var_a430cceb suppliers",
+          "taacom dialog row"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/350",
+        "record_sha256": "15ca7d81b63a5c6cf7214c6e914a585a60a7e2e1864a10520be956865175061e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "8fb87abcdf12e93d84dbfdf53f797644d6d431b37f6629ad5d66dc8651466bb2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_bd071599",
+        "behavior": "function_bd071599(player, smartcover) - HOLD-TO-DETONATE sequence (threaded from function_7ecb04ff): level endon(\"game_ended\"); player notify(\"hash_53db5f084a244a94\") + endon same (singleton); player endon(\"death\", \"disconnect\", \"joined_team\", \"changed_specialist\"); smartcover endon(\"death\"); deadline = gettime() + int(bundle.var_fee887dc or 0 * 1000); player.var_622765b5 = 1. Loop while deadline > gettime(): break if !player gamepadusedlast(); if !player offhandspecialbuttonpressed(): set_player_uimodel(\"huditems.abilityDelayProgress\", 0); var_622765b5 = 0; RETURN. progress = elapsed / int(hold*1000); set_player_uimodel same field; waitframe(1). After hold: player thread gestures::function_f3e2696f(player, level.smartcoversettings.var_4115bb3a, undefined, 0.75, undefined, undefined, undefined) [gestures; not owned]; branch bundle.var_d47e600f: smartcover playsound; set uimodels abilityHoldToActivate 0 AND delayProgress 0; wait bundle.detonationtime or 0; var_622765b5 = 0; player.var_d3bf8986 = 1; smartcover function_2a494565(1) (cover self-destructs at sequence end).",
+        "unknowns": [
+          "gestures::function_f3e2696f (not owned)",
+          "bundle fields values",
+          "huditems.abilityDelayProgress lowercase as in source"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/335",
+        "record_sha256": "9f1f73bdb27d87fd75d9fc338e84eeb3c11cf6eae2b6fe33fb50c37023a9f5df"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "900ca88d3ea518ebefa5df367aef6a5ef4e54c81ac004bc2bcfd4b1df50e6a02",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::microwaveentity",
+        "behavior": "microwaveentity(entity) - per-victim microwave damage loop (threaded from turretthink). ENDONS: turret (microwave_turret_shutdown, death); entity (disconnect, death); players also (joined_team, joined_spectators). START: thread microwaveentitypostshutdowncleanup(entity); entity.beingmicrowavedby[turret_vehicle_entnum] = turret.owner; microwavedamageinitialdelay = 1; microwaveeffect = 0; scalars (shellshock/viewkick/damage) = 1. PERK GATE: isplayer AND hasperk(\"specialty_microwaveprotection\") -> scalars from getdvarfloat specialty_microwaveprotection_{shellshock,viewkick,damage}_scalar defaults 0.5. MODE GATE: getgametypesetting(\"competitivesettings\") === 1 -> slow/dot status params from hash keys (hash_4571e9bb8d1be2af / hash_13ef8ef2acaa9aec) else getstatuseffect(\"microwave_slowed\")/(\"microwave_dot\"); dot-status.killcament = turret. LOOP: exit branch when turret/trigger gone or check fails: if entity is undefined return immediately; otherwise only a defined beingmicrowavedby[turret_vehicle_entnum] slot permits both threaded status clears and, when var_553267c8 is defined, stoprumble plus clearing that handle. Clear the bookkeeping slot; clear microwavepoisoning only when defined and truthy; notify(\"end_microwaveentitypostshutdowncleanup\"), return. TICK (0.5s): damage = (bundle.microwavedamage or 0) * damagescalar; this local is not passed to status_effect_apply, so no damage-scalar effect is established; hardcore: * bundle.var_78c1e37b or 0.25; screen branch: !isai AND util::mayapplyscreeneffect() -> microwavepoisoning = 1, effect = 0; first tick delay: wait randomfloatrange(0.1, 0.3) then clear; status dot reapply (status_effect::status_effect_apply(dotstatus, smartcoverweapon, SELF_TURRET, 0)); microwaveeffect++; entity.lastmicrowavedby = turret.owner; player-side: playsoundtoplayer(\"hash_5eecc78116b1fc85\"); viewkick every other tick > 950 (source time comparison; original units unresolved) when not remotecontrolling: viewkick(int(25*viewkickscalar), turret.origin) + shellshock reapply (slowstatus) + rumble (bundle.var_5223868e, tracked); turret.playersdamaged[entity.clientid] = 1; suppress-score event when !(bundle.var_74dcfa31) AND microwaveeffect %3 == 2: scoreevents::processscoreevent(\"hpm_suppress\", turret.owner, entity, smartcoverweapon, turret.playersdamaged.size) CROSS-OWNER to HMH-PROGRESS-04.",
+        "unknowns": [
+          "perk specialty_microwaveprotection setter (perks.gsc in packet, mp_common/perks.csc not owned)",
+          "status_effect_util internals (not owned)",
+          "bundle field values",
+          "hpm_suppress row (H6)",
+          "status_effect_apply attacker arg = turret self as written"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00688",
+        "sha256": "1b918236cf31228581a096e0a3629c7774c66bc7779640e0ba3742a10eb8b38b",
+        "pointer": "",
+        "record_sha256": "dd66acbfb955dd49afa12c1295ac86c1f28c42173c2a94278a52f96aac204b5d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "9363932db4350d2ed5a7d1a63b87b90630e6e5729b16dc07c0c65a63854353cc",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_4e6d9621",
+        "behavior": "function_4e6d9621(smartcover, origins, radii) [private, 3-param, eflags 0x4, Type: bool] - point-in-cover-range test: three ordinary recovered-source asserts1196-1198, outside the shown /# sphere block1210-1213; no target-build stripping or assertion-outcome proof: isarray(origins); !isarray(radii) OR origins.size == radii.size; smartcover.var_eda9690f defined with size > 0. foreach point in smartcover.var_eda9690f (the four trace points): for index over origins: distance = distancesquared(origins[index], point); radius = isarray(radii) ? radii[index] : radii; combinedradius = radius + getdvarfloat(\"hash_4d17057924212aa9\", 1); dev-only spheres when hash_686a676b28ae0af4 == 1; if distance < combinedradius^2 return true. return false. Used by the concertina deploy probe via function_e3a901c.",
+        "unknowns": [
+          "assert natives (opaque)",
+          "dvar hash_686a676b28ae0af4 (visual debug toggle; init 0)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00689",
+        "sha256": "261960b8e4f5be9b3288f7b63abe3e9550dce9cd22b5fc0a853643cc7d85fcd4",
+        "pointer": "",
+        "record_sha256": "c04b9402015a10ca151dfab3f98f120415f54a2cd0db4fbde672317bfd8ff277"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "9e9a8bfdfed97a3c8720b232c32ad2e5be65ac5ab3191a2f6db85dd9efd3f7f1",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_b397b517",
+        "behavior": "function_b397b517(timeoutoverride) - timeout self-destruct thread: self endon(\"death\", \"cancel_timeout\"); timeouttime = isdefined(timeoutoverride) ? it : bundle.timeout; return if (defined(timeouttime) ? it : 0) == 0; wait timeouttime; if isdefined(self): self thread function_2a494565(1) (selfdestruct teardown).",
+        "unknowns": [
+          "bundle.timeout value"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/333",
+        "record_sha256": "bf7b8ed991690335003f6d168b56550e9a25ac855ab4f4b1bd55075a6b41f62c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "b9b1c32f15f80659601c5b6d96d19710d42620ace586bf4b1d90482ce7e54b24",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_b11be5dc",
+        "behavior": "function_b11be5dc() - destroy all own covers: return if !isdefined(self.smartcover); foreach smartcover in self.smartcover.var_58e8b64d: defined -> smartcover function_2a494565(1) (selfdestruct teardown).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/334",
+        "record_sha256": "f661ef889413af0ac15349b75a02307c47a1699fd32f0229f57a96d5d929037c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "c78c68002ef5a1eb585acd07f5988d4a056893ce0e64dd71937b8af2923dc3bd",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::setupdvars",
+        "behavior": "setupdvars(): five ordered setdvar writes, exactly as source lines 220-224: hash_4f4ce3cb18b004bc=8; hash_417afa70d515fba5=bundle.var_76d79155 (isdefined fallback 0); hash_1d8eb304f5cf8033=1; hash_71f8bd4cd30de4b3=bundle.var_e35fc674 (fallback 0); hash_39a564d4801c4b2e=bundle.var_1f0ae388 (fallback 0). Mirrors three bundle knobs into dvar names shared with the csc twin.",
+        "unknowns": [
+          "bundle values",
+          "dvar consumers (shared with csc usage)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/330",
+        "record_sha256": "4c3977bd5e2cd367889629b7cf429f1fd45d6ff86a13acf493287ba7fbb8c23a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "d68ed11f8780759d07e731de6195affb9f434a3a31cfb6185b2aaa499961cfb0",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_b7f5b1cc",
+        "behavior": "function_b7f5b1cc(origin, angles, player) - can-deploy probe: branch isdefined(level.var_b57c1895): return [[that]](origin, angles, player); else return 1.",
+        "unknowns": [
+          "level.var_b57c1895 setter (outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/338",
+        "record_sha256": "2d3f0ac1fd79309833a7dc94b5aaa231ce76ebce487375ffb3fd5def87b5829c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "d88a34e47b6c597cc30fea98109b8195d8d851799fb56995114b4586c49290d0",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_92112113",
+        "behavior": "function_92112113(attacker, victim, weapon, attackerweapon, meansofdeath) [Type: bool] - cover-proximity kill credit (globallogic kill callback, non-WZ): guards return false when level state or victim/attacker/attackerweapon/weapon undefined. Return false when isdefined(level.iskillstreakweapon) AND [[that]](attackerweapon), OR attackerweapon == weapon (killstreak weapons get no cover credit). foreach cover in var_f115c746: skip undefined/incomplete; skip victim == owner OR teambased AND !util::function_fbce7263(victim.team, owner.team). attacker-near gate: dist_sq(cover, attacker) > var_357db326 -> skip. var_eb870c = distancesquared(victim.origin,cover.origin); var_ae30f518 = distancesquared(victim.origin,attacker.origin); credit branch var_d9ecf725 = var_ae30f518 > var_583e1573 AND var_1d1ca33b = var_ae30f518 > var_eb870c. Thus the literal tests are VA_squared>AC_squared AND VA_squared>VC_squared (under ordinary distance geometry AC and VC are each shorter than VA; the saved first reversed inequality is corrected): var_a3aba5a9 = 1; var_71eedb0b = owner; break. Post-loop: if credit: smartcover.owner == attacker -> true; else scoreevents::processscoreevent(\"deployable_cover_assist\", var_71eedb0b, victim, smartcoverweapon) CROSS-OWNER to HMH-PROGRESS-04. DEFAULT false. SOURCE-FIDELITY: post-loop branch tests smartcover.owner through the post-loop smartcover variable as written; exact VM scope/lifetime handling remains unresolved.",
+        "unknowns": [
+          "util::function_fbce7263 / level.iskillstreakweapon suppliers (opaque)",
+          "scoreevent row (H6)",
+          "Post-loop smartcover reference is source-visible; exact compiler/VM scope, receiver lifetime and runtime behavior remain unresolved."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00690",
+        "sha256": "0d13029c146d6528810281b17f0c0bfc5a6293f2dddc5b549a950f6c2f2be6d9",
+        "pointer": "",
+        "record_sha256": "ecb4ff185c3a7daee45aae23e882c7d41b1660a9fe3e6dc8617da22b55b9eac0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "e0e27e1f2542fa365b623e2c907488c46dd83d42ae8f8d10018b4efbbe798c84",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_2a494565",
+        "behavior": "function_2a494565(isselfdestruct) - smart-cover teardown source request sequence (separate concertina function_4ee7d46a has distinct archived-record-00691 code). smartcover = self. 1) notify(#\"hash_5de1fc3780ea0eaa\") at713, matching the hashed death-bridge endon at660; actual VM cancellation unproved; 2) clientfield::set(\"enemyequip\", 0); set(\"friendlyequip\", 0) [native field write requests; cross-VM delivery unproved]; 3) objective: if .objectiveid defined: objective_delete + gameobjects::release_obj_id; 4) destroy presentation: branch bundle.destructionfx defined: variant selection by isselfdestruct (selfdestructfx/audio else destructionfx/audio); tag position fallbacks: var_b0e81be9 = (gettagorigin(\"tag_cover_base_d0\") defined ? it : origin), angles fallback gettagangles; playfx(forward/up); playsound when audio defined; 5) shock-rifle extra fx branch (bundle var_bb6c29b4 and killer weapon var_d02ddb8e == getweapon(\"shock_rifle\")): playfx(second fx); 6) registry removal: arrayremovevalue(level.smartcoversettings.var_f115c746, cover); owner lists removals (var_58e8b64d, var_19e1ea69) when owner defined; 7) microwave branch: if bundle.var_f4e0e7d7 truthy: stopmicrowave(); notify(\"microwave_turret_shutdown\"); 8) if owner defined: owner globallogic_score::function_d3ca3608(\"hash_78cb6a053f51a857\") CROSS-OWNER to HMH-PROGRESS-04 (opaque owner-side score/helper request; unregister/HUD effects unproved); 9) deployable::function_81598103(cover) [opaque deployable helper request; effective deregistration unproved]; 10) .killcament util::deleteaftertime(5) threaded; .grenade deleteaftertime(1) threaded; .trigger delete(); 11) smartcover delete(). The shown delayed deletions have thread keywords; other listed calls are direct source calls, whose yielding/native outcomes are not proved. Source deletion/notification requests do not establish complete cleanup or final runtime state.",
+        "unknowns": [
+          "globallogic_score::function_d3ca3608 semantics (HMH-PROGRESS-04 boundary)",
+          "tag_cover_base_d0 model tag (model-side)",
+          "enemyequip/friendlyequip registration sites (shared, outside packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00692",
+        "sha256": "007a16bf321d1adb6f0cef1cb7ae7dfb963f72c172cf7a742a6d3782fe59a336",
+        "pointer": "",
+        "record_sha256": "cf5499d2af45c5826f949bc0d9aed15e520671eca7a1544a13f8dabb7af4020d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "e29d75bdcd305c3dafdeff59370c08b3fe2fbb672939bdfecb51c315a33e5ed5",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::on_player_spawned",
+        "behavior": "on_player_spawned(): 1) ensure self.smartcover struct with lists var_58e8b64d (placed), var_19e1ea69 (active), var_d5258d02; 2) if !hasweapon(smartcoverweapon) AND var_58e8b64d.size > 0: function_b11be5dc() (destroy all); 3) set_player_uimodel(\"huditems.abilityDelayProgress\", 0); 4) self.var_622765b5 = 0; 5) self reset_being_microwaved().",
+        "unknowns": [
+          "var_d5258d02 readers (not in this file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/337",
+        "record_sha256": "745ca1a8f25ec20a7b7620f26679c9853730e148981d8a19d6f4e75403d840bf"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "e61eca4b10b209ad6da1298e0ae63273ddf1fc2bae3a9933f19ee91fd603db5f",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_bff5c062",
+        "behavior": "function_bff5c062(smartcover, attackingplayer) - HACK/re-own reaction: 1) smartcover.owner weaponobjects::hackerremoveweapon(smartcover) [weaponobjects; not owned]; 2) notify(\"hacked\") on cover and on .grenade when defined; 3) notify(\"cancel_timeout\"); 4) function_375cfa56(smartcover, smartcover.owner) (remove from OLD owner list - own packet); 5) smartcover.owner = attackingplayer; setowner(attackingplayer) [builtin]; .team = attackingplayer.team; 6) influencers swap: if var_40bfd9cf defined: influencers::remove_influencer(it); .var_40bfd9cf = influencers::create_entity_enemy_influencer(\"turret_close\", attackingplayer.team) [influencers_shared]; 7) thread function_37f1dcd1() (death bridge); thread function_d82e0324 [sic d82c03d4](attackingplayer) (team watcher); 8) array::add(attackingplayer.smartcover.var_19e1ea69, cover); eviction var_26c9fcc2 = function_57f553e9(list, bundle.var_a0b69d8b); if defined -> function_2a494565(1) (oldest destroyed); 9) thread function_716c6c70() (pulse); 10) branch isdefined(level.var_f1edf93f): var_eb79e7c3 = [[that]](); thread function_b397b517(var_eb79e7c3) (timeout restart w/ override); 11) branch isdefined(.smartcoverjammed) && truthy: startmicrowave(); .smartcoverjammed = 0; branch isdefined(level.var_fc1bbaef): [[that]](smartcover) (jammer-module unjam, published ref); duplicate .smartcoverjammed = 0 (as written).",
+        "unknowns": [
+          "hackerremoveweapon semantics (weaponobjects; not owned)",
+          "level.var_f1edf93f / var_fc1bbaef hook modules (gadget_jammer_shared.gsc setupcallbacks assigns level.var_fc1bbaef = &function_fc1bbaef; actual initialization and indirect delivery remain unproved)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00693",
+        "sha256": "9f0666fec30005353de164764fae10bc3af6785afe0c53880f39c967efadab00",
+        "pointer": "",
+        "record_sha256": "9079ef3367a2d8a84da5bf243481125275736e83fd02c3ab3f79076035662902"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/31",
+      "selection_id": "ec76f614d49b21fba50d166f874ff885e590e0a2583c34dbd08ae9e4e223effa",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::microwaveentitypostshutdowncleanup",
+        "behavior": "microwaveentitypostshutdowncleanup(entity) - post-shutdown bookkeeping (threaded from microwaveentity): entity endon(\"disconnect\", \"end_microwaveentitypostshutdowncleanup\"); self endon(\"death\"); turret = self; turret_vehicle_entnum = turret.turret_vehicle_entnum; turret waittill(\"microwave_turret_shutdown\"); if entity defined AND isdefined(entity.beingmicrowavedby) AND isdefined(it[turret_vehicle_entnum]): entity.beingmicrowavedby[turret_vehicle_entnum] = undefined. Clears the per-turret slot on shutdown.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/370",
+        "record_sha256": "72eca9eced845b6f87f61e1fdf19b329034f22b7a8e3eb1c458836ab4ee0a0fb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/32",
+      "selection_id": "ecf98f6529e68d0c88919da338f1cbb6d8a173b2415ce22be7d8df717ea058e2",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_20be77a3",
+        "behavior": "function_20be77a3(smartcover) clears var_eda9690f and computes forward/right from smartcover.angles. Let Z=(0,0,1) and B=smartcover.origin+Z*getdvarfloat(#\"hash_4d17057924212aa9\",1). It appends exactly four entries in order: P0=B+forward*getdvarfloat(#\"hash_477cc29b988c0b75\",1); P1=array[0]+Z*getdvarfloat(#\"hash_41cfd0e34c53ef02\",1); compute backpoint=B+forward*getdvarfloat(#\"hash_7f893c50ae5356c8\",1); P2=backpoint+right*getdvarfloat(#\"hash_70ce44b2b0b4005\",1); P3=backpoint-right*another getdvarfloat of that same side hash/default1. B is elevated, not origin-z, and is not itself appended. Init72-77 requests values20,-10,30,-15,30 for the respective hashes, but later reads/defaults and possible changes remain distinct. Native vector/dvar behavior, geometric meaning and invocation remain unproved.",
+        "unknowns": [
+          "dvar value drift (init values may change; consumer semantics)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00694",
+        "sha256": "eb74667c4f7f5de0994f4cbd173aa548b98c8417f4125eccc7e8f8b8517a7402",
+        "pointer": "",
+        "record_sha256": "2b1117e678765ce0ffebbc90268186c4880c44f36ab52732230b8a56bb093bd0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/33",
+      "selection_id": "f44431468bf8d2da462f8cc5d8474b5e4fbb8d597157ff975fd59385a2f4eceb",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::createsmartcover",
+        "behavior": "createsmartcover(watcher, var_5ebbec19, origin, angles, var_796be15d) - spawn the smart-cover world entity (as function_34d706ae did for wire): player = self; cover = spawn(\"script_model\", origin); targetname \"smart_cover\"; grenade backlinks; setmodel(player getmodel(param)); watcher.objectarray append. Branch dvar hash_1d8eb304f5cf8033 == 1: setdestructibledef(player function_884d0700(param)) (team destructible def). Config: angles; owner; takedamage 1; startinghealth = isdefined(bundle.var_4d358e2d)?that value:(param?(isdefined(bundle.var_d9317c6b)?that value:100):100); health = startinghealth; solid(). Path gate: sessionmodeiswarzonegame() -> disconnectpaths(0); else disconnectpaths(1), with native flag/effects unproved. First setteam(player getteam()); cover.var_86a21346 = &function_d2368084 (damage modifier); weapon = smartcoverweapon + setweapon; list add var_58e8b64d; objective icon choice by param (open vs full names); objectiveid lifecycle (get_next_obj_id; objective_add active; function_da7940a3(id, 1) [objective icon helper - unresolved]; objective_setteam). Charge gate: slot = gadgetgetslot; if !WZ: gadgetpowerset(slot, 0) (non-WZ zeroing on place). Second setteam(player.team) is a distinct expression from player getteam() at966; equality/redundancy is unproved; global list add var_f115c746; function_20be77a3 (trace points); friendlyequip1 / enemyequip1 source write requests (native/cross-VM delivery unproved); thread ondamage(); thread function_37f1dcd1(); thread function_18dd6b22(cover); player deployable::function_6ec9ee30(cover, weapon) [not owned]; victimsoundmod = \"vehicle\"; branch bundle.var_f4e0e7d7: cover thread startmicrowave(); killcament spawn with bundle offsets; targetname smart_cover_killcament; watcher append; RETURN cover.",
+        "unknowns": [
+          "function_da7940a3 (objective icon helper; not located in corpus scans)",
+          "bundle values (4d358e2d/d9317c6b/offsets)",
+          "disconnectpaths flag semantics (native)",
+          "WZ charge-retention gate as written; HMH reuse not proven by registration"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00695",
+        "sha256": "b49ed878830bd3638cefbf4251fc5782ebe828d7c9eb52092a313a4c9955936a",
+        "pointer": "",
+        "record_sha256": "e9b703401daee8721a3d0d216dc85f6a6ea198c3e2c124e880a4c2e276ac7d93"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/34",
+      "selection_id": "f9ab44eca5a486078b161ce633ea154e43d91cf3f535b97561894c9ea73157fe",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_d2368084",
+        "behavior": "function_d2368084(12-param damage-event handler, stored as cover.var_86a21346) - damage modifier: 1) shock_rifle + MOD_DOT -> return 0 (shock-rifle DOT immunity). 2) half-health announce: when health < startinghealth*0.5 AND !(self.var_2cf2e843 === 1) AND owner defined/isplayer AND eattacker !== owner: owner thread killstreaks::play_taacom_dialog(\"smartCoverWeaponDamaged\"); self.var_2cf2e843 = 1 (once). 3) per-weapon shots-to-kill normalizers (each gated on its bundle field): launcher_standard/rockets (bundle.rocketstokill); hero_annihilator (kshero_annihilator); hero_flamethrower (var_2e48926e branch of the elif chain); eq_gravityslam (kshero_gravityspikes); shock_rifle MOD_IMPACT (var_4be7d629); planemortar statname (var_843b7bd3); dart_blade/dart_turret (ksdartstokill); recon_car statname (var_8eca21ba); remote_missile_missile statname (ksremote_missile_missile); hero_pineapplegun (kshero_pineapplegun); sig_bow_quickshot statname with MOD_PROJECTILE_SPLASH/MOD_PROJECTILE/MOD_GRENADE_SPLASH (kshero_bowlauncher per source lines 905-907). Each matching branch sets idamage = startinghealth / N. The rocket if is separate from the subsequent if/else-if chain. Missing startinghealth and health use0; a defined zero divisor is not rejected here and original VM division behavior remains unknown. Return int(idamage).",
+        "unknowns": [
+          "bundle per-weapon count field values (not in packet; key names verified in cited lines)",
+          "consumer of var_86a21346 hook (damage engine; opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00696",
+        "sha256": "3b920dd041f5af06986f47d440dd4aba6241c49bd4f094f47b9bacbff57c54fd",
+        "pointer": "",
+        "record_sha256": "b96e2091aadd668393ae53436e11a19decde7e1879949bea230717736c0e7310"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/35",
+      "selection_id": "fe1337101a9ed7a520565b67ea02e56e2b8f0dc680bdd8a8fb93298d371f24de",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::turretdebug",
+        "behavior": "turretdebug() - dev visual helper: turret = self; angles = turret gettagangles(\"tag_flash\"); origin = gettagorigin(\"tag_flash\"); cone_apex = origin; forward = anglestoforward(angles); dome_apex = cone_apex + vectorscale(forward, bundle.var_b345c668 or 0); the spherical-cone draw itself sits inside a /# #/ dev block (util::debug_spherical_cone(cone_apex, dome_apex, bundle.var_cbd5f27c or 0, 16, (0.95, 0.1, 0.1), 0.3, 1, 3)) - arithmetic is outside the dev block and the draw call is inside it; original build preprocessing and execution remain unproved.",
+        "unknowns": [
+          "debug_spherical_cone args (dev; opaque)",
+          "tag_flash model tag"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00697",
+        "sha256": "9d962775274889b69512831f2cef0e968748cb9847691f3bf6a7738760e3e10e",
+        "pointer": "",
+        "record_sha256": "2c58437102d6f12d98e1530136fd1ed073b2924e915efebcd861d9236b479f7a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/36",
+      "selection_id": "19503fe4c195daa3448e0978e4518bbab9e23168701d4e36d42b9fb7605d83f7",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_21e722f6",
+        "behavior": "function_21e722f6(watcher) - watcher config: watcher.watchforfire = 1; watcher.onspawn = &function_3b96637; watcher.deleteonplayerspawn = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/344",
+        "record_sha256": "1c6fea47a69337d91d580154a6d0233a511afe9b4c613a17f80622943e56def9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/37",
+      "selection_id": "4189f89f955404f367d1290ac9b911151972a0b2f75929b4ef2dbeafc28b257c",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_649f8cbe",
+        "behavior": "function_649f8cbe(func): level.onsmartcoverplaced = func. Placed-hook setter.",
+        "unknowns": [
+          "MP twin mp/gadgets/gadget_smart_cover.gsc sets this (same packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/331",
+        "record_sha256": "829313b3f58b602e44f562d6219f709f49d25cc295520956222889ad990e789d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/38",
+      "selection_id": "6190bb9c69525ae7b529ab2f18713199b8e1df01566f2e184c4d144e2ea9cc92",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_375cfa56",
+        "behavior": "function_375cfa56(smartcover, owner): branch isdefined(owner): arrayremovevalue(owner.smartcover.var_19e1ea69, smartcover). List removal (hack before re-own).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/348",
+        "record_sha256": "2a961b8a358c7c672e8b763438085c6d3b500324dd6d55094aab699046f3ddc1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/39",
+      "selection_id": "8b93fb66564f273cd38621d21a95972561a906cc8a780ced42cd484aaa4626a3",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_548a710a",
+        "behavior": "function_548a710a(traceresults) - width-fit origin: if neither traceresults.var_e2543923 nor .var_e18fd6c3: return traceresults.origin. halfwidth = bundle.maxwidth * 0.5; right/left near-distances to the two trace endpoints. Branches: both flags -> points = both endpoints; right-flag && right-near < halfwidth -> pointright = right endpoint, directionleft = normalize(left - right), pointleft = right + maxwidth * dir; right-flag && right-near >= halfwidth -> return origin (too wide); left-flag && left-near < halfwidth -> pointleft = left endpoint, directionright = normalize(right - left), pointright = left + maxwidth * dir; left-flag && >= halfwidth -> return origin. Final: direction = normalize(pointright - pointleft); return (pointleft.x, pointleft.y, traceresults.origin.z) + maxwidth * 0.5 * direction.",
+        "unknowns": [
+          "traceresults producer/flag meanings var_e2543923/var_e18fd6c3 (writers outside packet; inferred wall-hit flags)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/341",
+        "record_sha256": "c6c8e363a6b9960495359175d48ea2525967dbcbe15a9b1a7f2b31d91a288cb4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/40",
+      "selection_id": "943edba2a55e4e213f90b013442201a3276a2874c1cdfb3a3adf887bb230e4b9",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_18dd6b22",
+        "behavior": "function_18dd6b22(smartcover) - broken-piece watcher (threaded from createsmartcover): level endon(\"game_ended\"); cover endon(\"death\"); loop waittill(\"broken\"); branch waitresult.type == \"base_piece_broken\": cover function_2a494565(0) (destructive teardown).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/357",
+        "record_sha256": "c30f2a5fe8aed8b95f4d6023b58116bb509ff878f97a6beb5aa2daf043f21d76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/41",
+      "selection_id": "9c9afb997318d432b434f4959b4ee3196b1da2fa4315802e692e90d2c8415bcc",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_57f553e9",
+        "behavior": "function_57f553e9(&coverlist, maxallowed): size <= max -> undefined; else outstayed_spawner = array::pop_front(coverlist, 0); list = array::remove_undefined(list, 0); return it.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/360",
+        "record_sha256": "4b1c2dcc49d1282e79dac9101e7706c572b25f17de38ad4f5a4548a0b21371f4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/42",
+      "selection_id": "a59031c4bb11fcb00c0253b29c43cad693ade98f856a0970f6816b14b3555b6e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_3b96637",
+        "behavior": "function_3b96637(watcher, owner) - placed-cover creation (thrown object onspawn): self endon(\"death\"); player = owner; canthack = 1; hide(). Guard: lastvalid missing/invalid -> player deployable::function_416f03e6(smartcoverweapon) [opaque refund]; return. profilestart/profilestop bracket createsmartcover. cover = player createsmartcover(watcher, self, lastvalid.var_83050ca1, lastvalid.angles, 1); cover.angles = player.angles; cover.var_8120c266 = []; cover.var_9a3bd50f = 0. List-add var_19e1ea69 then eviction via function_57f553e9 with bundle.var_a0b69d8b cap -> destroy oldest (function_2a494565(1)). Mode hook: if isdefined(level.onsmartcoverplaced): owner [[that]](self). thread function_d82c03d4(player) (team watcher); if bundle.deployanim: thread function_408a9ea8(cover); if bundle.var_ad7084b4: player uimodel abilityHoldToActivate 2; turret-close influencer; make_sentient; if weapon.var_414fa79e defined: player playrumbleonentity(it); thread function_7ecb04ff(player) (hold loop); cover thread function_670c4a3() - source spelling function_670cd4a3 (own record); cover thread function_b397b517() (timeout).",
+        "unknowns": [
+          "deployable::function_416f03e6 (not owned)",
+          "bundle values (cap a0b69d8b, rumble 414fa79e, hold gate ad7084b4)",
+          "lastvalid.var_83050ca1 point meaning (probe field)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/342",
+        "record_sha256": "be85ddd828b1236ac733f3d0fd42a66d56e26266b1f0a1e0c1bd9bcc557dfa88"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/43",
+      "selection_id": "a928371bcc281944ea84bd73b81ff5f58bfc7928a57754093891684ea1e1e35e",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_884d0700",
+        "behavior": "function_884d0700(var_796be15d): return self.team == \"allies\" ? bundle.var_ee0c73a5 : bundle.var_d3ea02d6 - team-selected destructible-def for setdestructibledef; param unused. Separate getmodel exists for the model itself.",
+        "unknowns": [
+          "bundle def ids"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/351",
+        "record_sha256": "947b0d2efa24c3c9e35d7e807bb104a4f6e669ded3405f161cbf937269b99ddb"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/44",
+      "selection_id": "bc76f7fcb29c85af30d39bf36f39831f13bd04dbe3a092228d720cd41f815a34",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_127fb8f3",
+        "behavior": "function_127fb8f3(smartcover, attackingplayer) [Type: bool] - EMP-DISRUPT reaction (registered into jammer module via function_1c601b99/var_a5dacbea with &function_127fb8f3): branch !(isdefined(smartcover.smartcoverjammed) && truthy): smartcover stopmicrowave(); clientfield::set(\"enemyequip\", 0). smartcover.smartcoverjammed = 1. Branch isdefined(level.var_86e3d17a) (jammer-module bundle accessor ref): notify(\"cancel_timeout\"); var_77b9f495 = [[ level.var_86e3d17a ]](); (jammer bundle field - jam duration) then smartcover thread function_b397b517(var_77b9f495) (re-arm timeout with override). Branch isdefined(level.var_1794f85f): [[ that ]]( attackingplayer, \"disrupted_barricade\" ) (jammer-module score wrapper -> CROSS-OWNER h6 scoreevents). return true.",
+        "unknowns": [
+          "the three level-ref hooks' suppliers (jammer module vars published in gadget_jammer_shared.setupcallbacks: var_a5dacbea -> function_4e7e56a8 registers overrides NOT this; NOTE: which module publishes var_86e3d17a/var_1794f85f - gadget_jammer_shared setupcallbacks DOES publish var_86e3d17a = &function_86e3d17a accessor and var_1794f85f = &function_2572e9cc - so those refs resolve to jammer module fns; recorded)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/356",
+        "record_sha256": "61dd12ce6265d0a1a1078b265a0303fc25dd7c66b3845658b315d2c8610dad29"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/45",
+      "selection_id": "d505d71cb560be1ef4880b9c560c9481aae57a46185a81ab4db156ac4da63ba8",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_670cd4a3",
+        "behavior": "function_670c4a3 - source symbol function_670cd4a3 - stuck-grenade collector: self endon(\"death\"); self.var_19fde5b7 = []; while(true): waitresult = self waittill(\"grenade_stuck\"); branch isdefined(waitresult.projectile): array::add(self.var_19fde5b7, projectile). Gathers stuck projectiles for the cover.",
+        "unknowns": [
+          "var_19fde5b7 readers (not in this file)",
+          "grenade_stuck producer (engine side)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/343",
+        "record_sha256": "51fa1ac188f3f5f4e533c16aaa93c6b72f3566268555a8fbba8acf6f90cfd21a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/46",
+      "selection_id": "dd932d82d962cca082d38eb44690b01251aa809ecafd5cbd08f81949dad70f8a",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_7ecb04ff",
+        "behavior": "function_7ecb04ff(player) - HOLD-TO-ACTIVATE input loop (threaded from function_3b96637): level endon(\"game_ended\"); notify \"hash_51faf1a32d7e36b0\" + endon same (singleton); player endon(death/disconnect/joined_team/changed_specialist). Loop waitframe(1): skip while level.inprematchperiod; return if !player hasweapon(smartcoverweapon); slot = gadgetgetslot; continue when undefined or -1; ammocount + gadgetpower; if power >= 100 OR ammocount > 0: uimodel set abilityHoldToActivate 0, smartCoverState 0; continue (ready - no hold UI). if player.smartcover.var_19e1ea69.size == 0: continue (no placed covers). if bundle.var_ad7084b4 truthy (HOLD MODE GATE): uimodel abilityHoldToActivate 2; smartCoverState 1; branch gate && offhandspecialbuttonpressed() && !(isdefined(player.var_622765b5) && truthy) && !(isdefined(player.var_d3bf8986) && truthy): foreach cover in player.smartcover.var_58e8b64d: defined -> thread function_bd071599(player, cover); BREAK (first cover only); continue. branch !buttonpressed && var_d3bf8986 truthy: var_d3bf8986 = 0 (release resets cooldown). Loop ends only via endons/missing weapon.",
+        "unknowns": [
+          "gamepad/offhand button natives (opaque)",
+          "bundle.var_ad7084b4 (hold-mode weapon feature flag; values not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/336",
+        "record_sha256": "fc559c79b572b70d8cd8c7fd30008f75436c7046a24dceaecc523c18a03b038d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/96bba95602cadf73.json",
+      "claim_pointer": "/claims/47",
+      "selection_id": "e91185d8cf09f36a65d7cf5eeabe98472b190d8cdd0e4cff1b924159e95e6efe",
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.gsc::function_37f1dcd1",
+        "behavior": "function_37f1dcd1() - death bridge (mirrors concertina dd007be2): level endon(\"game_ended\"); self.owner endon(\"disconnect\", \"joined_team\", \"changed_specialist\", \"hacked\"); self endon(\"hash_5de1fc3780ea0eaa\") (teardown re-entry guard); waittill(\"death\"); return if !isdefined(self); self thread onkilled(waitresult).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/346",
+        "record_sha256": "894c8cb5208e82e391233fcbf0bb129916cd41312c4663b3c78db82d9bfa06b6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,434 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "ui/uieditor/menus/freecursor/freecursor.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+  "git_blob_sha1": "7589e60bbaec735ad70121ab338620c2d4fddbae",
+  "output": "src/ui/uieditor/menus/freecursor/freecursor.lua",
+  "output_sha256": "a5f7ca58eb5f890ea4faa844ec629c454b527ab84198832ab533d6b1f3fa8c05",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/ui/uieditor/widgets/freecursor/freecursorwidget.lua",
+      "original_line": 4,
+      "output": "src/ui/uieditor/widgets/freecursor/freecursorwidget.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "ui/uieditor/widgets/freecursor/freecursorwidget.lua",
+        "sha256": "65e96f07aa8e36a059dc0f1bb5b015c326c90643042e3f1c84c9cca992d9c3dc",
+        "git_blob_sha1": "08e200ea9f8baa560668ed7665a3a9c1a2cd0d17"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "140b05397f98be30944565db0abd5e627eb3bbf6f74c66a867926b1b96510ebf",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:065",
+        "answer": "On first snapshot closes popups, optionally debug-closes old HUDs for reload/migration, removes children and arranges loading closure. In Warzone, loading closes only after wzLoadFinished==1; Close clip completion is tracked before freeing, except splitscreen/immediate path. Creates/tracks cursor/fade/overlay/start menu, calls common setup and selects nonZombie or Zombie setup. Finally refreshes HUD, marks snapshot processed and drains pending menu events in order. Repeated model callbacks and parent validity rely on native lifecycle; no runtime proof is claimed.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1D-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00862",
+          "sha256": "728aebfd8f0143798c70e8ed640b278ad8e4e41487f369d07ad723278b6133a0"
+        },
+        "report_pointer": "/unit_reviews/5",
+        "decision_canonical_sha256": "9cead06e60f9c938b78c3ac89740bbe5ac053aac53cce0c1ee2285ca375ec7f5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record at the supplied pointer: all identity/status/provenance/reuse/qualification fields, receiver/arguments, body/ordered operations, branches/loops/returns, callbacks/constructors/caller links, reset/close/lifetime/errors, dependency targets, source-fidelity and limits. Only conditional recovered-source behavior and exact historical reference/status roles; no original native/VM/build/runtime or opaque provider outcome.",
+        "limitations": {
+          "native_gaps": {
+            "engine_call_names": [
+              "createmodel",
+              "forcehudrefresh",
+              "getlobbymode",
+              "getmodelforcontroller",
+              "hash_2B3B13569A733293",
+              "issplitscreen"
+            ],
+            "implementation_unavailable": true
+          },
+          "unknowns": [
+            "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+            "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+          ],
+          "evidence_limit": "Recovered pinned Lua source statements and bounded author reasoning only. Historical AST IDs/spans are reused as structure, old observations retain their original narrow claims. No independent review, original-build verification, acceptance, live test or function-completion credit.",
+          "unresolved_names": [
+            {
+              "symbol": "DataSources.HUDItems.getModel",
+              "caller_anchors": [
+                {},
+                {}
+              ],
+              "disposition": "No exact supplied symbol-body locator; a method may be native, dynamically registered, aliased or absent. No body invented."
+            }
+          ]
+        },
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/64",
+        "record_sha256": "1258cb239654e21ede039d850d47ffc49127cbdb91ec6022153e970217b43577"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3dbc944583fba3395d13e3d3eaaff81f0d387c45720b82e7257794117867ca4c",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:061",
+        "answer": "Locks input and marks UI active for every controller, starts video-event setup and builds main menu. It tracks reload-close children, closes them before reload setup, builds toast/spinner/optional warning/free cursor/overlay, polls UI3D readiness and cancels that timer when ready. Music subscription removes the previous subscription, replaces/closes delay timers, and plays only a nonempty state name. Debug reload clears children then rebuilds. Its close hook references element.toastNotification although the local toast is not assigned to that field in the selected text; preserve this external/fidelity assumption.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Selected recovered source has an explicit scope/control-flow/field assumption described in answer; original executable semantics are not guessed or repaired."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/334",
+        "decision_canonical_sha256": "754e5202a1d6b07206886a7be3802d15fd141f94eee5edc8a13c6f0a1227704c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/60",
+        "record_sha256": "97ac882a03c4f62c2a1485ba1e243dc9701726304323a891d61ddf473b0e18cb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "52b374db77783e9661002981ad04bf974d3fac25eebe592c1c31d1af1e2ed1d4",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 7,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 21,
+          "line_end": 23,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 21,
+          "line_end": 21,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 30,
+          "line_end": 32,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 30,
+          "line_end": 30,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 38,
+          "line_end": 46,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 38,
+          "line_end": 38,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 50,
+          "line_end": 58,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 50,
+          "line_end": 50,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 62,
+          "line_end": 70,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 62,
+          "line_end": 62,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 30,
+          "line_end": 32,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 8,
+          "line_end": 8,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 20,
+          "line_end": 20,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 76,
+          "line_end": 76,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 84,
+          "line_end": 84,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 31,
+          "line_end": 31,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 37,
+          "line_end": 37,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 49,
+          "line_end": 49,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 79,
+          "line_end": 79,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 83,
+          "line_end": 83,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 61,
+          "line_end": 61,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 86,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:217",
+        "answer": "Creates the FreeCursor menu, sets ignoreCursor, owner and open sound, and binds freeCursorWidget to the FreeCursor model. Hidden negates active-and-visible; usingCursorInput/hidden/activeKeys subscriptions validate state. It dispatches menu_loaded, installs close, calls optional PostLoadFunc, then sets priority1000 and m_inputDisabled before returning self. Cursor movement, input binding and visibility production remain provider gaps.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/67",
+        "decision_canonical_sha256": "b1de7895f3d48b75f5064ed82be38e715c77f8cee9fbc70f9a2f72cb3893e5f7",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00371",
+        "sha256": "ed9efbb4cc2458d4bc4a998022c1f79ce493f99e9d3464cb314e9c23d164d01b",
+        "pointer": "",
+        "record_sha256": "283be87ac9f6b6b7f8d8a934d3d06c843af19fd5a79be5be96c93f9dd27b5dd3"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5d1e860b8d88f31b3a6bb1fe166b8a2e64d10c6ca072e971a54c1ece09c44bbc",
+      "citations": [
+        {
+          "line_start": 83,
+          "line_end": 83,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 83,
+          "line_end": 83,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 83,
+          "line_end": 83,
+          "file_sha256": "657b1814ea921040ca9d9d30e346ee6f418951382a02b0daadf9ed49ec292320",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:012",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/17",
+        "decision_canonical_sha256": "9498e4650af6ebb88166a235c14b2d287da045fdbc733f6a91e4ee6d558a27d2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/11",
+        "record_sha256": "33efdacdbd074c7e905ce4807c3f0a6f86b222e49d15484a868c5242c47d13a6"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/5ffc5de9def3d3d3.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/e085285003333f19-001.json",
+      "sha256": "0aae005801b4c4983228258dc57174cd1b8c35452ee2a4c0436bbafa1bcc9f03"
+    }
+  ]
+}

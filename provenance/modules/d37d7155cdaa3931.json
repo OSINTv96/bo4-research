@@ -1,0 +1,250 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "hashed/3adeb3ff85af9813.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+  "git_blob_sha1": "a665ca9f9aa2d5086efbc94c1274c9aaf2251990",
+  "output": "src/lua/hashed/3adeb3ff85af9813.lua",
+  "output_sha256": "b69dcf066d7e61c89a69a9d5bbd0b4b85a7e12511342569cafb4f22c032cba0b",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [],
+  "claims": [
+    {
+      "selection_id": "7ea06222b73fdab96ab765401f6f3f1df2adc5d642ddd26c632ac051c4d692a8",
+      "citations": [
+        {
+          "line_start": 45,
+          "line_end": 45,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 45,
+          "line_end": 45,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:270",
+        "answer": "Starts from receiver getModel(); nonempty path is split on ->. Recovered numeric loop dereferences intermediate models through get(), then retains the final field model. Missing/falsy model propagates. The recovered numeric header explicitly starts at1, ends at #f1_local1-1, and steps by1; original VM/model behavior remains unproved. Gets controller path model/value; nil or value>=threshold returns false, else true. No numeric-type coercion is added. Uses dynamic DataSources[name].getModel only when present, reads dynamic model field/value and returns false only for nil, empty-string or hash0. It does not verify type string; numeric0 and false are not excluded by these comparisons. Reads self model XUID; normally scans the supplied controller, but in-game game-ended expands to0..maxcontrollercount-1. Returns true on a used-controller XUID match else false. The recovered numeric header ex [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:270",
+            "source_symbol": "CoD.ModelUtility.GetSelfModelPath",
+            "symbol": "f1_arg0:getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/modelutility.lua",
+              "line_start": 6,
+              "line_end": 6,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ad42a3a38083622250128df9cca147c3f9a17b9a37d056a7b88c082082250a3a",
+              "line_span_sha256": "2d58a424033908ae14cf2d7c1c859244793e6c0605466d7d2fdf9676d6f0fe3b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f1_local0 = f1_arg0:getModel()",
+            "scope_id": "lua/ui/utility/modelutility.lua:5-19",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:270",
+            "source_symbol": "CoD.ModelUtility.GetSelfModelPath",
+            "symbol": "get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/modelutility.lua",
+              "line_start": 11,
+              "line_end": 11,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ad42a3a38083622250128df9cca147c3f9a17b9a37d056a7b88c082082250a3a",
+              "line_span_sha256": "7917d1a95a76efa64bfaa8517745f49dc6eca6d1936136f8e44c9d5375041965",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf1_local0 = f1_local0[f1_local1[f1_local2]] and f1_local0[f1_local1[f1_local2]]:get()",
+            "scope_id": "lua/ui/utility/modelutility.lua:5-19",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:270",
+            "source_symbol": "CoD.ModelUtility.IsSelfModelValueMyXuidOrAnyLocalPlayerOnGameOver",
+            "symbol": "f103_arg0:getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/modelutility.lua",
+              "line_start": 1371,
+              "line_end": 1371,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ad42a3a38083622250128df9cca147c3f9a17b9a37d056a7b88c082082250a3a",
+              "line_span_sha256": "688254961d1ad0c754bf0679a7511379e5cd00c672acaa8261837b345a760a61",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f103_local0 = CoD.SafeGetModelValue( f103_arg0:getModel(), f103_arg2 )",
+            "scope_id": "lua/ui/utility/modelutility.lua:1370-1384",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:270",
+            "source_symbol": "CoD.ModelUtility.SetFromVec2",
+            "symbol": "f110_arg0:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/modelutility.lua",
+              "line_start": 1446,
+              "line_end": 1446,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "ad42a3a38083622250128df9cca147c3f9a17b9a37d056a7b88c082082250a3a",
+              "line_span_sha256": "c2a8350e4036a9af6dbd60a865f1c480d15fd601b88fb3acdcd5cd9c5e53028b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f110_local0, f110_local1 = f110_arg0:get()",
+            "scope_id": "lua/ui/utility/modelutility.lua:1445-1448",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/108",
+        "decision_canonical_sha256": "766da49d5ef816155d42dbb2e4dbb50b2236d2aef6024359cce0431fe9750c55",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00097",
+        "sha256": "2c4225eddb0921cfcb69da0656fcbc936bfaa3ee17a7e7f7277d5c9338c2fabc",
+        "pointer": "",
+        "record_sha256": "ae8c5a66c8c06d2f6ff7a149b0f5495e4c6591ac508e1cb79626278b2f7e775a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b5affd797dc3d5ecf2a8004dede6e927f577449dda45e7c5da39c31c70802f54",
+      "citations": [
+        {
+          "line_start": 7,
+          "line_end": 67,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 67,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 45,
+          "line_end": 45,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 8,
+          "line_end": 8,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 14,
+          "line_end": 14,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 51,
+          "line_end": 51,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 27,
+          "line_end": 27,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 7,
+          "line_end": 67,
+          "file_sha256": "65873eae2ae30e2cd8aa10b7db66704272150fdede82f1a20e67fa0e2c04163e",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:202",
+        "answer": "Creates CoD.GameEndScoreSubtitle using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: SubtitleText, SwitchingSidesText. Registers ordered presentation states SubtitleTransition, SubtitleBase with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. SubtitleTransition is AlwaysFalse; SubtitleBase requests CoD.ModelUtility.IsGlobalDataSourceModelValueNonEmptyString(controller, \"GameScore\", \"subtitleString\"). Its shown helper guards the datasource/getModel/getModel(controller) lookup, then uses short-circuit model-key/getmodelvalue requests. It returns false only when the resulting value compares equal to nil, the empty string or @\"hash_0\", and true otherwise; it h [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.",
+          "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.",
+          "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.",
+          "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.",
+          "No independent correctness review, acceptance, original-build or function-completion credit is recorded."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE1B-B-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00860",
+          "sha256": "9679390391f7c9b97602122263c6eabbdb3da69fdb02516e8ebfc6b078940304"
+        },
+        "report_pointer": "/unit_reviews/44",
+        "decision_canonical_sha256": "542178afc116d041d7854bd225dd31d8801bfa01d64477e17d14989d620f6f47",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete original claim/evidence and every field of the exact whole current corrected record, including retained current behavior, dependencies/callers/callees, receiver/argument identity, ordered requests/effects, branch/loop/return/error paths, callbacks/captures/delivery/cleanup, provenance and limits; linked replacements and projections where present. Written recovered-source scope only, with opaque/native/VM/build/source-to-PS4/effective-data/provider/runtime gaps retained. Raw historical identities/statuses/quotes remain bounded historical data.",
+        "limitations": [
+          "Exact recovered-source written scope only. Opaque providers, native/VM/build/source-to-PS4 identity, effective data/settings and live outcomes remain unknown where stated.",
+          "Historical author/model/effort/reviewer/acceptance labels are preserved data, not newly proved provenance or current approval.",
+          "Static cases are comparisons, not game/runtime tests. No whole-mode completion or function credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00022",
+        "sha256": "b2257036da8f419fd927a3cde95ec8fafcf62142d61d7ef78d472680aa592050"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/b80acd4389ea7133.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/d37d7155cdaa3931-001.json",
+      "sha256": "396390685dd0e9cf6075ab9e9dfe4dbf2382dd3ad1a84dde7c523f55071c01ae"
+    }
+  ]
+}

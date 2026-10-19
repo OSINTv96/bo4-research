@@ -1,0 +1,77 @@
+{
+  "module": "src/scripts/core_common/vehicle_shared.gsc",
+  "identity": "scripts/core_common/spawner_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "spawner",
+  "witnesses": [
+    {
+      "line": 439,
+      "text": "    ai = _remove_non_riders_from_array( spawner::simple_spawn( spawners ) );",
+      "caller": "_spawn_array",
+      "caller_span": [
+        437,
+        441
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "simple_spawn",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1955,
+          2005
+        ]
+      ]
+    },
+    {
+      "line": 1254,
+      "text": "    spawner::global_spawn_throttle();",
+      "caller": "_vehicle_spawn",
+      "caller_span": [
+        1247,
+        1299
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "global_spawn_throttle",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          142,
+          153
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__",
+    "init_female_spawn"
+  ],
+  "id": "AV0128",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/spawner_shared.gsc",
+    "sha256": "67118fbd643decd574849e707f79f0f3848a807e0c5b4dd12367dbf8416ab4d7",
+    "git_blob_sha1": "cc1ca7465e80e820edc83ac8be13ddd7f178b4d3",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/spawner_shared.gsc"
+}

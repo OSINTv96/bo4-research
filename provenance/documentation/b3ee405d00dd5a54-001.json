@@ -1,0 +1,144 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/mp_common/arena.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "097369ed79e154a2206b1cd6faac3d6c2a42a35f3d3bf477fb101a3af1347281",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-SETTINGS:pregame",
+        "answer": "pregamedraftenabled and pregameitemvoteenabled: the ONLY script read sites in the recovered corpus are mp_common/arena.gsc:45-46 inside on_connect: draftenabled = getgametypesetting(#pregamedraftenabled) == 1; voteenabled = getgametypesetting(#pregameitemvoteenabled) == 1. EARLY GUARD (40-43): return when self.pers[arenainit] is defined and equals1. Only after surviving that guard, FLOW (48-58): if !(draftenabled || voteenabled) the player self arenabeginmatch() (native builtin, no GSC body in corpus) plus a conditional pointer-record step when function_945560bf()==1, then self.pers[arenainit] = 1 (58); when either setting is 1 the call is skipped and the pregame path branch applies (draft/position-draft system: m2 unit 12 PositionDraft.serverfield uiLoaded producer, with the server reaction draft.gsc::function_4b8d2217 absent from the corpus). ARENA SYSTEM CONTEXT: arena autoexec registers system #arena (13-16); __init__ (22-32) installs on_connect/on_disconnect unconditionally and on game_playing + the advertise pointer override only under gamemodeisarena(). Precise precedence gaps, kept open rather than guessed: (1) NO recovered HMH layer sets either key (frontend 8360-8592, TU23 8719-8980, def 8244-8639, anchor rows 1-341; script/tables search zero) â€” under the exact stored expression, an absent key compares undefined == 1 which is false, so under that absent-key comparison hypothesis the arenabeginmatch request is reached only IF arena.on_connect runs in an HMH session AND the defined-and-equals1 arenainit early-return guard is not taken; a native non-falsy return of exactly 1 would flip it, which is never observed in-source; (2) whether the arena system loads (autoexec runs) inside the wz/HMH VM set is a native script-bundle question (HMH-GAP-STARTUP ownership) â€” arena is registered but no wz/HMH script imports arena.gsc, and no read of these two keys exists outside arena.gsc, so in the recovered corpus the keys are inert outside that one site; (3) the native arenabeginmatch effect on a wz/HMH connect is unknown (its name suggests pregame lobby begin; no source evidence either way); (4) the m2-recorded position-draft path (serverfield uiLoaded) is MP-arena oriented; its reachability in HMH passes through the same two keys. No claim that HMH disables the pregame flow from its mode name; only the key-value semantics can decide.",
+        "behavior": "pregame: pregamedraftenabled/pregameitemvoteenabled have a single script consumer (arena.gsc on_connect 45-58); both keys absent from all recovered HMH layers; conditional outcomes recorded (arenabeginmatch branch vs pregame branch), arena-system loading and native arenabeginmatch kept as named gaps.",
+        "unknowns": [
+          "Whether arena autoexec/__init__ runs in wz/HMH VMs (HMH-GAP-STARTUP/native bundle question)",
+          "Native arenabeginmatch behavior on wz/HMH connect",
+          "Effective values of the two keys (no recovered producer)",
+          "Position-draft UI reachability for HMH (m2 unit 12 gap)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00742",
+        "sha256": "bbbeaff13c819609c2ed609e0ca08f6ebb279e29f789beb70768dcc497206658"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "a2fa4fc7cbfe35644c66deed8a7c5e472f6d9b389b7593086e30927416654acd",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/512",
+        "record_sha256": "6a7f6611796f9069c3911714c11d1a98cbc9106f06ff4e80267a39095be90862"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "e1247cdece654214cfd397ab3c192cb9b96afc5fcc2d0dbe3c70c53a5a31d4e1",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/511",
+        "record_sha256": "3183842b4efc53695ba0c3d62cb14bcb673ea81625d4cd644f69f962c2ea8de1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "6ee044e4631fa2ab6d5f88fba281253396e03bfdbfb6d5eddec92c82ba238240",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/159",
+        "record_sha256": "6220c9bbe434961a3d239b8789eb0db57c41cad879a8f34110b4d5608de9d1ae"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "98c14204ee25561a3cf3b2837db70f2dbfe7401d43f665a2a8bcdb5d37dc9e8b",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/158",
+        "record_sha256": "a50505acccc3f1a1791871f3390bab3b3da5f3ec75316bbd69b066894aefc017"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "0cbf0bddb32fe23f09a4d4d0a3d271f8591b0fa80b0560ed09833e9ae44ccb10",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/159",
+        "record_sha256": "6220c9bbe434961a3d239b8789eb0db57c41cad879a8f34110b4d5608de9d1ae"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/b3ee405d00dd5a54.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "7a6456ac193403087148ec589f8cfe4cdcb4c0b2de48ce4af62e304c39a162f3",
+      "summary": {
+        "id": "scripts/mp_common/arena.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/158",
+        "record_sha256": "a50505acccc3f1a1791871f3390bab3b3da5f3ec75316bbd69b066894aefc017"
+      }
+    }
+  ]
+}

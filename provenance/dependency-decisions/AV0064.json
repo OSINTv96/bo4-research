@@ -1,0 +1,105 @@
+{
+  "module": "src/scripts/mp_common/challenges.gsc",
+  "identity": "scripts/killstreaks/mp/counteruav.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "counteruav",
+  "witnesses": [
+    {
+      "line": 2060,
+      "text": "            if ( victim counteruav::hasindexactivecounteruav( victimsupportindex ) )",
+      "caller": "challengekills",
+      "caller_span": [
+        1294,
+        2351
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2056,
+          "opening_line": 2059,
+          "ending_line": 2064,
+          "text": "if ( player util::has_hard_wired_perk_purchased_and_equipped() )"
+        },
+        {
+          "line": 1951,
+          "opening_line": 1954,
+          "ending_line": 2302,
+          "text": "if ( !isdefined( killstreak ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "hasindexactivecounteruav",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/ade1933265eb0cc7.json",
+          "pointer": "/claims/2",
+          "selection_id": "4f45c5d0b9a7d5fd61a321d81e15d6d23470c2c0cc81c806b70de57a3620a7df",
+          "citation": {
+            "line_start": 1294,
+            "line_end": 2351
+          }
+        },
+        "entry_function": "challengekills",
+        "entry_span": [
+          1294,
+          2351
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/ade1933265eb0cc7.json",
+          "pointer": "/claims/2",
+          "selection_id": "4f45c5d0b9a7d5fd61a321d81e15d6d23470c2c0cc81c806b70de57a3620a7df",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          812,
+          815
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0064",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/killstreaks/mp/counteruav.gsc",
+    "sha256": "a8ced5f752e29af73d419e044a9ad334bd3d41c358954b61c47164e84d01e09f",
+    "git_blob_sha1": "4ddc727f532ab6aca9a4dbf1dd1f970cb77846d4",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    2060
+  ],
+  "required_callee_functions": [
+    "hasindexactivecounteruav"
+  ],
+  "output": "src/scripts/killstreaks/mp/counteruav.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/killstreaks/mp/counteruav.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00420",
+        "to": "N02592",
+        "line": 2060
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

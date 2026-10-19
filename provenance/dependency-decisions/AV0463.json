@@ -1,0 +1,75 @@
+{
+  "module": "src/scripts/mp_common/gametypes/dev.gsc",
+  "identity": "scripts/mp_common/gametypes/dev_class.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "dev_class",
+  "witnesses": [
+    {
+      "line": 84,
+      "text": "        thread dev_class::dev_cac_init();",
+      "caller": "init",
+      "caller_span": [
+        60,
+        122
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "dev_cac_init",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/895acfab45fe716a.json",
+          "pointer": "/claims/0",
+          "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+          "citation": {
+            "line_start": 60,
+            "line_end": 124
+          }
+        },
+        "entry_function": "init",
+        "entry_span": [
+          60,
+          122
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/895acfab45fe716a.json",
+          "pointer": "/claims/0",
+          "selection_id": "754ad190ad4f3dd7eee437494c89849a175a821bf871669a236cc98e404f9723",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          12,
+          143
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0463",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gametypes/dev_class.gsc",
+    "sha256": "afe40ff7c9e2322e66716050b4f287cad6b743d910214d39faab21ab2b12d0ca",
+    "git_blob_sha1": "3e613d7e573f72b6f494cbca5092505482057655",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

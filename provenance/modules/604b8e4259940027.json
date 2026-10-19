@@ -1,0 +1,186 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "dee25d7af036040bc62d9d83593ce47b74e818b9415e18143c61742c737858cd",
+  "git_blob_sha1": "d134d754ac39b9c3749ca74782542834d020d34e",
+  "output": "src/scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc",
+  "output_sha256": "de552b9656817fa7b7d34d11d13879c6b67a78c57c14be662aa26b62ec090579",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/abilities/gadgets/gadget_concertina_wire.gsc",
+      "original_line": 1,
+      "output": "src/scripts/abilities/gadgets/gadget_concertina_wire.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/abilities/gadgets/gadget_concertina_wire.gsc",
+        "sha256": "91118ee39fca589c61bf98a62f87053bdeb59a1d8f78dc318c3f733430d29086",
+        "git_blob_sha1": "d1e5fbbdfca4b640b1f192b5b46dfda591521b76"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/system_shared.gsc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/system_shared.gsc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/system_shared.gsc",
+        "sha256": "bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb",
+        "git_blob_sha1": "922846e4c6470bd5be5ee386ca1d76e310cfb4fa"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "28d80c691dfdbe6ee66e050068451c630fb01dbfa07c4491fd90bca14700b3ff",
+      "citations": [
+        {
+          "line_start": 10,
+          "line_end": 13
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::__init__system__",
+        "behavior": "Server-side autoexec registration for the WZ concertina wire gadget. function autoexec __init__system__(): system::register( #\"concertina_wire\", &__init__, undefined, #\"weapons\" ) â€” NOTE: FOURTH register argument present here (#\"weapons\" tag) unlike the MP twins that pass undefined. No other statements (file 33 lines).",
+        "unknowns": [
+          "The fourth argument #weapons is the scalar system prerequisite registry key stored in func.reqs and used to look up level.system_funcs. Effective registration state, loading, native thread timing and actual prerequisite execution remain unverified."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE3-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00855",
+          "sha256": "13ffec962d2fe2a90139c44db023655fc9e9c5be285e19184004f7799bd9e30c"
+        },
+        "report_pointer": "/unit_reviews/8",
+        "decision_canonical_sha256": "2857bbc12bfd3f3e400ca30b8dee7a16393fa850db3322811d1d90c9e3261eba",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact wrapper.record, explicit linked replacement and assigned projections; original complete_claim_and_evidence, all written fields, source and relevant caller/callee/callback/control/error boundaries. Historical status/provenance is assessed as saved history only.",
+        "limitations": [
+          "Recovered source and saved evidence at exact pinned aliases only. All statement/request ordering is local to the reached invocation and its exact guards.",
+          "Original author identities, historical reviewer identities/statuses and old approvals are preserved as saved history; this review does not infer missing provenance or upgrade old scopes.",
+          "Original loader/global/table identity, decompiler fidelity, effective settings/assets/data, opaque callees, native ABI and VM behavior remain unproved wherever the record states them unknown.",
+          "No native/game execution, build compatibility, online/service outcome, whole-HMH completion, manager acceptance or function-completion credit is granted."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00556",
+        "sha256": "94c1b18c121dcba0766ca762bbc84c5ab964eaf6ffb4ec752b6a9d9ffbdcc378"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9d25f5a454f7ce1f5a7d994837e391e4fd64a97f6ad1b291f43f20f53acff1bc",
+      "citations": [
+        {
+          "line_start": 19,
+          "line_end": 23
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::__init__",
+        "behavior": "WZ concertina wire server init (source order): 1) init_shared( \"concertina_wire_settings_wz\" ) â€” shared server wiring of this packet with the WZ bundle key; 2) function_c5f0b9e7( &onconcertinawireplaced ) â€” installs the WZ placed hook via an unqualified opener (shared file dependency; prior notes say it is consumed by function_fc4df41e there).",
+        "unknowns": [
+          "init_shared and function_c5f0b9e7 (consumer function_fc4df41e) live in the shared gadgets/gadget_concertina_wire.gsc â€” excluded dependency; only the hook pointer is observable here"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/851",
+        "decision_canonical_sha256": "4c92988e7642dab31cf04531edea1358d188455e59c5f8c93d975e31a7ac1356",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/465",
+        "record_sha256": "3ce914e938c21b44bb25105872bafce3bc03a000c5ccc1948345b213eb939e23"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ed11666e74f64d3d1ce67e145d1bce838666dbc2e4d640c5c656ff389cb6643e",
+      "citations": [
+        {
+          "line_start": 29,
+          "line_end": 32
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/wz/gadgets/gadget_concertina_wire.gsc::onconcertinawireplaced",
+        "behavior": "WZ placed hook (function(concertinawire)) wired via function_c5f0b9e7 in __init__. Body is EMPTY (blank line plus closing brace, lines 29-32): the WZ placed hook is a placeholder at this revision â€” no state, no calls.",
+        "unknowns": [
+          "Whether the engine/client path posts an event that would call this hook is external; the local body performs nothing"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1303",
+        "decision_canonical_sha256": "8213ce570478aec7e027e38f974bcd8c73dd3e529b8a60649cdb17e15ab1f613",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/466",
+        "record_sha256": "ad7e42f28762f9215224647e4b5cf0c6d015134d550339dc106eafd09e5a3665"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/ffe2e22c7c7ba2f7.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/604b8e4259940027-001.json",
+      "sha256": "d3b56cf9b8bf6ef1a6a2215def685252f8af58f9f9b82f7508a590f5d7de8669"
+    }
+  ]
+}

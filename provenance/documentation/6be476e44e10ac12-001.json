@@ -1,0 +1,28 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/abilities/gadgets/gadget_concertina_wire.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/6be476e44e10ac12.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "fc77308c45b1816c90930317860160bf788f0787dfc8eb19270cc1ae00d03a15",
+      "summary": {
+        "unit_id": "scripts/mp_common/gametypes/battlechatter.gsc::function_f5c48bfa",
+        "behavior": "Non-dev battlechatter specialist dialog for enemy-destroyed gadget/equipment: gates in order - level.allowspecialistdialog true; attacker defined and isplayer and lacks perk specialty_quieter; gadgetweapon defined and NOT (owner defined and owner==attacker); attackerweapon (when defined) is not a killstreak weapon (killstreaks::get_from_weapon undefined); attacker has an mpdialog_player bundle; switch on gadgetweapon.name across 14 equipment identities (eq_sensor, gadget_spawnbeacon, claymore, eq_concertina_wire, gun_mini_turret, dog_ai_defaultmelee, seeker_mine_arc, ability_smart_cover, gadget_supplypod, eq_tripwire, trophy_system, eq_emp_grenade, eq_hawk, eq_shroud) with default return; on match threads function_5896274(mpdialog_value(enemyKillDelay,0), dialogkey, 2, undefined, undefined, cancel_kill_dialog) and for seeker_mine_arc additionally function_a43a3519. HMH-path limit: level.var_d2600afc is stored unconditionally in battlechatter __init__ (line 48, non-dev); 17 literal field-dispatch statements across14 files in2632 pinned GSC/CSC files; one statement/file is Zombies-only, leaving16 non-Zombies statements across13 files. The non-Zombies dispatch sites retain defined-pointer and their own weapon/attacker/owner/mode guards. The target also retains its dialog/player/perk/gadget/owner/weapon/bundle early-return gates. These are conditional potential source destroy routes; imports or a different battlechatter call do not prove those routes load or execute in an actual HMH VM; the dialog side effects require the HMH value of level.allowspecialistdialog (mpdialog bundle enableherodialog x getgametypesetting(allowbattlechatter)), which is unknown in this packet. The historical audited exclusion (sensor_dart wrapper function_4db10465 threading function_c142e8ec(undefined,undefined) so line 326 fails) is a path-level exclusion only - the same function_c142e8ec still dispatches at 338 for defined enemy attackers, and 15 other non-Zombies call sites (plus the separately scoped Zombies site) are untouched; no global exclusion is proposed.",
+        "unknowns": [
+          "Original-build presence of battlechatter in the warzone VM and the runtime value of allowbattlechatter/enableherodialog for warzone_heavy_metal_heroes",
+          "Which destroy drivers reach each of the16 non-Zombies dispatch sites in HMH matches (the17th site is Zombies-only) (event/native damage delivery unproven)",
+          "function_5896274/function_a43a3519 dialog delivery and native audio outcomes",
+          "getmpdialogname home file and bundle semantics",
+          "zm_weap_mini_turret call site VM scope (zm context only, not HMH)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00411",
+        "sha256": "9e591d0ec98fa5549ed8b13b44cabbcf7202a924dae454fcab966b6867c0a43c"
+      }
+    }
+  ]
+}

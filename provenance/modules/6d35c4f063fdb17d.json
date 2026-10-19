@@ -1,0 +1,201 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "hashed/34333578c2f9fbc6.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "1e2c921e7bdc1f465a126bf2177e63e629d5829230136c5097671d21deaa5990",
+  "git_blob_sha1": "acbc59cf3ecee70097784f30795d925c1ce610de",
+  "output": "src/lua/hashed/34333578c2f9fbc6.lua",
+  "output_sha256": "ffa7a9155059c3d5f1eaaa6db12f0dd41f464c4d50923f7c31c7b6af87f9b7ab",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [],
+  "claims": [
+    {
+      "selection_id": "b22cfec773f82c153918f9d26d8c2136a0631fc70a8759735edf3571f26eaec4",
+      "citations": [
+        {
+          "line_start": 51,
+          "line_end": 51,
+          "file_sha256": "1e2c921e7bdc1f465a126bf2177e63e629d5829230136c5097671d21deaa5990",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 51,
+          "line_end": 51,
+          "file_sha256": "1e2c921e7bdc1f465a126bf2177e63e629d5829230136c5097671d21deaa5990",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:269",
+        "answer": "Rejects vehicle, remote-control or view-only-linked players. Applies team-owner-specific objective flag gates unless the arg2/arg3/objective override holds; only then forwards objId and predicted client number to objectiveisplayerusing. Rejects demos and non-Warzone/nonfull inventory; otherwise tests ALSO_ALLOW_SWAP in HUDItems.weapon3dHintState, defaulting that value to0. Preserves the exact direct source forwarding contract: return CoD.WaypointUtility.ConvertToColorInternal( f110_local0 .. \"_Base\", f110_local0 ). Other ordered reads/writes below occur before this return; callee/native effects and missing-input error behavior remain external. Preserves the exact direct source forwarding contract: return CoD.WaypointUtility.ConvertToColorInternal( f111_local0 .. \"_Muted\", f111_local0 ). Other ordered reads/writes below occur before this return; callee/native effects and missing-input err [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.ShowTriangleFullInventoryPickupPrompt",
+            "symbol": "DataSources.HUDItems.getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 831,
+              "line_end": 831,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "1d02336658ff4f34d82697f0d1fea6e549886f95200ea35e83f6e5ae0ebb2670",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f50_local0 = DataSources.HUDItems.getModel( f50_arg0 )",
+            "scope_id": "lua/ui/utility/hudutility.lua:825-834",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.ShowTriangleFullInventoryPickupPrompt",
+            "symbol": "f50_local0.weapon3dHintState:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 832,
+              "line_end": 832,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "819deff7067878ecc637b5cfe7a455c605104a3cfe5e54d93467140b4f76da72",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\treturn CoD.BitUtility.IsBitSet( f50_local0.weapon3dHintState:get() or 0, CoD.HUDUtility.Weapon3DHintStateFlags.ALSO_ALLOW_SWAP )",
+            "scope_id": "lua/ui/utility/hudutility.lua:825-834",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.GetCurrentAmmoPipWipeValue",
+            "symbol": "DataSources.CurrentWeapon.getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 3689,
+              "line_end": 3689,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "239956bbeb67cec171e49b67b26cb9d30328b862d716dde5a7207d0a22695a14",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f262_local0 = DataSources.CurrentWeapon.getModel( f262_arg0 )",
+            "scope_id": "lua/ui/utility/hudutility.lua:3688-3695",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.GetCurrentAmmoPipWipeValue",
+            "symbol": "f262_local0.ammoInClip:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 3692,
+              "line_end": 3692,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "6267c93e2be0e83f504a6f31cd94def66bbc26cdb03f7e23a21941aee3a22d44",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf262_local1 = (f262_local0.ammoInClip:get() or 1) / (f262_local0.clipMaxAmmo:get() or 1)",
+            "scope_id": "lua/ui/utility/hudutility.lua:3688-3695",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.GetCurrentAmmoPipWipeValue",
+            "symbol": "f262_local0.clipMaxAmmo:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 3692,
+              "line_end": 3692,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "6267c93e2be0e83f504a6f31cd94def66bbc26cdb03f7e23a21941aee3a22d44",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf262_local1 = (f262_local0.ammoInClip:get() or 1) / (f262_local0.clipMaxAmmo:get() or 1)",
+            "scope_id": "lua/ui/utility/hudutility.lua:3688-3695",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:269",
+            "source_symbol": "CoD.HUDUtility.ThrustMeter_Color_Lerp",
+            "symbol": "f305_arg0:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/hudutility.lua",
+              "line_start": 4126,
+              "line_end": 4126,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "7e706c757290e3c827d35ddd56a05e230bd4ffd597b79968fc49c556a14aef80",
+              "line_span_sha256": "c5f9e26163531d1760c214ee8952ae7964a00cf7a81ff4149dfca9619fd93597",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf305_arg0:setRGB( f305_arg1.r * (1 - f305_arg3) + f305_arg2.r * f305_arg3, f305_arg1.g * (1 - f305_arg3) + f305_arg2.g * f305_arg3, f305_arg1.b * (1 - f305_arg3) + f305_arg2.b * f305_arg3 )",
+            "scope_id": "lua/ui/utility/hudutility.lua:4124-4127",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CORRECTION-REVIEW-SOURCE2-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00859",
+          "sha256": "ae306456eeeaae0bbb7c6e5539106f1c3048b66f6f0253bc2d0750f0363c7e9c"
+        },
+        "report_pointer": "/unit_reviews/36",
+        "decision_canonical_sha256": "a7cb106d7e4bc45ac3dcc15617aed296b23e9b44ba454462c4d978d2bc53e73e",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete frozen current wrapper.record, including unchanged semantic fields, reused caller/companion statements, identity/provenance/status limits and all explicit linked semantic replacements/current projections; original complete claim and necessary exact original source/caller/callback/error witnesses. Exact written static scope only.",
+        "limitations": [
+          "Pinned recovered-source written scope only; original bytecode/PS4 build/native/VM binding, effective settings, model/asset/enum/provider facts, online/server/service effects and runtime remain unknown where the subject marks them unknown.",
+          "Preserved old author/reviewer/manager/status/credit fields are historical facts or unverified provenance, not upgraded original identity or current acceptance.",
+          "Byte, source-text, pointer and format checks support this comparison but do not supply semantic acceptance by themselves."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00127",
+        "sha256": "1bc6ffdb2a8a96ce3b93f368905a6d9da4dd521e8094990d7fe29de5d0bec84f"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/1f807954b111ad57.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/6d35c4f063fdb17d-001.json",
+      "sha256": "6f0e6cc1bf83402d4db03b217727b4fc73f81760a819fcee21bbab8ca9dadd40"
+    }
+  ]
+}

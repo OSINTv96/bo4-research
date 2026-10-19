@@ -1,0 +1,173 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_array_broadcast.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1292cbae0e3467bc18eccce7a23f5644936f394b89ed9cfe6e772d94adcc60f7",
+      "summary": {
+        "unit_id": "scripts/wz_common/wz_array_broadcast.gsc::function_1e224132",
+        "behavior": "Array-broadcast TV stat counter delivered through the dynent_world use pipeline. Registration chain (source-only): wz_array_broadcast __init__system__ registers #'wz_array_broadcast' (11-14); the separate autoexec __init computes level.var_47f205b = getgametypesetting(#\"hash_3778ec3bd924f17c\") && getgametypesetting(#\"hash_24e281e778894ac9\") default 0 (20-23); __init__ threads function_2bbffff9 (29-32). function_2bbffff938-69 first requests hidemiscmodels(\"array_tv_on\")40 unconditionally and sets level.var_e46e7048=0 at41. The falsey feature branch reads the dynent array, calls item_world::function_1b11e73c, requests state3 for the saved getdynentarray entries, calls function_4de3ca98, requests state3 for those entries again, then returns. Only the other branch reaches the onuse stores; state3 meaning and any actual visual/hide outcome are unknown. If the feature branch is enabled and reached, it sets var_2eb2cfa9.onuse = &function_1e224132 on every dynent of getdynentarray(\"array_broadcast\") (67). Delivery/consumer join (source-visible): dynent_world __init__ gated by getgametypesetting(#\"usabledynents\") default 0 (dynent_world.gsc 21-26); on_player_connect creates per-player trigger_radius_use (44-56, 83-99); update_loop (105-134) runs function_2f394f36 per player (140-246) scanning in-view dynents (function_db4bc717 box query), rejecting negative view dots, active cooldowns, a defined locked/prematch-disallowed bundle state, and failed defined canuse callbacks; bundle/state presence is not a positive pairing guard, pairing trigger.var_a9309589; player holds use through function_2b9e2224 (293-354) which after trigger.usetime calls trigger use_dynent( dynent, self ) (329); use_dynent (399-445) reads bundle state, computes var_9bdcfcd8 front/back from state.var_8a7fcb87/var_afc94db1 via view dot, plays gesture state.var_20630681, dispatches succeeded = dynent thread [[ dynent.onuse ]]( activator, stateindex, var_9bdcfcd8 ) at 431-433; when succeeded is undefined or == 1, setdynentstate(dynent, var_9bdcfcd8); thread-result and VM scheduling semantics remain unresolved. Target behavior: if level.var_e46e7048 === 0 && isplayer(activator) -> activator stats::function_d40764f3( #\"activation_count_broadcast\", 1 ). Sibling source event87-103 first returns89-92 if isdefined(level.var_47f205b) AND !level.var_47f205b. Only after that guard, targetname===\"array_broadcast\" AND state===1 AND !level.var_e46e7048 reach its flag1 store and model requests. Undefined feature flag does not trigger that first return. Actual event delivery/state/model effects remain unknown.",
+        "unknowns": [
+          "Playlist/gametype values for hash_3778ec3bd924f17c and hash_24e281e778894ac9 and usabledynents in the HMH ruleset (tables outside script corpus).",
+          "Whether \"array_broadcast\" dynents and their dynentstate bundles exist in an HMH match (map data outside scripts; bundle getter function_489009c1 definition absent from corpus).",
+          "stats::function_d40764f3 exact store semantics (native stats interface).",
+          "Native behavior of per-player trigger_radius_use and clientfield hudItems.dynentUseHoldProgress registration (13000, 5, float)."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00599",
+        "sha256": "64fd195ccb8b32e97010576f5b07fb6a99e07fbd9003d0333a5711720691ce58"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "5dd23963be1bbf383f8c3e0250c1d50561a635cf3ca206f01e09d037ed41d441",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__system__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/732",
+        "record_sha256": "332b5c475302e311a69799676ed1d86cc39d5fb0708daa8ff8083e9cff452f84"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "6e17df8033df5838714a5503809e0f56140a760a2e9e9ebc2504df91d13f47c8",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "registered_system_pre_or_post_initializer"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/731",
+        "record_sha256": "38fad9bf483eab514f02426fd77a42492dd139d26c137dc53ed50d75a435d320"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "bcc0a68f51197951ccb7d52f94c134ac4fffa5d52bd7c55bd179a969e5293352",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/730",
+        "record_sha256": "1ca7b284562b84fae47dc76326cb882617c5e499a22399075467a43be3e85117"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "f333058d0d66378704c2bf997185f5ab92d01d9e60d7b18131c8dac532fd87cf",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1042",
+        "record_sha256": "eb67f73a22af17529f837b46b8ee99e5d6e0cb4a365bd0fba40539cdfc66545c"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "3543b0d5f90f997dc4ae83c80892c52ad639159c0bd6583340ab77bd4e186c53",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/258",
+        "record_sha256": "196ff3b2f5f2a40978e2db3f7bccf1325c90832f7de42a7b9f4f7f3ef2e6afb1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "cbda3bfdc264280532249445da4e651c57043f1374b226482071ceb1424a63c7",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/257",
+        "record_sha256": "c35d572cb367a5920be9804889d949d6818580f44def8132edee1037000d6baa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "a7e5dbbf0c4cbce208e1921fe29fc2f6a297cfea2f1c6fb5b2f761a93531f04b",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/258",
+        "record_sha256": "196ff3b2f5f2a40978e2db3f7bccf1325c90832f7de42a7b9f4f7f3ef2e6afb1"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7b0c275527d3558c.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "fc0d7d132631d555f7e8b9318215d1a36be085688ca13225c94a96dd06a43d0d",
+      "summary": {
+        "id": "scripts/wz_common/wz_array_broadcast.gsc::__init__system__",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/257",
+        "record_sha256": "c35d572cb367a5920be9804889d949d6818580f44def8132edee1037000d6baa"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_spectre.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/ae066bae3461cc94.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "5170a68bebfb1873f5d93b466ac5231055cba6d57da3b8ae08c316157defc728",
+      "summary": {
+        "unit_id": "hmh-item:HMH-ITEM-LIFETIME-10:10-reset-respawn",
+        "answer": "The reset connection is a conditional cross-phase replacement, not an atomic respawn cleanup. It disables offhands and sets a reset flag before a native-use wait; early return or receiver cancellation can bypass its clear/reenable tail. A normal path requests item removal, optionally calls the current loadout pointer, replaces inventory with31 blank slots and dispatches inventory_reset after clearing its flag. It does not join older health/debit/removal threads or directly clear all health readiness fields. Spawn only conditionally initializes missing inventory in its own callback, and the world flag barrier is not a child-thread join. Old captured numeric IDs and object references therefore retain explicit cross-reset identity/scheduling gaps. All claims are bounded recovered-source drafts; original HMH build/settings/native behavior remains unproved.",
+        "unknowns": [
+          "No guaranteed cleanup after early return, death/disconnect termination, opaque pointer failure or a nonterminating native-use wait. External cleanup is neither proved nor excluded.",
+          "No generation-token guarantee or original network-ID uniqueness/recycling proof across inventory replacement; previous references may outlive the receiver-field assignment under unknown VM semantics.",
+          "Reset/init directly leave the separately named busy and type23 markers alone in cited spans. Native callbacks or other source paths may clear them; global absence is not claimed.",
+          "The world barrier has independent player snapshots, alive/defined filters and no explicit reset-thread join. Original scheduler interleaving and actual HMH route selection remain open."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00147",
+        "sha256": "8bdf1a1ba2c5632297381c45f59fe319116b70c48b5811fd3e5812e5c93fae04"
+      }
+    }
+  ]
+}

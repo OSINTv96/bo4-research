@@ -1,0 +1,214 @@
+{
+  "module": "src/scripts/core_common/vehicle_shared.gsc",
+  "identity": "scripts/core_common/vehicle_death_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "vehicle_death",
+  "witnesses": [
+    {
+      "line": 376,
+      "text": "            self thread vehicle_death::ground_vehicle_crash();",
+      "caller": "path_detour",
+      "caller_span": [
+        356,
+        404
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 372,
+          "opening_line": 374,
+          "ending_line": 378,
+          "text": "if ( isdefined( self.script_crashtypeoverride ) && self.script_crashtypeoverride === \"ground_vehicle_on_spline\" )"
+        },
+        {
+          "line": 369,
+          "opening_line": 372,
+          "ending_line": 385,
+          "text": "if ( crash_detour_check( detourpath ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "ground_vehicle_crash",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1450,
+          1513
+        ]
+      ]
+    },
+    {
+      "line": 777,
+      "text": "                self thread vehicle_death::deathrolloff();",
+      "caller": "paths",
+      "caller_span": [
+        611,
+        915
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 774,
+          "opening_line": 776,
+          "ending_line": 778,
+          "text": "if ( currentpoint.script_deathroll == 0 )"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 783,
+          "text": "if ( isdefined( currentpoint.script_deathroll ) )"
+        },
+        {
+          "line": 636,
+          "opening_line": 639,
+          "ending_line": 896,
+          "text": "while ( isdefined( currentpoint ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "deathrolloff",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1202,
+          1206
+        ]
+      ]
+    },
+    {
+      "line": 781,
+      "text": "                self thread vehicle_death::deathrollon();",
+      "caller": "paths",
+      "caller_span": [
+        611,
+        915
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 778,
+          "opening_line": 780,
+          "ending_line": 782,
+          "text": "else"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 783,
+          "text": "if ( isdefined( currentpoint.script_deathroll ) )"
+        },
+        {
+          "line": 636,
+          "opening_line": 639,
+          "ending_line": 896,
+          "text": "while ( isdefined( currentpoint ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "deathrollon",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1190,
+          1196
+        ]
+      ]
+    },
+    {
+      "line": 1457,
+      "text": "        vehicle thread vehicle_death::main();",
+      "caller": "init",
+      "caller_span": [
+        1305,
+        1485
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1452,
+          "opening_line": 1456,
+          "ending_line": 1458,
+          "text": "#/\n    \n    if ( !vehicle vehicle_ai::function_6c17ee49() )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "main",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          48,
+          250
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0131",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/vehicle_death_shared.gsc",
+    "sha256": "6669388243f401df7cc4cc38189749a034f3ba3d17d7ba05aeedc5d530709ced",
+    "git_blob_sha1": "a8ac146dd5a9cd499863d8cfa23717e501d2558e",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/vehicle_death_shared.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    777,
+    781,
+    1457
+  ],
+  "required_callee_functions": [
+    "deathrolloff",
+    "deathrollon",
+    "main"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/vehicle_death_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03911",
+        "to": "N04665",
+        "line": 1457
+      },
+      {
+        "from": "N05070",
+        "to": "N05372",
+        "line": 777
+      },
+      {
+        "from": "N05070",
+        "to": "N05373",
+        "line": 781
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

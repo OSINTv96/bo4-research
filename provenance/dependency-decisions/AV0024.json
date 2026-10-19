@@ -1,0 +1,173 @@
+{
+  "module": "src/scripts/abilities/gadgets/gadget_smart_cover.gsc",
+  "identity": "scripts/core_common/scoreevents_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "scoreevents",
+  "witnesses": [
+    {
+      "line": 1183,
+      "text": "            scoreevents::processscoreevent( #\"deployable_cover_assist\", var_71eedb0b, victim, level.smartcoversettings.smartcoverweapon );",
+      "caller": "function_92112113",
+      "caller_span": [
+        1126,
+        1188
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1180,
+          "opening_line": 1182,
+          "ending_line": 1184,
+          "text": "else"
+        },
+        {
+          "line": 1173,
+          "opening_line": 1176,
+          "ending_line": 1185,
+          "text": "if ( isdefined( var_71eedb0b ) && isdefined( var_a3aba5a9 ) && var_a3aba5a9 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/96bba95602cadf73.json",
+          "pointer": "/claims/27",
+          "selection_id": "d88a34e47b6c597cc30fea98109b8195d8d851799fb56995114b4586c49290d0",
+          "citation": {
+            "line_start": 1122,
+            "line_end": 1188
+          }
+        },
+        "entry_function": "function_92112113",
+        "entry_span": [
+          1126,
+          1188
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/96bba95602cadf73.json",
+          "pointer": "/claims/27",
+          "selection_id": "d88a34e47b6c597cc30fea98109b8195d8d851799fb56995114b4586c49290d0",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    },
+    {
+      "line": 1541,
+      "text": "                scoreevents::processscoreevent( #\"hpm_suppress\", turret.owner, entity, level.smartcoversettings.smartcoverweapon, turret.playersdamaged.size );",
+      "caller": "microwaveentity",
+      "caller_span": [
+        1412,
+        1547
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1537,
+          "opening_line": 1540,
+          "ending_line": 1542,
+          "text": "if ( !( isdefined( level.smartcoversettings.bundle.var_74dcfa31 ) ? level.smartcoversettings.bundle.var_74dcfa31 : 0 ) && entity.microwaveeffect % 3 == 2 )"
+        },
+        {
+          "line": 1509,
+          "opening_line": 1512,
+          "ending_line": 1543,
+          "text": "if ( isplayer( entity ) && isdefined( entity.clientid ) )"
+        },
+        {
+          "line": 1450,
+          "opening_line": 1453,
+          "ending_line": 1546,
+          "text": "while ( true )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "processscoreevent",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/96bba95602cadf73.json",
+          "pointer": "/claims/21",
+          "selection_id": "900ca88d3ea518ebefa5df367aef6a5ef4e54c81ac004bc2bcfd4b1df50e6a02",
+          "citation": {
+            "line_start": 1408,
+            "line_end": 1547
+          }
+        },
+        "entry_function": "microwaveentity",
+        "entry_span": [
+          1412,
+          1547
+        ],
+        "local_references": []
+      },
+      "selected_claims": [
+        {
+          "record": "provenance/modules/96bba95602cadf73.json",
+          "pointer": "/claims/21",
+          "selection_id": "900ca88d3ea518ebefa5df367aef6a5ef4e54c81ac004bc2bcfd4b1df50e6a02",
+          "has_behavior_summary": true
+        }
+      ],
+      "callee_spans": [
+        [
+          35,
+          166
+        ]
+      ]
+    }
+  ],
+  "assessment": "selected_caller_reference",
+  "callee_autoexec": [],
+  "id": "AV0024",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/scoreevents_shared.gsc",
+    "sha256": "b6e72beebaa342a154e9feac98dab7e954a696d2462243dabd0a6342f7eac4c8",
+    "git_blob_sha1": "3786084f4a5546a856a9f5ae16c98456f3a772ac",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1183,
+    1541
+  ],
+  "required_callee_functions": [
+    "processscoreevent"
+  ],
+  "output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/scoreevents_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00117",
+        "to": "N02291",
+        "line": 1183
+      },
+      {
+        "from": "N00127",
+        "to": "N02291",
+        "line": 1541
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

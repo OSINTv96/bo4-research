@@ -1,0 +1,67 @@
+{
+  "module": "src/scripts/mp_common/gametypes/koth.gsc",
+  "identity": "scripts/core_common/popups_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "popups",
+  "witnesses": [
+    {
+      "line": 797,
+      "text": "            level thread popups::displayteammessagetoall( string, player );",
+      "caller": "give_capture_credit",
+      "caller_span": [
+        768,
+        825
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 782,
+          "opening_line": 785,
+          "ending_line": 819,
+          "text": "if ( !isscoreboosting( player ) )"
+        },
+        {
+          "line": 771,
+          "opening_line": 774,
+          "ending_line": 824,
+          "text": "foreach ( touch in touchlist )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "displayteammessagetoall",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          748,
+          776
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0492",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/popups_shared.gsc",
+    "sha256": "4802b071c218243530dc7097816ca16bfa70f244158bedb0e32ee43201b75d3d",
+    "git_blob_sha1": "a82f07d72070c479ca383557fe55591f623d2054",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/popups_shared.gsc"
+}

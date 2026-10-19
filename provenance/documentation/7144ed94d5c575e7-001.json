@@ -1,0 +1,580 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/core_common/system_shared.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "07b692a936d77e14a80272f635d441b726ef12ae9ece5a5cdb06f2add8011bd0",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::run_pre_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/907",
+        "record_sha256": "e4c15a283722163c57ca3433ee7533537aaea75b35e5e0a05af75426ee71d587"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "0d05c5c075e27ad08db01e6ea2df09f904178b135d862aa07f5746c25542a6b6",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:run_post_systems@system_shared.csc",
+        "answer": "Source-visible answer: the batch postinit driver, the terminal point of the ordering graph. It iterates the whole registry: for each entry run the requirement resolver (88) and spawn exec_post_system (89); after iterating set the level flag system_init_complete (92) - the signal every system::wait_till blocks on - and destroy the registry (93), without a join proving postfunc completion. register can recreate the cleared table; clearing does not prove lifetime inactivity. Its single caller is the native level_finalizeinit event handler codecallback_finalizeinitialization (callbacks_shared.gsc 1095 / csc 502). Sequence inside one native event: run_post_systems() THEN callback(#on_finalize_initialization) (1096) - so wz_open_skyscrapers gsc/csc on_finalize_initialization handlers (registered at wz_open_skyscrapers.gsc 47 / .csc 27; bodies gsc 129-133 / csc 81-85 leading to the wzheavymetalheroes-gated hmh_ramp dynent enable function_7276b578 gsc 160-175) are dispatched after the driver has spawned its batch, set the flag and cleared the registry; this does not establish that all spawned postfuncs have completed. Exact native-entry boundary: the event name and handler annotation event_handler[level_finalizeinit] (callbacks_shared.gsc 1093) are source-recorded; the engine call site and event order are not - recorded as the exact minimum evidence request.",
+        "behavior": "Batch postinit driver. run_post_systems(): foreach over level.system_funcs calling function_5095b2c6(func) (requirement resolver) and spawning thread exec_post_system(func) per entry (86-90); then level flagsys::set(\"system_init_complete\") (92) and level.system_funcs = undefined (93). The set() both flags completion and notifies all waiters (flagsys_shared.csc 9-18: self.flag[str]=1; self notify(str)); the registry is cleared only after the foreach returns - the spawned exec_post_system threads run against records that were just deleted from the array but remain valid via the func references captured in the spawn calls. Sole caller: callbacks_shared event_handler[level_finalizeinit] codecallback_finalizeinitialization (gsc 1093-1097 / csc 500-504), which calls run_post_systems() first and THEN dispatches callback(#\"on_finalize_initialization\") to all add_callback registrants (dispatch mechanism callbacks_shared.gsc 17-25, 60-107). The registry is undefined after the driver; register() can recreate it, so lifetime inactivity is not established. util_shared.gsc::__main__ waits on this flag while its postfunc is still incomplete.",
+        "unknowns": [
+          "Engine call site/order of level_finalizeinit (native)",
+          "Completion guarantee of spawned postinits before the finalize callback dispatch (native scheduler)",
+          "Retail behavior after registry clear (any register() call would recreate level.system_funcs)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00072",
+        "sha256": "5dd83a6f593ad1f1423431c250f4d6a2cb8958980f51650c6b73221c44d88ef2",
+        "pointer": "",
+        "record_sha256": "76cfd3b6723685a7f77307c35a90363a293e7c7b600190611b4a16cf398acd2e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "1384b8ada2b44022b52b76f3622044fca6fd3cfb9164385d52a2afc5d2e30cb6",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:exec_pre_system@system_shared.csc",
+        "answer": "Source-visible answer: preinit invocation body; suppresses calls after predone becomes true; no unconditional once-only guarantee exists during a yielding/reentrant prefunc, invokes prefunc synchronously and sets predone AFTER the body (114-115) - mirror-image of the post side where postdone is set before. Dependency behavior: requirement threading via function_8dfa23e0 with no join (109-112); ignore/undefined records skipped (102-105). Reached only from run_pre_systems (152) and the requirement resolver (132/139); no external caller exists in the corpus. Pre phase sets NO completion flag (run_pre_systems 147-154 has no flagsys::set) - the first observable signal is only at post phase (system_init_complete); so a script cannot source-visibly wait for 'preinit finished' - only for 'post phase done'. HMH linkage: wz-relevant preinits observed via mp_common/callbacks.gsc set_default_callbacks (65-98, installs level callback pointers consumed by g3's delivery units) and the hashed map systems' prefuncs (e.g. script_34e49e82e2f499e1 __init__ threads init_switch/function_920f9a6/function_624de77b 33-38); wz main itself is not a system prefunc - it is an event handler with relative order to this phase unproven.",
+        "behavior": "Preinit invocation executor. exec_pre_system(func): returns when record undefined or func.ignore set (102-105); if !func.predone: if func.reqs defined call function_8dfa23e0(func) (109-112), then synchronously invoke [[func.prefunc]]() and only then set func.predone=1 (114-115). predone-after-body means a prefunc is fully executed before its record is marked done; predone is only set after prefunc returns; successful prior completion suppresses later calls, but no in-progress guard excludes reentrancy or another call while prefunc yields; VM scheduling remains unknown. All entry paths spawn: run_pre_systems threads it per registry entry (system_shared.csc 152) and function_8dfa23e0 threads it per requirement (132, 139); there is no synchronous exec_pre_system call site in the corpus. The prefunc bodies observed in the wz-relevant set perform pointer/table installs and thread workers (mp_common/callbacks.gsc set_default_callbacks 65-98; script_34e49e82e2f499e1.gsc __init__ 33-38). Client twin identical (script/scripts/core_common/system_shared.csc 100-117).",
+        "unknowns": [
+          "Engine order of level_preinit vs level_init/gametype_init and autoexec timing (native)",
+          "Prefunc thread interleaving with the spawning loop",
+          "Whether any HMH-loaded prefunc fails on unregistered reqs (assert) in retail"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00268",
+        "sha256": "27471272dfbd1bd59fa2d743e50aec13e3f3e92ef20ab18c33b05500a8068e87",
+        "pointer": "",
+        "record_sha256": "5976a9399911fc35e5a5e0597570b7ac6d14f3bef1bdcae8072b6d999fa55f0d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "280f79ec7c2e2190ac5396714557e9405051e370609e9659279596e2b401ad8c",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::register",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/903",
+        "record_sha256": "836e3e8fee899f7668bdb19528136f25c2b7e89dcbc982a5b268a1bdf01812b5"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_8dfa23e0@system_shared.csc",
+        "answer": "Source-visible answer: the preinit requirement resolver; the pre-side twin of function_5095b2c6 WITHOUT the predone||ignore assert. If func.reqs is defined: array case asserts each element then thread-spawns exec_pre_system(level.system_funcs[req]) per element and returns (129-135); scalar case asserts the registry entry exists (138) and thread-spawns exec_pre_system for it (139). No waiting: dependency scheduling is asynchronous spawn-only; ordering between requirement and dependent preinits is scheduler-dependent, each spawned call re-checks undefined/ignore/predone before running, duplicates after completed predone are suppressed, but there is no in-progress guard for reentrant/yielding calls; VM scheduling remains unresolved. Two direct callers: exec_pre_system111 and run_pre_systems151. Driver resolution at151 is followed by executor spawn152; executor can resolve requirements again before predone is set. HMH linkage: registry entries loaded into the HMH VMs with reqs - observed wz-relevant scalar reqs: hash_280fe2667ed2d300 requires #item_supply_drop (script_71e26f08f03b7a7a.gsc 14), killstreaks supplydrop/uav require #killstreaks (supplydrop.gsc 44, uav.gsc 28) - these exact records are resolved by this function during level_preinit, provided the bundles load (open native boundary).",
+        "behavior": "Pre requirement resolver (no assert on predone here - the corresponding predone||ignore check belongs to the post-side resolver function_5095b2c6 line 60). function_8dfa23e0(func): if func.reqs defined: array case - foreach req: assert(isdefined(req), devx120) then thread exec_pre_system(level.system_funcs[req]); return (127-135); scalar case - assert(isdefined(level.system_funcs[reqs]), devx120, with ishash/hashtostring dev rendering) then thread exec_pre_system(level.system_funcs[reqs]) (137-139). Spawn-only: neither path waits for the requirement preinit to complete or even to start; each spawned exec_pre_system independently checks !defined/ignore/!predone (102-107) before running but predone is set only after prefunc returns; reentrant calls or other calls while it yields can still see false predone. Called directly from exec_pre_system111 and run_pre_systems151 in this VM twin. Both VM twins identical (csc/gsc 123-141).",
+        "unknowns": [
+          "Thread spawn ordering vs dependent (native VM scheduler)",
+          "Retail assert handling",
+          "Array-form reqs use in retail HMH bundles (unobserved)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00074",
+        "sha256": "09ca5f24279cde5f0c717290725b25bfb7d4223b6e5c600d11db11255dd18945"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "3cf33b99f7ac81d380fcaae31548d06a2dbeb5a70a83f131e51c7629f497d26b",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:wait_till@system_shared.csc",
+        "answer": "The selected wait_till(required_systems) helper160-163 never reads its argument and only requests level flagsys::wait_till(\"system_init_complete\"). This API therefore does not select a named per-system dependency. The compared run_post_systems84-94 driver launches exec_post_system threads during88-93, then requests the system_init_complete flag and clears the registry without joining those workers. That flag is a post-driver launch-iteration signal, not proof every postfunc completed. The flagsys helper85-93 checks get(str_flag), waits while falsey and rechecks; a truthy flag at entry avoids the local wait. Exact native wake/death/error handling and scheduling remain unknown. Observed bounded callers include util_shared.gsc __main__45, mp_common/load.gsc35 and load.csc37; the latter are called from wz_open_skyscrapers.gsc53 / csc30. zm_common/load.csc76 and zm/load.gsc59 are context-only callers. The util postfunc itself waits at45 and still has function_3cb7a62d46 to execute after it resumes; no author-intent or all-postfunc-completion inference follows. The load callers request load_main_complete at their following36/38 statements if control reaches them after the observed flag. A persistent falsey flag with no cancellation/other exit can retain the wait; there is no local timeout. Missing level_finalizeinit is a possible unmet-producer condition, not proof that no dynamic/other writer or native exit can exist.",
+        "behavior": "Both saved system_shared VM twins160-163 contain the same single level flagsys::wait_till(\"system_init_complete\") request and unused required_systems formal. flagsys_shared.csc85-93 installs self endon(#death), loops on !get(str_flag), requests self waittill(str_flag) and rechecks; set9-18 stores then requests notify. The compared post driver launches without a completion join, so its flag does not certify completed post functions. util_shared registration21-24 supplies __main__ as postfunc; __main__45 waits and46 still calls function_3cb7a62d afterward. Map load waits are flag-observation boundaries, with subsequent load_main_complete requests if reached, not joins of all system work. Actual registration delivery, scheduling, wait wakeup/death/error outcomes and original VM/build/runtime remain unproved.",
+        "unknowns": [
+          "Original retail level_finalizeinit delivery, actual flag producers and native scheduling/wakeup/cancellation behavior; unmet flag can retain a wait but no universal hang outcome is proved.",
+          "Level 'death' endon semantics on level-owned waits (native)",
+          "This selected API ignores required_systems and observes only the shared flag; any finer dependency/completion requirement needs separately evidenced support."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00006",
+        "sha256": "97bf508b7c3b1f9a42326e062eea6be8f2ec56919b5d8f245894e4cfcbe0c54b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "44a411c835514410be5c5bdf79a48201b7d5c8763586a46763b9cd9c5a210bd5",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::wait_till",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/908",
+        "record_sha256": "5a345ff51794ba76809ff9ded3e370e032b7b94df3f14b37b8880cc198939581"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "4a02c2c576482259ad38f45dcbcd2630bf2172adede18f462a69260844b0f829",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::exec_post_system",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/413",
+        "record_sha256": "17e9601a1a124f1b19828fba8dccb9c9d1238b74f7ef2c0264a5a166c037054a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "4e2c4d2705a9b708dea31879efd95ea5beae422adc2a815ddcfafe3e4cfc3bfe",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:register@system_shared.gsc",
+        "answer": "Server-VM twin of unit 1: byte-level answer identical (file scripts/core_common/system_shared.gsc sha bf6d03b7..., lines 9-29 textually equal to the csc). Everything recorded for unit 1 holds with the gsc file as the anchor: existing ignore=1 permits repeated duplicate-call early returns without clearing ignore, whether the record began as a placeholder or real registration later marked by ignore (11-15), pure state store with predone/postdone from pointer presence, ignore=0 (17-28). Server-VM-specific registrant evidence observed: mp_common/callbacks.gsc 23-26 (callback), util_shared.gsc 21-24, hashed gsc systems script_34e49e82e2f499e1.gsc (hash_18ce058ad321248f with extra autoexec __init reading wz setting pairs hash_3778ec3bd924f17c combos at 22-27), script_5f3e7d348fbc5283.gsc, script_71e26f08f03b7a7a.gsc (req item_supply_drop), script_7611295950bc2c87.gsc, killstreaks/mp/*.gsc. Ordering graph, dependency-wait facts and native-entry boundary are per unit 1; this record pins the SERVER (gsc) copy that the HMH rotation's gametype/map server VM would execute per the m1 unknown-#1 bundle question.",
+        "behavior": "Server twin of the registration store (file sha256 bf6d03b7861a0488df785d559505223f11f7b2b528fe679bb1a824bb1ec7b9eb, lines 9-29 textually identical to the csc twin, same body sha semantics). Stores per-name records in the SERVER VM's level: duplicate-name early return gated on existing .ignore (11-15); creates level.system_funcs on first use, spawnstruct per name with prefunc/postfunc/reqs, predone=!isdefined(preinit), postdone=!isdefined(postinit), ignore=0 (17-28). Pure data; no invocation. Observed server-VM (gsc) HMH-relevant registrants at this revision: mp_common/callbacks.gsc 23-26 (system callback, preinit installs default level callback pointers at 65-98), util_shared.gsc 21-24 (util_shared with postinit __main__ that self-waits), script_34e49e82e2f499e1.gsc 13-16 (hash_18ce058ad321248f; separate autoexec __init at 22-27 stores level flags from wz setting pairs), script_5f3e7d348fbc5283.gsc 10-13 (hash_32ef71953f1186eb), script_71e26f08f03b7a7a.gsc 12-15 (hash_280fe2667ed2d300 reqs item_supply_drop; preinit gates on useitemspawns), script_7611295950bc2c87.gsc 10-13 (hash_502d65acd9829223; preinit gates wzwaterballoonsenabled pair), killstreaks/mp/supplydrop.gsc 44 + uav.gsc 28 (reqs killstreaks, later pre-ignored by wz_ignore_systems 11-18).",
+        "unknowns": [
+          "Retail server VM registrant set (bundle loading)",
+          "Separate per-VM registries (structural inference)",
+          "Retail assert/bytecode fidelity"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00075",
+        "sha256": "0c2aa3a5450daa444e6e2fd941aa6d5e2db152ff06bc780ae838a57ea44107e4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "529e15b41bdae07d6411219ea6edd1cf49e412920b35e5abe3a3503582b9d5ae",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::register",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/418",
+        "record_sha256": "bcbd578871dd4c5ff946d7be1eba5556e0bbc0fce0049948cac8f6688bb9721b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "57b8c5cd5ac746c9ffc1097b6d5010e7211eae36baefc851ebfb6c9ae8a3c2c8",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_5095b2c6@system_shared.csc",
+        "answer": "Source-visible answer: the post-phase requirement resolver. Ordering facts: (1) it asserts the function's preinit already completed (predone) or the system is ignore-flagged - post execution presupposes pre phase completion; (2) it walks reqs and thread-spawns exec_post_system for each required system without waiting; (3) array form asserts each requirement value is defined, not registry-entry existence; a defined absent name spawns exec_post_system(undefined), which returns at37-39. Only scalar form asserts registry-entry existence at75. Because both the array and single-req paths spawn and return, the requirement/dependent postinit ordering is scheduler-dependent, not synchronized - pre-phase completeness is asserted, with original VM assertion behavior still unknown. exec_post_system skips calls that observe ignore or postdone. It checks postdone before requirement resolution, then sets postdone after that resolution and before postfunc. There is no second postdone check after resolution, so once-only behavior across invocations admitted before the mark and unproved interleavings is not established. HMH linkage: this is the shared dependency-scheduling core the six HMH root candidates participate in via the registry; wz-side registries (e.g. hash_280fe2667ed2d300 reqs #item_supply_drop, script_71e26f08f03b7a7a.gsc 12-15; killstreak req chains supplydrop.gsc 44/uav.gsc 28) route through exactly this code. Missing native original-build facts are listed in native_gaps.",
+        "behavior": "Post requirement resolver. function_5095b2c6(func): first asserts func.predone || func.ignore (dev string x8d) (60) - a post phase may only be driven for systems whose preinit completed or which are ignored, otherwise it is an assert boundary; if func.reqs defined: array case asserts each req defined and spawns thread exec_post_system(level.system_funcs[req]) per element then returns (64-72); scalar case asserts isdefined(level.system_funcs[reqs]) (75, with ishash/hashtostring dev rendering) and spawns thread exec_post_system for it (76). No waiting on the spawned requirements - dependency scheduling is asynchronous spawn, and each spawned exec_post_system re-checks !defined/ignore/postdone (37-42) before resolving its own requirements. It sets postdone after requirement resolution and before its postfunc call; suppression is supported for calls observing the mark, while once-only execution across earlier admitted invocations remains unproved. Called from exec_post_system (46) and run_post_systems (88) only; corpus search shows no other callers. Both VM twins carry identical code (csc/gsc 58-78).",
+        "unknowns": [
+          "Thread-interleaving of spawned requirement postinits vs dependent postinit (native scheduler)",
+          "Retail assert handling",
+          "No observed wz/HMH use of multi-element req arrays; whether any loaded system uses them in retail is a bundle-level question"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00078",
+        "sha256": "f26ffda8a43182c03e36846cc022f3a6e7204eeadf2cbf2586adfd37758b4fa6"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "717ddfdbf4a0e8e7f9c51f4bc0f6756be2c3d5e76caba1422789088890871a0b",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::wait_till",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/421",
+        "record_sha256": "ff911fe40ec02c8ff9fde11204a09f3ce74ecddeafc124f1574f543a4b7a0d00"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "7e7048a9cecee83dfcfbac3ad046f6e8ae9cdc4608060b0abfb0b2d792459f38",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::ignore",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/417",
+        "record_sha256": "98476cc8e7bd26473429d1efb44940a5d10f6b54bf4f46f11d7324d6b7a7d2ca"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "828b897a787abe94f56b95718aa51988014b5dadda44eac631c0aae71561e6a5",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::run_post_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "available_first_section_synchronous_helper"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/905",
+        "record_sha256": "70178e1ef51753251423342153aef5402535d0a49778b74ced7c5e01eba1efb4"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "a76c519893379aae09593a55a8aa1cd8c12635a82f810cb341b8823f7f3b2c06",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::run_post_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/419",
+        "record_sha256": "d4991f3f9109d21310d7a535578c53ba96735c5f4e1c7f66befdbab110825b76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/15",
+      "selection_id": "a7f5403632a08a8e66ea4d0f4f3ca098638e183948b2f0be3e6b1348577a3975",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:register@system_shared.csc",
+        "answer": "Source-visible answer: registration is state-only (no invocation); when an existing record has ignore=1, every repeated register call asserts that ignore flag and returns without clearing it; the record may be a placeholder or a previously real record marked by ignore (register assert only on .ignore, csc 11-15; ignore() sets ignore=1, csc 169-179). Ordering graph produced (see source_trace): autoexec __init__system__ -> register -> native level_preinit -> codecallback_preinitialization -> run_pre_systems -> exec_pre_system per entry; native level_finalizeinit -> codecallback_finalizeinitialization -> run_post_systems -> exec_post_system per entry -> set system_init_complete -> registry cleared -> on_finalize_initialization dispatch. Dependency waits: NONE - req-resolution spawns threads without joining (69/76), the only synchronization is the whole-batch flag \"system_init_complete\" (92) consumed by wait_till (162). Error behavior: all failures are assert() with dev strings; retail evaluation of assert is a native/build fact. HMH root/registrant linkage: the HMH map script wz_open_skyscrapers.gsc::main joins this mechanism by load::main -> system::wait_till(\"all\") (wz_open_skyscrapers.gsc 53; load.gsc 35) and by callback::on_finalize_initialization registration (47) delivered inside codecallback_finalizeinitialization after run_post_systems; the mechanism therefore conditions the whole HMH map startup; the exact set of registrant systems loaded into the HMH server VM is the unresolved native bundle boundary (m1 unknowns #1).",
+        "behavior": "Registration store for the per-VM system registry; server file lines 9-29 and client twin lines 9-29 are textually identical at this revision. register(str_name, func_preinit, func_postinit, reqs): if level.system_funcs[str_name] already exists it asserts the existing record's .ignore and returns WITHOUT replacing the stored prefunc/postfunc/reqs (csc/gsc 11-15) - repeated regular registration is an assert boundary; any existing ignore-flagged record, including a real record later marked by ignore, permits repeated early returns; ignore remains set. Otherwise it lazily creates level.system_funcs, stores a spawnstruct with prefunc/postfunc/reqs and initializes predone=!isdefined(func_preinit), postdone=!isdefined(func_postinit), ignore=0 (17-28). No execution happens here; the record is pure state consumed by exec_pre/exec_post_system. The following are named source registration witnesses, not a corpus-wide count or proof of the actual retail HMH registrant set; conditional server-source examples: mp_common/callbacks.gsc autoexec __init__system__ registers \"callback\" preinit &__init__ (23-26) whose preinit installs level.callbackplayerconnect etc. via set_default_callbacks (65-98); util_shared.gsc registers \"util_shared\" pre &__init__ post &__main__ (21-24); the four hashed systems #using-imported by wz_open_skyscrapers.gsc register hash_18ce058ad321248f (script_34e49e82e2f499e1.gsc 13-16), hash_32ef71953f1186eb (script_5f3e7d348fbc5283.gsc 10-13), hash_280fe2667ed2d300 with reqs #\"item_supply_drop\" (script_71e26f08f03b7a7a.gsc 12-15), hash_502d65acd9829223 (script_7611295950bc2c87.gsc 10-13); killstreak systems that wz later ignores register with reqs (killstreaks/mp/supplydrop.gsc 44 and uav.gsc 28, req #\"killstreaks\"). Client twin registrations found for script_4da75c87643c8b07.csc hash_411c8f5d7f8749b9 (14) and script_58d14a82f7aa9d6d.csc hash_18ce058ad321248f (13).",
+        "unknowns": [
+          "Which registrant script set and order the retail CUSA11100 HMH VM bundle actually loads (native bundle manifest question; m1 unknowns section 1)",
+          "Whether retail script bytecode contains/executes assert() in system_shared (dev strings present; original bytecode fidelity unverified)",
+          "Iteration order of foreach over level.system_funcs hash-keyed array (VM implementation detail, not in dump)",
+          "Whether an early assert failure in retail aborts registration or is skipped (assert implementation native)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00082",
+        "sha256": "7f1194dc637637a7eff664f35255ad2a4c198946028d8cba1ee8ff3697b24f3f"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/16",
+      "selection_id": "a8de898614173a8bd7c7db3362d856ed62c537799dc13810e67047beceeadc83",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:run_pre_systems@system_shared.csc",
+        "answer": "Source-visible answer: the batch preinit driver; consumes the entire registry created by autoexec registrations. For each entry: requirement resolver (151) then thread spawn exec_pre_system (152). The driver has no separate batch preinit flag and does not clear the registry. Each eligible exec_pre_system writes its per-record predone=1 only after prefunc returns (115). The later run_post_systems requests system_init_complete (92) after launching threads without joining them; that flag does not establish completion of all prefunc bodies. Actual waits, scheduling and native event delivery remain unverified. Sole caller: event_handler[level_preinit] codecallback_preinitialization at callbacks_shared.gsc 1086 / callbacks_shared.csc 493, which FIRST dispatches callback(#on_pre_initialization) - for which no literal registration was found in the pinned corpus. add_callback accepts arbitrary event values, so dynamic names, native registrants and actual runtime list contents remain unknown - then run_pre_systems. HMH-root linkage in the ordering graph: [autoexec registrations] -> level_preinit -> this driver runs all prefuncs (callback pointers, wz-relevant hashed system inits) -> level_init/gametype_init mains (order unproven) -> level_finalizeinit post driver. Native-entry boundary: level_preinit dispatch site/order unproven (m3 unknowns A.3).",
+        "behavior": "Batch preinit driver. run_pre_systems(): foreach over level.system_funcs: function_8dfa23e0(func) (requirement spawner, 151) then thread exec_pre_system(func) (152); no post-loop actions at all - unlike run_post_systems there is NO flagsys::set and NO registry clear (147-154). The driver leaves the registry stored, while register/ignore retain their own source guards: register returns on an existing name after its ignore assertion, and ignore asserts !isdefined(level.gametype). There is no separate batch preinit flag here, but exec_pre_system has a per-record predone write after prefunc return. The later unjoined system_init_complete flag does not prove whole-pre completion; actual scheduling and assert handling remain unknown. Each exec_pre_system re-checks ignore/predone (102-107), so completed entries with predone set are suppressed on the loop spawn, but no in-progress guard prevents reentrant/yielding duplicate prefunc calls; scheduling remains unknown. Sole caller: callbacks_shared event_handler[level_preinit] codecallback_preinitialization (gsc 1083-1087 / csc 490-494): callback(#\"on_pre_initialization\") then system::run_pre_systems(). Client and server twins byte-identical behavior.",
+        "unknowns": [
+          "level_preinit native dispatch/order",
+          "on_pre_initialization registrants in retail bundles outside this corpus",
+          "prefunc thread interleaving"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00083",
+        "sha256": "1c29a553266cf0e274986d5eb1cc9f719d20fff7cf84aa9fec6bc6906623723b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/17",
+      "selection_id": "b43da94b0e59f5735470250939f7a3d74d944952a2e1f4bb7f3803f09bb263ed",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.csc",
+        "answer": "Source-visible answer: the exclusion/placeholder primitive and the duplicate-registration enabler. ignore(str_name): asserts level.gametype is UNdefined (must run before the engine assigns the gametype - pre-gametype window only); then if no registry record exists, register(name, undefined, undefined, undefined) creates an all-undefined placeholder; finally sets .ignore=1 (169-179). Combined with register()'s duplicate rule (assert existing .ignore then return, 11-15) this yields the exact wz/HMH exclusion semantics: a system whose name is pre-ignored either (a) never stores its real pre/post functions - the later real register returns early, or (b) if real registration happened first, ignore skips placeholder creation and sets the existing record.ignore=1 while preserving its pointers; ignore asserts only that level.gametype is undefined (171), and register has the separate duplicate assertion. During pre/post phases every exec skips ignore-flagged records (37-40 / 102-105), so ignored systems' bodies never run through this mechanism. wz/HMH applicability: wz_ignore_systems.gsc/.csc autoexec ignore_systems pre-ignores 8 systems (recon_car, planemortar, supplydrop, ultimate_turret, armor_station, counteruav, uav, supplypod - lines 11-18 both VMs), suppressing killstreak systems that register with reqs elsewhere (supplydrop.gsc 44, uav.gsc 28). Level.gametype assignment point and autoexec timing vs it are the unresolved native boundary recorded below.",
+        "behavior": "ignore(str_name): assert(!isdefined(level.gametype), devx124) (171) - the assert boundary records that exclusions are only valid while no gametype is set; if !level.system_funcs or the name is unregistered, register(str_name, undefined, undefined, undefined) creates a placeholder with undefined pre/post funcs and predone=postdone=1 (both !isdefined) (173-176); then level.system_funcs[str_name].ignore = 1 (178). Consequences: (1) an undefined-func placeholder would never invoke anything even without ignore (exec_* call [[undefined]] guarded by predone/postdone=1 and ignore skip); (2) later register() by the real system hits the early return (11-15, assert passes because ignore=1) so its pointers are discarded; (3) exec pre/post paths skip the record regardless (37-40/102-105). The wz ignore_systems autoexec runs in both server (wz_ignore_systems.gsc) and client (wz_ignore_systems.csc) VMs - warzone.gsc 54 and warzone.csc 15 both #using-import it, and prior load inventory records both as wz directory-ownership candidates (SOURCE-LOAD-INVENTORY.json 1083-1085 csc, 1181-1183 gsc). zm contexts also use system::ignore (zm.gsc 137-157 etc., context).",
+        "unknowns": [
+          "autoexec vs level.gametype assignment order in retail (assert precondition)",
+          "Non-registry reachability of ignored systems (only registry suppression proven)",
+          "Retail assert evaluation (N3)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00229",
+        "sha256": "9445acb4c73d44c2260b9318ade823dbf0ada6c2db8617e89b091cf0566a3372",
+        "pointer": "",
+        "record_sha256": "07796bc27e56b3ab9297b03583f6594202af80a642e5a26e9658238203bd79f0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/18",
+      "selection_id": "b4565283a569637cc9ace5ad8dce8ace709588dc0ac1966954fe840719de94d4",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_5095b2c6",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/415",
+        "record_sha256": "d90fcd76832000d46dfe69f80ef779ab38c943e7a418344f708986d69b962fbd"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/19",
+      "selection_id": "b61748dbc5201d72ecd1ecdfc71222df99d30ce672c2ace97a4c1e0f200f7bd0",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::run_pre_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/420",
+        "record_sha256": "5ca465b9b7479480a168da27856754944df51c75275ebfc406d33eaf656bfd76"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/20",
+      "selection_id": "c0eeba12df5e09676d81af3ba8f5d5f3ae4ccc5ec0ebf66cae6e40c30d19ab14",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::exec_post_system",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/904",
+        "record_sha256": "c4cd3850f122b6fe086cfa58a4d1ce21d33c3688a25bc243a3086854c2969f21"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/21",
+      "selection_id": "cf29359428fa68694ec22ab0d86f4201ee5b107c3899779b7e41762d45200ce9",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::exec_pre_system",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/906",
+        "record_sha256": "724f88b353cd9eed195c24f229acfd6cf0b08758c477dde7349b1acef01bfafa"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/22",
+      "selection_id": "dbcc62c7bc84aaf7534d2816393bd6f603897812251118c86c34083e09b1ab9e",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::exec_pre_system",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "startup_helper_or_accepted_pilot_reference_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/414",
+        "record_sha256": "6361a624d3594e221ff5513b5ee1213c4cfa7f25357c9b9835e0002b07db9d37"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/23",
+      "selection_id": "e77b8633631c28427fbadf212199a1f53d3ac0f692f23d69e7e1da1fd7bea3f5",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_8dfa23e0",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "synchronous_startup_shared_callee"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/416",
+        "record_sha256": "06dd199c10e9804adb0fd6e1f915fa67ce8850135b01155dac833fff4c9b6d4d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/24",
+      "selection_id": "fa4bd5dc670833ce0b17da95676b7e1753f25e5320812d29024a752a2ca09482",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:exec_post_system@system_shared.csc",
+        "answer": "Source-visible answer: postinit invocation body; skips undefined, ignored or already-postdone entries; an eligible !postdone branch resolves requirements before setting the marker, with no recheck after that resolver and no proved prereq-stage scheduling or exactly-once guarantee, sets postdone BEFORE invoking postfunc (49-50), and the bounded literal caller query finds run_post_systems (89) and the post-requirement resolver function_5095b2c6 (69/76) in the supplied twins; this does not prove absence of indirect, dynamically selected or native callers. Dependency 'wait' is fire-and-forget thread spawn, not a join. Ordering graph: level_finalizeinit -> run_post_systems -> foreach [function_5095b2c6 asserts predone||ignore, thread exec_post_system(func)] -> postfunc bodies run as spawned threads; run_post_systems requests the flag, without joining postfunc completion, by setting flag system_init_complete (92) AFTER all threads are spawned, then the registry is cleared (93). HMH linkage: wz/HMH postfuncs (e.g. util_shared __main__ via system::wait_till, load consumers) synchronize on that flag; wz_open_skyscrapers on_finalize_initialization (hmh_ramp dynent enable) is dispatched only after this phase by codecallback_finalizeinitialization callbacks_shared.gsc 1096. Ignore/duplicate/error: returns silently for undefined entries and ignore-flagged records (37-40); retail assert semantics unresolved.",
+        "behavior": "Postinit invocation executor. exec_post_system(func): returns when the record is undefined or func.ignore is set (37-40) - ignore-flagged systems never get postinit; if !func.postdone: if func.reqs is defined it calls function_5095b2c6(func) first (44-47), then sets func.postdone=1 BEFORE synchronously invoking [[func.postfunc]]() (49-50). The marker precedes the postfunc call, so a later entry with the same unchanged truthy marker skips that branch. The resolver precedes the marker and has no following guard recheck; actual scheduling, reentry during prerequisite work, crashes and marker mutation remain unverified. The bounded literal caller inventory shows thread launches rather than synchronous calls: run_post_systems spawns it per entry (system_shared.csc 89) and function_5095b2c6 spawns it per requirement (69, 76). The supplied twins contain the same literal caller locations (35-52, 69, 76, 89). The postfunc bodies are therefore executed inside spawned threads whose completion is not awaited individually; the unjoined dispatch phase requests the global flag through run_post_systems' flagsys::set(\"system_init_complete\") at line 92 after the foreach and only then level.system_funcs=undefined (93).",
+        "unknowns": [
+          "VM thread scheduling of the spawned exec_post_system calls relative to each other and to the foreach (native scheduler)",
+          "level_finalizeinit vs level_init/gametype_init native order (conditional: for wz_open_skyscrapers registration to be delivered the level_init main must precede level_finalizeinit; not proven)",
+          "assert evaluation in retail"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00179",
+        "sha256": "ef863dfba5d638b1ce484c4b76eecd0d217f648b932a91590fd230a785841f41"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/25",
+      "selection_id": "1b88bbd7cc197ddc8a53f50a325c432ccf82f8b2b65f7c8bc977b72b7fa728a2",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_8dfa23e0",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/116",
+        "record_sha256": "23197957f04d565bf4a67b9355e1a1c7bba511d933cde5c2131866a450061192"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/26",
+      "selection_id": "289e18bee67748ecb7e74f3155372f22aa3250232fa741c39b82b73313c026f5",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::ignore",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/117",
+        "record_sha256": "d2aa663fe33c80fb844286debdfbae2cd49d7bf45412103c1e4a70f756b5d9c3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/27",
+      "selection_id": "d3026b04515470fcbf237b7fc4e56d58d83706a04e398beea50246cb0b1b54ac",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_5095b2c6",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/115",
+        "record_sha256": "2cb9a31812d699f805bc22504c125af03006a9bb05501698af418898509390c8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/28",
+      "selection_id": "150a5b6f5a56beff6ebec5add68051535fdaf1d9befec655b22ace804730ccce",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::ignore",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Conditional/dev candidate: source review does not establish HMH load reachability or execution.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/117",
+        "record_sha256": "d2aa663fe33c80fb844286debdfbae2cd49d7bf45412103c1e4a70f756b5d9c3"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/29",
+      "selection_id": "bfc971aeab474b2fe8b5c5e2c41097653078c799b8d4280c55559bd14687ab26",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_5095b2c6",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/115",
+        "record_sha256": "2cb9a31812d699f805bc22504c125af03006a9bb05501698af418898509390c8"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7144ed94d5c575e7.json",
+      "claim_pointer": "/claims/30",
+      "selection_id": "d084a5d72b5f5a262fde0d08168e0bdddea05d4b58dadf71eb32c4e91b7af7da",
+      "summary": {
+        "id": "scripts/core_common/system_shared.csc::function_8dfa23e0",
+        "unknowns": [
+          "Source statements only; VM native loader/event/order/assert/getter/object semantics are not verified.",
+          "Exact originating retail build, PS4 binary/asset mapping, native/server implementation and gameplay execution remain open.",
+          "Stored callbacks and launched threads are later-body boundaries; this review does not execute or reconstruct them.",
+          "Unresolved/opaque callsites are retained exactly; source availability versus native identity needs manager reconciliation."
+        ],
+        "status": "source_semantic_contract_ready_for_manager_review"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00002",
+        "sha256": "14d82864f03d391c58ddc8caaf6f84c482f72ea05ab80940d42da35eabc0a97e",
+        "pointer": "/contracts/116",
+        "record_sha256": "23197957f04d565bf4a67b9355e1a1c7bba511d933cde5c2131866a450061192"
+      }
+    }
+  ]
+}

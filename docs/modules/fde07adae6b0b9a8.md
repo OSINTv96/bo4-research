@@ -1,0 +1,619 @@
+# ui/uieditor/menus/leaderboard/leaderboard_gamemode.lua
+
+Project-added notes. See the [code](../../src/ui/uieditor/menus/leaderboard/leaderboard_gamemode.lua).
+
+The complete file retains lexical context. These summary excerpts do not approve the whole file or prove HMH invocation.
+
+Original revision: `1a46c72b710c1820b63f72d22654f570286eee0b`. Original SHA-256: `be0d11af701d8522008a7248fb3e80db14de1aa9622282f64c26b6ef272e45d4`.
+
+Exact source spans, dependencies and bounded review evidence: [module record](../../provenance/modules/fde07adae6b0b9a8.json).
+
+New notes and dependency decisions await independent review. Original build, native/VM, effective settings, service and gameplay limits remain open.
+
+Selected source notes (excerpts; full records remain authoritative):
+
+- `hmh07-lua-follow3:220` (original lines not specified): Creates CoD.MinimapFogOfWar using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Image, MinimapFogOfWar, MinimapFogOfWarEnemyTearing, CompassMinimapMap, MinimapDeathZoneMask. Registers ordered presentation states Warzone with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Requests the receiver-selected setupCompassFog, setupCompassEnemyTearingFog, setupCompassMap and setupCompassDeathZoneMask methods with the exact arguments and enum expressions retained below. These requests do not identify the provider as native or prove successful setup; provider classification, enum resolution, actual geometry/fog/map/death-zone effects, callback delivery and original VM/native/build binding remain unknown. Warzone state and lobby-nav invalidation do not resolve those limits. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/0`.
+
+  Archived evidence ID: `archived-record-00010` at JSON pointer ``; file SHA-256 `d391e2e29030b34752c91efd18542f6058fd18ed701938474f65177785f7d254`.
+
+- `hmh07-lua-follow3:247` (original lines not specified): Creates CoD.RipperLockLineWidget using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Line, LineGlow01UR, LineGlow02UR. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/1`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/246`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `c67d5dab291375f9e78158920119ac10bb3ccc7c4b676ed38f9b0001d3cc7f57`.
+
+- `hmh07-lua-follow3:200` (original lines not specified): Creates CoD.WarzoneUseTimerRevivePlayerBG using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Blur, DotCorner9Slice. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/2`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/199`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `32587d3f1729a1358a051789b545b3bcf53edc9f6095453a494b2d5349f09379`.
+
+- `hmh07-lua-follow3:160` (original lines not specified): Creates CoD.FallMeter_Speed using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Blur, BackingNoise, Corner9Slice, SpeedTitle, SpeedValue, IconParachute, IconWingSuit. Defines 1 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. The registered speed callback, only if delivered with nonnil model:get(), requests FormatNumberAsString(0,StringMultiply(0.45,value)) as the setText argument; nil skips that explicit request without proving persistent text. Candidate helper math/format source is conditional on actual dynamic binding and original VM/coercion; successful result and rendering remain unknown. The title uses a distinct opaque Engine result, with no proved localization. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/3`.
+
+  Archived evidence ID: `archived-record-00011` at JSON pointer ``; file SHA-256 `113ba986718f8e4f753e47ffd8681f98dd99203347dd33877aa18ac126ab6b11`.
+
+- `hmh07-lua-follow3:280` (original lines not specified): Creates CoD.FileshareSpinner using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: SpinnerFlipbook. Registers ordered presentation states Visible with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Visible is not FileshareIsReady and fileshareRoot.ready triggers state validation; spinner shader assets remain external. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/4`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/279`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `7bc906a7f71a19c0db5f991e26482439cee9c35c4db54bde950f537d04df1b89`.
+
+- `hmh07-lua-follow3:161` (original lines not specified): Creates CoD.AmmoWidget_CleanTacos using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: backplate, TacoImage, PanelGlow, TacoCount. Registers ordered presentation states Shamrock with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. The count callback binds HUDItems.cleanCarryCount to TacoCount.NumberCount; Shamrock predicate is enableStPatty==1. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/5`.
+
+  Archived evidence ID: `archived-record-00012` at JSON pointer ``; file SHA-256 `5be86557db9373fb29fc85042f82da6a3996fb92fbf7c0981226b0257b03dafc`.
+
+- `hmh07-lua-follow3:245` (original lines not specified): Creates CoD.ThrustMeterChevronThin using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: leftChevron1. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/6`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/244`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `b55efaf825edb83243c6e4ce0aff0610963abd0144c32c7757ba52a042882e1a`.
+
+- `hmh07-lua-follow3:270` (original lines not specified): Creates CoD.CompassAwarenessRingBacker using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: AwarenessBannerBlur, AwarenessBanner, AwarenessPanel, RingPanelBlur, RingBanner, RingPanel. Registers ordered presentation states Invisible with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Invisible negates the saved IsModelValueEqualTo(controller,huditems.awareness,1) result. Available modelutility123-133 rejects nil and compares tostring(value) with tostring(1), so string1 also matches numeric1. Under ordinary Lua its negation is true for nil or unequal converted strings; it is not a raw numeric !=1 test. Original model/provider/VM behavior remains unverified; the subscription retains the exact model spelling. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/7`.
+
+  Archived evidence ID: `archived-record-00013` at JSON pointer ``; file SHA-256 `f9496f6b4e29aa1e3656a7b0fc63ca1031ce883c6f9ff58ea542b622085cfc66`; selected record SHA-256 `1777766d1bc5beb43878f9d5bce4b6961eb5c163cd0de48ba484447d88c56e87`.
+
+- `hmh07-lua-follow3:204` (original lines not specified): Creates CoD.Toast_Container_FactionReward using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: blur, backing, NoiseTiledBacking, Border, PurchasedImage, NotifText. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/8`.
+
+  Archived evidence ID: `archived-record-00014` at JSON pointer ``; file SHA-256 `0bee640b7fadc99ed9a5e8b6dd6ea2e164cb705d1a50fbde1b5d97297b510817`.
+
+- `hmh07-lua-follow3:171` (original lines not specified): Creates CoD.WarzoneInventoryCounter using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Counter. Registers ordered presentation states Invisible with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Counter text follows stackCount; Invisible applies when stackCount<=1. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/9`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/170`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `8bd05569fffd439caaee8a28540ba8cf7a08e7c7ce3305e1ead38226b3e97297`.
+
+- `hmh07-lua-follow3:216` (original lines not specified): Creates CoD.SprintMeterChevron using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Image0, Image00. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/10`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/215`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `5f1d687d4f82060cca2d75053e5a4719f0a5f5dfb99e87f3500b610d186aaeb7`.
+
+- `hmh07-lua-follow3:209` (original lines not specified): Creates CoD.SpectreLockArrowWidgetGlow01 using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Image1, Image2, Image3. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/11`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/208`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `2d1b4922fad28f11ed555ec4119d7a6e5251f9dae3c5b3b8f496f4d85260c6d3`.
+
+- `hmh07-lua-follow3:271` (original lines not specified): Creates CoD.ToastContentLarge using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: NoiseTiledBacking, HeaderDiagonalBarTop, HeaderBacking, ItemImage, Details, CommonFrame01, BottomBracket9Slice, BottomBracket9Slice2, Title. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/12`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/270`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `a400b95f61ec525f764cfe3855150df5869addce0b4f877e3157d6234cc0d180`.
+
+- `hmh07-lua-follow3:254` (original lines not specified): The saved CircularCompass constructor7-27 requests LUI.UIElement.new with f1_arg2 through f1_arg9, sets class/id/default sound, then requests LUI.UIImage.new(0.5, 0.5, -166, 166, 0.5, 0.5, -166, 166). RingCompass:setImage receives RegisterImage(@"hash_4BEFBE481A16E2F9"), and RingCompass:setMaterial receives LUI.UIImage.GetCachedMaterial(@"ui_add"). It adds RingCompass and stores self.RingCompass, declares local f1_local2=nil, and assigns self.microtext=LUI.UIElement.createFake(). A truthy PostLoadFunc requests PostLoadFunc(self,f1_arg1,f1_arg0), then the function returns self. No compass setup call is written in this body. Provider/native classification, actual asset/rendering effects, original VM/build compatibility and runtime delivery remain unresolved; all requests require their providers to return normally for the later statements to run.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/13`.
+
+  Archived evidence ID: `archived-record-00015` at JSON pointer ``; file SHA-256 `af803173999ebb8a19d7b9bb26c472ade71227faf49b6161bd578bd39f0dfc21`.
+
+- `hmh07-lua-follow3:260` (original lines not specified): Creates CoD.WarzoneDeathCamLabel using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: TextBG, BarBtm, BarTop, RecordDot, DeathCamLabel. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/14`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/259`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `f4bcfbe4d9476dab6468a826e14d1009d257c00c52b2d31dc4ff6da2737e48bd`.
+
+- `hmh07-lua-follow3:240` (original lines not specified): Creates CoD.PC_KillCamHint using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Registers ordered presentation states Hidden with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Hidden when not mouse/keyboard; LastInput invalidates display and hint helper remains source-bound provider. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/15`.
+
+  Archived evidence ID: `archived-record-00016` at JSON pointer ``; file SHA-256 `6d35079634d3ac9e03ec7cbde9fbd84e8e102f6080b44f7c2104cf8265178e5f`.
+
+- `hmh07-lua-follow3:179` (original lines not specified): Creates CoD.DirectorTierSkipNotificationAvailableInternal using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Backing, Header, Description. Registers ordered presentation states Korea15, AsianLanguage, RussianLanguage with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Korea15/Asian/Russian state order and trial-specific tier-skip text are retained. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/16`.
+
+  Archived evidence ID: `archived-record-00017` at JSON pointer ``; file SHA-256 `1f8c67acef37e0d4558926c51ee4351121c6cbab8fe4bcb87b1b1b3dfa4f2636`; selected record SHA-256 `f1bc7d9dd96a367a7aab68c7c4fc8705cd371f89c60550d0d3977a5b16902932`.
+
+- `hmh07-lua-follow3:210` (original lines not specified): Creates CoD.ScoreboardMapColumnHeadingsContainer using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: ColumnHeadings. Applies stencil then delegates InitColumnHeadingsForScaleAndPan(self.ColumnHeadings). Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/17`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/209`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `61b4ff16d09ff19ddb494559ef416e6c1babf506a9c39f92129b81141e2b771c`.
+
+- `hmh07-lua-follow3:230` (original lines not specified): Creates CoD.ThrustMeterChevron using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Image0, Image00. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/18`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/229`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `f0033045dd4a24f3c7e889e093ae4155153c7cc80b68b1ea41d4c3b322e71172`.
+
+- `hmh07-lua-follow3:212` (original lines not specified): Creates CoD.SpectreLockLineArrows using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Arrows. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/19`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/211`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `6c80dfeee0618fb3f1f464db73316bc7b1926bf47b71f91e6c02f8a1f7609c5b`.
+
+- `hmh07-lua-follow3:232` (original lines not specified): Creates CoD.PrematchCountdown_Numbers using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: GlowPanel, LineBottom, PanelAmmo, Numbers, MatchText, Dot61, Dot600, Dot62, Dot601, LineTop, Image0. Adds countdown-number, labels, panels, glow and dot children; optional hooks and close wrapper stay separate from the countdown provider. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/20`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/231`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `d906a71c396864ff5ac6a9bf620f2425e76830d5f4f56d93c9bfbaec662712d9`.
+
+- `hmh07-lua-follow3:249` (original lines not specified): Creates CoD.MinimapDetected using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: IconDetected. Registers ordered presentation states Detected with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Initializes huditems.isExposedOnMinimap=0 only if unset; Detected tests1 and subscribes that exact lowercase path. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/21`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/248`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `c3a0d4a6fc7449800a2e01c4abb21c491406162aaa1895abc0d124d36bf876c9`.
+
+- `hmh07-lua-follow3:282` (original lines not specified): Creates CoD.freeCursorInfoPanelContainer using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: infoPanel. Registers ordered presentation states HasFocus, HasFocusPC with the exact predicate bodies below. Defines 6 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Info panel links self/context model and chooses HasFocus gamepad versus HasFocusPC mouse/keyboard; no tooltip eligibility is invented. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/22`.
+
+  Archived evidence ID: `archived-record-00018` at JSON pointer ``; file SHA-256 `d04511a95752021aa443e5e4cb1cca2e25a35ff08d4e1b3b709f61da0ae00b99`; selected record SHA-256 `8ce99b10bb9dc5af4f67c289bf3bf902aae2911182891a17162cc680b5e56d62`.
+
+- `hmh07-lua-follow3:199` (original lines not specified): Creates CoD.PC_Korea_Menus_15ContentDescriptors_Icons using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: KoreaDrugReferenceIcon, KoreaCurrencyIcon, KoreaViolenceIcon, KoreaRating15Logo, KoreaRating18Logo, KoreaStrongLanguageIcon. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/23`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/198`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `fcd2e36a9068c5b5ebb33ad9063e23787239637a9dca9ad1026db19690cb8134`.
+
+- `hmh07-lua-follow3:195` (original lines not specified): Creates CoD.emptyFocusableNoCursorUpdate using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: spacer. Registers ordered presentation states Hidden with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Creates/attaches the spacer UIImage with alpha0; parent focus flags do not establish child focusability. The Hidden predicate checks gamepad or keyboard navigation; LastInput triggers revalidation. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/24`.
+
+  Archived evidence ID: `archived-record-00019` at JSON pointer ``; file SHA-256 `8e6b8642705f9996d66445055c749d6c41a53836a8c0276c8bbf5f325faa74df`; selected record SHA-256 `18e4c3afbf31bc1f172810b27e98d1753a70d1e74261e4a157a62edd3321902e`.
+
+- `hmh07-lua-follow3:237` (original lines not specified): Creates CoD.DirectorTierSkipNotificationCompleteInternal using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Backing, Header, Description. Defines 1 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. TierSkip.remainingTimeString formats description; the shown direct statements contain no fetch or contract-completion request. Opaque child/model/provider calls and optional PostLoadFunc46..48 leave full invocation effects unknown. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/25`.
+
+  Archived evidence ID: `archived-record-00020` at JSON pointer ``; file SHA-256 `b32e0d484310c6d8d3e88fa81afb1bc57edf28042919ab3b3c8cb863edfcaeea`; selected record SHA-256 `b10c0167f8419aefb36aa5d7c9a7d7386b61c2d30bf3c982c64373166f3f1cae`.
+
+- `hmh07-lua-follow3:250` (original lines not specified): Creates CoD.ArenaRubies using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: threeRubyLayout, fourRubyLayout, fiveRubyLayout. Registers ordered presentation states FourRubies, FiveRubies with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Three/four/five ruby layouts and state predicates use exact requirement values4/5; no arena progression service is reconstructed. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/26`.
+
+  Archived evidence ID: `archived-record-00021` at JSON pointer ``; file SHA-256 `7b50f2bf2cecc3416fa4d3288c5bfc6087b9f2e70aa4eba365c60f6bdb78e7f3`; selected record SHA-256 `c59e77b1ce7866f6d05340753eb93c41d9036a6fbeec3ad0c115bdc3a0506c3d`.
+
+- `hmh07-lua-follow3:157` (original lines not specified): Creates CoD.CenterConsoleIcon using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Icon. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/27`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/156`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `b1a3234db6c87baa2d984c66fef24894ad4519ab0d10a90cffb76614f7da9004`.
+
+- `hmh07-lua-follow3:231` (original lines not specified): Creates CoD.FallMeter_Arrow using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Bracket, Arrow. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/28`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/230`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `51cf448b086ca243940b4c580b63f3ce1c18be9bed7c66b88a4e0cc44faa65c7`.
+
+- `hmh07-lua-follow3:172` (original lines not specified): Creates CoD.AmmoWidget_AmmoCaliber using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: ammoType. Registers ordered presentation states WZ with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. WZ state tests IsWarzone and lobby navigation requests revalidation; ammo-type text binding remains model-driven. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/29`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/171`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `d06d99677b89623a595bea07ee0ae3ac89586c9d37b89ba108c954a429a6f877`.
+
+- `hmh07-lua-follow3:278` (original lines not specified): Creates CoD.DirectorLeaderActivityBG using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Blur, CornerDotTL, CornerDotBL, CornerDotTL2, CornerDotBL2. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/30`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/277`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `1095d7cf7c68df05ae634aee170d41b0e791cc92a0a252a5601433cd7951c57f`.
+
+- `hmh07-lua-follow3:214` (original lines not specified): Creates CoD.ReadyEvents_Scorestreaks_Iconcontainer using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Icon, pipLeft, pipLeftAdd, pipRight, pipRightAdd. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/31`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/213`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `33468ffe93faea8a0a48dfc45b89525f965e20da1b8a3c3546be11e5887b6838`.
+
+- `hmh07-lua-follow3:269` (original lines not specified): Creates CoD.SpectreLockLineWidgetNormal using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Line. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/32`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/268`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `fbb25835245e145ec40323819c3d2df017a65f4dd581c14a23370453c95c8788`.
+
+- `hmh07-lua-follow3:259` (original lines not specified): Creates CoD.RestrictedItemWarningBar using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: RestrictedBar, RestrictedWarning. Registers ordered presentation states Visible with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Visible requires not director pregame, not public WZ lobby, and self isRestricted; model/lobby changes revalidate. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/33`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/258`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `6387621d4ab6f00774a367ae08570b7eb5cf502f784a2add1edf4862cf440f89`.
+
+- `hmh07-lua-follow3:168` (original lines not specified): Creates CoD.Toast_BonusOutline using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: ToastItemTitleGlow, Bonus, FrameBackground. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/34`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/167`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `3f2dfb3e7c10dc3352632c522574768cd2aba3d6ba5245c7f3558df10c821693`.
+
+- `hmh07-lua-follow3:178` (original lines not specified): Creates CoD.MainMenuTrialPrompt using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: TrialPrompt, TrialVersionCountdownWidget. Registers ordered presentation states AsianLanguage with the exact predicate bodies below. Defines 1 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. AsianLanguage requires Asian language and PC; includes trial countdown rather than deciding trial entitlement. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/35`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/177`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `40c93bef0f250c41d156d8cd5ea5ce80b93e869ecdaaab8c21c64557eb9f13ad`.
+
+- `hmh07-lua-follow3:248` (original lines not specified): Creates CoD.RipperLockArrowWidget using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Image1. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/36`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/247`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `155d22c15fc3802a037a941ff30a148058cdb94c19537d0c4b09b9ac71db58a0`.
+
+- `hmh07-lua-follow3:202` (original lines not specified): Creates CoD.GameEndScoreSubtitle using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: SubtitleText, SwitchingSidesText. Registers ordered presentation states SubtitleTransition, SubtitleBase with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. SubtitleTransition is AlwaysFalse; SubtitleBase requests CoD.ModelUtility.IsGlobalDataSourceModelValueNonEmptyString(controller, "GameScore", "subtitleString"). Its shown helper guards the datasource/getModel/getModel(controller) lookup, then uses short-circuit model-key/getmodelvalue requests. It returns false only when the resulting value compares equal to nil, the empty string or @"hash_0", and true otherwise; it has no string-type guard. Falsey intermediates, provider value domains and original hash equality semantics retain their uncertainties. This source predicate does not prove state delivery. The subtitleString subscription52-60 requests captured menu:updateElementState with model-validation metadata only. Text setup at16/27 is eager; no text update in that subscription is shown. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/37`.
+
+  Archived evidence ID: `archived-record-00022` at JSON pointer ``; file SHA-256 `b2257036da8f419fd927a3cde95ec8fafcf62142d61d7ef78d472680aa592050`.
+
+- `hmh07-lua-follow3:190` (original lines not specified): Creates CoD.WZObituaryCalloutContainerDamageDealt using LUI.UIHorizontalList.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9, 14, false ). Initializes and attaches children in source order: ContribDamage, ContribText. Registers ordered presentation states Visible with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. damageDealt drives value text and Visible requires a positive damage value; the widget does not apply damage. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/38`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/189`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `59b5bb44dfcce1b8f09a853187e359051e402f06cae2c81f2b48a13fd7878a1e`.
+
+- `hmh07-lua-follow3:213` (original lines not specified): Creates CoD.DeployableNotifications_MiniTurretIcon using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: DartIcon. Registers ordered presentation states Destroyed, EnemyKilled with the exact predicate bodies below. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Destroyed and EnemyKilled conditions return AlwaysFalse. After optional load hook, MiniTurretPostLoad is delegated. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/39`.
+
+  Archived evidence ID: `archived-record-00023` at JSON pointer ``; file SHA-256 `0216d5a83be02f5b2e19cf84380e482ab0cb2015d8810f040423ddb711fc0fe6`; selected record SHA-256 `9597e346034369ef95d9f28d6fed71fe082a27d24dfb821b657cfd8cf33e9bbd`.
+
+- `hmh07-lua-follow3:159` (original lines not specified): Creates CoD.horizontalScrollingTextBox_30pt using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: textBox. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/40`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/158`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `c565f9d1e32950fea3abd73cf9e34cc5bcc38ad7615c2ce4b330edf23db001b5`.
+
+- `hmh07-lua-follow3:252` (original lines not specified): Creates CoD.PC_TelemetryItem using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: KeyPromptBacking, Label. Defines 1 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Wraps Label.setText through CallOriginalFirst; its callback sets initialWidthSet once and delegates ScaleWidgetToLabelCenteredWithMinimum(self,label,5,93). The wrapper/provider ordering contract remains external. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/41`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/251`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `3bcc7ff2f95383c85b5b23b1668654a9a0e6ffa543a04cce88c2a01ffe4dfa65`.
+
+- `hmh07-lua-follow3:251` (original lines not specified): Creates CoD.Toast_Container_BlackMarket using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Backing, ToastBacking, FooterText, ContentIconInternal. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/42`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/250`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `668ef10e300a1b9c58ef11cfc3b585463399eb6e1494f9d3e86ef70c9721f1e1`.
+
+- `hmh07-lua-follow3:243` (original lines not specified): Creates CoD.DirectorTierSkipNotificationContractAvailableInternal using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Backing, Header, Description. Registers ordered presentation states Korea15, AsianLanguage, RussianLanguage with the exact predicate bodies below. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Like tier available UI but contract-specific localized description; exact Korea15/Asian/Russian state predicates are retained. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/43`.
+
+  Archived evidence ID: `archived-record-00024` at JSON pointer ``; file SHA-256 `1f6b5d15298920edfc81b67f130ebae0fe02f09d542420deb8576c8ead57396e`; selected record SHA-256 `db1d3ce4b90456c5ccbc779d4dbce70efe1de8c0b4cceec1f78126eacc44503e`.
+
+- `hmh07-lua-follow3:185` (original lines not specified): Creates CoD.ScoreInfo_PanelScale using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: ScoreInfoPanelScaleContainer0. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/44`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/184`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `af4332e3c25689b14d94a59bd42e342153bc252c7d368b7dce13c04e6587497b`.
+
+- `hmh07-lua-follow3:182` (original lines not specified): Creates CoD.Toast_Container_ClansTeams using LUI.UIHorizontalList.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9, 0, true ). Initializes and attaches children in source order: Backing, Spacer2, CheckmarkBaking, Spacer3, NotifText, Spacer. Defines 3 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/45`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/181`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `6aa1f80e3a5e52420d74b1a7e2387b46bb08e57a30db77c2495d4d2857a753dc`.
+
+- `hmh07-lua-follow3:274` (original lines not specified): Creates CoD.SpawnSelectTeamStatus using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: TeamStatusList. Defines 2 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. TeamStatusList uses Clients; clientCount and showSpawnSelect callbacks refresh its data source. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/46`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/273`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `8db149e0244e5ce17663f3ed954fbe52041b82e3e450e6fcb5d44ed7a0b3d5e1`.
+
+- `hmh07-lua-follow3:277` (original lines not specified): Creates CoD.LobbyProcessQueueDebug using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: List. Creates a debug UIList using LobbyProcessQueueInfo. Debug path naming alone is not proof exclusion from the target build. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/47`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/276`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `5930610242429384b46f3e2996102487a768ee2683ffe6db6fe872b12e64e9f3`.
+
+- `hmh07-lua-follow3:228` (original lines not specified): Creates CoD.WarzoneSplitInventory_PC_TextButton using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: Container, Label. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/48`.
+
+  Archived evidence ID: `archived-record-00003` at JSON pointer `/units/227`; file SHA-256 `a63852530df9189721a410c240a42967af6648aa0fca4e70325b17a1e677ebb7`; selected record SHA-256 `03a8e624047cd46235dc15cfca0ea921a0f390f6ad87d11f6120d3f816a4a804`.
+
+- `hmh07-lua-follow3:258` (original lines not specified): Creates CoD.DoubleLoot using LUI.UIElement.new( f1_arg2, f1_arg3, f1_arg4, f1_arg5, f1_arg6, f1_arg7, f1_arg8, f1_arg9 ). Initializes and attaches children in source order: cryptokeyBack. Registers ordered presentation states DoubleLoot with the exact predicate bodies below. Defines 1 separate closure scopes; their model/event/table bindings and their own ordered writes/returns are retained, not flattened into construction. DoubleLoot state tests IsDoubleLootXP; the selected direct statements contain no loot-grant request. Effects inside providers and the optional unresolved PostLoadFunc remain unknown. Returns self after the shown optional hooks and setup. Native UI/model/asset effects and callback delivery are external contracts.
+
+  unknowns: &#91;"Original PS4/source match, original Lua bytecode and VM/decompiler fidelity remain unverified.", "Effective enum/dvar/settings, assets/localization/model/DDL/storage/playlist data remain exact external inputs; requested persistence/network/service effects are not successful execution proof.", "A field/method/import/spelling or other-file local alone does not bind a provider. Unknown identities remain unresolved rather than declared unavailable.", "Native model/event/timer/wrapper invocation, delivery, error/cleanup/lifetime and unavailable original server behavior are outside this source packet.", "No independent correctness review, acceptance, original-build or function-completion credit is recorded."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/fde07adae6b0b9a8-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/fde07adae6b0b9a8.json) at JSON pointer `/claims/49`.
+
+  Archived evidence ID: `archived-record-00025` at JSON pointer ``; file SHA-256 `03ae03bffacaafd35cb7cc9ad0ca9223debfe2a8ae83578e973af27ba0f46810`; selected record SHA-256 `731d7c9892b50908a54fc30def679dc67828da5b481692ff9a07ebf452afd42a`.
+
+Dependency decisions: [exact edge records](../../provenance/dependency-decisions.json). Included callees remain at the bounded static scopes recorded there.
+
+- [AV0013](../../provenance/dependency-decisions/AV0013.json): `src/ui/uieditor/menus/leaderboard/leaderboard_gamemode.lua` to `lua/ui/uieditor/widgets/backgroundframes/genericmenuframeidentity.lua`; include_conditional_source.
+
+  Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.

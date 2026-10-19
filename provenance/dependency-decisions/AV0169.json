@@ -1,0 +1,436 @@
+{
+  "module": "src/scripts/weapons/weapons.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 404,
+      "text": "            self stats::function_eec52333( self.currentweapon, #\"timeused\", totaltime, self.class_num, weaponpickedup );",
+      "caller": "update_last_held_weapon_timings",
+      "caller_span": [
+        389,
+        408
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 393,
+          "opening_line": 396,
+          "ending_line": 406,
+          "text": "if ( totaltime > 0 )"
+        },
+        {
+          "line": 390,
+          "opening_line": 392,
+          "ending_line": 407,
+          "text": "if ( isdefined( self.currentweapon ) && isdefined( self.currentweaponstarttime ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 441,
+      "text": "            self stats::function_eec52333( self.weapon_array_grenade[ i ], #\"timeused\", totaltime, self.class_num );",
+      "caller": "update_timings",
+      "caller_span": [
+        414,
+        503
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 439,
+          "opening_line": 440,
+          "ending_line": 442,
+          "text": "i++ )"
+        },
+        {
+          "line": 435,
+          "opening_line": 438,
+          "ending_line": 443,
+          "text": "if ( isdefined( self.weapon_array_grenade ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 449,
+      "text": "            self stats::function_eec52333( self.weapon_array_inventory[ i ], #\"timeused\", totaltime, self.class_num );",
+      "caller": "update_timings",
+      "caller_span": [
+        414,
+        503
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 447,
+          "opening_line": 448,
+          "ending_line": 450,
+          "text": "i++ )"
+        },
+        {
+          "line": 443,
+          "opening_line": 446,
+          "ending_line": 451,
+          "text": "if ( isdefined( self.weapon_array_inventory ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 462,
+      "text": "                self stats::function_eec52333( killstreakweapon, #\"timeused\", totaltime, self.class_num );",
+      "caller": "update_timings",
+      "caller_span": [
+        414,
+        503
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 457,
+          "opening_line": 460,
+          "ending_line": 463,
+          "text": "if ( isdefined( killstreaktype ) )"
+        },
+        {
+          "line": 455,
+          "opening_line": 456,
+          "ending_line": 464,
+          "text": "i++ )"
+        },
+        {
+          "line": 451,
+          "opening_line": 454,
+          "ending_line": 465,
+          "text": "if ( isdefined( self.killstreak ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 498,
+      "text": "                    self stats::inc_stat( #\"itemstats\", k, #\"stats\", #\"timeused\", #\"statvalue\", totaltime );",
+      "caller": "update_timings",
+      "caller_span": [
+        414,
+        503
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 495,
+          "opening_line": 497,
+          "ending_line": 499,
+          "text": "if ( v == 1 && k >= 0 )"
+        },
+        {
+          "line": 492,
+          "opening_line": 495,
+          "ending_line": 500,
+          "text": "foreach ( k, v in perksindexarray )"
+        },
+        {
+          "line": 480,
+          "opening_line": 483,
+          "ending_line": 501,
+          "text": "if ( isdefined( self.class_num ) )"
+        },
+        {
+          "line": 465,
+          "opening_line": 468,
+          "ending_line": 502,
+          "text": "if ( level.rankedmatch && level.perksenabled )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "inc_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          201,
+          232
+        ]
+      ]
+    },
+    {
+      "line": 928,
+      "text": "            self stats::function_eec52333( curweapon, #\"shots\", 1, self.class_num, 0 );",
+      "caller": "function_f2c53bb2",
+      "caller_span": [
+        900,
+        958
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 913,
+          "opening_line": 916,
+          "ending_line": 932,
+          "text": "switch ( curweapon.weapclass )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 1021,
+      "text": "    self stats::function_eec52333( weapon, #\"damagedone\", damagedone, self.class_num );",
+      "caller": "function_b1d41bd5",
+      "caller_span": [
+        1019,
+        1022
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 1055,
+      "text": "    self stats::function_eec52333( weapon, #\"shots\", 1, self.class_num );",
+      "caller": "function_5755a808",
+      "caller_span": [
+        1047,
+        1061
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_eec52333",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          548,
+          581
+        ]
+      ]
+    },
+    {
+      "line": 1339,
+      "text": "            self stats::function_e24eec31( weapon, #\"used\", 1 );",
+      "caller": "begin_grenade_tracking",
+      "caller_span": [
+        1269,
+        1371
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1332,
+          "opening_line": 1335,
+          "ending_line": 1352,
+          "text": "switch ( weapon.rootweapon.name )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    },
+    {
+      "line": 1350,
+      "text": "            self stats::function_e24eec31( weapon, #\"used\", 1 );",
+      "caller": "begin_grenade_tracking",
+      "caller_span": [
+        1269,
+        1371
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1332,
+          "opening_line": 1335,
+          "ending_line": 1352,
+          "text": "switch ( weapon.rootweapon.name )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    },
+    {
+      "line": 1417,
+      "text": "            self stats::function_e24eec31( weapon, #\"used\", 1 );",
+      "caller": "function_e2b6d5a5",
+      "caller_span": [
+        1377,
+        1422
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1397,
+          "opening_line": 1400,
+          "ending_line": 1421,
+          "text": "switch ( weapon.rootweapon.name )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_e24eec31",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          587,
+          590
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0169",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/player/player_stats.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    404,
+    441,
+    449,
+    462,
+    498,
+    1021
+  ],
+  "required_callee_functions": [
+    "function_eec52333",
+    "inc_stat"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02443",
+        "to": "N02923",
+        "line": 1021
+      },
+      {
+        "from": "N03736",
+        "to": "N02923",
+        "line": 441
+      },
+      {
+        "from": "N03736",
+        "to": "N02923",
+        "line": 449
+      },
+      {
+        "from": "N03736",
+        "to": "N02923",
+        "line": 462
+      },
+      {
+        "from": "N03736",
+        "to": "N03497",
+        "line": 498
+      },
+      {
+        "from": "N04526",
+        "to": "N02923",
+        "line": 404
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

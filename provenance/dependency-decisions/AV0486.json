@@ -1,0 +1,227 @@
+{
+  "module": "src/scripts/mp_common/laststand.gsc",
+  "identity": "scripts/core_common/weapons_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "weapons",
+  "witnesses": [
+    {
+      "line": 682,
+      "text": "    self weapons::detach_all_weapons();",
+      "caller": "laststand_disable_player_weapons",
+      "caller_span": [
+        673,
+        683
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "detach_all_weapons",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f5012bfeafcb9a18.json",
+          "pointer": "/claims/1",
+          "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+          "citation": {
+            "line_start": 37,
+            "line_end": 60,
+            "sha256": "a139f9a335ea089e376752ac7143379039136c92d19fe90052d415180f599029"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          37,
+          83
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "playerlaststand",
+            "line": 49,
+            "form": "stored_pointer",
+            "text": "    level.var_97c6ee7c = &playerlaststand;"
+          },
+          {
+            "from": "playerlaststand",
+            "to": "laststand_disable_player_weapons",
+            "line": 629,
+            "form": "local_call",
+            "text": "    self thread laststand_disable_player_weapons();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          588,
+          628
+        ]
+      ]
+    },
+    {
+      "line": 705,
+      "text": "    self weapons::function_d571ac59( self.var_60956d6 );",
+      "caller": "laststand_enable_player_weapons",
+      "caller_span": [
+        700,
+        706
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d571ac59",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f5012bfeafcb9a18.json",
+          "pointer": "/claims/1",
+          "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+          "citation": {
+            "line_start": 37,
+            "line_end": 60,
+            "sha256": "a139f9a335ea089e376752ac7143379039136c92d19fe90052d415180f599029"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          37,
+          83
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "playerlaststand",
+            "line": 49,
+            "form": "stored_pointer",
+            "text": "    level.var_97c6ee7c = &playerlaststand;"
+          },
+          {
+            "from": "playerlaststand",
+            "to": "auto_revive_on_notify",
+            "line": 653,
+            "form": "local_call",
+            "text": "    self thread auto_revive_on_notify();"
+          },
+          {
+            "from": "auto_revive_on_notify",
+            "to": "auto_revive",
+            "line": 1579,
+            "form": "local_call",
+            "text": "    auto_revive( waitresult.reviver );"
+          },
+          {
+            "from": "auto_revive",
+            "to": "laststand_enable_player_weapons",
+            "line": 1633,
+            "form": "local_call",
+            "text": "    self laststand_enable_player_weapons();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 1330,
+      "text": "    self weapons::function_d571ac59();",
+      "caller": "revive_give_back_weapons",
+      "caller_span": [
+        1314,
+        1331
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_d571ac59",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/f5012bfeafcb9a18.json",
+          "pointer": "/claims/1",
+          "selection_id": "ff46dbd6e3c07389a7ed5e79207248a8e33630ecf3ca9d19a89341d134a7927b",
+          "citation": {
+            "line_start": 37,
+            "line_end": 60,
+            "sha256": "a139f9a335ea089e376752ac7143379039136c92d19fe90052d415180f599029"
+          }
+        },
+        "entry_function": "__init__",
+        "entry_span": [
+          37,
+          83
+        ],
+        "local_references": [
+          {
+            "from": "__init__",
+            "to": "playerlaststand",
+            "line": 49,
+            "form": "stored_pointer",
+            "text": "    level.var_97c6ee7c = &playerlaststand;"
+          },
+          {
+            "from": "playerlaststand",
+            "to": "revive_trigger_spawn",
+            "line": 625,
+            "form": "local_call",
+            "text": "            self revive_trigger_spawn();"
+          },
+          {
+            "from": "revive_trigger_spawn",
+            "to": "revive_trigger_think",
+            "line": 966,
+            "form": "local_call",
+            "text": "    self thread revive_trigger_think();"
+          },
+          {
+            "from": "revive_trigger_think",
+            "to": "revive_give_back_weapons",
+            "line": 1051,
+            "form": "local_call",
+            "text": "                reviver revive_give_back_weapons();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0486",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/weapons_shared.gsc",
+    "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+    "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    682
+  ],
+  "required_callee_functions": [
+    "detach_all_weapons"
+  ],
+  "output": "src/scripts/core_common/weapons_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/weapons_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N04327",
+        "to": "N03083",
+        "line": 682
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic_ui.gsc",
+  "identity": "scripts/core_common/player/player_role.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "player_role",
+  "witnesses": [
+    {
+      "line": 287,
+      "text": "        self player_role::set( getdvarint( #\"auto_select_character\", 1 ) );",
+      "caller": "beginclasschoice",
+      "caller_span": [
+        275,
+        322
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 283,
+          "opening_line": 286,
+          "ending_line": 306,
+          "text": "if ( level.disableclassselection == 1 || getdvarint( #\"migration_soak\", 0 ) == 1 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          129,
+          175
+        ]
+      ]
+    },
+    {
+      "line": 317,
+      "text": "        if ( comingfrommenu || !player_role::is_valid( player_role::get() ) )",
+      "caller": "beginclasschoice",
+      "caller_span": [
+        275,
+        322
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 308,
+          "opening_line": 311,
+          "ending_line": 321,
+          "text": "if ( !draft::is_enabled() || comingfrommenu || !level.inprematchperiod )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 317,
+      "text": "        if ( comingfrommenu || !player_role::is_valid( player_role::get() ) )",
+      "caller": "beginclasschoice",
+      "caller_span": [
+        275,
+        322
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 308,
+          "opening_line": 311,
+          "ending_line": 321,
+          "text": "if ( !draft::is_enabled() || comingfrommenu || !level.inprematchperiod )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 460,
+      "text": "    if ( !player_role::is_valid( self player_role::get() ) )",
+      "caller": "menuclass",
+      "caller_span": [
+        426,
+        546
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "is_valid",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          75,
+          104
+        ]
+      ]
+    },
+    {
+      "line": 460,
+      "text": "    if ( !player_role::is_valid( self player_role::get() ) )",
+      "caller": "menuclass",
+      "caller_span": [
+        426,
+        546
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 567,
+      "text": "    if ( player_role::get() != characterindex )",
+      "caller": "menuspecialist",
+      "caller_span": [
+        552,
+        602
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 571,
+      "text": "        self.pers[ #\"hash_1b145cf9f0673e9\" ] = function_b14806c6( self player_role::get(), currentsessionmode() );",
+      "caller": "menuspecialist",
+      "caller_span": [
+        552,
+        602
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 565,
+          "opening_line": 568,
+          "ending_line": 572,
+          "text": "if ( player_role::get() != characterindex )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "get",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          114
+        ]
+      ]
+    },
+    {
+      "line": 628,
+      "text": "            self player_role::clear();",
+      "caller": "menupositiondraft",
+      "caller_span": [
+        622,
+        668
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 625,
+          "opening_line": 627,
+          "ending_line": 629,
+          "text": "if ( self draft::function_904deeb2() )"
+        },
+        {
+          "line": 623,
+          "opening_line": 625,
+          "ending_line": 632,
+          "text": "if ( response == \"changecharacter\" )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    },
+    {
+      "line": 636,
+      "text": "        self player_role::clear();",
+      "caller": "menupositiondraft",
+      "caller_span": [
+        622,
+        668
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 632,
+          "opening_line": 635,
+          "ending_line": 650,
+          "text": "if ( response == \"randomcharacter\" )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "clear",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          181,
+          188
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0097",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_role.gsc",
+    "sha256": "e8b40e24baa2cd15975a56d78dc197fbcf6aa2ba0b5dca20edaf56e71abb7904",
+    "git_blob_sha1": "4f023c36354d4fa10f3b7c56b26685d2f662035a",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/core_common/player/player_role.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    287,
+    317,
+    460,
+    567,
+    571,
+    628,
+    636
+  ],
+  "required_callee_functions": [
+    "clear",
+    "get",
+    "is_valid",
+    "set"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_role.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03717",
+        "to": "N02763",
+        "line": 460
+      },
+      {
+        "from": "N03717",
+        "to": "N02761",
+        "line": 460
+      },
+      {
+        "from": "N03718",
+        "to": "N02761",
+        "line": 567
+      },
+      {
+        "from": "N03718",
+        "to": "N02761",
+        "line": 571
+      },
+      {
+        "from": "N03720",
+        "to": "N02759",
+        "line": 628
+      },
+      {
+        "from": "N03720",
+        "to": "N02759",
+        "line": 636
+      },
+      {
+        "from": "N04504",
+        "to": "N03615",
+        "line": 287
+      },
+      {
+        "from": "N04504",
+        "to": "N02763",
+        "line": 317
+      },
+      {
+        "from": "N04504",
+        "to": "N02761",
+        "line": 317
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

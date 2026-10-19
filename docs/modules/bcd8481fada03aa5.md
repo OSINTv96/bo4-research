@@ -1,0 +1,45 @@
+# scripts/core_common/laststand_shared.gsc
+
+Project-added notes. See the [code](../../src/scripts/core_common/laststand_shared.gsc).
+
+The complete file retains lexical context. These summary excerpts do not approve the whole file or prove HMH invocation.
+
+Original revision: `f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac`. Original SHA-256: `7c694e608d7323039952f470d5af50dfb70ce17609702dfff6e6f37bc23a639b`.
+
+Exact source spans, dependencies and bounded review evidence: [module record](../../provenance/modules/bcd8481fada03aa5.json).
+
+New notes and dependency decisions await independent review. Original build, native/VM, effective settings, service and gameplay limits remain open.
+
+Selected source notes (excerpts; full records remain authoritative):
+
+- `hmh-health:HMH-HEALTH-RECOVERY-01:damage-gates` (original lines 10-13, 10-13): The added connection is a conditional sampled-health contract. Once the saved tick's earlier gates pass, health lower than old_health records the current polling time in var_ba47a7a3 and skips heal for that call; equal or higher health goes to heal instead (healthoverlay.gsc:625-690,704). Damage table callbacks, laststand_damage notify, local health++ and the later finishplayerdamage boundary are separate channels, so a damage notification does not by itself establish this timestamp or net health loss (player_damage.gsc:132-156,625-644). Downed/remote-control gates normally leave the old sample and delay marker untouched; full-health return refreshes old_health, while a lower-cap return writes health without refreshing old_health (healthoverlay.gsc:340-360,565-583,646-668). After revive clears laststand, the next eligible call can therefore see restored health against an older pre-down sample unless the owning lifecycle route has replaced the table; revive does not itself reset these fields in its cited transition (laststand_warzone.gsc:2007-2056; healthoverlay.gsc:605-619,675-704). For positive regen_delay, exact elapsed==delay passes the time gate, but positive delay and health below var_66cb03ad are still required. ignore_health_regen_delay skips only the elapsed comparison; disable_health_regen_delay writes marker=1, which is not an unconditional bypass for every clock/delay pair (healthoverlay.gsc:366-389). These are recovered-source conditions, not PS4 outcomes, event ordering, an effective HMH setting or a new whole-body reconstruction.
+
+  unknowns: &#91;"No read-order winner is assumed between damage callbacks, their listeners, native health writes, laststand clear, revive wait/native return and polling.", "A damage event can be rejected, deferred, reflected, offset or health-gated; its payload and fatal return do not establish this tick's H<O branch. Exact damage accounting/engine event posting is outside this bounded connection.", "Same-table post-revive examples are conditional. Root decides source init/restart reachability; this record does not assert that every revive, spawn or redeploy replaces or preserves the table.", "Source asserts do not establish valid runtime ranges. Numeric cases use explicitly defined finite positive baselines/caps/delays except the stated zero/negative boundary; undefined values, invalid cap, numeric coercion and native failure behavior are not guessed.", "Prior author records and labels remain unchanged and awaiting independent review. New exact comparisons are dependency algebra only, not a retrospective correctness review or a runtime defect finding.", "Passing the delay gate does not prove healing: amount0/later clamp or native field behavior can prevent an observed increase; heal_policy owns the producer/rate conditions.", "Whole-HMH, original online/server behavior and whole-function completion are not established by this one bounded answer."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/bcd8481fada03aa5-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/bcd8481fada03aa5.json) at JSON pointer `/claims/0`.
+
+  Archived evidence ID: `archived-record-00145` at JSON pointer ``; file SHA-256 `9ff1715c882c68ccb33c6af9dda00843abb62fe15f4cad1d9bdf8ea4d63870ff`; selected record SHA-256 `fb968c0f12c9658788af3adab15bf810bbdd2b5e8748b9d1c24a408f6d3febe5`.
+
+- `hmh-combat:HMH-DAMAGE-DOWNED-01:armor-downed-relay` (original lines 10-13, 10-13, 10-13): Connected the existing post-armor damage payload to two different channels: threaded on_player_damage table listeners observe the victim and can record damage to a reviver on its revivee's stats, while laststand_damage is an entity notify consumed by the already-downed bleedout listener. That listener uses the pre-local-substitution payload damage and selected tier health/time. Local idamage=1, self.health++ and self.laststanddamage follow notification; they do not explicitly rewrite params. The later damage gate can return after these side effects. Revive marker/clears and cancellation paths are mapped without claiming listener ordering, native delivery, parameter alias rules or real PS4 behavior.
+
+  unknowns: &#91;"Exact parameter object alias/copy rules across native eventstruct -> callback locals -> params -> threaded table listeners -> entity notify payload are unproved. The source reuses one params variable and does not write params.idamage=1; this does not prove immutable/deep-copy payloads or forbid a shared listener mutation.", "Only the bounded WZ on_player_damage consumer was inspected for writes: it reads params and writes revivee telemetry. Other loaded/hashed subscribers, callback-table mutations and native field aliases can change observations; no global absence or immutable payload claim is made.", "Thread spawn/run interleave and live-state read timing are unresolved: WZ reviver comparison uses self.health, producer checks self.laststand after table dispatch, and revive window/health writes can overlap. No callbacks finish-before-notify assumption is used.", "Native notify delivery/queueing and endon/endoncallback cancellation semantics, especially combined keys and a notification during the initial wait, remain standing g3 A.4/f2 N4/b2 conditions. Source notification is not delivery proof.", "Effective hash_4c7c8c4bd1b2a58b setting, g_gametype HMH selection, tier initialization/re-entry, revive delay and revive health overrides remain d3/l1/g1 conditions. H=150 algebra is conditional on the HMH tier route.", "Native player_damage and player_laststand posting, down-vs-kill admission, finishplayerdamage/health/invulnerability effects, builtin telemetry semantics, retail module set and original saved-PS4 source binding remain unverified. Root owns the later fatal pointer boundary.", "The telemetry threshold self.health<=params.idamage can mark equality even if a later gate cancels native damage. It is a source comparison, not a proven fatal result; a handler may execute after unrelated health state changed.", "var_d887a4ad can stop the listener permanently for that downed-life thread on one delivered event during the success wait. Whether other native/hashed state paths clear the marker or restore listener liveness is outside this bounded trace; no new runtime claim."&#93;
+
+  status: complete_bounded_contract
+
+  Complete explanatory fields: [exact projection](../../provenance/documentation/bcd8481fada03aa5-001.json). Older compact summaries and original evidence remain unchanged.
+
+  Exact excerpt: [saved claim](../../provenance/modules/bcd8481fada03aa5.json) at JSON pointer `/claims/1`.
+
+  Archived evidence ID: `archived-record-00178` at JSON pointer ``; file SHA-256 `4a7781155e4ca01e4bca6d2b20afcf42869b8bc14bc805bbb5fcc78a1dc7963f`; selected record SHA-256 `6fa819ec371c47424982477c27c08fff96aa23fe22e55849785634c9d1efe078`.
+
+Dependency decisions: [exact edge records](../../provenance/dependency-decisions.json). Included callees remain at the bounded static scopes recorded there.
+
+- [AV0056](../../provenance/dependency-decisions/AV0056.json): `src/scripts/core_common/laststand_shared.gsc` to `scripts/autogenerated/luielems/core/revive_hud.gsc`; include_conditional_source.
+
+  The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.
+
+  Selected callee candidates: `is_open`. Source-only conditional selection; refer to the full edge record for caller lines and gates.

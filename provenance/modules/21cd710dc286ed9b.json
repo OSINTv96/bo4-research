@@ -1,0 +1,1201 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "scripts/abilities/gadgets/gadget_smart_cover.csc",
+  "source_id": "SRC-005",
+  "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac",
+  "original_sha256": "82ea1968de50bc591417a9ccb23e7d175d95ec890e49d9e423d55d0da06e06cf",
+  "git_blob_sha1": "b548fed9aa7002ce9cc604f41c5fb254226c6ec0",
+  "output": "src/scripts/abilities/gadgets/gadget_smart_cover.csc",
+  "output_sha256": "8b3759ec78bd9316f176b05ffc058ef48c4042b2090240f4d65c64e6de4b8271",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/callbacks_shared.csc",
+      "original_line": 1,
+      "output": "src/scripts/core_common/callbacks_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/callbacks_shared.csc",
+        "sha256": "24713b344726c6a7f82f177811c06652782426ca33618b771d7cf235f655f775",
+        "git_blob_sha1": "b08efd7c8327b7241849a0d38407afbdb8d8e288"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/clientfield_shared.csc",
+      "original_line": 2,
+      "output": "src/scripts/core_common/clientfield_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/clientfield_shared.csc",
+        "sha256": "68ebd6e58269bf4481b3f3b3c32a3d36e93c92b7b18efef98acda1b215651510",
+        "git_blob_sha1": "1d741c3a0186dc6564d27c7ac45e5342370a71bc"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/core_common/util_shared.csc",
+      "original_line": 3,
+      "output": "src/scripts/core_common/util_shared.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/core_common/util_shared.csc",
+        "sha256": "96db7c5f8d4622ea56c2fdbf62d6a3d915dd678ab839098e19c16d39a29c996c",
+        "git_blob_sha1": "1b4845d28dff6b2d26ee493902a59392f043e7d5"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "source_include",
+      "identity": "scripts/weapons/deployable.csc",
+      "original_line": 4,
+      "output": "src/scripts/weapons/deployable.csc",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "scripts/weapons/deployable.csc",
+        "sha256": "d13e4da33bd45bb3c515691573f7c86cb854b00891be367576484b6f105157be",
+        "git_blob_sha1": "c18cc07e90e768d200f6d0d9443cbfbb60f179f8"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "9c1ce108bd44485c66a5c531ae9e220426d254ccd224c4d8dc52cc8741ea581d",
+      "citations": [
+        {
+          "line_start": 40,
+          "line_end": 58
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::setupdvars",
+        "behavior": "setupdvars() requests12 ordered writes: hash_25f7092e7c7b66f2=0; hash_4332205cbf1cc384=0; smartcover_drawtime=1000; hash_436fc2fad44e9041=1; hash_1d8eb304f5cf8033=1; smartcover_tracedistance=level.smartcoversettings.bundle.var_1f0ae388 directly; hash_13c23fd3a4387b84=8; hash_55a8dba3350b8b7c=4; hash_4f4ce3cb18b004bc=10; hash_417afa70d515fba5=defined bundle.var_76d79155?that value:0; hash_71f8bd4cd30de4b3=defined bundle.var_e35fc674?that value:0; hash_39a564d4801c4b2e=defined bundle.var_1f0ae388?that value:0. All dvar names are hash literals in source46-57. Native dvar behavior, values and actual consumers remain unproved.",
+        "unknowns": [
+          "Meanings of each hash dvar (consumers not in this file)",
+          "bundle values",
+          "Four exact transcriptions corrected from source50,52,53,54: hash_1d8eb304f5cf8033,hash_13c23fd3a4387b84,hash_55a8dba3350b8b7c,hash_4f4ce3cb18b004bc; names alone establish no semantics."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/700",
+        "decision_canonical_sha256": "0f16df2b20a37e0fea1cfa4e5ed4bb0fb153eab8bc23d05e4b7291ca2ad216e2",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00273",
+        "sha256": "7a9e99484203b94d2b9759f27186af0ecf6004bf8ccd9b62594dbb07be7a32aa",
+        "pointer": "",
+        "record_sha256": "623a5e878be1d57428c764bcd5a7d3d2caff34b0d12b2d8f08d1a9e96781dd60"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "9fed01e3e9e2cd9a4ac1bca1108d257e4595fc666a97b722966726fed0a25c6b",
+      "citations": [
+        {
+          "line_start": 642,
+          "line_end": 721
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::playmicrowavefx",
+        "behavior": "playmicrowavefx(localclientnum, trace, traceright, traceleft, origin, team) - beam rebuild across three traced directions x five 150-unit rings. Per direction i 0..4: center trace first: startfx = tracedistsq >= (i*150+125)^2 (center also starts at i==0); fxname = tracedistsq > (i*150+200)^2 ? weapon/fx8_equip_smart_cover_microwave : weapon/fx8_equip_smart_cover_microwave_sm. CENTER switch: i0 tag_fx11; i1 skip; i2 tag_fx32; i3 tag_fx42 AND tag_fx43; i4 tag_fx53. Then LEFT trace: startfx = tracedistsq >= ring (no i==0 exemption); same fxname rule. LEFT switch: i0 skip; i1 tag_fx22; i2 tag_fx33; i3 tag_fx44; i4 tag_fx54 AND tag_fx55. Then RIGHT trace same rules: i0 skip; i1 tag_fx21; i2 tag_fx31; i3 tag_fx41; i4 tag_fx51 AND tag_fx52. Center case0 directly requests self play_fx_on_tag(localclientnum,fxname,\"tag_fx11\",team), without stop_or_start_fx or a passed start flag. Every other show [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "tag slot spatial meaning (model tags; unobserved)",
+          "exact hash of ring bands (as written: i*150+125 / i*150+200 squared)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/439",
+        "decision_canonical_sha256": "3af67a424ead836e616a245b001368cee338f58ed9d9a7c9dae2d85bb3053b4d",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current recovered-source record; original VM/build/native/service/runtime compatibility remains unknown.",
+        "limitations": [
+          "Recovered source only; original PS4 build/native/VM and runtime match remains unproved.",
+          "Actual opaque native/provider effects, original game loading and callback delivery remain unknown.",
+          "Historical original author/reviewer identity remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00274",
+        "sha256": "bc239cd3eabeecfcb2318ccbec62a05c3ac76b5dcc1d940ba75493397b3a5a50",
+        "pointer": "",
+        "record_sha256": "08f2a237fa0bf24da0193b83d0041bd7edd4583336f5ad2e732c97b063954d24"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f7be2307ad56af621c9df52e25e7c96469a98c626c2e600d2166a20688a928b4",
+      "citations": [
+        {
+          "line_start": 426,
+          "line_end": 504
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::startmicrowavefx",
+        "behavior": "startmicrowavefx(localclientnum) assigns turret=self and installs TWO separate turret endon calls for hashed death and beam_stop at433-434. It sets should_update_fx1, creates a client script_model at turret.origin+(0,0,30), requests hashed tag_microwavefx model, copies angles and initializes three FX arrays, then threads cleanupfx and waits0.3. Cleanupfx550-563 contains literal self waittill(#\"death\",#\"beam_stop\"); if it returns, it loops defined FX handles, requests stopfx and entity deletion; no OR-event cleanup guarantee is established. Main loop has recovered dev regions449-455 and479-486; their target-build presence remains unresolved. should_update_fx==0 waits1 and continues before tracing. A defined last-trace time equal to gettime waits one frame and continues. Otherwise it refreshes angles/origin, scales forward and angles+(0,55/3,0) directions by defined bundle.var_b345c668?val [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "bundle.var_b345c668 value",
+          "microwavefxhash/playmicrowavefx are same-namespace methods (methods on the entity with custom names - decompiled output; semantics per own records)",
+          "spawn/setmodel natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/1168",
+        "decision_canonical_sha256": "683c80d9dc6780156657bf49ad96458a006c66a4b85fbadc005d2c9299dd077c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00275",
+        "sha256": "cacf0a5f875fb006fca30a5d5be3d43221599d8436a89035e2a4592251cb4527",
+        "pointer": "",
+        "record_sha256": "b3e8efb2de76c9c4b245b62a1f697fe35bbf28178fc2d0c23cef41f6771393eb"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "03a87206faacf6f53ddb02811a69bbbf32f9b6f096e2deff4b3b8ccdab275d42",
+      "citations": [
+        {
+          "line_start": 329,
+          "line_end": 345
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_dbaf4647",
+        "behavior": "function_dbaf4647(localclientnum) - show all grid joints: smartcover = self; nested loops rowindex 0..rowcount-1 and colindex 1..colcount: celllabel = function_d66a0190(rowindex, colindex); smartcover showpart(localclientnum, celllabel) [builtin].",
+        "unknowns": [
+          "bundle.rowcount/colcount values"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02040",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/57"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/314",
+        "record_sha256": "a722bc097d12f3f56b5fa38d99a59b0b287392bb84b9d2b0cc7ccc33c38e3995"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "075097cc9cc44e7f2c649d166c82f32da543bcd9bf595ba687c1fb7ff91c2b94",
+      "citations": [
+        {
+          "line_start": 243,
+          "line_end": 250
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::on_local_player_spawned",
+        "behavior": "on_local_player_spawned(localclientnum): body EMPTY - placeholder hook (registered in init_shared line 14).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02044",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/61"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/309",
+        "record_sha256": "0e59e634aa5f719185b52718d25a626de8b43f3e2c72e0e8b590df95cf684711"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "0ac1a6d08b1d7ef980795fd8871bb97f96aacfeb4e6dfd96526eab689923db75",
+      "citations": [
+        {
+          "line_start": 203,
+          "line_end": 212
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_59605cb",
+        "behavior": "function_59605cb(localclientnum) - stop-placement wrapper: player = self; player notify(\"hash_5c7dbac0591cb11f\"); player function_fd04d5d5(localclientnum).",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02033",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/50"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/306",
+        "record_sha256": "1e09824ba9313787aa307c2f538d89664ec173456021abc747e7a50b9f634052"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "1b7adbc2a698e74fee0a879217d43a2cbb3bc0753ccfff8f08730e98622f947a",
+      "citations": [
+        {
+          "line_start": 546,
+          "line_end": 563
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::cleanupfx",
+        "behavior": "cleanupfx(localclientnum, microwavefxent) - fx teardown thread: self waittill(\"death\", \"beam_stop\"); foreach handle in microwavefxent.fxhandles: stopfx when defined; microwavefxent delete().",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02028",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/45"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/319",
+        "record_sha256": "94a6cabd8c8c3b986f9af91a86ba821768c092106a9482b30badc9cce62e1a7d"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "39ed7f13e0775c726b03fcaab123ffb3206a5981d09e3081d8208cfe26db2b2e",
+      "citations": [
+        {
+          "line_start": 134,
+          "line_end": 143
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_fd04d5d5",
+        "behavior": "function_fd04d5d5(localclientnum) - reset preview state: player = self; player function_112e3e89(localclientnum); level.smartcoversettings.var_aef370a9[localclientnum] = 0.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02041",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/58"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/304",
+        "record_sha256": "e87543c169445f4b4bd42eba4fe81715ec9a2163666eb7fc0fe188d0c84a3072"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3faecbd9a51fec4590553c2fba260145bfb4eeb00a6d4b2a06c56f9371cc506a",
+      "citations": [
+        {
+          "line_start": 8,
+          "line_end": 38
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::init_shared",
+        "behavior": "csc init_shared() - client smart-cover registry: on_localplayer_spawned hook (empty handler); clientfield::register(\"scriptmover\", \"smartcover_placed\", 1, 5, \"float\", &smartcover_placed, 0, 0); clientfield::register(\"clientuimodel\", \"hudItems.smartCoverState\", 1, 1, \"int\", undefined, 0, 0) (no handler; LUI reads); clientfield::register(\"scriptmover\", \"start_smartcover_microwave\", 1, 1, \"int\", &smartcover_start_microwave, 0, 0); level.smartcoversettings = spawnstruct() with .previewmodels = []; .var_aef370a9 = []; .weapon = getweapon(\"ability_smart_cover\"); deployable::register_deployable(weapon, 1) [deployable; not owned]. MODE GATE: bundle - MP -> smartcover_settings_mp; WZ -> smartcover_settings_wz; campaign -> smartcover_settings_cp. Then setupdvars().",
+        "unknowns": [
+          "init_shared caller (mode chain; mp/gadgets/gadget_smart_cover.gsc twin in packet)",
+          "bundle field values (not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02042",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/59"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/299",
+        "record_sha256": "b4caa751439cecda62834c80bf1bbe2c54105237386f18fafed7a8d1acf981e4"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4439c50e5742a08880952cce6f0127c2d95006915ae7dfb8300fde78f3bca3d1",
+      "citations": [
+        {
+          "line_start": 506,
+          "line_end": 544
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::microwavefxhash",
+        "behavior": "microwavefxhash(trace, origin, name) [Type: bool] - beam-length hash (method on the fx entity): hash = 0; counter = 2; for i 0..4: endofhalffxsq = (i * 150 + 125)^2; endoffullfsq = (i * 150 + 200)^2; tracedistsq = distancesquared(origin, trace[\"position\"]); branch tracedistsq >= endofhalffxsq OR i == 0: tracedistsq < endoffullfsq -> hash += 1 else hash += counter; counter *= 2. Persist: if !isdefined(self.fxhashs[name]) then self.fxhashs[name] = 0; last_hash = it; self.fxhashs[name] = hash; return last_hash != hash (rebuild when ring profile changed).",
+        "unknowns": [
+          "150-ring band units (native distance)",
+          "distancesquared semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02043",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/60"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/318",
+        "record_sha256": "65035062f97d226ccd0275f87ce08e10dc7e64441a69aacd00b91ad243a8934e"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "55587c5dd6b00a543b481ce1aa75a5f1199cdbec64e7a39ba9d4be93d6092625",
+      "citations": [
+        {
+          "line_start": 565,
+          "line_end": 578
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::play_fx_on_tag",
+        "behavior": "play_fx_on_tag(localclientnum, fxname, tag, team): branch if !isdefined(self.fxhandles[tag]) OR fxname != self.fxnames[tag]: stop_fx_on_tag(localclientnum, fxname, tag); self.fxnames[tag] = fxname; self.fxhandles[tag] = util::playfxontag(localclientnum, fxname, self, tag); setfxteam(localclientnum, self.fxhandles[tag], team). Tag-keyed cache with name-change detection.",
+        "unknowns": [
+          "util::playfxontag (util_shared; not owned)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02045",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/62"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/320",
+        "record_sha256": "a23532d2cbf6fea2b0c24366c83a7fc7e009756b1aca2f7a051a6b9f2e4c65f9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "596fbbe9ecfd4388c2ca157c466a815d3cc7a266bae802a5a6ae21aec7011df1",
+      "citations": [
+        {
+          "line_start": 145,
+          "line_end": 201
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_1c2930c7",
+        "behavior": "function_1c2930c7(localclientnum) - placement preview think: player = function_5c10bd79(localclientnum) [opaque]; notify(\"hash_5c7dbac0591cb11f\"); endon(\"hash_5c7dbac0591cb11f\", \"game_ended\"); level endon(\"game_ended\"); level.smartcoversettings.var_aef370a9[localclientnum] = 1; function_722fc669(localclientnum). Loop waitframe(1): player resolve; break when gone; probe var_b43e8dc2 = player function_287dcf4b(bundle.var_63aab046, bundle.maxwidth, 1, 1, smartcoverweapon) [opaque; (1,1) vs concertina (0,0)]; edge-trio branches: (A) probe undefined && settle 0 -> settle 1, hide previews AND clear placement indicator (bf191832 zeros), continue; (B) probe defined && settle 1 -> settle 0; (C) probe undefined steady -> indicator cleared, continue. Draw branch when bundle.var_8fa9aac4 truthy: probe.var_bf9ca9b0 truthy -> previewmodel = player function_8fb44aff(localclientnum, probe.origin, probe. [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "opaque helpers 5c10bd79/287dcf4b/bf191832 (not in corpus)",
+          "bundle fields unresolved",
+          "equip-flow caller not in file"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02032",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/49"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/305",
+        "record_sha256": "b99ab0935b0695863869862af37fc1fcc8c95add144036d4c534490a55361e41"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5b1bb9b040506c3d74455eeb99220a94bbb636876e9c3271d4a6e9a60ec4063c",
+      "citations": [
+        {
+          "line_start": 347,
+          "line_end": 401
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_5a8becdc",
+        "behavior": "function_5a8becdc(localclientnum, player, buildinfo, var_4b1c8937) - hide grid cells outside build size: cellheight = bundle.maxheight / rowcount; cellwidth = bundle.maxwidth / colcount; cols_wide = int(buildinfo.width / cellwidth); remainder rule: remainder > 0 && remainder/2 < bundle.var_3dfbdbeb && cols_wide + 2 <= colcount -> cols_wide += 2; rows_tall = int(buildinfo.height / cellheight); remainder2 rule: remainder2 > 0 && remainder2 < var_3dfbdbeb && remainder2 < rowcount -> rows_tall++; cellstoremove = []; top-rows hide: var_e465e403 = rowcount - rows_tall; for rowindex 0..that-1 with rownum = rowcount - rowindex - 1: for colindex 1..colcount-1: hidepart(function_d66a0190(rownum, colindex)); side-columns hide: var_f636c423 = colcount - cols_wide; for var_688b0e60 0..int(var_f636c423/2)-1: cola = var_688b0e60 + 1; colb = colcount - var_688b0e60; all rows: hidepart(left), hidepart(ri [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "bundle values (not in packet)",
+          "hidepart/showpart natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02034",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/51"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/315",
+        "record_sha256": "92d00fa3d2ce539f6cc203466cc07af9b8b6a185f61d2277d53296ec2bdbb146"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "67df345706005c82fdc0a76621661be3dfd46d34e17b73d73bd61b7315a377de",
+      "citations": [
+        {
+          "line_start": 252,
+          "line_end": 263
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_641491ac",
+        "behavior": "function_641491ac(localclientnum, modelname) - preview factory: spawn(localclientnum, (0,0,0), \"script_model\") [client 3-arg form]; setmodel(modelname); hide(); notsolid(); return model.",
+        "unknowns": [
+          "spawn 3-arg client form semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02036",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/53"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/310",
+        "record_sha256": "e226e49c10f02d666c59bf0569c30ad77111af1d514330aa6c444e97cdf85bbd"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "7565da9d1ca37b09c180702cf8fd5f9a1157b815ae495e4dbd164a2ec62415e2",
+      "citations": [
+        {
+          "line_start": 230,
+          "line_end": 241
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_5d802b86",
+        "behavior": "function_5d802b86(localclientnum) - death cleanup watcher: player = self; player endon(\"disconnect\"); player waittill(\"death\"); player function_59605cb(localclientnum); player notify(\"hash_5c39bdc22418d792\").",
+        "unknowns": [
+          "Caller (not in file)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02035",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/52"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/308",
+        "record_sha256": "2edb81a3e2ced791a1e33fba21a6f61917df80f090005b8769284d2c92d19914"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8789376086d2120305f0e477012374d40cba3911134986185c5f2196dc8098fe",
+      "citations": [
+        {
+          "line_start": 594,
+          "line_end": 609
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::render_debug_sphere",
+        "behavior": "render_debug_sphere(tag, color, fxname) - DEV-BLOCK (Type: dev; /# #/ lines 594-609): branch getdvarint(\"scr_microwave_turret_fx_debug\", 0): origin = self gettagorigin(tag); sphere(origin, 2, color, 0.75, 1, 10, 100). Dev + dvar double gate; fxname param unused.",
+        "unknowns": [
+          "gettagorigin native (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02047",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/64"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/322",
+        "record_sha256": "da42a5413fb6a1543c2ebb82480feb7666a48b33d059eafd30a520fd38beb488"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a64f44913fa1fb8ba7be7a64b94b3d540d0022b271230cfc4c7a3ea89182e37d",
+      "citations": [
+        {
+          "line_start": 60,
+          "line_end": 76
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::smartcover_start_microwave",
+        "behavior": "smartcover_start_microwave(7-param clientfield callback on start_smartcover_microwave): gate: if isdefined(bundle.var_f4e0e7d7) && truthy && newval == 1: self thread startmicrowavefx(localclientnum); return. Branch newval == 0: self notify(\"beam_stop\") (kills fx thread endon).",
+        "unknowns": [
+          "bundle.var_f4e0e7d7 value (not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02050",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/67"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/301",
+        "record_sha256": "2310b979d39c091dca12c9507133416e5eb851198ec21cfb12eb9ef49ceff505"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "a9ad737946334fdb2cdddc49800e3d477d707ced7653aa047e78e6b70b095a12",
+      "citations": [
+        {
+          "line_start": 78,
+          "line_end": 115
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::smartcover_placed",
+        "behavior": "smartcover_placed(7-param clientfield callback on smartcover_placed float): guards: return if !isdefined(self); endon(\"death\"); waittill_dobj(localclientnum); return if !isdefined(bundle.deployanim). useanimtree(\"generic\"). Branch newval == 1: setanimrestart(bundle.deployanim, 1, 0, 1); return. Branch bwastimejump: currentanimtime = getanimtime(deployanim); var_f56117a2 = 1 - newval; if var_f56117a2 < currentanimtime: setanimtime(deployanim, var_f56117a2). Normal non-timejump changes: no anim update in this handler (only restart-at-1 and backward time-jump correction).",
+        "unknowns": [
+          "setanimrestart args semantics (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02049",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/66"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/302",
+        "record_sha256": "2d9e6b8abe0df09a9ea913446ab11ea4217121a7726c081fd086cb34d848fea1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "aba908487fb7061b4a309e8eb9c73ba43a97aeb694bb93f853cb82f9ff752d19",
+      "citations": [
+        {
+          "line_start": 580,
+          "line_end": 592
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::stop_fx_on_tag",
+        "behavior": "stop_fx_on_tag(localclientnum, fxname, tag): branch isdefined(self.fxhandles[tag]): stopfx(localclientnum, handle); fxhandles[tag] = undefined; fxnames[tag] = undefined. fxname unused in body.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02052",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/69"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/321",
+        "record_sha256": "ff6f76f547049bd091b47c9e76313963ab16876e02e0fa19369e4d14111700da"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b3328b16d103f6d7d3e43de4d9b89a9b4b2a0dd6a4e3c23479007814e61c0ffd",
+      "citations": [
+        {
+          "line_start": 117,
+          "line_end": 132
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_112e3e89",
+        "behavior": "function_112e3e89(localclientnum) - hide all placement previews: return if !isdefined(level.smartcoversettings.previewmodels[localclientnum]); foreach previewmodel: previewmodel hide().",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02030",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/47"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/303",
+        "record_sha256": "9aa8fa8bbd291d684783dfedc64e95df9e158b18d620c35a914816d00650f2ab"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b6f53c26caea5c2d683e2ca2fcd1a292c942f7b3a7ee4fb6ec9f4e2b22ba349a",
+      "citations": [
+        {
+          "line_start": 265,
+          "line_end": 283
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_722fc669",
+        "behavior": "function_722fc669(localclientnum) - preview boot (player = self): return if previews for client already exist; create empty; four factories with bundle models: [0] bundle.placementmodel; [1] bundle.var_46732914; [2] bundle.var_1b5c037d; [3] bundle.var_76ac23f2.",
+        "unknowns": [
+          "bundle model keys/values unresolved"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02037",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/54"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/311",
+        "record_sha256": "57be448f235b48585b68bff13a30ff2ecf4289e0e94d5043875bbb5fc4599b81"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d61e32dbd70b36a2970882a99ef0ea2ae37b79a23e7dc40b08327709bc45dc4a",
+      "citations": [
+        {
+          "line_start": 285,
+          "line_end": 311
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_8fb44aff",
+        "behavior": "function_8fb44aff(localclientnum, origin, angles, isvalid, var_eb65925c, var_4b3e5e0a) - smart cover preview selector (differs from concertina body!): player = self; previewmodel = undefined; var_ff5a387e = isvalid ? var_eb65925c : var_4b3e5e0a (index pick by validity - from callers (0,1) or (2,3): valid->0 or 2; invalid->1 or 3). Loop over previewmodels[localclientnum].size: skip index == chosen; hide all others. Then: previewmodel = previewmodels[chosenindex]; set .origin = origin; .angles = angles; show(); player function_bf191832(0, origin, angles) [opaque placement indicator]; return that model.",
+        "unknowns": [
+          "bf191832 (not in corpus)",
+          "index meanings of the four preview models (placement/expanded states unresolved)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02038",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/55"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/312",
+        "record_sha256": "43cd160b0632d379d32a10907bffae970f978d8c35877a0204b80f701b8e37fa"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d6418372803bbc466e241b6b49ebf1bb80a8e4a772036ab863a25adfbf160e40",
+      "citations": [
+        {
+          "line_start": 403,
+          "line_end": 424
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::debug_trace",
+        "behavior": "debug_trace(origin, trace) - DEV-BLOCK (Type: dev; /# #/ lines 403-424): color = (0.95, 0.05, 0.05) when trace fraction < 1 else (0.05, 0.95, 0.05); sphere(trace.position, 5, color, 0.75, 1, 10, 100); util::debug_line(origin, trace.position, color, 100).",
+        "unknowns": [
+          "sphere/debug_line natives (opaque)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02029",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/46"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/316",
+        "record_sha256": "35c3c8a2d58b1bdcbc36951e55ad20a4504ec19e277a4631003d5f4f16fef87b"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "ebc25700448a8c8b7602dc2a70a1e9b38a25ff72be64425bc29c906f87f0ecdd",
+      "citations": [
+        {
+          "line_start": 214,
+          "line_end": 228
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_17d973ec",
+        "behavior": "function_17d973ec(localclientnum) - per-player struct reset: player = function_5c10bd79(localclientnum) [opaque]; player notify(\"hash_5c39bdc22418d792\"); player endon(\"hash_5c39bdc22418d792\"); branch !isdefined(player.smartcover): player.smartcover = spawnstruct().",
+        "unknowns": [
+          "smartcover struct producers (server side)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02031",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/48"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/307",
+        "record_sha256": "1c85ccc54b28dc7c70464051ecb6c8be2349b40998b318d8ccfed7ca66f77893"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f8bf9c278697599f3c3e868e00b1679beb24803423454a5406839ae4119abdb4",
+      "citations": [
+        {
+          "line_start": 313,
+          "line_end": 327
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::function_d66a0190",
+        "behavior": "function_d66a0190(row, column) - joint label builder: cellindex = row * bundle.rowcount + column; branch cellindex < 10: return \"joint_0\" + cellindex (padded); else \"joint_\" + cellindex.",
+        "unknowns": [
+          "bundle.rowcount value (not in packet)"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02039",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/56"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/313",
+        "record_sha256": "389e9bfb800d83afd7c80a8387c606cfa2273d8f5dbaf4ceb5d83d92546620d6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f934ce552131aede0fbedaf64328774f304ba25e3d034603933950484aa85267",
+      "citations": [
+        {
+          "line_start": 611,
+          "line_end": 640
+        }
+      ],
+      "summary": {
+        "unit_id": "scripts/abilities/gadgets/gadget_smart_cover.csc::stop_or_start_fx",
+        "behavior": "stop_or_start_fx(localclientnum, fxname, tag, start, team): branch start truthy: self play_fx_on_tag(localclientnum, fxname, tag, team); dev-only color-differentiated render_debug_sphere (inside /# #/); return. ELSE: stop_fx_on_tag(localclientnum, fxname, tag); dev-only red sphere. Start/stop wrapper.",
+        "unknowns": [],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "selection_kind": "unchanged_exact_comparison_with_original_limits",
+        "comparisons": [
+          {
+            "section_id": "H08F-S1UNREADR2GO1",
+            "unit_id": "O02053",
+            "report": {
+              "evidence_id": "archived-record-00880",
+              "sha256": "e9e80d336497ef9fceb4653f61020a4bcd0d7e0db1f1b0f8a67eda5883b3e803"
+            },
+            "inventory_state": "EXACT_STAGED_VERDICT_FOUND",
+            "verdict": "verified_static",
+            "claim_review_complete": true,
+            "finding_ids": [],
+            "staged_status_pointer": "/sections/143/unit_reviews/70"
+          }
+        ],
+        "limit": "Reuse this exact full comparison and its original verdict/findings only after the independent proof/schema gates. It grants no positive verdict when the original review requested changes."
+      },
+      "subject": {
+        "evidence_id": "archived-record-00029",
+        "sha256": "3234f0ff6dd1316d5a04f6793a677d66131f03145482b1edd146000e932ad991",
+        "pointer": "/units/323",
+        "record_sha256": "6f003238e72487c4eefb27fbe02d666df697a748d7c48e2d036ceb8f464e2f6b"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published dump and Atian Tools recovery work; this does not transfer ownership of the original game code.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/629cdee1125d56d6.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/21cd710dc286ed9b-001.json",
+      "sha256": "4f7e068a61660172d3f2b7d2b80f938467867afa880f3a66ecc0a3ca26170e14"
+    }
+  ]
+}

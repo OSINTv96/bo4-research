@@ -1,0 +1,1345 @@
+{
+  "module": "src/scripts/mp_common/gametypes/globallogic.gsc",
+  "identity": "scripts/core_common/player/player_stats.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "stats",
+  "witnesses": [
+    {
+      "line": 1589,
+      "text": "    self stats::inc_stat( #\"gamehistory\", gamemode, #\"modehistory\", playedorhosted, stat, 1 );",
+      "caller": "incrementmatchcompletionstat",
+      "caller_span": [
+        1582,
+        1590
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "inc_stat",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 427,
+            "line_end": 435
+          }
+        },
+        "entry_function": "setup_callbacks",
+        "entry_span": [
+          428,
+          489
+        ],
+        "local_references": [
+          {
+            "from": "setup_callbacks",
+            "to": "gamehistoryplayerkicked",
+            "line": 438,
+            "form": "stored_pointer",
+            "text": "    level.gamehistoryplayerkicked = &gamehistoryplayerkicked;"
+          },
+          {
+            "from": "gamehistoryplayerkicked",
+            "to": "incrementmatchcompletionstat",
+            "line": 1894,
+            "form": "local_call",
+            "text": "        self incrementmatchcompletionstat( gamemode, \"played\", \"kicked\" );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          201,
+          232
+        ]
+      ]
+    },
+    {
+      "line": 1603,
+      "text": "    self stats::set_stat( #\"gamehistory\", gamemode, #\"modehistory\", playedorhosted, stat, 1 );",
+      "caller": "setmatchcompletionstat",
+      "caller_span": [
+        1596,
+        1604
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "set_stat",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          166,
+          195
+        ]
+      ]
+    },
+    {
+      "line": 2184,
+      "text": "            player stats::function_7a850245( #\"demofileid\", getdemofileid() );",
+      "caller": "function_6c9e78d5",
+      "caller_span": [
+        2161,
+        2203
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2180,
+          "opening_line": 2183,
+          "ending_line": 2191,
+          "text": "if ( sessionmodeisonlinegame() )"
+        },
+        {
+          "line": 2169,
+          "opening_line": 2172,
+          "ending_line": 2194,
+          "text": "foreach ( player in players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": [
+          {
+            "from": "function_4720c07f",
+            "to": "function_6c9e78d5",
+            "line": 2393,
+            "form": "local_call",
+            "text": "    function_6c9e78d5( outcome.var_c1e98979 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 2185,
+      "text": "            player stats::function_7a850245( #\"matchid\", getmatchid() );",
+      "caller": "function_6c9e78d5",
+      "caller_span": [
+        2161,
+        2203
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2180,
+          "opening_line": 2183,
+          "ending_line": 2191,
+          "text": "if ( sessionmodeisonlinegame() )"
+        },
+        {
+          "line": 2169,
+          "opening_line": 2172,
+          "ending_line": 2194,
+          "text": "foreach ( player in players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": [
+          {
+            "from": "function_4720c07f",
+            "to": "function_6c9e78d5",
+            "line": 2393,
+            "form": "local_call",
+            "text": "    function_6c9e78d5( outcome.var_c1e98979 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 2189,
+      "text": "                player stats::function_7a850245( \"surveyId\", survey_id );",
+      "caller": "function_6c9e78d5",
+      "caller_span": [
+        2161,
+        2203
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2185,
+          "opening_line": 2188,
+          "ending_line": 2190,
+          "text": "if ( level.rankedmatch )"
+        },
+        {
+          "line": 2180,
+          "opening_line": 2183,
+          "ending_line": 2191,
+          "text": "if ( sessionmodeisonlinegame() )"
+        },
+        {
+          "line": 2169,
+          "opening_line": 2172,
+          "ending_line": 2194,
+          "text": "foreach ( player in players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": [
+          {
+            "from": "function_4720c07f",
+            "to": "function_6c9e78d5",
+            "line": 2393,
+            "form": "local_call",
+            "text": "    function_6c9e78d5( outcome.var_c1e98979 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 2193,
+      "text": "        player stats::function_7a850245( \"hardcore\", level.hardcoremode );",
+      "caller": "function_6c9e78d5",
+      "caller_span": [
+        2161,
+        2203
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2169,
+          "opening_line": 2172,
+          "ending_line": 2194,
+          "text": "foreach ( player in players )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": [
+          {
+            "from": "function_4720c07f",
+            "to": "function_6c9e78d5",
+            "line": 2393,
+            "form": "local_call",
+            "text": "    function_6c9e78d5( outcome.var_c1e98979 );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 2340,
+      "text": "        var_8dbf2a6d stats::function_dad108fa( #\"top_scorer\", 1 );",
+      "caller": "function_68bfd6d7",
+      "caller_span": [
+        2327,
+        2343
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2336,
+          "opening_line": 2339,
+          "ending_line": 2342,
+          "text": "if ( isdefined( var_8dbf2a6d ) && isdefined( var_8dbf2a6d.var_9cd2c51d ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_dad108fa",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2362,
+            "line_end": 2365
+          }
+        },
+        "entry_function": "function_4720c07f",
+        "entry_span": [
+          2362,
+          2397
+        ],
+        "local_references": [
+          {
+            "from": "function_4720c07f",
+            "to": "function_6c9e78d5",
+            "line": 2393,
+            "form": "local_call",
+            "text": "    function_6c9e78d5( outcome.var_c1e98979 );"
+          },
+          {
+            "from": "function_6c9e78d5",
+            "to": "function_68bfd6d7",
+            "line": 2164,
+            "form": "local_call",
+            "text": "    function_68bfd6d7();"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          509,
+          527
+        ]
+      ]
+    },
+    {
+      "line": 3011,
+      "text": "        player stats::function_7a850245( #\"privatematch\", 0 );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3007,
+          "opening_line": 3010,
+          "ending_line": 3012,
+          "text": "if ( level.rankedmatch || level.leaguematch )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3015,
+      "text": "        player stats::function_7a850245( #\"privatematch\", 1 );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3012,
+          "opening_line": 3014,
+          "ending_line": 3016,
+          "text": "else"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3019,
+      "text": "    player stats::function_7a850245( #\"valid\", 1 );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3020,
+      "text": "    player stats::function_7a850245( #\"nemesisname\", nemesis );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3021,
+      "text": "    player stats::function_7a850245( #\"nemesisrank\", player.pers[ #\"nemesis_rank\" ] );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3022,
+      "text": "    player stats::function_7a850245( #\"nemesisrankicon\", player.pers[ #\"nemesis_rankicon\" ] );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3023,
+      "text": "    player stats::function_7a850245( #\"nemesiskills\", player.pers[ #\"killed_players\" ][ nemesis ] );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3024,
+      "text": "    player stats::function_7a850245( #\"nemesiskilledby\", player.pers[ #\"killed_by\" ][ nemesis ] );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3029,
+      "text": "        player stats::function_7a850245( #\"nemesisheroindex\", nemesisplayerent getcharacterbodytype() );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 3025,
+          "opening_line": 3028,
+          "ending_line": 3030,
+          "text": "if ( isdefined( nemesisplayerent ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3033,
+      "text": "    player stats::function_7a850245( #\"clientnum\", clientnum );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3035,
+      "text": "    player stats::function_7a850245( #\"characterindex\", characterindex );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    },
+    {
+      "line": 3036,
+      "text": "    player stats::function_7a850245( #\"gametype\", level.var_12323003 );",
+      "caller": "function_4636deca",
+      "caller_span": [
+        2980,
+        3037
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "function_7a850245",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/38e813a06438275c.json",
+          "pointer": "/claims/1",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 2545,
+            "line_end": 2566
+          }
+        },
+        "entry_function": "end_round",
+        "entry_span": [
+          2516,
+          2568
+        ],
+        "local_references": [
+          {
+            "from": "end_round",
+            "to": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "line": 2566,
+            "form": "local_call",
+            "text": "        beacon_cp_biodomes_server_room_top_floor_door_rumble();"
+          },
+          {
+            "from": "beacon_cp_biodomes_server_room_top_floor_door_rumble",
+            "to": "function_5c159ad3",
+            "line": 3150,
+            "form": "local_call",
+            "text": "    thread function_5c159ad3();"
+          },
+          {
+            "from": "function_5c159ad3",
+            "to": "sendafteractionreport",
+            "line": 3072,
+            "form": "local_call",
+            "text": "        thread sendafteractionreport();"
+          },
+          {
+            "from": "sendafteractionreport",
+            "to": "function_4636deca",
+            "line": 3055,
+            "form": "local_call",
+            "text": "        function_4636deca( player );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          311,
+          319
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0071",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/player/player_stats.gsc",
+    "sha256": "29c421d5b1d48f74b6fa242eddf3ab0527eec228e8d1e21bae06f13479b7ae42",
+    "git_blob_sha1": "09202a82df6eb01d06d6bd046c15e09483e6c3f6",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    1589,
+    2184,
+    2185,
+    2189,
+    2193,
+    2340,
+    3011,
+    3015,
+    3019,
+    3020,
+    3021,
+    3022,
+    3023,
+    3024,
+    3029,
+    3033,
+    3035,
+    3036
+  ],
+  "required_callee_functions": [
+    "function_7a850245",
+    "function_dad108fa",
+    "inc_stat"
+  ],
+  "output": "src/scripts/core_common/player/player_stats.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/player/player_stats.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N02688",
+        "to": "N02535",
+        "line": 2184
+      },
+      {
+        "from": "N02688",
+        "to": "N02535",
+        "line": 2185
+      },
+      {
+        "from": "N02688",
+        "to": "N02535",
+        "line": 2189
+      },
+      {
+        "from": "N02688",
+        "to": "N02535",
+        "line": 2193
+      },
+      {
+        "from": "N03690",
+        "to": "N03497",
+        "line": 1589
+      },
+      {
+        "from": "N03731",
+        "to": "N02301",
+        "line": 2340
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3011
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3015
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3019
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3020
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3021
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3022
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3023
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3024
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3029
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3033
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3035
+      },
+      {
+        "from": "N05006",
+        "to": "N02535",
+        "line": 3036
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

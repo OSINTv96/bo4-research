@@ -1,0 +1,295 @@
+{
+  "module": "src/scripts/mp_common/player/player_killed.gsc",
+  "identity": "scripts/core_common/weapons_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "weapons",
+  "witnesses": [
+    {
+      "line": 61,
+      "text": "        var_2f9ea2b9 = weapons::getbaseweapon( weapon );",
+      "caller": "function_df36a02d",
+      "caller_span": [
+        57,
+        110
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 58,
+          "opening_line": 60,
+          "ending_line": 64,
+          "text": "if ( isdefined( weapon ) )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "getbaseweapon",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "function_df36a02d",
+            "line": 337,
+            "form": "local_call",
+            "text": "    self function_df36a02d( attacker, weapon, smeansofdeath );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          110,
+          127
+        ]
+      ]
+    },
+    {
+      "line": 725,
+      "text": "                self weapons::drop_scavenger_for_death( attacker );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 722,
+          "opening_line": 724,
+          "ending_line": 726,
+          "text": "if ( weapon.name != \"incendiary_fire\" )"
+        },
+        {
+          "line": 720,
+          "opening_line": 722,
+          "ending_line": 727,
+          "text": "if ( smeansofdeath != \"MOD_FALLING\" )"
+        },
+        {
+          "line": 717,
+          "opening_line": 720,
+          "ending_line": 733,
+          "text": "if ( !level.ingraceperiod && enteredresurrect == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drop_scavenger_for_death",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 731,
+      "text": "            self weapons::drop_for_death( attacker, weapon, smeansofdeath, 0 );",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 727,
+          "opening_line": 730,
+          "ending_line": 732,
+          "text": "if ( should_drop_weapon_on_death( wasteamkill, wassuicide, weapon_at_time_of_death, smeansofdeath ) )"
+        },
+        {
+          "line": 717,
+          "opening_line": 720,
+          "ending_line": 733,
+          "text": "if ( !level.ingraceperiod && enteredresurrect == 0 )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drop_for_death",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": []
+    },
+    {
+      "line": 908,
+      "text": "    self weapons::detach_carry_object_model();",
+      "caller": "callback_playerkilled",
+      "caller_span": [
+        283,
+        1196
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "detach_carry_object_model",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          567,
+          582
+        ]
+      ]
+    },
+    {
+      "line": 2114,
+      "text": "    self weapons::detach_carry_object_model();",
+      "caller": "post_game_death",
+      "caller_span": [
+        2107,
+        2133
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "detach_carry_object_model",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/1e7d3cc6f2afb84f.json",
+          "pointer": "/claims/0",
+          "selection_id": "25c84e41271cac185a32c42a0d2423cfa630935fd2cdb910d84b4735819b20d7",
+          "citation": {
+            "line_start": 949,
+            "line_end": 968
+          }
+        },
+        "entry_function": "callback_playerkilled",
+        "entry_span": [
+          283,
+          1196
+        ],
+        "local_references": [
+          {
+            "from": "callback_playerkilled",
+            "to": "post_game_death",
+            "line": 291,
+            "form": "local_call",
+            "text": "        post_game_death( einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          567,
+          582
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0312",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/weapons_shared.gsc",
+    "sha256": "abe0acfa30581c127a365ffa2801d61080dacd800da083e961cf84c0ba269984",
+    "git_blob_sha1": "ca79adc9c25c9df3f076b6c4ae985f4227171ebe",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    61,
+    908,
+    2114
+  ],
+  "required_callee_functions": [
+    "detach_carry_object_model",
+    "getbaseweapon"
+  ],
+  "output": "src/scripts/core_common/weapons_shared.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/core_common/weapons_shared.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N01396",
+        "to": "N03193",
+        "line": 908
+      },
+      {
+        "from": "N03150",
+        "to": "N03193",
+        "line": 2114
+      },
+      {
+        "from": "N03153",
+        "to": "N02441",
+        "line": 61
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

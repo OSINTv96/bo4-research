@@ -1,0 +1,83 @@
+{
+  "module": "src/scripts/mp_common/player/player_connect.gsc",
+  "identity": "scripts/mp_common/gamerep.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "gamerep",
+  "witnesses": [
+    {
+      "line": 80,
+      "text": "    self gamerep::gamerepplayerconnected();",
+      "caller": "callback_playerconnect",
+      "caller_span": [
+        35,
+        401
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "gamerepplayerconnected",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/4602d7761ad6b3bf.json",
+          "pointer": "/claims/0",
+          "selection_id": "03cb2056fac4e74053895ed2b89a7760c6108870f4487b1844b1693244aa484e",
+          "citation": {
+            "line_start": 254,
+            "line_end": 319
+          }
+        },
+        "entry_function": "callback_playerconnect",
+        "entry_span": [
+          35,
+          401
+        ],
+        "local_references": []
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          166,
+          203
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0094",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/mp_common/gamerep.gsc",
+    "sha256": "2603d7708d620c3477cf3dcf56c34d74f39d569dd0315a511d1ca9bd22f6d44b",
+    "git_blob_sha1": "6b5f01d88de52064ac373a0377de5f7385074bb4",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    80
+  ],
+  "required_callee_functions": [
+    "gamerepplayerconnected"
+  ],
+  "output": "src/scripts/mp_common/gamerep.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/mp_common/gamerep.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N00532",
+        "to": "N02796",
+        "line": 80
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

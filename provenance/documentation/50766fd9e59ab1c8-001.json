@@ -1,0 +1,49 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/killstreaks/mp/uav.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/50766fd9e59ab1c8.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:function_8dfa23e0@system_shared.csc",
+        "answer": "Source-visible answer: the preinit requirement resolver; the pre-side twin of function_5095b2c6 WITHOUT the predone||ignore assert. If func.reqs is defined: array case asserts each element then thread-spawns exec_pre_system(level.system_funcs[req]) per element and returns (129-135); scalar case asserts the registry entry exists (138) and thread-spawns exec_pre_system for it (139). No waiting: dependency scheduling is asynchronous spawn-only; ordering between requirement and dependent preinits is scheduler-dependent, each spawned call re-checks undefined/ignore/predone before running, duplicates after completed predone are suppressed, but there is no in-progress guard for reentrant/yielding calls; VM scheduling remains unresolved. Two direct callers: exec_pre_system111 and run_pre_systems151. Driver resolution at151 is followed by executor spawn152; executor can resolve requirements again before predone is set. HMH linkage: registry entries loaded into the HMH VMs with reqs - observed wz-relevant scalar reqs: hash_280fe2667ed2d300 requires #item_supply_drop (script_71e26f08f03b7a7a.gsc 14), killstreaks supplydrop/uav require #killstreaks (supplydrop.gsc 44, uav.gsc 28) - these exact records are resolved by this function during level_preinit, provided the bundles load (open native boundary).",
+        "behavior": "Pre requirement resolver (no assert on predone here - the corresponding predone||ignore check belongs to the post-side resolver function_5095b2c6 line 60). function_8dfa23e0(func): if func.reqs defined: array case - foreach req: assert(isdefined(req), devx120) then thread exec_pre_system(level.system_funcs[req]); return (127-135); scalar case - assert(isdefined(level.system_funcs[reqs]), devx120, with ishash/hashtostring dev rendering) then thread exec_pre_system(level.system_funcs[reqs]) (137-139). Spawn-only: neither path waits for the requirement preinit to complete or even to start; each spawned exec_pre_system independently checks !defined/ignore/!predone (102-107) before running but predone is set only after prefunc returns; reentrant calls or other calls while it yields can still see false predone. Called directly from exec_pre_system111 and run_pre_systems151 in this VM twin. Both VM twins identical (csc/gsc 123-141).",
+        "unknowns": [
+          "Thread spawn ordering vs dependent (native VM scheduler)",
+          "Retail assert handling",
+          "Array-form reqs use in retail HMH bundles (unobserved)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00074",
+        "sha256": "09ca5f24279cde5f0c717290725b25bfb7d4223b6e5c600d11db11255dd18945"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/50766fd9e59ab1c8.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "b43da94b0e59f5735470250939f7a3d74d944952a2e1f4bb7f3803f09bb263ed",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.csc",
+        "answer": "Source-visible answer: the exclusion/placeholder primitive and the duplicate-registration enabler. ignore(str_name): asserts level.gametype is UNdefined (must run before the engine assigns the gametype - pre-gametype window only); then if no registry record exists, register(name, undefined, undefined, undefined) creates an all-undefined placeholder; finally sets .ignore=1 (169-179). Combined with register()'s duplicate rule (assert existing .ignore then return, 11-15) this yields the exact wz/HMH exclusion semantics: a system whose name is pre-ignored either (a) never stores its real pre/post functions - the later real register returns early, or (b) if real registration happened first, ignore skips placeholder creation and sets the existing record.ignore=1 while preserving its pointers; ignore asserts only that level.gametype is undefined (171), and register has the separate duplicate assertion. During pre/post phases every exec skips ignore-flagged records (37-40 / 102-105), so ignored systems' bodies never run through this mechanism. wz/HMH applicability: wz_ignore_systems.gsc/.csc autoexec ignore_systems pre-ignores 8 systems (recon_car, planemortar, supplydrop, ultimate_turret, armor_station, counteruav, uav, supplypod - lines 11-18 both VMs), suppressing killstreak systems that register with reqs elsewhere (supplydrop.gsc 44, uav.gsc 28). Level.gametype assignment point and autoexec timing vs it are the unresolved native boundary recorded below.",
+        "behavior": "ignore(str_name): assert(!isdefined(level.gametype), devx124) (171) - the assert boundary records that exclusions are only valid while no gametype is set; if !level.system_funcs or the name is unregistered, register(str_name, undefined, undefined, undefined) creates a placeholder with undefined pre/post funcs and predone=postdone=1 (both !isdefined) (173-176); then level.system_funcs[str_name].ignore = 1 (178). Consequences: (1) an undefined-func placeholder would never invoke anything even without ignore (exec_* call [[undefined]] guarded by predone/postdone=1 and ignore skip); (2) later register() by the real system hits the early return (11-15, assert passes because ignore=1) so its pointers are discarded; (3) exec pre/post paths skip the record regardless (37-40/102-105). The wz ignore_systems autoexec runs in both server (wz_ignore_systems.gsc) and client (wz_ignore_systems.csc) VMs - warzone.gsc 54 and warzone.csc 15 both #using-import it, and prior load inventory records both as wz directory-ownership candidates (SOURCE-LOAD-INVENTORY.json 1083-1085 csc, 1181-1183 gsc). zm contexts also use system::ignore (zm.gsc 137-157 etc., context).",
+        "unknowns": [
+          "autoexec vs level.gametype assignment order in retail (assert precondition)",
+          "Non-registry reachability of ignored systems (only registry suppression proven)",
+          "Retail assert evaluation (N3)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00229",
+        "sha256": "9445acb4c73d44c2260b9318ade823dbf0ada6c2db8617e89b091cf0566a3372",
+        "pointer": "",
+        "record_sha256": "07796bc27e56b3ab9297b03583f6594202af80a642e5a26e9658238203bd79f0"
+      }
+    }
+  ]
+}

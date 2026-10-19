@@ -1,0 +1,1599 @@
+{
+  "schema": "hmh-source-module-v2",
+  "original_path": "lua/shared/luautils.lua",
+  "source_id": "SRC-006",
+  "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+  "original_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+  "git_blob_sha1": "d67e24062673e437d6aa2c09948d79f640fc8d15",
+  "output": "src/lua/shared/luautils.lua",
+  "output_sha256": "b7d2eba9ca2b1f5a4fe8a583b811e74dcd5a6c688ee72a5679cdce0492da43c1",
+  "classification": "recovered_with_project_comments_and_external_whitespace_cleanup",
+  "review_status": "awaiting_independent_review",
+  "whole_file_inclusion": "Retain complete recovered module to preserve lexical context, classes, callback registration, imports and original comments. Only exact recorded spans/claims reuse prior review; other functions and other-mode branches are context, not newly selected HMH behavior.",
+  "hmh_selection": "Reached by the exact accepted HMH08 claim selection; supported, conditional and excluded branch statements retain their individual limits.",
+  "dependencies": [
+    {
+      "kind": "lua_require",
+      "identity": "lua/shared/luareadonlytables.lua",
+      "original_line": 4,
+      "output": "src/lua/shared/luareadonlytables.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/shared/luareadonlytables.lua",
+        "sha256": "4c69091a6b96af1f903f2fbca9a0162d47da3a502a766ae4e0ef802dd08ecb2f",
+        "git_blob_sha1": "e942915779e17986204bea77c0bb62d1091fd549"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/shared/lobbydata.lua",
+      "original_line": 5,
+      "output": "src/lua/shared/lobbydata.lua",
+      "status": "included",
+      "source_availability": {
+        "state": "exact_pinned_local",
+        "source_path": "lua/shared/lobbydata.lua",
+        "sha256": "9641212f7627eae4a7961a6f6530e7c48b2f463f29ea113657ccb5838c2de413",
+        "git_blob_sha1": "1b20e53326945074f3c369a05f5aaf7ba3b663d6"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/shared/codshared.lua",
+      "original_line": 6,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "not_located_in_assigned_pins"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:785d6d26960f9bae.lua",
+      "original_line": 7,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    },
+    {
+      "kind": "lua_require",
+      "identity": "lua/x64:675e553bec904d39.lua",
+      "original_line": 8,
+      "output": null,
+      "status": "unresolved_collection_dependency",
+      "source_availability": {
+        "state": "hashed_identity_unresolved"
+      },
+      "relevance": "unresolved",
+      "scope": "Static whole-file context include/load only; source availability is separate from candidate-path selection, HMH admission and runtime proof."
+    }
+  ],
+  "claims": [
+    {
+      "selection_id": "0a9b59d304dcc61d4d666d9096e7555ee235c701277a34e002e620dd55c5a977",
+      "citations": [
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow5:044",
+        "answer": "Delegate arg0 to SetZMOfflineScreenStateToCustomGame, with no explicit return. This is an already selected shared UI edge, not a new Zombies investigation. Create an output list and get the current menu and playlist groups. Walk nonhidden groups whose mode is available (or has no EMode) and matches the menu mainmode. Walk entries; FEATURED accepts featured nonexcluded entries, PUBLIC accepts nonfeatured nonexcluded entries, ztutorial checks the first rotation gametype asset, and other nonnil tabs require a single excluded-public rotation, the zclassic difficulty condition and matching grouped gametype. Reject unavailable quickplay cards after those tests, append accepted entries, return the list. Data and first-rotation indexing remain unguarded.",
+        "unknowns": {
+          "provider_or_lexical": [],
+          "source_fidelity": [],
+          "original_build": "Recovered source is not matched to original PS4 bytecode/build; @0 is not a native address.",
+          "VM_native": "Lua dialect, metatables, native/UI API execution, model dispatch/cancellation and input timing remain unverified.",
+          "data_settings_assets": "Literal references do not supply effective model values, settings, data tables, localization or asset availability.",
+          "server_service": "Online, stats, progression, marketing, lobby and backend behavior are unavailable service boundaries when requested by these exact bodies.",
+          "runtime": "No game, console, account, router, save, native tool or independent review was run."
+        },
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/1",
+        "decision_canonical_sha256": "0386741e981bbfde25533512da070cc0e4fea87c6b8f48db5fed41ebf5a3fba5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00121",
+        "sha256": "ac2b7a81426a0d72dedb5ceff7fa28618a9104781823bda62e5aba92df6645ae",
+        "pointer": "",
+        "record_sha256": "b365f70ce841f679ca834824f3653584f73546441c7d39ba5ff9d92aa0d4f5e7"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "20a6e153f29efb4e5bafa6d61cbd0f2c557188b4efba3bd2b76590d4eaaf216e",
+      "citations": [
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1351,
+          "line_end": 1351,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1352,
+          "line_end": 1352,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1353,
+          "line_end": 1353,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1354,
+          "line_end": 1354,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1355,
+          "line_end": 1355,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1356,
+          "line_end": 1356,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1357,
+          "line_end": 1357,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1358,
+          "line_end": 1358,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1359,
+          "line_end": 1359,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1360,
+          "line_end": 1360,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1361,
+          "line_end": 1361,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1362,
+          "line_end": 1362,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1363,
+          "line_end": 1363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1364,
+          "line_end": 1364,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1365,
+          "line_end": 1365,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1366,
+          "line_end": 1366,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1367,
+          "line_end": 1367,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1368,
+          "line_end": 1368,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1369,
+          "line_end": 1369,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1370,
+          "line_end": 1370,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1371,
+          "line_end": 1371,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1372,
+          "line_end": 1372,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1373,
+          "line_end": 1373,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1374,
+          "line_end": 1374,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1375,
+          "line_end": 1375,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1376,
+          "line_end": 1376,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1377,
+          "line_end": 1377,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1378,
+          "line_end": 1378,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1379,
+          "line_end": 1379,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1380,
+          "line_end": 1380,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1381,
+          "line_end": 1381,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1382,
+          "line_end": 1382,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1383,
+          "line_end": 1383,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1384,
+          "line_end": 1384,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1385,
+          "line_end": 1385,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1386,
+          "line_end": 1386,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1351,
+          "line_end": 1351,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1352,
+          "line_end": 1352,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1354,
+          "line_end": 1354,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1359,
+          "line_end": 1359,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1360,
+          "line_end": 1360,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1362,
+          "line_end": 1362,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1363,
+          "line_end": 1363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1369,
+          "line_end": 1369,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1370,
+          "line_end": 1370,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1372,
+          "line_end": 1372,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1373,
+          "line_end": 1373,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1379,
+          "line_end": 1379,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1380,
+          "line_end": 1380,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1382,
+          "line_end": 1382,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1387,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1406,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1406,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1406,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1404,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1416,
+          "line_end": 1416,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1416,
+          "line_end": 1416,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1416,
+          "line_end": 1416,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1404,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1404,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1404,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1405,
+          "line_end": 1405,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1405,
+          "line_end": 1405,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1405,
+          "line_end": 1405,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1406,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1351,
+          "line_end": 1351,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1352,
+          "line_end": 1352,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1354,
+          "line_end": 1354,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1359,
+          "line_end": 1359,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1360,
+          "line_end": 1360,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1362,
+          "line_end": 1362,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1363,
+          "line_end": 1363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1369,
+          "line_end": 1369,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1370,
+          "line_end": 1370,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1372,
+          "line_end": 1372,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1373,
+          "line_end": 1373,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1379,
+          "line_end": 1379,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1380,
+          "line_end": 1380,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1382,
+          "line_end": 1382,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1405,
+          "line_end": 1405,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1404,
+          "line_end": 1406,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:018",
+        "answer": "Process descriptor sections in the fixed order keys, arrays, structArrays, structs. For non-nil keys, ipairs names, fetch root[name], and only for a truthy view call view:set(value). For non-nil arrays, ipairs names and truthy views, loop i=1..#view and set view[i-1]. For structArrays, pairs(descriptor.structArrays), fetch root[key], and for each truthy view loop i=1..#view and recursively call this same file-local function with view[i-1], child descriptor, value. For structs, pairs entries, fetch root[key], and recursively process each truthy view. There is no explicit return, cycle guard, rollback or callback registration. Return literal true immediately. The function reads no subscription/account state and has no branch, call, mutation, callback or cleanup.",
+        "unknowns": [
+          "Original PS4 build/source match, effective settings, assets/data and HMH invocation.",
+          "Unavailable service/server/persistence/transport implementation; no inferred contract closure.",
+          "Excluded nested callback implementations and actual dispatch/unsubscribe/lifetime where listed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/187",
+        "decision_canonical_sha256": "c2766c5da011b7a90db2a854830ed153f4ad2b69a812c2cbf86ab5be6f014207",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/17",
+        "record_sha256": "31522680509358e36289d9b27ad65fc5ac5e624d6cc55b0606bffbc3e9226b1a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "261d4ef6ff983f3445ea53697312455780277c2b5bd665322eec90d6012a8acf",
+      "citations": [
+        {
+          "line_start": 523,
+          "line_end": 528,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 523,
+          "line_end": 528,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow5:254",
+        "answer": "Loads league tier table; absent table returns 0,nil,0,0,0,0. Iterates ranks, retaining indices whose three literal properties are zero. A zero point input or cumulative inclusive point interval selects rank and breaks; otherwise accumulates points. Returns rank, whole table, three indices, and points before selected rank. No table shape or integer validation is added. For an existing league table and positive in-range rank returns that entry's points; otherwise DefaultRubyRequirement. Does not validate rank type/integrality or entry existence separately. Gets points for controller, passes them into GetRubies, and compares the helper's second return with the supplied target. No direct state assignment is shown in this wrapper; the effects of called helpers, native operations and Dvar/model providers remain external and unproved. Returns the exact native localization call with supplied str [excerpt; exact source record identified separately]",
+        "unknowns": [
+          {
+            "kind": "original_VM_build_and_runtime",
+            "limit": "Source-to-original bytecode/PS4 loading, original VM dialect, effective settings, actual asset/data values and runtime behavior are unverified."
+          },
+          {
+            "kind": "unavailable_online_server_service",
+            "limit": "Online service/server implementations and real account/progression/persistence/network responses remain unavailable/unverified; not reconstructed or counted complete."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/213",
+        "decision_canonical_sha256": "1f0830a5eac06191451109a99db0404e2ec30d9cfc0d09d60e55e23d78c3e49c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00316",
+        "sha256": "24810c62dae74bad1cb8ee0cf2f427f30f5b33a1fa3a0ef3d98aa7999a9f65f1",
+        "pointer": "",
+        "record_sha256": "f339a061126bb4c03717fc3340fd41661542bd4fea90f4f3161bb8bde3cc2fc1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3d0e94c31afc536b6c128f10bc154121b396bb0a3f57a560b4767403ea720ec6",
+      "citations": [
+        {
+          "line_start": 381,
+          "line_end": 395,
+          "sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1"
+        }
+      ],
+      "summary": {
+        "id": "LuaUtils.GetDefaultGameType",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/131",
+        "decision_canonical_sha256": "9c5439d2eb24c8e0d724d002ad8f0404bd345e6f660a72f2eace19d3d743c2af",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/90",
+        "record_sha256": "02433dcb840664d7bbbe53da3a7d152325d9f50a37c96b4e5577c50651543937"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3ea7bf33b8b44eba49ae8486a678214a6c1d886358b986cf45caa4cddc0280bc",
+      "citations": [
+        {
+          "line_start": 360,
+          "line_end": 363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 360,
+          "line_end": 363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 360,
+          "line_end": 363,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:060",
+        "answer": "Looks up LobbyMainModeData[input] and forwards its eMode, or nil, into GetDisplayNameForEMode. It returns that helper result. The selected helper's recovered-scope issue is inherited as a dependency; this wrapper does not repair it.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-3",
+        "report": {
+          "evidence_id": "archived-record-00851",
+          "sha256": "5edf8cd02ea739974e4ecf563a2920ca29b93a1f81e5fb4afccda68a80f2479e"
+        },
+        "report_pointer": "/unit_reviews/280",
+        "decision_canonical_sha256": "f3ce73a4a123f6ce2e065d33dac925cc86f8377af7baacd7d9fd506cfd26a7eb",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete current bounded record semantics and exact source spans, with source/prose/branches/returns/callback/order/dependency comparison described below; historical labels retained as historical artifact data.",
+        "limitations": [
+          "Recovered source only; no original bytecode/build/native/VM/runtime/whole-mode credit.",
+          "No retroactive historical author/reviewer identity or acceptance inferred. External provider behavior remains unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/59",
+        "record_sha256": "9afc6db3f961b4f3c6d2d5d3a6cc263be3c80e04256b5f4f8ec3d242986a8544"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "3f8a67f29510f89821d2687b5cf9666f99402d7614bebaf6e7b987e2df8252e7",
+      "citations": [
+        {
+          "line_start": 322,
+          "line_end": 334,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 322,
+          "line_end": 334,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 322,
+          "line_end": 334,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:059",
+        "answer": "Returns hash_0 for a disabled Warzone/Zombies/MP mode. Recovered text then declares table/name locals only inside an elseif block but refers to them after the block; it also dereferences EModeData[input] before guarding the entry. Preserve the lexical-scope/decompiler-fidelity defect and conditional failure rather than silently rewriting an intended lookup.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Selected recovered source has an explicit scope/control-flow/field assumption described in answer; original executable semantics are not guessed or repaired."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1B",
+        "report": {
+          "evidence_id": "archived-record-00857",
+          "sha256": "7e30e99f0ec05294375c67accd156938dffdb819da0947763d3e8fbfaf260762"
+        },
+        "report_pointer": "/unit_reviews/170",
+        "decision_canonical_sha256": "aa1f002e8d024fa21f247cd6bb6f55aea8c78e4c58800a2b281fe0358b2ea332",
+        "verdict": "verified_static",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact assigned current recovered-source claim, including all its stated bodies, caller/branch/dependency assertions and explicit limits.",
+        "limitations": [
+          "Exact assigned recovered-source scope only.",
+          "No original-build/VM/native/service/game/runtime proof or whole-mode completion.",
+          "No subject repair, wider source reconstruction or old reviewer identity upgrade."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/58",
+        "record_sha256": "1477094fcedb5701488c3d771b52a3015bc6b6aae00a93f6daa7c223544280b1"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "4f6dad9e32436863fc58152ce764d9ee1a6caa2ac7a9af549c70bc4444e3bd2f",
+      "citations": [
+        {
+          "line_start": 476,
+          "line_end": 478,
+          "sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1"
+        }
+      ],
+      "summary": {
+        "id": "LuaUtils.GetOfflinePlaylists",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/161",
+        "decision_canonical_sha256": "41f0c8765f66d5ea1195112fcce2e4ef6785495aa5234dca229619f900d5e96d",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/89",
+        "record_sha256": "c8763cc48abf436c5fbe6c16625f5b7f393f0bceaf8e99138653fa2eac99f6cd"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "5b5355e1c7c015f2b1d92355126475794155232fd13d18f3665b3e4c19bbf158",
+      "citations": [
+        {
+          "line_start": 1803,
+          "line_end": 1809,
+          "sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1"
+        }
+      ],
+      "summary": {
+        "id": "LuaUtils.SetQuickplayPlaylistID",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/497",
+        "decision_canonical_sha256": "50378a9ae51808ba2916fb17780208d61a797ef8a81b77e24ae87c4e4011868b",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/91",
+        "record_sha256": "7a91c3f241f0996884f9b43a0179cb5010448409dd54b8ae3c9f157f107f0e3f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "8523aeb328a2dd330ece2adca736806c6ede1871b37497b11309cda983714e8e",
+      "citations": [
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:002",
+        "answer": "Only a truthy DDL-like first argument triggers two ClearDDLKeysAndArrays requests, in literal source sequence. The second request follows the first return and has no rollback. Return immediately for a falsey row list or destination. Otherwise traverse ipairs rows, write destination[index-1] using a native hash conversion of row[key] or EmptyItemIndex. A truthy destination and truthy item hash can produce a conversion, optional fallback conversion, set request and explicit result. The recovered trailing assignment is outside the local declaration scope; it does not set the destination or return EmptyItemIndex. Populate primary/secondary attachment and item fields, then grenade; additional ZM and MP branches use literal mode guards. Preserve duplicate secondary write, optional fourth-argument arithmetic and possible nil comparisons/returns. Request the hashed storage buffer. Nil buffer ret [excerpt; exact source record identified separately]",
+        "unknowns": [
+          "Exact selected recovered Lua source only, conditional module/caller bindings. Original loader/global overwrite/VM/native/DDL/settings/assets/service/server/PS4 behavior remain unverified. No independent review, acceptance, function completion or runtime credit.",
+          "Local at649 is scoped inside648..662; trailing663 reads/writes a global spelling. Preserve as recovered; do not hoist or insert a missing set/return. Original bytecode/VM fidelity remains missing.",
+          "Potential nil>1 when ZM and fourth arg falsey; do not invent a default variant.",
+          "updateItemIndexFromLoadoutHash can fall through without a returned empty marker;687 still requests a secondary set of its returned value."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/716",
+        "decision_canonical_sha256": "2de6d9d29a39a5998275c2609edc0038d64a7067e201f569a8cc1cf843f8c572",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/1",
+        "record_sha256": "d983452a945b56a8ddaaed414ca9f87e8b280662103e224975214f9b9fd2e98a"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "b942080bc4ca19979a29cb5c19e91b7255b1013148aa62ce70cecc2c60245e02",
+      "citations": [
+        {
+          "line_start": 463,
+          "line_end": 469,
+          "sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1"
+        }
+      ],
+      "summary": {
+        "id": "LuaUtils.GetOnlinePlaylists",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "shared_Blackout_or_BO4"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1015",
+        "decision_canonical_sha256": "a226f092aecbe435aa0efb004ab8eb029bae156935e0119da95d01e463e0605e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every field of the current lexical/reference inventory record at its written inventory evidence level. No function behavior is accepted.",
+        "limitations": [
+          "Only inventory/classification is reviewed. No body semantic, source-to-game, PS4/build/native/VM/runtime or whole-mode credit.",
+          "Unknown historical author/reviewer facts and uninspected/opaque bodies remain unknown."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/88",
+        "record_sha256": "c51d35020e4395138f904776f02de39deda9e887bbf9d1bbd942c86c6ee9a168"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "d1fa37af9c1edf766b2fb673bc2f8dee684a7777e05e4505cfbc7af2db74f982",
+      "citations": [
+        {
+          "line_start": 1073,
+          "line_end": 1078,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1073,
+          "line_end": 1078,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1073,
+          "line_end": 1078,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1073,
+          "line_end": 1078,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1073,
+          "line_end": 1078,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:011",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "partial"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1E-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00869",
+          "sha256": "7dab89dedc82a3a7c91cc9d8abc7b986051c67b0846c41f360bc46c66d2b6e78"
+        },
+        "report_pointer": "/unit_reviews/44",
+        "decision_canonical_sha256": "15b7dfbc76b847c30609ff3652c2fb2753c5952dfeea7e5e7315a2f1cd193024",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every currently written field of the complete exact assigned claim and current record, including unchanged source effects, receiver/argument/return/branch/error/lifecycle/callback/constructor/dependency/provenance/reuse assertions, at their actual written scope. Expressly historical identity/status/provenance evidence remains historical. Immediate-only, inventory and unbound-provider limits are not promoted to body or runtime coverage.",
+        "limitations": [
+          "Recovered static source and exact written record scope only.",
+          "Original source-to-PS4/build/native/VM/bytecode/loader identity remains unproved.",
+          "Settings, assets, schemas, opaque/native/provider bindings, callback/error/lifetime delivery, online/server implementation and runtime behavior remain unknown as written.",
+          "Historical author/reviewer metadata remain unknown wherever strict proof is absent.",
+          "This reviewer grants no manager acceptance, function completion, whole-HMH completion or runtime credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/10",
+        "record_sha256": "097e1f62335e1cac6b8ec6b1e0cce7b8273028fcdc56a70a8b86f750a0c12913"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e052de28553ea245e192cf897a78a8f476976625055eb02535a8ca2f0fea0254",
+      "citations": [
+        {
+          "line_start": 141,
+          "line_end": 143,
+          "sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1"
+        }
+      ],
+      "summary": {
+        "id": "f0_local0.IsDOATarget",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "bounded_bootstrap_support"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-1",
+        "report": {
+          "evidence_id": "archived-record-00850",
+          "sha256": "ee5077b3b8f8cabe99022172bd7923bca864373096c9fed850c2c0777df9af86"
+        },
+        "report_pointer": "/unit_reviews/451",
+        "decision_canonical_sha256": "51bcc7ced69a65cc417a702c38e647dc8730ea60bc73dacebbffd95c563fad9c",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of these exact current records at their explicitly bounded recovered-source/inventory level. No historical review import, original-bytecode or native binding, actual loader/provider/event invocation, PS4/build match or runtime inference.",
+        "limitations": [
+          "Historical author/reviewer identities not independently proved by this replacement source comparison.",
+          "Recovered source fidelity, external calls/providers/data, runtime events and scheduling remain open. Zero build/native/VM/runtime/game/whole-mode credit."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1658",
+        "record_sha256": "f9f7e43d0f93697986c1948f06d10800b58b01c7a79107f723b65cb5dd3100d9"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "e8e61bb8fe8f9ba32ecda3a9ce57c27d3a885f7d99276fba3d6ddceebe4a087d",
+      "citations": [
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:002",
+        "answer": "Reject an item index <= EmptyItemIndex or a falsey attachment list; otherwise build and return a fresh ordered list of converted attachment indices >= EmptyItemIndex. Create mode-to-slot-order table. Symbolic ZM->LoadoutSlotOrderZM, MP->LoadoutSlotOrderMP, CP->LoadoutSlotOrderCP, WZ->LoadoutSlotOrderMP. Create LoadoutPaintjobSlots.structs.primary.keys and .secondary.keys as separate nested tables, each with the one literal string paintjobSlot. Assign symbolic hash literal default_specialist_equipment to DefaultSpecialistEquipment.",
+        "unknowns": [
+          "Exact selected recovered Lua source only, conditional module/caller bindings. Original loader/global overwrite/VM/native/DDL/settings/assets/service/server/PS4 behavior remain unverified. No independent review, acceptance, function completion or runtime credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-3-REMAINDER-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00861",
+          "sha256": "5a8430842e16fd96841db0ac6f897cf77f11063d71de118f8d7009fd1dcf9867"
+        },
+        "report_pointer": "/unit_reviews/190",
+        "decision_canonical_sha256": "5126479f79930a526487a9c9853870814e7295d2b977c558d3eae07f781771e5",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Complete exact written claim and full current subjects, including unchanged receiver/argument, ordered source read/write/request, data, branch/loop/return, callable/capture/delivery, reset/cleanup/error, dependency, provenance and limitation fields. Recovered-source statements are assessed at their stated static request scope; unavailable provider/native/build/VM/runtime facts are not supplied. Historical statuses and original identity labels remain historical, not fresh proof.",
+        "limitations": [
+          "Original/source-to-PS4 identity, effective settings/assets/data, VM/native ABI, opaque provider internals, online/server code, callback delivery and runtime results are unresolved except for the exact written static facts. No unknown is guessed.",
+          "Original author/model/effort annotations and prior review labels are navigation/history; this report does not establish missing historical provenance or replay a prior review.",
+          "The original path alias is a source locator; actual verified full-byte paths are recorded. This report does not claim a missing historic alias has been restored."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/1",
+        "record_sha256": "0e0b8ac6edf15d211b52dba253d709535489834d466af86a7c2510c9a3d58db6"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "f9e6db561a63e3eff0c6626c4800b8788579dc6be7c680274171ecfb18a12c06",
+      "citations": [
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 308,
+          "line_end": 320,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua:058",
+        "answer": "Looks up LobbyMainModeData[input]; returns its truthy eMode. Missing entry or falsey eMode falls through after assigning nil and has no explicit return. The mapping table and enum values are external, so no numeric Warzone value is invented.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-CURRENT-SOURCE-2",
+        "report": {
+          "evidence_id": "archived-record-00853",
+          "sha256": "84a41a710bbd495080979111c9af36434b971602feb1e50ca5461ac090816f1a"
+        },
+        "report_pointer": "/unit_reviews/1378",
+        "decision_canonical_sha256": "8363efc69370d14ef16fa6e62b12f96e51c55a940de0021dc4846150f671369e",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Every written field of the exact current records, at the bounded source scope and explicit unresolved boundaries.",
+        "limitations": [
+          "Recovered source only; no source-to-original-build or actual HMH reachability proof.",
+          "Unknown original author/reviewer identities stay unknown.",
+          "Opaque providers, native/VM behavior and callback delivery remain bounded as written."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/57",
+        "record_sha256": "3f8b72f0b901d5c520395172a467fdc967687a88ca57f69c62260224062fec9f"
+      },
+      "excerpt_only": true
+    },
+    {
+      "selection_id": "fab0424e1a7162e69d4447c15f9d612d95bbd36981e9676591cb960394921872",
+      "citations": [
+        {
+          "line_start": 1350,
+          "line_end": 1387,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1350,
+          "line_end": 1350,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 10,
+          "line_end": 10,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        },
+        {
+          "line_start": 1811,
+          "line_end": 1811,
+          "file_sha256": "940532de37f9e4b63228a4453d32637627d2183039b8eda22663c0f3875fa5c1",
+          "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b"
+        }
+      ],
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:001",
+        "answer": "Look up the item-name hash in the first loot table; query the second only when the first result is falsey or the hash_0 sentinel. Return the second/first truthy result or hash_0. Assign a fresh outer table with hash-key ar_galil_t8 mapping to a fresh two-element sequence of symbolic mode_zombies then mode_warzone enum reads. This is a source default list, not proof of an actual unlock or original enum/item hash value.",
+        "unknowns": [
+          "Exact selected recovered Lua source only, conditional module/caller bindings. Original loader/global overwrite/VM/native/DDL/settings/assets/service/server/PS4 behavior remain unverified. No independent review, acceptance, function completion or runtime credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "review": {
+        "section_id": "H08FINISH-SOURCE-REVIEW-1F-V1-SUBJECT",
+        "report": {
+          "evidence_id": "archived-record-00863",
+          "sha256": "a0227eba9437315bdbb58f18f56b4731a18d6ec8766a19053e732ef9b1ecb6a2"
+        },
+        "report_pointer": "/unit_reviews/52",
+        "decision_canonical_sha256": "dac02d9ffd3bc36967e65d62c095ac3909337c4e4872188c539c68e5f7137dd6",
+        "verdict": "reviewed_partial_contract",
+        "claim_review_complete": true,
+        "reviewed_scope": "Entire exact current written record, original complete claim/evidence and all stated identity/status/provenance/reuse/receiver/argument/source/body/operation/branch/loop/return/error/callback/capture/delivery/constructor/reset/clip/close/dependency/qualification/limit fields at their actual written scope. Exact historical references remain historical; current borrowed semantic fields are source-compared or matched to compatible valid fresh full-scope prior proof.",
+        "limitations": [
+          "Pinned recovered source and current written scope only; original author/reviewer/backend facts remain unknown where unproved.",
+          "Original bytecode/PS4 build/source match, native ABI/VM/loader/global identity, effective settings/assets/data/enum/model/provider values, online/server/service effects and actual callback/lifetime/runtime behavior remain unproved at the retained boundaries.",
+          "Source requests and static walkthroughs do not prove successful rendering, input, networking, persistence, progression, gameplay or whole-HMH completion.",
+          "All original per-field limitations are preserved in retained_limit_fields; missing historical proofs are not upgraded by exact byte compatibility."
+        ],
+        "finding_ids": [],
+        "current_state": "ASSESSED_AT_EXACT_WRITTEN_STATIC_SCOPE"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/0",
+        "record_sha256": "240cd20f30f7a067ffb93b31bd68cb0c77174f19422db3e4ccf183017f353064"
+      },
+      "excerpt_only": true
+    }
+  ],
+  "credits": "ate47 for the published Lua dump; CoDLuaDecompiler and hksc contributors for the referenced recovery tools.",
+  "sharing_status": "Rights-holder redistribution permission not established; local inclusion follows user decision; no ownership transfer or license inferred.",
+  "formatting_record": "provenance/formatting/763322cf0bd2ba8d.json",
+  "author": "project-contributor",
+  "documentation_projections": [
+    {
+      "path": "provenance/documentation/bb2c071670100213-001.json",
+      "sha256": "476428e0607c66779ac054e1e3ed4a8c552e9e9e8eb717658bbe25a38d2c48aa"
+    }
+  ]
+}

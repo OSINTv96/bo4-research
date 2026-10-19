@@ -1,0 +1,61 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/wz_common/wz_ignore_systems.csc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/5d90fd2943e72aa3.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "b43da94b0e59f5735470250939f7a3d74d944952a2e1f4bb7f3803f09bb263ed",
+      "summary": {
+        "unit_id": "hmh-gap:HMH-GAP-STARTUP:ignore@system_shared.csc",
+        "answer": "Source-visible answer: the exclusion/placeholder primitive and the duplicate-registration enabler. ignore(str_name): asserts level.gametype is UNdefined (must run before the engine assigns the gametype - pre-gametype window only); then if no registry record exists, register(name, undefined, undefined, undefined) creates an all-undefined placeholder; finally sets .ignore=1 (169-179). Combined with register()'s duplicate rule (assert existing .ignore then return, 11-15) this yields the exact wz/HMH exclusion semantics: a system whose name is pre-ignored either (a) never stores its real pre/post functions - the later real register returns early, or (b) if real registration happened first, ignore skips placeholder creation and sets the existing record.ignore=1 while preserving its pointers; ignore asserts only that level.gametype is undefined (171), and register has the separate duplicate assertion. During pre/post phases every exec skips ignore-flagged records (37-40 / 102-105), so ignored systems' bodies never run through this mechanism. wz/HMH applicability: wz_ignore_systems.gsc/.csc autoexec ignore_systems pre-ignores 8 systems (recon_car, planemortar, supplydrop, ultimate_turret, armor_station, counteruav, uav, supplypod - lines 11-18 both VMs), suppressing killstreak systems that register with reqs elsewhere (supplydrop.gsc 44, uav.gsc 28). Level.gametype assignment point and autoexec timing vs it are the unresolved native boundary recorded below.",
+        "behavior": "ignore(str_name): assert(!isdefined(level.gametype), devx124) (171) - the assert boundary records that exclusions are only valid while no gametype is set; if !level.system_funcs or the name is unregistered, register(str_name, undefined, undefined, undefined) creates a placeholder with undefined pre/post funcs and predone=postdone=1 (both !isdefined) (173-176); then level.system_funcs[str_name].ignore = 1 (178). Consequences: (1) an undefined-func placeholder would never invoke anything even without ignore (exec_* call [[undefined]] guarded by predone/postdone=1 and ignore skip); (2) later register() by the real system hits the early return (11-15, assert passes because ignore=1) so its pointers are discarded; (3) exec pre/post paths skip the record regardless (37-40/102-105). The wz ignore_systems autoexec runs in both server (wz_ignore_systems.gsc) and client (wz_ignore_systems.csc) VMs - warzone.gsc 54 and warzone.csc 15 both #using-import it, and prior load inventory records both as wz directory-ownership candidates (SOURCE-LOAD-INVENTORY.json 1083-1085 csc, 1181-1183 gsc). zm contexts also use system::ignore (zm.gsc 137-157 etc., context).",
+        "unknowns": [
+          "autoexec vs level.gametype assignment order in retail (assert precondition)",
+          "Non-registry reachability of ignored systems (only registry suppression proven)",
+          "Retail assert evaluation (N3)"
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00229",
+        "sha256": "9445acb4c73d44c2260b9318ade823dbf0ada6c2db8617e89b091cf0566a3372",
+        "pointer": "",
+        "record_sha256": "07796bc27e56b3ab9297b03583f6594202af80a642e5a26e9658238203bd79f0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5d90fd2943e72aa3.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "e17d93b979b0199c4afc28a8e4027d3230bcaa547f0b2b9419a034b249bb0cb7",
+      "summary": {
+        "id": "scripts/wz_common/wz_ignore_systems.csc::ignore_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "autoexec_registration_inventory; native invocation/load order unverified"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/781",
+        "record_sha256": "14bd774999df16685bb53589b68304ad7833450aae7c3fbec4d5cd9a5f937724"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/5d90fd2943e72aa3.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "e5615886196432ffaa2b18fc8d6197048ad733def3b7a087dd99c9c9dd8ef089",
+      "summary": {
+        "id": "scripts/wz_common/wz_ignore_systems.csc::ignore_systems",
+        "limit": "Recovered-source statement only. Native behavior, original bytecode fidelity, server behavior and PlayStation compatibility are unverified.",
+        "category": "conditional_autoexec_or_registration_candidate_with_unproven_load_reachability"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00001",
+        "sha256": "807e03123fd761e66758e907a17d020b4437649f710f6cd5998282d56421d366",
+        "pointer": "/records/1071",
+        "record_sha256": "98e625a6c123719c60a3603e87789ebe4b51422ea668d991021ffaa5f40dd2ca"
+      }
+    }
+  ]
+}

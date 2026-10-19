@@ -1,0 +1,137 @@
+{
+  "module": "src/scripts/weapons/weapons.gsc",
+  "identity": "scripts/core_common/debug_shared.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "debug",
+  "witnesses": [
+    {
+      "line": 1845,
+      "text": "                thread debug::drawdebugline( midpos, to, ( 1, 1, 1 ), 600 );",
+      "caller": "damage_trace",
+      "caller_span": [
+        1826,
+        1856
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1842,
+          "opening_line": 1844,
+          "ending_line": 1846,
+          "text": "if ( trace[ #\"fraction\" ] == 1 )"
+        },
+        {
+          "line": 1838,
+          "opening_line": 1842,
+          "ending_line": 1852,
+          "text": "/#\n        if ( getdvarint( #\"scr_damage_debug\", 0 ) != 0 )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drawdebugline",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          195,
+          198
+        ]
+      ]
+    },
+    {
+      "line": 1849,
+      "text": "                thread debug::drawdebugline( midpos, trace[ #\"position\" ], ( 1, 0.9, 0.8 ), 600 );",
+      "caller": "damage_trace",
+      "caller_span": [
+        1826,
+        1856
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1846,
+          "opening_line": 1848,
+          "ending_line": 1851,
+          "text": "else"
+        },
+        {
+          "line": 1838,
+          "opening_line": 1842,
+          "ending_line": 1852,
+          "text": "/#\n        if ( getdvarint( #\"scr_damage_debug\", 0 ) != 0 )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drawdebugline",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          195,
+          198
+        ]
+      ]
+    },
+    {
+      "line": 1850,
+      "text": "                thread debug::drawdebugline( trace[ #\"position\" ], to, ( 1, 0.4, 0.3 ), 600 );",
+      "caller": "damage_trace",
+      "caller_span": [
+        1826,
+        1856
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 1846,
+          "opening_line": 1848,
+          "ending_line": 1851,
+          "text": "else"
+        },
+        {
+          "line": 1838,
+          "opening_line": 1842,
+          "ending_line": 1852,
+          "text": "/#\n        if ( getdvarint( #\"scr_damage_debug\", 0 ) != 0 )"
+        }
+      ],
+      "dev_region": true,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "drawdebugline",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          195,
+          198
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [
+    "__init__system__"
+  ],
+  "id": "AV0167",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/core_common/debug_shared.gsc",
+    "sha256": "d6444d18780a007536cd5471c7159aac9e79a374031801df7be110e3b7cdae8a",
+    "git_blob_sha1": "ad305ea766587659d6c12aa440d91127a719030a",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "relevance_unresolved",
+  "relevance": "unresolved",
+  "output": null,
+  "reason": "All found qualified references are inside /# #/ developer regions. Those calls are excluded from the production call slice only. Include/loader and any autoexec relevance remain unresolved; no whole-file exclusion.",
+  "supported_exclusion": "Only the enumerated developer-region references from the non-dev production call slice.",
+  "selected_reference_lines": [],
+  "required_callee_functions": [],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0
+}

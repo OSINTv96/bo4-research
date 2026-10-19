@@ -1,0 +1,117 @@
+{
+  "module": "src/scripts/mp_common/player/player_loadout.gsc",
+  "identity": "scripts/weapons/weapon_utils.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "weapon_utils",
+  "witnesses": [
+    {
+      "line": 2130,
+      "text": "        else if ( victim hasperk( #\"specialty_fireproof\" ) && weapon_utils::isfiredamage( weapon, mod ) )",
+      "caller": "cac_modified_damage",
+      "caller_span": [
+        2064,
+        2177
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2090,
+          "opening_line": 2093,
+          "ending_line": 2153,
+          "text": "if ( victim != attacker )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "isfiredamage",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          98,
+          106
+        ]
+      ]
+    },
+    {
+      "line": 2141,
+      "text": "        else if ( !var_81ca51d && victim hasperk( #\"specialty_flakjacket\" ) && weapon_utils::isexplosivedamage( mod ) && !weapon.ignoresflakjacket && !victim grenade_stuck( inflictor ) )",
+      "caller": "cac_modified_damage",
+      "caller_span": [
+        2064,
+        2177
+      ],
+      "lexical_enclosing_blocks": [
+        {
+          "line": 2090,
+          "opening_line": 2093,
+          "ending_line": 2153,
+          "text": "if ( victim != attacker )"
+        }
+      ],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "isexplosivedamage",
+      "form": "call",
+      "local_candidate_trace": null,
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          43,
+          56
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0166",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/weapons/weapon_utils.gsc",
+    "sha256": "3f6cb525a53abb0881186085aa372ef3b8a66f9168ae897bb8339be94a0425cd",
+    "git_blob_sha1": "131b4010b301def7aced9d7e9e50b6643b1822cb",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "output": "src/scripts/weapons/weapon_utils.gsc",
+  "reason": "The extended candidate source graph supplies an exact local/qualified call or stored-pointer path from a selected source entry. Callee source is now included conditionally; feasibility, loader/callback delivery, original binding and runtime behavior remain unproved. The earlier local-only decision is retained below.",
+  "selected_reference_lines": [
+    2130,
+    2141
+  ],
+  "required_callee_functions": [
+    "isexplosivedamage",
+    "isfiredamage"
+  ],
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/weapons/weapon_utils.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N03555",
+        "to": "N03559",
+        "line": 2130
+      },
+      {
+        "from": "N03555",
+        "to": "N02439",
+        "line": 2141
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  },
+  "prior_local_trace_decision": {
+    "decision": "relevance_unresolved",
+    "relevance": "unresolved",
+    "reason": "Available and inspected. Found caller/functions and lexical gates are recorded, but no matched non-dev reference has both a selected behavior-summary span and an identified callee body. A citation or namespace match alone cannot establish HMH admission. Missing exact root/callback-to-caller admission or bounded source contract stays explicit.",
+    "selected_reference_lines": [],
+    "required_callee_functions": []
+  }
+}

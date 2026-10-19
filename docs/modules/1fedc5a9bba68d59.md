@@ -1,0 +1,21 @@
+# ui/uieditor/widgets/director/directorlobbyleader.lua
+
+Project-added notes. See the [code](../../src/ui/uieditor/widgets/director/directorlobbyleader.lua).
+
+The complete file retains lexical context. These summary excerpts do not approve the whole file or prove HMH invocation.
+
+Original revision: `1a46c72b710c1820b63f72d22654f570286eee0b`. Original SHA-256: `842d45054e9dfe75e71799f4ee48193b48fc781368a9f7f02ad4d72d8179e84a`.
+
+Exact source spans, dependencies and bounded review evidence: [module record](../../provenance/modules/1fedc5a9bba68d59.json).
+
+New notes and dependency decisions await independent review. Original build, native/VM, effective settings, service and gameplay limits remain open.
+
+Selected source notes (excerpts; full records remain authoritative):
+
+Dependency decisions: [exact edge records](../../provenance/dependency-decisions.json). Included callees remain at the bounded static scopes recorded there.
+
+- [CL0069](../../provenance/dependency-decisions/CL0069.json): `src/ui/uieditor/widgets/social/social_playerslistbutton.lua` to `lua/ui/uieditor/widgets/director/directorlobbyleader.lua`; include_conditional_source.
+
+  A complete recorded candidate source path reaches this exact callee/module from a selected static source entry. Every local/qualified call and stored pointer is retained in the hashed source graph. This is conditional source availability/closure, not feasible HMH execution, callback delivery, whole-file requirement or runtime proof.
+
+  Selected callee candidates: `<module-load>`. Source-only conditional selection; refer to the full edge record for caller lines and gates.

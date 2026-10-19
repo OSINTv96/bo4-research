@@ -1,0 +1,1870 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/ui/utility/spawnselectionutility.lua",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "32715fd75b1a4e4dd45a31d407e4eaf64001f4c925660945b3fc0dbaacdb420f",
+      "summary": {
+        "unit_id": "hmh07-lua:041",
+        "answer": "Builds the WZ back HUD children including team/player/ammo/inventory/compass/collapse/reinsertion/death notifications. Spawn selection hides deployable notifications; dead+not hacked+not spawn-select gates DeathCamContainer. KilledBy is locally always hidden; killer identity is hidden outside killcam, binds Attacker and updates emblem/name/rank views only for nonnil data. Overall caster-profile/spawn-select hides are separate predicates. The constructor wires child source contracts; it does not reconstruct every child, event producer or server state.",
+        "unknowns": [
+          "Exact source-to-original-PS4/build match and decompiler fidelity unverified.",
+          "Native LUI/Engine/VM/model ownership, callback delivery/order, cancellation, assets/localization/settings/DDL/storage/network/services and unavailable server code remain unverified where used.",
+          "Source-ready close body exists outside frozen allowed companion range; exact locator is retained in new_dependencies. Other class clip bodies not frozen were not authored.",
+          "Additional same-class reset/clip/close body ranges are available but outside the frozen author scope; exact locators are in unfrozen_same_class_body_locators and source-frontier.json. No body authoring or completion credit for them."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00334",
+        "sha256": "d7b01efaff174a0a14ed475e48e08a33c016b6923722ae27d3d1cba3b746a1d0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "74427cf5e1480cbc923bf289c3db17054b3ba7d5b70afc60f5eb4860ac0955fa",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:087",
+        "answer": "Constructs CoD.KillcamCover with the supplied menu/controller/layout values; its exact visual/data fields, condition closures, hook requests and return are retained below. Creates self via LUI.UIElement.new, Background via LUI.UIImage.new. Stores state predicates On, Hidden; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/86",
+        "record_sha256": "f89d45783af169d931f44bbb8c8b74de029b4f8e0162902b35ecb68f28135909"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "886b66977d5963e2a248438a35e4edf435220e4c9a1a94f9aa5dca92cbfe1a36",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:237",
+        "answer": "ShowScoreboard forwards its sole argument; HideScoreboard forwards argument1, preserving the different signatures. Show/hide permission tests retain scoreboard-open/spawn-select, multiplayer/game-ended and WZ-map gates. SetScoreboardUIModels initializes local/controller0 fields, writes team summaries for multiplayer and conditionally player score, then writes all five column headers again unconditionally. Preserve duplicate header writes and absent native/model guards; no scoreboard or match was opened by this author.",
+        "unknowns": [
+          "No actual callback delivery, cancellation-after-close, successful native mutation or service response is proved.",
+          "Recovered source defects, nil fallthroughs, repeated/replaced registrations and opaque aliases are preserved rather than repaired.",
+          "Public-reuse investigation is inherited from frozen archived-record-00026; this author performed no outside research."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00250",
+        "sha256": "0035cf029d406dfbafc9c7f578f9846a20bb958143151ad62c77b5abbe7a7c21"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "926d272bea21812a24bf7871e34e16dde534bd9f184eb445a44d4d10884f8ce0",
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:089",
+        "answer": "Calls engine getobjectiveentityposition(controller argument1,objective argument3), receiving three coordinates. Calls SpawnSelectionUtility.PositionMarker(argument0,argument1,argument2,{x=x,y=y,z=z}) only when all three returned coordinates are truthy; otherwise falls through. Under source Lua truthiness numeric0 is not filtered out. No receiver/model guard, loop, return value or protected error handling exists. Reads selectedMarker; if absent prints the literal SpawnSelect invalid-region diagnostic and returns no values. Otherwise obtains its four local-rectangle values (unused), center and leftStickVector. Iterates pairs(markers), computes candidate-center minus selected center, keeps candidates whose dot with the stick is >0, and stores marker plus squared reject distance. If candidates exist, passes an excluded comparator pointer to table.sort and returns first.marker; otherwise explicitly returns nil. Pair iteration/tie ordering, vector/receiver validity and sort semantics remain external; no selection state is written or target merely guessed. On marker argument0, calls processEvent({name=\"lose_focus\",controller=argument1}) before playClip(\"DefaultClip\"). No nil guard, return value, selectedMarker reset, close, loop, callback registration or protected error handling exists. Event/clip engine effects remain external.",
+        "unknowns": [
+          "Pinned recovered source only; no originating Lua bytecode, exact PS4 build/loader/overwrite/VM/native binding, effective HMH settings, resource availability, service/server behavior or runtime delivery proof. Author checks are not independent correctness review. Source defects and unguarded accesses remain literal.",
+          "Only the selected callable's immediate statements are authored. Each unlisted nested callable is excluded from semantic authoring, including returned/local/condition/model/timer callbacks. Its exact lexical pointer and delivery site are metadata for later scope selection; containing its text does not authorize its body."
+        ],
+        "status": "partial"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/88",
+        "record_sha256": "febac3c809c047bbca7ec4c30b888179eeed360d53281ff2c061f43a64230414"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "a3d2adea25361c1568658eeeccc928b878d5fde087fa4f7796dd3973de738e36",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:118",
+        "answer": "IsSpawnSelectActive returns ModelUtility.IsModelValueEqualTo(controller,hudItems.showSpawnSelect,1). It consumes a model and does not open/close spawn selection or normalize arbitrary truthy values. Producer and live selection remain conditional.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00036",
+        "sha256": "279ba12c6a1d4cfd1fb6c7e030a47694d4ee3982256bb21a0b3aa6909aef143b",
+        "pointer": "/units/117",
+        "record_sha256": "dea8a5324286ed33f3327fef1419262ed52c9e3d8f46251651464ba5f2c2ac65"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "b5da4e084aba9d53db1d317d11f79a2f20cd0f378c221ed46c45b896c721407d",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:145",
+        "answer": "Constructs CoD.SpawnRegionMarker.new with the exact receiver/menu/controller/layout arguments below. Creates self as LUI.UIElement.new, Background as LUI.UIImage.new, NoiseBacking as LUI.UIImage.new, TiledShaderImage as LUI.UIImage.new, CommonCornerPips as CoD.CommonCornerPips01.new, SpawnSelectIconBg as CoD.SpawnSelectLocationMarker.new, SpawnSelectPulse as CoD.SpawnRegionPulse.new, AutoSpawnPoint as CoD.SpawnRegionAutoSpawn.new, Label as LUI.UIText.new. Stores source state predicates in order Hidden. Requests model links self, \"visStatus\", true. Owns 2 nested callable scopes, each with its separate delivery/invocation contract. Registers LUI.OverrideFunction_CallOriginalSecond( self, \"close\", self.__onClose ). Runs PostLoadFunc( self, f1_arg1, f1_arg0 ) only under its exact guard and at its original source position. All property/asset/model/state/navigation/return effects remain in the ordered statement contract; construction and storing callbacks do not prove the original game displays or loads this widget.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:setClass",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 14,
+              "line_end": 14,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "745f4b40c6a28651e75ceb7ea4c9293688a790ea361decbe80e02c6b581bf4ac",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:setClass( CoD.SpawnRegionMarker )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "f1_arg0:addElementToPendingUpdateStateList",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 18,
+              "line_end": 18,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "425e1262ec83d277f60ab9e68572fad43783709fae6c81dcf3c6d19d52731d76",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf1_arg0:addElementToPendingUpdateStateList( self )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Background:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 21,
+              "line_end": 21,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "b3e9d4e0eb4453cfc01c5bbf3ebc75ddbd5bf43b452b1110e39047f00f24a075",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tBackground:setRGB( 0.07, 0.07, 0.07 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 22,
+              "line_end": 22,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "a8fb5b3512a4e4ba54e9d0eb382c5256b963063e461ca5ce038a15e9fea9861e",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Background )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 26,
+              "line_end": 26,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "3f8354ca7ef841b61a4254adc0869bd2d0217048af143e02fa8eb841990f453d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setAlpha( 0.85 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "228de2a932dffce4d86b235369bf2429cd4335f30fdaf94bf9c7f0df267daf30",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setImage( RegisterImage( @\"uie_ui_menu_store_price_bg\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 28,
+              "line_end": 28,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "b74a4fec890e87060b0a19b859393be3fee4571b46d789ef1890f31a46a21d72",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_16CBE95C250C6D15\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 29,
+              "line_end": 29,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "9258b16e7b07d9f216a4ea3809b6d72f2ee0d45d2a2b683f57f418bcb6c25d56",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "NoiseBacking:setupNineSliceShader",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 30,
+              "line_end": 30,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "3e77ea4cc66d3ccee80fad74eeb87237c88fc3776bce5c884c5fb9e639de2535",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tNoiseBacking:setupNineSliceShader( 24, 24 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 31,
+              "line_end": 31,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "70024c840d177720866468c81e6b3929869c5f2b5da99c88161d064b550863b6",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( NoiseBacking )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "TiledShaderImage:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 35,
+              "line_end": 35,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "550c70290064d82fc02692a792b94dc53507c9b03cec089b9a3fd3d8947daf70",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTiledShaderImage:setAlpha( 0.6 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "TiledShaderImage:setImage",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 36,
+              "line_end": 36,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "7a7c316dbe17333d8cfcf1d384cb95b3d3fe8732ef2a69216bf559313aa56784",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTiledShaderImage:setImage( RegisterImage( @\"uie_ui_menu_store_repeat_dot_pattern\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "TiledShaderImage:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 37,
+              "line_end": 37,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "64c46d0ebfadc0efd63517bd1d6de2d4e59ed434bbf7f1125e5f75c9ebec49c3",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTiledShaderImage:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_67C9C02F608D0A75\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "TiledShaderImage:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 38,
+              "line_end": 38,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "9c895b874118b06e8d0370a2484246288f2f3031f114d15a7d7599c4fe11e004",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTiledShaderImage:setShaderVector( 0, 0, 0, 0, 0 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "TiledShaderImage:setupNineSliceShader",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 39,
+              "line_end": 39,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "cf1ed6df88ff73893014e9b4d11594560d8c3d5274033ff093cb4ea0bca00158",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tTiledShaderImage:setupNineSliceShader( 24, 24 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 40,
+              "line_end": 40,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "6e8af0971644583869557fc53e4c90067a0c0a72bbb55c27b00c321d41df7c56",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( TiledShaderImage )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "CoD.CommonCornerPips01.new",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 43,
+              "line_end": 43,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "f3bd948c9176330cd6448553c3b8077e14a3f32c713f8b20760fe9f01cb0ec08",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal CommonCornerPips = CoD.CommonCornerPips01.new( f1_arg0, f1_arg1, 0, 0, 20.5, 281.5, 0, 0, 27, 73 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 44,
+              "line_end": 44,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "94f9c3a4dacce15bed0abe35b8b0c8602b0a0801ff0335cc04dc18371c5a5b31",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( CommonCornerPips )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 48,
+              "line_end": 48,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "b4c89c9ffa7e0ff7b450c82157c4a2f95c39a19aba2bb57b944e84656db8a54a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( SpawnSelectIconBg )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 52,
+              "line_end": 52,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "da63bdb96294e47ae11bfbd236a684f25061e7296c5db2555d176ab11642b768",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( SpawnSelectPulse )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 56,
+              "line_end": 56,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "01707844193be2b560f69228ef649d5aa5a417b88f7a568659bc7a94e022d51a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( AutoSpawnPoint )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setRGB",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 60,
+              "line_end": 60,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "209216b0472555c7beabac7f419e71ce07889fc0b0775e276bbdc489d5bc8889",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setRGB( 0.89, 0.85, 0.85 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setText",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 61,
+              "line_end": 61,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "3e76a80011d29db83bfee0a703745912e4d7c259658ab13b57b78b5114a4a5ee",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setText( Engine[@\"hash_4F9F1239CFD921FE\"]( @\"hash_397D2D83C3F46EE5\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setTTF",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 62,
+              "line_end": 62,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "c906e684b52ee12f776dc140289056e987f1d0042a8da37c4e85a9d8c9431b63",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setTTF( \"0arame_mono_stencil\" )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setMaterial",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 63,
+              "line_end": 63,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "44f850940c1392e11fa14141aea2a70746bbd222254fe6ff5ff9d5491809e973",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setMaterial( LUI.UIImage.GetCachedMaterial( @\"hash_90D57B1E92D39D7\" ) )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 64,
+              "line_end": 64,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "d98ca066c00a752015a2118487ab2624d77b684b728c22160040c181eac1aa61",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setShaderVector( 0, 1.3, 0, 0, 0 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 65,
+              "line_end": 65,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "b425afe9e1ce9000f1ad25d91ec852a3154e3ff0e4aef2c664240c091228ec53",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setShaderVector( 1, -0.06, 0, 0, 0 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 66,
+              "line_end": 66,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "94b35153df361d1095b6ac61d86d99aa8f35137d7b4ae037f354b09ff8004df0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setShaderVector( 2, 0, 0, 0, 1 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 67,
+              "line_end": 67,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "1dfe7f46f23293beeba64ca20dc0ae46918408322edfdad66e9c989d37f03a11",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_center\"] )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "Label:setAlignment",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 68,
+              "line_end": 68,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "57acafc5e09f0135a4cf754eb2d242e50469f516716189510fbb331009578a38",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tLabel:setAlignment( Enum[@\"luialignment\"][@\"lui_alignment_middle\"] )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 69,
+              "line_end": 69,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "7caf77ab9a4a9c9b802721350f30f43a7361205ef6f59a806e58cabcddff76c0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:addElement( Label )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:mergeStateConditions",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 72,
+              "line_end": 72,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "f80e120986602aa448c1707f3e91220ab2b7f14cf0f0242f97e8bd05ffce2459",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:mergeStateConditions( {",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "self:linkToElementModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 86,
+              "line_end": 86,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "c6b5b802d7b3b127ea08b38468c44bf80e36a8f69a3433e9e32000345d44782a",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tself:linkToElementModel( self, \"visStatus\", true, function ( model )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "f1_arg0:updateElementState",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 87,
+              "line_end": 87,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "5e650146f503c88e98185e993fb212fe193eb1daf81d6d0ae92b22ae0938a741",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_arg0:updateElementState( self, {",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:86-94",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 91,
+              "line_end": 91,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "73ca228d8455c2fff2fb7db3b7b98801547fdfe7ee2fff91fd0a8781fd0742d5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tmodelValue = model:get(),",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:86-94",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:145",
+            "source_symbol": "CoD.SpawnRegionMarker.new",
+            "symbol": "PostLoadFunc",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/hashed/11e54af666c087dd.lua",
+              "line_start": 99,
+              "line_end": 99,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "4eaeaa3b7f1debde3047ca4713ef0118a02994d48c34ef9170a442c3ea4a3cea",
+              "line_span_sha256": "4dbef5997b3a65062e8c8bbfb97d55f505c5f9f18c20af45a45813d428535171",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tPostLoadFunc( self, f1_arg1, f1_arg0 )",
+            "scope_id": "lua/hashed/11e54af666c087dd.lua:12-103",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/144",
+        "record_sha256": "45c30e91a9b229059b2f3b1292944c3abdd433588fc02fde5afd362f84c97e41"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "b78531760181092e932ba65a2035bdc42e3d8ecaabeb972cbb34b3277f07b3df",
+      "summary": {
+        "unit_id": "hmh07-lua-follow6:083",
+        "answer": "Pass all four arguments in order to Engine.sendmenuresponse. The wrapper has no explicit return, local validation, retry, state change or server-handler implementation. Return a fresh {x=arg0.x-arg1.x,y=arg0.y-arg1.y} table. No input mutation or type/nil guards. Return arg0.x*arg1.x + arg0.y*arg1.y in the written grouping. No normalization or mutation. Return arg0.x*arg0.x + arg0.y*arg0.y. No square root, normalization or mutation. Call Vec2Project(arg0,arg1), then return Vec2Sub(arg0,that result). Projection semantics and its denominator/normalization requirements belong to the separate provider. Return args1,2,3,4 as four values and ignore arg0. Despite the name and callers passing 500, this body starts no animation or timer and performs no mutation.",
+        "unknowns": [
+          "Exact original source/build match and loader/table/global overwrite order",
+          "Effective settings/storage/table/profile/model values",
+          "Native render/model/event/timer lifetime and delivery",
+          "Unavailable service/server behavior and final HMH membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00056",
+        "sha256": "9b5470295d8bc5b945061358d29d8430f5da2392ccde6abf20deb11b8b9c027f",
+        "pointer": "/units/82",
+        "record_sha256": "802191c4e3432e3604317721e935b8a667897227f082fbfce462fcd70fa1c803"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "bd7287f14709af8bb32c1073352531c8f010b5c0e38e2e20fd5e259559a1e3da",
+      "summary": {
+        "unit_id": "hmh07-lua-follow6:094",
+        "answer": "Call PositionObjectiveMarker(arg0,arg1,arg0.beacons[arg2],arg2); no guard, explicit return or direct native position claim. Args are map/root,beacon widget,controller. Read local width/height, compass corners,north. If abs(northX)>0 set scale=width/abs(corner5-corner3); else if abs(northY)>0 scale=width/abs(corner4-corner2). Both branches use width and no zero-denominator guard. Fetch default_spawnbeacon_settings collectionradiusmax and multiply by scale, which remains nil if both north components are zero. If SpawnSelectRadius exists set centered left/right and top/bottom to +/-scaled radius. Independently test it again, play DefaultClip, then set nested MinimapSpawnRegion data(objId,unscaled radius). No fallback/settings/nested-field guards or cleanup. Only when arg0 and SpawnSelectionLabel exist, determine KBM and traverse SpawnPromptContainer.Icon. In the KBM branch set local4=0 and test not local4; ordinary Lua treats 0 as truthy, so enter the else and call Icon.setAlpha(Icon,0). Select KeyPrompt.setAlpha, again inside KBM set 1 and its not check, call KeyPrompt alpha1, localize key/space, call UpdateKeyboardPrompt(arg0,controller), then register that exact global function for input_source_changed. The non-KBM path merely reaches local4=1 with no alpha setter. Retain empty false branches, trailing unused assignments and missing nested guards; no symmetric gamepad repair or unregister is supplied.",
+        "unknowns": [
+          "Exact original source/build match and loader/table/global overwrite order",
+          "Effective settings/storage/table/profile/model values",
+          "Native render/model/event/timer lifetime and delivery",
+          "Unavailable service/server behavior and final HMH membership"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00056",
+        "sha256": "9b5470295d8bc5b945061358d29d8430f5da2392ccde6abf20deb11b8b9c027f",
+        "pointer": "/units/93",
+        "record_sha256": "311b8dd2414f496092afe632dab0feea4ea332200c5129e4c52f7e17d5129f7e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/8",
+      "selection_id": "c1bfb1008f96c4d139d635a39ddfa9fced6a7e0f32e2fbebbfff91eb9a6a83fa",
+      "summary": {
+        "unit_id": "hmh07-lua-follow8:016",
+        "answer": "Exact selected canonical immediate source contracts saved below; all owned inline bodies are separate and all old units remain reused unchanged.",
+        "unknowns": [
+          "Pinned recovered source only. No originating bytecode, source-to-PS4 match, loader/overwrite/metatable/native/VM/settings/assets/services/server or runtime-delivery proof. Author checks are not independent correctness review.",
+          "No min/max gaps, unlisted other-file bodies, new data/writers or held OIC constructor were authored."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00045",
+        "sha256": "0c981d5eb446fe3dd44845673b101548cf36172da6abd92475497ba0faf30ce0",
+        "pointer": "/units/15",
+        "record_sha256": "16bfd3621162941181866addf7e9f0ed5cb2bd331a82c592be2e33fdc3fb1f29"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/9",
+      "selection_id": "c1c472b740b79ef5b2b59d19e17537b769261eccbfa186f8f5638a0d4878fc43",
+      "summary": {
+        "unit_id": "hmh07-lua:212",
+        "answer": "Common Hud constructs this back safe-area wrapper directly. Builds Notifications, ObjectiveInfoWidgetContainer and CursorHint. HideNotificationsSpawnSelect delegates IsSpawnSelectActive; Warzone delegates IsWarzone. Recovered HideNotifications predicate has an early return when none of final/game-ended/killcam flags is set and round-end flag is false, but its later not-play-of-match assignment lacks a return; retain this nil-return fidelity gap instead of normalizing to an intended boolean. Spawn-select, visibility flags and lobbyNav notifications reevaluate self. CallOriginalSecond close registers self.__onClose; unselected outside class bodies remain dependencies. Optional postload then self return; screen-safe/native/model behavior not proven.",
+        "unknowns": [
+          "Original Lua-to-PS4 CUSA11100 build binding and bytecode/VM/decompiler fidelity unverified.",
+          "Effective HMH settings, enum values, model/data production, LUI state arbitration, event delivery/ordering/cancellation, assets, storage/DDL, networking/service behavior remain explicit gaps where called.",
+          "External helper bodies not selected here are dependencies only; no nil/error recovery assumed beyond visible source. Named LUI override APIs are preserved; no original/new callback ordering is guaranteed without their source contract.",
+          "No independent correctness review, retail execution or function completion credit."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00040",
+        "sha256": "9d3ed6530ff821234291a78ec78dcd26aabc639214372a07cedc6561cc12382d",
+        "pointer": "/units/211",
+        "record_sha256": "10e3b75a86ff60e0c1a1dc4b079cb02b315652cf56fb35233e4dc511a56c04b9"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/10",
+      "selection_id": "c36cf39c5d23ba54d10c07fbe845c4ff34d39c73300b1bd3fd462d419b52b160",
+      "summary": {
+        "unit_id": "hmh07-lua-follow3:060",
+        "answer": "Constructs CoD.SpawnSelectionMap from the displayed menu/controller/layout arguments. Creates MinimapFogOfWar as CoD.MinimapFogOfWar.new, MapItems as LUI.UIImage.new, DeathMarker as CoD.DeathMarker.new, SpawnGroupMarker as CoD.SpawnGroupMarker.new, AutoSpawnMarker as CoD.SpawnRegionMarker.new, SpawnBeaconMarker as CoD.SpawnBeaconMarker.new, SpawnRegionCursor as CoD.SpawnRegionCursor.new. Installs 2 event/action/override bindings; each callback keeps its captured controller/menu/widget references and executes only on its bound delivery. The ordered effect contract retains every property, model, visual, navigation, callback and return mutation in source order; returning self is not proof the original game loads this widget.",
+        "unknowns": [
+          "Original source-to-PS4/VM/native/loader identity and bytecode fidelity are unverified.",
+          "Effective settings, assets/tables/model schemas, server/service implementation and callback delivery/lifetime are unverified.",
+          "Exact source request semantics do not prove rendering, networking, persistence, progression or game behavior.",
+          "Public reuse is the frozen manager audit only; no worker web/repository discovery was performed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00009",
+        "sha256": "a3d6f5c60a40e31703313d00d5d0eaaea843693c358681b4434a397dd8386d75"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/11",
+      "selection_id": "cc6df863f1e4fdf3154dc53191aca9903db57d3ffc5449909814ca84f1db9dd5",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:273",
+        "answer": "With a cursor, computes bounds centered on the target. Animated path plays Release, begins50ms movement, updates bounds, and registers its focus/selection helper on transition completion; direct path updates bounds and calls it now. That helper chooses Snap/Acquire, sends gain_focus, stores selectedRegion and sends SpawnRegionFocus only for the written lobby mode or simulatedCT. Requests target lose_focus then DefaultClip, clears selectedRegion and hides cursor only when the keep-visible argument is falsy. Gets the stick vector, negates y in that same table and stores it on the receiver. Collects beacons whose native hit-test contains the cursor, computes squared center distance, sorts by ascending distance with its owned comparator, and returns first marker or nil. Equal-distance tie order is unspecified. Missing SpawnSelectionMap returns. Found target optionally deselects old region, selects new region and plays uin_main_edit. No target leaves selection unchanged. Returns whether native objective name equals spawnbeacon_objective. Non-sentinel objective ID compares native gamemode flags to f0_local1, otherwise false. Sentinel/flag upvalue values are outside this selected body and remain context gaps. Non-sentinel objective ID compares native gamemode flags to f0_local2, otherwise false. Exact upvalue values remain outside this body scope. For each beacon subscription, reads active/team/beacon/group predicates. Eligible missing beacon requests add; existing eligible beacon requests remove then add and a recovered goto. A remove follows the outer eligible block literally; do not invent a missing label/continue. PC keyboard-prompt branch preserves empty arms and local-looking assignments. Control-flow fidelity remains unresolved. Returns receiver.killcamFullscreen unchanged, with no boolean normalization. Returns whether killcamAnimTimer differs from nil. Truthy timer is closed before its receiver field becomes nil. No implicit guarantee of close success or idempotence beyond the written guard. Replaces beacons/subscription tables; existing AutoSpawnMarker is closed/selection cleared when hideautospawnoption==1, else made focusable and stored under sentinel; objId is written either way. AnimateMarkerPulse is called even with nil local marker. Installs newObjective subscription only if absent. Its delivered callback ignores active killcam and handles owned spawn-beacon/group models; death-marker/other arms are empty in recovered text. No old beacon table disposal occurs before replacement. Iterates beaconSubs and requests RemoveSpawnBeacon for each key. It does not directly close/remove newObjSubscription in this body. Starts with AutoSpawnMarker and replaces candidate for every non--1 pairs entry, so last traversal entry wins. Changed candidate deselects old, then selects/snaps a present candidate. An unchanged auto marker is selected again. No deterministic ordering is invented. Reads parent size and child rectangle, writes normalized X/Y and width(+20)/parent-width scale to shared KillcamPip fields. No division-by-zero guard or height scale. Installs spawnSelectEndTime model callback. A nonnil time records end/wait values and creates one50ms timer if absent. Its tick updates Clock/ClockGlow shader fractions from remaining/wait time and closes/nils the timer at remaining<=0. No initial immediate tick, nil-time cancellation, wait-zero guard or widget-close hook is supplied. Defaults false, sets true for sentinel objId, and also true for a present model whose state is active. It does not clear sentinel true for an inactive model.",
+        "unknowns": [
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:getLocalSize",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 17,
+              "line_end": 17,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "24c1616793b89c8adfa39a21bf3157c565950f0bb759dc48060b5df1b0927f39",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f1_local1, f1_local2 = f1_local0:getLocalSize()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 27,
+              "line_end": 27,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "98678d345f2d827aceb6a6aa0091a0fca1dddf119c49dd6a0b18c376aeaa2428",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf1_local0:playClip( \"Snap\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 29,
+              "line_end": 29,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "5dba045db3321498eec6998f3aa62c6a147c33f24840d0d61b1506df95924cb5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf1_local0:playClip( \"Acquire\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_arg1:processEvent",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 31,
+              "line_end": 31,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "3ebf1a2e19e17d4d22b8d4856d60ee9ee094eaf5a75f2941840ca88c32c63ad1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tlocal f2_local0 = f1_arg1:processEvent( {",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:25-39",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 41,
+              "line_end": 41,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "196940c191fc0d296e961b6719881c7c8378f165e57dedbc7e94bebde45caf6b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf1_local0:setAlpha( 1 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 43,
+              "line_end": 43,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "ee51517a176d1a04f85d92e62b262d3d701b854fb50e57d32e935dce6d151d88",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:playClip( \"Release\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:beginAnimation",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 44,
+              "line_end": 44,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "c140cc9395b86bf75fe3326542cfd6c08684aa89689100fa9cdb1da4fabb8abd",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:beginAnimation( \"move\", 50, true, true )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setLeftRight",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 45,
+              "line_end": 45,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "6c5de00a0c892b9591aa3d27a689e51840c32f8225dff1c30a80154e5264bfe6",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:setLeftRight( 0, 0, f1_local6, f1_local7 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setTopBottom",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 46,
+              "line_end": 46,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "8b7a5cfc9c55b2e5aa1e45161ae1ab35bbe5c798074e7c2e529a1b8d7949b1c1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:setTopBottom( 0, 0, f1_local8, f1_local9 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:registerEventHandler",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 47,
+              "line_end": 47,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "bfb687b8fde6db70f82a19e19e37ff2009daa23c03a17a2af507ef33862dfa14",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:registerEventHandler( \"transition_complete_keyframe\", f1_local10 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setLeftRight",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 49,
+              "line_end": 49,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "6c5de00a0c892b9591aa3d27a689e51840c32f8225dff1c30a80154e5264bfe6",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:setLeftRight( 0, 0, f1_local6, f1_local7 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SelectSpawnRegion",
+            "symbol": "f1_local0:setTopBottom",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 50,
+              "line_end": 50,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "8b7a5cfc9c55b2e5aa1e45161ae1ab35bbe5c798074e7c2e529a1b8d7949b1c1",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf1_local0:setTopBottom( 0, 0, f1_local8, f1_local9 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:14-54",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.DeselectSpawnRegion",
+            "symbol": "f3_arg1:processEvent",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 57,
+              "line_end": 57,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "a16dff0151fcef6335b5b46e0f5659026a9559369d4c80f7b3f27d23550db832",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf3_arg1:processEvent( {",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:56-66",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.DeselectSpawnRegion",
+            "symbol": "f3_arg1:playClip",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 61,
+              "line_end": 61,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "fb84e023498e067816a18180c7a14f44646e6dfd8c921627ea4a3c66fbbbe343",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf3_arg1:playClip( \"DefaultClip\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:56-66",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.DeselectSpawnRegion",
+            "symbol": "f3_arg0.SpawnRegionCursor:setAlpha",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 64,
+              "line_end": 64,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "6b639255338d8e1647c7b35e4153b6fed691f2225062cec18764cf35560ffa85",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf3_arg0.SpawnRegionCursor:setAlpha( 0 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:56-66",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.FindBeaconTargetedByCursor",
+            "symbol": "f7_arg0:getRoot",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 110,
+              "line_end": 110,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "86fb198871f4c97ffddccf3f190ca6893b38c5b6d724cabbaf2a2963dc8adb1b",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f7_local1 = f7_arg0:getRoot()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:108-128",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.GenerateSpawnBeacons",
+            "symbol": "f31_local6.state:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 389,
+              "line_end": 389,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "190e2d59a822de1465ec836185cd284261851dcf6b673a9bd5bb7043f656717d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f31_local7 = CoD.SpawnSelectionUtility.IsObjectiveInActiveState( f31_local6.state:get() )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:386-417",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.GenerateSpawnBeacons",
+            "symbol": "f31_local0",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 412,
+              "line_end": 412,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "a4ea6842b905f3cd6ba7f1fbbb5470627e459c2e45a1a9aeb3c4344ea3e734a5",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf31_local0( f31_local1, f31_arg1 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:386-417",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.DestroyKillcamAnimTimer",
+            "symbol": "f34_arg0.killcamAnimTimer:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 429,
+              "line_end": 429,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "64ca8f6c05beefa994e1ee91b56ea404644f13c889fdfffa4af5cfdf131aeab9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf34_arg0.killcamAnimTimer:close()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:427-432",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f55_local1:create",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 667,
+              "line_end": 667,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "c33cc26669c98fc942eb90e337f4ead395a38462e63a901a5bd2f73035d9998c",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf55_local1 = f55_local1:create( \"hideautospawnoption\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:661-709",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f55_local1:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 668,
+              "line_end": 668,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "8eb8fd78a6a3689cd5fb27ee0b5fcf02d86c0242fd422f8141fbf5cddef30786",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tif f55_local1:get() == 1 then",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:661-709",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f55_local0:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 669,
+              "line_end": 669,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "3650cf5c9d8328687cf486de25069107bbf90d9fa96fc0bc2272ac05986fbd88",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf55_local0:close()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:661-709",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f55_local0:makeFocusable",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 673,
+              "line_end": 673,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "942b4cca24780c565ea9347f5d704bf643c01a085ce4cacae5ea62bcd85311d0",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf55_local0:makeFocusable( f55_arg1 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:661-709",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f55_arg0:subscribeToModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 680,
+              "line_end": 680,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "6029aa8e69ce4428f351355e744cd8adeef2ea5bc35e6d6d6abf42dc94348613",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tf55_arg0.newObjSubscription = f55_arg0:subscribeToModel( Engine[@\"createmodel\"]( Engine[@\"getmodelforcontroller\"]( f55_arg1 ), \"newObjective\" ), function ( model )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:661-709",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f56_local4:create",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 692,
+              "line_end": 692,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "754afa172e5c6cce50a66bf1f3ad7f582e52b77de5a0aeda3655c162812647cd",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\t\t\t\tf56_local4:create( \"gamemodeFlags\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:680-707",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f56_local5:create",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 694,
+              "line_end": 694,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "b8a2b69fbf446e315096285cdc2c8501e891390fa4615fdb2ecc1863fedea1d7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\t\t\t\tf56_local5 = f56_local5:create( \"hudItems.SpawnBeaconObjective\" )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:680-707",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnSelectionMap",
+            "symbol": "f56_local5:set",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 695,
+              "line_end": 695,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "d6bb15206366975be05fe7b52d98fe505dc246eacf05f5c9ed95385fe1be5d0f",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\t\t\t\tf56_local5:set( f56_local4 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:680-707",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.CalculateKillcamViewportSize",
+            "symbol": "f67_arg0:getLocalSize",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 800,
+              "line_end": 800,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "fef5de45734bf80406d7180863a873685f5d539b723d56ae62cc5ad433763c54",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f67_local0, f67_local1 = f67_arg0:getLocalSize()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:799-808",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.CalculateKillcamViewportSize",
+            "symbol": "f67_arg3:getLocalRect",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 801,
+              "line_end": 801,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "9af7045756fccdc499e534239c07e9c4878a812b505d7ba2cd38a69da4cebc03",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f67_local2, f67_local3, f67_local4, f67_local5 = f67_arg3:getLocalRect()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:799-808",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "f70_arg0._timer:close",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 829,
+              "line_end": 829,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "73cb21ec067f33c0102629943723cc9b9e335691982572e95420eefeab762e54",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf70_arg0._timer:close()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:827-832",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "f70_arg0.Clock:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 839,
+              "line_end": 839,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "fcc384297a59f63337d246d1fc98b0336082b7f9c09a94390abcdfb730f3eba7",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf70_arg0.Clock:setShaderVector( 0, SetVectorComponent( 0, 0, 1, f72_local2, 0, 0 ) )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:834-847",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "f70_arg0.ClockGlow:setShaderVector",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 842,
+              "line_end": 842,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "ec06212b285443ee42e34c00288ce930b779b66bb4b1d214e1e660f789e2a5eb",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\tf70_arg0.ClockGlow:setShaderVector( 0, SetVectorComponent( 0, 0, 1, f72_local2, 0, 0 ) )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:834-847",
+            "scope_role": "local_helper",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "f70_arg0:subscribeToGlobalModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 849,
+              "line_end": 849,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "463a2c9ae4280e9a1a1cc10f3e3fae3ac5599818a50aaae3928d87da6d0fb085",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tf70_arg0:subscribeToGlobalModel( f70_arg1, \"HUDItems\", \"spawnSelectEndTime\", function ( model )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:826-863",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "model:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 850,
+              "line_end": 850,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "96b03da81da7b75fc169151dceb643e49a3b5bbb1888d39acbfd47eddf3a7da9",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\tlocal f73_local0 = model:get()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:849-862",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.SetupSpawnTimer",
+            "symbol": "f70_arg0:addElement",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 858,
+              "line_end": 858,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "f8eff8234671783c49e8f0bfa6101bd0df3341c4b84b30d051294c7630f79392",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\t\t\t\tf70_arg0:addElement( f73_local3 )",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:849-862",
+            "scope_role": "registered_callback",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.IsSpawnBeaconActive",
+            "symbol": "f76_arg1:getModel",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 882,
+              "line_end": 882,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "a44fa5f9ad2a9b4cbeac66a3cb414b16ae352bf0c59ba42d673b68eda440d093",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tlocal f76_local1 = f76_arg1:getModel()",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:877-887",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          },
+          {
+            "unit_id": "hmh07-lua-follow4:273",
+            "source_symbol": "CoD.SpawnSelectionUtility.IsSpawnBeaconActive",
+            "symbol": "f76_local1.state:get",
+            "caller_citation": {
+              "area": "references",
+              "path": "lua/ui/utility/spawnselectionutility.lua",
+              "line_start": 883,
+              "line_end": 883,
+              "source_revision": "1a46c72b710c1820b63f72d22654f570286eee0b",
+              "file_sha256": "f51b63b487df9cc894aeacf372a9c85a4dae0f200aaccb9d2d58bb8dd1a7305a",
+              "line_span_sha256": "ef54f9b5b03915599bbdfd7d98bbedb86d8869acd7575ef23a684ca8c421af0d",
+              "line_span_hash_convention": "inclusive lines WITH ORIGINAL TERMINATORS"
+            },
+            "statement": "\tif f76_local1 and CoD.SpawnSelectionUtility.IsObjectiveInActiveState( f76_local1.state:get() ) then",
+            "scope_id": "lua/ui/utility/spawnselectionutility.lua:877-887",
+            "scope_role": "selected_callable",
+            "classification": "NEED_CONTEXT",
+            "missing": "Need exact receiver/lexical alias/dynamic datasource key/export/native registration or source declaration. Generic method or other-file local name is not provider proof.",
+            "target_semantics_authored": false
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/272",
+        "record_sha256": "be15514d311a618722f6e2d5f2beac9535af0568628dbfac9e4e7917832fac7e"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/12",
+      "selection_id": "dcd59166d91cbe054accfc8b3285cdd1f13fb7c33c39e090a34a681c2a4cff46",
+      "summary": {
+        "unit_id": "hmh07-lua-follow1:033",
+        "answer": "Creates Hud_MP_Codcaster menu, safe-area child and MP HUD components, current-weapon damage model binding, score notifications and spectator/profile state consumers. On score_event it prioritizes bounty score, then combat-efficiency score when spawn selection is inactive, then normal score. Objective ShowNotification predicates are AlwaysFalse here. HideAllButScoreboard is killcam/final/round/stage visibility union; SpeedBoost uses exact gadget id/state; HideForCodCaster requires spectator profile. X input is blocked only while AreXButtonPressesDisallowed; player_spawned outside draft disallows X400ms. Menu_loaded sizes PC to HUD area and console to safe area, dispatches to children when unhandled; then focus/state restoration, close registration, postload, back-button preservation, grenade warnings and cursor disable occur in literal order. Menu selection into this MP codcaster path remains conditional; no universal HMH requirement is inferred.",
+        "unknowns": [
+          "Per-body nil/error/return/lifetime limits are explicit in ordered operations; no universal cleanup, cancellation or exception recovery is inferred.",
+          "Recovered-source fidelity defects remain visible; saved AST/receipt checks are not independent correctness review."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00141",
+        "sha256": "ddad7dbd01ea8649b951264dc42cba35d6d9601b1a529d9f54126cea9955928d",
+        "pointer": "",
+        "record_sha256": "c56ebf9c608a15c79d23ec0f75faaafe8069aa9ead3cd0db39b2bea6006b294a"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/13",
+      "selection_id": "ea27f1e1aa2720185bb05712acc7124c5a4480cb34224338ebae4b5ba465a445",
+      "summary": {
+        "unit_id": "hmh07-lua-follow7:027",
+        "answer": "If marker falsy do nothing. Else obtain container width,height, compass corners x0,y0,x1,y1, compass-north x,y and marker width,height. If abs(northX)>0, horizontal=(position.y-y0)/(y1-y0)*containerWidth and vertical=(position.x-x0)/(x1-x0)*containerHeight. Else if abs(northY)>0, horizontal uses position.x/x range and width; vertical uses position.y/y range and height. Subtract half marker width/height, then setLeftRight(0,0,left,left+markerWidth) followed by setTopBottom(0,0,top,top+markerHeight). No explicit return. Call getobjectiveposition(controller,objectiveId) for x,y,z. Only if all three results are truthy call the selected same-file PositionMarker(container,controller,marker,{x=x,y=y,z=z}). Otherwise do nothing. Return implicitly nil. Numeric zero remains truthy under ordinary Lua; no independent marker check is added here. If SpawnSelectionLabel is nil do nothing. Otherwise evaluate IsMouseOrKeyboard(controller), retain label, and if mouse/keyboard truthy and currentState==DefaultState setState(controller,DefaultStateKBM). Else if mouse/keyboard falsy and currentState==DefaultStateKBM setState(controller,DefaultState). Every other state/value leaves it unchanged. No explicit return or callback registration. If IsSpawnBeaconDisabledOrDestroyed(arg0,arg1) is truthy return true immediately. Otherwise return CoD.ModelUtility.IsModelValueEqualTo(arg0,hudItems.spawnSelectHidePrompt,1) unchanged. No direct model read, mutation or callback occurs here.",
+        "unknowns": [
+          "Original PS4 build/source match, effective settings, assets/data and HMH invocation.",
+          "Unavailable service/server/persistence/transport implementation; no inferred contract closure.",
+          "Excluded nested callback implementations and actual dispatch/unsubscribe/lifetime where listed."
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00106",
+        "sha256": "18e061e5ee7b1c2bc739ab68607b07765f3b9de61ca899283d64f04ffa0fc469",
+        "pointer": "/units/26",
+        "record_sha256": "db8b2f463ca8540e62cd8cd684d39a9797c3b7291c1e87cb7881abecd1e5863d"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/7f9839a36fc15ee6.json",
+      "claim_pointer": "/claims/14",
+      "selection_id": "f597ce2f4ac9914ece9d8abbf17969e5b4eba07e38e5254d60dda2a366cfc0e2",
+      "summary": {
+        "unit_id": "hmh07-lua-follow4:028",
+        "answer": "Builds a spawn-beacon radius/icon/label/pulse/name. Name states map exact gamemodeFlags 0..4 to threat/EMP/manual labels plus the inactive-beacon predicate. Parent Destroyed uses the disabled-or-destroyed helper and Hidden calls AlwaysFalse. It does not activate or spawn a beacon. Creates self via LUI.UIElement.new, SpawnSelectRadius via CoD.SpawnRegionRadius.new, SpawnSelectIconBg via CoD.SpawnSelectLocationMarker.new, SpawnSelectLabel via CoD.SpawnSelectionLabel.new, SpawnSelectPulse via CoD.SpawnRegionPulse.new, SpawnBeaconPoint via CoD.SpawnRegionName.new. Stores state predicates Destroyed, ThreatLow, ThreatMedium, ThreatHigh, DisabledEMP, ManualDisabled, Destroyed, Hidden; their body effects require state-system evaluation.",
+        "unknowns": [
+          {
+            "kind": "original_build",
+            "gap": "Recovered-source revision is pinned; original PS4 build/byte/VM/native binding remains unverified."
+          },
+          {
+            "kind": "effective_data_settings_assets",
+            "gap": "Engine/model/Dvar/asset/data requests do not supply effective runtime values, contents or ownership."
+          },
+          {
+            "kind": "server_service_persistence",
+            "gap": "Unavailable authoritative server/service/provider code and successful persistence remain unavailable; not reconstructed or counted as completed."
+          },
+          {
+            "kind": "runtime_callback_lifetime",
+            "gap": "Original loading, table overwrites, callback delivery/order, timings, state selection and UI cleanup are not runtime-proven."
+          }
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00004",
+        "sha256": "52df95eaa9f17f90427f6313acbc648c9bdffa0602f6444566bbe8fa1a54ba59",
+        "pointer": "/units/27",
+        "record_sha256": "6d256eebea7296a33bbcb545bf1e75f227387a98b75e1e73fad6f41daac08331"
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "module": "src/scripts/killstreaks/mp/supplydrop.gsc",
+  "identity": "scripts/weapons/heatseekingmissile.gsc",
+  "kind": "source_include",
+  "source_check": "exact_sha256_and_saved_git_blob",
+  "callee_namespace": "heatseekingmissile",
+  "witnesses": [
+    {
+      "line": 2767,
+      "text": "    chopper thread heatseekingmissile::missiletarget_proximitydetonateincomingmissile( \"crashing\", \"death\" );",
+      "caller": "spawn_helicopter",
+      "caller_span": [
+        2731,
+        2795
+      ],
+      "lexical_enclosing_blocks": [],
+      "dev_region": false,
+      "limit": "Lexical blocks only. Earlier returns, pointer delivery, caller admission and dynamic settings must be read in the exact caller span; no invocation or feasible-path proof.",
+      "callee": "missiletarget_proximitydetonateincomingmissile",
+      "form": "call",
+      "local_candidate_trace": {
+        "entry_claim": {
+          "record": "provenance/modules/c32a9b72055df67b.json",
+          "pointer": "/claims/0",
+          "selection_id": "2da0bc7ff30cc9b333551cdf5c5b240678a547139054890d962dac02bb31448e",
+          "citation": {
+            "line_start": 44,
+            "line_end": 44
+          }
+        },
+        "entry_function": "__init__system__",
+        "entry_span": [
+          42,
+          45
+        ],
+        "local_references": [
+          {
+            "from": "__init__system__",
+            "to": "__init__",
+            "line": 44,
+            "form": "stored_pointer",
+            "text": "    system::register( #\"supplydrop\", &__init__, undefined, #\"killstreaks\" );"
+          },
+          {
+            "from": "__init__",
+            "to": "function_200081db",
+            "line": 74,
+            "form": "stored_pointer",
+            "text": "    ir_strobe::function_8806675d( #\"supplydrop_marker\", &function_200081db );"
+          },
+          {
+            "from": "function_200081db",
+            "to": "helidelivercrate",
+            "line": 903,
+            "form": "local_call",
+            "text": "    self thread helidelivercrate( context.selectedlocation, bundle.ksweapon, self, team, killstreak_id, killstreak_id, context );"
+          },
+          {
+            "from": "helidelivercrate",
+            "to": "spawn_helicopter",
+            "line": 3510,
+            "form": "local_call",
+            "text": "    chopper = spawn_helicopter( owner, team, goalpath.start, spawn_angles, helicoptervehicleinfo, \"\", killstreak_id, context );"
+          }
+        ]
+      },
+      "selected_claims": [],
+      "callee_spans": [
+        [
+          1593,
+          1596
+        ]
+      ]
+    }
+  ],
+  "assessment": "context_reference_only",
+  "callee_autoexec": [],
+  "id": "AV0343",
+  "schema": "hmh-available-source-edge-v1",
+  "source": {
+    "source_path": "scripts/weapons/heatseekingmissile.gsc",
+    "sha256": "97a9bafb1e4eed00e4a6ca579b3bf7d373f9a507c3f1b35cf2dfec39a05c6ac0",
+    "git_blob_sha1": "f50f35eb4cc44cf284e50bc78ae98c9dbcc309db",
+    "source_id": "SRC-005",
+    "source_revision": "f4b9a51f8b7fcfcb6d158303d3fd5fff2fcfb6ac"
+  },
+  "decision": "include_conditional_source",
+  "relevance": "conditional",
+  "reason": "Exact executable reference in a selected bounded caller function, a local call/pointer chain from it, or a Lua module-load entry. Callee source is needed if that candidate path is admitted. Pointer storage is not callback delivery; lexical control-flow feasibility and HMH/runtime admission remain conditional. Whole file retained only as lexical context; other functions are not promoted to HMH requirements.",
+  "selected_reference_lines": [
+    2767
+  ],
+  "required_callee_functions": [
+    "missiletarget_proximitydetonateincomingmissile"
+  ],
+  "output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "availability": "exact_pinned_local",
+  "review_status": "awaiting_independent_review",
+  "runtime_credit": 0,
+  "collection_output": "src/scripts/weapons/heatseekingmissile.gsc",
+  "source_graph_resolution": {
+    "record": "provenance/source-paths.json",
+    "edges": [
+      {
+        "from": "N05168",
+        "to": "N04836",
+        "line": 2767
+      }
+    ],
+    "limit": "Conditional candidate source graph only; no feasible HMH execution, loader/native binding or stored-pointer delivery proof."
+  }
+}

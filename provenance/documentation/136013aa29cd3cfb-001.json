@@ -1,0 +1,162 @@
+{
+  "schema": "hmh-documentation-projection-v1",
+  "module": "src/scripts/weapons/grapple.gsc",
+  "method": "Complete named explanatory fields from the exact subject/pointer. Original summaries, subjects and historical reviews unchanged. This is an excerpt, not a standalone replacement contract or review.",
+  "claims": [
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/0",
+      "selection_id": "1dec084b3672044ff2b3bc54f78b19d9f9a5ddf395d64ece92708fcfc4290797",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_8fa5ff65",
+        "behavior": "Spawned-callback wrapper (self = spawner; registered in __init__ via callback::on_spawned). Sole statement: self thread function_9dd08ccf() â€” starts the grapple_cancel timestamp watcher. No branches.",
+        "unknowns": [
+          "Which entities receive on_spawned (players via callback machinery) outside this span"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/89",
+        "record_sha256": "5663225901c69a496db1dfe9367ca1cb0ed07034e8eaf03c8ea1cfe1de438330"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/1",
+      "selection_id": "4b55a4855a89119e05c3f6f2ba34e8b510154e11cc5689904a95bef7c75ff5bc",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_422f24cc",
+        "behavior": "Watcher-callback installer for eq_grapple: watcher.ondamage = &function_1987d583 â€” only ondamage is set; no onspawn/pickup/onfizzleout callbacks (minimal watcher).",
+        "unknowns": [
+          "Watcher dispatch semantics (weaponobjects system) outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/86",
+        "record_sha256": "473bbd9827b4e32ba5e9e075e458a9814c5809120aae0705513f20a3e78e43db"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/2",
+      "selection_id": "56edd089a2eec21c2f392d3c5102e56b1a2015bfaa9db3189bb27f54ee024b1b",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::__init__",
+        "behavior": "Server system init for the eq_grapple gadget. Four registrations in order: (1) callback::on_spawned( &function_8fa5ff65 ) â€” per-entity spawned handler (threads the grapple_cancel timer watcher); (2) ability_player::register_gadget_activation_callbacks( 20, undefined, &gadget_grapple_off ) â€” gadget slot/ability id 20, activation callback undefined, deactivation callback gadget_grapple_off; (3) globallogic_score::register_kill_callback( getweapon( #\"eq_grapple\" ), &function_d79e9bb5 ) â€” registered pointer using getweapon(eq_grapple); predicate rejects a defined attackerweapon equal to weapon, otherwise requires grappling or recent-cancel context. Exact scoring/delivery semantics remain unresolved; (4) weaponobjects::function_e6400478( #\"eq_grapple\", &function_422f24cc, 1 ) â€” watcher-callback installer registration (final arg 1, same value as other gadget registrations).",
+        "unknowns": [
+          "Meaning of gadget-callback id 20 (slot index vs ability id) unverified",
+          "register_gadget_activation_callbacks activation-arg ordering inferred from names"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00183",
+        "sha256": "b894ef7e0cf38538074893fbb13af886f72bced11041197c330abcbfbe3995d3",
+        "pointer": "",
+        "record_sha256": "ab306a9e46753825b85094ca56efbaf5f4559c390526b7e77b89e02e9723ee51"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/3",
+      "selection_id": "5c623fc223b8232403a19d9755277ff9967e51181452480007eacd1c02f6f163",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::gadget_grapple_off",
+        "behavior": "Gadget deactivation handler for the grapple (slot, weapon; self = player; registered as the off-activation callback for gadget id 20). Body: if ( !function_d79e9bb5( self ) && isdefined( level.var_228e8cd6 ) ) -> self [[ level.var_228e8cd6 ]]( weapon ) â€” when the player is NOT grappling/within the cancel window, invoke the level var_228e8cd6 function pointer with the weapon (indirect call; the same pointer consumed by deployable.gsc function_6654310c as a failure hook â€” one level-level hook system, owner of the value is elsewhere). No-op otherwise.",
+        "unknowns": [
+          "level.var_228e8cd6 setter is not in this packet (indirect-call integration boundary)",
+          "Exact deactivation effect of the shared hook unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/88",
+        "record_sha256": "e263a341fc61378ea5dc3bdfdb0bf487e66ceba82bfa1cc23e543633abaaad87"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/4",
+      "selection_id": "764f8ee7a5f249a4a8183ca5ef9ff7b926b502f0b9b935b893cf20ea2a4c7c75",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_9dd08ccf",
+        "behavior": "Grapple-cancel timestamp watcher (self = player). Cancellation: self endon( #\"death\", #\"disconnect\", #\"joined_team\", #\"joined_spectators\", #\"changed_specialist\" ) â€” ends on death/disconnect/team/spectator/specialist changes. Loop while isdefined( self ): self waittill( #\"grapple_cancel\" ); self.var_700a5910 = gettime() â€” records the most recent grapple-cancel time; consumed by function_d79e9bb5 as var_700a5910 + 2000 > gettime() (2 s post-cancel window).",
+        "unknowns": [
+          "Who notifies \"grapple_cancel\" (grapple throw/activation code, likely native-driven or weaponobjects) is outside this packet"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/90",
+        "record_sha256": "e97bcd64344c74815f8fdccfc2d84ef6cdaaa8423a52e8a1a59453f67f2a34b0"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/5",
+      "selection_id": "7d51b82b50312867f6c518dbd87898a1999252d4b2e6a68b0ab0c0585dcee244",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_d79e9bb5",
+        "behavior": "Grapple-during-kill predicate; registered as the eq_grapple kill callback: (attacker, victim, weapon, attackerweapon, meansofdeath). Gate: if !isdefined( attacker ) || ( isdefined( attackerweapon ) && attackerweapon == weapon ) -> return false (no attacker, or the killing weapon equals the compared weapon â€” observed comparison of the two weapon args). Return: attacker isgrappling() || ( isdefined( attacker.var_700a5910 ) && attacker.var_700a5910 + 2000 > gettime() ) â€” true while the attacker actively grapples or within 2000 ms after a grapple_cancel (timestamp recorded by function_9dd08ccf). Source registration passes this pointer at grapple27; globallogic_score1094-1098 stores it in level.specweapons[weapon.name].kill_callback. Explicit script indirect calls at332 and899 forward the five listed arguments. Native runtime admission, VM pointer binding and actual score effects remain unproved.",
+        "unknowns": [
+          "isgrappling native predicate semantics unverified",
+          "Which score effect (assist rule / score cancellation) the callback result drives is in globallogic_score (outside packet)",
+          "Called from gadget_grapple_off with a single argument â€” attacker=self, rest undefined: then the gate reduces to isgrappling() || recent-cancel; single-argument use shape observed"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00184",
+        "sha256": "b04a589957c9a84f7edc84f5180db9ac23aaf32038a82c9bb69ce7e8b38c3c00"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/6",
+      "selection_id": "d0054b4fcb98fb45a96a07620cdbb1b339ae564fbafb0940c17d059d775f060d",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::__init__system__",
+        "behavior": "Server-side autoexec registering the grapple system: system::register( #\"grapple\", &__init__, undefined, undefined ). No branches.",
+        "unknowns": [
+          "Engine dispatch timing of the registered init unverified"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00102",
+        "sha256": "bec4988a5459cac825b94dcc33e1b58fc8dc9b791fc0a299fcedfa5c5250bdd0",
+        "pointer": "/units/84",
+        "record_sha256": "8ce960f8679dfbefded96480ab5e5d7bfcd24cb9518d620f9b4cf92be007a24b"
+      }
+    },
+    {
+      "claim_record": "provenance/modules/136013aa29cd3cfb.json",
+      "claim_pointer": "/claims/7",
+      "selection_id": "f4208ceeb150430cf3e603caefb77310dc3ba9d913cf6952b67e9708723d97e9",
+      "summary": {
+        "unit_id": "scripts/weapons/grapple.gsc::function_1987d583",
+        "behavior": "ondamage handler for the eq_grapple entity (watcher arg; self = grapple entity). Single statement: self setcandamage( 0 ) â€” literal native request only; dispatcher event count, damage protection, other deletion paths and resulting invulnerability remain unproved. No branches or additional state.",
+        "unknowns": [
+          "Timing: runs when watcher dispatches ondamage (exact event count/semantics in weaponobjects, outside packet)",
+          "Whether setcandamage(0) is re-settable by other code â€” not shown"
+        ],
+        "status": "complete_bounded_contract"
+      },
+      "subject": {
+        "evidence_id": "archived-record-00185",
+        "sha256": "2ece4e31b9f707e756e886276eae809a29ee2c191eaea0351de8a52eb14d31b0",
+        "pointer": "",
+        "record_sha256": "3d338be49e5d995582fc0c8ef45748432c9848d601f22e10c5e3711eda92b3a0"
+      }
+    }
+  ]
+}
