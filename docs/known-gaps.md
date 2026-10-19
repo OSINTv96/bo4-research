@@ -12,7 +12,7 @@ As of October 19, 2026, saved code verification is **PARTIAL: 3 of 7 written sta
 | LUA-REPRESENTATION | Unproved; deferred | Full hash/float interpretation and original lookup/registration binding remain unproved. |
 | SETTINGS | Unproved; deferred | Original descriptors, buffers, load/override delivery and effective PS4 values remain unproved. |
 
-[Exact scopes, limitations and minimum missing evidence](../provenance/proof-status.json) are retained in the public proof summary. It identifies archived reports by hash; their private originals are not distributed. The fresh release package has not received a new independent approval.
+[Exact scopes, limitations and minimum missing evidence](../provenance/proof-status.json) are retained in the public proof summary. It identifies archived reports by hash; their private originals are not distributed. The GitHub release record identifies the independent package review for its exact commit. Package approval does not add scientific or game-runtime proof.
 
 Raw installed SELF identity, exact observation simultaneity and unavailable service code remain parent research limits. Gameplay reports do not prove source/runtime linkage. Teammate and death/respawn execution observations are not supplied here.
 
