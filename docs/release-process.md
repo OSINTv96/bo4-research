@@ -14,6 +14,11 @@ The repository is intended to grow toward the whole game while the current check
 
 ## Later updates
 
+Pull-request checks inspect the submitted head commit. GitHub's temporary merge
+record is excluded from that checkout; the submitted history still receives the
+full privacy check. Published history continues to require the neutral project
+identity and UTC commit timestamps.
+
 Give each finding an ID, pin the changed source and evidence, obtain review of its precise claims, and describe new proof and remaining limits in the changelog. Preserve public superseded technical conclusions without importing private conversations or records.
 
 Regenerate affected provenance hashes, complete review subjects and the release manifest after intentional changes. Check every file and all reachable Git history before making the next archive. Removing a file from the latest tree does not remove it from earlier commits.

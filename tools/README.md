@@ -31,6 +31,12 @@ Historical span/inventory reports remain provenance and cannot satisfy whole-out
 approval. All current real imports remain pending; accepting reports in tests are
 explicitly synthetic fixtures, not project approvals.
 
+Pending imports also require nonempty review-tracking records bound to their
+exact output and review state, plus the original-source hash for recovered code.
+The project-original sharing
+state is reserved for original project work with an explicit unselected-license
+record; recovered imports retain explicit unresolved sharing records.
+
 `generate_module_docs.py` renders all saved modules and complete explanatory
 projections. Null fields cannot become None bullets, and summaries are not sliced.
 `dependency_records.py` verifies and reads every hashed dependency shard. These tools

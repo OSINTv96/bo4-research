@@ -1,5 +1,12 @@
 # Changelog
 
+## October 20, 2026 — repository check fixes
+
+- Check the submitted pull-request head without GitHub's temporary merge metadata.
+- Reject empty review-tracking records and require their exact output bindings.
+- Restrict the project-original sharing state to original project work with an explicit license record.
+- Preserve imported source bytes and all existing research limits.
+
 ## Initial public checkpoint
 
 - Described the ongoing whole-game research goal with HMH as the current scope.

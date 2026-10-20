@@ -257,18 +257,26 @@ def check_repository(root: Path) -> list[str]:
         # Apply the guarantees even after reporting an invalid schema. There is
         # no weaker per-record fallback for unknown or nonempty legacy formats.
         state = item.get("review_status")
-        if state not in {"awaiting_independent_review", "independently_reviewed_exact_version"}:
+        if not isinstance(state, str) or state not in {"awaiting_independent_review", "independently_reviewed_exact_version"}:
             fail(f"invalid review state: {relative}")
         record = read_json(review_path) if review_path else None
-        if record and (record.get("output") != relative or record.get("output_sha256") != item.get("sha256") or record.get("review_status") != state):
+        if record is None or (record.get("output") != relative or record.get("output_sha256") != item.get("sha256") or record.get("review_status") != state):
             fail(f"review scope does not bind this exact output/state: {relative}")
-        if record and item.get("classification") != "original_project_reconstruction" and record.get("original_sha256") != item.get("original_sha256"):
+        if record is not None and item.get("classification") != "original_project_reconstruction" and record.get("original_sha256") != item.get("original_sha256"):
             fail(f"review scope original hash differs: {relative}")
-        if record:
-            for shard in record.get("claim_shards", []) + record.get("documentation_projections", []):
-                part = local(shard.get("path"), "claim shard")
-                if part and hashlib.sha256(part.read_bytes()).hexdigest() != shard.get("sha256"):
-                    fail(f"claim shard hash mismatch: {relative}")
+        if record is not None:
+            for field in ("claim_shards", "documentation_projections"):
+                shards = record.get(field, [])
+                if not isinstance(shards, list):
+                    fail(f"review scope {field} must be an array: {relative}")
+                    continue
+                for shard in shards:
+                    if not isinstance(shard, dict):
+                        fail(f"review scope {field} entries must be objects: {relative}")
+                        continue
+                    part = local(shard.get("path"), "claim shard")
+                    if part and hashlib.sha256(part.read_bytes()).hexdigest() != shard.get("sha256"):
+                        fail(f"claim shard hash mismatch: {relative}")
         if state == "independently_reviewed_exact_version":
             evidence = record.get("independent_review", {}) if record else {}
             if not isinstance(evidence, dict):
@@ -280,13 +288,20 @@ def check_repository(root: Path) -> list[str]:
             if not report or not record or not accepting_review(report, item, record):
                 fail(f"independent review decision/subject/scope/identities insufficient: {relative}")
         permission = read_json(permission_path) if permission_path else None
-        if item.get("permission_status") == "not_established":
-            if not permission or permission.get("rights_holder_license") is not False or permission.get("original_game_permission") != "not_established" or not permission.get("decision"):
-                fail(f"unresolved sharing status needs an explicit unresolved sharing record: {relative}")
-        elif item.get("permission_status") != "project_original_license_not_selected":
-            fail(f"unsupported sharing state: {relative}")
         classification = item.get("classification")
-        if classification not in {"modified_comments_only", "modified_comments_and_whitespace", "recovered_unmodified", "original_project_reconstruction"}:
+        decision = permission.get("decision") if permission is not None else None
+        has_decision = isinstance(decision, str) and bool(decision.strip())
+        if item.get("permission_status") == "not_established":
+            if not permission or permission.get("rights_holder_license") is not False or permission.get("original_game_permission") != "not_established" or not has_decision:
+                fail(f"unresolved sharing status needs an explicit unresolved sharing record: {relative}")
+        elif item.get("permission_status") == "project_original_license_not_selected":
+            if classification != "original_project_reconstruction":
+                fail(f"project-original sharing state requires original project reconstruction: {relative}")
+            if not permission or permission.get("original_project_license") != "not_selected" or not has_decision:
+                fail(f"project-original sharing state needs an explicit unselected license record: {relative}")
+        else:
+            fail(f"unsupported sharing state: {relative}")
+        if not isinstance(classification, str) or classification not in {"modified_comments_only", "modified_comments_and_whitespace", "recovered_unmodified", "original_project_reconstruction"}:
             fail(f"invalid origin classification: {relative}")
         if classification == "original_project_reconstruction" and source and source.get("kind", "github") == "github":
             fail(f"GitHub recovered code cannot be relabeled project-original: {relative}")

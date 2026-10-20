@@ -43,6 +43,126 @@ class ImportGuardTests(unittest.TestCase):
             self.put('provenance/imports.json', {'schema':schema, 'imports':[]})
             self.assertTrue(CHECK.check_repository(self.root))
 
+    def test_pending_scope_requires_nonempty_object(self):
+        self.imported_fixture()
+        for value in [{}, None, [], 'scope', 1, False]:
+            with self.subTest(value=value):
+                self.put('provenance/scope.json', value)
+                self.assertTrue(CHECK.check_repository(self.root))
+
+    def test_pending_scope_missing_file_or_reference_fails(self):
+        item = self.imported_fixture()
+        (self.root/'provenance/scope.json').unlink()
+        self.assertTrue(CHECK.check_repository(self.root))
+        for value in [None, '', [], {}]:
+            with self.subTest(value=value):
+                item['review_record'] = value
+                self.write_import(item)
+                self.assertTrue(CHECK.check_repository(self.root))
+
+    def test_pending_scope_binds_every_required_field(self):
+        self.imported_fixture()
+        scope = json.loads((self.root/'provenance/scope.json').read_text())
+        for field in ['output', 'output_sha256', 'review_status', 'original_sha256']:
+            for value in [None, '', 'wrong', {}, []]:
+                with self.subTest(field=field, value=value):
+                    changed = copy.deepcopy(scope)
+                    if value is None:
+                        changed.pop(field)
+                    else:
+                        changed[field] = value
+                    self.put('provenance/scope.json', changed)
+                    errors = CHECK.check_repository(self.root)
+                    self.assertTrue(any('review scope' in e for e in errors), errors)
+
+    def test_scope_shard_fields_reject_bad_types(self):
+        self.imported_fixture()
+        scope = json.loads((self.root/'provenance/scope.json').read_text())
+        for field in ['claim_shards', 'documentation_projections']:
+            for value in [None, {}, 'bad', 1, [None], ['bad'], [[]]]:
+                with self.subTest(field=field, value=value):
+                    changed = copy.deepcopy(scope)
+                    changed[field] = value
+                    self.put('provenance/scope.json', changed)
+                    errors = CHECK.check_repository(self.root)
+                    self.assertTrue(any('review scope' in e for e in errors), errors)
+
+    def test_import_review_state_rejects_wrong_types(self):
+        item = self.imported_fixture()
+        for value in [None, '', [], {}, 1, False]:
+            with self.subTest(value=value):
+                item['review_status'] = value
+                self.write_import(item)
+                self.assertTrue(any('review state' in e for e in CHECK.check_repository(self.root)))
+
+    def test_recovered_import_cannot_use_project_original_sharing_state(self):
+        item = self.imported_fixture()
+        item['permission_status'] = 'project_original_license_not_selected'
+        self.write_import(item)
+        for permission in [{}, {'original_project_license':'not_selected', 'decision':'Synthetic project decision'}]:
+            with self.subTest(permission=permission):
+                self.put('provenance/permission.json', permission)
+                errors = CHECK.check_repository(self.root)
+                self.assertTrue(any('requires original project reconstruction' in e for e in errors), errors)
+
+    def original_project_fixture(self):
+        item = self.imported_fixture()
+        fingerprint = hashlib.sha256((self.root/'notes.md').read_bytes()).hexdigest()
+        sources = json.loads((self.root/'provenance/sources.json').read_text())
+        source = sources['sources'][0]
+        source.update(kind='original_work', revision=None, identity='Synthetic original project fixture',
+                      fingerprint_sha256=fingerprint,
+                      evidence=[{'record':'notes.md', 'sha256':fingerprint}])
+        self.put('provenance/sources.json', sources)
+        audit = json.loads((self.root/'provenance/license-audit.json').read_text())
+        audit['pinned_revision_count'] = 0
+        self.put('provenance/license-audit.json', audit)
+        item.update(classification='original_project_reconstruction', source_revision=None,
+                    source_fingerprint_sha256=fingerprint,
+                    permission_status='project_original_license_not_selected')
+        item.pop('original_sha256')
+        self.write_import(item)
+        scope = json.loads((self.root/'provenance/scope.json').read_text())
+        scope.pop('original_sha256')
+        self.put('provenance/scope.json', scope)
+        self.put('provenance/permission.json',
+                 {'original_project_license':'not_selected', 'decision':'Synthetic project license remains unselected.'})
+        return item
+
+    def test_original_project_with_explicit_unselected_license_passes(self):
+        self.original_project_fixture()
+        self.assertEqual([], CHECK.check_repository(self.root))
+
+    def test_original_project_needs_explicit_license_record(self):
+        self.original_project_fixture()
+        valid = json.loads((self.root/'provenance/permission.json').read_text())
+        for field in ['original_project_license', 'decision']:
+            for value in [None, '', ' ', [], {}, 1, False]:
+                with self.subTest(field=field, value=value):
+                    changed = copy.deepcopy(valid)
+                    if value is None:
+                        changed.pop(field)
+                    else:
+                        changed[field] = value
+                    self.put('provenance/permission.json', changed)
+                    errors = CHECK.check_repository(self.root)
+                    self.assertTrue(any('explicit unselected license record' in e for e in errors), errors)
+        for value in [{}, None, [], 'permission', 1, False]:
+            with self.subTest(record=value):
+                self.put('provenance/permission.json', value)
+                self.assertTrue(CHECK.check_repository(self.root))
+        (self.root/'provenance/permission.json').unlink()
+        self.assertTrue(CHECK.check_repository(self.root))
+
+    def test_unresolved_sharing_decision_must_be_nonempty_text(self):
+        self.imported_fixture()
+        permission = json.loads((self.root/'provenance/permission.json').read_text())
+        for value in [None, '', ' ', [], {}, 1, True]:
+            with self.subTest(value=value):
+                permission['decision'] = value
+                self.put('provenance/permission.json', permission)
+                self.assertTrue(any('explicit unresolved sharing' in e for e in CHECK.check_repository(self.root)))
+
     def accepted_fixture(self):
         item = self.imported_fixture()
         item['review_status'] = 'independently_reviewed_exact_version'
